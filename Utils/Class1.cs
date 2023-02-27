@@ -1,6 +1,8 @@
-﻿using Newtonsoft.Json;
+﻿using Microsoft.Toolkit.Uwp.UI.Controls.TextToolbarSymbols;
+using Newtonsoft.Json;
 using Refit;
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace ClassevivaPCTO.Utils
@@ -13,6 +15,20 @@ namespace ClassevivaPCTO.Utils
 
         [AliasAs("pass")]
         public string Pass { get; set; }
+
+    }
+
+    public class Absence
+    {
+        public int evtId { get; set; }
+        public string evtCode { get; set; }
+        public DateTime evtDate { get; set; }
+        public int evtHPos { get; set; }
+        public int evtValue { get; set; }
+        public bool isJustified { get; set; }
+        public string justifReasonCode { get; set; }
+        public string justifReasonDesc { get; set; }
+        public List<int> hoursAbsence { get; set; }
 
     }
 
@@ -41,8 +57,8 @@ namespace ClassevivaPCTO.Utils
         [Post("/auth/login/")]
         Task<LoginResult> LoginAsync([Body(BodySerializationMethod.Serialized)] LoginData logdata);
 
-        [Post("/auth/login/")]
-        Task<LoginResult> GetAgenda([Body(BodySerializationMethod.Serialized)] LoginData logdata);
+        [Get("/students/{userId}/absences/details")]
+        Task<List<Absence>> GetAbsences(string userId);
     }
 
 }
