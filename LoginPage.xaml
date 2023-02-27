@@ -51,6 +51,8 @@
 
             <TextBox x:Name="edittext_username" Header="Inserisci il tuo nome utente:" PlaceholderText="Username" Margin="0,0,0,30"   />
             <PasswordBox x:Name="edittext_password" Header="Inserisci la tua password" PlaceholderText="Password" Margin="0,0,0,20"   />
+            <CheckBox x:Name="checkboxCredenziali" Content="Salva le credenziali" Margin="0,0,0,20" />
+            
             <Button x:Name="buttonLogin" Style="{StaticResource AccentButtonStyle}" Content="Accedi" Height="32" Width="81" RenderTransformOrigin="2.13,0.797" HorizontalAlignment="Center" Margin="0,0,0,30" Click="Button_Click"/>
             <muxc:ProgressRing x:Name="progresslogin" IsActive="True" Visibility="Collapsed" />
         </StackPanel>
