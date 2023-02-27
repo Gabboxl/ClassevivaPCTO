@@ -6,6 +6,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
+    xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
@@ -39,19 +40,18 @@
 
             <!-- This control has a higher z-order than AppTitleBar, 
          so it receives user input. -->
-            <!-- <AutoSuggestBox QueryIcon="Find"
+             <AutoSuggestBox QueryIcon="Find"
                     PlaceholderText="Search"
                     HorizontalAlignment="Center"
-                    Width="260" Height="32"/> -->
+                    Width="260" Height="32" />
         </Grid>
 
         <TextBlock x:Name="textBenvenuto" Text="Benvenuto "   FontSize="42" Height="60" VerticalAlignment="Top" Margin="32,32,0,0"/>
 
-        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
 
             <Button x:Name="buttonLogout" Style="{StaticResource AccentButtonStyle}" Content="Effettua il logout" Height="32" Width="81" RenderTransformOrigin="2.13,0.797" HorizontalAlignment="Center" Margin="0,0,0,30" Click="ButtonLogout_Click"/>
 
-        </StackPanel>
+        <TextBlock x:Name="textDati" Text="test "   FontSize="12" Height="100" VerticalAlignment="Top" Margin="120,32,0,0"/>
 
     </Grid>
 </Page>
