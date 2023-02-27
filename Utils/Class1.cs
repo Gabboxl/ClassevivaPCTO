@@ -40,6 +40,9 @@ namespace ClassevivaPCTO.Utils
 
         [Post("/auth/login/")]
         Task<LoginResult> LoginAsync([Body(BodySerializationMethod.Serialized)] LoginData logdata);
+
+        [Post("/auth/login/")]
+        Task<LoginResult> GetAgenda([Body(BodySerializationMethod.Serialized)] LoginData logdata);
     }
 
 }

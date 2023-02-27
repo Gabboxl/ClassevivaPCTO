@@ -1,5 +1,5 @@
 ﻿<Page
-    x:Class="ClassevivaPCTO.MainPage"
+    x:Class="ClassevivaPCTO.LoginPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:ClassevivaPCTO"
@@ -14,10 +14,10 @@
 
             <TextBlock Text="Benvenuto "   FontSize="20" TextAlignment="Center" Height="60"/>
 
-            <TextBox Header="Inserisci il tuo nome utente:" PlaceholderText="Username" Height="66" Margin="0,0,0,30"   />
-            <PasswordBox Header="Inserisci la tua password" PlaceholderText="Password" PasswordChar="#" Margin="0,0,0,20"   />
-            <Button Style="{StaticResource AccentButtonStyle}" Content="Accedi" Height="32" Width="81" RenderTransformOrigin="2.13,0.797" HorizontalAlignment="Center" Margin="0,0,0,30" />
-           
+            <TextBox x:Name="edittext_username" Header="Inserisci il tuo nome utente:" PlaceholderText="Username" Height="66" Margin="0,0,0,30"   />
+            <PasswordBox x:Name="edittext_password" Header="Inserisci la tua password" PlaceholderText="Password" PasswordChar="#" Margin="0,0,0,20"   />
+            <Button x:Name="buttonLogin" Style="{StaticResource AccentButtonStyle}" Content="Accedi" Height="32" Width="81" RenderTransformOrigin="2.13,0.797" HorizontalAlignment="Center" Margin="0,0,0,30" Click="Button_Click"/>
+            <ProgressRing x:Name="progresslogin" IsActive="True" Visibility="Collapsed" />
         </StackPanel>
 
     </Grid>
