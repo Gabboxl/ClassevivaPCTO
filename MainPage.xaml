@@ -10,5 +10,12 @@
 
     <Grid>
 
+        
+        
+        
+        
+        <Button Content="Standard XAML button" Click="Button_Click" HorizontalAlignment="Center" Margin="0,425,0,0" VerticalAlignment="Top" />
+        
+        
     </Grid>
 </Page>
