@@ -1,9 +1,11 @@
 ﻿using ClassevivaPCTO.Utils;
 using Refit;
 using System;
+using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using Windows.ApplicationModel.Core;
+using Windows.Security.Credentials;
 using Windows.System;
 using Windows.UI;
 using Windows.UI.Popups;
@@ -36,6 +38,22 @@ namespace ClassevivaPCTO
 
             Window.Current.SetTitleBar(AppTitleBar);
 
+
+            var loginCredential = GetCredentialFromLocker();
+
+            if (loginCredential != null)
+            {
+                // There is a credential stored in the locker.
+                // Populate the Password property of the credential
+                // for automatic login.
+                loginCredential.RetrievePassword(); //dobbiamo per forza chiamare questo metodo per fare sì che la proprietà loginCredential.Password non sia vuota
+
+                edittext_username.Text = loginCredential.UserName.ToString();
+                edittext_password.Password = loginCredential.Password.ToString();
+            }
+
+
+
         }
 
         private async void Button_Click(object sender, RoutedEventArgs e)
@@ -66,6 +84,12 @@ namespace ClassevivaPCTO
 
                 var result = await dialog.ShowAsync();
 
+                if ((bool)checkboxCredenziali.IsChecked)
+                {
+                    var vault = new PasswordVault();
+                    vault.Add(new PasswordCredential("classevivapcto", edittext_username.Text, edittext_password.Password));
+                }
+
 
                 Frame rootFrame = Window.Current.Content as Frame;
                 rootFrame.Navigate(typeof(DashboardPage), user, new DrillInNavigationTransitionInfo());
@@ -88,6 +112,44 @@ namespace ClassevivaPCTO
 
 
 
+        }
+
+
+
+        private Windows.Security.Credentials.PasswordCredential GetCredentialFromLocker()
+        {
+            Windows.Security.Credentials.PasswordCredential credential = null;
+
+            var vault = new Windows.Security.Credentials.PasswordVault();
+
+            IReadOnlyList<PasswordCredential> credentialList = null;
+
+            try
+            {
+                credentialList = vault.FindAllByResource("classevivapcto");
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+
+            if (credentialList.Count > 0)
+            {
+                if (credentialList.Count == 1)
+                {
+                    credential = credentialList[0];
+                }
+                else
+                {
+                    // When there are multiple usernames,
+                    // retrieve the default username. If one doesn't
+                    // exist, then display UI to have the user select
+                    // a default username.
+
+                }
+            }
+
+            return credential;
         }
     }
 }
