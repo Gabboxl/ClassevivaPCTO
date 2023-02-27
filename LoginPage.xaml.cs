@@ -39,7 +39,7 @@ namespace ClassevivaPCTO
             Window.Current.SetTitleBar(AppTitleBar);
 
 
-            var loginCredential = GetCredentialFromLocker();
+            var loginCredential = new CredUtils().GetCredentialFromLocker();
 
             if (loginCredential != null)
             {
@@ -124,40 +124,6 @@ namespace ClassevivaPCTO
 
 
 
-        private Windows.Security.Credentials.PasswordCredential GetCredentialFromLocker()
-        {
-            Windows.Security.Credentials.PasswordCredential credential = null;
-
-            var vault = new Windows.Security.Credentials.PasswordVault();
-
-            IReadOnlyList<PasswordCredential> credentialList = null;
-
-            try
-            {
-                credentialList = vault.FindAllByResource("classevivapcto");
-            }
-            catch (Exception)
-            {
-                return null;
-            }
-
-            if (credentialList.Count > 0)
-            {
-                if (credentialList.Count == 1)
-                {
-                    credential = credentialList[0];
-                }
-                else
-                {
-                    // When there are multiple usernames,
-                    // retrieve the default username. If one doesn't
-                    // exist, then display UI to have the user select
-                    // a default username.
-
-                }
-            }
-
-            return credential;
-        }
+       
     }
 }

@@ -49,7 +49,8 @@
 
         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
 
-            
+            <Button x:Name="buttonLogout" Style="{StaticResource AccentButtonStyle}" Content="Effettua il logout" Height="32" Width="81" RenderTransformOrigin="2.13,0.797" HorizontalAlignment="Center" Margin="0,0,0,30" Click="ButtonLogout_Click"/>
+
         </StackPanel>
 
     </Grid>
