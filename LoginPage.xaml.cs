@@ -3,6 +3,7 @@ using Refit;
 using System;
 using System.Threading;
 using System.Threading.Tasks;
+using Windows.System;
 using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -26,37 +27,57 @@ namespace ClassevivaPCTO
 
         private async void Button_Click(object sender, RoutedEventArgs e)
         {
-            buttonLogin.Visibility = Visibility.Collapsed;
-            progresslogin.Visibility = Visibility.Visible;
 
 
-            IClassevivaAPI api = RestService.For<IClassevivaAPI>("https://web.spaggiari.eu/rest/v1");
 
-            var measurement = new LoginData
+
+            try
             {
-                Uid = edittext_username.Text,
-                Pass = edittext_password.Password,
-            };
+                buttonLogin.Visibility = Visibility.Collapsed;
+                progresslogin.Visibility = Visibility.Visible;
 
-            LoginResult user = api.LoginAsync(measurement).Result;
+                var api = RestService.For<IClassevivaAPI>("https://web.spaggiari.eu/rest/v1");
 
-            
-
-            Thread.Sleep(2000);
-
-
-            
-            MessageDialog dialog = new MessageDialog("a " + user.FirstName + user.LastName);
-            dialog.Commands.Add(new UICommand("Yes", null));
-            dialog.Commands.Add(new UICommand("No", null));
-            dialog.DefaultCommandIndex = 0;
-            dialog.CancelCommandIndex = 1;
-            var cmd = await dialog.ShowAsync();
-            
+                var measurement = new LoginData
+                {
+                    Uid = edittext_username.Text,
+                    Pass = edittext_password.Password,
+                };
 
 
-            Frame rootFrame = Window.Current.Content as Frame;
-            rootFrame.Navigate(typeof(DashboardPage), null, new DrillInNavigationTransitionInfo());
+                var user = await api.LoginAsync(measurement);
+
+
+                ContentDialog dialog = new ContentDialog();
+                dialog.Title = "Login completato";
+                dialog.PrimaryButtonText = "OK";
+                dialog.DefaultButton = ContentDialogButton.Primary;
+                dialog.Content = "Benvenuto " + user.FirstName + " " + user.LastName;
+
+                var result = await dialog.ShowAsync();
+
+
+                Frame rootFrame = Window.Current.Content as Frame;
+                rootFrame.Navigate(typeof(DashboardPage), null, new DrillInNavigationTransitionInfo());
+
+            } catch(Exception ex)
+            {
+                ContentDialog dialog = new ContentDialog();
+                dialog.Title = "Errore";
+                dialog.PrimaryButtonText = "OK";
+                dialog.DefaultButton = ContentDialogButton.Primary;
+                dialog.Content = "Errore durante il login. Controlla il nome utente e la password.";
+
+                var result = await dialog.ShowAsync();
+
+
+                buttonLogin.Visibility = Visibility.Visible;
+                progresslogin.Visibility = Visibility.Collapsed;
+
+            }
+
+
+
         }
     }
 }

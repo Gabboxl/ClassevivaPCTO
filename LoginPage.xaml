@@ -4,7 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:ClassevivaPCTO"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
@@ -17,7 +17,7 @@
             <TextBox x:Name="edittext_username" Header="Inserisci il tuo nome utente:" PlaceholderText="Username" Height="66" Margin="0,0,0,30"   />
             <PasswordBox x:Name="edittext_password" Header="Inserisci la tua password" PlaceholderText="Password" Margin="0,0,0,20"   />
             <Button x:Name="buttonLogin" Style="{StaticResource AccentButtonStyle}" Content="Accedi" Height="32" Width="81" RenderTransformOrigin="2.13,0.797" HorizontalAlignment="Center" Margin="0,0,0,30" Click="Button_Click"/>
-            <ProgressRing x:Name="progresslogin" IsActive="True" Visibility="Collapsed" />
+            <muxc:ProgressRing x:Name="progresslogin" IsActive="True" Visibility="Collapsed" />
         </StackPanel>
 
     </Grid>
