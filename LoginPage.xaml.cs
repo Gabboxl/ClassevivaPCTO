@@ -45,14 +45,14 @@ namespace ClassevivaPCTO
             Thread.Sleep(2000);
 
 
-            /*
+            
             MessageDialog dialog = new MessageDialog("a " + user.FirstName + user.LastName);
             dialog.Commands.Add(new UICommand("Yes", null));
             dialog.Commands.Add(new UICommand("No", null));
             dialog.DefaultCommandIndex = 0;
             dialog.CancelCommandIndex = 1;
             var cmd = await dialog.ShowAsync();
-            */
+            
 
 
             Frame rootFrame = Window.Current.Content as Frame;
