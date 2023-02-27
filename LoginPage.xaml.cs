@@ -28,9 +28,6 @@ namespace ClassevivaPCTO
         private async void Button_Click(object sender, RoutedEventArgs e)
         {
 
-
-
-
             try
             {
                 buttonLogin.Visibility = Visibility.Collapsed;
@@ -45,7 +42,7 @@ namespace ClassevivaPCTO
                 };
 
 
-                var user = await api.LoginAsync(measurement);
+                LoginResult user = await api.LoginAsync(measurement);
 
 
                 ContentDialog dialog = new ContentDialog();
@@ -58,7 +55,7 @@ namespace ClassevivaPCTO
 
 
                 Frame rootFrame = Window.Current.Content as Frame;
-                rootFrame.Navigate(typeof(DashboardPage), null, new DrillInNavigationTransitionInfo());
+                rootFrame.Navigate(typeof(DashboardPage), user, new DrillInNavigationTransitionInfo());
 
             } catch(Exception ex)
             {

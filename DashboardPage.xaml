@@ -9,6 +9,12 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
+        <TextBlock x:Name="textBenvenuto" Text="Benvenuto "   FontSize="42" Height="60" VerticalAlignment="Top" Margin="32,32,0,0"/>
+
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+
+            
+        </StackPanel>
 
     </Grid>
 </Page>
