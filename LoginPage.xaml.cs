@@ -50,6 +50,8 @@ namespace ClassevivaPCTO
 
                 edittext_username.Text = loginCredential.UserName.ToString();
                 edittext_password.Password = loginCredential.Password.ToString();
+
+                doLoginAsync();
             }
 
 
@@ -57,6 +59,14 @@ namespace ClassevivaPCTO
         }
 
         private async void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+            await doLoginAsync();
+
+        }
+
+
+        public async Task doLoginAsync()
         {
 
             try
@@ -82,7 +92,7 @@ namespace ClassevivaPCTO
                 dialog.DefaultButton = ContentDialogButton.Primary;
                 dialog.Content = "Benvenuto " + user.FirstName + " " + user.LastName;
 
-                var result = await dialog.ShowAsync();
+                //var result = await dialog.ShowAsync();
 
                 if ((bool)checkboxCredenziali.IsChecked)
                 {
@@ -94,7 +104,8 @@ namespace ClassevivaPCTO
                 Frame rootFrame = Window.Current.Content as Frame;
                 rootFrame.Navigate(typeof(DashboardPage), user, new DrillInNavigationTransitionInfo());
 
-            } catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 ContentDialog dialog = new ContentDialog();
                 dialog.Title = "Errore";
@@ -109,9 +120,6 @@ namespace ClassevivaPCTO
                 progresslogin.Visibility = Visibility.Collapsed;
 
             }
-
-
-
         }
 
 
