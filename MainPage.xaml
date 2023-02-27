@@ -10,12 +10,15 @@
 
     <Grid>
 
-        
-        
-        
-        
-        <Button Content="Standard XAML button" Click="Button_Click" HorizontalAlignment="Center" Margin="0,425,0,0" VerticalAlignment="Top" />
-        
-        
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Height="380" Width="349">
+
+            <TextBlock Text="Benvenuto "   FontSize="20" TextAlignment="Center" Height="60"/>
+
+            <TextBox Header="Inserisci il tuo nome utente:" PlaceholderText="Username" Height="66" Margin="0,0,0,30"   />
+            <PasswordBox Header="Inserisci la tua password" PlaceholderText="Password" PasswordChar="#" Margin="0,0,0,20"   />
+            <Button Style="{StaticResource AccentButtonStyle}" Content="Accedi" Height="32" Width="81" RenderTransformOrigin="2.13,0.797" HorizontalAlignment="Center" Margin="0,0,0,30" />
+           
+        </StackPanel>
+
     </Grid>
 </Page>
