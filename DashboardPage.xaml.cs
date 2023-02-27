@@ -6,12 +6,14 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.System;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml.Media.Animation;
 using Windows.UI.Xaml.Navigation;
 using static System.Net.Mime.MediaTypeNames;
 
@@ -42,6 +44,35 @@ namespace ClassevivaPCTO
             
 
         }
+
+
+
+
+        private async void ButtonLogout_Click(object sender, RoutedEventArgs e)
+        {
+
+            var loginCredential = new CredUtils().GetCredentialFromLocker();
+
+            if (loginCredential != null)
+            {
+                loginCredential.RetrievePassword(); //dobbiamo per forza chiamare questo metodo per fare sì che la proprietà loginCredential.Password non sia vuota
+
+
+                var vault = new Windows.Security.Credentials.PasswordVault();
+
+                vault.Remove(new Windows.Security.Credentials.PasswordCredential(
+                    "classevivapcto", loginCredential.UserName.ToString(), loginCredential.Password.ToString()));
+
+            }
+
+            Frame rootFrame = Window.Current.Content as Frame;
+            if (rootFrame.CanGoBack)
+            {
+                rootFrame.GoBack();
+            }
+
+        }
+
 
 
         static string UppercaseFirst(string s)
