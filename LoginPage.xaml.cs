@@ -3,8 +3,11 @@ using Refit;
 using System;
 using System.Threading;
 using System.Threading.Tasks;
+using Windows.ApplicationModel.Core;
 using Windows.System;
+using Windows.UI;
 using Windows.UI.Popups;
+using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media.Animation;
@@ -22,6 +25,16 @@ namespace ClassevivaPCTO
         {
             this.InitializeComponent();
 
+            // Hide default title bar.
+            var coreTitleBar = CoreApplication.GetCurrentView().TitleBar;
+            coreTitleBar.ExtendViewIntoTitleBar = true;
+
+            //remove the solid-colored backgrounds behind the caption controls and system back button
+            ApplicationViewTitleBar titleBar = ApplicationView.GetForCurrentView().TitleBar;
+            titleBar.ButtonBackgroundColor = Colors.Transparent;
+            titleBar.ButtonInactiveBackgroundColor = Colors.Transparent;
+
+            Window.Current.SetTitleBar(AppTitleBar);
 
         }
 
