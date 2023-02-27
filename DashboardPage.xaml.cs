@@ -13,6 +13,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using static System.Net.Mime.MediaTypeNames;
 
 // Il modello di elemento Pagina vuota è documentato all'indirizzo https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -26,6 +27,9 @@ namespace ClassevivaPCTO
         public DashboardPage()
         {
             this.InitializeComponent();
+
+
+            Window.Current.SetTitleBar(AppTitleBar);
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
