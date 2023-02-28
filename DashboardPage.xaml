@@ -49,7 +49,18 @@
         <TextBlock x:Name="textBenvenuto" Text="Benvenuto "   FontSize="42" Height="60" VerticalAlignment="Top" Margin="32,32,0,0"/>
 
 
-        <Button x:Name="buttonLogout" Style="{StaticResource AccentButtonStyle}" Content="Effettua il logout" Height="32" Width="177" RenderTransformOrigin="2.13,0.797" HorizontalAlignment="Center" Margin="0,469,0,0" Click="ButtonLogout_Click" VerticalAlignment="Top"/>
+        <Button Content="Effettua il logout" Margin="0,469,0,0">
+            <Button.Flyout>
+                <Flyout>
+                    <StackPanel>
+                        <TextBlock Style="{ThemeResource BaseTextBlockStyle}" Text="Uscirai dall'app. Sei sicuro?" Margin="0,0,0,12" />
+                        <Button x:Name="buttonLogout" Style="{StaticResource AccentButtonStyle}" Content="Effettua il logout" Height="32" Width="177" RenderTransformOrigin="2.13,0.797" HorizontalAlignment="Center"  Click="ButtonLogout_Click" VerticalAlignment="Top"/>
+
+                    </StackPanel>
+                </Flyout>
+            </Button.Flyout>
+        </Button>
+
 
         <TextBlock x:Name="textDati" Text="test "   FontSize="12" Height="219" VerticalAlignment="Top" Margin="32,114,88,0" />
 
