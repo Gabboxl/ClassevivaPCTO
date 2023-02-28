@@ -7,12 +7,18 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
-    xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
+    xmlns:muxc="using:Microsoft.UI.Xaml.Controls" 
+    xmlns:animatedvisuals="using:Microsoft.UI.Xaml.Controls.AnimatedVisuals"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
 
-        <Grid>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row ="0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="48"/>
                 <RowDefinition/>
@@ -47,27 +53,40 @@
                     Width="260" Height="32" />
         </Grid>
 
-        <TextBlock x:Name="textBenvenuto" Text="Benvenuto "   FontSize="42" Height="60" VerticalAlignment="Top" Margin="32,32,0,0"/>
+        <TextBlock x:Name="textBenvenuto" Text="Benvenuto "   FontSize="42" Height="60" VerticalAlignment="Top" Margin="32,48,0,0"/>
 
 
 
-        <TextBlock x:Name="textDati" Text="test "   FontSize="12" Height="219" VerticalAlignment="Top" Margin="32,114,88,0" />
+        <TextBlock x:Name="textDati" Text="test "  TextWrapping="Wrap" FontSize="12" Height="40" Padding="0,0,0,0" VerticalAlignment="Top" Margin="32,114,88,0" />
 
 
 
-        <controls:UniformGrid
+        <controls:UniformGrid Grid.Row ="1"
             ColumnSpacing="48" RowSpacing="48"
+                              Margin="24,24,24,24"
             >
 
             
             <StackPanel 
-                Grid.ColumnSpan="2"
+                
+                Grid.ColumnSpan="1"
             VerticalAlignment="Stretch" HorizontalAlignment="Stretch" 
                     CornerRadius="8"
                     Padding="12"
                     BorderThickness="1"
                     BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
                     Background="{ThemeResource CardBackgroundFillColorDefaultBrush}">
+
+                <Button Width="75">
+                    <muxc:AnimatedIcon x:Name="SearchAnimatedIcon">
+                        <muxc:AnimatedIcon.Source>
+                            <animatedvisuals:AnimatedFindVisualSource/>
+                        </muxc:AnimatedIcon.Source>
+                        <muxc:AnimatedIcon.FallbackIconSource>
+                            <muxc:SymbolIconSource Symbol="Find"/>
+                        </muxc:AnimatedIcon.FallbackIconSource>
+                    </muxc:AnimatedIcon>
+                </Button>
 
 
                 <Button Content="Effettua il logout">
