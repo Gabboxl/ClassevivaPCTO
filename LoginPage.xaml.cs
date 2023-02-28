@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
+using Windows.ApplicationModel;
 using Windows.ApplicationModel.Core;
 using Windows.Security.Credentials;
 using Windows.System;
@@ -35,6 +36,9 @@ namespace ClassevivaPCTO
             ApplicationViewTitleBar titleBar = ApplicationView.GetForCurrentView().TitleBar;
             titleBar.ButtonBackgroundColor = Colors.Transparent;
             titleBar.ButtonInactiveBackgroundColor = Colors.Transparent;
+
+            //titolo title bar
+            AppTitleTextBlock.Text = "Login - " + AppInfo.Current.DisplayInfo.DisplayName;
 
             Window.Current.SetTitleBar(AppTitleBar);
 

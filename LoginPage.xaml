@@ -30,7 +30,7 @@
                Width="16" Height="16"
                Margin="8,0,0,0"/>
                 <TextBlock x:Name="AppTitleTextBlock"
-                   Text="App title" 
+                   Text="test" 
                    Style="{StaticResource CaptionTextBlockStyle}" 
                    Grid.Column="1"
                    VerticalAlignment="Center"
@@ -45,7 +45,12 @@
                     Width="260" Height="32"/> -->
         </Grid>
 
-        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Height="380" Width="349">
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Height="380" Width="349"
+                    CornerRadius="8"
+                    Padding="12"
+                    BorderThickness="1"
+                    BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
+                    Background="{ThemeResource CardBackgroundFillColorDefaultBrush}">
 
             <TextBlock Text="Benvenuto "   FontSize="20" TextAlignment="Center" Height="60"/>
 
