@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using Windows.ApplicationModel;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.System;
@@ -34,6 +35,9 @@ namespace ClassevivaPCTO
         {
             this.InitializeComponent();
 
+
+            //titolo title bar
+            AppTitleTextBlock.Text = "Dashboard - " + AppInfo.Current.DisplayInfo.DisplayName;
 
             Window.Current.SetTitleBar(AppTitleBar);
         }
