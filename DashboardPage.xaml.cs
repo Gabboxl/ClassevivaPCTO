@@ -1,4 +1,8 @@
 ﻿using ClassevivaPCTO.Utils;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Serialization;
+using Refit;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -34,17 +38,89 @@ namespace ClassevivaPCTO
             Window.Current.SetTitleBar(AppTitleBar);
         }
 
-        protected override void OnNavigatedTo(NavigationEventArgs e)
+        protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
 
             LoginResult parameters = (LoginResult)e.Parameter;
 
             textBenvenuto.Text = "Benvenuto " + UppercaseFirst(parameters.FirstName) + " " + UppercaseFirst(parameters.LastName);
+
+
+
+            /*
+
+            JsonConvert.DefaultSettings =
+                       () => new JsonSerializerSettings()
+                       {
+                           Converters = { new CustomIntConverter() }
+                       };
+
+            var settings = new JsonSerializerSettings();
+            settings.Converters.Add(new CustomIntConverter());
+
+            */
+
+
+
+            var api = RestService.For<IClassevivaAPI>("https://web.spaggiari.eu/rest/v1");
+
+            string fixedId = new CvUtils().GetCode(parameters.Ident);
+
+            var result1 = await api.GetGrades(fixedId, parameters.Token.ToString());
+
             
+            foreach(var result in result1.Grades)
+            {
+                textDati.Text += result.subjectDesc;
+            }
+            
+            //textDati.Text = result1.Events.Count().ToString();
 
         }
 
+        /*
+        public class CustomIntConverter : JsonConverter
+        {
+            public override bool CanConvert(Type objectType)
+            {
+                return objectType == typeof(int);
+            }
+
+            public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
+            {
+                if (reader.Value == null)
+                {
+                    return null;
+                }
+
+                if (reader.ValueType == typeof(string))
+                {
+                    if (int.TryParse((string)reader.Value, out int result))
+                    {
+                        return result;
+                    }
+                }
+
+                if (reader.ValueType == typeof(long))
+                {
+                    long longValue = (long)reader.Value;
+                    if (int.MinValue <= longValue && longValue <= int.MaxValue)
+                    {
+                        return (int)longValue;
+                    }
+                }
+
+                throw new JsonSerializationException("Invalid integer value.");
+            }
+
+            public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
+            {
+                writer.WriteValue(value);
+            }
+        }
+
+        */
 
 
 

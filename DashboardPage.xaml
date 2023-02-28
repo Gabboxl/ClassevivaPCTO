@@ -40,7 +40,7 @@
 
             <!-- This control has a higher z-order than AppTitleBar, 
          so it receives user input. -->
-             <AutoSuggestBox QueryIcon="Find"
+            <AutoSuggestBox QueryIcon="Find"
                     PlaceholderText="Search"
                     HorizontalAlignment="Center"
                     Width="260" Height="32" />
@@ -49,9 +49,9 @@
         <TextBlock x:Name="textBenvenuto" Text="Benvenuto "   FontSize="42" Height="60" VerticalAlignment="Top" Margin="32,32,0,0"/>
 
 
-            <Button x:Name="buttonLogout" Style="{StaticResource AccentButtonStyle}" Content="Effettua il logout" Height="32" Width="81" RenderTransformOrigin="2.13,0.797" HorizontalAlignment="Center" Margin="0,0,0,30" Click="ButtonLogout_Click"/>
+        <Button x:Name="buttonLogout" Style="{StaticResource AccentButtonStyle}" Content="Effettua il logout" Height="32" Width="177" RenderTransformOrigin="2.13,0.797" HorizontalAlignment="Center" Margin="0,469,0,0" Click="ButtonLogout_Click" VerticalAlignment="Top"/>
 
-        <TextBlock x:Name="textDati" Text="test "   FontSize="12" Height="100" VerticalAlignment="Top" Margin="120,32,0,0"/>
+        <TextBlock x:Name="textDati" Text="test "   FontSize="12" Height="219" VerticalAlignment="Top" Margin="32,114,88,0" />
 
     </Grid>
 </Page>
