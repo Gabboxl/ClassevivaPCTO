@@ -174,5 +174,10 @@ namespace ClassevivaPCTO
             // Return char and concat substring.
             return char.ToUpper(s[0]) + s.Substring(1);
         }
+
+        private void listtest_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }
