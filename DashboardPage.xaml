@@ -166,8 +166,8 @@
 
                                 </Grid>
 
-
-                                <TextBlock RelativePanel.RightOf="gridVoto" x:Name="textMateria" TextWrapping="Wrap"
+                                <RelativePanel >
+                                    <TextBlock x:Name="textMateria" TextWrapping="Wrap" RelativePanel.AlignVerticalCenterWithPanel="True"
                                            MaxWidth="500"
                                            Text="{Binding subjectDesc}"
 
@@ -196,6 +196,9 @@
                                            Style="{ThemeResource BodyTextBlockStyle}"
                                            Foreground="LightGray"
                                            Margin="12,6,0,0" />
+
+                                </RelativePanel>
+
 
 
                             </RelativePanel>
