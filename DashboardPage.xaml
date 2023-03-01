@@ -159,19 +159,9 @@ ScrollViewer.VerticalScrollBarVisibility="Visible"
                     <ListView.ItemTemplate>
                         
                         <DataTemplate >
-                            <Grid>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="*"/>
-                                    <RowDefinition Height="*"/>
-                                </Grid.RowDefinitions>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="Auto"/>
-                                    <ColumnDefinition Width="Auto"/>
-                                    <ColumnDefinition Width="Auto"/>
-                                    <ColumnDefinition Width="Auto"/>
-                                </Grid.ColumnDefinitions>
+                            <RelativePanel>
 
-                                <Grid Grid.RowSpan="2">
+                                <Grid RelativePanel.AlignVerticalCenterWithPanel="True" x:Name="gridVoto">
                                     <Ellipse x:Name="Ellipse"
                     Grid.RowSpan="2"
                     Width ="42"
@@ -188,38 +178,36 @@ ScrollViewer.VerticalScrollBarVisibility="Visible"
                                 </Grid>
 
 
-                                <TextBlock Grid.Column="1"
+                                <TextBlock RelativePanel.RightOf="gridVoto" x:Name="textMateria" TextWrapping="Wrap" MaxWidth="500"
                     Text="{Binding subjectDesc}"
 
                     Style="{ThemeResource BaseTextBlockStyle}"
                     Margin="12,6,0,0"/>
 
-                                <TextBlock  Grid.Column="1" Grid.ColumnSpan="3"
-                    Grid.Row="1"
+                                <TextBlock   RelativePanel.Below="textMateria" RelativePanel.RightOf="gridVoto" TextWrapping="Wrap"
+                    
                     Text="{Binding notesForFamily}"
 
                     Style="{ThemeResource BodyTextBlockStyle}"
                     Margin="12,0,0,6"/>
 
-                                <TextBlock  Grid.Column="2"
-                    Grid.Row="0"
+                                <TextBlock  RelativePanel.RightOf="textMateria" x:Name="dataVoto"
                     Text="{Binding evtDate}"
-                                            HorizontalAlignment="Left"
+                                            
 Foreground="LightGray"
                     Style="{ThemeResource BaseTextBlockStyle}"
                     Margin="12,6,0,0"/>
 
-                                <TextBlock  Grid.Column="3"
-                    Grid.Row="0"
+                                <TextBlock RelativePanel.RightOf="dataVoto"
                     Text="{Binding componentDesc}"
-                                            HorizontalAlignment="Left"
+                                            
 
                     Style="{ThemeResource BodyTextBlockStyle}"
                                             Foreground="LightGray"
                     Margin="12,6,0,0"/>
 
 
-                            </Grid>
+                            </RelativePanel>
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
