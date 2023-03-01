@@ -1,4 +1,5 @@
 ﻿using ClassevivaPCTO.Utils;
+using Microsoft.UI.Xaml.Controls;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Serialization;
@@ -154,6 +155,17 @@ namespace ClassevivaPCTO
                 rootFrame.GoBack();
             }
 
+        }
+
+
+        private void Button_PointerEntered(object sender, PointerRoutedEventArgs e)
+        {
+            AnimatedIcon.SetState(this.SearchAnimatedIcon, "PointerOver");
+        }
+
+        private void Button_PointerExited(object sender, PointerRoutedEventArgs e)
+        {
+            AnimatedIcon.SetState(this.SearchAnimatedIcon, "Normal");
         }
 
 
