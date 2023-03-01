@@ -8,7 +8,7 @@
 
   <Identity
     Name="9be1c55b-d7a9-4517-9267-2ccca4053d2d"
-    Publisher="CN=delgrosso.mattia"
+    Publisher="CN=castelli.gabriele"
     Version="1.0.0.0" />
 
   <mp:PhoneIdentity PhoneProductId="9be1c55b-d7a9-4517-9267-2ccca4053d2d" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>

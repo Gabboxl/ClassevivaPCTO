@@ -9,13 +9,15 @@
     xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
     xmlns:muxc="using:Microsoft.UI.Xaml.Controls" 
     xmlns:animatedvisuals="using:Microsoft.UI.Xaml.Controls.AnimatedVisuals"
-    
+    xmlns:converters="using:ClassevivaPCTO.Converters"
+
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
     muxc:BackdropMaterial.ApplyToRootOrPageBackground="True">
 
     <Page.Resources>
-
+        <converters:GradeToColorConverter x:Key="GradeToColorConverter" />
     </Page.Resources>
+
 
     <Grid >
         <Grid.RowDefinitions>
@@ -142,11 +144,7 @@
 
                 <ListView x:Name="listtest" Grid.Row="1" 
     SelectionMode="Single"
-
-                              
-                          
-                         ScrollViewer.VerticalScrollBarVisibility="Visible"
-
+ScrollViewer.VerticalScrollBarVisibility="Visible"
                               >
 
                     <ListView.ItemTemplate>
@@ -160,24 +158,40 @@
                                     <ColumnDefinition Width="Auto"/>
                                     <ColumnDefinition Width="*"/>
                                 </Grid.ColumnDefinitions>
+
+                                <Grid Grid.RowSpan="2">
                                 <Ellipse x:Name="Ellipse"
                     Grid.RowSpan="2"
-                    Width ="32"
-                    Height="32"
-                    Margin="6"
+                    Width ="42"
+                    Height="42"
+                    Margin="2"
+                    Fill="{Binding decimalValue, Converter={StaticResource GradeToColorConverter}}"
                     
                     VerticalAlignment="Center"
-                    HorizontalAlignment="Center"
-                    Fill="{ThemeResource SystemControlBackgroundBaseMediumBrush}"/>
+                    HorizontalAlignment="Center">
+                    <!-- ="{ThemeResource SystemControlBackgroundBaseMediumBrush}" -->
+                                    </Ellipse>
+                                    <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding displayValue}" FontSize="14" Foreground="#FFFFFF" />
+
+                                </Grid>
+
 
                                 <TextBlock Grid.Column="1"
                     Text="{Binding subjectDesc}"
 
                     Style="{ThemeResource BaseTextBlockStyle}"
                     Margin="12,6,0,0"/>
+
                                 <TextBlock  Grid.Column="1"
                     Grid.Row="1"
-                    Text="{Binding displayValue}"
+                    Text="{Binding notesForFamily}"
+
+                    Style="{ThemeResource BodyTextBlockStyle}"
+                    Margin="12,0,0,6"/>
+
+                                <TextBlock  Grid.Column="1"
+                    Grid.Row="1"
+                    Text="{Binding notesForFamily}"
 
                     Style="{ThemeResource BodyTextBlockStyle}"
                     Margin="12,0,0,6"/>
