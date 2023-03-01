@@ -55,7 +55,7 @@ namespace ClassevivaPCTO
 
             LoginResult parameters = (LoginResult)e.Parameter;
 
-            textBenvenuto.Text = "Benvenuto " + UppercaseFirst(parameters.FirstName) + " " + UppercaseFirst(parameters.LastName);
+            TextBenvenuto.Text = "Benvenuto " + UppercaseFirst(parameters.FirstName) + " " + UppercaseFirst(parameters.LastName);
 
 
 
@@ -81,7 +81,7 @@ namespace ClassevivaPCTO
 
             Voti.Concat(result1.Grades);
             
-            listtest.ItemsSource = result1.Grades;
+            Listtest.ItemsSource = result1.Grades;
             
             //textDati.Text = result1.Events.Count().ToString();
 
