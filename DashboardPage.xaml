@@ -31,7 +31,7 @@
                 <RowDefinition Height="48"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            <Grid x:Name="AppTitleBar" Background="Transparent" Margin="0,0,0,87" Grid.RowSpan="2">
+            <Grid x:Name="AppTitleBar" Background="Transparent" >
                 <!-- Width of the padding columns is set in LayoutMetricsChanged handler. -->
                 <!-- Using padding columns instead of Margin ensures that the background
              paints the area under the caption control buttons (for transparent buttons). -->
@@ -60,12 +60,11 @@
                     HorizontalAlignment="Center"
                     Width="260" Height="32" />
 
-            <PersonPicture DisplayName="KsDDD sss" Width="42" Margin="904,17,554,16"  >
+            <PersonPicture DisplayName="KsDDD sss" Width="36" Margin="500,0,0,0"  >
                 <PersonPicture.FocusVisualPrimaryBrush>
                     <SolidColorBrush Color="{Binding ElementName=page}"/>
                 </PersonPicture.FocusVisualPrimaryBrush>
             </PersonPicture>
-
 
             <Button Content="Logout" Style="{StaticResource AccentButtonStyle}" HorizontalAlignment="Right" Margin="0,0,256,0">
                 <Button.Flyout>
@@ -80,7 +79,7 @@
             </Button>
         </Grid>
 
-        <TextBlock x:Name="textBenvenuto" Text="Benvenuto "   FontSize="42" Height="60" VerticalAlignment="Center" Margin="32,0,1260,0" />
+        <TextBlock x:Name="textBenvenuto" Text="Benvenuto "   FontSize="42" Height="60" VerticalAlignment="Center" Margin="32,0,0,0" />
 
 
 
@@ -161,7 +160,9 @@ ScrollViewer.VerticalScrollBarVisibility="Visible"
                                 </Grid.RowDefinitions>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="Auto"/>
-                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
                                 </Grid.ColumnDefinitions>
 
                                 <Grid Grid.RowSpan="2">
@@ -187,19 +188,29 @@ ScrollViewer.VerticalScrollBarVisibility="Visible"
                     Style="{ThemeResource BaseTextBlockStyle}"
                     Margin="12,6,0,0"/>
 
-                                <TextBlock  Grid.Column="1"
+                                <TextBlock  Grid.Column="1" Grid.ColumnSpan="3"
                     Grid.Row="1"
                     Text="{Binding notesForFamily}"
 
                     Style="{ThemeResource BodyTextBlockStyle}"
                     Margin="12,0,0,6"/>
 
-                                <TextBlock  Grid.Column="1"
-                    Grid.Row="1"
-                    Text="{Binding notesForFamily}"
+                                <TextBlock  Grid.Column="2"
+                    Grid.Row="0"
+                    Text="{Binding evtDate}"
+Foreground="LightGray"
+                    Style="{ThemeResource BaseTextBlockStyle}"
+                    Margin="12,6,0,0"/>
+
+                                <TextBlock  Grid.Column="3"
+                    Grid.Row="0"
+                    Text="{Binding componentDesc}"
 
                     Style="{ThemeResource BodyTextBlockStyle}"
-                    Margin="12,0,0,6"/>
+                                            Foreground="LightGray"
+                    Margin="12,6,0,0"/>
+
+
                             </Grid>
                         </DataTemplate>
                     </ListView.ItemTemplate>
