@@ -60,12 +60,12 @@
 
 
 
-            <Button Content="Effettua il logout" HorizontalAlignment="Right">
+            <Button Content="Logout" Style="{StaticResource AccentButtonStyle}" HorizontalAlignment="Right" Margin="0,0,256,0">
                 <Button.Flyout>
                     <Flyout>
                         <StackPanel>
                             <TextBlock Style="{ThemeResource BaseTextBlockStyle}" Text="Uscirai dall'app. Sei sicuro?" Margin="0,0,0,12" />
-                            <Button x:Name="asd3" Style="{StaticResource AccentButtonStyle}" Content="Effettua il logout" Height="32" Width="177" RenderTransformOrigin="2.13,0.797" HorizontalAlignment="Center"  Click="ButtonLogout_Click" VerticalAlignment="Top"/>
+                            <Button x:Name="logoutButton" Style="{StaticResource AccentButtonStyle}" Content="Effettua il logout" Height="32" Width="177" RenderTransformOrigin="2.13,0.797" HorizontalAlignment="Center"  Click="ButtonLogout_Click" VerticalAlignment="Top"/>
 
                         </StackPanel>
                     </Flyout>
@@ -211,13 +211,24 @@
                 </Button>
 
             </StackPanel>
-            
-            
-            
-            
-            
-            
-            
+
+
+            <muxc:TreeView>
+                <muxc:TreeView.RootNodes>
+                    <muxc:TreeViewNode Content="Flavors"
+                           IsExpanded="True">
+                        <muxc:TreeViewNode.Children>
+                            <muxc:TreeViewNode Content="Vanilla"/>
+                            <muxc:TreeViewNode Content="Strawberry"/>
+                            <muxc:TreeViewNode Content="Chocolate"/>
+                        </muxc:TreeViewNode.Children>
+                    </muxc:TreeViewNode>
+                </muxc:TreeView.RootNodes>
+            </muxc:TreeView>
+
+
+
+
 
         </controls:UniformGrid>
 
