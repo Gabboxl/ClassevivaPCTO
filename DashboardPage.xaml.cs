@@ -44,10 +44,6 @@ namespace ClassevivaPCTO
             Window.Current.SetTitleBar(AppTitleBar);
 
 
-           
-
-
-
 
 
     }
