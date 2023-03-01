@@ -14,6 +14,7 @@ using Windows.UI.Popups;
 using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media.Animation;
 
 // Il modello di elemento Pagina vuota è documentato all'indirizzo https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x410
@@ -60,13 +61,13 @@ namespace ClassevivaPCTO
             }
 
 
-            CoreWindow.GetForCurrentThread().KeyDown += MainPage_KeyDown;
+            loginGrid.KeyDown += MainPage_KeyDown;
         }
 
 
-        private async void MainPage_KeyDown(CoreWindow sender, KeyEventArgs args)
+        private async void MainPage_KeyDown(object sender, KeyRoutedEventArgs args)
         {
-            switch (args.VirtualKey)
+            switch (args.Key)
             {
                 case VirtualKey.Enter:
 
