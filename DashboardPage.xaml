@@ -31,7 +31,7 @@
                 <RowDefinition Height="48"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            <Grid x:Name="AppTitleBar" Background="Transparent">
+            <Grid x:Name="AppTitleBar" Background="Transparent" Margin="0,0,0,87" Grid.RowSpan="2">
                 <!-- Width of the padding columns is set in LayoutMetricsChanged handler. -->
                 <!-- Using padding columns instead of Margin ensures that the background
              paints the area under the caption control buttons (for transparent buttons). -->
@@ -60,6 +60,11 @@
                     HorizontalAlignment="Center"
                     Width="260" Height="32" />
 
+            <PersonPicture DisplayName="KsDDD sss" Width="42" Margin="904,17,554,16"  >
+                <PersonPicture.FocusVisualPrimaryBrush>
+                    <SolidColorBrush Color="{Binding ElementName=page}"/>
+                </PersonPicture.FocusVisualPrimaryBrush>
+            </PersonPicture>
 
 
             <Button Content="Logout" Style="{StaticResource AccentButtonStyle}" HorizontalAlignment="Right" Margin="0,0,256,0">
@@ -75,7 +80,7 @@
             </Button>
         </Grid>
 
-        <TextBlock x:Name="textBenvenuto" Text="Benvenuto "   FontSize="42" Height="60" VerticalAlignment="Top" Margin="32,48,0,0" />
+        <TextBlock x:Name="textBenvenuto" Text="Benvenuto "   FontSize="42" Height="60" VerticalAlignment="Center" Margin="32,0,1260,0" />
 
 
 
@@ -212,33 +217,73 @@ ScrollViewer.VerticalScrollBarVisibility="Visible"
                     BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
                     Background="{ThemeResource CardBackgroundFillColorDefaultBrush}">
 
-                <Button Content="Effettua il logout">
-                    <Button.Flyout>
-                        <Flyout>
-                            <StackPanel>
-                                <TextBlock Style="{ThemeResource BaseTextBlockStyle}" Text="Uscirai dall'app. Sei sicuro?" Margin="0,0,0,12" />
-                                <Button x:Name="asd4" Style="{StaticResource AccentButtonStyle}" Content="Effettua il logout" Height="32" Width="177" RenderTransformOrigin="2.13,0.797" HorizontalAlignment="Center"  Click="ButtonLogout_Click" VerticalAlignment="Top"/>
 
-                            </StackPanel>
-                        </Flyout>
-                    </Button.Flyout>
-                </Button>
+
+                <Pivot  Title="VOTI">
+                   
+                        
+                    <PivotItem Header="Trimestre">
+                        <Pivot>
+                        <PivotItem Header="Italiano">
+                            <TextBlock Text="Ecco i tuoi voti di italiano" />
+                        </PivotItem>
+                        <PivotItem Header="Matematica">
+                            <TextBlock Text="Ecco i tuoi voti di matematica" />
+                        </PivotItem>
+                        <PivotItem Header="Matematica">
+                            <TextBlock Text="Ecco i tuoi voti di matematica" />
+                        </PivotItem>
+                        <PivotItem Header="Matematica">
+                            <TextBlock Text="Ecco i tuoi voti di matematica" />
+                        </PivotItem>
+                        <PivotItem Header="Matematica">
+                            <TextBlock Text="Ecco i tuoi voti di matematica" />
+                        </PivotItem>
+                        <PivotItem Header="Matematica">
+                            <TextBlock Text="Ecco i tuoi voti di matematica" />
+                        </PivotItem>
+                        <PivotItem Header="Matematica">
+                            <TextBlock Text="Ecco i tuoi voti di matematica" />
+                        </PivotItem>
+                        </Pivot>
+                    </PivotItem>
+
+
+
+                    <PivotItem Header="Pentametre">
+                        <Pivot>
+                            <PivotItem Header="Italiano">
+                            <TextBlock Text="Ecco i tuoi voti di italiano" />
+                        </PivotItem>
+                        <PivotItem Header="Matematica">
+                            <TextBlock Text="Ecco i tuoi voti di matematica" />
+                        </PivotItem>
+                        <PivotItem Header="Matematica">
+                            <TextBlock Text="Ecco i tuoi voti di matematica" />
+                        </PivotItem>
+                        <PivotItem Header="Matematica">
+                            <TextBlock Text="Ecco i tuoi voti di matematica" />
+                        </PivotItem>
+                        <PivotItem Header="Matematica">
+                            <TextBlock Text="Ecco i tuoi voti di matematica" />
+                        </PivotItem>
+                        <PivotItem Header="Matematica">
+                            <TextBlock Text="Ecco i tuoi voti di matematica" />
+                        </PivotItem>
+                        <PivotItem Header="Matematica">
+                            <TextBlock Text="Ecco i tuoi voti di matematica" />
+                        </PivotItem>
+                        </Pivot>
+                    </PivotItem>
+                   
+
+                </Pivot>
+
+
+              
+
 
             </StackPanel>
-
-
-            <muxc:TreeView>
-                <muxc:TreeView.RootNodes>
-                    <muxc:TreeViewNode Content="Flavors"
-                           IsExpanded="True">
-                        <muxc:TreeViewNode.Children>
-                            <muxc:TreeViewNode Content="Vanilla"/>
-                            <muxc:TreeViewNode Content="Strawberry"/>
-                            <muxc:TreeViewNode Content="Chocolate"/>
-                        </muxc:TreeViewNode.Children>
-                    </muxc:TreeViewNode>
-                </muxc:TreeView.RootNodes>
-            </muxc:TreeView>
 
 
 
