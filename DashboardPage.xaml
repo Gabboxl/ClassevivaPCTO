@@ -7,7 +7,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
-    xmlns:muxc="using:Microsoft.UI.Xaml.Controls" 
+    xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
     xmlns:animatedvisuals="using:Microsoft.UI.Xaml.Controls.AnimatedVisuals"
     xmlns:converters="using:ClassevivaPCTO.Converters"
 
@@ -17,65 +17,69 @@
     <Page.Resources>
         <converters:GradeToColorConverter x:Key="GradeToColorConverter" />
         <Style TargetType="ListViewItem">
-            <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+            <Setter Property="HorizontalContentAlignment" Value="Stretch" />
         </Style>
     </Page.Resources>
-    
 
 
-    <Grid >
+    <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
 
         </Grid.RowDefinitions>
 
-        <Grid Grid.Row ="0">
+        <Grid Grid.Row="0">
             <Grid.RowDefinitions>
-                <RowDefinition Height="48"/>
-                <RowDefinition/>
+                <RowDefinition Height="48" />
+                <RowDefinition />
             </Grid.RowDefinitions>
-            <Grid x:Name="AppTitleBar" Background="Transparent" >
+            <Grid x:Name="AppTitleBar" Background="Transparent">
                 <!-- Width of the padding columns is set in LayoutMetricsChanged handler. -->
                 <!-- Using padding columns instead of Margin ensures that the background
              paints the area under the caption control buttons (for transparent buttons). -->
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition x:Name="LeftPaddingColumn" Width="0"/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition x:Name="RightPaddingColumn" Width="0"/>
+                    <ColumnDefinition x:Name="LeftPaddingColumn" Width="0" />
+                    <ColumnDefinition />
+                    <ColumnDefinition x:Name="RightPaddingColumn" Width="0" />
                 </Grid.ColumnDefinitions>
-                <Image Source="Assets/WindowIcon.png" 
-               Grid.Column="1"
-               HorizontalAlignment="Left"
-               Width="16" Height="16"
-               Margin="8,0,0,0"/>
+                <Image Source="Assets/WindowIcon.png"
+                       Grid.Column="1"
+                       HorizontalAlignment="Left"
+                       Width="16" Height="16"
+                       Margin="8,0,0,0" />
                 <TextBlock x:Name="AppTitleTextBlock"
-                   Text="test"
-                   Style="{StaticResource CaptionTextBlockStyle}" 
-                   Grid.Column="1"
-                   VerticalAlignment="Center"
-                   Margin="28,0,0,0"/>
+                           Text="test"
+                           Style="{StaticResource CaptionTextBlockStyle}"
+                           Grid.Column="1"
+                           VerticalAlignment="Center"
+                           Margin="28,0,0,0" />
             </Grid>
 
             <!-- This control has a higher z-order than AppTitleBar, 
          so it receives user input. -->
             <AutoSuggestBox QueryIcon="Find"
-                    PlaceholderText="Cerca"
-                    HorizontalAlignment="Center"
-                    Width="260" Height="32" />
+                            PlaceholderText="Cerca"
+                            HorizontalAlignment="Center"
+                            Width="260" Height="32" />
 
-            <PersonPicture DisplayName="KsDDD sss" Width="36" Margin="500,0,0,0"  >
+            <PersonPicture DisplayName="KsDDD sss" Width="36" Margin="500,0,0,0">
                 <PersonPicture.FocusVisualPrimaryBrush>
-                    <SolidColorBrush Color="{Binding ElementName=page}"/>
+                    <SolidColorBrush Color="{Binding ElementName=page}" />
                 </PersonPicture.FocusVisualPrimaryBrush>
             </PersonPicture>
 
-            <Button Content="Logout" Style="{StaticResource AccentButtonStyle}" HorizontalAlignment="Right" Margin="0,0,256,0">
+            <Button Content="Logout" Style="{StaticResource AccentButtonStyle}" HorizontalAlignment="Right"
+                    Margin="0,0,256,0">
                 <Button.Flyout>
                     <Flyout>
                         <StackPanel>
-                            <TextBlock Style="{ThemeResource BaseTextBlockStyle}" Text="Uscirai dall'app. Sei sicuro?" Margin="0,0,0,12" />
-                            <Button x:Name="LogoutButton" Style="{StaticResource AccentButtonStyle}" Content="Effettua il logout" Height="32" Width="177" RenderTransformOrigin="2.13,0.797" HorizontalAlignment="Center"  Click="ButtonLogout_Click" VerticalAlignment="Top"/>
+                            <TextBlock Style="{ThemeResource BaseTextBlockStyle}" Text="Uscirai dall'app. Sei sicuro?"
+                                       Margin="0,0,0,12" />
+                            <Button x:Name="LogoutButton" Style="{StaticResource AccentButtonStyle}"
+                                    Content="Effettua il logout" Height="32" Width="177"
+                                    RenderTransformOrigin="2.13,0.797" HorizontalAlignment="Center"
+                                    Click="ButtonLogout_Click" VerticalAlignment="Top" />
 
                         </StackPanel>
                     </Flyout>
@@ -83,50 +87,49 @@
             </Button>
         </Grid>
 
-        <TextBlock x:Name="TextBenvenuto" Text="Benvenuto "   FontSize="42" Height="60" VerticalAlignment="Center" Margin="32,0,0,0" />
+        <TextBlock x:Name="TextBenvenuto" Text="Benvenuto " FontSize="42" Height="60" VerticalAlignment="Center"
+                   Margin="32,0,0,0" />
 
 
-
-        <TextBlock x:Name="TextDati" Text="test "  TextWrapping="Wrap" FontSize="12" Height="40" Padding="0,0,0,0" VerticalAlignment="Top" Margin="32,114,88,0" />
-
-
-
-        <controls:UniformGrid Grid.Row ="1"
-            ColumnSpacing="48" RowSpacing="48"
-                              Margin="24,24,24,24"
-            >
+        <TextBlock x:Name="TextDati" Text="test " TextWrapping="Wrap" FontSize="12" Height="40" Padding="0,0,0,0"
+                   VerticalAlignment="Top" Margin="32,114,88,0" />
 
 
-            <StackPanel 
-                
+        <controls:UniformGrid Grid.Row="1"
+                              ColumnSpacing="48" RowSpacing="48"
+                              Margin="24,24,24,24">
+
+
+            <StackPanel
+
                 Grid.ColumnSpan="1"
-            VerticalAlignment="Stretch" HorizontalAlignment="Stretch" 
-                    CornerRadius="8"
-                    Padding="12"
-                    BorderThickness="1"
-                    BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
-                    Background="{ThemeResource CardBackgroundFillColorDefaultBrush}">
+                VerticalAlignment="Stretch" HorizontalAlignment="Stretch"
+                CornerRadius="8"
+                Padding="12"
+                BorderThickness="1"
+                BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
+                Background="{ThemeResource CardBackgroundFillColorDefaultBrush}">
 
                 <Button Width="75" PointerEntered="Button_PointerEntered" PointerExited="Button_PointerExited">
                     <muxc:AnimatedIcon x:Name="SearchAnimatedIcon">
                         <muxc:AnimatedIcon.Source>
-                            <animatedvisuals:AnimatedFindVisualSource/>
+                            <animatedvisuals:AnimatedFindVisualSource />
                         </muxc:AnimatedIcon.Source>
                         <muxc:AnimatedIcon.FallbackIconSource>
-                            <muxc:SymbolIconSource Symbol="Find"/>
+                            <muxc:SymbolIconSource Symbol="Find" />
                         </muxc:AnimatedIcon.FallbackIconSource>
                     </muxc:AnimatedIcon>
                 </Button>
 
             </StackPanel>
 
-            <Grid                     CornerRadius="8"
-                    Padding="12"
-                    BorderThickness="1"
-                    BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
-                    Background="{ThemeResource CardBackgroundFillColorDefaultBrush}">
+            <Grid CornerRadius="8"
+                  Padding="12"
+                  BorderThickness="1"
+                  BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
+                  Background="{ThemeResource CardBackgroundFillColorDefaultBrush}">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto" />
                     <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
@@ -134,64 +137,65 @@
 
                 </Grid.ColumnDefinitions>
 
-                <TextBlock Grid.Row="0" Text="Voti"   FontSize="24"  VerticalAlignment="Top" Margin="8" />
+                <TextBlock Grid.Row="0" Text="Voti" FontSize="24" VerticalAlignment="Top" Margin="8" />
 
-                
 
-                <ListView x:Name="Listtest" Grid.Row="1" 
-    SelectionMode="Single"
-ScrollViewer.VerticalScrollBarVisibility="Visible"
-                              >
+                <ListView x:Name="Listtest" Grid.Row="1"
+                          SelectionMode="Single"
+                          ScrollViewer.VerticalScrollBarVisibility="Visible">
 
                     <ListView.ItemTemplate>
-                        
-                        <DataTemplate >
+
+                        <DataTemplate>
                             <RelativePanel>
 
                                 <Grid RelativePanel.AlignVerticalCenterWithPanel="True" x:Name="gridVoto">
                                     <Ellipse x:Name="Ellipse"
-                    Grid.RowSpan="2"
-                    Width ="42"
-                    Height="42"
-                    Margin="2"
-                    Fill="{Binding decimalValue, Converter={StaticResource GradeToColorConverter}}"
-                    
-                    VerticalAlignment="Center"
-                    HorizontalAlignment="Center">
+                                             Grid.RowSpan="2"
+                                             Width="42"
+                                             Height="42"
+                                             Margin="2"
+                                             Fill="{Binding decimalValue, Converter={StaticResource GradeToColorConverter}}"
+
+                                             VerticalAlignment="Center"
+                                             HorizontalAlignment="Center">
                                         <!-- ="{ThemeResource SystemControlBackgroundBaseMediumBrush}" -->
                                     </Ellipse>
-                                    <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding displayValue}" FontSize="14" Foreground="#FFFFFF" />
+                                    <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center"
+                                               Text="{Binding displayValue}" FontSize="14" Foreground="#FFFFFF" />
 
                                 </Grid>
 
 
-                                <TextBlock RelativePanel.RightOf="gridVoto" x:Name="textMateria" TextWrapping="Wrap" MaxWidth="500"
-                    Text="{Binding subjectDesc}"
+                                <TextBlock RelativePanel.RightOf="gridVoto" x:Name="textMateria" TextWrapping="Wrap"
+                                           MaxWidth="500"
+                                           Text="{Binding subjectDesc}"
 
-                    Style="{ThemeResource BaseTextBlockStyle}"
-                    Margin="12,6,0,0"/>
+                                           Style="{ThemeResource BaseTextBlockStyle}"
+                                           Margin="12,6,0,0" />
 
-                                <TextBlock   RelativePanel.Below="textMateria" RelativePanel.RightOf="gridVoto" TextWrapping="Wrap"
-                    
-                    Text="{Binding notesForFamily}"
+                                <TextBlock RelativePanel.Below="textMateria" RelativePanel.RightOf="gridVoto"
+                                           TextWrapping="Wrap"
 
-                    Style="{ThemeResource BodyTextBlockStyle}"
-                    Margin="12,0,0,6"/>
+                                           Text="{Binding notesForFamily}"
 
-                                <TextBlock  RelativePanel.RightOf="textMateria" x:Name="dataVoto"
-                    Text="{Binding evtDate}"
-                                            
-Foreground="LightGray"
-                    Style="{ThemeResource BaseTextBlockStyle}"
-                    Margin="12,6,0,0"/>
+                                           Style="{ThemeResource BodyTextBlockStyle}"
+                                           Margin="12,0,0,6" />
+
+                                <TextBlock RelativePanel.RightOf="textMateria" x:Name="dataVoto"
+                                           Text="{Binding evtDate}"
+
+                                           Foreground="LightGray"
+                                           Style="{ThemeResource BaseTextBlockStyle}"
+                                           Margin="12,6,0,0" />
 
                                 <TextBlock RelativePanel.RightOf="dataVoto"
-                    Text="{Binding componentDesc}"
-                                            
+                                           Text="{Binding componentDesc}"
 
-                    Style="{ThemeResource BodyTextBlockStyle}"
-                                            Foreground="LightGray"
-                    Margin="12,6,0,0"/>
+
+                                           Style="{ThemeResource BodyTextBlockStyle}"
+                                           Foreground="LightGray"
+                                           Margin="12,6,0,0" />
 
 
                             </RelativePanel>
@@ -200,20 +204,18 @@ Foreground="LightGray"
                 </ListView>
 
 
-
             </Grid>
 
             <StackPanel
-            VerticalAlignment="Stretch" HorizontalAlignment="Stretch" 
-                    CornerRadius="8"
-                    Padding="12"
-                    BorderThickness="1"
-                    BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
-                    Background="{ThemeResource CardBackgroundFillColorDefaultBrush}">
+                VerticalAlignment="Stretch" HorizontalAlignment="Stretch"
+                CornerRadius="8"
+                Padding="12"
+                BorderThickness="1"
+                BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
+                Background="{ThemeResource CardBackgroundFillColorDefaultBrush}">
 
 
-
-                <Pivot  Title="VOTI">
+                <Pivot Title="VOTI">
 
 
                     <PivotItem Header="Trimestre">
@@ -241,7 +243,6 @@ Foreground="LightGray"
                             </PivotItem>
                         </Pivot>
                     </PivotItem>
-
 
 
                     <PivotItem Header="Pentametre">
@@ -274,13 +275,7 @@ Foreground="LightGray"
                 </Pivot>
 
 
-
-
-
             </StackPanel>
-
-
-
 
 
         </controls:UniformGrid>
