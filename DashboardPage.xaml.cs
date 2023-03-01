@@ -66,7 +66,6 @@ namespace ClassevivaPCTO
             */
 
 
-
             var api = RestService.For<IClassevivaAPI>("https://web.spaggiari.eu/rest/v1");
 
             string fixedId = new CvUtils().GetCode(parameters.Ident);
