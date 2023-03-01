@@ -11,6 +11,13 @@
     xmlns:animatedvisuals="using:Microsoft.UI.Xaml.Controls.AnimatedVisuals"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
+    <Page.Resources>
+
+
+
+
+    </Page.Resources>
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -48,7 +55,7 @@
             <!-- This control has a higher z-order than AppTitleBar, 
          so it receives user input. -->
             <AutoSuggestBox QueryIcon="Find"
-                    PlaceholderText="Search"
+                    PlaceholderText="Cerca"
                     HorizontalAlignment="Center"
                     Width="260" Height="32" />
         </Grid>
@@ -66,7 +73,7 @@
                               Margin="24,24,24,24"
             >
 
-            
+
             <StackPanel 
                 
                 Grid.ColumnSpan="1"
@@ -103,27 +110,72 @@
 
             </StackPanel>
 
-            <StackPanel 
-            VerticalAlignment="Stretch" HorizontalAlignment="Stretch" 
-                    CornerRadius="8"
+            <Grid                     CornerRadius="8"
                     Padding="12"
                     BorderThickness="1"
                     BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
                     Background="{ThemeResource CardBackgroundFillColorDefaultBrush}">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
 
-                <Button Content="Effettua il logout">
-                    <Button.Flyout>
-                        <Flyout>
-                            <StackPanel>
-                                <TextBlock Style="{ThemeResource BaseTextBlockStyle}" Text="Uscirai dall'app. Sei sicuro?" Margin="0,0,0,12" />
-                                <Button x:Name="asd2" Style="{StaticResource AccentButtonStyle}" Content="Effettua il logout" Height="32" Width="177" RenderTransformOrigin="2.13,0.797" HorizontalAlignment="Center"  Click="ButtonLogout_Click" VerticalAlignment="Top"/>
+                </Grid.ColumnDefinitions>
 
-                            </StackPanel>
-                        </Flyout>
-                    </Button.Flyout>
-                </Button>
+                <TextBlock Grid.Row="0" x:Name="textVoti" Text="Voti"   FontSize="24"  VerticalAlignment="Top" Margin="8" />
 
-            </StackPanel>
+
+                <ListView x:Name="listtest" Grid.Row="1" 
+    SelectionMode="Single"
+
+                              
+                          
+                         ScrollViewer.VerticalScrollBarVisibility="Visible"
+
+                              >
+
+                    <ListView.ItemTemplate>
+                        <DataTemplate >
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Ellipse x:Name="Ellipse"
+                    Grid.RowSpan="2"
+                    Width ="32"
+                    Height="32"
+                    Margin="6"
+                    
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center"
+                    Fill="{ThemeResource SystemControlBackgroundBaseMediumBrush}"/>
+
+                                <TextBlock Grid.Column="1"
+                    Text="{Binding subjectDesc}"
+
+                    Style="{ThemeResource BaseTextBlockStyle}"
+                    Margin="12,6,0,0"/>
+                                <TextBlock  Grid.Column="1"
+                    Grid.Row="1"
+                    Text="{Binding displayValue}"
+
+                    Style="{ThemeResource BodyTextBlockStyle}"
+                    Margin="12,0,0,6"/>
+                            </Grid>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
+
+
+            </Grid>
 
             <StackPanel
             VerticalAlignment="Stretch" HorizontalAlignment="Stretch" 

@@ -61,11 +61,11 @@ namespace ClassevivaPCTO
             }
 
 
-            loginGrid.KeyDown += MainPage_KeyDown;
+            loginGrid.KeyDown += grid_KeyDown;
         }
 
 
-        private async void MainPage_KeyDown(object sender, KeyRoutedEventArgs args)
+        private async void grid_KeyDown(object sender, KeyRoutedEventArgs args)
         {
             switch (args.Key)
             {
