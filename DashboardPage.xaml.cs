@@ -5,6 +5,7 @@ using Newtonsoft.Json.Serialization;
 using Refit;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -31,6 +32,8 @@ namespace ClassevivaPCTO
     /// </summary>
     public sealed partial class DashboardPage : Page
     {
+        public ObservableCollection<Grade> Voti { get; } = new ObservableCollection<Grade>();
+
         public DashboardPage()
         {
             this.InitializeComponent();
@@ -38,9 +41,16 @@ namespace ClassevivaPCTO
 
             //titolo title bar
             AppTitleTextBlock.Text = "Dashboard - " + AppInfo.Current.DisplayInfo.DisplayName;
-
             Window.Current.SetTitleBar(AppTitleBar);
-        }
+
+
+           
+
+
+
+
+
+    }
 
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
@@ -72,11 +82,9 @@ namespace ClassevivaPCTO
 
             var result1 = await api.GetGrades(fixedId, parameters.Token.ToString());
 
+            Voti.Concat(result1.Grades);
             
-            foreach(var result in result1.Grades)
-            {
-                textDati.Text += result.subjectDesc;
-            }
+            listtest.ItemsSource = result1.Grades;
             
             //textDati.Text = result1.Events.Count().ToString();
 
