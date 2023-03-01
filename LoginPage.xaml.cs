@@ -9,6 +9,7 @@ using Windows.ApplicationModel.Core;
 using Windows.Security.Credentials;
 using Windows.System;
 using Windows.UI;
+using Windows.UI.Core;
 using Windows.UI.Popups;
 using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
@@ -59,7 +60,22 @@ namespace ClassevivaPCTO
             }
 
 
+            CoreWindow.GetForCurrentThread().KeyDown += MainPage_KeyDown;
+        }
 
+
+        private async void MainPage_KeyDown(CoreWindow sender, KeyEventArgs args)
+        {
+            switch (args.VirtualKey)
+            {
+                case VirtualKey.Enter:
+
+                    await doLoginAsync();
+
+                    break;
+                default:
+                    break;
+            }
         }
 
         private async void Button_Click(object sender, RoutedEventArgs e)
@@ -89,14 +105,14 @@ namespace ClassevivaPCTO
 
                 LoginResult user = await api.LoginAsync(measurement);
 
-
+                /*
                 ContentDialog dialog = new ContentDialog();
                 dialog.Title = "Login completato";
                 dialog.PrimaryButtonText = "OK";
                 dialog.DefaultButton = ContentDialogButton.Primary;
                 dialog.Content = "Benvenuto " + user.FirstName + " " + user.LastName;
 
-                //var result = await dialog.ShowAsync();
+                //var result = await dialog.ShowAsync();*/
 
                 if ((bool)checkboxCredenziali.IsChecked)
                 {
@@ -117,7 +133,12 @@ namespace ClassevivaPCTO
                 dialog.DefaultButton = ContentDialogButton.Primary;
                 dialog.Content = "Errore durante il login. Controlla il nome utente e la password.";
 
-                var result = await dialog.ShowAsync();
+                try
+                {
+                    var result = await dialog.ShowAsync();
+                } catch(Exception e) {
+                    System.Console.WriteLine(e.ToString());
+                }
 
 
                 buttonLogin.Visibility = Visibility.Visible;
