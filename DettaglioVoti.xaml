@@ -1,0 +1,75 @@
+﻿<Page
+    x:Class="ClassevivaPCTO.DettaglioVoti"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ClassevivaPCTO"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+
+        <Pivot Title="VOTI" Margin="40,20,0,0">
+
+
+            <PivotItem Header="Trimestre">
+                <Pivot>
+                    <PivotItem Header="Italiano">
+                        <TextBlock Text="Ecco i tuoi voti di italiano" SelectionChanged="TextBlock_SelectionChanged_1" Margin="-216,-258,216,258" />
+                    </PivotItem>
+                    <PivotItem Header="Matematica">
+                        <TextBlock Text="Ecco i tuoi voti di matematica" />
+                    </PivotItem>
+                    <PivotItem Header="Matematica">
+                        <TextBlock Text="Ecco i tuoi voti di matematica" />
+                    </PivotItem>
+                    <PivotItem Header="Matematica">
+                        <TextBlock Text="Ecco i tuoi voti di matematica" />
+                    </PivotItem>
+                    <PivotItem Header="Matematica">
+                        <TextBlock Text="Ecco i tuoi voti di matematica" />
+                    </PivotItem>
+                    <PivotItem Header="Matematica">
+                        <TextBlock Text="Ecco i tuoi voti di matematica" />
+                    </PivotItem>
+                    <PivotItem Header="Matematica">
+                        <TextBlock Text="Ecco i tuoi voti di matematica" />
+                    </PivotItem>
+                </Pivot>
+            </PivotItem>
+
+
+            <PivotItem Header="Pentametre">
+                <Pivot>
+                    <PivotItem Header="Italiano">
+                        <TextBlock Text="Ecco i tuoi voti di italiano" />
+                    </PivotItem>
+                    <PivotItem Header="Matematica">
+                        <TextBlock Text="Ecco i tuoi voti di matematica" />
+                    </PivotItem>
+                    <PivotItem Header="Matematica">
+                        <TextBlock Text="Ecco i tuoi voti di matematica" />
+                    </PivotItem>
+                    <PivotItem Header="Matematica">
+                        <TextBlock Text="Ecco i tuoi voti di matematica" />
+                    </PivotItem>
+                    <PivotItem Header="Matematica">
+                        <TextBlock Text="Ecco i tuoi voti di matematica" />
+                    </PivotItem>
+                    <PivotItem Header="Matematica">
+                        <TextBlock Text="Ecco i tuoi voti di matematica" />
+                    </PivotItem>
+                    <PivotItem Header="Matematica">
+                        <TextBlock Text="Ecco i tuoi voti di matematica" />
+                    </PivotItem>
+                </Pivot>
+            </PivotItem>
+
+
+
+        </Pivot>
+        <HyperlinkButton Content="◀" 
+                 Click="HyperlinkButton_Click" AutomationProperties.PositionInSet="5" Margin="10,28,0,0" VerticalAlignment="Top"/>
+    </Grid>
+</Page>
