@@ -55,7 +55,7 @@ namespace ClassevivaPCTO
 
             LoginResult parameters = (LoginResult)e.Parameter;
 
-            TextBenvenuto.Text = "Benvenuto " + UppercaseFirst(parameters.FirstName) + " " + UppercaseFirst(parameters.LastName);
+            TextBenvenuto.Text = "Dashboard di " + UppercaseFirst(parameters.FirstName) + " " + UppercaseFirst(parameters.LastName);
 
 
 
