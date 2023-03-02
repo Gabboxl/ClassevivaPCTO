@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using Windows.ApplicationModel;
 using Windows.Devices.Enumeration;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI.Core;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -26,6 +28,11 @@ namespace ClassevivaPCTO
         public DettaglioVoti()
         {
             this.InitializeComponent();
+
+            //titolo title bar
+            AppTitleTextBlock.Text = "Dashboard - " + AppInfo.Current.DisplayInfo.DisplayName;
+            Window.Current.SetTitleBar(AppTitleBar);
+
         }
 
         private void TextBlock_SelectionChanged(object sender, RoutedEventArgs e)
