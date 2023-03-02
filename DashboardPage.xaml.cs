@@ -161,17 +161,7 @@ namespace ClassevivaPCTO
         }
 
 
-        private void Button_PointerEntered(object sender, PointerRoutedEventArgs e)
-        {
-            AnimatedIcon.SetState(this.SearchAnimatedIcon, "PointerOver");
-        }
-
-        private void Button_PointerExited(object sender, PointerRoutedEventArgs e)
-        {
-            AnimatedIcon.SetState(this.SearchAnimatedIcon, "Normal");
-        }
-
-
+      
 
         static string UppercaseFirst(string s)
         {
