@@ -153,21 +153,24 @@
                   BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
                   Background="{ThemeResource CardBackgroundFillColorDefaultBrush}">
                 <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
                     <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
 
-                <RelativePanel Grid.Row="0" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
 
-                <TextBlock x:Name="TextValRecenti" Text="Valutazioni recenti" FontSize="24" VerticalAlignment="Top" Margin="8" />
-                    <HyperlinkButton  RelativePanel.Below="Listtest" Content="Vedi tutti i voti"
-                 Click="HyperlinkButton_Click"
+                <TextBlock x:Name="TextValRecenti" Grid.Row="0" Text="Valutazioni recenti" FontSize="24" VerticalAlignment="Top" Margin="8" />
+                
+                
+                    <HyperlinkButton Grid.Row="2"  Content="Vedi tutti i voti"
+                 Click="HyperlinkButton_Click" VerticalAlignment="Bottom"
                 />
 
                    
-                    <ListView x:Name="Listtest" RelativePanel.Below="TextValRecenti"
+                    <ListView x:Name="Listtest" RelativePanel.Below="TextValRecenti" Grid.Row="1"
                           SelectionMode="Single"
                               
                               HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
@@ -237,8 +240,6 @@
                     </ListView.ItemTemplate>
                 </ListView>
 
-
-                </RelativePanel>
 
             </Grid>
 
