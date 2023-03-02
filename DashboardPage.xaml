@@ -22,6 +22,7 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
 
         </Grid.RowDefinitions>
@@ -84,15 +85,11 @@
             </Button>
         </Grid>
 
-        <TextBlock x:Name="TextBenvenuto" Text="Benvenuto " FontSize="42" Height="60" VerticalAlignment="Center"
-                   Margin="32,0,0,0" />
+        <TextBlock x:Name="TextBenvenuto"  Grid.Row="1" Text="test " FontSize="42" VerticalAlignment="Top"
+                   Margin="32,16,0,0" />
 
 
-        <TextBlock x:Name="TextDati" Text="test " TextWrapping="Wrap" FontSize="12" Height="40" Padding="0,0,0,0"
-                   VerticalAlignment="Top" Margin="32,114,88,0" />
-
-
-        <controls:UniformGrid Grid.Row="1"
+        <controls:UniformGrid Grid.Row="2"
                               ColumnSpacing="48" RowSpacing="48"
                               Margin="24,24,24,24">
 
@@ -136,7 +133,7 @@
 
                 <TextBlock Grid.Row="0" Text="Voti" FontSize="24" VerticalAlignment="Top" Margin="8" />
 
-                
+
                 <ListView x:Name="Listtest" Grid.Row="1"
                           SelectionMode="Single"
                           
@@ -172,7 +169,7 @@
                                            Style="{ThemeResource BaseTextBlockStyle}"
                                            Margin="12,6,0,0" />
 
-                                <TextBlock RelativePanel.Below="textMateria"
+                                    <TextBlock RelativePanel.Below="textMateria"
                                            TextWrapping="Wrap"
 
                                            Text="{Binding notesForFamily}"
@@ -180,14 +177,14 @@
                                            Style="{ThemeResource BodyTextBlockStyle}"
                                            Margin="12,0,0,6" />
 
-                                <TextBlock RelativePanel.RightOf="textMateria" x:Name="dataVoto"
+                                    <TextBlock RelativePanel.RightOf="textMateria" x:Name="dataVoto"
                                            Text="{Binding evtDate}"
 
                                            Foreground="LightGray"
                                            Style="{ThemeResource BaseTextBlockStyle}"
                                            Margin="12,6,0,0" />
 
-                                <TextBlock RelativePanel.RightOf="dataVoto"
+                                    <TextBlock RelativePanel.RightOf="dataVoto"
                                            Text="{Binding componentDesc}"
 
 
