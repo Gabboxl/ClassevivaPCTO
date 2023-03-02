@@ -33,6 +33,20 @@ namespace ClassevivaPCTO
             AppTitleTextBlock.Text = "Dashboard - " + AppInfo.Current.DisplayInfo.DisplayName;
             Window.Current.SetTitleBar(AppTitleBar);
 
+            var currentView = SystemNavigationManager.GetForCurrentView();
+            //currentView.AppViewBackButtonVisibility = AppViewBackButtonVisibility.Visible;
+
+            
+
+            currentView.BackRequested += (s, e) =>
+            {
+                Frame rootFrame = Window.Current.Content as Frame;
+                if (rootFrame.CanGoBack)
+                {
+                    rootFrame.GoBack();
+                }
+            };
+
         }
 
         private void TextBlock_SelectionChanged(object sender, RoutedEventArgs e)
