@@ -68,11 +68,11 @@ namespace ClassevivaPCTO
             var fiveMostRecent = result1.Grades.OrderByDescending(x => x.evtDate).Take(5);
             
             Listtest.ItemsSource = fiveMostRecent;
-            
+
             //textDati.Text = result1.Events.Count().ToString();
 
-           
 
+            PersonPictureDashboard.DisplayName = UppercaseFirst(parameters.FirstName) + " " + UppercaseFirst(parameters.LastName);
 
 
 
