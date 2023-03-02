@@ -58,27 +58,27 @@
 
             <!-- This control has a higher z-order than AppTitleBar, 
          so it receives user input. -->
-            <AutoSuggestBox QueryIcon="Find"
-                            PlaceholderText="Cerca"
-                            HorizontalAlignment="Center"
-                            Width="260" Height="32" />
 
 
-            <Button AutomationProperties.Name="Pie" Margin="500,0,0,0">
-                
 
-                <PersonPicture DisplayName="KsDDD sss" Width="36" Margin="0,0,0,0" >
-                    <PersonPicture.FocusVisualPrimaryBrush>
-                        <SolidColorBrush Color="{Binding ElementName=page}" />
-                    </PersonPicture.FocusVisualPrimaryBrush>
+            <Button AutomationProperties.Name="Pie" Margin="1272,0,0,0"
+        Background="Transparent"                    
+        BorderThickness="1.0"
+        BorderBrush="Black"
+        CornerRadius="20" VerticalAlignment="Top">
+
+                <PersonPicture DisplayName="KsDDD sss" Width="36" Foreground="Red">
+
                 </PersonPicture>
 
                 <Button.Flyout>
                     <MenuFlyout>
-                        <MenuFlyoutItem Text="Reset"/>
+                        <MenuFlyoutItem Text="Esci"
+                        x:Name="LogoutButton" Style="{StaticResource AccentButtonStyle}"
+                                    Height="32" Width="177"
+                                    RenderTransformOrigin="2.13,0.797" HorizontalAlignment="Center"
+                                    Click="ButtonLogout_Click" VerticalAlignment="Top" />
                         <MenuFlyoutSeparator/>
-                        <ToggleMenuFlyoutItem Text="Repeat" IsChecked="True"/>
-                        <ToggleMenuFlyoutItem Text="Shuffle" IsChecked="True"/>
                     </MenuFlyout>
                 </Button.Flyout>
 
@@ -86,22 +86,7 @@
 
 
 
-            <Button Content="Logout" Style="{StaticResource AccentButtonStyle}" HorizontalAlignment="Right"
-                    Margin="0,0,256,0">
-                <Button.Flyout>
-                    <Flyout>
-                        <StackPanel>
-                            <TextBlock Style="{ThemeResource BaseTextBlockStyle}" Text="Uscirai dall'app. Sei sicuro?"
-                                       Margin="0,0,0,12" />
-                            <Button x:Name="LogoutButton" Style="{StaticResource AccentButtonStyle}"
-                                    Content="Effettua il logout" Height="32" Width="177"
-                                    RenderTransformOrigin="2.13,0.797" HorizontalAlignment="Center"
-                                    Click="ButtonLogout_Click" VerticalAlignment="Top" />
 
-                        </StackPanel>
-                    </Flyout>
-                </Button.Flyout>
-            </Button>
         </Grid>
 
         <TextBlock x:Name="TextBenvenuto"  Grid.Row="1" Text="test " FontSize="42" VerticalAlignment="Top"
@@ -131,19 +116,12 @@
 
                 </Grid.ColumnDefinitions>
 
-                <TextBlock Grid.Row="0" Text="Voti" FontSize="24" VerticalAlignment="Top" Margin="8" />
 
 
-                <Button Width="75" PointerEntered="Button_PointerEntered" PointerExited="Button_PointerExited">
-                    <muxc:AnimatedIcon x:Name="SearchAnimatedIcon">
-                        <muxc:AnimatedIcon.Source>
-                            <animatedvisuals:AnimatedFindVisualSource />
-                        </muxc:AnimatedIcon.Source>
-                        <muxc:AnimatedIcon.FallbackIconSource>
-                            <muxc:SymbolIconSource Symbol="Find" />
-                        </muxc:AnimatedIcon.FallbackIconSource>
-                    </muxc:AnimatedIcon>
-                </Button>
+                <AutoSuggestBox QueryIcon="Find"
+                            PlaceholderText="Cerca"
+                            HorizontalAlignment="Center"
+                            Width="260" Height="32" />
 
             </Grid>
 
@@ -178,13 +156,13 @@
                           
                           ScrollViewer.VerticalScrollBarVisibility="Visible">
 
-                    <ListView.ItemTemplate>
+                        <ListView.ItemTemplate>
 
-                        <DataTemplate x:DataType="roba:Grade">
-                            <RelativePanel>
+                            <DataTemplate x:DataType="roba:Grade">
+                                <RelativePanel>
 
-                                <Grid RelativePanel.AlignVerticalCenterWithPanel="True" x:Name="gridVoto">
-                                    <Ellipse x:Name="Ellipse"
+                                    <Grid RelativePanel.AlignVerticalCenterWithPanel="True" x:Name="gridVoto">
+                                        <Ellipse x:Name="Ellipse"
                                              Grid.RowSpan="2"
                                              Width="42"
                                              Height="42"
@@ -193,22 +171,22 @@
 
                                              VerticalAlignment="Center"
                                              HorizontalAlignment="Center">
-                                        <!-- ="{ThemeResource SystemControlBackgroundBaseMediumBrush}" -->
-                                    </Ellipse>
-                                    <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center"
+                                            <!-- ="{ThemeResource SystemControlBackgroundBaseMediumBrush}" -->
+                                        </Ellipse>
+                                        <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center"
                                                Text="{x:Bind displayValue}" FontSize="14" Foreground="#FFFFFF" />
 
-                                </Grid>
+                                    </Grid>
 
-                                <RelativePanel RelativePanel.AlignVerticalCenterWithPanel="True" RelativePanel.RightOf="gridVoto">
-                                    <TextBlock x:Name="textMateria" TextWrapping="Wrap"
+                                    <RelativePanel RelativePanel.AlignVerticalCenterWithPanel="True" RelativePanel.RightOf="gridVoto">
+                                        <TextBlock x:Name="textMateria" TextWrapping="Wrap"
                                            MaxWidth="500"
                                            Text="{x:Bind subjectDesc}"
 
                                            Style="{ThemeResource BaseTextBlockStyle}"
                                            Margin="12,6,0,0" />
 
-                                    <TextBlock RelativePanel.Below="textMateria"
+                                        <TextBlock RelativePanel.Below="textMateria"
                                            TextWrapping="Wrap"
                                               
 
@@ -217,14 +195,14 @@
                                            Style="{ThemeResource BodyTextBlockStyle}"
                                            Margin="12,0,0,6" />
 
-                                    <TextBlock RelativePanel.RightOf="textMateria" x:Name="dataVoto"
+                                        <TextBlock RelativePanel.RightOf="textMateria" x:Name="dataVoto"
                                            Text="{x:Bind evtDate, Converter={StaticResource DateTimeToNormalDateConverter}}"
 
                                            Foreground="LightGray"
                                            Style="{ThemeResource BaseTextBlockStyle}"
                                            Margin="12,6,0,0" />
 
-                                    <TextBlock RelativePanel.RightOf="dataVoto"
+                                        <TextBlock RelativePanel.RightOf="dataVoto"
                                            Text="{x:Bind componentDesc}"
 
 
@@ -232,14 +210,14 @@
                                            Foreground="LightGray"
                                            Margin="12,6,0,0" />
 
+                                    </RelativePanel>
+
+
+
                                 </RelativePanel>
-
-
-
-                            </RelativePanel>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
 
 
             </Grid>
@@ -253,7 +231,7 @@
                 Background="{ThemeResource CardBackgroundFillColorDefaultBrush}">
 
 
-               
+
 
 
             </StackPanel>
