@@ -1,5 +1,4 @@
-﻿using Microsoft.Toolkit.Uwp.UI.Controls.TextToolbarSymbols;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using Refit;
 using System;
 using System.Collections.Generic;
@@ -20,11 +19,11 @@ namespace ClassevivaPCTO.Utils
 
     }
 
-    public class Absence
+    public class AbsenceEvent
     {
         public long? evtId { get; set; }
         public string evtCode { get; set; }
-        public string evtDate { get; set; }
+        public DateTime evtDate { get; set; }
         public long? evtHPos { get; set; }
         public long? evtValue { get; set; }
         public bool? isJustified { get; set; }
@@ -35,10 +34,10 @@ namespace ClassevivaPCTO.Utils
     }
 
 
-    public class AbsenceEvents
+    public class AbsencesResult
     {
         [JsonPropertyName("events")]
-        public List<Absence> Events { get; set; }
+        public List<AbsenceEvent> AbsenceEvents { get; set; }
     }
 
 
@@ -75,7 +74,7 @@ namespace ClassevivaPCTO.Utils
 
     }
 
-    public class GradesList
+    public class Grades2Result
     {
         [JsonPropertyName("grades")]
         public List<Grade> Grades { get; set; }
@@ -100,18 +99,53 @@ namespace ClassevivaPCTO.Utils
     }
 
 
+    public class Lesson
+    {
+        public long? evtId { get; set; }
+        public DateTime evtDate { get; set; }
+        public string evtCode { get; set; }
+        public long? evtHPos { get; set; }
+        public string evtDuration { get; set; }
+        public string classDesc { get; set; }
+        public string authorName { get; set; }
+        public long? subjectId { get; set; }
+        public string subjectCode { get; set; }
+        public string subjectDesc { get; set; }
+        public string lessonType { get; set; }
+        public string lessonArg { get; set; }
+
+    }
+
+
+    public class OverviewResult
+    {
+        [JsonPropertyName("lessons")]
+        public List<Lesson> Lessons { get; set; }
+
+        [JsonPropertyName("grades")]
+        public List<Grade> Grades { get; set; }
+
+        [JsonPropertyName("events")]
+        public List<AbsenceEvent> AbsenceEvents { get; set; }
+
+        //to implement notes array json of the API response
+    }
+
+
     [Headers("User-Agent: zorro/1.0", "Z-Dev-Apikey: +zorro+", "Content-Type: application/json")]
     public interface IClassevivaAPI
     {
-
         [Post("/auth/login/")]
         Task<LoginResult> LoginAsync([Body(BodySerializationMethod.Serialized)] LoginData logdata);
 
         [Get("/students/{userId}/absences/details")]
-        Task<AbsenceEvents> GetAbsences(string userId, [Header("Z-Auth-Token")] string token);
+        Task<AbsencesResult> GetAbsences(string userId, [Header("Z-Auth-Token")] string token);
 
         [Get("/students/{userId}/grades2")]
-        Task<GradesList> GetGrades(string userId, [Header("Z-Auth-Token")] string token);
+        Task<Grades2Result> GetGrades(string userId, [Header("Z-Auth-Token")] string token);
+
+        [Get("/students/{userId}/overview/all/{startDate}/{endDate}")]
+        Task<OverviewResult> GetOverview(string userId, string startDate, string endDate, [Header("Z-Auth-Token")] string token);
 
     }
 
