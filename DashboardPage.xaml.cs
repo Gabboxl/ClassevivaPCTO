@@ -71,6 +71,11 @@ namespace ClassevivaPCTO
             
             //textDati.Text = result1.Events.Count().ToString();
 
+           
+
+
+
+
         }
 
         /*

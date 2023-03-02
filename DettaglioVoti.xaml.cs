@@ -23,6 +23,8 @@ namespace ClassevivaPCTO
             var currentView = SystemNavigationManager.GetForCurrentView();
             //currentView.AppViewBackButtonVisibility = AppViewBackButtonVisibility.Visible;
 
+
+
             
 
             currentView.BackRequested += (s, e) =>
