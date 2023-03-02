@@ -132,6 +132,54 @@ namespace ClassevivaPCTO.Utils
     }
 
 
+
+    public class Card
+    {
+        public string ident { get; set; }
+        public string usrType { get; set; }
+        public long? usrId { get; set; }
+        public string miurSchoolCode { get; set; }
+        public string miurDivisionCode { get; set; }
+        public string firstName { get; set; }
+        public string lastName { get; set; }
+        public DateTime birthDate { get; set; }
+        public string fiscalCode { get; set; }
+        public string schCode { get; set; }
+        public string schName { get; set; }
+        public string schDedication { get; set; }
+        public string schCity { get; set; }
+        public string schProv { get; set; }
+
+    }
+
+
+    public class CardsResult
+    {
+        [JsonPropertyName("cards")]
+        public List<Card> Cards { get; set; }
+    }
+
+
+
+    public class Period
+    {
+        public string periodCode { get; set; }
+        public long? periodPos { get; set; }
+        public string periodDesc { get; set; }
+        public string isFinal { get; set; }
+        public DateTime dateStart { get; set; }
+        public DateTime dateEnd { get; set; }
+        public string miurDivisionCode { get; set; }
+    }
+
+
+    public class PeriodsResult
+    {
+        [JsonPropertyName("periods")]
+        public List<Period> Periods { get; set; }
+    }
+
+
     [Headers("User-Agent: zorro/1.0", "Z-Dev-Apikey: +zorro+", "Content-Type: application/json")]
     public interface IClassevivaAPI
     {
@@ -146,6 +194,12 @@ namespace ClassevivaPCTO.Utils
 
         [Get("/students/{userId}/overview/all/{startDate}/{endDate}")]
         Task<OverviewResult> GetOverview(string userId, string startDate, string endDate, [Header("Z-Auth-Token")] string token);
+
+        [Get("/students/{userId}/cards")]
+        Task<CardsResult> GetCards(string userId, [Header("Z-Auth-Token")] string token);
+
+        [Get("/students/{userId}/periods")]
+        Task<CardsResult> GetPeriods(string userId, [Header("Z-Auth-Token")] string token);
 
     }
 
