@@ -10,12 +10,14 @@
     xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
     xmlns:animatedvisuals="using:Microsoft.UI.Xaml.Controls.AnimatedVisuals"
     xmlns:converters="using:ClassevivaPCTO.Converters"
+    xmlns:roba="using:ClassevivaPCTO.Utils"
 
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
     muxc:BackdropMaterial.ApplyToRootOrPageBackground="True">
 
     <Page.Resources>
         <converters:GradeToColorConverter x:Key="GradeToColorConverter" />
+        <converters:DateTimeToNormalDateConverter x:Key="DateTimeToNormalDateConverter" />
     </Page.Resources>
 
 
@@ -134,13 +136,13 @@
                   BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
                   Background="{ThemeResource CardBackgroundFillColorDefaultBrush}">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="2000"/>
                 </Grid.ColumnDefinitions>
 
-                <RelativePanel>
+                <RelativePanel Grid.Row="0" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
 
                 <TextBlock x:Name="TextValRecenti" Text="Valutazioni recenti" FontSize="24" VerticalAlignment="Top" Margin="8" />
 
@@ -150,12 +152,14 @@
 
                     <ListView x:Name="Listtest" RelativePanel.Below="TextValRecenti"
                           SelectionMode="Single"
+                              
+                              HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
                           
                           ScrollViewer.VerticalScrollBarVisibility="Visible">
 
                     <ListView.ItemTemplate>
 
-                        <DataTemplate>
+                        <DataTemplate x:DataType="roba:Grade">
                             <RelativePanel>
 
                                 <Grid RelativePanel.AlignVerticalCenterWithPanel="True" x:Name="gridVoto">
@@ -164,42 +168,43 @@
                                              Width="42"
                                              Height="42"
                                              Margin="2"
-                                             Fill="{Binding decimalValue, Converter={StaticResource GradeToColorConverter}}"
+                                             Fill="{x:Bind decimalValue, Converter={StaticResource GradeToColorConverter}}"
 
                                              VerticalAlignment="Center"
                                              HorizontalAlignment="Center">
                                         <!-- ="{ThemeResource SystemControlBackgroundBaseMediumBrush}" -->
                                     </Ellipse>
                                     <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center"
-                                               Text="{Binding displayValue}" FontSize="14" Foreground="#FFFFFF" />
+                                               Text="{x:Bind displayValue}" FontSize="14" Foreground="#FFFFFF" />
 
                                 </Grid>
 
                                 <RelativePanel RelativePanel.AlignVerticalCenterWithPanel="True" RelativePanel.RightOf="gridVoto">
                                     <TextBlock x:Name="textMateria" TextWrapping="Wrap"
                                            MaxWidth="500"
-                                           Text="{Binding subjectDesc}"
+                                           Text="{x:Bind subjectDesc}"
 
                                            Style="{ThemeResource BaseTextBlockStyle}"
                                            Margin="12,6,0,0" />
 
                                     <TextBlock RelativePanel.Below="textMateria"
                                            TextWrapping="Wrap"
+                                              
 
-                                           Text="{Binding notesForFamily}"
+                                           Text="{x:Bind notesForFamily}"
 
                                            Style="{ThemeResource BodyTextBlockStyle}"
                                            Margin="12,0,0,6" />
 
                                     <TextBlock RelativePanel.RightOf="textMateria" x:Name="dataVoto"
-                                           Text="{Binding evtDate}"
+                                           Text="{x:Bind evtDate, Converter={StaticResource DateTimeToNormalDateConverter}}"
 
                                            Foreground="LightGray"
                                            Style="{ThemeResource BaseTextBlockStyle}"
                                            Margin="12,6,0,0" />
 
                                     <TextBlock RelativePanel.RightOf="dataVoto"
-                                           Text="{Binding componentDesc}"
+                                           Text="{x:Bind componentDesc}"
 
 
                                            Style="{ThemeResource BodyTextBlockStyle}"
