@@ -145,11 +145,11 @@
                 <RelativePanel Grid.Row="0" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
 
                 <TextBlock x:Name="TextValRecenti" Text="Valutazioni recenti" FontSize="24" VerticalAlignment="Top" Margin="8" />
+                    <HyperlinkButton  RelativePanel.RightOf="TextValRecenti" Content="Vedi tutti i voti"
+                 Click="HyperlinkButton_Click"
+                />
 
-                    <Button RelativePanel.RightOf="TextValRecenti" Content="Vedi tutti i voti"  >
-    
-                    </Button>
-
+                   
                     <ListView x:Name="Listtest" RelativePanel.Below="TextValRecenti"
                           SelectionMode="Single"
                               
@@ -234,64 +234,7 @@
                 Background="{ThemeResource CardBackgroundFillColorDefaultBrush}">
 
 
-                <Pivot Title="VOTI">
-
-
-                    <PivotItem Header="Trimestre">
-                        <Pivot>
-                            <PivotItem Header="Italiano">
-                                <TextBlock Text="Ecco i tuoi voti di italiano" />
-                            </PivotItem>
-                            <PivotItem Header="Matematica">
-                                <TextBlock Text="Ecco i tuoi voti di matematica" />
-                            </PivotItem>
-                            <PivotItem Header="Matematica">
-                                <TextBlock Text="Ecco i tuoi voti di matematica" />
-                            </PivotItem>
-                            <PivotItem Header="Matematica">
-                                <TextBlock Text="Ecco i tuoi voti di matematica" />
-                            </PivotItem>
-                            <PivotItem Header="Matematica">
-                                <TextBlock Text="Ecco i tuoi voti di matematica" />
-                            </PivotItem>
-                            <PivotItem Header="Matematica">
-                                <TextBlock Text="Ecco i tuoi voti di matematica" />
-                            </PivotItem>
-                            <PivotItem Header="Matematica">
-                                <TextBlock Text="Ecco i tuoi voti di matematica" />
-                            </PivotItem>
-                        </Pivot>
-                    </PivotItem>
-
-
-                    <PivotItem Header="Pentametre">
-                        <Pivot>
-                            <PivotItem Header="Italiano">
-                                <TextBlock Text="Ecco i tuoi voti di italiano" />
-                            </PivotItem>
-                            <PivotItem Header="Matematica">
-                                <TextBlock Text="Ecco i tuoi voti di matematica" />
-                            </PivotItem>
-                            <PivotItem Header="Matematica">
-                                <TextBlock Text="Ecco i tuoi voti di matematica" />
-                            </PivotItem>
-                            <PivotItem Header="Matematica">
-                                <TextBlock Text="Ecco i tuoi voti di matematica" />
-                            </PivotItem>
-                            <PivotItem Header="Matematica">
-                                <TextBlock Text="Ecco i tuoi voti di matematica" />
-                            </PivotItem>
-                            <PivotItem Header="Matematica">
-                                <TextBlock Text="Ecco i tuoi voti di matematica" />
-                            </PivotItem>
-                            <PivotItem Header="Matematica">
-                                <TextBlock Text="Ecco i tuoi voti di matematica" />
-                            </PivotItem>
-                        </Pivot>
-                    </PivotItem>
-
-
-                </Pivot>
+               
 
 
             </StackPanel>
