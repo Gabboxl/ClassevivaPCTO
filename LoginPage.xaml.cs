@@ -17,9 +17,6 @@ using Windows.UI.Xaml.Media.Animation;
 
 namespace ClassevivaPCTO
 {
-    /// <summary>
-    /// Pagina vuota che può essere usata autonomamente oppure per l'esplorazione all'interno di un frame.
-    /// </summary>
     public sealed partial class LoginPage : Page
     {
         public LoginPage()
