@@ -50,7 +50,7 @@ namespace ClassevivaPCTO.Utils
         public string subjectDesc { get; set; }
         public long? evtId { get; set; }
         public string evtCode { get; set; }
-        public string evtDate { get; set; }
+        public DateTime evtDate { get; set; }
         public float? decimalValue { get; set; }
         public string displayValue { get; set; }
         public long? displaPos { get; set; }
