@@ -125,7 +125,7 @@ namespace ClassevivaPCTO
                 dialog.Title = "Errore";
                 dialog.PrimaryButtonText = "OK";
                 dialog.DefaultButton = ContentDialogButton.Primary;
-                dialog.Content = "Errore durante il login. Controlla il nome utente e la password.";
+                dialog.Content = "Errore durante il login. Controlla il nome utente e la password. \n Erroe: " + ex.ToString();
 
                 try
                 {
