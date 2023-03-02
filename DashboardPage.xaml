@@ -363,6 +363,8 @@
                            VerticalAlignment="Center"
                            Margin="28,0,0,0" />
             </Grid>
+            
+            <!--
 
             <Button Margin="1272,0,0,0"
         Background="Transparent"                    
@@ -382,37 +384,39 @@
 
                     </MenuFlyout>
                 </Button.Flyout>
-            </Button>
+            </Button> -->
 
 
 
-            <Button Style="{StaticResource ProfileButtonStyle}">
-                <Button.ContextFlyout>
+            <Button Style="{StaticResource ProfileButtonStyle}" Margin="1000,0,0,0">
+              <!--  <Button.ContextFlyout>
                     <MenuFlyout>
-                        <MenuFlyoutItem
-                                
-                                Tag="CreateFeed"
-                                Text="tony"
-                                >
+                        <MenuFlyoutItem Text="Esci"
+                        x:Name="LogoutButton"
+                                    Height="32" Width="177"
+                                    RenderTransformOrigin="2.13,0.797" HorizontalAlignment="Center"
+                                    Click="ButtonLogout_Click" VerticalAlignment="Top" >
+
                             <MenuFlyoutItem.Icon>
-                                <FontIcon FontFamily="{StaticResource SymbolThemeFontFamily}" Glyph="&#xE932;" />
+                                <FontIcon FontFamily="{StaticResource SymbolThemeFontFamily}" Glyph="&#xE10B;" />
+                            </MenuFlyoutItem.Icon>
+                        </MenuFlyoutItem>
+                        
+                    </MenuFlyout>
+                </Button.ContextFlyout> -->
+                <Button.Flyout>
+                    <MenuFlyout x:Name="ProfileFlyout">
+                        <MenuFlyoutItem Text="Esci"
+                        x:Name="LogoutButton2"
+                                    Height="32" Width="177"
+                                    RenderTransformOrigin="2.13,0.797" HorizontalAlignment="Center"
+                                    Click="ButtonLogout_Click" VerticalAlignment="Top" >
+
+                            <MenuFlyoutItem.Icon>
+                                <FontIcon FontFamily="{StaticResource SymbolThemeFontFamily}" Glyph="&#xE10B;" />
                             </MenuFlyoutItem.Icon>
                         </MenuFlyoutItem>
                     </MenuFlyout>
-                </Button.ContextFlyout>
-                <Button.Flyout>
-                    <Flyout x:Name="ProfileFlyout">
-                        <Flyout.FlyoutPresenterStyle>
-                            <Style BasedOn="{StaticResource DefaultFlyoutPresenterStyle}" TargetType="FlyoutPresenter">
-                                <Setter Property="Padding" Value="0" />
-                                <Setter Property="ScrollViewer.VerticalScrollMode" Value="Disabled" />
-                                <Setter Property="ScrollViewer.HorizontalScrollMode" Value="Disabled" />
-                                <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Disabled" />
-                                <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled" />
-                            </Style>
-                        </Flyout.FlyoutPresenterStyle>
-                        <controlscust:ProfileFlyoutControl FlyoutBase="{x:Bind ProfileFlyout, Mode=OneWay}" />
-                    </Flyout>
                 </Button.Flyout>
                 <muxc:PersonPicture
                         Width="42"
