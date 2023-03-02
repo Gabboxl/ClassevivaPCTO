@@ -16,9 +16,6 @@
 
     <Page.Resources>
         <converters:GradeToColorConverter x:Key="GradeToColorConverter" />
-        <Style TargetType="ListViewItem">
-            <Setter Property="HorizontalContentAlignment" Value="Stretch" />
-        </Style>
     </Page.Resources>
 
 
@@ -139,9 +136,10 @@
 
                 <TextBlock Grid.Row="0" Text="Voti" FontSize="24" VerticalAlignment="Top" Margin="8" />
 
-
+                
                 <ListView x:Name="Listtest" Grid.Row="1"
                           SelectionMode="Single"
+                          
                           ScrollViewer.VerticalScrollBarVisibility="Visible">
 
                     <ListView.ItemTemplate>
@@ -166,15 +164,15 @@
 
                                 </Grid>
 
-
-                                <TextBlock RelativePanel.RightOf="gridVoto" x:Name="textMateria" TextWrapping="Wrap"
+                                <RelativePanel RelativePanel.AlignVerticalCenterWithPanel="True" RelativePanel.RightOf="gridVoto">
+                                    <TextBlock x:Name="textMateria" TextWrapping="Wrap"
                                            MaxWidth="500"
                                            Text="{Binding subjectDesc}"
 
                                            Style="{ThemeResource BaseTextBlockStyle}"
                                            Margin="12,6,0,0" />
 
-                                <TextBlock RelativePanel.Below="textMateria" RelativePanel.RightOf="gridVoto"
+                                <TextBlock RelativePanel.Below="textMateria"
                                            TextWrapping="Wrap"
 
                                            Text="{Binding notesForFamily}"
@@ -196,6 +194,9 @@
                                            Style="{ThemeResource BodyTextBlockStyle}"
                                            Foreground="LightGray"
                                            Margin="12,6,0,0" />
+
+                                </RelativePanel>
+
 
 
                             </RelativePanel>
