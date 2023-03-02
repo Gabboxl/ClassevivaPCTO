@@ -94,7 +94,7 @@
                               Margin="24,24,24,24">
 
 
-            <StackPanel
+            <Grid
 
                 Grid.ColumnSpan="1"
                 VerticalAlignment="Stretch" HorizontalAlignment="Stretch"
@@ -103,25 +103,6 @@
                 BorderThickness="1"
                 BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
                 Background="{ThemeResource CardBackgroundFillColorDefaultBrush}">
-
-                <Button Width="75" PointerEntered="Button_PointerEntered" PointerExited="Button_PointerExited">
-                    <muxc:AnimatedIcon x:Name="SearchAnimatedIcon">
-                        <muxc:AnimatedIcon.Source>
-                            <animatedvisuals:AnimatedFindVisualSource />
-                        </muxc:AnimatedIcon.Source>
-                        <muxc:AnimatedIcon.FallbackIconSource>
-                            <muxc:SymbolIconSource Symbol="Find" />
-                        </muxc:AnimatedIcon.FallbackIconSource>
-                    </muxc:AnimatedIcon>
-                </Button>
-
-            </StackPanel>
-
-            <Grid CornerRadius="8"
-                  Padding="12"
-                  BorderThickness="1"
-                  BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
-                  Background="{ThemeResource CardBackgroundFillColorDefaultBrush}">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="*" />
@@ -134,7 +115,40 @@
                 <TextBlock Grid.Row="0" Text="Voti" FontSize="24" VerticalAlignment="Top" Margin="8" />
 
 
-                <ListView x:Name="Listtest" Grid.Row="1"
+                <Button Width="75" PointerEntered="Button_PointerEntered" PointerExited="Button_PointerExited">
+                    <muxc:AnimatedIcon x:Name="SearchAnimatedIcon">
+                        <muxc:AnimatedIcon.Source>
+                            <animatedvisuals:AnimatedFindVisualSource />
+                        </muxc:AnimatedIcon.Source>
+                        <muxc:AnimatedIcon.FallbackIconSource>
+                            <muxc:SymbolIconSource Symbol="Find" />
+                        </muxc:AnimatedIcon.FallbackIconSource>
+                    </muxc:AnimatedIcon>
+                </Button>
+
+            </Grid>
+
+            <Grid CornerRadius="8"
+                  Padding="12"
+                  BorderThickness="1"
+                  BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
+                  Background="{ThemeResource CardBackgroundFillColorDefaultBrush}">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <RelativePanel>
+
+                <TextBlock x:Name="TextValRecenti" Text="Valutazioni recenti" FontSize="24" VerticalAlignment="Top" Margin="8" />
+
+                    <Button RelativePanel.RightOf="TextValRecenti" Content="Vedi tutti i voti"  >
+    
+                    </Button>
+
+                    <ListView x:Name="Listtest" RelativePanel.Below="TextValRecenti"
                           SelectionMode="Single"
                           
                           ScrollViewer.VerticalScrollBarVisibility="Visible">
@@ -201,6 +215,8 @@
                     </ListView.ItemTemplate>
                 </ListView>
 
+
+                </RelativePanel>
 
             </Grid>
 
