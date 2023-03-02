@@ -17,7 +17,7 @@ namespace ClassevivaPCTO
             this.InitializeComponent();
 
             //titolo title bar
-            AppTitleTextBlock.Text = "Dashboard - " + AppInfo.Current.DisplayInfo.DisplayName;
+            AppTitleTextBlock.Text = "Dettaglio voti - " + AppInfo.Current.DisplayInfo.DisplayName;
             Window.Current.SetTitleBar(AppTitleBar);
 
             var currentView = SystemNavigationManager.GetForCurrentView();
@@ -34,6 +34,15 @@ namespace ClassevivaPCTO
                 }
             };
 
+        }
+
+        public void GoBack(object sender, RoutedEventArgs e)
+        {
+            Frame rootFrame = Window.Current.Content as Frame;
+            if (rootFrame.CanGoBack)
+            {
+                rootFrame.GoBack();
+            }
         }
 
         private void TextBlock_SelectionChanged(object sender, RoutedEventArgs e)
