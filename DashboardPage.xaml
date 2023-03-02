@@ -344,7 +344,7 @@
                 
                 
                 
-                <Image Source="Assets/WindowIcon.png"
+                <Image 
                        Grid.Column="1"
                        HorizontalAlignment="Left"
                        Width="16" Height="16"
@@ -373,7 +373,7 @@
                 <Button.Flyout>
                     <MenuFlyout>
                         <MenuFlyoutItem Text="Esci"
-                        x:Name="LogoutButton" Style="{StaticResource AccentButtonStyle}"
+                        x:Name="LogoutButton"
                                     Height="32" Width="177"
                                     RenderTransformOrigin="2.13,0.797" HorizontalAlignment="Center"
                                     Click="ButtonLogout_Click" VerticalAlignment="Top" >
