@@ -11,6 +11,7 @@ using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.ApplicationModel;
+using Windows.Devices.Enumeration;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.System;
@@ -181,6 +182,16 @@ namespace ClassevivaPCTO
             s = s.ToLower();
             // Return char and concat substring.
             return char.ToUpper(s[0]) + s.Substring(1);
+        }
+
+        private void TextValRecenti_SelectionChanged(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void HyperlinkButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(DettaglioVoti));
         }
     }
 }
