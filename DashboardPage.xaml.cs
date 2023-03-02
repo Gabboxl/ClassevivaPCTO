@@ -80,8 +80,10 @@ namespace ClassevivaPCTO
             var result1 = await api.GetGrades(fixedId, parameters.Token.ToString());
 
             Voti.Concat(result1.Grades);
+
+            var fiveMostRecent = result1.Grades.OrderByDescending(x => x.evtDate).Take(5);
             
-            Listtest.ItemsSource = result1.Grades;
+            Listtest.ItemsSource = fiveMostRecent;
             
             //textDati.Text = result1.Events.Count().ToString();
 
