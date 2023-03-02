@@ -388,7 +388,7 @@
 
 
 
-            <Button Style="{StaticResource ProfileButtonStyle}" Margin="1000,0,0,0">
+            <Button Style="{StaticResource ProfileButtonStyle}" HorizontalAlignment="Right" Margin="0,0,200,0">
               <!--  <Button.ContextFlyout>
                     <MenuFlyout>
                         <MenuFlyoutItem Text="Esci"
@@ -422,6 +422,7 @@
                         Width="42"
                         Height="42"
                         DisplayName="asdddd b"
+                    x:Name="PersonPictureDashboard"
                          />
             </Button>
 
