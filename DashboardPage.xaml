@@ -298,10 +298,6 @@
                 </Grid.ColumnDefinitions>
                 
                 
-                
-                
-                
-                
                 <!-- 
                             <Grid.ChildrenTransitions>
                 <TransitionCollection>
@@ -338,12 +334,7 @@
             </Grid>
                 
                 -->
-                
-                
-                
-                
-                
-                
+
                 <Image 
                        Grid.Column="1"
                        HorizontalAlignment="Left"
@@ -357,17 +348,11 @@
                            Margin="28,0,0,0" />
             </Grid>
 
-            <!-- This control has a higher z-order than AppTitleBar, 
-         so it receives user input. -->
-
-
-
             <Button Margin="1272,0,0,0"
         Background="Transparent"                    
         CornerRadius="20" VerticalAlignment="Top">
 
                 <PersonPicture DisplayName="KsDDD sss" Width="36">
-
                 </PersonPicture>
 
                 <Button.Flyout>
@@ -381,7 +366,6 @@
 
                     </MenuFlyout>
                 </Button.Flyout>
-
             </Button>
 
 
@@ -396,40 +380,6 @@
                                 >
                             <MenuFlyoutItem.Icon>
                                 <FontIcon FontFamily="{StaticResource SymbolThemeFontFamily}" Glyph="&#xE932;" />
-                            </MenuFlyoutItem.Icon>
-                        </MenuFlyoutItem>
-                        <MenuFlyoutSeparator  />
-                        <MenuFlyoutItem
-                                
-                            
-                            
-                                Tag="Settings"
-                                Text="设置">
-                            <MenuFlyoutItem.Icon>
-                                <FontIcon FontFamily="{StaticResource SymbolThemeFontFamily}" Glyph="&#xE713;" />
-                            </MenuFlyoutItem.Icon>
-                        </MenuFlyoutItem>
-                        <MenuFlyoutItem
-                                
-                            
-                            
-                                Tag="Logout"
-                                Text="triplo"
-                                >
-
-                            <MenuFlyoutItem.Icon>
-                                <FontIcon FontFamily="{StaticResource SymbolThemeFontFamily}" Glyph="&#xE8D4;" />
-                            </MenuFlyoutItem.Icon>
-                        </MenuFlyoutItem>
-                        <MenuFlyoutItem
-                               
-                            
-                            
-                                Tag="Login"
-                                Text="tony">
-
-                            <MenuFlyoutItem.Icon>
-                                <FontIcon FontFamily="{StaticResource SymbolThemeFontFamily}" Glyph="&#xE78B;" />
                             </MenuFlyoutItem.Icon>
                         </MenuFlyoutItem>
                     </MenuFlyout>
@@ -449,21 +399,11 @@
                     </Flyout>
                 </Button.Flyout>
                 <muxc:PersonPicture
-                        Width="28"
-                        Height="28"
-                        DisplayName="asdddd"
+                        Width="42"
+                        Height="42"
+                        DisplayName="asdddd b"
                          />
             </Button>
-
-
-
-
-
-
-
-
-
-
 
 
         </Grid>
