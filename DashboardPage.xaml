@@ -63,11 +63,28 @@
                             HorizontalAlignment="Center"
                             Width="260" Height="32" />
 
-            <PersonPicture DisplayName="KsDDD sss" Width="36" Margin="500,0,0,0">
-                <PersonPicture.FocusVisualPrimaryBrush>
-                    <SolidColorBrush Color="{Binding ElementName=page}" />
-                </PersonPicture.FocusVisualPrimaryBrush>
-            </PersonPicture>
+
+            <Button AutomationProperties.Name="Pie" Margin="500,0,0,0">
+                
+
+                <PersonPicture DisplayName="KsDDD sss" Width="36" Margin="0,0,0,0" >
+                    <PersonPicture.FocusVisualPrimaryBrush>
+                        <SolidColorBrush Color="{Binding ElementName=page}" />
+                    </PersonPicture.FocusVisualPrimaryBrush>
+                </PersonPicture>
+
+                <Button.Flyout>
+                    <MenuFlyout>
+                        <MenuFlyoutItem Text="Reset"/>
+                        <MenuFlyoutSeparator/>
+                        <ToggleMenuFlyoutItem Text="Repeat" IsChecked="True"/>
+                        <ToggleMenuFlyoutItem Text="Shuffle" IsChecked="True"/>
+                    </MenuFlyout>
+                </Button.Flyout>
+
+            </Button>
+
+
 
             <Button Content="Logout" Style="{StaticResource AccentButtonStyle}" HorizontalAlignment="Right"
                     Margin="0,0,256,0">
@@ -139,13 +156,13 @@
                     <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="2000"/>
+                    <ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>
 
                 <RelativePanel Grid.Row="0" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
 
                 <TextBlock x:Name="TextValRecenti" Text="Valutazioni recenti" FontSize="24" VerticalAlignment="Top" Margin="8" />
-                    <HyperlinkButton  RelativePanel.RightOf="TextValRecenti" Content="Vedi tutti i voti"
+                    <HyperlinkButton  RelativePanel.Below="Listtest" Content="Vedi tutti i voti"
                  Click="HyperlinkButton_Click"
                 />
 
