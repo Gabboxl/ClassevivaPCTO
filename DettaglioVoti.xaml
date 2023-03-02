@@ -8,6 +8,7 @@
     mc:Ignorable="d"
     xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
     xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
+    xmlns:animatedvisuals="using:Microsoft.UI.Xaml.Controls.AnimatedVisuals"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
     muxc:BackdropMaterial.ApplyToRootOrPageBackground="True">
 
@@ -20,8 +21,22 @@
                 <RowDefinition />
             </Grid.RowDefinitions>
 
+            <RelativePanel>
 
-            <Grid x:Name="AppTitleBar" Background="Transparent">
+            <Button
+               x:Name="AppTitleBarBackButton">
+                <muxc:AnimatedIcon x:Name="SearchAnimatedIcon">
+                    <muxc:AnimatedIcon.Source>
+                        <animatedvisuals:AnimatedBackVisualSource/>
+                    </muxc:AnimatedIcon.Source>
+                    <muxc:AnimatedIcon.FallbackIconSource>
+                        <muxc:SymbolIconSource Symbol="Back"/>
+                    </muxc:AnimatedIcon.FallbackIconSource>
+                </muxc:AnimatedIcon>
+            </Button>
+            
+
+            <Grid x:Name="AppTitleBar" Background="Transparent" RelativePanel.RightOf="AppTitleBarBackButton">
                 <!-- Width of the padding columns is set in LayoutMetricsChanged handler. -->
                 <!-- Using padding columns instead of Margin ensures that the background
              paints the area under the caption control buttons (for transparent buttons). -->
@@ -30,6 +45,8 @@
                     <ColumnDefinition />
                     <ColumnDefinition x:Name="RightPaddingColumn" Width="0" />
                 </Grid.ColumnDefinitions>
+
+      
                 <Image Source="Assets/WindowIcon.png"
                        Grid.Column="1"
                        HorizontalAlignment="Left"
@@ -42,6 +59,9 @@
                            VerticalAlignment="Center"
                            Margin="28,0,0,0" />
             </Grid>
+
+
+            </RelativePanel>
 
         </Grid>
 
@@ -104,7 +124,6 @@
 
 
         </Pivot>
-        <HyperlinkButton Content="◀" 
-                 Click="HyperlinkButton_Click" AutomationProperties.PositionInSet="5" Margin="10,28,0,0" VerticalAlignment="Top"/>
+
     </Grid>
 </Page>
