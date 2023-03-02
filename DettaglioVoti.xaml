@@ -23,20 +23,91 @@
 
             <RelativePanel>
 
-            <Button
-               x:Name="AppTitleBarBackButton">
-                <muxc:AnimatedIcon x:Name="SearchAnimatedIcon">
-                    <muxc:AnimatedIcon.Source>
-                        <animatedvisuals:AnimatedBackVisualSource/>
-                    </muxc:AnimatedIcon.Source>
-                    <muxc:AnimatedIcon.FallbackIconSource>
-                        <muxc:SymbolIconSource Symbol="Back"/>
-                    </muxc:AnimatedIcon.FallbackIconSource>
-                </muxc:AnimatedIcon>
-            </Button>
-            
 
-            <Grid x:Name="AppTitleBar" Background="Transparent" RelativePanel.RightOf="AppTitleBarBackButton">
+                <Button
+                    RelativePanel.AlignVerticalCenterWithPanel="True"
+x:Name="AppTitleBarBackButton"
+                    Click="GoBack"
+                Background="{ThemeResource NavigationViewBackButtonBackground}"
+                Foreground="{ThemeResource NavigationViewItemForeground}" 
+                FontFamily="{ThemeResource SymbolThemeFontFamily}"
+                FontSize="16"
+                Height="{ThemeResource NavigationBackButtonHeight}" 
+                Width="{ThemeResource NavigationBackButtonWidth}" 
+                HorizontalContentAlignment="Center" 
+                VerticalContentAlignment="Center" 
+                UseSystemFocusVisuals="{StaticResource UseSystemFocusVisuals}" 
+                Margin="4,2" 
+                     BorderThickness="0"
+                CornerRadius="{ThemeResource ControlCornerRadius}" >
+
+                    <Grid
+                        x:Name="RootGrid">
+
+                        <muxc:AnimatedIcon
+                            xmlns:local="using:Microsoft.UI.Xaml.Controls"
+                            x:Name="Content"
+                            Width="16"
+                            Height="16"
+
+                            local:AnimatedIcon.State="Normal"
+                            AutomationProperties.AccessibilityView="Raw"
+                            MirroredWhenRightToLeft="True">
+                            <animatedvisuals:AnimatedBackVisualSource />
+                            <muxc:AnimatedIcon.FallbackIconSource>
+                                <muxc:SymbolIconSource Symbol="Back" />
+                            </muxc:AnimatedIcon.FallbackIconSource>
+                        </muxc:AnimatedIcon>
+
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="CommonStates">
+                                <VisualState x:Name="Normal" />
+
+                                <VisualState x:Name="PointerOver">
+
+                                    <Storyboard>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="RootGrid" Storyboard.TargetProperty="Background">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource NavigationViewButtonBackgroundPointerOver}" />
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Content" Storyboard.TargetProperty="Foreground">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource NavigationViewButtonForegroundPointerOver}" />
+                                        </ObjectAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                    <VisualState.Setters>
+                                        <Setter Target="Content.(AnimatedIcon.State)" Value="PointerOver" />
+                                    </VisualState.Setters>
+                                </VisualState>
+
+                                <VisualState x:Name="Pressed">
+
+                                    <Storyboard>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="RootGrid" Storyboard.TargetProperty="Background">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource NavigationViewButtonBackgroundPressed}" />
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Content" Storyboard.TargetProperty="Foreground">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource NavigationViewButtonForegroundPressed}" />
+                                        </ObjectAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                    <VisualState.Setters>
+                                        <Setter Target="Content.(AnimatedIcon.State)" Value="Pressed" />
+                                    </VisualState.Setters>
+                                </VisualState>
+
+                                <VisualState x:Name="Disabled">
+                                    <Storyboard>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Content" Storyboard.TargetProperty="Foreground">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource NavigationViewButtonForegroundDisabled}" />
+                                        </ObjectAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                    </Grid>
+                </Button>
+
+
+                <Grid x:Name="AppTitleBar" Background="Transparent" RelativePanel.RightOf="AppTitleBarBackButton"
+                       RelativePanel.AlignVerticalCenterWithPanel="True">
                 <!-- Width of the padding columns is set in LayoutMetricsChanged handler. -->
                 <!-- Using padding columns instead of Margin ensures that the background
              paints the area under the caption control buttons (for transparent buttons). -->

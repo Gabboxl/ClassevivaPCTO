@@ -15,7 +15,7 @@
 
   <Properties>
     <DisplayName>ClassevivaPCTO</DisplayName>
-    <PublisherDisplayName>***REMOVED***</PublisherDisplayName>
+    <PublisherDisplayName>Gabboxl</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
 
@@ -39,6 +39,8 @@
         BackgroundColor="transparent">
         <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png"/>
         <uap:SplashScreen Image="Assets\SplashScreen.png" />
+        <uap:InitialRotationPreference>
+          <uap:Rotation Preference="landscape"/></uap:InitialRotationPreference>
       </uap:VisualElements>
     </Application>
   </Applications>
