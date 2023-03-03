@@ -148,7 +148,7 @@
                                     Click="ButtonLogout_Click" VerticalAlignment="Top" >
 
                             <MenuFlyoutItem.Icon>
-                                <FontIcon FontFamily="{StaticResource SymbolThemeFontFamily}" Glyph="&#xE10B;" />
+                                <FontIcon FontFamily="{StaticResource SymbolThemeFontFamily}" Glyph="&#xE112;" />
                             </MenuFlyoutItem.Icon>
                         </MenuFlyoutItem>
                     </MenuFlyout>
@@ -342,9 +342,10 @@
 
                 </Grid.ColumnDefinitions>
 
-                <TextBlock Text="Ecco la media dei tuoi voti"  Grid.RowSpan="2" RenderTransformOrigin="0.513,3.263" FontSize="50" HorizontalAlignment="Center" VerticalAlignment="Top" Width="607" Margin="36,76,0,0"/>
-                <TextBlock x:Name="TextBlockMedia" Text="gdsgfdggdfgfdgfd"  Grid.RowSpan="2" SelectionChanged="TextBlock_SelectionChanged" HorizontalAlignment="Center" FontSize="45" FontWeight="Bold" VerticalAlignment="Center"  />
-
+                <StackPanel Grid.Row="0" Grid.RowSpan="2" VerticalAlignment="Center">
+                <TextBlock TextWrapping="Wrap" TextAlignment="Center"  Text="Ecco la media dei tuoi voti"    FontSize="50" HorizontalAlignment="Center" VerticalAlignment="Top" />
+                <TextBlock  x:Name="TextBlockMedia" Text="gdsgfdggdfgfdgfd"   HorizontalAlignment="Center" FontSize="45" FontWeight="Bold" VerticalAlignment="Center"  />
+                </StackPanel>
 
             </Grid>
             <StackPanel
