@@ -1,12 +1,15 @@
-﻿using ClassevivaPCTO.Utils;
+﻿using ClassevivaPCTO.Converters;
+using ClassevivaPCTO.Utils;
 using Microsoft.UI.Xaml.Controls;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
 using Newtonsoft.Json.Serialization;
 using Refit;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -24,6 +27,10 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Animation;
 using Windows.UI.Xaml.Navigation;
 using static System.Net.Mime.MediaTypeNames;
+
+
+
+
 
 // Il modello di elemento Pagina vuota è documentato all'indirizzo https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -57,7 +64,7 @@ namespace ClassevivaPCTO
             LoginResult parameters = (LoginResult)e.Parameter;
 
             TextBenvenuto.Text = "Dashboard di " + UppercaseFirst(parameters.FirstName) + " " + UppercaseFirst(parameters.LastName);
-
+           
 
 
             /*
@@ -85,57 +92,98 @@ namespace ClassevivaPCTO
             var fiveMostRecent = result1.Grades.OrderByDescending(x => x.evtDate).Take(5);
             
             Listtest.ItemsSource = fiveMostRecent;
-            
+
             //textDati.Text = result1.Events.Count().ToString();
 
+
+            List<float?> voti = new List<float?>();
+
+            foreach(Grade voto in result1.Grades)
+            {
+                voti.Add(voto.decimalValue);
+            }
+
+
+
+            // Simuliamo l'acquisizione dei voti dal server Classeviva
+
+          
+                // Calcoliamo la media dei voti
+                float media = CalcolaMedia(voti);
+
+            TextBlockMedia.Foreground = (Brush)new GradeToColorConverter().Convert(media,null,null,null);
+
+          
+
+
+
+            // Stampiamo la media dei voti
+            TextBlockMedia.Text = media.ToString("0.00");
+
+
+
         }
 
-        /*
-        public class CustomIntConverter : JsonConverter
+        static float CalcolaMedia(List<float?> voti)
         {
-            public override bool CanConvert(Type objectType)
+            float somma = 0;
+
+            foreach (float voto in voti)
             {
-                return objectType == typeof(int);
+                somma += voto;
             }
 
-            public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
-            {
-                if (reader.Value == null)
-                {
-                    return null;
-                }
+            return (float)somma / voti.Count;
 
-                if (reader.ValueType == typeof(string))
-                {
-                    if (int.TryParse((string)reader.Value, out int result))
-                    {
-                        return result;
-                    }
-                }
+        }
+    
 
-                if (reader.ValueType == typeof(long))
-                {
-                    long longValue = (long)reader.Value;
-                    if (int.MinValue <= longValue && longValue <= int.MaxValue)
-                    {
-                        return (int)longValue;
-                    }
-                }
-
-                throw new JsonSerializationException("Invalid integer value.");
-            }
-
-            public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
-            {
-                writer.WriteValue(value);
-            }
+    /*
+    public class CustomIntConverter : JsonConverter
+    {
+        public override bool CanConvert(Type objectType)
+        {
+            return objectType == typeof(int);
         }
 
-        */
+        public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
+        {
+            if (reader.Value == null)
+            {
+                return null;
+            }
+
+            if (reader.ValueType == typeof(string))
+            {
+                if (int.TryParse((string)reader.Value, out int result))
+                {
+                    return result;
+                }
+            }
+
+            if (reader.ValueType == typeof(long))
+            {
+                long longValue = (long)reader.Value;
+                if (int.MinValue <= longValue && longValue <= int.MaxValue)
+                {
+                    return (int)longValue;
+                }
+            }
+
+            throw new JsonSerializationException("Invalid integer value.");
+        }
+
+        public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
+        {
+            writer.WriteValue(value);
+        }
+    }
+
+    */
 
 
 
-        private async void ButtonLogout_Click(object sender, RoutedEventArgs e)
+    private async void ButtonLogout_Click(object sender, RoutedEventArgs e)
         {
 
             var loginCredential = new CredUtils().GetCredentialFromLocker();
@@ -184,6 +232,11 @@ namespace ClassevivaPCTO
         private void HyperlinkButton_Click(object sender, RoutedEventArgs e)
         {
             this.Frame.Navigate(typeof(DettaglioVoti));
+        }
+
+        private void TextBlock_SelectionChanged(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

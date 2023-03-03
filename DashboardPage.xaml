@@ -61,7 +61,7 @@
 
 
 
-            <Button AutomationProperties.Name="Pie" Margin="1272,0,0,0"
+            <Button  Margin="1272,0,0,0"
         Background="Transparent"                    
         BorderThickness="1.0"
         BorderBrush="Black"
@@ -218,8 +218,35 @@
 
                 </RelativePanel>
 
+
             </Grid>
 
+
+            <Grid
+
+
+
+                Grid.ColumnSpan="1"
+                VerticalAlignment="Stretch" HorizontalAlignment="Stretch"
+                CornerRadius="8"
+                Padding="12"
+                BorderThickness="1"
+                BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
+                Background="{ThemeResource CardBackgroundFillColorDefaultBrush}">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Text="Ecco la media dei tuoi voti"  Grid.RowSpan="2" RenderTransformOrigin="0.513,3.263" FontSize="50" HorizontalAlignment="Center" VerticalAlignment="Top" Width="607" Margin="36,76,0,0"/>
+                <TextBlock x:Name="TextBlockMedia" Text="gdsgfdggdfgfdgfd"  Grid.RowSpan="2" SelectionChanged="TextBlock_SelectionChanged" HorizontalAlignment="Center" FontSize="45" FontWeight="Bold" VerticalAlignment="Center"  />
+
+
+            </Grid>
             <StackPanel
                 VerticalAlignment="Stretch" HorizontalAlignment="Stretch"
                 CornerRadius="8"
