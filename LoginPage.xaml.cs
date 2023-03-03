@@ -27,9 +27,9 @@ namespace ClassevivaPCTO
             this.InitializeComponent();
 
 
-            ElementSoundPlayer.State = ElementSoundPlayerState.On;
+            //ElementSoundPlayer.State = ElementSoundPlayerState.On;
 
-            Uri newuri = new Uri("ms-appx:///Audio/sweep.mp3");
+            
             var mediaPlayer = new MediaPlayer();
             mediaPlayer.Source = MediaSource.CreateFromUri(new Uri("ms-appx:///Audio/sweep.mp3"));
             //mediaPlayer.Play();
