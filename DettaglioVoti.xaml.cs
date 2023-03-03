@@ -66,26 +66,28 @@ namespace ClassevivaPCTO
 
 
 
-            var gradesGroupedByMaterie = resultGrades.Grades.GroupBy(x => x.subjectDesc).Select(grp => grp.ToList()).ToList();
+            var gradesGroupedByPeriodoDesc = resultGrades.Grades.OrderBy(x => x.evtDate).GroupBy(x => x.periodDesc).Select(grp => grp.ToList()).ToList();
 
 
             //rimuovo tutto al pivot di test
             PivotPeriodi.Items.Clear();
 
 
-            foreach (Period period in resultPeriods.Periods)
+            foreach (var periodWithGrades in gradesGroupedByPeriodoDesc)
             {
 
-                PivotItem pvt = new PivotItem();
-                pvt.Name = period.periodDesc;
+                var gradesGroupedByMaterie = periodWithGrades.OrderByDescending(x => x.evtDate).GroupBy(x => x.subjectDesc).Select(grp => grp.ToList()).ToList();
 
-                pvt.Header = VariousUtils.UppercaseFirst(period.periodDesc);
+                PivotItem pvt = new PivotItem();
+                pvt.Name = periodWithGrades[0].periodDesc;
+
+                pvt.Header = VariousUtils.UppercaseFirst(periodWithGrades[0].periodDesc);
 
                 var stack = new StackPanel();
                 stack.Orientation = Orientation.Vertical;
 
                 var textbrock = new TextBlock();
-                textbrock.Text = "Periodo dal " + period.dateStart.ToString("dd/MM/yyy") + " al " + period.dateEnd.ToString("dd/MM/yyy");
+                //textbrock.Text = "Periodo dal " + period.dateStart.ToString("dd/MM/yyy") + " al " + period.dateEnd.ToString("dd/MM/yyy");
                 textbrock.Margin = new Thickness(8);
 
                 //add items to the stackpanel
@@ -94,19 +96,29 @@ namespace ClassevivaPCTO
                 Pivot innerPivot = new Pivot();
 
                 foreach(List<Grade> materiaWithGrades in gradesGroupedByMaterie) {
+
                     PivotItem innerpvtItem = new PivotItem();
                     innerpvtItem.Header = VariousUtils.UppercaseFirst(materiaWithGrades[0].subjectDesc);
 
-                    foreach(Grade grade in materiaWithGrades)
-                    {
-                        ListView lw = new ListView();
-                        //lw.tem
-                    }
+
+                    ListView lw = new ListView();
+                    lw.ItemTemplate = (DataTemplate)this.Resources["VotiListViewDataTemplateNope"];
+
+                    lw.ItemsSource = materiaWithGrades;
+
+                    //foreach (Grade grade in materiaWithGrades)
+                    //{
+
+                    //}
                     //TODO: aggiungere la listview con i voti al pivotitem
 
+                    //we add the listview to the innverpvtItem
+                    innerpvtItem.Content = lw;
+                    
                     innerPivot.Items.Add(innerpvtItem);
                     
                 }
+
                 stack.Children.Add(innerPivot);
 
 

@@ -92,7 +92,7 @@ namespace ClassevivaPCTO
 
             PersonPictureDashboard.DisplayName = VariousUtils.UppercaseFirst(loginResult.FirstName) + " " + VariousUtils.UppercaseFirst(loginResult.LastName);
 
-
+    
             List<float?> voti = new List<float?>();
 
             foreach(Grade voto in result1.Grades)
