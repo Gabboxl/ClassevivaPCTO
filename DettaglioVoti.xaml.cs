@@ -41,13 +41,8 @@ namespace ClassevivaPCTO
                 }
             };
 
+
         }
-
-
-
-
-
-
 
 
 
@@ -66,11 +61,10 @@ namespace ClassevivaPCTO
 
             var resultPeriods = await api.GetPeriods(fixedId, loginResult.Token.ToString());
 
-            //Voti.Concat(result1.Grades);
 
-            //var MostRecent = result1.Grades.OrderByDescending(x => x.evtDate);
+            MainTextBox.Text = "Dettaglio voti di " + VariousUtils.UppercaseFirst(loginResult.FirstName);
 
-            //Listtest.ItemsSource = fiveMostRecent;
+
 
             var gradesGroupedByMaterie = resultGrades.Grades.GroupBy(x => x.subjectDesc).Select(grp => grp.ToList()).ToList();
 
