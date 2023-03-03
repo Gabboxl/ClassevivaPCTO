@@ -5,6 +5,8 @@ using System;
 using System.Threading.Tasks;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Core;
+using Windows.Media.Core;
+using Windows.Media.Playback;
 using Windows.Security.Credentials;
 using Windows.System;
 using Windows.UI;
@@ -23,6 +25,16 @@ namespace ClassevivaPCTO
         public LoginPage()
         {
             this.InitializeComponent();
+
+
+            ElementSoundPlayer.State = ElementSoundPlayerState.On;
+
+            Uri newuri = new Uri("ms-appx:///Audio/sweep.mp3");
+            var mediaPlayer = new MediaPlayer();
+            mediaPlayer.Source = MediaSource.CreateFromUri(new Uri("ms-appx:///Audio/sweep.mp3"));
+            //mediaPlayer.Play();
+
+
 
             // Hide default title bar.
             var coreTitleBar = CoreApplication.GetCurrentView().TitleBar;
