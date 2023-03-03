@@ -140,7 +140,23 @@
                     </MenuFlyout>
                 </Button.ContextFlyout> -->
                 <Button.Flyout>
-                    <MenuFlyout x:Name="ProfileFlyout">
+                    <MenuFlyout x:Name="ProfileFlyout" >
+
+
+                        <MenuFlyoutItem Text="ffffff">
+                            <MenuFlyoutItem.Template>
+                                <ControlTemplate TargetType="MenuFlyoutItem">
+                                    <StackPanel Grid.Row="0" Grid.RowSpan="2" VerticalAlignment="Center">
+                                        <TextBlock IsTextSelectionEnabled="True" x:Name="TBnc" TextWrapping="Wrap" TextAlignment="Center"  Text="Nome e cognome"    FontSize="14" HorizontalAlignment="Center" VerticalAlignment="Top" FontWeight="Bold" Padding="4,4,4,8" />
+                                        <TextBlock IsTextSelectionEnabled="True" x:Name="TBemail" TextWrapping="Wrap" TextAlignment="Center"  Text="email"    FontSize="12" HorizontalAlignment="Center" VerticalAlignment="Top" />
+                                        <TextBlock IsTextSelectionEnabled="True" x:Name="TBscuola" TextWrapping="Wrap" TextAlignment="Center"  Text="nome scuola"    FontSize="12" HorizontalAlignment="Center" VerticalAlignment="Top" />
+                                    </StackPanel>
+                                </ControlTemplate>
+                                </MenuFlyoutItem.Template>
+                        </MenuFlyoutItem>
+                    
+                    
+
                         <MenuFlyoutItem Text="Esci"
                         x:Name="LogoutButton2"
                                     Height="32" Width="177"
