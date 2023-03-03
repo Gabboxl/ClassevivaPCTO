@@ -101,29 +101,7 @@
                            VerticalAlignment="Center"
                            Margin="28,0,0,0" />
             </Grid>
-            
-            <!--
-
-            <Button Margin="1272,0,0,0"
-        Background="Transparent"                    
-        CornerRadius="20" VerticalAlignment="Top">
-
-                <PersonPicture DisplayName="KsDDD sss" Width="36">
-                </PersonPicture>
-
-                <Button.Flyout>
-                    <MenuFlyout>
-                        <MenuFlyoutItem Text="Esci"
-                        x:Name="LogoutButton"
-                                    Height="32" Width="177"
-                                    RenderTransformOrigin="2.13,0.797" HorizontalAlignment="Center"
-                                    Click="ButtonLogout_Click" VerticalAlignment="Top" >
-                        </MenuFlyoutItem>
-
-                    </MenuFlyout>
-                </Button.Flyout>
-            </Button> -->
-
+           
 
 
             <Button Style="{StaticResource ProfileButtonStyle}" HorizontalAlignment="Right" Margin="0,0,200,0">
@@ -146,7 +124,7 @@
                     <MenuFlyout x:Name="ProfileFlyout" >
 
 
-                        <MenuFlyoutItem Text="ffffff">
+                        <MenuFlyoutItem >
                             <MenuFlyoutItem.Template>
                                 <ControlTemplate TargetType="MenuFlyoutItem">
                                     <StackPanel Grid.Row="0" Grid.RowSpan="2" VerticalAlignment="Center">
