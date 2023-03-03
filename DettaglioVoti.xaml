@@ -13,6 +13,11 @@
     muxc:BackdropMaterial.ApplyToRootOrPageBackground="True">
 
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
 
 
         <Grid Grid.Row="0">
@@ -20,12 +25,15 @@
                 <RowDefinition Height="48" />
                 <RowDefinition />
             </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
 
-            <RelativePanel>
+            </Grid.ColumnDefinitions>
 
 
-                <Button
-                    RelativePanel.AlignVerticalCenterWithPanel="True"
+            <Button
+                    Grid.Column="0"
 x:Name="AppTitleBarBackButton"
                     Click="GoBack"
                 Background="{ThemeResource NavigationViewBackButtonBackground}"
@@ -106,8 +114,8 @@ x:Name="AppTitleBarBackButton"
                 </Button>
 
 
-                <Grid x:Name="AppTitleBar" Background="Transparent" RelativePanel.RightOf="AppTitleBarBackButton"
-                       RelativePanel.AlignVerticalCenterWithPanel="True">
+            <Grid x:Name="AppTitleBar" Background="Transparent" Grid.Column="1"
+                       >
                 <!-- Width of the padding columns is set in LayoutMetricsChanged handler. -->
                 <!-- Using padding columns instead of Margin ensures that the background
              paints the area under the caption control buttons (for transparent buttons). -->
@@ -132,11 +140,15 @@ x:Name="AppTitleBarBackButton"
             </Grid>
 
 
-            </RelativePanel>
+            
 
         </Grid>
 
-        <Pivot Title="VOTI" Margin="40,20,0,0">
+        <TextBlock x:Name="TextBenvenuto"  Grid.Row="1" Text="test " FontSize="42" VerticalAlignment="Top"
+                   Margin="32,16,0,0" />
+
+
+        <Pivot Grid.Row="2" x:Name="PivotPeriodi">
 
 
             <PivotItem Header="Trimestre">
