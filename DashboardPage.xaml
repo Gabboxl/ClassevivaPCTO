@@ -202,29 +202,6 @@
                             Width="260" Height="32" />
 
 
-                <AutoSuggestBox
-                    x:Name="SearchTextBox"
-                    Height="33"
-                    MaxWidth="600"
-                    Margin="40,0"
-                    HorizontalAlignment="Stretch"
-                    VerticalAlignment="Center"
-                    IsTabStop="True"
-                    
-                    >
-                    <AutoSuggestBox.QueryIcon>
-                        <muxc:AnimatedIcon>
-                            <muxc:AnimatedIcon.Source>
-                                <animatedvisuals:AnimatedFindVisualSource />
-                            </muxc:AnimatedIcon.Source>
-                            <muxc:AnimatedIcon.FallbackIconSource>
-                                <muxc:SymbolIconSource Symbol="Find"/>
-
-                            </muxc:AnimatedIcon.FallbackIconSource>
-                        </muxc:AnimatedIcon>
-                    </AutoSuggestBox.QueryIcon>
-                </AutoSuggestBox>
-
             </Grid>
 
             <Grid CornerRadius="8"
