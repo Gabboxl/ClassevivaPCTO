@@ -56,7 +56,7 @@ namespace ClassevivaPCTO
 
             LoginResult loginResult = ViewModelHolder.getViewModel().LoginResult;
 
-            TextBenvenuto.Text = "Dashboard di " + UppercaseFirst(loginResult.FirstName) + " " + UppercaseFirst(loginResult.LastName);
+            TextBenvenuto.Text = "Dashboard di " + VariousUtils.UppercaseFirst(loginResult.FirstName) + " " + VariousUtils.UppercaseFirst(loginResult.LastName);
            
 
 
@@ -89,7 +89,7 @@ namespace ClassevivaPCTO
             //textDati.Text = result1.Events.Count().ToString();
 
 
-            PersonPictureDashboard.DisplayName = UppercaseFirst(loginResult.FirstName) + " " + UppercaseFirst(loginResult.LastName);
+            PersonPictureDashboard.DisplayName = VariousUtils.UppercaseFirst(loginResult.FirstName) + " " + VariousUtils.UppercaseFirst(loginResult.LastName);
 
 
             List<float?> voti = new List<float?>();
@@ -163,18 +163,7 @@ namespace ClassevivaPCTO
 
       
 
-        static string UppercaseFirst(string s)
-        {
-            // Check for empty string.
-            if (string.IsNullOrEmpty(s))
-            {
-                return string.Empty;
-            }
 
-            s = s.ToLower();
-            // Return char and concat substring.
-            return char.ToUpper(s[0]) + s.Substring(1);
-        }
 
 
         private void HyperlinkButton_Click(object sender, RoutedEventArgs e)
