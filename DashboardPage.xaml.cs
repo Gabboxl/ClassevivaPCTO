@@ -1,5 +1,6 @@
 ﻿using ClassevivaPCTO.Converters;
 using ClassevivaPCTO.Utils;
+using ClassevivaPCTO.ViewModel;
 using Microsoft.UI.Xaml.Controls;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
@@ -51,9 +52,11 @@ namespace ClassevivaPCTO
         {
             base.OnNavigatedTo(e);
 
-            LoginResult parameters = (LoginResult)e.Parameter;
+            //LoginResult parameters = (LoginResult)e.Parameter;
 
-            TextBenvenuto.Text = "Dashboard di " + UppercaseFirst(parameters.FirstName) + " " + UppercaseFirst(parameters.LastName);
+            LoginResult loginResult = ViewModelHolder.getViewModel().LoginResult;
+
+            TextBenvenuto.Text = "Dashboard di " + UppercaseFirst(loginResult.FirstName) + " " + UppercaseFirst(loginResult.LastName);
            
 
 
@@ -73,9 +76,9 @@ namespace ClassevivaPCTO
 
             var api = RestService.For<IClassevivaAPI>("https://web.spaggiari.eu/rest/v1");
 
-            string fixedId = new CvUtils().GetCode(parameters.Ident);
+            string fixedId = new CvUtils().GetCode(loginResult.Ident);
 
-            var result1 = await api.GetGrades(fixedId, parameters.Token.ToString());
+            var result1 = await api.GetGrades(fixedId, loginResult.Token.ToString());
 
             Voti.Concat(result1.Grades);
 
@@ -86,7 +89,7 @@ namespace ClassevivaPCTO
             //textDati.Text = result1.Events.Count().ToString();
 
 
-            PersonPictureDashboard.DisplayName = UppercaseFirst(parameters.FirstName) + " " + UppercaseFirst(parameters.LastName);
+            PersonPictureDashboard.DisplayName = UppercaseFirst(loginResult.FirstName) + " " + UppercaseFirst(loginResult.LastName);
 
 
             List<float?> voti = new List<float?>();

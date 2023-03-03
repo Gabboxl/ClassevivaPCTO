@@ -144,6 +144,8 @@
     <Compile Include="Converters\GradeToColorConverter.cs" />
     <Compile Include="Utils\CvAPI.cs" />
     <Compile Include="Utils\CredUtils.cs" />
+    <Compile Include="ViewModel\ViewModelHolder.cs" />
+    <Compile Include="ViewModel\ViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -223,6 +225,7 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Controls\DataTemplates\" />
     <Folder Include="Views\" />
   </ItemGroup>
   <ItemGroup>
