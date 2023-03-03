@@ -19,9 +19,12 @@
     muxc:BackdropMaterial.ApplyToRootOrPageBackground="True">
 
     <Page.Resources>
-        <converters:GradeToColorConverter x:Key="GradeToColorConverter" />
-        <converters:DateTimeToNormalDateConverter x:Key="DateTimeToNormalDateConverter" />
-       
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+               
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+
     </Page.Resources>
 
 
@@ -251,71 +254,11 @@
                     <ListView x:Name="Listtest" RelativePanel.Below="TextValRecenti" Grid.Row="1"
                           SelectionMode="Single"
                               
-                              HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
-                          
+                          HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+                          ItemTemplate="{StaticResource VotiListViewDataTemplateNope}"
+                              
                           ScrollViewer.VerticalScrollBarVisibility="Visible">
 
-                        <ListView.ItemTemplate>
-
-                            <DataTemplate x:DataType="roba:Grade">
-                                <RelativePanel>
-
-                                    <Grid RelativePanel.AlignVerticalCenterWithPanel="True" x:Name="gridVoto">
-                                        <Ellipse x:Name="Ellipse"
-                                             Grid.RowSpan="2"
-                                             Width="42"
-                                             Height="42"
-                                             Margin="2"
-                                             Fill="{x:Bind decimalValue, Converter={StaticResource GradeToColorConverter}}"
-
-                                             VerticalAlignment="Center"
-                                             HorizontalAlignment="Center">
-                                            <!-- ="{ThemeResource SystemControlBackgroundBaseMediumBrush}" -->
-                                        </Ellipse>
-                                        <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center"
-                                               Text="{x:Bind displayValue}" FontSize="14" Foreground="#FFFFFF" />
-
-                                    </Grid>
-
-                                    <RelativePanel RelativePanel.AlignVerticalCenterWithPanel="True" RelativePanel.RightOf="gridVoto">
-                                        <TextBlock x:Name="textMateria" TextWrapping="Wrap"
-                                           MaxWidth="500"
-                                           Text="{x:Bind subjectDesc}"
-
-                                           Style="{ThemeResource BaseTextBlockStyle}"
-                                           Margin="12,6,0,0" />
-
-                                        <TextBlock RelativePanel.Below="textMateria"
-                                           TextWrapping="Wrap"
-                                              
-
-                                           Text="{x:Bind notesForFamily}"
-
-                                           Style="{ThemeResource BodyTextBlockStyle}"
-                                           Margin="12,0,0,6" />
-
-                                        <TextBlock RelativePanel.RightOf="textMateria" x:Name="dataVoto"
-                                           Text="{x:Bind evtDate, Converter={StaticResource DateTimeToNormalDateConverter}}"
-
-                                           Foreground="LightGray"
-                                           Style="{ThemeResource BaseTextBlockStyle}"
-                                           Margin="12,6,0,0" />
-
-                                        <TextBlock RelativePanel.RightOf="dataVoto"
-                                           Text="{x:Bind componentDesc}"
-
-
-                                           Style="{ThemeResource BodyTextBlockStyle}"
-                                           Foreground="LightGray"
-                                           Margin="12,6,0,0" />
-
-                                    </RelativePanel>
-
-
-
-                                </RelativePanel>
-                            </DataTemplate>
-                        </ListView.ItemTemplate>
                     </ListView>
 
 

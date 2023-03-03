@@ -58,6 +58,7 @@ namespace ClassevivaPCTO
 
             TextBenvenuto.Text = "Dashboard di " + VariousUtils.UppercaseFirst(loginResult.FirstName) + " " + VariousUtils.UppercaseFirst(loginResult.LastName);
            
+            
 
 
             /*
