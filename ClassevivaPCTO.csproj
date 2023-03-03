@@ -128,9 +128,6 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\ProfileFlyoutControl.xaml.cs">
-      <DependentUpon>ProfileFlyoutControl.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Converters\DateTimeToNormalDateConverter.cs" />
     <Compile Include="DashboardPage.xaml.cs">
       <DependentUpon>DashboardPage.xaml</DependentUpon>
@@ -171,9 +168,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="Controls\ProfileFlyoutControl.xaml">
-      <Generator>MSBuild:Compile</Generator>
+    <Page Include="Controls\DataTemplates\VotiListViewDataTemplate.xaml">
       <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="DashboardPage.xaml">
       <SubType>Designer</SubType>
@@ -229,7 +226,6 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Controls\DataTemplates\" />
     <Folder Include="Views\" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
