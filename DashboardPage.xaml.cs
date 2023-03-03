@@ -31,7 +31,7 @@ namespace ClassevivaPCTO
 
 
 
-    }
+        }
 
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
@@ -76,51 +76,8 @@ namespace ClassevivaPCTO
 
 
 
+
         }
-
-        /*
-        public class CustomIntConverter : JsonConverter
-        {
-            public override bool CanConvert(Type objectType)
-            {
-                return objectType == typeof(int);
-            }
-
-            public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
-            {
-                if (reader.Value == null)
-                {
-                    return null;
-                }
-
-                if (reader.ValueType == typeof(string))
-                {
-                    if (int.TryParse((string)reader.Value, out int result))
-                    {
-                        return result;
-                    }
-                }
-
-                if (reader.ValueType == typeof(long))
-                {
-                    long longValue = (long)reader.Value;
-                    if (int.MinValue <= longValue && longValue <= int.MaxValue)
-                    {
-                        return (int)longValue;
-                    }
-                }
-
-                throw new JsonSerializationException("Invalid integer value.");
-            }
-
-            public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
-            {
-                writer.WriteValue(value);
-            }
-        }
-
-        */
-
 
 
         private async void ButtonLogout_Click(object sender, RoutedEventArgs e)
@@ -164,10 +121,6 @@ namespace ClassevivaPCTO
             return char.ToUpper(s[0]) + s.Substring(1);
         }
 
-        private void TextValRecenti_SelectionChanged(object sender, RoutedEventArgs e)
-        {
-
-        }
 
         private void HyperlinkButton_Click(object sender, RoutedEventArgs e)
         {

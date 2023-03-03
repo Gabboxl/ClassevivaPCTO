@@ -142,7 +142,7 @@ x:Name="AppTitleBarBackButton"
             <PivotItem Header="Trimestre">
                 <Pivot>
                     <PivotItem Header="Italiano">
-                        <TextBlock Text="Ecco i tuoi voti di italiano" SelectionChanged="TextBlock_SelectionChanged_1" Margin="-216,-258,216,258" />
+                        <TextBlock Text="Ecco i tuoi voti di italiano" Margin="-216,-258,216,258" />
                     </PivotItem>
                     <PivotItem Header="Matematica">
                         <TextBlock Text="Ecco i tuoi voti di matematica" />

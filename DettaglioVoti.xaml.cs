@@ -1,7 +1,10 @@
-﻿using Windows.ApplicationModel;
+﻿using ClassevivaPCTO.Utils;
+using Refit;
+using Windows.ApplicationModel;
 using Windows.UI.Core;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Navigation;
 
 // Il modello di elemento Pagina vuota è documentato all'indirizzo https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -24,9 +27,6 @@ namespace ClassevivaPCTO
             //currentView.AppViewBackButtonVisibility = AppViewBackButtonVisibility.Visible;
 
 
-
-            
-
             currentView.BackRequested += (s, e) =>
             {
                 Frame rootFrame = Window.Current.Content as Frame;
@@ -35,6 +35,38 @@ namespace ClassevivaPCTO
                     rootFrame.GoBack();
                 }
             };
+
+        }
+
+
+
+
+
+
+
+
+
+        protected override async void OnNavigatedTo(NavigationEventArgs e)
+        {
+            base.OnNavigatedTo(e);
+
+            LoginResult parameters = (LoginResult)e.Parameter;
+
+
+            var api = RestService.For<IClassevivaAPI>("https://web.spaggiari.eu/rest/v1");
+
+            string fixedId = new CvUtils().GetCode(parameters.Ident);
+
+            var result1 = await api.GetGrades(fixedId, parameters.Token.ToString());
+
+            //Voti.Concat(result1.Grades);
+
+            //var MostRecent = result1.Grades.OrderByDescending(x => x.evtDate);
+
+            //Listtest.ItemsSource = fiveMostRecent;
+
+
+
 
         }
 
@@ -47,22 +79,6 @@ namespace ClassevivaPCTO
             }
         }
 
-        private void TextBlock_SelectionChanged(object sender, RoutedEventArgs e)
-        {
 
-        }
-
-        private void TextBlock_SelectionChanged_1(object sender, RoutedEventArgs e)
-        {
-
-        }
-        private void HyperlinkButton_Click(object sender, RoutedEventArgs e)
-        {
-            Frame rootFrame = Window.Current.Content as Frame;
-            if (rootFrame.CanGoBack)
-            {
-                rootFrame.GoBack();
-            }
-        }
     }
 }
