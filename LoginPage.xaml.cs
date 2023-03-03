@@ -1,4 +1,5 @@
 ﻿using ClassevivaPCTO.Utils;
+using ClassevivaPCTO.ViewModel;
 using Refit;
 using System;
 using System.Threading.Tasks;
@@ -99,6 +100,8 @@ namespace ClassevivaPCTO
 
                 LoginResult user = await api.LoginAsync(measurement);
 
+                ViewModelHolder.getViewModel().LoginResult = user;
+
                 /*
                 ContentDialog dialog = new ContentDialog();
                 dialog.Title = "Login completato";
@@ -116,7 +119,7 @@ namespace ClassevivaPCTO
 
 
                 Frame rootFrame = Window.Current.Content as Frame;
-                rootFrame.Navigate(typeof(DashboardPage), user, new DrillInNavigationTransitionInfo());
+                rootFrame.Navigate(typeof(DashboardPage), null, new DrillInNavigationTransitionInfo());
 
             }
             catch (Exception ex)

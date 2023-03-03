@@ -1,4 +1,5 @@
 ﻿using ClassevivaPCTO.Utils;
+using ClassevivaPCTO.ViewModel;
 using Refit;
 using Windows.ApplicationModel;
 using Windows.UI.Core;
@@ -50,14 +51,14 @@ namespace ClassevivaPCTO
         {
             base.OnNavigatedTo(e);
 
-            LoginResult parameters = (LoginResult)e.Parameter;
+            LoginResult loginResult = ViewModelHolder.getViewModel().LoginResult;
 
 
             var api = RestService.For<IClassevivaAPI>("https://web.spaggiari.eu/rest/v1");
 
-            string fixedId = new CvUtils().GetCode(parameters.Ident);
+            string fixedId = new CvUtils().GetCode(loginResult.Ident);
 
-            var result1 = await api.GetGrades(fixedId, parameters.Token.ToString());
+            var result1 = await api.GetGrades(fixedId, loginResult.Token.ToString());
 
             //Voti.Concat(result1.Grades);
 
