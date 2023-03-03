@@ -144,7 +144,7 @@ x:Name="AppTitleBarBackButton"
 
         </Grid>
 
-        <TextBlock x:Name="TextBenvenuto"  Grid.Row="1" Text="test " FontSize="42" VerticalAlignment="Top"
+        <TextBlock x:Name="MainTextBox"  Grid.Row="1" Text="test " FontSize="42" VerticalAlignment="Top"
                    Margin="32,16,0,0" />
 
 
