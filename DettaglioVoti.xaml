@@ -150,62 +150,12 @@ x:Name="AppTitleBarBackButton"
 
         <Pivot Grid.Row="2" x:Name="PivotPeriodi">
 
-
-            <PivotItem Header="Trimestre">
+            <PivotItem Header="temp">
                 <Pivot>
-                    <PivotItem Header="Italiano">
-                        <TextBlock Text="Ecco i tuoi voti di italiano" Margin="-216,-258,216,258" />
-                    </PivotItem>
-                    <PivotItem Header="Matematica">
-                        <TextBlock Text="Ecco i tuoi voti di matematica" />
-                    </PivotItem>
-                    <PivotItem Header="Matematica">
-                        <TextBlock Text="Ecco i tuoi voti di matematica" />
-                    </PivotItem>
-                    <PivotItem Header="Matematica">
-                        <TextBlock Text="Ecco i tuoi voti di matematica" />
-                    </PivotItem>
-                    <PivotItem Header="Matematica">
-                        <TextBlock Text="Ecco i tuoi voti di matematica" />
-                    </PivotItem>
-                    <PivotItem Header="Matematica">
-                        <TextBlock Text="Ecco i tuoi voti di matematica" />
-                    </PivotItem>
-                    <PivotItem Header="Matematica">
-                        <TextBlock Text="Ecco i tuoi voti di matematica" />
+                    <PivotItem Header="temp">
                     </PivotItem>
                 </Pivot>
             </PivotItem>
-
-
-            <PivotItem Header="Pentametre">
-                <Pivot>
-                    <PivotItem Header="Italiano">
-                        <TextBlock Text="Ecco i tuoi voti di italiano" />
-                    </PivotItem>
-                    <PivotItem Header="Matematica">
-                        <TextBlock Text="Ecco i tuoi voti di matematica" />
-                    </PivotItem>
-                    <PivotItem Header="Matematica">
-                        <TextBlock Text="Ecco i tuoi voti di matematica" />
-                    </PivotItem>
-                    <PivotItem Header="Matematica">
-                        <TextBlock Text="Ecco i tuoi voti di matematica" />
-                    </PivotItem>
-                    <PivotItem Header="Matematica">
-                        <TextBlock Text="Ecco i tuoi voti di matematica" />
-                    </PivotItem>
-                    <PivotItem Header="Matematica">
-                        <TextBlock Text="Ecco i tuoi voti di matematica" />
-                    </PivotItem>
-                    <PivotItem Header="Matematica">
-                        <TextBlock Text="Ecco i tuoi voti di matematica" />
-                    </PivotItem>
-                </Pivot>
-            </PivotItem>
-
-
-
         </Pivot>
 
     </Grid>

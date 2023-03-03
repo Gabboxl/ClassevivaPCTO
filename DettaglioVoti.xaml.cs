@@ -1,7 +1,10 @@
 ﻿using ClassevivaPCTO.Utils;
 using ClassevivaPCTO.ViewModel;
 using Refit;
+using System.Collections.Generic;
+using System.Linq;
 using Windows.ApplicationModel;
+using Windows.ApplicationModel.Core;
 using Windows.UI.Core;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -19,6 +22,7 @@ namespace ClassevivaPCTO
         public DettaglioVoti()
         {
             this.InitializeComponent();
+
 
             //titolo title bar
             AppTitleTextBlock.Text = "Dettaglio voti - " + AppInfo.Current.DisplayInfo.DisplayName;
@@ -58,7 +62,9 @@ namespace ClassevivaPCTO
 
             string fixedId = new CvUtils().GetCode(loginResult.Ident);
 
-            var result1 = await api.GetGrades(fixedId, loginResult.Token.ToString());
+            var resultGrades = await api.GetGrades(fixedId, loginResult.Token.ToString());
+
+            var resultPeriods = await api.GetPeriods(fixedId, loginResult.Token.ToString());
 
             //Voti.Concat(result1.Grades);
 
@@ -66,6 +72,56 @@ namespace ClassevivaPCTO
 
             //Listtest.ItemsSource = fiveMostRecent;
 
+            var gradesGroupedByMaterie = resultGrades.Grades.GroupBy(x => x.subjectDesc).Select(grp => grp.ToList()).ToList();
+
+
+            //rimuovo tutto al pivot di test
+            PivotPeriodi.Items.Clear();
+
+
+            foreach (Period period in resultPeriods.Periods)
+            {
+
+                PivotItem pvt = new PivotItem();
+                pvt.Name = period.periodDesc;
+
+                pvt.Header = VariousUtils.UppercaseFirst(period.periodDesc);
+
+                var stack = new StackPanel();
+                stack.Orientation = Orientation.Vertical;
+
+                var textbrock = new TextBlock();
+                textbrock.Text = "Periodo dal " + period.dateStart.ToString("dd/MM/yyy") + " al " + period.dateEnd.ToString("dd/MM/yyy");
+                textbrock.Margin = new Thickness(8);
+
+                //add items to the stackpanel
+                stack.Children.Add(textbrock);
+
+                Pivot innerPivot = new Pivot();
+
+                foreach(List<Grade> materiaWithGrades in gradesGroupedByMaterie) {
+                    PivotItem innerpvtItem = new PivotItem();
+                    innerpvtItem.Header = VariousUtils.UppercaseFirst(materiaWithGrades[0].subjectDesc);
+
+                    foreach(Grade grade in materiaWithGrades)
+                    {
+                        ListView lw = new ListView();
+                        //lw.tem
+                    }
+                    //TODO: aggiungere la listview con i voti al pivotitem
+
+                    innerPivot.Items.Add(innerpvtItem);
+                    
+                }
+                stack.Children.Add(innerPivot);
+
+
+                pvt.Content = stack;
+
+                PivotPeriodi.Items.Add(pvt);
+
+
+            }
 
 
 

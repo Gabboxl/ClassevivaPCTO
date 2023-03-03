@@ -144,6 +144,7 @@
     <Compile Include="Converters\GradeToColorConverter.cs" />
     <Compile Include="Utils\CvAPI.cs" />
     <Compile Include="Utils\CredUtils.cs" />
+    <Compile Include="Utils\VariousUtils.cs" />
     <Compile Include="ViewModel\ViewModelHolder.cs" />
     <Compile Include="ViewModel\ViewModel.cs" />
   </ItemGroup>

@@ -166,7 +166,7 @@ namespace ClassevivaPCTO.Utils
         public string periodCode { get; set; }
         public long? periodPos { get; set; }
         public string periodDesc { get; set; }
-        public string isFinal { get; set; }
+        public bool isFinal { get; set; }
         public DateTime dateStart { get; set; }
         public DateTime dateEnd { get; set; }
         public string miurDivisionCode { get; set; }
@@ -199,7 +199,7 @@ namespace ClassevivaPCTO.Utils
         Task<CardsResult> GetCards(string userId, [Header("Z-Auth-Token")] string token);
 
         [Get("/students/{userId}/periods")]
-        Task<CardsResult> GetPeriods(string userId, [Header("Z-Auth-Token")] string token);
+        Task<PeriodsResult> GetPeriods(string userId, [Header("Z-Auth-Token")] string token);
 
     }
 
