@@ -3,7 +3,6 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:contract7Present="http://schemas.microsoft.com/winfx/2006/xaml/presentation?IsApiContractPresent(Windows.Foundation.UniversalApiContract, 7)"
     xmlns:muxc="using:Microsoft.UI.Xaml.Controls">
-
     <Style x:Key="HyperlinkButtonStyle" TargetType="HyperlinkButton" />
 
     <Style x:Key="TextButtonStyle" TargetType="ButtonBase">
@@ -21,9 +20,7 @@
                         Margin="{TemplateBinding Padding}"
                         Background="{TemplateBinding Background}"
                         CornerRadius="4">
-                        <contract7Present:Grid.BackgroundTransition>
-                            <contract7Present:BrushTransition Duration="0:0:0.083" />
-                        </contract7Present:Grid.BackgroundTransition>
+
 
                         <ContentPresenter
                             x:Name="Text"
@@ -121,9 +118,7 @@
                         ContentTemplate="{TemplateBinding ContentTemplate}"
                         ContentTransitions="{TemplateBinding ContentTransitions}"
                         CornerRadius="{ThemeResource ControlCornerRadius}">
-                        <contract7Present:ContentPresenter.BackgroundTransition>
-                            <contract7Present:BrushTransition Duration="0:0:0.083" />
-                        </contract7Present:ContentPresenter.BackgroundTransition>
+
 
                         <VisualStateManager.VisualStateGroups>
                             <VisualStateGroup x:Name="CommonStates">
@@ -188,9 +183,11 @@
                         ContentTemplate="{TemplateBinding ContentTemplate}"
                         ContentTransitions="{TemplateBinding ContentTransitions}"
                         RenderTransformOrigin="0.5,0.5">
-                        <contract7Present:ContentPresenter.BackgroundTransition>
-                            <contract7Present:BrushTransition Duration="0:0:0.083" />
-                        </contract7Present:ContentPresenter.BackgroundTransition>
+
+                        <ContentPresenter.BackgroundTransition>
+                            <BrushTransition Duration="0:1:1.183" />
+                        </ContentPresenter.BackgroundTransition>
+
 
                         <ContentPresenter.RenderTransform>
                             <CompositeTransform x:Name="ContentPresenterTransform" />
@@ -198,7 +195,27 @@
 
                         <VisualStateManager.VisualStateGroups>
                             <VisualStateGroup x:Name="CommonStates">
-                                <VisualState x:Name="Normal" />
+                                <VisualState x:Name="Normal" >
+
+                                    <Storyboard>
+                                        <DoubleAnimationUsingKeyFrames Storyboard.TargetName="ContentPresenterTransform" Storyboard.TargetProperty="ScaleX">
+                                            <SplineDoubleKeyFrame
+                                                KeySpline="{StaticResource ControlFastOutSlowInKeySpline}"
+                                                KeyTime="{StaticResource ControlFasterAnimationDuration}"
+                                                Value="1" />
+                                        </DoubleAnimationUsingKeyFrames>
+                                        <DoubleAnimationUsingKeyFrames Storyboard.TargetName="ContentPresenterTransform" Storyboard.TargetProperty="ScaleY">
+                                            <SplineDoubleKeyFrame
+                                                KeySpline="{StaticResource ControlFastOutSlowInKeySpline}"
+                                                KeyTime="{StaticResource ControlFasterAnimationDuration}"
+                                                Value="1" />
+                                        </DoubleAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                    <VisualState.Setters>
+                                        <Setter Target="ContentPresenter.(muxc:AnimatedIcon.State)" Value="Pressed" />
+                                    </VisualState.Setters>
+
+                                </VisualState>
 
                                 <VisualState x:Name="PointerOver">
                                     <Storyboard>
@@ -206,13 +223,13 @@
                                             <SplineDoubleKeyFrame
                                                 KeySpline="{StaticResource ControlFastOutSlowInKeySpline}"
                                                 KeyTime="{StaticResource ControlFasterAnimationDuration}"
-                                                Value="0.95" />
+                                                Value="0.93" />
                                         </DoubleAnimationUsingKeyFrames>
                                         <DoubleAnimationUsingKeyFrames Storyboard.TargetName="ContentPresenterTransform" Storyboard.TargetProperty="ScaleY">
                                             <SplineDoubleKeyFrame
                                                 KeySpline="{StaticResource ControlFastOutSlowInKeySpline}"
                                                 KeyTime="{StaticResource ControlFasterAnimationDuration}"
-                                                Value="0.95" />
+                                                Value="0.93" />
                                         </DoubleAnimationUsingKeyFrames>
                                     </Storyboard>
                                     <VisualState.Setters>
@@ -226,13 +243,13 @@
                                             <SplineDoubleKeyFrame
                                                 KeySpline="{StaticResource ControlFastOutSlowInKeySpline}"
                                                 KeyTime="{StaticResource ControlFasterAnimationDuration}"
-                                                Value="0.9" />
+                                                Value="0.8" />
                                         </DoubleAnimationUsingKeyFrames>
                                         <DoubleAnimationUsingKeyFrames Storyboard.TargetName="ContentPresenterTransform" Storyboard.TargetProperty="ScaleY">
                                             <SplineDoubleKeyFrame
                                                 KeySpline="{StaticResource ControlFastOutSlowInKeySpline}"
                                                 KeyTime="{StaticResource ControlFasterAnimationDuration}"
-                                                Value="0.9" />
+                                                Value="0.8" />
                                         </DoubleAnimationUsingKeyFrames>
                                     </Storyboard>
                                     <VisualState.Setters>
@@ -246,5 +263,4 @@
             </Setter.Value>
         </Setter>
     </Style>
-
 </ResourceDictionary>
