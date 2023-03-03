@@ -1,12 +1,24 @@
-﻿using ClassevivaPCTO.Utils;
+﻿using ClassevivaPCTO.Converters;
+using ClassevivaPCTO.Utils;
+using Microsoft.UI.Xaml.Controls;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
+using Newtonsoft.Json.Serialization;
 using Refit;
 using System;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using Windows.ApplicationModel;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
+
+
+
+
 
 // Il modello di elemento Pagina vuota è documentato all'indirizzo https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -40,7 +52,7 @@ namespace ClassevivaPCTO
             LoginResult parameters = (LoginResult)e.Parameter;
 
             TextBenvenuto.Text = "Dashboard di " + UppercaseFirst(parameters.FirstName) + " " + UppercaseFirst(parameters.LastName);
-
+           
 
 
             /*
@@ -75,12 +87,50 @@ namespace ClassevivaPCTO
             PersonPictureDashboard.DisplayName = UppercaseFirst(parameters.FirstName) + " " + UppercaseFirst(parameters.LastName);
 
 
+            List<float?> voti = new List<float?>();
+
+            foreach(Grade voto in result1.Grades)
+            {
+                voti.Add(voto.decimalValue);
+            }
+
+
+
+            // Simuliamo l'acquisizione dei voti dal server Classeviva
+
+          
+                // Calcoliamo la media dei voti
+                float media = CalcolaMedia(voti);
+
+            TextBlockMedia.Foreground = (Brush)new GradeToColorConverter().Convert(media,null,null,null);
+
+          
+
+
+
+            // Stampiamo la media dei voti
+            TextBlockMedia.Text = media.ToString("0.00");
+
 
 
         }
 
+        static float CalcolaMedia(List<float?> voti)
+        {
+            float somma = 0;
 
-        private async void ButtonLogout_Click(object sender, RoutedEventArgs e)
+            foreach (float voto in voti)
+            {
+                somma += voto;
+            }
+
+            return (float)somma / voti.Count;
+
+        }
+    
+
+
+    private async void ButtonLogout_Click(object sender, RoutedEventArgs e)
         {
 
             var loginCredential = new CredUtils().GetCredentialFromLocker();
@@ -125,6 +175,11 @@ namespace ClassevivaPCTO
         private void HyperlinkButton_Click(object sender, RoutedEventArgs e)
         {
             this.Frame.Navigate(typeof(DettaglioVoti));
+        }
+
+        private void TextBlock_SelectionChanged(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
