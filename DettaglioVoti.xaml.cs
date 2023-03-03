@@ -124,6 +124,10 @@ namespace ClassevivaPCTO
             }
 
 
+            ProgressRingVoti.Visibility = Visibility.Collapsed;
+            PivotPeriodi.Visibility = Visibility.Visible;   
+
+
 
         }
 

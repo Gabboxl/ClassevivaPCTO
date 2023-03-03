@@ -148,7 +148,9 @@ x:Name="AppTitleBarBackButton"
                    Margin="32,16,0,0" />
 
 
-        <Pivot Grid.Row="2" x:Name="PivotPeriodi">
+        <muxc:ProgressRing IsActive="True" Grid.Row="2" x:Name="ProgressRingVoti" />
+
+        <Pivot Grid.Row="2" x:Name="PivotPeriodi" Visibility="Collapsed">
 
             <PivotItem Header="temp">
                 <Pivot>
