@@ -125,10 +125,10 @@
 
 
                         <MenuFlyoutItem >
-                            <MenuFlyoutItem.Template>
-                                <ControlTemplate TargetType="MenuFlyoutItem">
+                            <MenuFlyoutItem.Template  >
+                                <ControlTemplate TargetType="MenuFlyoutItem" x:Name="FlyoutItemPersonPictureTemp">
                                     <StackPanel Grid.Row="0" Grid.RowSpan="2" VerticalAlignment="Center">
-                                        <TextBlock IsTextSelectionEnabled="True" x:Name="TBnc" TextWrapping="Wrap" TextAlignment="Center"  Text="Nome e cognome"    FontSize="14" HorizontalAlignment="Center" VerticalAlignment="Top" FontWeight="Bold" Padding="4,4,4,8" />
+                                        <TextBlock IsTextSelectionEnabled="True" x:Name="Tony" TextWrapping="Wrap" TextAlignment="Center"  Text="Nome e cognome"    FontSize="14" HorizontalAlignment="Center" VerticalAlignment="Top" FontWeight="Bold" Padding="4,4,4,8" />
                                         <TextBlock IsTextSelectionEnabled="True" x:Name="TBemail" TextWrapping="Wrap" TextAlignment="Center"  Text="email"    FontSize="12" HorizontalAlignment="Center" VerticalAlignment="Top" />
                                         <TextBlock IsTextSelectionEnabled="True" x:Name="TBscuola" TextWrapping="Wrap" TextAlignment="Center"  Text="nome scuola"    FontSize="12" HorizontalAlignment="Center" VerticalAlignment="Top" />
                                     </StackPanel>
