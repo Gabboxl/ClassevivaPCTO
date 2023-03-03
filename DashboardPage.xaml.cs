@@ -32,7 +32,7 @@ namespace ClassevivaPCTO
     /// </summary>
     public sealed partial class DashboardPage : Page
     {
-        public ObservableCollection<Grade> Voti { get; } = new ObservableCollection<Grade>();
+        //public ObservableCollection<Grade> Voti { get; } = new ObservableCollection<Grade>();
 
         public DashboardPage()
         {
@@ -80,7 +80,7 @@ namespace ClassevivaPCTO
 
             var result1 = await api.GetGrades(fixedId, loginResult.Token.ToString());
 
-            Voti.Concat(result1.Grades);
+
 
             var fiveMostRecent = result1.Grades.OrderByDescending(x => x.evtDate).Take(5);
             
