@@ -123,11 +123,13 @@ namespace ClassevivaPCTO
 
         static float CalcolaMedia(List<float?> voti)
         {
-            float somma = 0;
+            float? somma = 0;
 
-            foreach (float voto in voti)
+            foreach (float? voto in voti)
             {
-                somma += voto;
+                if (voto != null) {
+                    somma += voto;
+                }
             }
 
             return (float)somma / voti.Count;
