@@ -7,12 +7,15 @@ namespace ClassevivaPCTO.Converters
 {
     public class GradeToColorConverter : IValueConverter
         {
-            public object Convert(object value, Type targetType, object parameter, string language)
-            {
-                SolidColorBrush brush = new SolidColorBrush();
-                float grade = (float)value;
+        public object Convert(object value, Type targetType, object parameter, string language)
+        {
+            SolidColorBrush brush = new SolidColorBrush();
+            float? grade = (float?)value;
 
-                if (grade >= 6)
+            if (grade == null) {
+                brush.Color = Colors.DarkSlateBlue;
+
+                 } else if (grade >= 6)
                 {
                     brush.Color = Colors.Teal;
                 }
