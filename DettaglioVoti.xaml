@@ -157,10 +157,21 @@ x:Name="AppTitleBarBackButton"
         <TextBlock x:Name="MainTextBox"  Grid.Row="1" Text="test " FontSize="42" VerticalAlignment="Top"
                    Margin="32,16,0,0" />
 
+        <RelativePanel Grid.Row="2" 
+                       Margin="32"
+                       VerticalAlignment="Stretch" HorizontalAlignment="Stretch"
+                CornerRadius="8"
+                Padding="12"
+                BorderThickness="1"
+                BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
+                Background="{ThemeResource CardBackgroundFillColorDefaultBrush}">
 
-        <muxc:ProgressRing IsActive="True" Grid.Row="2" x:Name="ProgressRingVoti" />
+        <muxc:ProgressRing IsActive="True" x:Name="ProgressRingVoti" 
+                           RelativePanel.AlignVerticalCenterWithPanel="True"
+                           RelativePanel.AlignHorizontalCenterWithPanel="True"/>
 
-        <Pivot Grid.Row="2" x:Name="PivotPeriodi" Visibility="Collapsed">
+        <Pivot Grid.Row="2" x:Name="PivotPeriodi" Visibility="Collapsed" Margin="16"
+               >
 
             <PivotItem Header="temp">
                 <Pivot>
@@ -169,6 +180,8 @@ x:Name="AppTitleBarBackButton"
                 </Pivot>
             </PivotItem>
         </Pivot>
+
+        </RelativePanel>
 
     </Grid>
 </Page>

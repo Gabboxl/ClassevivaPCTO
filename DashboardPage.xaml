@@ -20,6 +20,7 @@
 
     <Page.Resources>
         <ResourceDictionary>
+
             <ResourceDictionary.MergedDictionaries>
                
             </ResourceDictionary.MergedDictionaries>
@@ -197,7 +198,55 @@
                             HorizontalAlignment="Center"
                             Width="260" Height="32" />
 
-                <CalendarDatePicker PlaceholderText="Scegli una data" Grid.Row="1" Margin="0,8,0,0" />
+                <CalendarDatePicker x:Name="CalendarAgenda" PlaceholderText="Scegli una data" Grid.Row="1" Margin="0,8,0,0" />
+
+
+                <ScrollViewer Grid.Row="2" ZoomMode="Enabled"
+            IsTabStop="True" IsVerticalScrollChainingEnabled="True"
+            
+            HorizontalScrollMode="Disabled" HorizontalScrollBarVisibility="Auto"
+            VerticalScrollMode="Enabled" VerticalScrollBarVisibility="Auto">
+
+                    <RelativePanel>
+
+                        <ListView x:Name="ListViewAbsencesDate" 
+                          SelectionMode="Single"
+                              
+                          HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+                          ItemTemplate="{StaticResource VotiListViewDataTemplateNope}"
+                              
+                          ScrollViewer.VerticalScrollMode="Disabled"
+                                  ScrollViewer.VerticalScrollBarVisibility="Disabled">
+
+                        </ListView>
+
+
+                        <ListView x:Name="ListViewVotiDate" RelativePanel.Below="ListViewAbsencesDate"
+                          SelectionMode="Single"
+                              
+                          HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+                          ItemTemplate="{StaticResource VotiListViewDataTemplateNope}"
+                              
+                          ScrollViewer.VerticalScrollMode="Disabled"
+                                  ScrollViewer.VerticalScrollBarVisibility="Disabled">
+
+                        </ListView>
+
+                        <ListView x:Name="ListViewAgendaDate" RelativePanel.Below="ListViewVotiDate"
+                          SelectionMode="Single"
+                              
+                          HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+                          ItemTemplate="{StaticResource VotiListViewDataTemplateNope}"
+                              
+                          ScrollViewer.VerticalScrollMode="Disabled"
+                                  ScrollViewer.VerticalScrollBarVisibility="Disabled">
+
+                        </ListView>
+
+                    </RelativePanel>
+                    
+                    
+                </ScrollViewer>
 
 
             </Grid>
