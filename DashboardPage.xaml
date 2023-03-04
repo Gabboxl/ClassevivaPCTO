@@ -135,8 +135,9 @@
                                 </ControlTemplate>
                                 </MenuFlyoutItem.Template>
                         </MenuFlyoutItem>
-                    
-                    
+
+                        <MenuFlyoutSeparator />
+
 
                         <MenuFlyoutItem Text="Esci"
                         x:Name="LogoutButton2"
