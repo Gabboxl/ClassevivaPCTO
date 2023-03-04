@@ -125,7 +125,8 @@ namespace ClassevivaPCTO
 
             // Stampiamo la media dei voti
             TextBlockMedia.Text = media.ToString("0.00");
-
+            TextBlockMedia.Visibility = Visibility.Visible;
+            ProgressRingMedia.Visibility = Visibility.Collapsed;
 
 
         }

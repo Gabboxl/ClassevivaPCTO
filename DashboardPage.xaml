@@ -192,6 +192,9 @@
                 </Grid.ColumnDefinitions>
 
 
+                <TextBlock x:Name="TextOggiAgenda" Grid.Row="0" Text="Oggi a scuola" FontSize="24" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="8" />
+
+
 
                 <AutoSuggestBox QueryIcon="Find"
                             PlaceholderText="Cerca"
@@ -249,6 +252,10 @@
                 </ScrollViewer>
 
 
+                <HyperlinkButton Grid.Row="2"  Content="Apri agenda"
+                 Click="HyperlinkButton_Click" VerticalAlignment="Bottom" HorizontalAlignment="Right"
+                />
+
             </Grid>
 
             <Grid CornerRadius="8"
@@ -290,9 +297,6 @@
 
 
             <Grid
-
-
-
                 Grid.ColumnSpan="1"
                 VerticalAlignment="Stretch" HorizontalAlignment="Stretch"
                 CornerRadius="8"
@@ -310,8 +314,13 @@
                 </Grid.ColumnDefinitions>
 
                 <StackPanel Grid.Row="0" Grid.RowSpan="2" VerticalAlignment="Center">
-                <TextBlock TextWrapping="Wrap" TextAlignment="Center"  Text="Ecco la media dei tuoi voti"    FontSize="50" HorizontalAlignment="Center" VerticalAlignment="Top" />
-                <TextBlock  x:Name="TextBlockMedia" Text="gdsgfdggdfgfdgfd"   HorizontalAlignment="Center" FontSize="45" FontWeight="Bold" VerticalAlignment="Center"  />
+                <TextBlock TextWrapping="Wrap" TextAlignment="Center"  Text="Media totale dei voti:"    FontSize="50" HorizontalAlignment="Center" VerticalAlignment="Top" />
+
+                    <muxc:ProgressRing IsActive="True" x:Name="ProgressRingMedia" 
+                           RelativePanel.AlignVerticalCenterWithPanel="True"
+                           RelativePanel.AlignHorizontalCenterWithPanel="True"/>
+                    
+                    <TextBlock  x:Name="TextBlockMedia" Text="test" Visibility="Collapsed"  HorizontalAlignment="Center" FontSize="45" FontWeight="Bold" VerticalAlignment="Center"  />
                 </StackPanel>
 
             </Grid>
