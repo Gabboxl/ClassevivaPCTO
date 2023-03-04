@@ -181,6 +181,7 @@
                 Background="{ThemeResource CardBackgroundFillColorDefaultBrush}">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
                     <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
@@ -194,6 +195,8 @@
                             PlaceholderText="Cerca"
                             HorizontalAlignment="Center"
                             Width="260" Height="32" />
+
+                <CalendarDatePicker PlaceholderText="Scegli una data" Grid.Row="1" Margin="0,8,0,0" />
 
 
             </Grid>
