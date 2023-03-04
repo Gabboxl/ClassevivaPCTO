@@ -87,6 +87,15 @@ namespace ClassevivaPCTO
             
             Listtest.ItemsSource = fiveMostRecent;
 
+
+            //imposto la data di oggi del picker
+            CalendarAgenda.Date = DateTime.Now;
+
+            //todoo
+            ListViewAbsencesDate.ItemsSource = result1.Grades;
+            ListViewVotiDate.ItemsSource = result1.Grades;
+            ListViewAgendaDate.ItemsSource = result1.Grades;
+
             //textDati.Text = result1.Events.Count().ToString();
 
 
