@@ -253,7 +253,7 @@
 
 
                 <HyperlinkButton Grid.Row="2"  Content="Apri agenda"
-                 Click="HyperlinkButton_Click" VerticalAlignment="Bottom" HorizontalAlignment="Right"
+                 Click="HyperlinkButton_Click_1" VerticalAlignment="Bottom" HorizontalAlignment="Right"
                 />
 
             </Grid>
