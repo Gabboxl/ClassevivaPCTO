@@ -13,6 +13,8 @@ using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Net.Http;
+using System.Text;
 using System.Threading.Tasks;
 using Windows.ApplicationModel;
 using Windows.UI.Xaml;
@@ -214,7 +216,9 @@ namespace ClassevivaPCTO
 
                 Windows.Storage.CachedFileManager.DeferUpdates(file);
 
-                await Windows.Storage.FileIO.WriteTextAsync(file, result1.ToString());
+                var serialized = Newtonsoft.Json.JsonConvert.SerializeObject(result1.Grades, Formatting.Indented);
+
+                        await Windows.Storage.FileIO.WriteTextAsync(file, serialized);
 
                 Windows.Storage.Provider.FileUpdateStatus status =
                     await Windows.Storage.CachedFileManager.CompleteUpdatesAsync(file);
