@@ -24,8 +24,8 @@
                                              Width="42"
                                              Height="42"
                                              Margin="2"
-
-                                             Fill="{x:Bind Converter={StaticResource GradeToColorConverter},Mode=OneWay}"
+                                         
+                                             Fill="{x:Bind Converter={StaticResource GradeToColorConverter}}"
 
                                              VerticalAlignment="Center"
                                              HorizontalAlignment="Center">
