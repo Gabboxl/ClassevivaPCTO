@@ -7,6 +7,7 @@
     x:Class="ClassevivaPCTO.Controls.DataTemplates.VotiListViewDataTemplate"
     xmlns:muxc="using:Microsoft.UI.Xaml.Controls">
 
+    <roba:Grade x:Key="Grade"/>
 
     <converters:GradeToColorConverter x:Key="GradeToColorConverter" />
     <converters:DateTimeToNormalDateConverter x:Key="DateTimeToNormalDateConverter" />
@@ -23,14 +24,15 @@
                                              Width="42"
                                              Height="42"
                                              Margin="2"
-                                             Fill="{x:Bind decimalValue, Converter={StaticResource GradeToColorConverter}}"
+
+                                             Fill="{x:Bind Converter={StaticResource GradeToColorConverter},Mode=OneWay}"
 
                                              VerticalAlignment="Center"
                                              HorizontalAlignment="Center">
                     <!-- ="{ThemeResource SystemControlBackgroundBaseMediumBrush}" -->
                 </Ellipse>
                 <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center"
-                                               Text="{Binding displayValue}" FontSize="14" Foreground="#FFFFFF" />
+                                               Text="{x:Bind displayValue}" FontSize="14" Foreground="#FFFFFF" />
 
             </Grid>
 

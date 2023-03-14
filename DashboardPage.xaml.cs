@@ -122,8 +122,6 @@ namespace ClassevivaPCTO
 
             TextBlockMedia.Foreground = (Brush)new GradeToColorConverter().Convert(media,null,null,null);
 
-          
-
 
 
             // Stampiamo la media dei voti
