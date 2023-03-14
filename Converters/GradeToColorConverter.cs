@@ -11,41 +11,51 @@ namespace ClassevivaPCTO.Converters
         public object Convert(object value, Type targetType, object parameter, string language)
         {
             SolidColorBrush brush = new SolidColorBrush();
-            Grade grade = (Grade)value;
 
             float? valore = null;
 
-            if (grade.decimalValue != null)
+            if (value is Grade)
             {
-                valore = grade.decimalValue;
-            } else if(!grade.displayValue.ToLower().Equals("nv"))
-            {
-                switch (grade.displayValue)
+
+                Grade grade = (Grade)value;
+
+
+                if (grade.decimalValue != null)
                 {
-                    case "o":
-                        valore = 10;
-                        break;
-
-                    case "ds":
-                        valore = 9;
-                        break;
-
-                    case "b":
-                        valore = 8;
-                        break;
-
-                    case "dc":
-                        valore = 7;
-                        break;
-
-                    case "s":
-                        valore = 6;
-                        break;
-
-                    case "i":
-                        valore = 5;
-                        break;
+                    valore = grade.decimalValue;
                 }
+                else if (!grade.displayValue.ToLower().Equals("nv"))
+                {
+                    switch (grade.displayValue)
+                    {
+                        case "o":
+                            valore = 10;
+                            break;
+
+                        case "ds":
+                            valore = 9;
+                            break;
+
+                        case "b":
+                            valore = 8;
+                            break;
+
+                        case "dc":
+                            valore = 7;
+                            break;
+
+                        case "s":
+                            valore = 6;
+                            break;
+
+                        case "i":
+                            valore = 5;
+                            break;
+                    }
+                }
+            } else
+            {
+                valore = (float?)value;
             }
 
             if (valore == null) {
