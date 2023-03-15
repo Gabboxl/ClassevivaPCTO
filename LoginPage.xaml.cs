@@ -131,7 +131,7 @@ namespace ClassevivaPCTO
 
 
                 Frame rootFrame = Window.Current.Content as Frame;
-                rootFrame.Navigate(typeof(DashboardPage), null, new DrillInNavigationTransitionInfo());
+                rootFrame.Navigate(typeof(BlankPage1), null, new DrillInNavigationTransitionInfo());
 
             }
             catch (Exception ex)
