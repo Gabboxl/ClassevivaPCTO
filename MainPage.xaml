@@ -16,8 +16,10 @@
             <muxc:NavigationViewItem  Icon="Forward" Content="Menu Item3" Tag="Agenda" />
             <muxc:NavigationViewItem Icon="Forward" Content="Menu Item4" Tag="Bacheca" />
             </muxc:NavigationView.MenuItems>
-            <Frame x:Name="contentFrame"/>
-        </muxc:NavigationView>
+        <ScrollViewer>
+            <Frame x:Name="contentFrame" IsTabStop="True"/>
+        </ScrollViewer>
+    </muxc:NavigationView>
 
 
     
