@@ -207,7 +207,7 @@
                 <ScrollViewer Grid.Row="2" ZoomMode="Enabled"
             IsTabStop="True" IsVerticalScrollChainingEnabled="True"
             
-            HorizontalScrollMode="Disabled" HorizontalScrollBarVisibility="Auto"
+            HorizontalScrollMode="Enabled" HorizontalScrollBarVisibility="Auto"
             VerticalScrollMode="Enabled" VerticalScrollBarVisibility="Auto">
 
                     <RelativePanel>
@@ -270,27 +270,40 @@
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition />
                 </Grid.ColumnDefinitions>
 
 
                 <TextBlock x:Name="TextValRecenti" Grid.Row="0" Text="Valutazioni recenti" FontSize="24" VerticalAlignment="Top" Margin="8" />
-                
-                
-                    <HyperlinkButton Grid.Row="2"  Content="Vedi tutti i voti"
-                 Click="HyperlinkButton_Click" VerticalAlignment="Bottom"
-                />
 
-                   
-                    <ListView x:Name="Listtest" RelativePanel.Below="TextValRecenti" Grid.Row="1"
+
+                <ScrollViewer Grid.Row="1" ZoomMode="Enabled"
+            IsTabStop="False" IsVerticalScrollChainingEnabled="False"
+            
+            HorizontalScrollMode="Enabled" HorizontalScrollBarVisibility="Auto"
+            VerticalScrollMode="Enabled" VerticalScrollBarVisibility="Auto">
+
+
+                        <ListView x:Name="Listtest" 
                           SelectionMode="Single"
                               
                           HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
                           ItemTemplate="{StaticResource VotiListViewDataTemplateNope}"
                               
-                          ScrollViewer.VerticalScrollBarVisibility="Visible">
+                          ScrollViewer.VerticalScrollMode="Disabled"
+                                  ScrollViewer.VerticalScrollBarVisibility="Disabled">
 
-                    </ListView>
+                        </ListView>
+
+
+                </ScrollViewer>
+
+                <HyperlinkButton Grid.Row="2"  Content="Vedi tutti i voti"
+                 Click="HyperlinkButton_Click" VerticalAlignment="Bottom"
+                />
+ 
+                   
+
 
 
             </Grid>
