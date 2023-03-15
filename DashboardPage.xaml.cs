@@ -59,7 +59,7 @@ namespace ClassevivaPCTO
 
             LoginResult loginResult = ViewModelHolder.getViewModel().LoginResult;
 
-            TextBenvenuto.Text = "Dashboard di " + VariousUtils.UppercaseFirst(loginResult.FirstName) + " " + VariousUtils.UppercaseFirst(loginResult.LastName);
+            TextBenvenuto.Text = "Dashboard di " + VariousUtils.UppercaseFirst(loginResult.FirstName);
            
             
 
