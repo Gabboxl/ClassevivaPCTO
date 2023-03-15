@@ -14,49 +14,7 @@ namespace ClassevivaPCTO.Converters
 
             float? valore = null;
 
-            if (value is Grade)
-            {
-
-                Grade grade = (Grade)value;
-
-
-                if (grade.decimalValue != null)
-                {
-                    valore = grade.decimalValue;
-                }
-                else if (!grade.displayValue.ToLower().Equals("nv"))
-                {
-                    switch (grade.displayValue)
-                    {
-                        case "o":
-                            valore = 10;
-                            break;
-
-                        case "ds":
-                            valore = 9;
-                            break;
-
-                        case "b":
-                            valore = 8;
-                            break;
-
-                        case "dc":
-                            valore = 7;
-                            break;
-
-                        case "s":
-                            valore = 6;
-                            break;
-
-                        case "i":
-                            valore = 5;
-                            break;
-                    }
-                }
-            } else
-            {
-                valore = (float?)value;
-            }
+            valore = VariousUtils.GradeToInt(value);
 
             if (valore == null) {
                 brush.Color = Colors.DarkSlateBlue;
