@@ -10,7 +10,6 @@ namespace ClassevivaPCTO.Utils
 {
     public class LoginData
     {
-
         [AliasAs("uid")]
         public string Uid { get; set; }
 
