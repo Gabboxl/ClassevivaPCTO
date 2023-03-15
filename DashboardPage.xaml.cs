@@ -104,21 +104,13 @@ namespace ClassevivaPCTO
 
             PersonPictureDashboard.DisplayName = VariousUtils.UppercaseFirst(loginResult.FirstName) + " " + VariousUtils.UppercaseFirst(loginResult.LastName);
 
-    
-            List<float?> voti = new List<float?>();
-
-            foreach(Grade voto in result1.Grades)
-            {
-                voti.Add(voto.decimalValue);
-            }
-
 
 
             // Simuliamo l'acquisizione dei voti dal server Classeviva
 
           
                 // Calcoliamo la media dei voti
-                float media = CalcolaMedia(voti);
+                float media = CalcolaMedia(result1.Grades);
 
             TextBlockMedia.Foreground = (Brush)new GradeToColorConverter().Convert(media,null,null,null);
 
@@ -132,14 +124,14 @@ namespace ClassevivaPCTO
 
         }
 
-        static float CalcolaMedia(List<float?> voti)
+        static float CalcolaMedia(List<Grade> voti)
         {
             float? somma = 0;
 
-            foreach (float? voto in voti)
+            foreach (Grade voto in voti)
             {
                 if (voto != null) {
-                    somma += voto;
+                    somma += VariousUtils.GradeToInt(voto);
                 }
             }
 
