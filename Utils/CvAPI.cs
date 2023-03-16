@@ -179,7 +179,7 @@ namespace ClassevivaPCTO.Utils
     }
 
 
-    [Headers("User-Agent: zorro/1.0", "Z-Dev-Apikey: +zorro+", "Content-Type: application/json")]
+    [Headers("User-Agent: CVVS/std/4.2.3 Android/10", "Z-Dev-Apikey: Tg1NWEwNGIgIC0K", "Content-Type: application/json")]
     public interface IClassevivaAPI
     {
         [Post("/auth/login/")]
