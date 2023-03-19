@@ -144,8 +144,13 @@
 
         </Grid>
 
-        <muxc:NavigationView  Grid.Row="1" IsTitleBarAutoPaddingEnabled="True" IsBackButtonVisible="Collapsed"
- x:Name="nvSample" SelectionChanged="NavigationView_SelectionChanged">
+        <muxc:NavigationView  Grid.Row="1"
+                              IsTitleBarAutoPaddingEnabled="True"
+                              IsBackButtonVisible="Collapsed"
+                              x:Name="nvSample"
+                              SelectionChanged="NavigationView_SelectionChanged"
+                              OpenPaneLength="256"
+                              >
             <muxc:NavigationView.MenuItems>
                 <muxc:NavigationViewItem Content="Dashboard" Tag="DashboardPage" >
                     <muxc:NavigationViewItem.Icon>
