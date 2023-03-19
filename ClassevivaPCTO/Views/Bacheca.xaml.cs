@@ -20,9 +20,9 @@ namespace ClassevivaPCTO.Views
     /// <summary>
     /// Pagina vuota che può essere usata autonomamente oppure per l'esplorazione all'interno di un frame.
     /// </summary>
-    public sealed partial class BlankPage2 : Page
+    public sealed partial class Bacheca : Page
     {
-        public BlankPage2()
+        public Bacheca()
         {
             this.InitializeComponent();
         }
