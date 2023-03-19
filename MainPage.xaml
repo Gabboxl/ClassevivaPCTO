@@ -147,10 +147,14 @@
         <muxc:NavigationView  Grid.Row="1" IsTitleBarAutoPaddingEnabled="True" IsBackButtonVisible="Collapsed"
  x:Name="nvSample" SelectionChanged="NavigationView_SelectionChanged">
             <muxc:NavigationView.MenuItems>
-                <muxc:NavigationViewItem   Icon="Forward" Content="Dashboard" Tag="DashboardPage" />
+                <muxc:NavigationViewItem Content="Dashboard" Tag="DashboardPage" >
+                    <muxc:NavigationViewItem.Icon>
+                        <FontIcon Glyph="&#xF246;" FontFamily="{StaticResource FluentIcons}"/>
+                    </muxc:NavigationViewItem.Icon>
+                </muxc:NavigationViewItem>
+                <muxc:NavigationViewItem   Icon="Forward" Content="Agenda" Tag="Agenda" />
                 <muxc:NavigationViewItem   Icon="Forward" Content="Valutazioni" Tag="DettaglioVoti" />
-                <muxc:NavigationViewItem   Icon="Forward" Content="Menu Item3" Tag="Agenda" />
-                <muxc:NavigationViewItem   Icon="Forward" Content="Menu Item4" Tag="Bacheca" />
+                <muxc:NavigationViewItem   Icon="Forward" Content="Bacheca" Tag="Bacheca" />
             </muxc:NavigationView.MenuItems>
             
                 <Frame x:Name="contentFrame" IsTabStop="True"/>
