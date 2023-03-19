@@ -149,6 +149,7 @@
                               IsBackButtonVisible="Collapsed"
                               x:Name="nvSample"
                               SelectionChanged="NavigationView_SelectionChanged"
+                              PaneDisplayMode="LeftCompact"
                               OpenPaneLength="256"
                               >
             <muxc:NavigationView.MenuItems>
