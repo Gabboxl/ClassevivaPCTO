@@ -5,6 +5,8 @@ using Windows.UI;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
 using Windows.UI.Xaml;
+using ClassevivaPCTO.Utils;
+using ClassevivaPCTO.ViewModel;
 
 namespace ClassevivaPCTO
 {
@@ -31,6 +33,13 @@ namespace ClassevivaPCTO
 
             nvSample.BackRequested += new Windows.Foundation.TypedEventHandler<Microsoft.UI.Xaml.Controls.NavigationView, Microsoft.UI.Xaml.Controls.NavigationViewBackRequestedEventArgs>((Microsoft.UI.Xaml.Controls.NavigationView sender, Microsoft.UI.Xaml.Controls.NavigationViewBackRequestedEventArgs args) => { NavView_BackRequested(sender, args); });
             contentFrame.Navigated += On_Navigated;
+
+
+
+            LoginResult loginResult = ViewModelHolder.getViewModel().LoginResult;
+
+            PersonPictureDashboard.DisplayName = VariousUtils.UppercaseFirst(loginResult.FirstName) + " " + VariousUtils.UppercaseFirst(loginResult.LastName);
+
         }
 
         private void NavigationView_SelectionChanged(Microsoft.UI.Xaml.Controls.NavigationView sender, Microsoft.UI.Xaml.Controls.NavigationViewSelectionChangedEventArgs args)
@@ -61,7 +70,7 @@ namespace ClassevivaPCTO
         {
             
             nvSample.IsBackEnabled = contentFrame.CanGoBack;
-            nvSample.IsBackButtonVisible = contentFrame.CanGoBack ? Microsoft.UI.Xaml.Controls.NavigationViewBackButtonVisible.Visible : Microsoft.UI.Xaml.Controls.NavigationViewBackButtonVisible.Collapsed;
+            //nvSample.IsBackButtonVisible = contentFrame.CanGoBack ? Microsoft.UI.Xaml.Controls.NavigationViewBackButtonVisible.Visible : Microsoft.UI.Xaml.Controls.NavigationViewBackButtonVisible.Collapsed;
 
             /* if (contentFrame.SourcePageType == typeof(SettingsPage))
             {
@@ -104,6 +113,38 @@ namespace ClassevivaPCTO
 
             contentFrame.GoBack();
             return true;
+        }
+
+
+
+
+
+
+
+
+        private async void ButtonLogout_Click(object sender, RoutedEventArgs e)
+        {
+
+            var loginCredential = new CredUtils().GetCredentialFromLocker();
+
+            if (loginCredential != null)
+            {
+                loginCredential.RetrievePassword(); //dobbiamo per forza chiamare questo metodo per fare sì che la proprietà loginCredential.Password non sia vuota
+
+
+                var vault = new Windows.Security.Credentials.PasswordVault();
+
+                vault.Remove(new Windows.Security.Credentials.PasswordCredential(
+                    "classevivapcto", loginCredential.UserName.ToString(), loginCredential.Password.ToString()));
+
+            }
+
+            Frame rootFrame = Window.Current.Content as Frame;
+            if (rootFrame.CanGoBack)
+            {
+                rootFrame.GoBack();
+            }
+
         }
     }
 

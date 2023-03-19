@@ -43,8 +43,8 @@ namespace ClassevivaPCTO
 
 
             //titolo title bar
-            AppTitleTextBlock.Text = "Dashboard - " + AppInfo.Current.DisplayInfo.DisplayName;
-            Window.Current.SetTitleBar(AppTitleBar);
+            //AppTitleTextBlock.Text = "Dashboard - " + AppInfo.Current.DisplayInfo.DisplayName;
+            //Window.Current.SetTitleBar(AppTitleBar);
 
 
 
@@ -102,7 +102,6 @@ namespace ClassevivaPCTO
             //textDati.Text = result1.Events.Count().ToString();
 
 
-            PersonPictureDashboard.DisplayName = VariousUtils.UppercaseFirst(loginResult.FirstName) + " " + VariousUtils.UppercaseFirst(loginResult.LastName);
 
 
 
@@ -140,31 +139,6 @@ namespace ClassevivaPCTO
         }
     
 
-
-    private async void ButtonLogout_Click(object sender, RoutedEventArgs e)
-        {
-
-            var loginCredential = new CredUtils().GetCredentialFromLocker();
-
-            if (loginCredential != null)
-            {
-                loginCredential.RetrievePassword(); //dobbiamo per forza chiamare questo metodo per fare sì che la proprietà loginCredential.Password non sia vuota
-
-
-                var vault = new Windows.Security.Credentials.PasswordVault();
-
-                vault.Remove(new Windows.Security.Credentials.PasswordCredential(
-                    "classevivapcto", loginCredential.UserName.ToString(), loginCredential.Password.ToString()));
-
-            }
-
-            Frame rootFrame = Window.Current.Content as Frame;
-            if (rootFrame.CanGoBack)
-            {
-                rootFrame.GoBack();
-            }
-
-        }
 
 
 
