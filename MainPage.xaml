@@ -71,7 +71,7 @@
                 
                 -->
 
-                <Image 
+                <Image Source="Assets/Square44x44Logo.scale-200.png"
                        Grid.Column="1"
                        HorizontalAlignment="Left"
                        Width="16" Height="16"
@@ -157,8 +157,15 @@
                         <FontIcon Glyph="&#xF246;" FontFamily="{StaticResource FluentIcons}"/>
                     </muxc:NavigationViewItem.Icon>
                 </muxc:NavigationViewItem>
-                <muxc:NavigationViewItem   Icon="Forward" Content="Agenda" Tag="Agenda" />
+                
+                <muxc:NavigationViewItem Content="Agenda" Tag="Agenda" >
+                    <muxc:NavigationViewItem.Icon>
+                        <FontIcon Glyph="&#xe787;" FontFamily="{StaticResource FluentIcons}"/>
+                    </muxc:NavigationViewItem.Icon>
+                </muxc:NavigationViewItem>
+                
                 <muxc:NavigationViewItem   Icon="Forward" Content="Valutazioni" Tag="DettaglioVoti" />
+                
                 <muxc:NavigationViewItem   Icon="Forward" Content="Bacheca" Tag="Bacheca" />
             </muxc:NavigationView.MenuItems>
             

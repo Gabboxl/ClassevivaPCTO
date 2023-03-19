@@ -25,6 +25,10 @@ namespace ClassevivaPCTO
         public Agenda()
         {
             this.InitializeComponent();
+
+
+            //imposto la data di oggi del picker
+            CalendarAgenda.Date = DateTime.Now;
         }
     }
 }
