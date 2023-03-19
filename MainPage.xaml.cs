@@ -1,37 +1,26 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.ApplicationModel.Core;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
 using Windows.UI.ViewManagement;
 using Windows.UI;
-using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
-using Microsoft.UI.Xaml.Controls;
-
-// Il modello di elemento Pagina vuota è documentato all'indirizzo https://go.microsoft.com/fwlink/?LinkId=234238
+using Windows.UI.Xaml;
 
 namespace ClassevivaPCTO
 {
     /// <summary>
     /// Pagina vuota che può essere usata autonomamente oppure per l'esplorazione all'interno di un frame.
     /// </summary>
-    public sealed partial class BlankPage1 : Page
+    public sealed partial class MainPage : Page
     {
-        public BlankPage1()
+        public MainPage()
         {
             this.InitializeComponent();
             // Hide default title bar.
             var coreTitleBar = CoreApplication.GetCurrentView().TitleBar;
             coreTitleBar.ExtendViewIntoTitleBar = true;
+
+            Window.Current.SetTitleBar(AppTitleBar);
 
 
             //remove the solid-colored backgrounds behind the caption controls and system back button
@@ -48,7 +37,10 @@ namespace ClassevivaPCTO
         {
             if (args.IsSettingsSelected)
             {
-                contentFrame.Navigate(typeof(DashboardPage));
+                if (contentFrame.CurrentSourcePageType != typeof(DashboardPage))
+                {
+                    contentFrame.Navigate(typeof(DashboardPage));
+                }
             }
             else
             {
@@ -63,12 +55,13 @@ namespace ClassevivaPCTO
                 }
             }
 
-
         }
 
         private void On_Navigated(object sender, NavigationEventArgs e)
         {
+            
             nvSample.IsBackEnabled = contentFrame.CanGoBack;
+            nvSample.IsBackButtonVisible = contentFrame.CanGoBack ? Microsoft.UI.Xaml.Controls.NavigationViewBackButtonVisible.Visible : Microsoft.UI.Xaml.Controls.NavigationViewBackButtonVisible.Collapsed;
 
             /* if (contentFrame.SourcePageType == typeof(SettingsPage))
             {
@@ -80,11 +73,7 @@ namespace ClassevivaPCTO
             if (contentFrame.SourcePageType != null)
             {
                 
-                var item = nvSample.MenuItems.FirstOrDefault(p => p.Page == e.SourcePageType);
-
-                nvSample.SelectedItem = nvSample.MenuItems
-                    .OfType<Microsoft.UI.Xaml.Controls.NavigationViewItem>()
-                    .First(n => n.Tag.Equals(item.Tag));
+                //nvSample.SelectedItem = e.SourcePageType;
 
                 nvSample.Header =
                     ((Microsoft.UI.Xaml.Controls.NavigationViewItem)nvSample.SelectedItem)?.Content?.ToString();
