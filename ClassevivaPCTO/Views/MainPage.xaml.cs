@@ -22,7 +22,7 @@ using WinUI = Microsoft.UI.Xaml.Controls;
 using System.Linq;
 using ClassevivaPCTO.Views;
 
-namespace ClassevivaPCTO
+namespace ClassevivaPCTO.Views
 {
     /// <summary>
     /// Pagina vuota che può essere usata autonomamente oppure per l'esplorazione all'interno di un frame.
