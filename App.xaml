@@ -5,10 +5,12 @@
     xmlns:datatemplates="using:ClassevivaPCTO.Controls.DataTemplates"
     xmlns:local="using:ClassevivaPCTO">
     <Application.Resources>
-        
 
-        <ResourceDictionary>
+        <ResourceDictionary >
+            <FontFamily x:Key="FluentIcons" >/Assets/Fonts/SegoeFluentIcons.ttf#Segoe Fluent Icons</FontFamily>
+
             <ResourceDictionary.MergedDictionaries>
+
                 <XamlControlsResources xmlns="using:Microsoft.UI.Xaml.Controls" />
                 <ResourceDictionary Source="Styles/Button.xaml"/>
                 <!--<ResourceDictionary Source="Controls/DataTemplates/VotiListViewDataTemplate.xaml"/>--> <!-- guarda questo https://stackoverflow.com/questions/51620412/uwp-xaml-and-c-sharp-xbind-on-a-datatemplate-inside-a-resourcedictionary --> 
