@@ -8,6 +8,8 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
     xmlns:controlscust="using:ClassevivaPCTO.Controls"
+        xmlns:helpers="using:ClassevivaPCTO.Helpers"
+    xmlns:views="using:ClassevivaPCTO.Views"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
@@ -147,31 +149,34 @@
         <muxc:NavigationView  Grid.Row="1"
                               IsTitleBarAutoPaddingEnabled="True"
                               IsBackButtonVisible="Collapsed"
-                              x:Name="nvSample"
-                              SelectionChanged="NavigationView_SelectionChanged"
+                              IsBackEnabled="{x:Bind IsBackEnabled, Mode=OneWay}"
+                              SelectedItem="{x:Bind Selected, Mode=OneWay}"
+                              ItemInvoked="OnItemInvoked"
+                              x:Name="navigationView"
+                              
                               PaneDisplayMode="LeftCompact"
                               OpenPaneLength="256"
                               >
             <muxc:NavigationView.MenuItems>
-                <muxc:NavigationViewItem Content="Dashboard" Tag="DashboardPage" >
+                <muxc:NavigationViewItem Content="Dashboard" helpers:NavHelper.NavigateTo="views:DashboardPage" >
                     <muxc:NavigationViewItem.Icon>
                         <FontIcon Glyph="&#xF246;" FontFamily="{StaticResource FluentIcons}"/>
                     </muxc:NavigationViewItem.Icon>
                 </muxc:NavigationViewItem>
-                
-                <muxc:NavigationViewItem Content="Agenda" Tag="Agenda" >
+
+                <muxc:NavigationViewItem Content="Agenda" helpers:NavHelper.NavigateTo="views:Agenda" >
                     <muxc:NavigationViewItem.Icon>
                         <FontIcon Glyph="&#xe787;" FontFamily="{StaticResource FluentIcons}"/>
                     </muxc:NavigationViewItem.Icon>
                 </muxc:NavigationViewItem>
-                
-                <muxc:NavigationViewItem  Content="Valutazioni" Tag="DettaglioVoti" >
+
+                <muxc:NavigationViewItem  Content="Valutazioni" helpers:NavHelper.NavigateTo="views:DettaglioVoti" >
                     <muxc:NavigationViewItem.Icon>
                         <FontIcon Glyph="&#xe9f9;" FontFamily="{StaticResource FluentIcons}"/>
                     </muxc:NavigationViewItem.Icon>
                 </muxc:NavigationViewItem>
 
-                <muxc:NavigationViewItem  Content="Bacheca" Tag="Bacheca" >
+                <muxc:NavigationViewItem  Content="Bacheca" helpers:NavHelper.NavigateTo="views:Bacheca" >
                     <muxc:NavigationViewItem.Icon>
                         <FontIcon Glyph="&#xe718;" FontFamily="{StaticResource FluentIcons}"/>
                     </muxc:NavigationViewItem.Icon>

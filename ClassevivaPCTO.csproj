@@ -125,6 +125,8 @@
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Helpers\NavHelper.cs" />
+    <Compile Include="Helpers\ResourceExtensions.cs" />
     <Compile Include="Views\Agenda.xaml.cs">
       <DependentUpon>Agenda.xaml</DependentUpon>
     </Compile>
