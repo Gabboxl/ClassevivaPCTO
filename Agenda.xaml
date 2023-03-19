@@ -10,5 +10,13 @@
 
     <Grid>
 
+        <AutoSuggestBox QueryIcon="Find"
+                            PlaceholderText="Cerca"
+                            HorizontalAlignment="Center"
+                            Width="260" Height="32" />
+
+        <CalendarDatePicker x:Name="CalendarAgenda" PlaceholderText="Scegli una data" Grid.Row="1" Margin="0,8,0,0" />
+
+
     </Grid>
 </Page>

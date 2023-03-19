@@ -67,16 +67,6 @@
 
                 <TextBlock x:Name="TextOggiAgenda" Grid.Row="0" Text="Oggi a scuola" FontSize="24" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="8" />
 
-
-
-                <AutoSuggestBox QueryIcon="Find"
-                            PlaceholderText="Cerca"
-                            HorizontalAlignment="Center"
-                            Width="260" Height="32" />
-
-                <CalendarDatePicker x:Name="CalendarAgenda" PlaceholderText="Scegli una data" Grid.Row="1" Margin="0,8,0,0" />
-
-
                 <ScrollViewer Grid.Row="2" ZoomMode="Enabled"
             IsTabStop="True" IsVerticalScrollChainingEnabled="True"
             

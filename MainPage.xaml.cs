@@ -7,6 +7,7 @@ using Windows.UI.Xaml.Navigation;
 using Windows.UI.Xaml;
 using ClassevivaPCTO.Utils;
 using ClassevivaPCTO.ViewModel;
+using Windows.ApplicationModel;
 
 namespace ClassevivaPCTO
 {
@@ -22,6 +23,8 @@ namespace ClassevivaPCTO
             var coreTitleBar = CoreApplication.GetCurrentView().TitleBar;
             coreTitleBar.ExtendViewIntoTitleBar = true;
 
+
+            AppTitleTextBlock.Text = "MainPage - " + AppInfo.Current.DisplayInfo.DisplayName;
             Window.Current.SetTitleBar(AppTitleBar);
 
 
@@ -84,8 +87,7 @@ namespace ClassevivaPCTO
                 
                 //nvSample.SelectedItem = e.SourcePageType;
 
-                nvSample.Header =
-                    ((Microsoft.UI.Xaml.Controls.NavigationViewItem)nvSample.SelectedItem)?.Content?.ToString();
+                //nvSample.Header = "tony";
             }
         }
 
