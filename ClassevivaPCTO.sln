@@ -5,6 +5,8 @@ VisualStudioVersion = 17.5.33414.496
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassevivaPCTO", "ClassevivaPCTO\ClassevivaPCTO.csproj", "{26DC2910-B28B-42CF-9A6F-06B76607D215}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClassevivaPCTO.Core", "ClassevivaPCTO.Core\ClassevivaPCTO.Core.csproj", "{BBC03D7E-7B03-4AD3-933C-E2615AB9E13E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -49,6 +51,26 @@ Global
 		{26DC2910-B28B-42CF-9A6F-06B76607D215}.Release|x86.ActiveCfg = Release|Win32
 		{26DC2910-B28B-42CF-9A6F-06B76607D215}.Release|x86.Build.0 = Release|Win32
 		{26DC2910-B28B-42CF-9A6F-06B76607D215}.Release|x86.Deploy.0 = Release|Win32
+		{BBC03D7E-7B03-4AD3-933C-E2615AB9E13E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BBC03D7E-7B03-4AD3-933C-E2615AB9E13E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BBC03D7E-7B03-4AD3-933C-E2615AB9E13E}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{BBC03D7E-7B03-4AD3-933C-E2615AB9E13E}.Debug|ARM.Build.0 = Debug|Any CPU
+		{BBC03D7E-7B03-4AD3-933C-E2615AB9E13E}.Debug|ARM64.ActiveCfg = Debug|Any CPU
+		{BBC03D7E-7B03-4AD3-933C-E2615AB9E13E}.Debug|ARM64.Build.0 = Debug|Any CPU
+		{BBC03D7E-7B03-4AD3-933C-E2615AB9E13E}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{BBC03D7E-7B03-4AD3-933C-E2615AB9E13E}.Debug|x64.Build.0 = Debug|Any CPU
+		{BBC03D7E-7B03-4AD3-933C-E2615AB9E13E}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{BBC03D7E-7B03-4AD3-933C-E2615AB9E13E}.Debug|x86.Build.0 = Debug|Any CPU
+		{BBC03D7E-7B03-4AD3-933C-E2615AB9E13E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BBC03D7E-7B03-4AD3-933C-E2615AB9E13E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BBC03D7E-7B03-4AD3-933C-E2615AB9E13E}.Release|ARM.ActiveCfg = Release|Any CPU
+		{BBC03D7E-7B03-4AD3-933C-E2615AB9E13E}.Release|ARM.Build.0 = Release|Any CPU
+		{BBC03D7E-7B03-4AD3-933C-E2615AB9E13E}.Release|ARM64.ActiveCfg = Release|Any CPU
+		{BBC03D7E-7B03-4AD3-933C-E2615AB9E13E}.Release|ARM64.Build.0 = Release|Any CPU
+		{BBC03D7E-7B03-4AD3-933C-E2615AB9E13E}.Release|x64.ActiveCfg = Release|Any CPU
+		{BBC03D7E-7B03-4AD3-933C-E2615AB9E13E}.Release|x64.Build.0 = Release|Any CPU
+		{BBC03D7E-7B03-4AD3-933C-E2615AB9E13E}.Release|x86.ActiveCfg = Release|Any CPU
+		{BBC03D7E-7B03-4AD3-933C-E2615AB9E13E}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
