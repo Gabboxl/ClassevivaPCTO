@@ -161,7 +161,7 @@
                           SelectionMode="Single"
                               
                           HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
-                          ItemTemplate="{StaticResource VotiListViewDataTemplateNope}"
+                          ItemTemplate="{StaticResource VotiListViewDataTemplateCompact}"
                               
                           ScrollViewer.VerticalScrollMode="Disabled"
                                   ScrollViewer.VerticalScrollBarVisibility="Disabled">
