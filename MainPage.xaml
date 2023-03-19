@@ -164,9 +164,17 @@
                     </muxc:NavigationViewItem.Icon>
                 </muxc:NavigationViewItem>
                 
-                <muxc:NavigationViewItem   Icon="Forward" Content="Valutazioni" Tag="DettaglioVoti" />
-                
-                <muxc:NavigationViewItem   Icon="Forward" Content="Bacheca" Tag="Bacheca" />
+                <muxc:NavigationViewItem  Content="Valutazioni" Tag="DettaglioVoti" >
+                    <muxc:NavigationViewItem.Icon>
+                        <FontIcon Glyph="&#xe9f9;" FontFamily="{StaticResource FluentIcons}"/>
+                    </muxc:NavigationViewItem.Icon>
+                </muxc:NavigationViewItem>
+
+                <muxc:NavigationViewItem  Content="Bacheca" Tag="Bacheca" >
+                    <muxc:NavigationViewItem.Icon>
+                        <FontIcon Glyph="&#xe718;" FontFamily="{StaticResource FluentIcons}"/>
+                    </muxc:NavigationViewItem.Icon>
+                </muxc:NavigationViewItem>
             </muxc:NavigationView.MenuItems>
             
                 <Frame x:Name="contentFrame" IsTabStop="True"/>
