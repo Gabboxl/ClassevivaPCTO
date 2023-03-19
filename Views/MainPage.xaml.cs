@@ -20,6 +20,7 @@ using ClassevivaPCTO.Services;
 
 using WinUI = Microsoft.UI.Xaml.Controls;
 using System.Linq;
+using ClassevivaPCTO.Views;
 
 namespace ClassevivaPCTO
 {
@@ -32,7 +33,7 @@ namespace ClassevivaPCTO
         private readonly KeyboardAccelerator _backKeyboardAccelerator = BuildKeyboardAccelerator(VirtualKey.GoBack);
 
         private bool _isBackEnabled;
-        private NavigationViewItem _selected;
+        private WinUI.NavigationViewItem _selected;
 
         public bool IsBackEnabled
         {
@@ -40,7 +41,7 @@ namespace ClassevivaPCTO
             set { Set(ref _isBackEnabled, value); }
         }
 
-        public NavigationViewItem Selected
+        public WinUI.NavigationViewItem Selected
         {
             get { return _selected; }
             set { Set(ref _selected, value); }
@@ -80,7 +81,7 @@ namespace ClassevivaPCTO
 
 
 
-            NavigationService.Frame = shellFrame;
+            NavigationService.Frame = contentFrame;
             NavigationService.NavigationFailed += Frame_NavigationFailed;
             NavigationService.Navigated += Frame_Navigated;
             navigationView.BackRequested += OnBackRequested;
@@ -119,7 +120,7 @@ namespace ClassevivaPCTO
             }
         }
 
-        private NavigationViewItem GetSelectedItem(IEnumerable<object> menuItems, Type pageType)
+        private WinUI.NavigationViewItem GetSelectedItem(IEnumerable<object> menuItems, Type pageType)
         {
             foreach (var item in menuItems.OfType<WinUI.NavigationViewItem>())
             {
@@ -138,7 +139,7 @@ namespace ClassevivaPCTO
             return null;
         }
 
-        private bool IsMenuItemForPageType(NavigationViewItem menuItem, Type sourcePageType)
+        private bool IsMenuItemForPageType(WinUI.NavigationViewItem menuItem, Type sourcePageType)
         {
             var pageType = menuItem.GetValue(NavHelper.NavigateToProperty) as Type;
             return pageType == sourcePageType;
@@ -162,7 +163,7 @@ namespace ClassevivaPCTO
             }
         }
 
-        private void OnBackRequested(NavigationView sender, NavigationViewBackRequestedEventArgs args)
+        private void OnBackRequested(WinUI.NavigationView sender, WinUI.NavigationViewBackRequestedEventArgs args)
         {
             NavigationService.GoBack();
         }
