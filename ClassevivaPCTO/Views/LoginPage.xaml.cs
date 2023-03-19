@@ -18,7 +18,7 @@ using Windows.UI.Xaml.Media.Animation;
 
 // Il modello di elemento Pagina vuota è documentato all'indirizzo https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x410
 
-namespace ClassevivaPCTO
+namespace ClassevivaPCTO.Views
 {
     public sealed partial class LoginPage : Page
     {
