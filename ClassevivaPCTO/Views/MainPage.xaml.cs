@@ -145,7 +145,7 @@ namespace ClassevivaPCTO
             return pageType == sourcePageType;
         }
 
-        private void OnItemInvoked(NavigationView sender, NavigationViewItemInvokedEventArgs args)
+        private void OnItemInvoked(WinUI.NavigationView sender, WinUI.NavigationViewItemInvokedEventArgs args)
         {
             if (args.IsSettingsInvoked)
             {
@@ -153,7 +153,7 @@ namespace ClassevivaPCTO
             }
             else
             {
-                var selectedItem = args.InvokedItemContainer as NavigationViewItem;
+                var selectedItem = args.InvokedItemContainer as WinUI.NavigationViewItem;
                 var pageType = selectedItem?.GetValue(NavHelper.NavigateToProperty) as Type;
 
                 if (pageType != null)

@@ -128,6 +128,7 @@
     <Compile Include="Helpers\EnumToBooleanConverter.cs" />
     <Compile Include="Helpers\NavHelper.cs" />
     <Compile Include="Helpers\ResourceExtensions.cs" />
+    <Compile Include="Helpers\SettingsStorageExtensions.cs" />
     <Compile Include="Services\NavigationService.cs" />
     <Compile Include="Services\ThemeSelectorService.cs" />
     <Compile Include="Views\Agenda.xaml.cs">
@@ -308,7 +309,12 @@
       <Version>6.3.2</Version>
     </PackageReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\ClassevivaPCTO.Core\ClassevivaPCTO.Core.csproj">
+      <Project>{bbc03d7e-7b03-4ad3-933c-e2615ab9e13e}</Project>
+      <Name>ClassevivaPCTO.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>
