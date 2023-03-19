@@ -100,7 +100,7 @@ namespace ClassevivaPCTO
                     PivotItem innerpvtItem = new PivotItem();
                     innerpvtItem.Header = VariousUtils.UppercaseFirst(materiaWithGrades[0].subjectDesc);
 
-
+                    
                     ListView lw = new ListView();
                     lw.ItemTemplate = (DataTemplate)this.Resources["VotiListViewDataTemplateNope"];
 

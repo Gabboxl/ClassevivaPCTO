@@ -16,7 +16,7 @@
     <Page.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <datatemplates:VotiListViewDataTemplate  Source="Controls/DataTemplates/VotiListViewDataTemplate.xaml"/>
+               <datatemplates:VotiListViewDataTemplate  Source="/Controls/DataTemplates/VotiListViewDataTemplate.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
 
