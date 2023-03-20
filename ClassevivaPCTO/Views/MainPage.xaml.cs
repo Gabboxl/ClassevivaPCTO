@@ -86,6 +86,9 @@ namespace ClassevivaPCTO.Views
             NavigationService.Navigated += Frame_Navigated;
             navigationView.BackRequested += OnBackRequested;
 
+           
+            //pagina di default
+            NavigationService.Navigate(typeof(Views.DashboardPage), null);
         }
 
 
