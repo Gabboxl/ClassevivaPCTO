@@ -1,4 +1,5 @@
 ﻿using ClassevivaPCTO.Converters;
+using ClassevivaPCTO.Services;
 using ClassevivaPCTO.Utils;
 using ClassevivaPCTO.ViewModel;
 using Microsoft.UI.Xaml.Controls;
@@ -137,18 +138,12 @@ namespace ClassevivaPCTO.Views
     
 
 
-
-
-
         private void HyperlinkButton_Click(object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(DettaglioVoti));
+            //NavigationService.Navigate(typeof(Views.DettaglioVoti), null);
+            NavigationService.Navigate(typeof(Views.Bacheca));
         }
 
-        private void TextBlock_SelectionChanged(object sender, RoutedEventArgs e)
-        {
-
-        }
 
         private async void HyperlinkButton_Click_1(object sender, RoutedEventArgs e)
         {
