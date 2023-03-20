@@ -147,66 +147,7 @@ namespace ClassevivaPCTO.Views
 
         private async void HyperlinkButton_Click_1(object sender, RoutedEventArgs e)
         {
-            LoginResult loginResult = ViewModelHolder.getViewModel().LoginResult;
-
-            var api = RestService.For<IClassevivaAPI>("https://web.spaggiari.eu/rest/v1");
-
-            string fixedId = new CvUtils().GetCode(loginResult.Ident);
-
-            var result1 = await api.GetGrades(fixedId, loginResult.Token.ToString());
-
-
-            //aaaa
-
-            var savePicker = new Windows.Storage.Pickers.FileSavePicker();
-            savePicker.SuggestedStartLocation =
-                Windows.Storage.Pickers.PickerLocationId.DocumentsLibrary;
-
-            savePicker.FileTypeChoices.Add("Plain Text", new List<string>() { ".txt" });
-
-            savePicker.SuggestedFileName = "New Document";
-
-            Windows.Storage.StorageFile file = await savePicker.PickSaveFileAsync();
-            if (file != null)
-            {
-
-                Windows.Storage.CachedFileManager.DeferUpdates(file);
-
-                var serialized = Newtonsoft.Json.JsonConvert.SerializeObject(result1.Grades, Formatting.Indented);
-
-                        await Windows.Storage.FileIO.WriteTextAsync(file, serialized);
-
-                Windows.Storage.Provider.FileUpdateStatus status =
-                    await Windows.Storage.CachedFileManager.CompleteUpdatesAsync(file);
-                if (status == Windows.Storage.Provider.FileUpdateStatus.Complete)
-                {
-                    ContentDialog dialog = new ContentDialog();
-                    dialog.Title = "salvato";
-                    dialog.PrimaryButtonText = "OK";
-                    dialog.DefaultButton = ContentDialogButton.Primary;
-                    dialog.Content = "ok salvato";
-                        var result = await dialog.ShowAsync();
-                    }
-                else
-                {
-                    ContentDialog dialog = new ContentDialog();
-                    dialog.Title = "rip";
-                    dialog.PrimaryButtonText = "OK";
-                    dialog.DefaultButton = ContentDialogButton.Primary;
-                    dialog.Content = "rip";
-                    var result = await dialog.ShowAsync();
-                }
-            }
-            else
-            {
-                ContentDialog dialog = new ContentDialog();
-                dialog.Title = "nop";
-                dialog.PrimaryButtonText = "OK";
-                dialog.DefaultButton = ContentDialogButton.Primary;
-                dialog.Content = "nop";
-                var result = await dialog.ShowAsync();
-            }
-
+            NavigationService.Navigate(typeof(Views.Agenda));
         }
     }
 }
