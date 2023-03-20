@@ -21,6 +21,7 @@ using ClassevivaPCTO.Services;
 using WinUI = Microsoft.UI.Xaml.Controls;
 using System.Linq;
 using ClassevivaPCTO.Views;
+using System.Threading;
 
 namespace ClassevivaPCTO.Views
 {
@@ -88,8 +89,26 @@ namespace ClassevivaPCTO.Views
 
            
             //pagina di default
-            NavigationService.Navigate(typeof(Views.DashboardPage), null);
+            NavigationService.Navigate(typeof(Views.DettaglioVoti));
+
+            //Tony();
         }
+
+        /*
+        private async void Tony()
+        {
+            await Task.Delay(2000);
+
+            NavigationService.Navigate(typeof(Views.DashboardPage));
+
+
+            var selectedItem = GetSelectedItem(navigationView.MenuItems, typeof(Views.DashboardPage));
+                Selected = selectedItem;
+
+            
+
+            await Task.CompletedTask;
+        }*/
 
 
 
@@ -120,6 +139,8 @@ namespace ClassevivaPCTO.Views
             if (selectedItem != null)
             {
                 Selected = selectedItem;
+
+                navigationView.SelectedItem = selectedItem; //darimuovere
             }
         }
 
