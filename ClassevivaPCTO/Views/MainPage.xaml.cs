@@ -89,7 +89,7 @@ namespace ClassevivaPCTO.Views
 
            
             //pagina di default
-            NavigationService.Navigate(typeof(Views.DettaglioVoti));
+            NavigationService.Navigate(typeof(Views.DashboardPage));
 
             //Tony();
         }
