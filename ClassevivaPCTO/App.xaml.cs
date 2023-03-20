@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ClassevivaPCTO.Services;
+using System;
+using System.Threading.Tasks;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
 using Windows.UI.Xaml;
@@ -12,6 +14,15 @@ namespace ClassevivaPCTO
     /// </summary>
     sealed partial class App : Application
     {
+        private Lazy<ActivationService> _activationService;
+
+        private ActivationService ActivationService
+        {
+            get { return _activationService.Value; }
+        }
+
+
+
         /// <summary>
         /// Inizializza l'oggetto Application singleton. Si tratta della prima riga del codice creato
         /// creato e, come tale, corrisponde all'equivalente logico di main() o WinMain().
@@ -20,6 +31,9 @@ namespace ClassevivaPCTO
         {
             this.InitializeComponent();
             this.Suspending += OnSuspending;
+
+            // Deferred execution until used. Check https://docs.microsoft.com/dotnet/api/system.lazy-1 for further info on Lazy<T> class.
+            _activationService = new Lazy<ActivationService>(CreateActivationService);
         }
 
         /// <summary>
@@ -27,7 +41,7 @@ namespace ClassevivaPCTO
         /// verranno usati altri punti di ingresso per aprire un file specifico.
         /// </summary>
         /// <param name="e">Dettagli sulla richiesta e sul processo di avvio.</param>
-        protected override void OnLaunched(LaunchActivatedEventArgs e)
+        protected override async void OnLaunched(LaunchActivatedEventArgs e)
         {
             Frame rootFrame = Window.Current.Content as Frame;
 
@@ -62,6 +76,14 @@ namespace ClassevivaPCTO
                 // Assicurarsi che la finestra corrente sia attiva
                 Window.Current.Activate();
             }
+
+
+
+            if (!e.PrelaunchActivated)
+            {
+                await ActivationService.ActivateAsync(e);
+            }
+
         }
 
         /// <summary>
@@ -87,5 +109,29 @@ namespace ClassevivaPCTO
             //TODO: salvare lo stato dell'applicazione e arrestare eventuali attività eseguite in background
             deferral.Complete();
         }
+
+
+
+
+        protected override async void OnActivated(IActivatedEventArgs args)
+        {
+            await ActivationService.ActivateAsync(args);
+        }
+
+        private void OnAppUnhandledException(object sender, Windows.UI.Xaml.UnhandledExceptionEventArgs e)
+        {
+            // TODO: Please log and handle the exception as appropriate to your scenario
+            // For more info see https://docs.microsoft.com/uwp/api/windows.ui.xaml.application.unhandledexception
+        }
+
+        private ActivationService CreateActivationService()
+        {
+            return new ActivationService(this, null, null);
+        }
+
+        /*private UIElement CreateShell()
+        {
+            return new Views.ShellPage();
+        } */
     }
 }
