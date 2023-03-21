@@ -158,7 +158,7 @@ x:Name="AppTitleBarBackButton"
                    Margin="32,16,0,0" />
 
         <RelativePanel Grid.Row="2" 
-                       Margin="32"
+                       Margin="32,32,32,20"
                        VerticalAlignment="Stretch" HorizontalAlignment="Stretch"
                 CornerRadius="8"
                 Padding="12"
@@ -168,19 +168,15 @@ x:Name="AppTitleBarBackButton"
 
         <muxc:ProgressRing IsActive="True" x:Name="ProgressRingVoti" 
                            RelativePanel.AlignVerticalCenterWithPanel="True"
+                           
                            RelativePanel.AlignHorizontalCenterWithPanel="True"/>
+            <ComboBox x:Name="ComboPeriodi"  Header="Periodo Didattico" PlaceholderText="Seleziona un periodo" Width="200">
+              
+            </ComboBox>
 
-        <Pivot Grid.Row="2" x:Name="PivotPeriodi" Visibility="Collapsed" Margin="16"
-               >
+            <ComboBox  RelativePanel.RightOf="ComboPeriodi"   Header="Materie" PlaceholderText="Seleziona una materia" HorizontalAlignment="Left" Margin="25,0,0,0">
 
-            <PivotItem Header="temp">
-                <Pivot>
-                    <PivotItem Header="temp">
-                    </PivotItem>
-                </Pivot>
-            </PivotItem>
-        </Pivot>
-
+            </ComboBox>
         </RelativePanel>
 
     </Grid>
