@@ -11,8 +11,9 @@
         xmlns:helpers="using:ClassevivaPCTO.Helpers"
     xmlns:views="using:ClassevivaPCTO.Views"
     mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
 
+    muxc:BackdropMaterial.ApplyToRootOrPageBackground="True">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
