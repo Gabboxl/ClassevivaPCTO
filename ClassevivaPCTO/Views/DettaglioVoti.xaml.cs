@@ -70,7 +70,7 @@ namespace ClassevivaPCTO.Views
 
 
             //rimuovo tutto al pivot di test
-            PivotPeriodi.Items.Clear();
+           
 
 
             foreach (var periodWithGrades in gradesGroupedByPeriodoDesc)
@@ -78,60 +78,24 @@ namespace ClassevivaPCTO.Views
 
                 var gradesGroupedByMaterie = periodWithGrades.OrderByDescending(x => x.evtDate).GroupBy(x => x.subjectDesc).Select(grp => grp.ToList()).ToList();
 
-                PivotItem pvt = new PivotItem();
-                pvt.Name = periodWithGrades[0].periodDesc;
+             
 
-                pvt.Header = VariousUtils.UppercaseFirst(periodWithGrades[0].periodDesc);
-
-                var stack = new StackPanel();
-                stack.Orientation = Orientation.Vertical;
-
-                var textbrock = new TextBlock();
-                //textbrock.Text = "Periodo dal " + period.dateStart.ToString("dd/MM/yyy") + " al " + period.dateEnd.ToString("dd/MM/yyy");
-                textbrock.Margin = new Thickness(8);
-
-                //add items to the stackpanel
-                stack.Children.Add(textbrock);
-
-                Pivot innerPivot = new Pivot();
+              
 
                 foreach(List<Grade> materiaWithGrades in gradesGroupedByMaterie) {
 
-                    PivotItem innerpvtItem = new PivotItem();
-                    innerpvtItem.Header = VariousUtils.UppercaseFirst(materiaWithGrades[0].subjectDesc);
-
-                    
-                    ListView lw = new ListView();
-                    lw.ItemTemplate = (DataTemplate)this.Resources["VotiListViewDataTemplateNope"];
-
-                    lw.ItemsSource = materiaWithGrades;
-
-                    //foreach (Grade grade in materiaWithGrades)
-                    //{
-
-                    //}
-                    //TODO: aggiungere la listview con i voti al pivotitem
-
-                    //we add the listview to the innverpvtItem
-                    innerpvtItem.Content = lw;
-                    
-                    innerPivot.Items.Add(innerpvtItem);
                     
                 }
 
-                stack.Children.Add(innerPivot);
-
-
-                pvt.Content = stack;
-
-                PivotPeriodi.Items.Add(pvt);
+               
+               
 
 
             }
 
 
             ProgressRingVoti.Visibility = Visibility.Collapsed;
-            PivotPeriodi.Visibility = Visibility.Visible;   
+          
 
 
 
