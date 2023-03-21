@@ -19,6 +19,9 @@ namespace ClassevivaPCTO.Views
     /// </summary>
     public sealed partial class DettaglioVoti : Page
     {
+        Grades2Result grades2Result;
+
+
         public DettaglioVoti()
         {
             this.InitializeComponent();
@@ -57,7 +60,7 @@ namespace ClassevivaPCTO.Views
 
             string fixedId = new CvUtils().GetCode(loginResult.Ident);
 
-            var resultGrades = await api.GetGrades(fixedId, loginResult.Token.ToString());
+            grades2Result = await api.GetGrades(fixedId, loginResult.Token.ToString());
 
             var resultPeriods = await api.GetPeriods(fixedId, loginResult.Token.ToString());
 
@@ -66,40 +69,128 @@ namespace ClassevivaPCTO.Views
 
 
 
-            var gradesGroupedByPeriodoDesc = resultGrades.Grades.OrderBy(x => x.evtDate).GroupBy(x => x.periodDesc).Select(grp => grp.ToList()).ToList();
 
 
-            //rimuovo tutto al pivot di test
-           
-
-
-            foreach (var periodWithGrades in gradesGroupedByPeriodoDesc)
+            //add to ComboPeriodi every period of resultPeriods
+            foreach (Period period in resultPeriods.Periods)
             {
-
-                var gradesGroupedByMaterie = periodWithGrades.OrderByDescending(x => x.evtDate).GroupBy(x => x.subjectDesc).Select(grp => grp.ToList()).ToList();
-
-             
-
-              
-
-                foreach(List<Grade> materiaWithGrades in gradesGroupedByMaterie) {
-
-                    
-                }
-
-               
-               
-
-
+                ComboPeriodi.Items.Add(VariousUtils.UppercaseFirst(period.periodDesc));
             }
+
+            //seleziono il primo elemento iniziale - questo chiamerà il metodo ComboPeriodi_SelectionChanged subito
+            ComboPeriodi.SelectedItem = ComboPeriodi.Items[0];
+
+
 
 
             ProgressRingVoti.Visibility = Visibility.Collapsed;
           
 
 
+        }
+
+
+
+
+        private void ComboPeriodi_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            aggiornaComboMaterie();
+        }
+
+        private void ComboMaterie_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            aggiornaListViewVoti();
+        }
+
+
+        private void aggiornaComboMaterie()
+        {
+            //pulisco il ComboMaterie
+            ComboMaterie.Items.Clear();
+
+            var gradesGroupedByPeriodoDesc = grades2Result.Grades.OrderBy(x => x.evtDate).GroupBy(x => x.periodDesc).Select(grp => grp.ToList()).ToList();
+
+            int c = 0;
+
+            foreach (var periodWithGrades in gradesGroupedByPeriodoDesc)
+            {
+                
+
+                //if (periodWithGrades[0].periodDesc.Equals(ComboPeriodi.SelectedValue))
+
+                if(c == ComboPeriodi.SelectedIndex)
+                {
+
+                    var gradesGroupedByMaterie = periodWithGrades.OrderByDescending(x => x.evtDate).GroupBy(x => x.subjectDesc).Select(grp => grp.ToList()).ToList();
+
+
+                    foreach (List<Grade> materiaWithGrades in gradesGroupedByMaterie)
+                    {
+                        
+                        ComboMaterie.Items.Add(VariousUtils.UppercaseFirst(materiaWithGrades[0].subjectDesc));
+
+                    }
+
+                    ComboMaterie.SelectedItem = ComboMaterie.Items[0];
+
+                    return;
+                }
+
+                c++;
+            }
 
         }
+
+
+
+        private void aggiornaListViewVoti()
+        {
+            var gradesGroupedByPeriodoDesc = grades2Result.Grades.OrderBy(x => x.evtDate).GroupBy(x => x.periodDesc).Select(grp => grp.ToList()).ToList();
+
+
+            int c = 0;
+
+            foreach (var periodWithGrades in gradesGroupedByPeriodoDesc)
+            {
+
+
+                //if (periodWithGrades[0].periodDesc.Equals(ComboPeriodi.SelectedValue))
+
+                if (c == ComboPeriodi.SelectedIndex)
+                {
+
+                    var gradesGroupedByMaterie = periodWithGrades.OrderByDescending(x => x.evtDate).GroupBy(x => x.subjectDesc).Select(grp => grp.ToList()).ToList();
+
+                    int y = 0;
+
+                    foreach (List<Grade> materiaWithGrades in gradesGroupedByMaterie)
+                    {
+
+                        if (y == ComboMaterie.SelectedIndex)
+                        {
+
+                            ListViewVoti.ItemsSource = materiaWithGrades;
+                        }
+
+                        y++;
+                    }
+
+                    return;
+                }
+
+                c++;
+            }
+
+
+
+        }
+
+
+
+
+
+
+
 
         public void GoBack(object sender, RoutedEventArgs e)
         {
