@@ -171,6 +171,12 @@
                     </muxc:NavigationViewItem.Icon>
                 </muxc:NavigationViewItem>
 
+                <muxc:NavigationViewItem Content="Assenze e ritardi" helpers:NavHelper.NavigateTo="views:Assenze" >
+                    <muxc:NavigationViewItem.Icon>
+                        <FontIcon Glyph="&#xe787;" FontFamily="{StaticResource FluentIcons}"/>
+                    </muxc:NavigationViewItem.Icon>
+                </muxc:NavigationViewItem>
+
                 <muxc:NavigationViewItem  Content="Valutazioni" helpers:NavHelper.NavigateTo="views:DettaglioVoti" >
                     <muxc:NavigationViewItem.Icon>
                         <FontIcon Glyph="&#xe9f9;" FontFamily="{StaticResource FluentIcons}"/>
