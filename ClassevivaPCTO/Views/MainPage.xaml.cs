@@ -65,8 +65,10 @@ namespace ClassevivaPCTO.Views
             coreTitleBar.ExtendViewIntoTitleBar = true;
 
 
-            AppTitleTextBlock.Text = "MainPage - " + AppInfo.Current.DisplayInfo.DisplayName;
+            AppTitleTextBlock.Text = "" + AppInfo.Current.DisplayInfo.DisplayName;
             Window.Current.SetTitleBar(AppTitleBar);
+
+            
 
 
             //remove the solid-colored backgrounds behind the caption controls and system back button
