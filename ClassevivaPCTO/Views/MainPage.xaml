@@ -74,17 +74,17 @@
                 
                 -->
 
-                <Image Source="Assets/Square44x44Logo.scale-200.png"
+                <Image Source="/Assets/Square44x44Logo.scale-400.png"
                        Grid.Column="1"
                        HorizontalAlignment="Left"
-                       Width="16" Height="16"
-                       Margin="8,0,0,0" />
+                       Width="24" Height="24"
+                       Margin="16,0,0,0" />
                 <TextBlock x:Name="AppTitleTextBlock"
                            Text="test"
                            Style="{StaticResource CaptionTextBlockStyle}"
                            Grid.Column="1"
                            VerticalAlignment="Center"
-                           Margin="28,0,0,0" />
+                           Margin="48,0,0,0" />
             </Grid>
 
 
