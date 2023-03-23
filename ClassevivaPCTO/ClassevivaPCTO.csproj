@@ -141,6 +141,9 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Assenze.xaml.cs">
+      <DependentUpon>Assenze.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Bacheca.xaml.cs">
       <DependentUpon>Bacheca.xaml</DependentUpon>
     </Compile>
@@ -243,6 +246,10 @@
     <Page Include="Views\Agenda.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Assenze.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\Bacheca.xaml">
       <SubType>Designer</SubType>
