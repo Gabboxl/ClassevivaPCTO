@@ -129,8 +129,8 @@
                   Background="{ThemeResource CardBackgroundFillColorDefaultBrush}">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
-                    <RowDefinition Height="*" />
                     <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition />
@@ -140,7 +140,7 @@
                 <TextBlock x:Name="TextValRecenti" Grid.Row="0" Text="Valutazioni recenti" FontSize="24" VerticalAlignment="Top" Margin="8" />
 
 
-                <ScrollViewer Grid.Row="1" ZoomMode="Enabled"
+                <ScrollViewer Grid.Row="2" ZoomMode="Enabled"
             IsTabStop="False" IsVerticalScrollChainingEnabled="False"
             
             HorizontalScrollMode="Enabled" HorizontalScrollBarVisibility="Auto"
@@ -162,10 +162,9 @@
                 </ScrollViewer>
 
                 <HyperlinkButton Grid.Row="2"  Content="Vedi tutti i voti"
-                 Click="HyperlinkButton_Click" VerticalAlignment="Bottom"
+                 Click="HyperlinkButton_Click" VerticalAlignment="Bottom" HorizontalAlignment="Right"
                 />
- 
-                   
+
 
 
 
