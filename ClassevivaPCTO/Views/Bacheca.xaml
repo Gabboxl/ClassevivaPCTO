@@ -10,5 +10,8 @@
 
     <Grid>
 
+        <TextBlock x:Name="TextTitolo"  Grid.Row="0" Text="Bacheca" FontSize="42" VerticalAlignment="Top"
+                   Margin="32,16,0,0" />
+
     </Grid>
 </Page>
