@@ -56,16 +56,16 @@
                 <TextBlock RelativePanel.RightOf="textMateria" x:Name="dataVoto"
                                            Text="{x:Bind evtDate, Converter={StaticResource DateTimeToNormalDateConverter}}"
 
-                                           Foreground="LightGray"
-                                           Style="{ThemeResource BaseTextBlockStyle}"
+                                           
+                                           Style="{ThemeResource CaptionTextBlockStyle}"
                                            Margin="12,6,0,0" />
 
                 <TextBlock RelativePanel.RightOf="dataVoto"
                                            Text="{x:Bind componentDesc}"
 
 
-                                           Style="{ThemeResource BodyTextBlockStyle}"
-                                           Foreground="LightGray"
+                                           Style="{ThemeResource CaptionTextBlockStyle}"
+                                           
                                            Margin="12,6,0,0" />
 
             </RelativePanel>
