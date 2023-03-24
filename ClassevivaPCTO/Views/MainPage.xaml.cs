@@ -30,6 +30,19 @@ namespace ClassevivaPCTO.Views
     /// </summary>
     public sealed partial class MainPage : Page
     {
+        public AppViewModel AppViewModel { get; set; }
+        
+
+        public string FirstName
+        {
+            get { return VariousUtils.UppercaseFirst(AppViewModel.LoginResult.FirstName) + " " + VariousUtils.UppercaseFirst(AppViewModel.LoginResult.LastName); }
+        }
+
+        public string Email
+        {
+            get { return AppViewModel.LoginResult.Ident; }
+        }
+
         private readonly KeyboardAccelerator _altLeftKeyboardAccelerator = BuildKeyboardAccelerator(VirtualKey.Left, VirtualKeyModifiers.Menu);
         private readonly KeyboardAccelerator _backKeyboardAccelerator = BuildKeyboardAccelerator(VirtualKey.GoBack);
 
@@ -53,8 +66,11 @@ namespace ClassevivaPCTO.Views
         {
             this.InitializeComponent();
 
-            DataContext = this;
+            this.DataContext = this;
             Initialize();
+
+            this.AppViewModel = ViewModelHolder.getViewModel();
+
 
         }
 

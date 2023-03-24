@@ -8,12 +8,20 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
     xmlns:controlscust="using:ClassevivaPCTO.Controls"
+        xmlns:roba="using:ClassevivaPCTO.Utils"
         xmlns:helpers="using:ClassevivaPCTO.Helpers"
     xmlns:views="using:ClassevivaPCTO.Views"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
 
     muxc:BackdropMaterial.ApplyToRootOrPageBackground="True">
+
+    <Page.Resources>
+
+        <roba:VariousUtils x:Key="VariousUtils"/>
+    </Page.Resources>
+
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
@@ -89,6 +97,7 @@
 
 
 
+
             <Button Style="{StaticResource ProfileButtonStyle}" HorizontalAlignment="Right" Margin="0,0,200,0">
                 <!--  <Button.ContextFlyout>
                     <MenuFlyout>
@@ -111,11 +120,11 @@
 
                         <MenuFlyoutItem >
                             <MenuFlyoutItem.Template  >
-                                <ControlTemplate TargetType="MenuFlyoutItem" x:Name="FlyoutItemPersonPictureTemp">
+                                <ControlTemplate x:Name="FlyoutItemPersonPictureTemp">
                                     <StackPanel Grid.Row="0" Grid.RowSpan="2" VerticalAlignment="Center">
-                                        <TextBlock IsTextSelectionEnabled="True" x:Name="Tony" TextWrapping="Wrap" TextAlignment="Center"  Text="Nome e cognome"    FontSize="14" HorizontalAlignment="Center" VerticalAlignment="Top" FontWeight="Bold" Padding="4,4,4,8" />
-                                        <TextBlock IsTextSelectionEnabled="True" x:Name="TBemail" TextWrapping="Wrap" TextAlignment="Center"  Text="email"    FontSize="12" HorizontalAlignment="Center" VerticalAlignment="Top" />
-                                        <TextBlock IsTextSelectionEnabled="True" x:Name="TBscuola" TextWrapping="Wrap" TextAlignment="Center"  Text="nome scuola"    FontSize="12" HorizontalAlignment="Center" VerticalAlignment="Top" />
+                                        <TextBlock IsTextSelectionEnabled="True" x:Name="TNomeCognome" TextWrapping="Wrap" TextAlignment="Center"  Text="{Binding FirstName}"    FontSize="14" HorizontalAlignment="Center" VerticalAlignment="Top" FontWeight="Bold" Padding="4,4,4,8" />
+                                        <TextBlock IsTextSelectionEnabled="True" x:Name="TCodiceUtente" TextWrapping="Wrap" TextAlignment="Center"  Text="{Binding Email}"    FontSize="12" HorizontalAlignment="Center" VerticalAlignment="Top" />
+                                        <TextBlock IsTextSelectionEnabled="True" x:Name="TScuola" TextWrapping="Wrap" TextAlignment="Center"  Text="nome scuola"    FontSize="12" HorizontalAlignment="Center" VerticalAlignment="Top" />
                                     </StackPanel>
                                 </ControlTemplate>
                             </MenuFlyoutItem.Template>
