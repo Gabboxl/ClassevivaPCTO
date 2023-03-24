@@ -112,6 +112,7 @@ namespace ClassevivaPCTO.Views
 
                 LoginResult loginResult = await api.LoginAsync(measurement);
 
+
                 ViewModelHolder.getViewModel().LoginResult = loginResult;
 
 

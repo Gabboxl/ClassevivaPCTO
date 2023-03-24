@@ -59,8 +59,9 @@ namespace ClassevivaPCTO.Views
             //LoginResult parameters = (LoginResult)e.Parameter;
 
             LoginResult loginResult = ViewModelHolder.getViewModel().LoginResult;
+            Card cardResult = ViewModelHolder.getViewModel().CardsResult.Cards[0];
 
-            TextBenvenuto.Text = "Dashboard di " + VariousUtils.UppercaseFirst(loginResult.FirstName);
+            TextBenvenuto.Text = "Dashboard di " + VariousUtils.UppercaseFirst(cardResult.firstName);
            
             
 
@@ -81,9 +82,9 @@ namespace ClassevivaPCTO.Views
 
             var api = RestService.For<IClassevivaAPI>("https://web.spaggiari.eu/rest/v1");
 
-            string fixedId = new CvUtils().GetCode(loginResult.Ident);
+            //string fixedId = new CvUtils().GetCode(loginResult.Ident);
 
-            var result1 = await api.GetGrades(fixedId, loginResult.Token.ToString());
+            var result1 = await api.GetGrades(cardResult.usrId.ToString(), loginResult.Token.ToString());
 
 
 
