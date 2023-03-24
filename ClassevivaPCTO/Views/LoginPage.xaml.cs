@@ -110,18 +110,16 @@ namespace ClassevivaPCTO.Views
                 };
 
 
-                LoginResult user = await api.LoginAsync(measurement);
+                LoginResult loginResult = await api.LoginAsync(measurement);
 
-                ViewModelHolder.getViewModel().LoginResult = user;
+                ViewModelHolder.getViewModel().LoginResult = loginResult;
 
-                /*
-                ContentDialog dialog = new ContentDialog();
-                dialog.Title = "Login completato";
-                dialog.PrimaryButtonText = "OK";
-                dialog.DefaultButton = ContentDialogButton.Primary;
-                dialog.Content = "Benvenuto " + user.FirstName + " " + user.LastName;
 
-                //var result = await dialog.ShowAsync();*/
+                string fixedId = new CvUtils().GetCode(loginResult.Ident);
+                CardsResult cardsResult = await api.GetCards(fixedId, loginResult.Token.ToString());
+
+                ViewModelHolder.getViewModel().CardsResult = cardsResult;
+
 
                 if ((bool)checkboxCredenziali.IsChecked)
                 {

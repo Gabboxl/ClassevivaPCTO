@@ -11,13 +11,13 @@ namespace ClassevivaPCTO.ViewModel
 {
     public static class ViewModelHolder
     {
-        private static ViewModel viewModel;
+        private static AppViewModel viewModel;
 
-        public static ViewModel getViewModel()
+        public static AppViewModel getViewModel()
         {
             if(viewModel == null)
             {
-                viewModel = new ViewModel();
+                viewModel = new AppViewModel();
             }
 
             return viewModel;
