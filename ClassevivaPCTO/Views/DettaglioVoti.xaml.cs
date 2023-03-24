@@ -35,15 +35,15 @@ namespace ClassevivaPCTO.Views
             base.OnNavigatedTo(e);
 
             LoginResult loginResult = ViewModelHolder.getViewModel().LoginResult;
-
+            Card cardResult = ViewModelHolder.getViewModel().CardsResult.Cards[0];
 
             var api = RestService.For<IClassevivaAPI>("https://web.spaggiari.eu/rest/v1");
 
-            string fixedId = new CvUtils().GetCode(loginResult.Ident);
+            //string fixedId = new CvUtils().GetCode(loginResult.Ident);
 
-            grades2Result = await api.GetGrades(fixedId, loginResult.Token.ToString());
+            grades2Result = await api.GetGrades(cardResult.usrId.ToString(), loginResult.Token.ToString());
 
-            var resultPeriods = await api.GetPeriods(fixedId, loginResult.Token.ToString());
+            var resultPeriods = await api.GetPeriods(cardResult.usrId.ToString(), loginResult.Token.ToString());
 
 
             MainTextBox.Text = "Dettaglio voti di " + VariousUtils.UppercaseFirst(loginResult.FirstName);
