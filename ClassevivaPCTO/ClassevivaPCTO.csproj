@@ -169,7 +169,7 @@
     <Compile Include="Utils\CredUtils.cs" />
     <Compile Include="Utils\VariousUtils.cs" />
     <Compile Include="ViewModel\ViewModelHolder.cs" />
-    <Compile Include="ViewModel\ViewModel.cs" />
+    <Compile Include="ViewModel\AppViewModel.cs" />
     <Compile Include="Views\SettingsPage.xaml.cs">
       <DependentUpon>SettingsPage.xaml</DependentUpon>
     </Compile>
