@@ -26,25 +26,6 @@ namespace ClassevivaPCTO.Views
         {
             this.InitializeComponent();
 
-
-            //titolo title bar
-            AppTitleTextBlock.Text = "Dettaglio voti - " + AppInfo.Current.DisplayInfo.DisplayName;
-            Window.Current.SetTitleBar(AppTitleBar);
-
-            var currentView = SystemNavigationManager.GetForCurrentView();
-            //currentView.AppViewBackButtonVisibility = AppViewBackButtonVisibility.Visible;
-
-
-            currentView.BackRequested += (s, e) =>
-            {
-                Frame rootFrame = Window.Current.Content as Frame;
-                if (rootFrame.CanGoBack)
-                {
-                    rootFrame.GoBack();
-                }
-            };
-
-
         }
 
 
@@ -70,7 +51,6 @@ namespace ClassevivaPCTO.Views
 
 
 
-
             //add to ComboPeriodi every period of resultPeriods
             foreach (Period period in resultPeriods.Periods)
             {
@@ -81,12 +61,7 @@ namespace ClassevivaPCTO.Views
             ComboPeriodi.SelectedItem = ComboPeriodi.Items[0];
 
 
-
-
             ProgressRingVoti.Visibility = Visibility.Collapsed;
-          
-
-
         }
 
 
