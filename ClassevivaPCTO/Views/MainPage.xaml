@@ -121,10 +121,10 @@
                         <MenuFlyoutItem >
                             <MenuFlyoutItem.Template  >
                                 <ControlTemplate x:Name="FlyoutItemPersonPictureTemp">
-                                    <StackPanel Grid.Row="0" Grid.RowSpan="2" VerticalAlignment="Center">
-                                        <TextBlock IsTextSelectionEnabled="True" x:Name="TNomeCognome" TextWrapping="Wrap" TextAlignment="Center"  Text="{Binding FirstName}"    FontSize="14" HorizontalAlignment="Center" VerticalAlignment="Top" FontWeight="Bold" Padding="4,4,4,8" />
-                                        <TextBlock IsTextSelectionEnabled="True" x:Name="TCodiceUtente" TextWrapping="Wrap" TextAlignment="Center"  Text="{Binding Email}"    FontSize="12" HorizontalAlignment="Center" VerticalAlignment="Top" />
-                                        <TextBlock IsTextSelectionEnabled="True" x:Name="TScuola" TextWrapping="Wrap" TextAlignment="Center"  Text="nome scuola"    FontSize="12" HorizontalAlignment="Center" VerticalAlignment="Top" />
+                                    <StackPanel Grid.Row="0" Grid.RowSpan="2" VerticalAlignment="Center" Margin="16">
+                                        <TextBlock IsTextSelectionEnabled="True" x:Name="TNomeCognome" TextWrapping="Wrap" TextAlignment="Center"  Text="{Binding FirstName}"   Style="{ThemeResource BodyStrongTextBlockStyle}"   FontSize="14" HorizontalAlignment="Center" VerticalAlignment="Top" FontWeight="Bold" />
+                                        <TextBlock IsTextSelectionEnabled="True" x:Name="TCodiceUtente" TextWrapping="Wrap" TextAlignment="Center"  Text="{Binding Codice}"   Style="{ThemeResource BodyTextBlockStyle}"  FontSize="12" HorizontalAlignment="Center" VerticalAlignment="Top" />
+                                        <TextBlock IsTextSelectionEnabled="True" x:Name="TScuola" TextWrapping="Wrap" TextAlignment="Center"  Text="{Binding Scuola}"   Style="{ThemeResource BodyTextBlockStyle}"  FontSize="12" HorizontalAlignment="Center" VerticalAlignment="Top"  />
                                     </StackPanel>
                                 </ControlTemplate>
                             </MenuFlyoutItem.Template>
@@ -135,8 +135,8 @@
 
                         <MenuFlyoutItem Text="Esci"
                         x:Name="LogoutButton2"
-                                    Height="32" Width="177"
-                                    RenderTransformOrigin="2.13,0.797" HorizontalAlignment="Center"
+                                    Height="32" 
+                                    RenderTransformOrigin="2.13,0.797" HorizontalAlignment="Stretch"
                                     Click="ButtonLogout_Click" VerticalAlignment="Top" >
 
                             <MenuFlyoutItem.Icon>
