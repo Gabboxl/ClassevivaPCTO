@@ -6,20 +6,81 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+    muxc:BackdropMaterial.ApplyToRootOrPageBackground="True">
 
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+
 
         <TextBlock x:Name="TextTitolo"  Grid.Row="0" Text="Agenda" FontSize="42" VerticalAlignment="Top"
                    Margin="32,16,0,0" />
 
-        <AutoSuggestBox QueryIcon="Find"
+        <RelativePanel Grid.Row="2" 
+                       Margin="32,32,32,20"
+                       VerticalAlignment="Stretch" HorizontalAlignment="Stretch"
+                CornerRadius="8"
+                Padding="12"
+                BorderThickness="1"
+                BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
+                Background="{ThemeResource CardBackgroundFillColorDefaultBrush}">
+
+            <muxc:ProgressRing IsActive="True" x:Name="ProgressRingAgenda" 
+                           RelativePanel.AlignVerticalCenterWithPanel="True"
+                           
+                           RelativePanel.AlignHorizontalCenterWithPanel="True"/>
+
+
+
+            <AutoSuggestBox QueryIcon="Find"
                             PlaceholderText="Cerca"
                             HorizontalAlignment="Center"
                             Width="260" Height="32" />
 
-        <CalendarDatePicker x:Name="CalendarAgenda" PlaceholderText="Scegli una data" Grid.Row="1" Margin="0,8,0,0" />
+            <CalendarDatePicker x:Name="CalendarAgenda" PlaceholderText="Scegli una data" Grid.Row="1" Margin="0,8,0,0" />
 
+
+            <ListView x:Name="ListViewAbsencesDate" 
+                          SelectionMode="Single"
+                              
+                          HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+                          ItemTemplate="{StaticResource VotiListViewDataTemplateNope}"
+                              
+                          ScrollViewer.VerticalScrollMode="Disabled"
+                                  ScrollViewer.VerticalScrollBarVisibility="Disabled">
+
+            </ListView>
+
+
+            <ListView x:Name="ListViewVotiDate" RelativePanel.Below="ListViewAbsencesDate"
+                          SelectionMode="Single"
+                              
+                          HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+                          ItemTemplate="{StaticResource VotiListViewDataTemplateNope}"
+                              
+                          ScrollViewer.VerticalScrollMode="Disabled"
+                                  ScrollViewer.VerticalScrollBarVisibility="Disabled">
+
+            </ListView>
+
+            <ListView x:Name="ListViewAgendaDate" RelativePanel.Below="ListViewVotiDate"
+                          SelectionMode="Single"
+                              
+                          HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+                          ItemTemplate="{StaticResource VotiListViewDataTemplateNope}"
+                              
+                          ScrollViewer.VerticalScrollMode="Disabled"
+                                  ScrollViewer.VerticalScrollBarVisibility="Disabled">
+
+            </ListView>
+
+        </RelativePanel>
 
     </Grid>
 </Page>

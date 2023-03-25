@@ -22,6 +22,12 @@ namespace ClassevivaPCTO.Utils
             return char.ToUpper(s[0]) + s.Substring(1);
         }
 
+
+        public static string ToApiDateTime(DateTime dateTime)
+        {
+            return dateTime.ToString("yyyyMMdd");
+        }
+
         public static float? GradeToInt(object value)
         {
             float? valore = null;
@@ -69,9 +75,6 @@ namespace ClassevivaPCTO.Utils
             {
                 valore = (float?)value;
             }
-
-
-
 
 
             return valore;
