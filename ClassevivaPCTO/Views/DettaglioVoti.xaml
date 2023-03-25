@@ -46,11 +46,11 @@
                            RelativePanel.AlignVerticalCenterWithPanel="True"
                            
                            RelativePanel.AlignHorizontalCenterWithPanel="True"/>
-            <ComboBox x:Name="ComboPeriodi"  Header="Periodo Didattico" PlaceholderText="Seleziona un periodo" Width="200" SelectionChanged="ComboPeriodi_SelectionChanged">
+            <ComboBox x:Name="ComboPeriodi"  Header="Periodo didattico" PlaceholderText="Seleziona un periodo" Width="200" SelectionChanged="ComboPeriodi_SelectionChanged">
               
             </ComboBox>
 
-            <ComboBox  RelativePanel.RightOf="ComboPeriodi"  x:Name="ComboMaterie" Header="Materie" PlaceholderText="Seleziona una materia" HorizontalAlignment="Left" Margin="25,0,0,0" SelectionChanged="ComboMaterie_SelectionChanged">
+            <ComboBox  RelativePanel.RightOf="ComboPeriodi"  x:Name="ComboMaterie" Header="Materia" PlaceholderText="Seleziona una materia" HorizontalAlignment="Left" Margin="25,0,0,0" SelectionChanged="ComboMaterie_SelectionChanged">
 
             </ComboBox>
 
