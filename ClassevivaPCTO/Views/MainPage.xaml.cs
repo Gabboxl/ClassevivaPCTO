@@ -38,9 +38,19 @@ namespace ClassevivaPCTO.Views
             get { return VariousUtils.UppercaseFirst(AppViewModel.LoginResult.FirstName) + " " + VariousUtils.UppercaseFirst(AppViewModel.LoginResult.LastName); }
         }
 
-        public string Email
+        public string Codice
         {
             get { return AppViewModel.LoginResult.Ident; }
+        }
+
+        public string Scuola
+        {
+            get {
+                Card card = AppViewModel.CardsResult.Cards[0];
+
+                return card.schName + " " + card.schDedication + " [" + card.schCode + "]"; 
+            
+            }
         }
 
         private readonly KeyboardAccelerator _altLeftKeyboardAccelerator = BuildKeyboardAccelerator(VirtualKey.Left, VirtualKeyModifiers.Menu);
