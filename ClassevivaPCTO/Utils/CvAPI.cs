@@ -127,7 +127,8 @@ namespace ClassevivaPCTO.Utils
         [JsonPropertyName("events")]
         public List<AbsenceEvent> AbsenceEvents { get; set; }
 
-        //to implement notes array json of the API response
+        [JsonPropertyName("notes")]
+        public List<Notes> Notes { get; set; }
     }
 
 
@@ -171,6 +172,44 @@ namespace ClassevivaPCTO.Utils
         public string miurDivisionCode { get; set; }
     }
 
+    public class Teacher
+    {
+        public string teacherId { get; set; }
+        public string teacherName { get; set; }
+    }
+
+    public class Subject
+    {
+        public long id { get; set; }
+        public string description { get; set; }
+        public long order { get; set; }
+        public List<Teacher> teachers { get; set; }
+    }
+
+
+    public class NoteNTTE
+    {
+        public long evtId { get; set; }
+        public string evtText { get; set; }
+        public DateTime evtDate { get; set; }
+        public string authorName { get; set; }
+        public bool readStatus { get; set; }
+    }
+
+    public class Notes
+    {
+        [JsonPropertyName("NTTE")]
+        public List<NoteNTTE> NotesNTTE { get; set; }
+
+        [JsonPropertyName("NTCL")]
+        public List<NoteNTTE> NotesNTCL { get; set; } //to create a dedicated note class for this one note type
+
+        [JsonPropertyName("NTWN")]
+        public List<NoteNTTE> NotesNTWN { get; set; } //to create a dedicated note class for this one note type
+
+        [JsonPropertyName("NTST")]
+        public List<NoteNTTE> NotesNTST { get; set; } //to create a dedicated note class for this one note type
+    }
 
     public class PeriodsResult
     {
@@ -178,6 +217,11 @@ namespace ClassevivaPCTO.Utils
         public List<Period> Periods { get; set; }
     }
 
+    public class SubjectsResult
+    {
+        [JsonPropertyName("subjects")]
+        public List<Subject> Subjects { get; set; }
+    }
 
     [Headers("User-Agent: CVVS/std/4.2.3 Android/10", "Z-Dev-Apikey: Tg1NWEwNGIgIC0K", "Content-Type: application/json")]
     public interface IClassevivaAPI
@@ -197,8 +241,17 @@ namespace ClassevivaPCTO.Utils
         [Get("/students/{userId}/cards")]
         Task<CardsResult> GetCards(string userId, [Header("Z-Auth-Token")] string token);
 
+        [Get("/students/{userId}/card")]
+        Task<Card> GetSingleCard(string userId, [Header("Z-Auth-Token")] string token);
+
         [Get("/students/{userId}/periods")]
         Task<PeriodsResult> GetPeriods(string userId, [Header("Z-Auth-Token")] string token);
+
+        [Get("/students/{userId}/periods")]
+        Task<SubjectsResult> GetSubjects(string userId, [Header("Z-Auth-Token")] string token);
+
+        [Get("/students/{userId}/notes/all")]
+        Task<Notes> GetAllNotes(string userId, [Header("Z-Auth-Token")] string token);
 
     }
 
