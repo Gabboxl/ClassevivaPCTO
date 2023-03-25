@@ -104,7 +104,7 @@ namespace ClassevivaPCTO.Utils
         public DateTime evtDate { get; set; }
         public string evtCode { get; set; }
         public long? evtHPos { get; set; }
-        public string evtDuration { get; set; }
+        public long? evtDuration { get; set; }
         public string classDesc { get; set; }
         public string authorName { get; set; }
         public long? subjectId { get; set; }
@@ -128,7 +128,7 @@ namespace ClassevivaPCTO.Utils
         public List<AbsenceEvent> AbsenceEvents { get; set; }
 
         [JsonPropertyName("notes")]
-        public List<Notes> Notes { get; set; }
+        public Notes Notes { get; set; }
     }
 
 
@@ -242,7 +242,7 @@ namespace ClassevivaPCTO.Utils
         Task<CardsResult> GetCards(string userId, [Header("Z-Auth-Token")] string token);
 
         [Get("/students/{userId}/card")]
-        Task<Card> GetSingleCard(string userId, [Header("Z-Auth-Token")] string token);
+        Task<Card> GetCardSingle(string userId, [Header("Z-Auth-Token")] string token);
 
         [Get("/students/{userId}/periods")]
         Task<PeriodsResult> GetPeriods(string userId, [Header("Z-Auth-Token")] string token);
@@ -252,6 +252,7 @@ namespace ClassevivaPCTO.Utils
 
         [Get("/students/{userId}/notes/all")]
         Task<Notes> GetAllNotes(string userId, [Header("Z-Auth-Token")] string token);
+
 
     }
 
