@@ -115,17 +115,36 @@ namespace ClassevivaPCTO.Utils
 
     }
 
+    public class AgendaEvent
+    {
+        public int evtId { get; set; }
+        public string evtCode { get; set; }
+        public DateTime evtDatetimeBegin { get; set; }
+        public DateTime evtDatetimeEnd { get; set; }
+        public bool isFullDay { get; set; }
+        public string notes { get; set; }
+        public string authorName { get; set; }
+        public string classDesc { get; set; }
+        public object subjectId { get; set; }
+        public object subjectDesc { get; set; }
+        public object homeworkId { get; set; }
+    }
+
+
 
     public class OverviewResult
     {
         [JsonPropertyName("lessons")]
         public List<Lesson> Lessons { get; set; }
 
-        [JsonPropertyName("grades")]
-        public List<Grade> Grades { get; set; }
+        [JsonPropertyName("agenda")]
+        public List<AgendaEvent> AgendaEvents { get; set; }
 
         [JsonPropertyName("events")]
         public List<AbsenceEvent> AbsenceEvents { get; set; }
+
+        [JsonPropertyName("grades")]
+        public List<Grade> Grades { get; set; }
 
         [JsonPropertyName("notes")]
         public Notes Notes { get; set; }
@@ -186,6 +205,36 @@ namespace ClassevivaPCTO.Utils
         public List<Teacher> teachers { get; set; }
     }
 
+    public class Attachment
+    {
+        public string fileName { get; set; }
+        public int attachNum { get; set; }
+    }
+
+    public class Notice
+    {
+        public int pubId { get; set; }
+        public DateTime pubDT { get; set; }
+        public bool readStatus { get; set; }
+        public string evtCode { get; set; }
+        public int cntId { get; set; }
+        public string cntValidFrom { get; set; }
+        public string cntValidTo { get; set; }
+        public bool cntValidInRange { get; set; }
+        public string cntStatus { get; set; }
+        public string cntTitle { get; set; }
+        public string cntCategory { get; set; }
+        public bool cntHasChanged { get; set; }
+        public bool cntHasAttach { get; set; }
+        public bool needJoin { get; set; }
+        public bool needReply { get; set; }
+        public bool needFile { get; set; }
+        public bool needSign { get; set; }
+        public string evento_id { get; set; }
+        public string dinsert_allegato { get; set; }
+        public List<Attachment> attachments { get; set; }
+    }
+
 
     public class NoteNTTE
     {
@@ -223,6 +272,18 @@ namespace ClassevivaPCTO.Utils
         public List<Subject> Subjects { get; set; }
     }
 
+    public class LessonsResult
+    {
+        [JsonPropertyName("lessons")]
+        public List<Lesson> Lessons { get; set; }
+    }
+
+    public class NoticeboardResult
+    {
+        [JsonPropertyName("items")]
+        public List<Notice> Notices { get; set; }
+    }
+
     [Headers("User-Agent: CVVS/std/4.2.3 Android/10", "Z-Dev-Apikey: Tg1NWEwNGIgIC0K", "Content-Type: application/json")]
     public interface IClassevivaAPI
     {
@@ -253,7 +314,17 @@ namespace ClassevivaPCTO.Utils
         [Get("/students/{userId}/notes/all")]
         Task<Notes> GetAllNotes(string userId, [Header("Z-Auth-Token")] string token);
 
+        [Get("/students/{userId}/lessons/{startDate}/{endDate}")]
+        Task<LessonsResult> GetLessons(string userId, string startDate, string endDate, [Header("Z-Auth-Token")] string token);
 
+        [Get("/students/{userId}/lessons/today")]
+        Task<LessonsResult> GetTodayLessons(string userId, string dayDate, [Header("Z-Auth-Token")] string token);
+
+        [Get("/students/{userId}/noticeboard")]
+        Task<NoticeboardResult> GetNotices(string userId, [Header("Z-Auth-Token")] string token);
+
+        [Get("/students/{userId}/agenda/all/{startDate}/{endDate}")]
+        Task<List<AgendaEvent>> GetAgendaEvents(string userId, string startDate, string endDate, [Header("Z-Auth-Token")] string token);
     }
 
     public class CvUtils
