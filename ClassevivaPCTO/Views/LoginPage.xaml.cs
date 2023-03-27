@@ -153,13 +153,13 @@ namespace ClassevivaPCTO.Views
                 {
 
 
-                var message = ex.GetContentAsAsync<CvError>();
+                //var message = ex.GetContentAsAsync<CvError>();
 
                     ContentDialog dialog = new ContentDialog();
                     dialog.Title = "Errore";
                     dialog.PrimaryButtonText = "OK";
                     dialog.DefaultButton = ContentDialogButton.Primary;
-                dialog.Content = "Errore durante il login. Controlla il nome utente e la password. \n Errore: " + message.Result.error + "\n" + message.Result.message;
+                dialog.Content = "Errore durante il login. Controlla il nome utente e la password. \n Errore: " + ex.Content;
 
                     try
                     {
