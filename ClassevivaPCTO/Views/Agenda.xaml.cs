@@ -36,7 +36,7 @@ namespace ClassevivaPCTO.Views
             LoginResult loginResult = ViewModelHolder.getViewModel().LoginResult;
             Card cardResult = ViewModelHolder.getViewModel().CardsResult.Cards[0];
 
-            var api = RestService.For<IClassevivaAPI>("https://web.spaggiari.eu/rest/v1");
+            var api = RestService.For<IClassevivaAPI>(Endpoint.CurrentEndpoint);
 
             //string fixedId = new CvUtils().GetCode(loginResult.Ident);
 
