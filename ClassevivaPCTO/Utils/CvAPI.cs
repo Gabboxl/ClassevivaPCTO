@@ -8,6 +8,22 @@ using System.Threading.Tasks;
 
 namespace ClassevivaPCTO.Utils
 {
+    public static class Endpoint
+    {
+        public static string Official = "https://web.spaggiari.eu/rest/v1";
+        public static string Test = "https://stoplight.io/mocks/gabboxl/classeviva/155337827";
+        
+        public static string CurrentEndpoint { get; set; }
+    }
+
+    public class CvError
+    {
+        public long statusCode { get; set; }
+        public string error { get; set; }
+        public string message { get; set; }
+    }
+
+
     public class LoginData
     {
         [AliasAs("uid")]
@@ -287,7 +303,7 @@ namespace ClassevivaPCTO.Utils
     [Headers("User-Agent: CVVS/std/4.2.3 Android/10", "Z-Dev-Apikey: Tg1NWEwNGIgIC0K", "Content-Type: application/json")]
     public interface IClassevivaAPI
     {
-        [Post("/auth/login/")]
+        [Post("/auth/login")]
         Task<LoginResult> LoginAsync([Body(BodySerializationMethod.Serialized)] LoginData logdata);
 
         [Get("/students/{userId}/absences/details")]

@@ -80,7 +80,7 @@ namespace ClassevivaPCTO.Views
             */
 
 
-            var api = RestService.For<IClassevivaAPI>("https://web.spaggiari.eu/rest/v1");
+            var api = RestService.For<IClassevivaAPI>(Endpoint.CurrentEndpoint);
 
             //string fixedId = new CvUtils().GetCode(loginResult.Ident);
 
