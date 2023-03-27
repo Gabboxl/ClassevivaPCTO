@@ -9,7 +9,7 @@
   <Identity
     Name="26937gabboxl.ClassevivaPCTO"
     Publisher="CN=BE63F29F-B5DE-4216-A286-0EE09F9F43D1"
-    Version="0.0.2.0" />
+    Version="0.0.3.0" />
 
   <mp:PhoneIdentity PhoneProductId="ebd29130-3ba1-4237-9556-8f5dbfc59b32" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
