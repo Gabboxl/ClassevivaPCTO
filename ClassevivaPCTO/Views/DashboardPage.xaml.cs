@@ -2,6 +2,7 @@
 using ClassevivaPCTO.Services;
 using ClassevivaPCTO.Utils;
 using ClassevivaPCTO.ViewModel;
+using ClassevivaPCTO.ViewModels;
 using CommunityToolkit.Mvvm.ComponentModel;
 using Microsoft.UI.Xaml.Controls;
 using Newtonsoft.Json;
@@ -38,27 +39,11 @@ namespace ClassevivaPCTO.Views
     public sealed partial class DashboardPage : Page
     {
 
-        private bool _isLoading = false;
-
-        public bool IsLoading
-        {
-            get { return _isLoading; }
-            set { _isLoading = value;
-                
-            }
-        }
+        public DashboardPageViewModel DashboardPageViewModel { get; } = new DashboardPageViewModel();
 
         public DashboardPage()
         {
             this.InitializeComponent();
-
-
-            //titolo title bar
-            //AppTitleTextBlock.Text = "Dashboard - " + AppInfo.Current.DisplayInfo.DisplayName;
-            //Window.Current.SetTitleBar(AppTitleBar);
-
-
-
 
         }
 
@@ -66,7 +51,7 @@ namespace ClassevivaPCTO.Views
         {
             base.OnNavigatedTo(e);
 
-            IsLoading = true;
+            DashboardPageViewModel.IsLoading = true;
 
             //LoginResult parameters = (LoginResult)e.Parameter;
 
@@ -131,7 +116,7 @@ namespace ClassevivaPCTO.Views
             TextBlockMedia.Visibility = Visibility.Visible;
 
 
-            IsLoading = false;
+            DashboardPageViewModel.IsLoading = false;
         }
 
         static float CalcolaMedia(List<Grade> voti)
