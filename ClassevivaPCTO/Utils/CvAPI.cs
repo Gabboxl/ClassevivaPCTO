@@ -1,13 +1,18 @@
-﻿using Newtonsoft.Json;
+﻿using Microsoft.Toolkit.Uwp.UI;
+using Newtonsoft.Json;
 using Refit;
 using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
+using System.IO;
+using System.Runtime.Caching;
 using System.Text.Json.Serialization;
-using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using Windows.Storage;
 
 namespace ClassevivaPCTO.Utils
 {
+
     public static class Endpoint
     {
         public static string Official = "https://web.spaggiari.eu/rest/v1";
@@ -341,17 +346,6 @@ namespace ClassevivaPCTO.Utils
 
         [Get("/students/{userId}/agenda/all/{startDate}/{endDate}")]
         Task<List<AgendaEvent>> GetAgendaEvents(string userId, string startDate, string endDate, [Header("Z-Auth-Token")] string token);
-    }
-
-    public class CvUtils
-    {
-        public string GetCode(string userId)
-        {
-            return Regex.Replace(userId, @"[A-Za-z]+", "");
-
-        }
-
-
     }
 
 }

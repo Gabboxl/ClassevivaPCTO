@@ -17,6 +17,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Net.Http;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using Windows.ApplicationModel;
@@ -51,7 +52,6 @@ namespace ClassevivaPCTO.Views
         {
             base.OnNavigatedTo(e);
 
-            DashboardPageViewModel.IsLoading = true;
 
             //LoginResult parameters = (LoginResult)e.Parameter;
 
@@ -78,16 +78,13 @@ namespace ClassevivaPCTO.Views
 
 
             var api = RestService.For<IClassevivaAPI>(Endpoint.CurrentEndpoint);
-
-            //string fixedId = new CvUtils().GetCode(loginResult.Ident);
-
             var result1 = await api.GetGrades(cardResult.usrId.ToString(), loginResult.Token.ToString());
 
 
 
             var fiveMostRecent = result1.Grades.OrderByDescending(x => x.evtDate).Take(5);
-            
-            Listtest.ItemsSource = fiveMostRecent;
+
+            ListRecentGrades.ItemsSource = fiveMostRecent;
 
 
             //todoo
@@ -95,29 +92,31 @@ namespace ClassevivaPCTO.Views
             ListViewVotiDate.ItemsSource = result1.Grades;
             ListViewAgendaDate.ItemsSource = result1.Grades;
 
-            //textDati.Text = result1.Events.Count().ToString();
+
+            await CaricaMediaCard();
+
+        }
 
 
 
+        public async Task CaricaMediaCard()
+        {
+            DashboardPageViewModel.IsLoadingMedia = true;
 
+            // Calcoliamo la media dei voti
+            float media = CalcolaMedia(result1.Grades);
 
-            // Simuliamo l'acquisizione dei voti dal server Classeviva
-
-          
-                // Calcoliamo la media dei voti
-                float media = CalcolaMedia(result1.Grades);
-
-            TextBlockMedia.Foreground = (Brush)new GradeToColorConverter().Convert(media,null,null,null);
-
-
+            TextBlockMedia.Foreground = (Brush)new GradeToColorConverter().Convert(media, null, null, null);
 
             // Stampiamo la media dei voti
             TextBlockMedia.Text = media.ToString("0.00");
             TextBlockMedia.Visibility = Visibility.Visible;
 
-
-            DashboardPageViewModel.IsLoading = false;
+            DashboardPageViewModel.IsLoadingMedia = false;
         }
+
+
+
 
         static float CalcolaMedia(List<Grade> voti)
         {
@@ -137,6 +136,8 @@ namespace ClassevivaPCTO.Views
 
             return somma / numVoti;
         }
+
+
     
 
 
