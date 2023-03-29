@@ -135,6 +135,7 @@
     <Compile Include="Services\FirstRunDisplayService.cs" />
     <Compile Include="Services\NavigationService.cs" />
     <Compile Include="Services\ThemeSelectorService.cs" />
+    <Compile Include="ViewModels\MainPageViewModel.cs" />
     <Compile Include="Views\Agenda.xaml.cs">
       <DependentUpon>Agenda.xaml</DependentUpon>
     </Compile>
@@ -168,8 +169,8 @@
     <Compile Include="Utils\CvAPI.cs" />
     <Compile Include="Utils\CredUtils.cs" />
     <Compile Include="Utils\VariousUtils.cs" />
-    <Compile Include="ViewModel\ViewModelHolder.cs" />
-    <Compile Include="ViewModel\AppViewModel.cs" />
+    <Compile Include="ViewModels\ViewModelHolder.cs" />
+    <Compile Include="ViewModels\AppViewModel.cs" />
     <Compile Include="Views\SettingsPage.xaml.cs">
       <DependentUpon>SettingsPage.xaml</DependentUpon>
     </Compile>
