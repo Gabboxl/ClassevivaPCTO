@@ -65,6 +65,8 @@ namespace ClassevivaPCTO.Views
             this.DataContext = this; //DataContext = ViewModel;
             Initialize();
 
+            
+
             this.AppViewModel = ViewModelHolder.getViewModel();
         }
 
