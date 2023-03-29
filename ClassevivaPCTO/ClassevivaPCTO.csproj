@@ -135,6 +135,7 @@
     <Compile Include="Services\FirstRunDisplayService.cs" />
     <Compile Include="Services\NavigationService.cs" />
     <Compile Include="Services\ThemeSelectorService.cs" />
+    <Compile Include="ViewModels\DashboardPageViewModel.cs" />
     <Compile Include="ViewModels\NavigationViewViewModel.cs" />
     <Compile Include="Views\Agenda.xaml.cs">
       <DependentUpon>Agenda.xaml</DependentUpon>
