@@ -28,9 +28,9 @@ namespace ClassevivaPCTO.Utils
             return dateTime.ToString("yyyyMMdd");
         }
 
-        public static float? GradeToInt(object value)
+        public static float? GradeToFloat(object value)
         {
-            float? valore = null;
+            float? valoreFinale = null;
 
             if (value is Grade)
             {
@@ -38,7 +38,7 @@ namespace ClassevivaPCTO.Utils
 
                 if (grade.decimalValue != null)
                 {
-                    valore = grade.decimalValue;
+                    valoreFinale = grade.decimalValue;
                 }
                 else if (!grade.displayValue.ToLower().Equals("nv"))
                 {
@@ -46,38 +46,38 @@ namespace ClassevivaPCTO.Utils
                     switch (grade.displayValue)
                     {
                         case "o":
-                            valore = 10;
+                            valoreFinale = 10;
                             break;
 
                         case "ds":
-                            valore = 9;
+                            valoreFinale = 9;
                             break;
 
                         case "b":
-                            valore = 8;
+                            valoreFinale = 8;
                             break;
 
                         case "dc":
-                            valore = 7;
+                            valoreFinale = 7;
                             break;
 
                         case "s":
-                            valore = 6;
+                            valoreFinale = 6;
                             break;
 
                         case "i":
-                            valore = 5;
+                            valoreFinale = 5;
                             break;
                     }
                 }
             }
             else
             {
-                valore = (float?)value;
+                valoreFinale = (float)value;
             }
 
 
-            return valore;
+            return valoreFinale;
         }
     }
 

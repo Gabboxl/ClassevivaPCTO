@@ -6,6 +6,10 @@ using Windows.ApplicationModel.Activation;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
+using Microsoft.AppCenter;
+using Microsoft.AppCenter.Analytics;
+using Microsoft.AppCenter.Crashes;
+using System.Diagnostics;
 
 namespace ClassevivaPCTO
 {
@@ -23,6 +27,8 @@ namespace ClassevivaPCTO
 
 
 
+
+
         /// <summary>
         /// Inizializza l'oggetto Application singleton. Si tratta della prima riga del codice creato
         /// creato e, come tale, corrisponde all'equivalente logico di main() o WinMain().
@@ -31,6 +37,20 @@ namespace ClassevivaPCTO
         {
             this.InitializeComponent();
             this.Suspending += OnSuspending;
+
+
+#if !DEBUG
+                Debug.WriteLine("Mode=Debug");
+#else
+            AppCenter.Start("test",
+                  typeof(Analytics), typeof(Crashes));
+            
+
+                  var env = Environment.GetEnvironmentVariable("AppCenterSecret");
+                  
+#endif
+
+
 
             // Deferred execution until used. Check https://docs.microsoft.com/dotnet/api/system.lazy-1 for further info on Lazy<T> class.
             _activationService = new Lazy<ActivationService>(CreateActivationService);
