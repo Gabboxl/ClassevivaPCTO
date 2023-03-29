@@ -39,7 +39,7 @@ namespace ClassevivaPCTO
             this.Suspending += OnSuspending;
 
 
-#if !DEBUG
+#if DEBUG
                 Debug.WriteLine("Mode=Debug");
 #else
             AppCenter.Start("test",
