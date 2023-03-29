@@ -20,7 +20,7 @@ using WinUI = Microsoft.UI.Xaml.Controls;
 
 namespace ClassevivaPCTO.ViewModels
 {
-    public class MainPageViewModel : ObservableObject
+    public class NavigationViewViewModel : ObservableObject
     {
         private readonly KeyboardAccelerator _altLeftKeyboardAccelerator = BuildKeyboardAccelerator(VirtualKey.Left, VirtualKeyModifiers.Menu);
         private readonly KeyboardAccelerator _backKeyboardAccelerator = BuildKeyboardAccelerator(VirtualKey.GoBack);
@@ -48,7 +48,7 @@ namespace ClassevivaPCTO.ViewModels
 
         //public ICommand ItemInvokedCommand => _itemInvokedCommand ?? (_itemInvokedCommand = new RelayCommand<WinUI.NavigationViewItemInvokedEventArgs>(OnItemInvoked));
 
-        public MainPageViewModel()
+        public NavigationViewViewModel()
         {
         }
 
