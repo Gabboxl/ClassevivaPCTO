@@ -141,7 +141,7 @@
                 </Grid.ColumnDefinitions>
 
 
-                <TextBlock x:Name="TextValRecenti" Grid.Row="0" Text="Valutazioni recenti" FontSize="24" VerticalAlignment="Top" Margin="8" />
+                <TextBlock x:Name="TitleRecentGrades" Grid.Row="0" Text="Valutazioni recenti" FontSize="24" VerticalAlignment="Top" Margin="8" />
 
 
                 <ScrollViewer Grid.Row="2" ZoomMode="Enabled"
@@ -151,7 +151,7 @@
             VerticalScrollMode="Enabled" VerticalScrollBarVisibility="Auto">
 
 
-                        <ListView x:Name="Listtest" 
+                        <ListView x:Name="ListRecentGrades" 
                           SelectionMode="Single"
                               
                           HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
@@ -198,7 +198,7 @@
                     <muxc:ProgressRing IsActive="True" x:Name="ProgressRingMedia" 
                            RelativePanel.AlignVerticalCenterWithPanel="True"
                            RelativePanel.AlignHorizontalCenterWithPanel="True"
-                                       Visibility="{x:Bind DashboardPageViewModel.IsLoading, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}"/>
+                                       Visibility="{x:Bind DashboardPageViewModel.IsLoadingMedia, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}"/>
                     
                     <TextBlock  x:Name="TextBlockMedia" Text="test" Visibility="Collapsed"  HorizontalAlignment="Center" FontSize="45" FontWeight="Bold" VerticalAlignment="Center"  />
                 </StackPanel>
