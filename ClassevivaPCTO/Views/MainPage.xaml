@@ -13,13 +13,21 @@
     xmlns:views="using:ClassevivaPCTO.Views"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
-
+    xmlns:ic="using:Microsoft.Xaml.Interactions.Core"
+    xmlns:i="using:Microsoft.Xaml.Interactivity"
     muxc:BackdropMaterial.ApplyToRootOrPageBackground="True">
 
     <Page.Resources>
 
         <roba:VariousUtils x:Key="VariousUtils"/>
     </Page.Resources>
+
+
+    <i:Interaction.Behaviors>
+        <ic:EventTriggerBehavior EventName="Loaded">
+            <ic:InvokeCommandAction Command="{x:Bind ViewModel.LoadedCommand}" />
+        </ic:EventTriggerBehavior>
+    </i:Interaction.Behaviors>
 
 
     <Grid>
@@ -156,12 +164,13 @@
 
         </Grid>
 
+
+
         <muxc:NavigationView  Grid.Row="1"
                               IsTitleBarAutoPaddingEnabled="True"
                               IsBackButtonVisible="Collapsed"
-                              IsBackEnabled="{x:Bind IsBackEnabled, Mode=OneWay}"
-                              SelectedItem="{x:Bind Selected, Mode=OneWay}"
-                              ItemInvoked="OnItemInvoked"
+                              IsBackEnabled="{x:Bind ViewModel.IsBackEnabled, Mode=OneWay}"
+                              SelectedItem="{x:Bind ViewModel.Selected, Mode=OneWay}"
                               x:Name="navigationView"
                               
                               PaneDisplayMode="LeftCompact"
@@ -198,8 +207,8 @@
                     </muxc:NavigationViewItem.Icon>
                 </muxc:NavigationViewItem>
             </muxc:NavigationView.MenuItems>
-            
-                <Frame x:Name="contentFrame" IsTabStop="True"/>
+
+            <Frame x:Name="contentFrame" IsTabStop="True"/>
             
         </muxc:NavigationView>
 

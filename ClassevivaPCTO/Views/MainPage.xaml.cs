@@ -22,6 +22,7 @@ using WinUI = Microsoft.UI.Xaml.Controls;
 using System.Linq;
 using ClassevivaPCTO.Views;
 using System.Threading;
+using ClassevivaPCTO.ViewModels;
 
 namespace ClassevivaPCTO.Views
 {
@@ -31,7 +32,9 @@ namespace ClassevivaPCTO.Views
     public sealed partial class MainPage : Page
     {
         public AppViewModel AppViewModel { get; set; }
-        
+
+        public MainPageViewModel ViewModel { get; } = new MainPageViewModel();
+
 
         public string FirstName
         {
@@ -53,30 +56,13 @@ namespace ClassevivaPCTO.Views
             }
         }
 
-        private readonly KeyboardAccelerator _altLeftKeyboardAccelerator = BuildKeyboardAccelerator(VirtualKey.Left, VirtualKeyModifiers.Menu);
-        private readonly KeyboardAccelerator _backKeyboardAccelerator = BuildKeyboardAccelerator(VirtualKey.GoBack);
-
-        private bool _isBackEnabled;
-        private WinUI.NavigationViewItem _selected;
-
-        public bool IsBackEnabled
-        {
-            get { return _isBackEnabled; }
-            set { Set(ref _isBackEnabled, value); }
-        }
-
-        public WinUI.NavigationViewItem Selected
-        {
-            get { return _selected; }
-            set { Set(ref _selected, value); }
-        }
 
 
         public MainPage()
         {
             this.InitializeComponent();
 
-            this.DataContext = this;
+            this.DataContext = ViewModel; //DataContext = ViewModel;
             Initialize();
 
             this.AppViewModel = ViewModelHolder.getViewModel();
@@ -104,139 +90,22 @@ namespace ClassevivaPCTO.Views
 
 
 
+            ViewModel.Initialize(contentFrame, navigationView, KeyboardAccelerators);
+
+
             LoginResult loginResult = ViewModelHolder.getViewModel().LoginResult;
 
             PersonPictureDashboard.DisplayName = VariousUtils.UppercaseFirst(loginResult.FirstName) + " " + VariousUtils.UppercaseFirst(loginResult.LastName);
-
-
-
-            NavigationService.Frame = contentFrame;
-            NavigationService.NavigationFailed += Frame_NavigationFailed;
-            NavigationService.Navigated += Frame_Navigated;
-            navigationView.BackRequested += OnBackRequested;
 
            
             //pagina di default
             NavigationService.Navigate(typeof(Views.DashboardPage));
 
-            //Tony();
         }
 
-        /*
-        private async void Tony()
-        {
-            await Task.Delay(2000);
-
-            NavigationService.Navigate(typeof(Views.DashboardPage));
-
-
-            var selectedItem = GetSelectedItem(navigationView.MenuItems, typeof(Views.DashboardPage));
-                Selected = selectedItem;
-
-            
-
-            await Task.CompletedTask;
-        }*/
 
 
 
-        private async void OnLoaded(object sender, RoutedEventArgs e)
-        {
-            // Keyboard accelerators are added here to avoid showing 'Alt + left' tooltip on the page.
-            // More info on tracking issue https://github.com/Microsoft/microsoft-ui-xaml/issues/8
-            KeyboardAccelerators.Add(_altLeftKeyboardAccelerator);
-            KeyboardAccelerators.Add(_backKeyboardAccelerator);
-            await Task.CompletedTask;
-        }
-
-        private void Frame_NavigationFailed(object sender, NavigationFailedEventArgs e)
-        {
-            throw e.Exception;
-        }
-
-        private void Frame_Navigated(object sender, NavigationEventArgs e)
-        {
-            IsBackEnabled = NavigationService.CanGoBack;
-            if (e.SourcePageType == typeof(SettingsPage))
-            {
-                Selected = navigationView.SettingsItem as WinUI.NavigationViewItem;
-                return;
-            }
-
-            var selectedItem = GetSelectedItem(navigationView.MenuItems, e.SourcePageType);
-            if (selectedItem != null)
-            {
-                Selected = selectedItem;
-
-                navigationView.SelectedItem = selectedItem; //darimuovere
-            }
-        }
-
-        private WinUI.NavigationViewItem GetSelectedItem(IEnumerable<object> menuItems, Type pageType)
-        {
-            foreach (var item in menuItems.OfType<WinUI.NavigationViewItem>())
-            {
-                if (IsMenuItemForPageType(item, pageType))
-                {
-                    return item;
-                }
-
-                var selectedChild = GetSelectedItem(item.MenuItems, pageType);
-                if (selectedChild != null)
-                {
-                    return selectedChild;
-                }
-            }
-
-            return null;
-        }
-
-        private bool IsMenuItemForPageType(WinUI.NavigationViewItem menuItem, Type sourcePageType)
-        {
-            var pageType = menuItem.GetValue(NavHelper.NavigateToProperty) as Type;
-            return pageType == sourcePageType;
-        }
-
-        private void OnItemInvoked(WinUI.NavigationView sender, WinUI.NavigationViewItemInvokedEventArgs args)
-        {
-            if (args.IsSettingsInvoked)
-            {
-                NavigationService.Navigate(typeof(SettingsPage), null, args.RecommendedNavigationTransitionInfo);
-            }
-            else
-            {
-                var selectedItem = args.InvokedItemContainer as WinUI.NavigationViewItem;
-                var pageType = selectedItem?.GetValue(NavHelper.NavigateToProperty) as Type;
-
-                if (pageType != null)
-                {
-                    NavigationService.Navigate(pageType, null, args.RecommendedNavigationTransitionInfo);
-                }
-            }
-        }
-
-        private void OnBackRequested(WinUI.NavigationView sender, WinUI.NavigationViewBackRequestedEventArgs args)
-        {
-            NavigationService.GoBack();
-        }
-
-        private static KeyboardAccelerator BuildKeyboardAccelerator(VirtualKey key, VirtualKeyModifiers? modifiers = null)
-        {
-            var keyboardAccelerator = new KeyboardAccelerator() { Key = key };
-            if (modifiers.HasValue)
-            {
-                keyboardAccelerator.Modifiers = modifiers.Value;
-            }
-
-            keyboardAccelerator.Invoked += OnKeyboardAcceleratorInvoked;
-            return keyboardAccelerator;
-        }
-
-        private static void OnKeyboardAcceleratorInvoked(KeyboardAccelerator sender, KeyboardAcceleratorInvokedEventArgs args)
-        {
-            var result = NavigationService.GoBack();
-            args.Handled = result;
-        }
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -278,6 +147,11 @@ namespace ClassevivaPCTO.Views
             {
                 rootFrame.GoBack();
             }
+
+        }
+
+        private void navigationView_ItemInvoked(WinUI.NavigationView sender, WinUI.NavigationViewItemInvokedEventArgs args)
+        {
 
         }
     }
