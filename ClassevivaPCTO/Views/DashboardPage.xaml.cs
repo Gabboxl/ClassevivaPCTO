@@ -136,17 +136,21 @@ namespace ClassevivaPCTO.Views
 
         static float CalcolaMedia(List<Grade> voti)
         {
-            float? somma = 0;
+            float somma = 0;
+            float numVoti = 0;
 
             foreach (Grade voto in voti)
             {
-                if (voto != null) {
-                    somma += VariousUtils.GradeToInt(voto);
+                float? valoreDaSommare = VariousUtils.GradeToFloat(voto);
+
+                if (valoreDaSommare != null) {
+                    somma += (float)valoreDaSommare;
+
+                    numVoti++;
                 }
             }
 
-            return (float)somma / voti.Count;
-
+            return somma / numVoti;
         }
     
 
