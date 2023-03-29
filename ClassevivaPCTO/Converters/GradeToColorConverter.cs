@@ -14,7 +14,7 @@ namespace ClassevivaPCTO.Converters
 
             float? valore = null;
 
-            valore = VariousUtils.GradeToInt(value);
+            valore = VariousUtils.GradeToFloat(value);
 
             if (valore == null) {
                 brush.Color = Colors.DarkSlateBlue;

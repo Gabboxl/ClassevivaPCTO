@@ -2,6 +2,7 @@
 using ClassevivaPCTO.Services;
 using ClassevivaPCTO.Utils;
 using ClassevivaPCTO.ViewModel;
+using CommunityToolkit.Mvvm.ComponentModel;
 using Microsoft.UI.Xaml.Controls;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
@@ -36,7 +37,16 @@ namespace ClassevivaPCTO.Views
     /// </summary>
     public sealed partial class DashboardPage : Page
     {
-        //public ObservableCollection<Grade> Voti { get; } = new ObservableCollection<Grade>();
+
+        private bool _isLoading = false;
+
+        public bool IsLoading
+        {
+            get { return _isLoading; }
+            set { _isLoading = value;
+                
+            }
+        }
 
         public DashboardPage()
         {
@@ -55,6 +65,8 @@ namespace ClassevivaPCTO.Views
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
+
+            IsLoading = true;
 
             //LoginResult parameters = (LoginResult)e.Parameter;
 
@@ -117,24 +129,28 @@ namespace ClassevivaPCTO.Views
             // Stampiamo la media dei voti
             TextBlockMedia.Text = media.ToString("0.00");
             TextBlockMedia.Visibility = Visibility.Visible;
-            ProgressRingMedia.Visibility = Visibility.Collapsed;
 
 
+            IsLoading = false;
         }
 
         static float CalcolaMedia(List<Grade> voti)
         {
-            float? somma = 0;
+            float somma = 0;
+            float numVoti = 0;
 
             foreach (Grade voto in voti)
             {
-                if (voto != null) {
-                    somma += VariousUtils.GradeToInt(voto);
+                float? valoreDaSommare = VariousUtils.GradeToFloat(voto);
+
+                if (valoreDaSommare != null) {
+                    somma += (float)valoreDaSommare;
+
+                    numVoti++;
                 }
             }
 
-            return (float)somma / voti.Count;
-
+            return somma / numVoti;
         }
     
 
