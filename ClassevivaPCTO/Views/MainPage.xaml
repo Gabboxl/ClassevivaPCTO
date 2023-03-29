@@ -160,8 +160,8 @@
         <muxc:NavigationView  Grid.Row="1"
                               IsTitleBarAutoPaddingEnabled="True"
                               IsBackButtonVisible="Collapsed"
-                              IsBackEnabled="{x:Bind ViewModel.IsBackEnabled, Mode=OneWay}"
-                              SelectedItem="{x:Bind ViewModel.Selected, Mode=OneWay}"
+                              IsBackEnabled="{x:Bind NavigationViewViewModel.IsBackEnabled, Mode=OneWay}"
+                              SelectedItem="{x:Bind NavigationViewViewModel.Selected, Mode=OneWay}"
                               x:Name="navigationView"
                               
                               PaneDisplayMode="LeftCompact"

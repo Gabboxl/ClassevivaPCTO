@@ -33,7 +33,7 @@ namespace ClassevivaPCTO.Views
     {
         public AppViewModel AppViewModel { get; set; }
 
-        public MainPageViewModel ViewModel { get; } = new MainPageViewModel();
+        public NavigationViewViewModel NavigationViewViewModel { get; } = new NavigationViewViewModel();
 
 
         public string FirstName
@@ -62,12 +62,10 @@ namespace ClassevivaPCTO.Views
         {
             this.InitializeComponent();
 
-            this.DataContext = ViewModel; //DataContext = ViewModel;
+            this.DataContext = this; //DataContext = ViewModel;
             Initialize();
 
             this.AppViewModel = ViewModelHolder.getViewModel();
-
-
         }
 
         private void Initialize()
@@ -90,7 +88,7 @@ namespace ClassevivaPCTO.Views
 
 
 
-            ViewModel.Initialize(contentFrame, navigationView, KeyboardAccelerators);
+            NavigationViewViewModel.Initialize(contentFrame, navigationView, KeyboardAccelerators);
 
 
             LoginResult loginResult = ViewModelHolder.getViewModel().LoginResult;
