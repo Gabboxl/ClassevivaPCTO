@@ -7,6 +7,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    xmlns:microconverters="using:Microsoft.Toolkit.Uwp.UI.Converters"
     xmlns:controlscust="using:ClassevivaPCTO.Controls"
     xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
     xmlns:animatedvisuals="using:Microsoft.UI.Xaml.Controls.AnimatedVisuals"
@@ -19,9 +20,12 @@
     muxc:BackdropMaterial.ApplyToRootOrPageBackground="True">
 
     <Page.Resources>
+        
+        
         <ResourceDictionary>
-
+            <microconverters:BoolToVisibilityConverter  x:Key="BoolToVisibilityConverter" />
             <ResourceDictionary.MergedDictionaries>
+                
                
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
@@ -193,7 +197,8 @@
 
                     <muxc:ProgressRing IsActive="True" x:Name="ProgressRingMedia" 
                            RelativePanel.AlignVerticalCenterWithPanel="True"
-                           RelativePanel.AlignHorizontalCenterWithPanel="True"/>
+                           RelativePanel.AlignHorizontalCenterWithPanel="True"
+                                       Visibility="{x:Bind IsLoading, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}"/>
                     
                     <TextBlock  x:Name="TextBlockMedia" Text="test" Visibility="Collapsed"  HorizontalAlignment="Center" FontSize="45" FontWeight="Bold" VerticalAlignment="Center"  />
                 </StackPanel>
