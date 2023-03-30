@@ -45,19 +45,20 @@ namespace ClassevivaPCTO
             serviceCollection.AddRefitClient(typeof(IClassevivaAPI))
 
                 .AddPolicyHandler(Policy<HttpResponseMessage>
-    .HandleResult(r => r.StatusCode == System.Net.HttpStatusCode.OK)
+    .HandleResult(r => r.StatusCode == System.Net.HttpStatusCode.Unauthorized)
     .RetryAsync(1, async (ex, count) =>
     {
         Debug.WriteLine("Retry {0} times", count);
 
-        await CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, async () => {
+        await CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, async () =>
+        {
 
 
             ContentDialog dialog = new ContentDialog();
-            dialog.Title = "ok";
+            dialog.Title = "Sessione scaduta";
             dialog.PrimaryButtonText = "OK";
             dialog.DefaultButton = ContentDialogButton.Primary;
-            dialog.Content = ex.Result.Content.Headers;
+            dialog.Content = "Aggiornamento dei dati di login in corso...";
 
             try
             {
@@ -76,7 +77,7 @@ namespace ClassevivaPCTO
                                     client.BaseAddress = new Uri(Endpoint.CurrentEndpoint);
                                 });
 
-           
+
             return serviceCollection.BuildServiceProvider();
         }
 
@@ -95,7 +96,7 @@ namespace ClassevivaPCTO
 
 
 #if DEBUG
-                Debug.WriteLine("Mode=Debug");
+            Debug.WriteLine("Mode=Debug");
 #else
             AppCenter.Start("test",
                   typeof(Analytics), typeof(Crashes));

@@ -15,6 +15,9 @@ namespace ClassevivaPCTO.Views
     /// </summary>
     public sealed partial class Agenda : Page
     {
+        public AgendaViewModel AgendaViewModel { get; } = new AgendaViewModel();
+
+
         public Agenda()
         {
             this.InitializeComponent();
@@ -28,7 +31,7 @@ namespace ClassevivaPCTO.Views
         {
             base.OnNavigatedTo(e);
 
-
+            AgendaViewModel.IsLoadingAgenda = true;
 
             //imposto la data di oggi del picker
             CalendarAgenda.Date = DateTime.Now;
@@ -44,9 +47,9 @@ namespace ClassevivaPCTO.Views
 
             OverviewResult overviewResult = await api.GetOverview(cardResult.usrId.ToString(), caldate, caldate, loginResult.Token.ToString());
 
-            
 
-           // Listtest.ItemsSource = fiveMostRecent;
+
+            AgendaViewModel.IsLoadingAgenda = false;
         }
     }
 }

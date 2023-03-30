@@ -31,10 +31,10 @@ namespace ClassevivaPCTO.Views
         {
             this.InitializeComponent();
 
+            
+
             App app = (App)App.Current;
             apiClient = app.Container.GetService<IClassevivaAPI>();
-
-            //Container.GetService<IClassevivaAPI>();
 
         }
 
@@ -42,15 +42,12 @@ namespace ClassevivaPCTO.Views
         {
             base.OnNavigatedTo(e);
 
-            //LoginResult parameters = (LoginResult)e.Parameter;
 
             LoginResult loginResult = ViewModelHolder.getViewModel().LoginResult;
             Card cardResult = ViewModelHolder.getViewModel().CardsResult.Cards[0];
 
             TextBenvenuto.Text = "Dashboard di " + VariousUtils.UppercaseFirst(cardResult.firstName);
            
-            
-
 
             /*
 
