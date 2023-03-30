@@ -6,9 +6,16 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
+    xmlns:microconverters="using:Microsoft.Toolkit.Uwp.UI.Converters"
     xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
     muxc:BackdropMaterial.ApplyToRootOrPageBackground="True">
+
+    <Page.Resources>
+        <ResourceDictionary>
+            <microconverters:BoolToVisibilityConverter  x:Key="BoolToVisibilityConverter" />
+        </ResourceDictionary>
+    </Page.Resources>
 
     <Grid>
         <Grid.RowDefinitions>
@@ -33,8 +40,8 @@
 
             <muxc:ProgressRing IsActive="True" x:Name="ProgressRingAgenda" 
                            RelativePanel.AlignVerticalCenterWithPanel="True"
-                           
-                           RelativePanel.AlignHorizontalCenterWithPanel="True"/>
+                           RelativePanel.AlignHorizontalCenterWithPanel="True"
+                                       Visibility="{x:Bind AgendaViewModel.IsLoadingAgenda, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}"/>
 
 
 
