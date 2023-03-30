@@ -6,7 +6,7 @@ using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
 using Windows.UI.Xaml;
 using ClassevivaPCTO.Utils;
-using ClassevivaPCTO.ViewModel;
+using ClassevivaPCTO.ViewModels;
 using Windows.ApplicationModel;
 using Windows.System;
 using Windows.UI.Xaml.Input;
