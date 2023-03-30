@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Windows.System;
 
-namespace ClassevivaPCTO.ViewModel
+namespace ClassevivaPCTO.ViewModels
 {
     public static class ViewModelHolder
     {
