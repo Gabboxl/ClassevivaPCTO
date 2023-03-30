@@ -31,11 +31,8 @@ namespace ClassevivaPCTO.Views
         {
             this.InitializeComponent();
 
-            
-
             App app = (App)App.Current;
             apiClient = app.Container.GetService<IClassevivaAPI>();
-
         }
 
         protected override async void OnNavigatedTo(NavigationEventArgs e)
