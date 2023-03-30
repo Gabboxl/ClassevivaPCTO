@@ -1,5 +1,5 @@
 ﻿using ClassevivaPCTO.Utils;
-using ClassevivaPCTO.ViewModel;
+using ClassevivaPCTO.ViewModels;
 using Refit;
 using System;
 using System.Linq;
