@@ -27,18 +27,25 @@ namespace ClassevivaPCTO.Views
     public sealed partial class DashboardPage : Page
     {
 
+        private readonly IClassevivaAPI apiClient;
+
         public DashboardPageViewModel DashboardPageViewModel { get; } = new DashboardPageViewModel();
+
 
         public DashboardPage()
         {
             this.InitializeComponent();
+
+            App app = (App)App.Current;
+            apiClient = app.Container.GetService<IClassevivaAPI>();
+
+            //Container.GetService<IClassevivaAPI>();
 
         }
 
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
-
 
             //LoginResult parameters = (LoginResult)e.Parameter;
 
@@ -89,6 +96,17 @@ namespace ClassevivaPCTO.Views
         public async Task CaricaMediaCard()
         {
             DashboardPageViewModel.IsLoadingMedia = true;
+
+
+            LoginResult loginResult = ViewModelHolder.getViewModel().LoginResult;
+            Card cardResult = ViewModelHolder.getViewModel().CardsResult.Cards[0];
+
+            //var api = RestService.For<IClassevivaAPI>(Endpoint.CurrentEndpoint);
+
+            //apiClient = Container.GetService<IClassevivaAPI>();
+
+            var result1 = await apiClient.GetGrades(cardResult.usrId.ToString(), loginResult.Token.ToString());
+
 
             // Calcoliamo la media dei voti
             float media = CalcolaMedia(result1.Grades);

@@ -10,13 +10,23 @@ using Microsoft.AppCenter;
 using Microsoft.AppCenter.Analytics;
 using Microsoft.AppCenter.Crashes;
 using System.Diagnostics;
+using Microsoft.Extensions.DependencyInjection;
+using Refit;
+using Microsoft.Extensions.Options;
+using Polly;
+using System.Threading;
+using ClassevivaPCTO.Utils;
+using System.Net;
+using System.Net.Http;
+using Autofac;
+using Windows.ApplicationModel.Core;
 
 namespace ClassevivaPCTO
 {
     /// <summary>
     /// Fornisci un comportamento specifico dell'applicazione in supplemento alla classe Application predefinita.
     /// </summary>
-    sealed partial class App : Application
+    public sealed partial class App : Application
     {
         private Lazy<ActivationService> _activationService;
 
@@ -25,7 +35,50 @@ namespace ClassevivaPCTO
             get { return _activationService.Value; }
         }
 
+        public IServiceProvider Container { get; }
+        public IServiceProvider ConfigureDependencyInjection()
+        {
+            var serviceCollection = new ServiceCollection();
 
+
+
+            serviceCollection.AddRefitClient(typeof(IClassevivaAPI))
+
+                .AddPolicyHandler(Policy<HttpResponseMessage>
+    .HandleResult(r => r.StatusCode == System.Net.HttpStatusCode.OK)
+    .RetryAsync(1, async (ex, count) =>
+    {
+        Debug.WriteLine("Retry {0} times", count);
+
+        await CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, async () => {
+
+
+            ContentDialog dialog = new ContentDialog();
+            dialog.Title = "ok";
+            dialog.PrimaryButtonText = "OK";
+            dialog.DefaultButton = ContentDialogButton.Primary;
+            dialog.Content = ex.Result.Content.Headers;
+
+            try
+            {
+                var result = await dialog.ShowAsync();
+            }
+            catch (Exception e)
+            {
+                System.Console.WriteLine(e.ToString());
+            }
+        });
+
+    }))
+
+                                .ConfigureHttpClient((sp, client) =>
+                                {
+                                    client.BaseAddress = new Uri(Endpoint.CurrentEndpoint);
+                                });
+
+           
+            return serviceCollection.BuildServiceProvider();
+        }
 
 
 
@@ -37,6 +90,8 @@ namespace ClassevivaPCTO
         {
             this.InitializeComponent();
             this.Suspending += OnSuspending;
+            Container = ConfigureDependencyInjection();
+
 
 
 #if DEBUG
@@ -106,11 +161,6 @@ namespace ClassevivaPCTO
 
         }
 
-        /// <summary>
-        /// Chiamato quando la navigazione a una determinata pagina ha esito negativo
-        /// </summary>
-        /// <param name="sender">Frame la cui navigazione non è riuscita</param>
-        /// <param name="e">Dettagli sull'errore di navigazione.</param>
         void OnNavigationFailed(object sender, NavigationFailedEventArgs e)
         {
             throw new Exception("Failed to load Page " + e.SourcePageType.FullName);
@@ -129,8 +179,6 @@ namespace ClassevivaPCTO
             //TODO: salvare lo stato dell'applicazione e arrestare eventuali attività eseguite in background
             deferral.Complete();
         }
-
-
 
 
         protected override async void OnActivated(IActivatedEventArgs args)
