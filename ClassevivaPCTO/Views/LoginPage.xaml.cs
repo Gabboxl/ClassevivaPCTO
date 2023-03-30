@@ -27,15 +27,10 @@ namespace ClassevivaPCTO.Views
         public LoginPage()
         {
             this.InitializeComponent();
-
-
-            //ElementSoundPlayer.State = ElementSoundPlayerState.On;
-
             
             var mediaPlayer = new MediaPlayer();
             mediaPlayer.Source = MediaSource.CreateFromUri(new Uri("ms-appx:///Audio/sweep.mp3"));
             //mediaPlayer.Play();
-
 
 
             // Hide default title bar.
@@ -53,17 +48,17 @@ namespace ClassevivaPCTO.Views
             Window.Current.SetTitleBar(AppTitleBar);
 
 
-            var loginCredential = new CredUtils().GetCredentialFromLocker();
+            var loginCredentials = new CredUtils().GetCredentialFromLocker();
 
-            if (loginCredential != null)
+            if (loginCredentials != null)
             {
                 // There is a credential stored in the locker.
                 // Populate the Password property of the credential
                 // for automatic login.
-                loginCredential.RetrievePassword(); //dobbiamo per forza chiamare questo metodo per fare sì che la proprietà loginCredential.Password non sia vuota
+                loginCredentials.RetrievePassword(); //dobbiamo per forza chiamare questo metodo per fare sì che la proprietà loginCredential.Password non sia vuota
 
-                edittext_username.Text = loginCredential.UserName.ToString();
-                edittext_password.Password = loginCredential.Password.ToString();
+                edittext_username.Text = loginCredentials.UserName.ToString();
+                edittext_password.Password = loginCredentials.Password.ToString();
 
                 doLoginAsync();
             }
