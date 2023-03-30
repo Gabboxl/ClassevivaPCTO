@@ -1,7 +1,7 @@
 ﻿using ClassevivaPCTO.Utils;
 using CommunityToolkit.Mvvm.ComponentModel;
 
-namespace ClassevivaPCTO.ViewModel
+namespace ClassevivaPCTO.ViewModels
 {
     public class AppViewModel : ObservableObject
     {
