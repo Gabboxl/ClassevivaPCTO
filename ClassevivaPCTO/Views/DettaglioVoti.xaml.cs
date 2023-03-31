@@ -3,9 +3,6 @@ using ClassevivaPCTO.ViewModels;
 using Refit;
 using System.Collections.Generic;
 using System.Linq;
-using Windows.ApplicationModel;
-using Windows.ApplicationModel.Core;
-using Windows.UI.Core;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
@@ -89,11 +86,11 @@ namespace ClassevivaPCTO.Views
 
             foreach (var periodWithGrades in gradesGroupedByPeriodoDesc)
             {
-                
+
 
                 //if (periodWithGrades[0].periodDesc.Equals(ComboPeriodi.SelectedValue))
 
-                if(c == ComboPeriodi.SelectedIndex)
+                if (c == ComboPeriodi.SelectedIndex)
                 {
 
                     var gradesGroupedByMaterie = periodWithGrades.OrderByDescending(x => x.evtDate).GroupBy(x => x.subjectDesc).Select(grp => grp.ToList()).ToList();
@@ -101,7 +98,7 @@ namespace ClassevivaPCTO.Views
 
                     foreach (List<Grade> materiaWithGrades in gradesGroupedByMaterie)
                     {
-                        
+
                         ComboMaterie.Items.Add(VariousUtils.UppercaseFirst(materiaWithGrades[0].subjectDesc));
 
                     }

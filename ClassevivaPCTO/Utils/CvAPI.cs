@@ -1,14 +1,9 @@
-﻿using Microsoft.Toolkit.Uwp.UI;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using Refit;
 using System;
 using System.Collections.Generic;
-using System.Collections.Specialized;
-using System.IO;
-using System.Runtime.Caching;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
-using Windows.Storage;
 
 namespace ClassevivaPCTO.Utils
 {
@@ -17,7 +12,7 @@ namespace ClassevivaPCTO.Utils
     {
         public static string Official = "https://web.spaggiari.eu/rest/v1";
         public static string Test = "https://stoplight.io/mocks/gabboxl/classeviva/155337827";
-        
+
         public static string CurrentEndpoint { get; set; }
     }
 

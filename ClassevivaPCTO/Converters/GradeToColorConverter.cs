@@ -7,7 +7,7 @@ using Windows.UI.Xaml.Media;
 namespace ClassevivaPCTO.Converters
 {
     public class GradeToColorConverter : IValueConverter
-        {
+    {
         public object Convert(object value, Type targetType, object parameter, string language)
         {
             SolidColorBrush brush = new SolidColorBrush();
@@ -16,27 +16,30 @@ namespace ClassevivaPCTO.Converters
 
             valore = VariousUtils.GradeToFloat(value);
 
-            if (valore == null) {
+            if (valore == null)
+            {
                 brush.Color = Colors.DarkSlateBlue;
 
-                 } else if (valore >= 6)
-                {
-                    brush.Color = Colors.Teal;
-                }
-                else if(valore >= 5)
+            }
+            else if (valore >= 6)
+            {
+                brush.Color = Colors.Teal;
+            }
+            else if (valore >= 5)
             {
                 brush.Color = Colors.Orange;
-            } else
-                {
-                    brush.Color = Colors.Red;
-                }
-                return brush;
             }
-
-            public object ConvertBack(object value, Type targetType, object parameter, string language)
+            else
             {
-                return new NotImplementedException();
+                brush.Color = Colors.Red;
             }
+            return brush;
         }
+
+        public object ConvertBack(object value, Type targetType, object parameter, string language)
+        {
+            return new NotImplementedException();
+        }
+    }
 
 }

@@ -1,8 +1,6 @@
-﻿using System;
+﻿using ClassevivaPCTO.Services;
+using System;
 using System.Threading.Tasks;
-
-using ClassevivaPCTO.Services;
-
 using Windows.ApplicationModel.Activation;
 
 namespace ClassevivaPCTO.Activation
