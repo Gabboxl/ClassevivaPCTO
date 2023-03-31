@@ -50,29 +50,33 @@ namespace ClassevivaPCTO
     {
         Debug.WriteLine("Retry {0} times", count);
 
-        await CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, async () =>
+        var loginCredentials = new CredUtils().GetCredentialFromLocker();
+
+        if (loginCredentials != null)
         {
-
-
-            ContentDialog dialog = new ContentDialog();
-            dialog.Title = "Sessione scaduta";
-            dialog.PrimaryButtonText = "OK";
-            dialog.DefaultButton = ContentDialogButton.Primary;
-            dialog.Content = "Aggiornamento dei dati di login in corso...";
-
-            try
+            await CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, async () =>
             {
-                var result = await dialog.ShowAsync();
-            }
-            catch (Exception e)
-            {
-                System.Console.WriteLine(e.ToString());
-            }
-        });
 
-    }))
+                ContentDialog dialog = new ContentDialog();
+                dialog.Title = "Sessione scaduta";
+                dialog.PrimaryButtonText = "OK";
+                dialog.DefaultButton = ContentDialogButton.Primary;
+                dialog.Content = "Aggiornamento dei dati di login in corso...";
 
-                                .ConfigureHttpClient((sp, client) =>
+                try
+                {
+                    var result = await dialog.ShowAsync();
+                }
+                catch (Exception e)
+                {
+                    System.Console.WriteLine(e.ToString());
+                }
+            });
+        }
+
+            })
+    )
+            .ConfigureHttpClient((sp, client) =>
                                 {
                                     client.BaseAddress = new Uri(Endpoint.CurrentEndpoint);
                                 });
