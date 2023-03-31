@@ -1,8 +1,6 @@
-﻿using System;
+﻿using ClassevivaPCTO.Helpers;
+using System;
 using System.Threading.Tasks;
-
-using ClassevivaPCTO.Core.Helpers;
-using ClassevivaPCTO.Helpers;
 using Windows.ApplicationModel.Core;
 using Windows.Storage;
 using Windows.UI.Core;

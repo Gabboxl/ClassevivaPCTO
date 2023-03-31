@@ -1,10 +1,8 @@
-﻿using System;
+﻿using ClassevivaPCTO.Activation;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-
-using ClassevivaPCTO.Activation;
-
 using Windows.ApplicationModel.Activation;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;

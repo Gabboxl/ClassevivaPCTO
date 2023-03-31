@@ -2,8 +2,6 @@
 using ClassevivaPCTO.ViewModels;
 using Refit;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Core;
@@ -27,7 +25,7 @@ namespace ClassevivaPCTO.Views
         public LoginPage()
         {
             this.InitializeComponent();
-            
+
             var mediaPlayer = new MediaPlayer();
             mediaPlayer.Source = MediaSource.CreateFromUri(new Uri("ms-appx:///Audio/sweep.mp3"));
             //mediaPlayer.Play();
@@ -98,83 +96,84 @@ namespace ClassevivaPCTO.Views
             if (edituid.Equals("test") && editpass.Equals("test"))
             {
                 Endpoint.CurrentEndpoint = Endpoint.Test;
-            } else
+            }
+            else
             {
                 Endpoint.CurrentEndpoint = Endpoint.Official;
             }
 
 
 
-                try
+            try
+            {
+                buttonLogin.Visibility = Visibility.Collapsed;
+                progresslogin.Visibility = Visibility.Visible;
+
+
+
+                var api = RestService.For<IClassevivaAPI>(Endpoint.CurrentEndpoint);
+
+                var measurement = new LoginData
                 {
-                    buttonLogin.Visibility = Visibility.Collapsed;
-                    progresslogin.Visibility = Visibility.Visible;
-
-                    
-
-                    var api = RestService.For<IClassevivaAPI>(Endpoint.CurrentEndpoint);
-
-                    var measurement = new LoginData
-                    {
-                        Uid = edituid,
-                        Pass = editpass,
-                    };
+                    Uid = edituid,
+                    Pass = editpass,
+                };
 
 
-                    LoginResult loginResult = await api.LoginAsync(measurement);
+                LoginResult loginResult = await api.LoginAsync(measurement);
 
 
-                    ViewModelHolder.getViewModel().LoginResult = loginResult;
+                ViewModelHolder.getViewModel().LoginResult = loginResult;
 
 
-                    string fixedId = new CvUtils().GetCode(loginResult.Ident);
-                    CardsResult cardsResult = await api.GetCards(fixedId, loginResult.Token.ToString());
+                string fixedId = new CvUtils().GetCode(loginResult.Ident);
+                CardsResult cardsResult = await api.GetCards(fixedId, loginResult.Token.ToString());
 
-                    ViewModelHolder.getViewModel().CardsResult = cardsResult;
-
-
-                    if ((bool)checkboxCredenziali.IsChecked)
-                    {
-                        var vault = new PasswordVault();
-                        vault.Add(new PasswordCredential("classevivapcto", edittext_username.Text, edittext_password.Password));
-                    }
+                ViewModelHolder.getViewModel().CardsResult = cardsResult;
 
 
-                    Frame rootFrame = Window.Current.Content as Frame;
-                    rootFrame.Navigate(typeof(MainPage), null, new DrillInNavigationTransitionInfo());
-
+                if ((bool)checkboxCredenziali.IsChecked)
+                {
+                    var vault = new PasswordVault();
+                    vault.Add(new PasswordCredential("classevivapcto", edittext_username.Text, edittext_password.Password));
                 }
-                catch (ApiException ex)
-                {
+
+
+                Frame rootFrame = Window.Current.Content as Frame;
+                rootFrame.Navigate(typeof(MainPage), null, new DrillInNavigationTransitionInfo());
+
+            }
+            catch (ApiException ex)
+            {
 
 
                 //var message = ex.GetContentAsAsync<CvError>();
 
-                    ContentDialog dialog = new ContentDialog();
-                    dialog.Title = "Errore";
-                    dialog.PrimaryButtonText = "OK";
-                    dialog.DefaultButton = ContentDialogButton.Primary;
+                ContentDialog dialog = new ContentDialog();
+                dialog.Title = "Errore";
+                dialog.PrimaryButtonText = "OK";
+                dialog.DefaultButton = ContentDialogButton.Primary;
                 dialog.Content = "Errore durante il login. Controlla il nome utente e la password. \n Errore: " + ex.Content;
 
-                    try
-                    {
-                        var result = await dialog.ShowAsync();
-                    }
-                    catch (Exception e)
-                    {
-                        System.Console.WriteLine(e.ToString());
-                    }
-
-
-                    buttonLogin.Visibility = Visibility.Visible;
-                    progresslogin.Visibility = Visibility.Collapsed;
-
+                try
+                {
+                    var result = await dialog.ShowAsync();
                 }
-            
+                catch (Exception e)
+                {
+                    System.Console.WriteLine(e.ToString());
+                }
+
+
+                buttonLogin.Visibility = Visibility.Visible;
+                progresslogin.Visibility = Visibility.Collapsed;
+
+            }
+
         }
 
 
 
-       
+
     }
 }

@@ -1,25 +1,17 @@
 ﻿using ClassevivaPCTO.Services;
+using ClassevivaPCTO.Utils;
+using Microsoft.Extensions.DependencyInjection;
+using Polly;
+using Refit;
 using System;
-using System.Threading.Tasks;
+using System.Diagnostics;
+using System.Net.Http;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
+using Windows.ApplicationModel.Core;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
-using Microsoft.AppCenter;
-using Microsoft.AppCenter.Analytics;
-using Microsoft.AppCenter.Crashes;
-using System.Diagnostics;
-using Microsoft.Extensions.DependencyInjection;
-using Refit;
-using Microsoft.Extensions.Options;
-using Polly;
-using System.Threading;
-using ClassevivaPCTO.Utils;
-using System.Net;
-using System.Net.Http;
-using Autofac;
-using Windows.ApplicationModel.Core;
 
 namespace ClassevivaPCTO
 {

@@ -1,13 +1,4 @@
-﻿using ClassevivaPCTO.Utils;
-using CommunityToolkit.Mvvm.ComponentModel;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Windows.System;
-
-namespace ClassevivaPCTO.ViewModels
+﻿namespace ClassevivaPCTO.ViewModels
 {
     public static class ViewModelHolder
     {
@@ -15,7 +6,7 @@ namespace ClassevivaPCTO.ViewModels
 
         public static AppViewModel getViewModel()
         {
-            if(viewModel == null)
+            if (viewModel == null)
             {
                 viewModel = new AppViewModel();
             }
