@@ -1,16 +1,10 @@
 ﻿using Microsoft.Extensions.Caching.Memory;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.Caching.Hosting;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ClassevivaPCTO.Utils
 {
     internal class Cache
     {
-        private const string KEY = "login_cache";   
+        private const string KEY = "login_cache";
         private readonly IMemoryCache memoryCache;
 
         public Cache(IMemoryCache memoryCache)

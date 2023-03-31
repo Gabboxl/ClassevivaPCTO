@@ -1,28 +1,15 @@
-﻿using System;
-using Windows.ApplicationModel.Core;
-using Windows.UI.ViewManagement;
-using Windows.UI;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Navigation;
-using Windows.UI.Xaml;
+﻿using ClassevivaPCTO.Services;
 using ClassevivaPCTO.Utils;
 using ClassevivaPCTO.ViewModels;
-using Windows.ApplicationModel;
-using Windows.System;
-using Windows.UI.Xaml.Input;
-
-using ClassevivaPCTO.Helpers;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
-using System.Threading.Tasks;
-using ClassevivaPCTO.Services;
-
+using Windows.ApplicationModel;
+using Windows.ApplicationModel.Core;
+using Windows.UI;
+using Windows.UI.ViewManagement;
+using Windows.UI.Xaml;
+using Windows.UI.Xaml.Controls;
 using WinUI = Microsoft.UI.Xaml.Controls;
-using System.Linq;
-using ClassevivaPCTO.Views;
-using System.Threading;
-using ClassevivaPCTO.ViewModels;
 
 namespace ClassevivaPCTO.Views
 {
@@ -48,11 +35,12 @@ namespace ClassevivaPCTO.Views
 
         public string Scuola
         {
-            get {
+            get
+            {
                 Card card = AppViewModel.CardsResult.Cards[0];
 
-                return card.schName + " " + card.schDedication + " [" + card.schCode + "]"; 
-            
+                return card.schName + " " + card.schDedication + " [" + card.schCode + "]";
+
             }
         }
 
@@ -65,7 +53,7 @@ namespace ClassevivaPCTO.Views
             this.DataContext = this; //DataContext = ViewModel;
             Initialize();
 
-            
+
 
             this.AppViewModel = ViewModelHolder.getViewModel();
         }
@@ -80,7 +68,7 @@ namespace ClassevivaPCTO.Views
             AppTitleTextBlock.Text = "" + AppInfo.Current.DisplayInfo.DisplayName;
             Window.Current.SetTitleBar(AppTitleBar);
 
-            
+
 
 
             //remove the solid-colored backgrounds behind the caption controls and system back button
@@ -97,7 +85,7 @@ namespace ClassevivaPCTO.Views
 
             PersonPictureDashboard.DisplayName = VariousUtils.UppercaseFirst(loginResult.FirstName) + " " + VariousUtils.UppercaseFirst(loginResult.LastName);
 
-           
+
             //pagina di default
             NavigationService.Navigate(typeof(Views.DashboardPage));
 

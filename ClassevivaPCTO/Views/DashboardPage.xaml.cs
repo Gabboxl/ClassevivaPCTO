@@ -44,7 +44,7 @@ namespace ClassevivaPCTO.Views
             Card cardResult = ViewModelHolder.getViewModel().CardsResult.Cards[0];
 
             TextBenvenuto.Text = "Dashboard di " + VariousUtils.UppercaseFirst(cardResult.firstName);
-           
+
 
             /*
 
@@ -121,7 +121,8 @@ namespace ClassevivaPCTO.Views
             {
                 float? valoreDaSommare = VariousUtils.GradeToFloat(voto);
 
-                if (valoreDaSommare != null) {
+                if (valoreDaSommare != null)
+                {
                     somma += (float)valoreDaSommare;
 
                     numVoti++;
@@ -132,7 +133,7 @@ namespace ClassevivaPCTO.Views
         }
 
 
-    
+
 
 
         private void HyperlinkButton_Click(object sender, RoutedEventArgs e)

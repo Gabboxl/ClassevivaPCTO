@@ -1,11 +1,8 @@
-﻿using System;
+﻿using ClassevivaPCTO.Helpers;
+using ClassevivaPCTO.Services;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
-
-using ClassevivaPCTO.Helpers;
-using ClassevivaPCTO.Services;
-
 using Windows.ApplicationModel;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -73,7 +70,7 @@ namespace ClassevivaPCTO.Views
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        private void Set<T>(ref T storage, T value, [CallerMemberName]string propertyName = null)
+        private void Set<T>(ref T storage, T value, [CallerMemberName] string propertyName = null)
         {
             if (Equals(storage, value))
             {
