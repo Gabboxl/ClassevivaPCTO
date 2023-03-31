@@ -28,56 +28,60 @@ namespace ClassevivaPCTO
         }
 
         public IServiceProvider Container { get; }
+
         public IServiceProvider ConfigureDependencyInjection()
         {
             var serviceCollection = new ServiceCollection();
 
+            serviceCollection
+                .AddRefitClient(typeof(IClassevivaAPI))
+                .AddPolicyHandler(
+                    Policy<HttpResponseMessage>
+                        .HandleResult(r => r.StatusCode == System.Net.HttpStatusCode.Unauthorized)
+                        .RetryAsync(
+                            1,
+                            async (ex, count) =>
+                            {
+                                Debug.WriteLine("Retry {0} times", count);
 
+                                var loginCredentials = new CredUtils().GetCredentialFromLocker();
 
-            serviceCollection.AddRefitClient(typeof(IClassevivaAPI))
-
-                .AddPolicyHandler(Policy<HttpResponseMessage>
-    .HandleResult(r => r.StatusCode == System.Net.HttpStatusCode.Unauthorized)
-    .RetryAsync(1, async (ex, count) =>
-    {
-        Debug.WriteLine("Retry {0} times", count);
-
-        var loginCredentials = new CredUtils().GetCredentialFromLocker();
-
-        if (loginCredentials != null)
-        {
-            await CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, async () =>
-            {
-
-                ContentDialog dialog = new ContentDialog();
-                dialog.Title = "Sessione scaduta";
-                dialog.PrimaryButtonText = "OK";
-                dialog.DefaultButton = ContentDialogButton.Primary;
-                dialog.Content = "Aggiornamento dei dati di login in corso...";
-
-                try
-                {
-                    var result = await dialog.ShowAsync();
-                }
-                catch (Exception e)
-                {
-                    System.Console.WriteLine(e.ToString());
-                }
-            });
-        }
-
-            })
-    )
-            .ConfigureHttpClient((sp, client) =>
+                                if (loginCredentials != null)
                                 {
-                                    client.BaseAddress = new Uri(Endpoint.CurrentEndpoint);
-                                });
+                                    await CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(
+                                        Windows.UI.Core.CoreDispatcherPriority.Normal,
+                                        async () =>
+                                        {
+                                            ContentDialog dialog = new ContentDialog();
+                                            dialog.Title = "Sessione scaduta";
+                                            dialog.PrimaryButtonText = "OK";
+                                            dialog.DefaultButton = ContentDialogButton.Primary;
+                                            dialog.Content =
+                                                "Aggiornamento dei dati di login in corso...";
 
+                                            try
+                                            {
+                                                var result = await dialog.ShowAsync();
+                                            }
+                                            catch (Exception e)
+                                            {
+                                                System.Console.WriteLine(e.ToString());
+                                            }
+                                        }
+                                    );
+                                }
+                            }
+                        )
+                )
+                .ConfigureHttpClient(
+                    (sp, client) =>
+                    {
+                        client.BaseAddress = new Uri(Endpoint.CurrentEndpoint);
+                    }
+                );
 
             return serviceCollection.BuildServiceProvider();
         }
-
-
 
         /// <summary>
         /// Inizializza l'oggetto Application singleton. Si tratta della prima riga del codice creato
@@ -89,20 +93,14 @@ namespace ClassevivaPCTO
             this.Suspending += OnSuspending;
             Container = ConfigureDependencyInjection();
 
-
-
 #if DEBUG
             Debug.WriteLine("Mode=Debug");
 #else
-            AppCenter.Start("test",
-                  typeof(Analytics), typeof(Crashes));
-            
+            AppCenter.Start("test", typeof(Analytics), typeof(Crashes));
 
-                  var env = Environment.GetEnvironmentVariable("AppCenterSecret");
-                  
+            var env = Environment.GetEnvironmentVariable("AppCenterSecret");
+
 #endif
-
-
 
             // Deferred execution until used. Check https://docs.microsoft.com/dotnet/api/system.lazy-1 for further info on Lazy<T> class.
             _activationService = new Lazy<ActivationService>(CreateActivationService);
@@ -116,7 +114,6 @@ namespace ClassevivaPCTO
         protected override async void OnLaunched(LaunchActivatedEventArgs e)
         {
             Frame rootFrame = Window.Current.Content as Frame;
-
 
             // Non ripetere l'inizializzazione dell'applicazione se la finestra già dispone di contenuto,
             // assicurarsi solo che la finestra sia attiva
@@ -149,13 +146,10 @@ namespace ClassevivaPCTO
                 Window.Current.Activate();
             }
 
-
-
             if (!e.PrelaunchActivated)
             {
                 await ActivationService.ActivateAsync(e);
             }
-
         }
 
         void OnNavigationFailed(object sender, NavigationFailedEventArgs e)
@@ -177,13 +171,15 @@ namespace ClassevivaPCTO
             deferral.Complete();
         }
 
-
         protected override async void OnActivated(IActivatedEventArgs args)
         {
             await ActivationService.ActivateAsync(args);
         }
 
-        private void OnAppUnhandledException(object sender, Windows.UI.Xaml.UnhandledExceptionEventArgs e)
+        private void OnAppUnhandledException(
+            object sender,
+            Windows.UI.Xaml.UnhandledExceptionEventArgs e
+        )
         {
             // TODO: Please log and handle the exception as appropriate to your scenario
             // For more info see https://docs.microsoft.com/uwp/api/windows.ui.xaml.application.unhandledexception
