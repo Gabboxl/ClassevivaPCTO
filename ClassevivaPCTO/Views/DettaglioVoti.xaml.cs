@@ -1,11 +1,11 @@
-﻿using ClassevivaPCTO.Utils;
+using ClassevivaPCTO.Utils;
 using ClassevivaPCTO.ViewModels;
 using Refit;
 using System.Collections.Generic;
 using System.Linq;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Navigation;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Navigation;
 
 // Il modello di elemento Pagina vuota è documentato all'indirizzo https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -166,7 +166,7 @@ namespace ClassevivaPCTO.Views
 
         public void GoBack(object sender, RoutedEventArgs e)
         {
-            Frame rootFrame = Window.Current.Content as Frame;
+            Frame rootFrame = App.Window.Content as Frame;
             if (rootFrame.CanGoBack)
             {
                 rootFrame.GoBack();

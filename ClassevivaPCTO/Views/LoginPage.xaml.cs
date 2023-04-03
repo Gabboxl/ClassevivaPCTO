@@ -1,4 +1,4 @@
-﻿using ClassevivaPCTO.Utils;
+using ClassevivaPCTO.Utils;
 using ClassevivaPCTO.ViewModels;
 using Refit;
 using System;
@@ -11,10 +11,13 @@ using Windows.Security.Credentials;
 using Windows.System;
 using Windows.UI;
 using Windows.UI.ViewManagement;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media.Animation;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Input;
+using Microsoft.UI.Xaml.Media.Animation;
+using Microsoft.UI;
+using Microsoft.UI.Windowing;
+using Microsoft.UI.Xaml.Media;
 
 // Il modello di elemento Pagina vuota è documentato all'indirizzo https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x410
 
@@ -32,18 +35,20 @@ namespace ClassevivaPCTO.Views
 
 
             // Hide default title bar.
-            var coreTitleBar = CoreApplication.GetCurrentView().TitleBar;
-            coreTitleBar.ExtendViewIntoTitleBar = true;
+            //var coreTitleBar = CoreApplication.GetCurrentView().TitleBar;
+            //coreTitleBar.ExtendViewIntoTitleBar = true;
 
             //remove the solid-colored backgrounds behind the caption controls and system back button
-            ApplicationViewTitleBar titleBar = ApplicationView.GetForCurrentView().TitleBar;
-            titleBar.ButtonBackgroundColor = Colors.Transparent;
-            titleBar.ButtonInactiveBackgroundColor = Colors.Transparent;
+            //ApplicationViewTitleBar titleBar = ApplicationView.GetForCurrentView().TitleBar;
+            //titleBar.ButtonBackgroundColor = Colors.Transparent;
+            //titleBar.ButtonInactiveBackgroundColor = Colors.Transparent;
 
             //titolo title bar
             AppTitleTextBlock.Text = "Login - " + AppInfo.Current.DisplayInfo.DisplayName;
 
-            Window.Current.SetTitleBar(AppTitleBar);
+            //MainWindow.Current.SetTitleBar(AppTitleBar);
+
+            
 
 
             var loginCredentials = new CredUtils().GetCredentialFromLocker();
@@ -139,7 +144,9 @@ namespace ClassevivaPCTO.Views
                 }
 
 
-                Frame rootFrame = Window.Current.Content as Frame;
+               
+
+                Frame rootFrame = App.Window.Content as Frame;
                 rootFrame.Navigate(typeof(MainPage), null, new DrillInNavigationTransitionInfo());
 
             }
@@ -157,7 +164,7 @@ namespace ClassevivaPCTO.Views
 
                 try
                 {
-                    var result = await dialog.ShowAsync();
+                    var result = await /* TODO You should replace 'this' with the instance of UserControl that is ContentDialog is meant to be a part of. */SetContentDialogRoot(dialog, this).ShowAsync();
                 }
                 catch (Exception e)
                 {
@@ -171,6 +178,14 @@ namespace ClassevivaPCTO.Views
             }
 
         }
+                    private static ContentDialog SetContentDialogRoot(ContentDialog contentDialog, UserControl control)
+                    {
+                        if (Windows.Foundation.Metadata.ApiInformation.IsApiContractPresent("Windows.Foundation.UniversalApiContract", 8))
+                        {
+                            contentDialog.XamlRoot = control.Content.XamlRoot;
+                        }
+                        return contentDialog;
+                    }
 
 
 

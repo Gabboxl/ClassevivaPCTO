@@ -1,5 +1,5 @@
-﻿using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Controls;
 
 namespace ClassevivaPCTO.Views
 {
@@ -8,7 +8,7 @@ namespace ClassevivaPCTO.Views
         public FirstRunDialog()
         {
             // TODO: Update the contents of this dialog with any important information you want to show when the app is used for the first time.
-            RequestedTheme = (Window.Current.Content as FrameworkElement).RequestedTheme;
+            RequestedTheme = (App.Window.Content as FrameworkElement).RequestedTheme;
             InitializeComponent();
         }
     }

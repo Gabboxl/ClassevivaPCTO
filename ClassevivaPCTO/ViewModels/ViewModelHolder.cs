@@ -1,4 +1,4 @@
-﻿namespace ClassevivaPCTO.ViewModels
+namespace ClassevivaPCTO.ViewModels
 {
     public static class ViewModelHolder
     {

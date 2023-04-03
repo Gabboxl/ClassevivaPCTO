@@ -1,9 +1,9 @@
-﻿using ClassevivaPCTO.Utils;
+using ClassevivaPCTO.Utils;
 using ClassevivaPCTO.ViewModels;
 using Refit;
 using System;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Navigation;
+using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Navigation;
 
 // Il modello di elemento Pagina vuota è documentato all'indirizzo https://go.microsoft.com/fwlink/?LinkId=234238
 

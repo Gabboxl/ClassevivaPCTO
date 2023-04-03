@@ -1,0 +1,772 @@
+﻿{
+  "$schema": "https://schemastore.azurewebsites.net/schemas/json/sarif-2.1.0-rtm.5.json",
+  "version": "2.1.0",
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "Dependency Analysis",
+          "semanticVersion": "0.4.410601",
+          "informationUri": "https://docs.microsoft.com/en-us/dotnet/core/porting/upgrade-assistant-overview",
+          "rules": [
+            {
+              "id": "UA105",
+              "name": "PackageToBeDeleted",
+              "fullDescription": {
+                "text": "Packages that need to be deleted in order to upgrade the project to chosen TFM"
+              },
+              "helpUri": "https://docs.microsoft.com/en-us/dotnet/core/porting/upgrade-assistant-overview"
+            },
+            {
+              "id": "UA106",
+              "name": "PackageToBeAdded",
+              "fullDescription": {
+                "text": "Packages that need to be added in order to upgrade the project to chosen TFM"
+              },
+              "helpUri": "https://docs.microsoft.com/en-us/dotnet/core/porting/upgrade-assistant-overview"
+            }
+          ]
+        }
+      },
+      "results": [
+        {
+          "ruleId": "UA105",
+          "level": "note",
+          "message": {
+            "text": "Package Microsoft.AppCenter.Analytics, Version=5.0.1 needs to be deleted."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/Users/Gabriele/GitHub/ClassevivaPCTO/ClassevivaPCTO/ClassevivaPCTO.csproj"
+                },
+                "region": {}
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UA105",
+          "level": "note",
+          "message": {
+            "text": "Package Microsoft.AppCenter.Crashes, Version=5.0.1 needs to be deleted."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/Users/Gabriele/GitHub/ClassevivaPCTO/ClassevivaPCTO/ClassevivaPCTO.csproj"
+                },
+                "region": {}
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UA105",
+          "level": "note",
+          "message": {
+            "text": "Package Microsoft.NETCore.UniversalWindowsPlatform, Version=6.2.14 needs to be deleted."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/Users/Gabriele/GitHub/ClassevivaPCTO/ClassevivaPCTO/ClassevivaPCTO.csproj"
+                },
+                "region": {}
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UA105",
+          "level": "note",
+          "message": {
+            "text": "Package Microsoft.UI.Xaml, Version=2.8.2 needs to be deleted."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/Users/Gabriele/GitHub/ClassevivaPCTO/ClassevivaPCTO/ClassevivaPCTO.csproj"
+                },
+                "region": {}
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UA105",
+          "level": "note",
+          "message": {
+            "text": "Package Microsoft.Extensions.DependencyInjection.Abstractions, Version=7.0.0 needs to be deleted."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/Users/Gabriele/GitHub/ClassevivaPCTO/ClassevivaPCTO/ClassevivaPCTO.csproj"
+                },
+                "region": {}
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UA105",
+          "level": "note",
+          "message": {
+            "text": "Package Polly, Version=7.2.3 needs to be deleted."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/Users/Gabriele/GitHub/ClassevivaPCTO/ClassevivaPCTO/ClassevivaPCTO.csproj"
+                },
+                "region": {}
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UA105",
+          "level": "note",
+          "message": {
+            "text": "Package Polly.Extensions.Http, Version=3.0.0 needs to be deleted."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/Users/Gabriele/GitHub/ClassevivaPCTO/ClassevivaPCTO/ClassevivaPCTO.csproj"
+                },
+                "region": {}
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UA105",
+          "level": "note",
+          "message": {
+            "text": "Package Refit, Version=6.3.2 needs to be deleted."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/Users/Gabriele/GitHub/ClassevivaPCTO/ClassevivaPCTO/ClassevivaPCTO.csproj"
+                },
+                "region": {}
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UA105",
+          "level": "note",
+          "message": {
+            "text": "Package System.Runtime.Caching, Version=7.0.0 needs to be deleted."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/Users/Gabriele/GitHub/ClassevivaPCTO/ClassevivaPCTO/ClassevivaPCTO.csproj"
+                },
+                "region": {}
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UA106",
+          "level": "note",
+          "message": {
+            "text": "Package Microsoft.WindowsAppSDK, Version=1.1.0 needs to be added."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/Users/Gabriele/GitHub/ClassevivaPCTO/ClassevivaPCTO/ClassevivaPCTO.csproj"
+                },
+                "region": {}
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UA106",
+          "level": "note",
+          "message": {
+            "text": "Package Microsoft.Graphics.Win2D, Version=1.0.0.30 needs to be added."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/Users/Gabriele/GitHub/ClassevivaPCTO/ClassevivaPCTO/ClassevivaPCTO.csproj"
+                },
+                "region": {}
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UA106",
+          "level": "note",
+          "message": {
+            "text": "Package Microsoft.DotNet.UpgradeAssistant.Extensions.Default.Analyzers, Version=0.4.410601 needs to be added."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/Users/Gabriele/GitHub/ClassevivaPCTO/ClassevivaPCTO/ClassevivaPCTO.csproj"
+                },
+                "region": {}
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UA106",
+          "level": "note",
+          "message": {
+            "text": "Package Microsoft.Windows.Compatibility, Version=7.0.0 needs to be added."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/Users/Gabriele/GitHub/ClassevivaPCTO/ClassevivaPCTO/ClassevivaPCTO.csproj"
+                },
+                "region": {}
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UA106",
+          "level": "note",
+          "message": {
+            "text": "Package Microsoft.DotNet.UpgradeAssistant.Extensions.Default.Analyzers, Version=0.4.410601 needs to be added."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/Users/Gabriele/GitHub/ClassevivaPCTO/ClassevivaPCTO.Core/ClassevivaPCTO.Core.csproj"
+                },
+                "region": {}
+              }
+            }
+          ]
+        }
+      ],
+      "columnKind": "utf16CodeUnits"
+    },
+    {
+      "tool": {
+        "driver": {
+          "name": "API Upgradability",
+          "semanticVersion": "0.4.410601",
+          "informationUri": "https://docs.microsoft.com/en-us/dotnet/core/porting/upgrade-assistant-overview"
+        }
+      },
+      "results": [],
+      "columnKind": "utf16CodeUnits"
+    },
+    {
+      "tool": {
+        "driver": {
+          "name": "Component Analysis",
+          "semanticVersion": "0.4.410601",
+          "informationUri": "https://docs.microsoft.com/en-us/dotnet/core/porting/upgrade-assistant-overview",
+          "rules": [
+            {
+              "id": "UA301",
+              "name": "Microsoft.DotNet.UpgradeAssistant.Extensions.Windows.WinUINamespaceUpdater",
+              "fullDescription": {
+                "text": "Update WinUI namespaces"
+              }
+            },
+            {
+              "id": "UA304",
+              "name": "Microsoft.DotNet.UpgradeAssistant.Extensions.Windows.WinUIPackageAppxmanifestUpdater",
+              "fullDescription": {
+                "text": "Update package.appxmanifest"
+              }
+            }
+          ]
+        }
+      },
+      "results": [
+        {
+          "ruleId": "UA301",
+          "level": "note",
+          "message": {
+            "text": "Namespaces need to be updated"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/Users/Gabriele/GitHub/ClassevivaPCTO/ClassevivaPCTO/Helpers/EnumToBooleanConverter.cs"
+                },
+                "region": {}
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UA301",
+          "level": "note",
+          "message": {
+            "text": "Namespaces need to be updated"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/Users/Gabriele/GitHub/ClassevivaPCTO/ClassevivaPCTO/Helpers/NavHelper.cs"
+                },
+                "region": {}
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UA301",
+          "level": "note",
+          "message": {
+            "text": "Namespaces need to be updated"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/Users/Gabriele/GitHub/ClassevivaPCTO/ClassevivaPCTO/Services/ActivationService.cs"
+                },
+                "region": {}
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UA301",
+          "level": "note",
+          "message": {
+            "text": "Namespaces need to be updated"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/Users/Gabriele/GitHub/ClassevivaPCTO/ClassevivaPCTO/Services/ActivationService.cs"
+                },
+                "region": {}
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UA301",
+          "level": "note",
+          "message": {
+            "text": "Namespaces need to be updated"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/Users/Gabriele/GitHub/ClassevivaPCTO/ClassevivaPCTO/Services/NavigationService.cs"
+                },
+                "region": {}
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UA301",
+          "level": "note",
+          "message": {
+            "text": "Namespaces need to be updated"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/Users/Gabriele/GitHub/ClassevivaPCTO/ClassevivaPCTO/Services/NavigationService.cs"
+                },
+                "region": {}
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UA301",
+          "level": "note",
+          "message": {
+            "text": "Namespaces need to be updated"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/Users/Gabriele/GitHub/ClassevivaPCTO/ClassevivaPCTO/Services/ThemeSelectorService.cs"
+                },
+                "region": {}
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UA301",
+          "level": "note",
+          "message": {
+            "text": "Namespaces need to be updated"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/Users/Gabriele/GitHub/ClassevivaPCTO/ClassevivaPCTO/Services/ThemeSelectorService.cs"
+                },
+                "region": {}
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UA301",
+          "level": "note",
+          "message": {
+            "text": "Namespaces need to be updated"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/Users/Gabriele/GitHub/ClassevivaPCTO/ClassevivaPCTO/ViewModels/NavigationViewViewModel.cs"
+                },
+                "region": {}
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UA301",
+          "level": "note",
+          "message": {
+            "text": "Namespaces need to be updated"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/Users/Gabriele/GitHub/ClassevivaPCTO/ClassevivaPCTO/Views/Agenda.xaml.cs"
+                },
+                "region": {}
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UA301",
+          "level": "note",
+          "message": {
+            "text": "Namespaces need to be updated"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/Users/Gabriele/GitHub/ClassevivaPCTO/ClassevivaPCTO/App.xaml.cs"
+                },
+                "region": {}
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UA301",
+          "level": "note",
+          "message": {
+            "text": "Namespaces need to be updated"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/Users/Gabriele/GitHub/ClassevivaPCTO/ClassevivaPCTO/App.xaml.cs"
+                },
+                "region": {}
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UA301",
+          "level": "note",
+          "message": {
+            "text": "Namespaces need to be updated"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/Users/Gabriele/GitHub/ClassevivaPCTO/ClassevivaPCTO/Views/Assenze.xaml.cs"
+                },
+                "region": {}
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UA301",
+          "level": "note",
+          "message": {
+            "text": "Namespaces need to be updated"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/Users/Gabriele/GitHub/ClassevivaPCTO/ClassevivaPCTO/Views/Bacheca.xaml.cs"
+                },
+                "region": {}
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UA301",
+          "level": "note",
+          "message": {
+            "text": "Namespaces need to be updated"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/Users/Gabriele/GitHub/ClassevivaPCTO/ClassevivaPCTO/Views/FirstRunDialog.xaml.cs"
+                },
+                "region": {}
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UA301",
+          "level": "note",
+          "message": {
+            "text": "Namespaces need to be updated"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/Users/Gabriele/GitHub/ClassevivaPCTO/ClassevivaPCTO/Views/FirstRunDialog.xaml.cs"
+                },
+                "region": {}
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UA301",
+          "level": "note",
+          "message": {
+            "text": "Namespaces need to be updated"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/Users/Gabriele/GitHub/ClassevivaPCTO/ClassevivaPCTO/Views/MainPage.xaml.cs"
+                },
+                "region": {}
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UA301",
+          "level": "note",
+          "message": {
+            "text": "Namespaces need to be updated"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/Users/Gabriele/GitHub/ClassevivaPCTO/ClassevivaPCTO/Views/MainPage.xaml.cs"
+                },
+                "region": {}
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UA301",
+          "level": "note",
+          "message": {
+            "text": "Namespaces need to be updated"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/Users/Gabriele/GitHub/ClassevivaPCTO/ClassevivaPCTO/Converters/DateTimeToNormalDateConverter.cs"
+                },
+                "region": {}
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UA301",
+          "level": "note",
+          "message": {
+            "text": "Namespaces need to be updated"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/Users/Gabriele/GitHub/ClassevivaPCTO/ClassevivaPCTO/Views/DashboardPage.xaml.cs"
+                },
+                "region": {}
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UA301",
+          "level": "note",
+          "message": {
+            "text": "Namespaces need to be updated"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/Users/Gabriele/GitHub/ClassevivaPCTO/ClassevivaPCTO/Views/DettaglioVoti.xaml.cs"
+                },
+                "region": {}
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UA301",
+          "level": "note",
+          "message": {
+            "text": "Namespaces need to be updated"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/Users/Gabriele/GitHub/ClassevivaPCTO/ClassevivaPCTO/Views/DettaglioVoti.xaml.cs"
+                },
+                "region": {}
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UA301",
+          "level": "note",
+          "message": {
+            "text": "Namespaces need to be updated"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/Users/Gabriele/GitHub/ClassevivaPCTO/ClassevivaPCTO/Views/LoginPage.xaml.cs"
+                },
+                "region": {}
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UA301",
+          "level": "note",
+          "message": {
+            "text": "Namespaces need to be updated"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/Users/Gabriele/GitHub/ClassevivaPCTO/ClassevivaPCTO/Views/LoginPage.xaml.cs"
+                },
+                "region": {}
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UA301",
+          "level": "note",
+          "message": {
+            "text": "Namespaces need to be updated"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/Users/Gabriele/GitHub/ClassevivaPCTO/ClassevivaPCTO/Converters/GradeToColorConverter.cs"
+                },
+                "region": {}
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UA301",
+          "level": "note",
+          "message": {
+            "text": "Namespaces need to be updated"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/Users/Gabriele/GitHub/ClassevivaPCTO/ClassevivaPCTO/Views/SettingsPage.xaml.cs"
+                },
+                "region": {}
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UA304",
+          "level": "note",
+          "message": {
+            "text": "The package.appxmanifest file needs to be updated with the new Windows App SDK format"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/Users/Gabriele/GitHub/ClassevivaPCTO/ClassevivaPCTO/Package.appxmanifest"
+                },
+                "region": {}
+              }
+            }
+          ]
+        }
+      ],
+      "columnKind": "utf16CodeUnits"
+    }
+  ]
+}

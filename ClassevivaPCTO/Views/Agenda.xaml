@@ -6,10 +6,9 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    xmlns:microconverters="using:Microsoft.Toolkit.Uwp.UI.Converters"
+    xmlns:microconverters="using:CommunityToolkit.WinUI.UI.Converters"
     xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
-    muxc:BackdropMaterial.ApplyToRootOrPageBackground="True">
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Page.Resources>
         <ResourceDictionary>

@@ -1,6 +1,6 @@
-﻿using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Controls;
 using System;
-using Windows.UI.Xaml;
+using Microsoft.UI.Xaml;
 
 namespace ClassevivaPCTO.Helpers
 {

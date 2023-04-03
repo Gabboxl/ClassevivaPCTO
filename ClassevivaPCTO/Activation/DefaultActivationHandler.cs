@@ -1,4 +1,4 @@
-﻿using ClassevivaPCTO.Services;
+using ClassevivaPCTO.Services;
 using System;
 using System.Threading.Tasks;
 using Windows.ApplicationModel.Activation;

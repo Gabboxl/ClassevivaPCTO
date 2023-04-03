@@ -6,8 +6,8 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
-    xmlns:microconverters="using:Microsoft.Toolkit.Uwp.UI.Converters"
+    xmlns:controls="using:CommunityToolkit.WinUI.UI.Controls"
+    xmlns:microconverters="using:CommunityToolkit.WinUI.UI.Converters"
     xmlns:controlscust="using:ClassevivaPCTO.Controls"
     xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
     xmlns:animatedvisuals="using:Microsoft.UI.Xaml.Controls.AnimatedVisuals"
@@ -17,7 +17,7 @@
     xmlns:roba="using:ClassevivaPCTO.Utils"
 
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
-    muxc:BackdropMaterial.ApplyToRootOrPageBackground="True">
+>
 
     <Page.Resources>
         

@@ -1,4 +1,4 @@
-﻿using ClassevivaPCTO.Core.Helpers;
+using ClassevivaPCTO.Core.Helpers;
 using System;
 using System.IO;
 using System.Threading.Tasks;

@@ -1,198 +1,114 @@
-﻿using ClassevivaPCTO.Services;
+
+using ClassevivaPCTO.Services;
 using ClassevivaPCTO.Utils;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+using Microsoft.UI.Xaml;
+using Microsoft.Windows.AppLifecycle;
 using Polly;
 using Refit;
 using System;
-using System.Diagnostics;
-using System.Net.Http;
-using Windows.ApplicationModel;
-using Windows.ApplicationModel.Activation;
-using Windows.ApplicationModel.Core;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Navigation;
+using WinUIEx;
 
 namespace ClassevivaPCTO
 {
-    /// <summary>
-    /// Fornisci un comportamento specifico dell'applicazione in supplemento alla classe Application predefinita.
-    /// </summary>
-    public sealed partial class App : Application
+    public partial class App : Application
     {
-        private Lazy<ActivationService> _activationService;
-
-        private ActivationService ActivationService
+        // The .NET Generic Host provides dependency injection, configuration, logging, and other services.
+        // https://docs.microsoft.com/dotnet/core/extensions/generic-host
+        // https://docs.microsoft.com/dotnet/core/extensions/dependency-injection
+        // https://docs.microsoft.com/dotnet/core/extensions/configuration
+        // https://docs.microsoft.com/dotnet/core/extensions/logging
+        public IHost Host
         {
-            get { return _activationService.Value; }
+            get;
         }
 
-        public IServiceProvider Container { get; }
-
-        public IServiceProvider ConfigureDependencyInjection()
+        public static T GetService<T>()
+            where T : class
         {
-            var serviceCollection = new ServiceCollection();
+            if ((App.Current as App)!.Host.Services.GetService(typeof(T)) is not T service)
+            {
+                throw new ArgumentException($"{typeof(T)} needs to be registered in ConfigureServices within App.xaml.cs.");
+            }
 
-            serviceCollection
-                .AddRefitClient(typeof(IClassevivaAPI))
-                .AddPolicyHandler(
-                    Policy<HttpResponseMessage>
-                        .HandleResult(r => r.StatusCode == System.Net.HttpStatusCode.Unauthorized)
-                        .RetryAsync(
-                            1,
-                            async (ex, count) =>
-                            {
-                                Debug.WriteLine("Retry {0} times", count);
-
-                                var loginCredentials = new CredUtils().GetCredentialFromLocker();
-
-                                if (loginCredentials != null)
-                                {
-                                    await CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(
-                                        Windows.UI.Core.CoreDispatcherPriority.Normal,
-                                        async () =>
-                                        {
-                                            ContentDialog dialog = new ContentDialog();
-                                            dialog.Title = "Sessione scaduta";
-                                            dialog.PrimaryButtonText = "OK";
-                                            dialog.DefaultButton = ContentDialogButton.Primary;
-                                            dialog.Content =
-                                                "Aggiornamento dei dati di login in corso...";
-
-                                            try
-                                            {
-                                                var result = await dialog.ShowAsync();
-                                            }
-                                            catch (Exception e)
-                                            {
-                                                System.Console.WriteLine(e.ToString());
-                                            }
-                                        }
-                                    );
-                                }
-                            }
-                        )
-                )
-                .ConfigureHttpClient(
-                    (sp, client) =>
-                    {
-                        client.BaseAddress = new Uri(Endpoint.CurrentEndpoint);
-                    }
-                );
-
-            return serviceCollection.BuildServiceProvider();
+            return service;
         }
 
-        /// <summary>
-        /// Inizializza l'oggetto Application singleton. Si tratta della prima riga del codice creato
-        /// creato e, come tale, corrisponde all'equivalente logico di main() o WinMain().
-        /// </summary>
+        public static WindowEx Window { get; } = new MainWindow();
+
         public App()
         {
-            this.InitializeComponent();
-            this.Suspending += OnSuspending;
-            Container = ConfigureDependencyInjection();
+            InitializeComponent();
 
-#if DEBUG
-            Debug.WriteLine("Mode=Debug");
-#else
-            AppCenter.Start("test", typeof(Analytics), typeof(Crashes));
-
-            var env = Environment.GetEnvironmentVariable("AppCenterSecret");
-
-#endif
-
-            // Deferred execution until used. Check https://docs.microsoft.com/dotnet/api/system.lazy-1 for further info on Lazy<T> class.
-            _activationService = new Lazy<ActivationService>(CreateActivationService);
-        }
-
-        /// <summary>
-        /// Richiamato quando l'applicazione viene avviata normalmente dall'utente finale. All'avvio dell'applicazione
-        /// verranno usati altri punti di ingresso per aprire un file specifico.
-        /// </summary>
-        /// <param name="e">Dettagli sulla richiesta e sul processo di avvio.</param>
-        protected override async void OnLaunched(LaunchActivatedEventArgs e)
-        {
-            Frame rootFrame = Window.Current.Content as Frame;
-
-            // Non ripetere l'inizializzazione dell'applicazione se la finestra già dispone di contenuto,
-            // assicurarsi solo che la finestra sia attiva
-            if (rootFrame == null)
+            Host = Microsoft.Extensions.Hosting.Host.
+            CreateDefaultBuilder().
+            UseContentRoot(AppContext.BaseDirectory).
+            ConfigureServices((context, services) =>
             {
-                // Creare un frame che agisca da contesto di navigazione e passare alla prima pagina
-                rootFrame = new Frame();
+                /*
+                // Default Activation Handler
+                services.AddTransient<ActivationHandler<LaunchActivatedEventArgs>, DefaultActivationHandler>();
 
-                rootFrame.NavigationFailed += OnNavigationFailed;
+                // Other Activation Handlers
 
-                if (e.PreviousExecutionState == ApplicationExecutionState.Terminated)
-                {
-                    //TODO: caricare lo stato dall'applicazione sospesa in precedenza
-                }
+                // Services
+                services.AddTransient<INavigationViewService, NavigationViewService>();
 
-                // Posizionare il frame nella finestra corrente
-                Window.Current.Content = rootFrame;
-            }
+                services.AddSingleton<IActivationService, ActivationService>();
+                services.AddSingleton<IPageService, PageService>();
+                services.AddSingleton<INavigationService, NavigationService>();
 
-            if (e.PrelaunchActivated == false)
-            {
-                if (rootFrame.Content == null)
-                {
-                    // Quando lo stack di esplorazione non viene ripristinato, passare alla prima pagina
-                    // configurando la nuova pagina per passare le informazioni richieste come parametro di
-                    // navigazione
-                    rootFrame.Navigate(typeof(Views.LoginPage), e.Arguments);
-                }
-                // Assicurarsi che la finestra corrente sia attiva
-                Window.Current.Activate();
-            }
+                // Core Services
+                services.AddSingleton<IFileService, FileService>();
 
-            if (!e.PrelaunchActivated)
-            {
-                await ActivationService.ActivateAsync(e);
-            }
-        }
+                // Views and ViewModels
+                services.AddTransient<BlankViewModel>();
+                services.AddTransient<BlankPage>();
+                services.AddTransient<MainViewModel>();
+                services.AddTransient<MainPage>();
+                services.AddTransient<ShellPage>();
+                services.AddTransient<ShellViewModel>();
+                */
 
-        void OnNavigationFailed(object sender, NavigationFailedEventArgs e)
-        {
-            throw new Exception("Failed to load Page " + e.SourcePageType.FullName);
-        }
 
-        /// <summary>
-        /// Richiamato quando l'esecuzione dell'applicazione viene sospesa. Lo stato dell'applicazione viene salvato
-        /// senza che sia noto se l'applicazione verrà terminata o ripresa con il contenuto
-        /// della memoria ancora integro.
-        /// </summary>
-        /// <param name="sender">Origine della richiesta di sospensione.</param>
-        /// <param name="e">Dettagli relativi alla richiesta di sospensione.</param>
-        private void OnSuspending(object sender, SuspendingEventArgs e)
-        {
-            var deferral = e.SuspendingOperation.GetDeferral();
-            //TODO: salvare lo stato dell'applicazione e arrestare eventuali attività eseguite in background
-            deferral.Complete();
-        }
-
-        protected override async void OnActivated(IActivatedEventArgs args)
-        {
-            await ActivationService.ActivateAsync(args);
-        }
-
-        private void OnAppUnhandledException(
-            object sender,
-            Windows.UI.Xaml.UnhandledExceptionEventArgs e
-        )
-        {
-            // TODO: Please log and handle the exception as appropriate to your scenario
-            // For more info see https://docs.microsoft.com/uwp/api/windows.ui.xaml.application.unhandledexception
-        }
-
-        private ActivationService CreateActivationService()
-        {
-            return new ActivationService(this, null, null);
-        }
-
-        /*private UIElement CreateShell()
-        {
-            return new Views.ShellPage();
-        } */
+                services.AddRefitClient(typeof(IClassevivaAPI))
+                .AddPolicyHandler(Policy<HttpResponseMessage>
+    .Handle<ApiException>()
+    .RetryAsync(97)
+)
+.ConfigureHttpClient(
+    (sp, client) =>
+    {
+        client.BaseAddress = new Uri(Endpoint.CurrentEndpoint);
     }
-}
+);
+
+    
+
+
+
+                // Configuration
+            }).
+            Build();
+
+            UnhandledException += App_UnhandledException;
+        }
+
+        private void App_UnhandledException(object sender, Microsoft.UI.Xaml.UnhandledExceptionEventArgs e)
+        {
+            // TODO: Log and handle exceptions as appropriate.
+            // https://docs.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.application.unhandledexception.
+        }
+
+        protected async override void OnLaunched(LaunchActivatedEventArgs args)
+        {
+            base.OnLaunched(args);
+
+            Window.Activate();//darimv
+
+            //await App.GetService<IActivationService>().ActivateAsync(args);
+        }
+    }
+
+    }

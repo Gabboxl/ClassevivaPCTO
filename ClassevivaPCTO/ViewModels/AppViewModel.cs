@@ -1,4 +1,4 @@
-﻿using ClassevivaPCTO.Utils;
+using ClassevivaPCTO.Utils;
 using CommunityToolkit.Mvvm.ComponentModel;
 
 namespace ClassevivaPCTO.ViewModels

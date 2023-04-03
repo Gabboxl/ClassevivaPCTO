@@ -1,0 +1,10 @@
+﻿{
+  "profiles": {
+    "ClassevivaPCTO (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "ClassevivaPCTO (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}

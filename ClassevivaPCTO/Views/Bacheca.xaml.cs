@@ -1,4 +1,4 @@
-﻿using Windows.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Controls;
 
 // Il modello di elemento Pagina vuota è documentato all'indirizzo https://go.microsoft.com/fwlink/?LinkId=234238
 

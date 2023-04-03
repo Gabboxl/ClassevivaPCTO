@@ -1,4 +1,4 @@
-﻿using ClassevivaPCTO.Services;
+using ClassevivaPCTO.Services;
 using ClassevivaPCTO.Utils;
 using ClassevivaPCTO.ViewModels;
 using System.ComponentModel;
@@ -7,9 +7,10 @@ using Windows.ApplicationModel;
 using Windows.ApplicationModel.Core;
 using Windows.UI;
 using Windows.UI.ViewManagement;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Controls;
 using WinUI = Microsoft.UI.Xaml.Controls;
+using Microsoft.UI;
 
 namespace ClassevivaPCTO.Views
 {
@@ -61,20 +62,20 @@ namespace ClassevivaPCTO.Views
         private void Initialize()
         {
             // Hide default title bar.
-            var coreTitleBar = CoreApplication.GetCurrentView().TitleBar;
-            coreTitleBar.ExtendViewIntoTitleBar = true;
+            //var coreTitleBar = CoreApplication.GetCurrentView().TitleBar;
+            //coreTitleBar.ExtendViewIntoTitleBar = true;
 
 
             AppTitleTextBlock.Text = "" + AppInfo.Current.DisplayInfo.DisplayName;
-            Window.Current.SetTitleBar(AppTitleBar);
+            App.Window.SetTitleBar(AppTitleBar);
 
 
 
 
             //remove the solid-colored backgrounds behind the caption controls and system back button
-            ApplicationViewTitleBar titleBar = ApplicationView.GetForCurrentView().TitleBar;
-            titleBar.ButtonBackgroundColor = Colors.Transparent;
-            titleBar.ButtonInactiveBackgroundColor = Colors.Transparent;
+            //ApplicationViewTitleBar titleBar =    ApplicationView.GetForCurrentView().TitleBar;
+            //titleBar.ButtonBackgroundColor = Colors.Transparent;
+            //titleBar.ButtonInactiveBackgroundColor = Colors.Transparent;
 
 
 
@@ -130,7 +131,7 @@ namespace ClassevivaPCTO.Views
 
             }
 
-            Frame rootFrame = Window.Current.Content as Frame;
+            Frame rootFrame = App.Window.Content as Frame;
             if (rootFrame.CanGoBack)
             {
                 rootFrame.GoBack();

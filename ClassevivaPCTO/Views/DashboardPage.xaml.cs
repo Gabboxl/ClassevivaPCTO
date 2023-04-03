@@ -1,4 +1,4 @@
-﻿using ClassevivaPCTO.Converters;
+using ClassevivaPCTO.Converters;
 using ClassevivaPCTO.Services;
 using ClassevivaPCTO.Utils;
 using ClassevivaPCTO.ViewModels;
@@ -8,10 +8,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Navigation;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Media;
+using Microsoft.UI.Xaml.Navigation;
 
 
 namespace ClassevivaPCTO.Views
@@ -32,7 +32,8 @@ namespace ClassevivaPCTO.Views
             this.InitializeComponent();
 
             App app = (App)App.Current;
-            apiClient = app.Container.GetService<IClassevivaAPI>();
+
+            apiClient = App.GetService<IClassevivaAPI>();
         }
 
         protected override async void OnNavigatedTo(NavigationEventArgs e)
@@ -94,7 +95,9 @@ namespace ClassevivaPCTO.Views
 
             //apiClient = Container.GetService<IClassevivaAPI>();
 
-            var result1 = await apiClient.GetGrades(cardResult.usrId.ToString(), loginResult.Token.ToString());
+            
+            var api = RestService.For<IClassevivaAPI>(Endpoint.CurrentEndpoint);
+            var result1 = await apiClient.GetGrades(cardResult.usrId.ToString(), "tony"); //loginResult.Token.ToString()
 
 
             // Calcoliamo la media dei voti

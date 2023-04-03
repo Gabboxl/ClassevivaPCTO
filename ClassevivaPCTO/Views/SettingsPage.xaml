@@ -6,7 +6,7 @@
     xmlns:helper="using:ClassevivaPCTO.Helpers"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     
-    xmlns:xaml="using:Windows.UI.Xaml"
+    xmlns:xaml="using:Microsoft.UI.Xaml"
     mc:Ignorable="d">
     <Page.Resources>
         <helper:EnumToBooleanConverter x:Key="EnumToBooleanConverter" EnumType="ElementTheme" />

@@ -1,0 +1,1469 @@
+﻿{
+  "$schema": "https://schemastore.azurewebsites.net/schemas/json/sarif-2.1.0-rtm.5.json",
+  "version": "2.1.0",
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "Back up project",
+          "semanticVersion": "",
+          "informationUri": "https://github.com/dotnet/upgrade-assistant#usage",
+          "rules": [
+            {
+              "id": "Microsoft.DotNet.UpgradeAssistant.Steps.Backup.BackupStep",
+              "fullDescription": {
+                "text": "Back up the current project to another directory"
+              }
+            }
+          ]
+        }
+      },
+      "results": [
+        {
+          "ruleId": "Microsoft.DotNet.UpgradeAssistant.Steps.Backup.BackupStep",
+          "level": "note",
+          "message": {
+            "text": "Complete: Project backed up to C:\\Users\\Gabriele\\GitHub\\ClassevivaPCTO.backup\\ClassevivaPCTO"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/Users/Gabriele/GitHub/ClassevivaPCTO.backup/ClassevivaPCTO"
+                },
+                "region": {}
+              }
+            }
+          ]
+        }
+      ],
+      "columnKind": "utf16CodeUnits"
+    },
+    {
+      "tool": {
+        "driver": {
+          "name": "Convert project file to SDK style",
+          "semanticVersion": "",
+          "informationUri": "https://github.com/dotnet/upgrade-assistant#usage",
+          "rules": [
+            {
+              "id": "Microsoft.DotNet.UpgradeAssistant.Steps.ProjectFormat.TryConvertProjectConverterStep",
+              "fullDescription": {
+                "text": "Use the try-convert tool (, Version=0.4.410601+6304b1d0784e32e20ef0299db22bc9e3f6a9b3f3) to convert the project file to an SDK-style csproj"
+              }
+            }
+          ]
+        }
+      },
+      "results": [
+        {
+          "ruleId": "Microsoft.DotNet.UpgradeAssistant.Steps.ProjectFormat.TryConvertProjectConverterStep",
+          "level": "note",
+          "message": {
+            "text": "Complete: Project file converted successfully! The project may require additional changes to build successfully against the new .NET target."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/Users/Gabriele/GitHub/ClassevivaPCTO/ClassevivaPCTO/ClassevivaPCTO.csproj"
+                },
+                "region": {}
+              }
+            }
+          ]
+        }
+      ],
+      "columnKind": "utf16CodeUnits"
+    },
+    {
+      "tool": {
+        "driver": {
+          "name": "Remove package 'Microsoft.AppCenter.Analytics'",
+          "semanticVersion": "",
+          "informationUri": "https://github.com/dotnet/upgrade-assistant#usage",
+          "rules": [
+            {
+              "id": "Microsoft.DotNet.UpgradeAssistant.Steps.Packages.PackageUpdaterStep+PackageManipulationStep`1[[Microsoft.DotNet.UpgradeAssistant.NuGetReference, Microsoft.DotNet.UpgradeAssistant.Abstractions, Version=0.4.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35]]"
+            }
+          ]
+        }
+      },
+      "results": [
+        {
+          "ruleId": "Microsoft.DotNet.UpgradeAssistant.Steps.Packages.PackageUpdaterStep+PackageManipulationStep`1[[Microsoft.DotNet.UpgradeAssistant.NuGetReference, Microsoft.DotNet.UpgradeAssistant.Abstractions, Version=0.4.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35]]",
+          "level": "note",
+          "message": {
+            "text": "Complete: Remove package 'Microsoft.AppCenter.Analytics'"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/Users/Gabriele/GitHub/ClassevivaPCTO/ClassevivaPCTO/ClassevivaPCTO.csproj"
+                },
+                "region": {}
+              }
+            }
+          ]
+        }
+      ],
+      "columnKind": "utf16CodeUnits"
+    },
+    {
+      "tool": {
+        "driver": {
+          "name": "Remove package 'Microsoft.AppCenter.Crashes'",
+          "semanticVersion": "",
+          "informationUri": "https://github.com/dotnet/upgrade-assistant#usage",
+          "rules": [
+            {
+              "id": "Microsoft.DotNet.UpgradeAssistant.Steps.Packages.PackageUpdaterStep+PackageManipulationStep`1[[Microsoft.DotNet.UpgradeAssistant.NuGetReference, Microsoft.DotNet.UpgradeAssistant.Abstractions, Version=0.4.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35]]"
+            }
+          ]
+        }
+      },
+      "results": [
+        {
+          "ruleId": "Microsoft.DotNet.UpgradeAssistant.Steps.Packages.PackageUpdaterStep+PackageManipulationStep`1[[Microsoft.DotNet.UpgradeAssistant.NuGetReference, Microsoft.DotNet.UpgradeAssistant.Abstractions, Version=0.4.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35]]",
+          "level": "note",
+          "message": {
+            "text": "Complete: Remove package 'Microsoft.AppCenter.Crashes'"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/Users/Gabriele/GitHub/ClassevivaPCTO/ClassevivaPCTO/ClassevivaPCTO.csproj"
+                },
+                "region": {}
+              }
+            }
+          ]
+        }
+      ],
+      "columnKind": "utf16CodeUnits"
+    },
+    {
+      "tool": {
+        "driver": {
+          "name": "Remove package 'Microsoft.NETCore.UniversalWindowsPlatform'",
+          "semanticVersion": "",
+          "informationUri": "https://github.com/dotnet/upgrade-assistant#usage",
+          "rules": [
+            {
+              "id": "Microsoft.DotNet.UpgradeAssistant.Steps.Packages.PackageUpdaterStep+PackageManipulationStep`1[[Microsoft.DotNet.UpgradeAssistant.NuGetReference, Microsoft.DotNet.UpgradeAssistant.Abstractions, Version=0.4.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35]]"
+            }
+          ]
+        }
+      },
+      "results": [
+        {
+          "ruleId": "Microsoft.DotNet.UpgradeAssistant.Steps.Packages.PackageUpdaterStep+PackageManipulationStep`1[[Microsoft.DotNet.UpgradeAssistant.NuGetReference, Microsoft.DotNet.UpgradeAssistant.Abstractions, Version=0.4.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35]]",
+          "level": "note",
+          "message": {
+            "text": "Complete: Remove package 'Microsoft.NETCore.UniversalWindowsPlatform'"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/Users/Gabriele/GitHub/ClassevivaPCTO/ClassevivaPCTO/ClassevivaPCTO.csproj"
+                },
+                "region": {}
+              }
+            }
+          ]
+        }
+      ],
+      "columnKind": "utf16CodeUnits"
+    },
+    {
+      "tool": {
+        "driver": {
+          "name": "Remove package 'Microsoft.UI.Xaml'",
+          "semanticVersion": "",
+          "informationUri": "https://github.com/dotnet/upgrade-assistant#usage",
+          "rules": [
+            {
+              "id": "Microsoft.DotNet.UpgradeAssistant.Steps.Packages.PackageUpdaterStep+PackageManipulationStep`1[[Microsoft.DotNet.UpgradeAssistant.NuGetReference, Microsoft.DotNet.UpgradeAssistant.Abstractions, Version=0.4.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35]]"
+            }
+          ]
+        }
+      },
+      "results": [
+        {
+          "ruleId": "Microsoft.DotNet.UpgradeAssistant.Steps.Packages.PackageUpdaterStep+PackageManipulationStep`1[[Microsoft.DotNet.UpgradeAssistant.NuGetReference, Microsoft.DotNet.UpgradeAssistant.Abstractions, Version=0.4.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35]]",
+          "level": "note",
+          "message": {
+            "text": "Complete: Remove package 'Microsoft.UI.Xaml'"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/Users/Gabriele/GitHub/ClassevivaPCTO/ClassevivaPCTO/ClassevivaPCTO.csproj"
+                },
+                "region": {}
+              }
+            }
+          ]
+        }
+      ],
+      "columnKind": "utf16CodeUnits"
+    },
+    {
+      "tool": {
+        "driver": {
+          "name": "Add package 'Microsoft.WindowsAppSDK'",
+          "semanticVersion": "",
+          "informationUri": "https://github.com/dotnet/upgrade-assistant#usage",
+          "rules": [
+            {
+              "id": "Microsoft.DotNet.UpgradeAssistant.Steps.Packages.PackageUpdaterStep+PackageManipulationStep`1[[Microsoft.DotNet.UpgradeAssistant.NuGetReference, Microsoft.DotNet.UpgradeAssistant.Abstractions, Version=0.4.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35]]"
+            }
+          ]
+        }
+      },
+      "results": [
+        {
+          "ruleId": "Microsoft.DotNet.UpgradeAssistant.Steps.Packages.PackageUpdaterStep+PackageManipulationStep`1[[Microsoft.DotNet.UpgradeAssistant.NuGetReference, Microsoft.DotNet.UpgradeAssistant.Abstractions, Version=0.4.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35]]",
+          "level": "note",
+          "message": {
+            "text": "Complete: Add package 'Microsoft.WindowsAppSDK'"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/Users/Gabriele/GitHub/ClassevivaPCTO/ClassevivaPCTO/ClassevivaPCTO.csproj"
+                },
+                "region": {}
+              }
+            }
+          ]
+        }
+      ],
+      "columnKind": "utf16CodeUnits"
+    },
+    {
+      "tool": {
+        "driver": {
+          "name": "Add package 'Microsoft.Graphics.Win2D'",
+          "semanticVersion": "",
+          "informationUri": "https://github.com/dotnet/upgrade-assistant#usage",
+          "rules": [
+            {
+              "id": "Microsoft.DotNet.UpgradeAssistant.Steps.Packages.PackageUpdaterStep+PackageManipulationStep`1[[Microsoft.DotNet.UpgradeAssistant.NuGetReference, Microsoft.DotNet.UpgradeAssistant.Abstractions, Version=0.4.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35]]"
+            }
+          ]
+        }
+      },
+      "results": [
+        {
+          "ruleId": "Microsoft.DotNet.UpgradeAssistant.Steps.Packages.PackageUpdaterStep+PackageManipulationStep`1[[Microsoft.DotNet.UpgradeAssistant.NuGetReference, Microsoft.DotNet.UpgradeAssistant.Abstractions, Version=0.4.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35]]",
+          "level": "note",
+          "message": {
+            "text": "Complete: Add package 'Microsoft.Graphics.Win2D'"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/Users/Gabriele/GitHub/ClassevivaPCTO/ClassevivaPCTO/ClassevivaPCTO.csproj"
+                },
+                "region": {}
+              }
+            }
+          ]
+        }
+      ],
+      "columnKind": "utf16CodeUnits"
+    },
+    {
+      "tool": {
+        "driver": {
+          "name": "Add package 'Microsoft.DotNet.UpgradeAssistant.Extensions.Default.Analyzers'",
+          "semanticVersion": "",
+          "informationUri": "https://github.com/dotnet/upgrade-assistant#usage",
+          "rules": [
+            {
+              "id": "Microsoft.DotNet.UpgradeAssistant.Steps.Packages.PackageUpdaterStep+PackageManipulationStep`1[[Microsoft.DotNet.UpgradeAssistant.NuGetReference, Microsoft.DotNet.UpgradeAssistant.Abstractions, Version=0.4.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35]]"
+            }
+          ]
+        }
+      },
+      "results": [
+        {
+          "ruleId": "Microsoft.DotNet.UpgradeAssistant.Steps.Packages.PackageUpdaterStep+PackageManipulationStep`1[[Microsoft.DotNet.UpgradeAssistant.NuGetReference, Microsoft.DotNet.UpgradeAssistant.Abstractions, Version=0.4.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35]]",
+          "level": "note",
+          "message": {
+            "text": "Complete: Add package 'Microsoft.DotNet.UpgradeAssistant.Extensions.Default.Analyzers'"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/Users/Gabriele/GitHub/ClassevivaPCTO/ClassevivaPCTO/ClassevivaPCTO.csproj"
+                },
+                "region": {}
+              }
+            }
+          ]
+        }
+      ],
+      "columnKind": "utf16CodeUnits"
+    },
+    {
+      "tool": {
+        "driver": {
+          "name": "Add package 'Microsoft.Windows.Compatibility'",
+          "semanticVersion": "",
+          "informationUri": "https://github.com/dotnet/upgrade-assistant#usage",
+          "rules": [
+            {
+              "id": "Microsoft.DotNet.UpgradeAssistant.Steps.Packages.PackageUpdaterStep+PackageManipulationStep`1[[Microsoft.DotNet.UpgradeAssistant.NuGetReference, Microsoft.DotNet.UpgradeAssistant.Abstractions, Version=0.4.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35]]",
+              "fullDescription": {
+                "text": "Adding Microsoft.Windows.Compatibility 7.0.0 helps with speeding up the upgrade process for Windows-based APIs"
+              }
+            }
+          ]
+        }
+      },
+      "results": [
+        {
+          "ruleId": "Microsoft.DotNet.UpgradeAssistant.Steps.Packages.PackageUpdaterStep+PackageManipulationStep`1[[Microsoft.DotNet.UpgradeAssistant.NuGetReference, Microsoft.DotNet.UpgradeAssistant.Abstractions, Version=0.4.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35]]",
+          "level": "note",
+          "message": {
+            "text": "Complete: Add package 'Microsoft.Windows.Compatibility'"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/Users/Gabriele/GitHub/ClassevivaPCTO/ClassevivaPCTO/ClassevivaPCTO.csproj"
+                },
+                "region": {}
+              }
+            }
+          ]
+        }
+      ],
+      "columnKind": "utf16CodeUnits"
+    },
+    {
+      "tool": {
+        "driver": {
+          "name": "Remove package 'Microsoft.Toolkit.Uwp.UI'",
+          "semanticVersion": "",
+          "informationUri": "https://github.com/dotnet/upgrade-assistant#usage",
+          "rules": [
+            {
+              "id": "Microsoft.DotNet.UpgradeAssistant.Steps.Packages.PackageUpdaterStep+PackageManipulationStep`1[[Microsoft.DotNet.UpgradeAssistant.NuGetReference, Microsoft.DotNet.UpgradeAssistant.Abstractions, Version=0.4.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35]]",
+              "fullDescription": {
+                "text": "Microsoft.Toolkit.Uwp.UI"
+              }
+            }
+          ]
+        }
+      },
+      "results": [
+        {
+          "ruleId": "Microsoft.DotNet.UpgradeAssistant.Steps.Packages.PackageUpdaterStep+PackageManipulationStep`1[[Microsoft.DotNet.UpgradeAssistant.NuGetReference, Microsoft.DotNet.UpgradeAssistant.Abstractions, Version=0.4.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35]]",
+          "level": "note",
+          "message": {
+            "text": "Complete: Remove package 'Microsoft.Toolkit.Uwp.UI'"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/Users/Gabriele/GitHub/ClassevivaPCTO/ClassevivaPCTO/ClassevivaPCTO.csproj"
+                },
+                "region": {}
+              }
+            }
+          ]
+        }
+      ],
+      "columnKind": "utf16CodeUnits"
+    },
+    {
+      "tool": {
+        "driver": {
+          "name": "Remove package 'Microsoft.Toolkit.Uwp.UI.Animations'",
+          "semanticVersion": "",
+          "informationUri": "https://github.com/dotnet/upgrade-assistant#usage",
+          "rules": [
+            {
+              "id": "Microsoft.DotNet.UpgradeAssistant.Steps.Packages.PackageUpdaterStep+PackageManipulationStep`1[[Microsoft.DotNet.UpgradeAssistant.NuGetReference, Microsoft.DotNet.UpgradeAssistant.Abstractions, Version=0.4.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35]]",
+              "fullDescription": {
+                "text": "Microsoft.Toolkit.Uwp.UI.Animations"
+              }
+            }
+          ]
+        }
+      },
+      "results": [
+        {
+          "ruleId": "Microsoft.DotNet.UpgradeAssistant.Steps.Packages.PackageUpdaterStep+PackageManipulationStep`1[[Microsoft.DotNet.UpgradeAssistant.NuGetReference, Microsoft.DotNet.UpgradeAssistant.Abstractions, Version=0.4.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35]]",
+          "level": "note",
+          "message": {
+            "text": "Complete: Remove package 'Microsoft.Toolkit.Uwp.UI.Animations'"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/Users/Gabriele/GitHub/ClassevivaPCTO/ClassevivaPCTO/ClassevivaPCTO.csproj"
+                },
+                "region": {}
+              }
+            }
+          ]
+        }
+      ],
+      "columnKind": "utf16CodeUnits"
+    },
+    {
+      "tool": {
+        "driver": {
+          "name": "Remove package 'Microsoft.Toolkit.Uwp.UI.Controls'",
+          "semanticVersion": "",
+          "informationUri": "https://github.com/dotnet/upgrade-assistant#usage",
+          "rules": [
+            {
+              "id": "Microsoft.DotNet.UpgradeAssistant.Steps.Packages.PackageUpdaterStep+PackageManipulationStep`1[[Microsoft.DotNet.UpgradeAssistant.NuGetReference, Microsoft.DotNet.UpgradeAssistant.Abstractions, Version=0.4.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35]]",
+              "fullDescription": {
+                "text": "Microsoft.Toolkit.Uwp.UI.Controls"
+              }
+            }
+          ]
+        }
+      },
+      "results": [
+        {
+          "ruleId": "Microsoft.DotNet.UpgradeAssistant.Steps.Packages.PackageUpdaterStep+PackageManipulationStep`1[[Microsoft.DotNet.UpgradeAssistant.NuGetReference, Microsoft.DotNet.UpgradeAssistant.Abstractions, Version=0.4.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35]]",
+          "level": "note",
+          "message": {
+            "text": "Complete: Remove package 'Microsoft.Toolkit.Uwp.UI.Controls'"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/Users/Gabriele/GitHub/ClassevivaPCTO/ClassevivaPCTO/ClassevivaPCTO.csproj"
+                },
+                "region": {}
+              }
+            }
+          ]
+        }
+      ],
+      "columnKind": "utf16CodeUnits"
+    },
+    {
+      "tool": {
+        "driver": {
+          "name": "Add package 'CommunityToolkit.WinUI.UI'",
+          "semanticVersion": "",
+          "informationUri": "https://github.com/dotnet/upgrade-assistant#usage",
+          "rules": [
+            {
+              "id": "Microsoft.DotNet.UpgradeAssistant.Steps.Packages.PackageUpdaterStep+PackageManipulationStep`1[[Microsoft.DotNet.UpgradeAssistant.NuGetReference, Microsoft.DotNet.UpgradeAssistant.Abstractions, Version=0.4.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35]]",
+              "fullDescription": {
+                "text": "CommunityToolkit.WinUI.UI"
+              }
+            }
+          ]
+        }
+      },
+      "results": [
+        {
+          "ruleId": "Microsoft.DotNet.UpgradeAssistant.Steps.Packages.PackageUpdaterStep+PackageManipulationStep`1[[Microsoft.DotNet.UpgradeAssistant.NuGetReference, Microsoft.DotNet.UpgradeAssistant.Abstractions, Version=0.4.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35]]",
+          "level": "note",
+          "message": {
+            "text": "Complete: Add package 'CommunityToolkit.WinUI.UI'"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/Users/Gabriele/GitHub/ClassevivaPCTO/ClassevivaPCTO/ClassevivaPCTO.csproj"
+                },
+                "region": {}
+              }
+            }
+          ]
+        }
+      ],
+      "columnKind": "utf16CodeUnits"
+    },
+    {
+      "tool": {
+        "driver": {
+          "name": "Add package 'CommunityToolkit.WinUI.UI.Animations'",
+          "semanticVersion": "",
+          "informationUri": "https://github.com/dotnet/upgrade-assistant#usage",
+          "rules": [
+            {
+              "id": "Microsoft.DotNet.UpgradeAssistant.Steps.Packages.PackageUpdaterStep+PackageManipulationStep`1[[Microsoft.DotNet.UpgradeAssistant.NuGetReference, Microsoft.DotNet.UpgradeAssistant.Abstractions, Version=0.4.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35]]",
+              "fullDescription": {
+                "text": "CommunityToolkit.WinUI.UI.Animations"
+              }
+            }
+          ]
+        }
+      },
+      "results": [
+        {
+          "ruleId": "Microsoft.DotNet.UpgradeAssistant.Steps.Packages.PackageUpdaterStep+PackageManipulationStep`1[[Microsoft.DotNet.UpgradeAssistant.NuGetReference, Microsoft.DotNet.UpgradeAssistant.Abstractions, Version=0.4.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35]]",
+          "level": "note",
+          "message": {
+            "text": "Complete: Add package 'CommunityToolkit.WinUI.UI.Animations'"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/Users/Gabriele/GitHub/ClassevivaPCTO/ClassevivaPCTO/ClassevivaPCTO.csproj"
+                },
+                "region": {}
+              }
+            }
+          ]
+        }
+      ],
+      "columnKind": "utf16CodeUnits"
+    },
+    {
+      "tool": {
+        "driver": {
+          "name": "Add package 'CommunityToolkit.WinUI.UI.Controls'",
+          "semanticVersion": "",
+          "informationUri": "https://github.com/dotnet/upgrade-assistant#usage",
+          "rules": [
+            {
+              "id": "Microsoft.DotNet.UpgradeAssistant.Steps.Packages.PackageUpdaterStep+PackageManipulationStep`1[[Microsoft.DotNet.UpgradeAssistant.NuGetReference, Microsoft.DotNet.UpgradeAssistant.Abstractions, Version=0.4.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35]]",
+              "fullDescription": {
+                "text": "CommunityToolkit.WinUI.UI.Controls"
+              }
+            }
+          ]
+        }
+      },
+      "results": [
+        {
+          "ruleId": "Microsoft.DotNet.UpgradeAssistant.Steps.Packages.PackageUpdaterStep+PackageManipulationStep`1[[Microsoft.DotNet.UpgradeAssistant.NuGetReference, Microsoft.DotNet.UpgradeAssistant.Abstractions, Version=0.4.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35]]",
+          "level": "note",
+          "message": {
+            "text": "Complete: Add package 'CommunityToolkit.WinUI.UI.Controls'"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/Users/Gabriele/GitHub/ClassevivaPCTO/ClassevivaPCTO/ClassevivaPCTO.csproj"
+                },
+                "region": {}
+              }
+            }
+          ]
+        }
+      ],
+      "columnKind": "utf16CodeUnits"
+    },
+    {
+      "tool": {
+        "driver": {
+          "name": "Remove package 'Microsoft.Extensions.DependencyInjection.Abstractions'",
+          "semanticVersion": "",
+          "informationUri": "https://github.com/dotnet/upgrade-assistant#usage",
+          "rules": [
+            {
+              "id": "Microsoft.DotNet.UpgradeAssistant.Steps.Packages.PackageUpdaterStep+PackageManipulationStep`1[[Microsoft.DotNet.UpgradeAssistant.NuGetReference, Microsoft.DotNet.UpgradeAssistant.Abstractions, Version=0.4.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35]]",
+              "fullDescription": {
+                "text": "Package Microsoft.Extensions.DependencyInjection.Abstractions needs to be removed as its a transitive dependency that is not required"
+              }
+            }
+          ]
+        }
+      },
+      "results": [
+        {
+          "ruleId": "Microsoft.DotNet.UpgradeAssistant.Steps.Packages.PackageUpdaterStep+PackageManipulationStep`1[[Microsoft.DotNet.UpgradeAssistant.NuGetReference, Microsoft.DotNet.UpgradeAssistant.Abstractions, Version=0.4.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35]]",
+          "level": "note",
+          "message": {
+            "text": "Complete: Remove package 'Microsoft.Extensions.DependencyInjection.Abstractions'"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/Users/Gabriele/GitHub/ClassevivaPCTO/ClassevivaPCTO/ClassevivaPCTO.csproj"
+                },
+                "region": {}
+              }
+            }
+          ]
+        }
+      ],
+      "columnKind": "utf16CodeUnits"
+    },
+    {
+      "tool": {
+        "driver": {
+          "name": "Remove package 'Polly'",
+          "semanticVersion": "",
+          "informationUri": "https://github.com/dotnet/upgrade-assistant#usage",
+          "rules": [
+            {
+              "id": "Microsoft.DotNet.UpgradeAssistant.Steps.Packages.PackageUpdaterStep+PackageManipulationStep`1[[Microsoft.DotNet.UpgradeAssistant.NuGetReference, Microsoft.DotNet.UpgradeAssistant.Abstractions, Version=0.4.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35]]",
+              "fullDescription": {
+                "text": "Package Polly needs to be removed as its a transitive dependency that is not required"
+              }
+            }
+          ]
+        }
+      },
+      "results": [
+        {
+          "ruleId": "Microsoft.DotNet.UpgradeAssistant.Steps.Packages.PackageUpdaterStep+PackageManipulationStep`1[[Microsoft.DotNet.UpgradeAssistant.NuGetReference, Microsoft.DotNet.UpgradeAssistant.Abstractions, Version=0.4.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35]]",
+          "level": "note",
+          "message": {
+            "text": "Complete: Remove package 'Polly'"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/Users/Gabriele/GitHub/ClassevivaPCTO/ClassevivaPCTO/ClassevivaPCTO.csproj"
+                },
+                "region": {}
+              }
+            }
+          ]
+        }
+      ],
+      "columnKind": "utf16CodeUnits"
+    },
+    {
+      "tool": {
+        "driver": {
+          "name": "Remove package 'Polly.Extensions.Http'",
+          "semanticVersion": "",
+          "informationUri": "https://github.com/dotnet/upgrade-assistant#usage",
+          "rules": [
+            {
+              "id": "Microsoft.DotNet.UpgradeAssistant.Steps.Packages.PackageUpdaterStep+PackageManipulationStep`1[[Microsoft.DotNet.UpgradeAssistant.NuGetReference, Microsoft.DotNet.UpgradeAssistant.Abstractions, Version=0.4.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35]]",
+              "fullDescription": {
+                "text": "Package Polly.Extensions.Http needs to be removed as its a transitive dependency that is not required"
+              }
+            }
+          ]
+        }
+      },
+      "results": [
+        {
+          "ruleId": "Microsoft.DotNet.UpgradeAssistant.Steps.Packages.PackageUpdaterStep+PackageManipulationStep`1[[Microsoft.DotNet.UpgradeAssistant.NuGetReference, Microsoft.DotNet.UpgradeAssistant.Abstractions, Version=0.4.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35]]",
+          "level": "note",
+          "message": {
+            "text": "Complete: Remove package 'Polly.Extensions.Http'"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/Users/Gabriele/GitHub/ClassevivaPCTO/ClassevivaPCTO/ClassevivaPCTO.csproj"
+                },
+                "region": {}
+              }
+            }
+          ]
+        }
+      ],
+      "columnKind": "utf16CodeUnits"
+    },
+    {
+      "tool": {
+        "driver": {
+          "name": "Remove package 'Refit'",
+          "semanticVersion": "",
+          "informationUri": "https://github.com/dotnet/upgrade-assistant#usage",
+          "rules": [
+            {
+              "id": "Microsoft.DotNet.UpgradeAssistant.Steps.Packages.PackageUpdaterStep+PackageManipulationStep`1[[Microsoft.DotNet.UpgradeAssistant.NuGetReference, Microsoft.DotNet.UpgradeAssistant.Abstractions, Version=0.4.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35]]",
+              "fullDescription": {
+                "text": "Package Refit needs to be removed as its a transitive dependency that is not required"
+              }
+            }
+          ]
+        }
+      },
+      "results": [
+        {
+          "ruleId": "Microsoft.DotNet.UpgradeAssistant.Steps.Packages.PackageUpdaterStep+PackageManipulationStep`1[[Microsoft.DotNet.UpgradeAssistant.NuGetReference, Microsoft.DotNet.UpgradeAssistant.Abstractions, Version=0.4.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35]]",
+          "level": "note",
+          "message": {
+            "text": "Complete: Remove package 'Refit'"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/Users/Gabriele/GitHub/ClassevivaPCTO/ClassevivaPCTO/ClassevivaPCTO.csproj"
+                },
+                "region": {}
+              }
+            }
+          ]
+        }
+      ],
+      "columnKind": "utf16CodeUnits"
+    },
+    {
+      "tool": {
+        "driver": {
+          "name": "Remove package 'System.Runtime.Caching'",
+          "semanticVersion": "",
+          "informationUri": "https://github.com/dotnet/upgrade-assistant#usage",
+          "rules": [
+            {
+              "id": "Microsoft.DotNet.UpgradeAssistant.Steps.Packages.PackageUpdaterStep+PackageManipulationStep`1[[Microsoft.DotNet.UpgradeAssistant.NuGetReference, Microsoft.DotNet.UpgradeAssistant.Abstractions, Version=0.4.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35]]",
+              "fullDescription": {
+                "text": "Package System.Runtime.Caching needs to be removed as its a transitive dependency that is not required"
+              }
+            }
+          ]
+        }
+      },
+      "results": [
+        {
+          "ruleId": "Microsoft.DotNet.UpgradeAssistant.Steps.Packages.PackageUpdaterStep+PackageManipulationStep`1[[Microsoft.DotNet.UpgradeAssistant.NuGetReference, Microsoft.DotNet.UpgradeAssistant.Abstractions, Version=0.4.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35]]",
+          "level": "note",
+          "message": {
+            "text": "Complete: Remove package 'System.Runtime.Caching'"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/Users/Gabriele/GitHub/ClassevivaPCTO/ClassevivaPCTO/ClassevivaPCTO.csproj"
+                },
+                "region": {}
+              }
+            }
+          ]
+        }
+      ],
+      "columnKind": "utf16CodeUnits"
+    },
+    {
+      "tool": {
+        "driver": {
+          "name": "Remove package 'CommunityToolkit.WinUI.UI'",
+          "semanticVersion": "",
+          "informationUri": "https://github.com/dotnet/upgrade-assistant#usage",
+          "rules": [
+            {
+              "id": "Microsoft.DotNet.UpgradeAssistant.Steps.Packages.PackageUpdaterStep+PackageManipulationStep`1[[Microsoft.DotNet.UpgradeAssistant.NuGetReference, Microsoft.DotNet.UpgradeAssistant.Abstractions, Version=0.4.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35]]",
+              "fullDescription": {
+                "text": "Package CommunityToolkit.WinUI.UI needs to be removed as its a transitive dependency that is not required"
+              }
+            }
+          ]
+        }
+      },
+      "results": [
+        {
+          "ruleId": "Microsoft.DotNet.UpgradeAssistant.Steps.Packages.PackageUpdaterStep+PackageManipulationStep`1[[Microsoft.DotNet.UpgradeAssistant.NuGetReference, Microsoft.DotNet.UpgradeAssistant.Abstractions, Version=0.4.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35]]",
+          "level": "note",
+          "message": {
+            "text": "Complete: Remove package 'CommunityToolkit.WinUI.UI'"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/Users/Gabriele/GitHub/ClassevivaPCTO/ClassevivaPCTO/ClassevivaPCTO.csproj"
+                },
+                "region": {}
+              }
+            }
+          ]
+        }
+      ],
+      "columnKind": "utf16CodeUnits"
+    },
+    {
+      "tool": {
+        "driver": {
+          "name": "Update TFM",
+          "semanticVersion": "",
+          "informationUri": "https://github.com/dotnet/upgrade-assistant#usage",
+          "rules": [
+            {
+              "id": "Microsoft.DotNet.UpgradeAssistant.Steps.ProjectFormat.SetTFMStep",
+              "fullDescription": {
+                "text": "Update TFM for current project"
+              }
+            }
+          ]
+        }
+      },
+      "results": [
+        {
+          "ruleId": "Microsoft.DotNet.UpgradeAssistant.Steps.ProjectFormat.SetTFMStep",
+          "level": "note",
+          "message": {
+            "text": "Complete: Updated TFM to net7.0-windows10.0.22621"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/Users/Gabriele/GitHub/ClassevivaPCTO/ClassevivaPCTO/ClassevivaPCTO.csproj"
+                },
+                "region": {}
+              }
+            }
+          ]
+        }
+      ],
+      "columnKind": "utf16CodeUnits"
+    },
+    {
+      "tool": {
+        "driver": {
+          "name": "Add template files",
+          "semanticVersion": "",
+          "informationUri": "https://github.com/dotnet/upgrade-assistant#usage",
+          "rules": [
+            {
+              "id": "Microsoft.DotNet.UpgradeAssistant.Steps.Templates.TemplateInserterStep",
+              "fullDescription": {
+                "text": "Add template files (for startup code paths, for example) based on template files described in: Program.cs, Startup.cs, appsettings.json, appsettings.Development.json, Program.vb, Startup.vb, appsettings.json, appsettings.Development.json, app.manifest, Properties\\launchSettings.json, Properties\\PublishProfiles\\win10-arm64.pubxml, Properties\\PublishProfiles\\win10-x64.pubxml, Properties\\PublishProfiles\\win10-x86.pubxml, App.xaml.cs, MainWindow.xaml.cs, MainWindow.xaml, UWPToWinAppSDKUpgradeHelpers.cs, MainApplication.cs, MauiProgram.cs"
+              }
+            }
+          ]
+        }
+      },
+      "results": [
+        {
+          "ruleId": "Microsoft.DotNet.UpgradeAssistant.Steps.Templates.TemplateInserterStep",
+          "level": "note",
+          "message": {
+            "text": "Complete: Added template file app.manifest"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/Users/Gabriele/GitHub/ClassevivaPCTO/app.manifest"
+                },
+                "region": {}
+              }
+            }
+          ]
+        }
+      ],
+      "columnKind": "utf16CodeUnits"
+    },
+    {
+      "tool": {
+        "driver": {
+          "name": "Add template files",
+          "semanticVersion": "",
+          "informationUri": "https://github.com/dotnet/upgrade-assistant#usage",
+          "rules": [
+            {
+              "id": "Microsoft.DotNet.UpgradeAssistant.Steps.Templates.TemplateInserterStep",
+              "fullDescription": {
+                "text": "Add template files (for startup code paths, for example) based on template files described in: Program.cs, Startup.cs, appsettings.json, appsettings.Development.json, Program.vb, Startup.vb, appsettings.json, appsettings.Development.json, app.manifest, Properties\\launchSettings.json, Properties\\PublishProfiles\\win10-arm64.pubxml, Properties\\PublishProfiles\\win10-x64.pubxml, Properties\\PublishProfiles\\win10-x86.pubxml, App.xaml.cs, MainWindow.xaml.cs, MainWindow.xaml, UWPToWinAppSDKUpgradeHelpers.cs, MainApplication.cs, MauiProgram.cs"
+              }
+            }
+          ]
+        }
+      },
+      "results": [
+        {
+          "ruleId": "Microsoft.DotNet.UpgradeAssistant.Steps.Templates.TemplateInserterStep",
+          "level": "note",
+          "message": {
+            "text": "Complete: Added template file Properties\\launchSettings.json"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/Users/Gabriele/GitHub/ClassevivaPCTO/Properties/launchSettings.json"
+                },
+                "region": {}
+              }
+            }
+          ]
+        }
+      ],
+      "columnKind": "utf16CodeUnits"
+    },
+    {
+      "tool": {
+        "driver": {
+          "name": "Add template files",
+          "semanticVersion": "",
+          "informationUri": "https://github.com/dotnet/upgrade-assistant#usage",
+          "rules": [
+            {
+              "id": "Microsoft.DotNet.UpgradeAssistant.Steps.Templates.TemplateInserterStep",
+              "fullDescription": {
+                "text": "Add template files (for startup code paths, for example) based on template files described in: Program.cs, Startup.cs, appsettings.json, appsettings.Development.json, Program.vb, Startup.vb, appsettings.json, appsettings.Development.json, app.manifest, Properties\\launchSettings.json, Properties\\PublishProfiles\\win10-arm64.pubxml, Properties\\PublishProfiles\\win10-x64.pubxml, Properties\\PublishProfiles\\win10-x86.pubxml, App.xaml.cs, MainWindow.xaml.cs, MainWindow.xaml, UWPToWinAppSDKUpgradeHelpers.cs, MainApplication.cs, MauiProgram.cs"
+              }
+            }
+          ]
+        }
+      },
+      "results": [
+        {
+          "ruleId": "Microsoft.DotNet.UpgradeAssistant.Steps.Templates.TemplateInserterStep",
+          "level": "note",
+          "message": {
+            "text": "Complete: Added template file Properties\\PublishProfiles\\win10-arm64.pubxml"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/Users/Gabriele/GitHub/ClassevivaPCTO/Properties/PublishProfiles/win10-arm64.pubxml"
+                },
+                "region": {}
+              }
+            }
+          ]
+        }
+      ],
+      "columnKind": "utf16CodeUnits"
+    },
+    {
+      "tool": {
+        "driver": {
+          "name": "Add template files",
+          "semanticVersion": "",
+          "informationUri": "https://github.com/dotnet/upgrade-assistant#usage",
+          "rules": [
+            {
+              "id": "Microsoft.DotNet.UpgradeAssistant.Steps.Templates.TemplateInserterStep",
+              "fullDescription": {
+                "text": "Add template files (for startup code paths, for example) based on template files described in: Program.cs, Startup.cs, appsettings.json, appsettings.Development.json, Program.vb, Startup.vb, appsettings.json, appsettings.Development.json, app.manifest, Properties\\launchSettings.json, Properties\\PublishProfiles\\win10-arm64.pubxml, Properties\\PublishProfiles\\win10-x64.pubxml, Properties\\PublishProfiles\\win10-x86.pubxml, App.xaml.cs, MainWindow.xaml.cs, MainWindow.xaml, UWPToWinAppSDKUpgradeHelpers.cs, MainApplication.cs, MauiProgram.cs"
+              }
+            }
+          ]
+        }
+      },
+      "results": [
+        {
+          "ruleId": "Microsoft.DotNet.UpgradeAssistant.Steps.Templates.TemplateInserterStep",
+          "level": "note",
+          "message": {
+            "text": "Complete: Added template file Properties\\PublishProfiles\\win10-x64.pubxml"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/Users/Gabriele/GitHub/ClassevivaPCTO/Properties/PublishProfiles/win10-x64.pubxml"
+                },
+                "region": {}
+              }
+            }
+          ]
+        }
+      ],
+      "columnKind": "utf16CodeUnits"
+    },
+    {
+      "tool": {
+        "driver": {
+          "name": "Add template files",
+          "semanticVersion": "",
+          "informationUri": "https://github.com/dotnet/upgrade-assistant#usage",
+          "rules": [
+            {
+              "id": "Microsoft.DotNet.UpgradeAssistant.Steps.Templates.TemplateInserterStep",
+              "fullDescription": {
+                "text": "Add template files (for startup code paths, for example) based on template files described in: Program.cs, Startup.cs, appsettings.json, appsettings.Development.json, Program.vb, Startup.vb, appsettings.json, appsettings.Development.json, app.manifest, Properties\\launchSettings.json, Properties\\PublishProfiles\\win10-arm64.pubxml, Properties\\PublishProfiles\\win10-x64.pubxml, Properties\\PublishProfiles\\win10-x86.pubxml, App.xaml.cs, MainWindow.xaml.cs, MainWindow.xaml, UWPToWinAppSDKUpgradeHelpers.cs, MainApplication.cs, MauiProgram.cs"
+              }
+            }
+          ]
+        }
+      },
+      "results": [
+        {
+          "ruleId": "Microsoft.DotNet.UpgradeAssistant.Steps.Templates.TemplateInserterStep",
+          "level": "note",
+          "message": {
+            "text": "Complete: Added template file Properties\\PublishProfiles\\win10-x86.pubxml"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/Users/Gabriele/GitHub/ClassevivaPCTO/Properties/PublishProfiles/win10-x86.pubxml"
+                },
+                "region": {}
+              }
+            }
+          ]
+        }
+      ],
+      "columnKind": "utf16CodeUnits"
+    },
+    {
+      "tool": {
+        "driver": {
+          "name": "Add template files",
+          "semanticVersion": "",
+          "informationUri": "https://github.com/dotnet/upgrade-assistant#usage",
+          "rules": [
+            {
+              "id": "Microsoft.DotNet.UpgradeAssistant.Steps.Templates.TemplateInserterStep",
+              "fullDescription": {
+                "text": "Add template files (for startup code paths, for example) based on template files described in: Program.cs, Startup.cs, appsettings.json, appsettings.Development.json, Program.vb, Startup.vb, appsettings.json, appsettings.Development.json, app.manifest, Properties\\launchSettings.json, Properties\\PublishProfiles\\win10-arm64.pubxml, Properties\\PublishProfiles\\win10-x64.pubxml, Properties\\PublishProfiles\\win10-x86.pubxml, App.xaml.cs, MainWindow.xaml.cs, MainWindow.xaml, UWPToWinAppSDKUpgradeHelpers.cs, MainApplication.cs, MauiProgram.cs"
+              }
+            }
+          ]
+        }
+      },
+      "results": [
+        {
+          "ruleId": "Microsoft.DotNet.UpgradeAssistant.Steps.Templates.TemplateInserterStep",
+          "level": "note",
+          "message": {
+            "text": "Complete: Added template file App.xaml.cs"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/Users/Gabriele/GitHub/ClassevivaPCTO/App.xaml.cs"
+                },
+                "region": {}
+              }
+            }
+          ]
+        }
+      ],
+      "columnKind": "utf16CodeUnits"
+    },
+    {
+      "tool": {
+        "driver": {
+          "name": "Add template files",
+          "semanticVersion": "",
+          "informationUri": "https://github.com/dotnet/upgrade-assistant#usage",
+          "rules": [
+            {
+              "id": "Microsoft.DotNet.UpgradeAssistant.Steps.Templates.TemplateInserterStep",
+              "fullDescription": {
+                "text": "Add template files (for startup code paths, for example) based on template files described in: Program.cs, Startup.cs, appsettings.json, appsettings.Development.json, Program.vb, Startup.vb, appsettings.json, appsettings.Development.json, app.manifest, Properties\\launchSettings.json, Properties\\PublishProfiles\\win10-arm64.pubxml, Properties\\PublishProfiles\\win10-x64.pubxml, Properties\\PublishProfiles\\win10-x86.pubxml, App.xaml.cs, MainWindow.xaml.cs, MainWindow.xaml, UWPToWinAppSDKUpgradeHelpers.cs, MainApplication.cs, MauiProgram.cs"
+              }
+            }
+          ]
+        }
+      },
+      "results": [
+        {
+          "ruleId": "Microsoft.DotNet.UpgradeAssistant.Steps.Templates.TemplateInserterStep",
+          "level": "note",
+          "message": {
+            "text": "Complete: Added template file MainWindow.xaml.cs"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/Users/Gabriele/GitHub/ClassevivaPCTO/MainWindow.xaml.cs"
+                },
+                "region": {}
+              }
+            }
+          ]
+        }
+      ],
+      "columnKind": "utf16CodeUnits"
+    },
+    {
+      "tool": {
+        "driver": {
+          "name": "Add template files",
+          "semanticVersion": "",
+          "informationUri": "https://github.com/dotnet/upgrade-assistant#usage",
+          "rules": [
+            {
+              "id": "Microsoft.DotNet.UpgradeAssistant.Steps.Templates.TemplateInserterStep",
+              "fullDescription": {
+                "text": "Add template files (for startup code paths, for example) based on template files described in: Program.cs, Startup.cs, appsettings.json, appsettings.Development.json, Program.vb, Startup.vb, appsettings.json, appsettings.Development.json, app.manifest, Properties\\launchSettings.json, Properties\\PublishProfiles\\win10-arm64.pubxml, Properties\\PublishProfiles\\win10-x64.pubxml, Properties\\PublishProfiles\\win10-x86.pubxml, App.xaml.cs, MainWindow.xaml.cs, MainWindow.xaml, UWPToWinAppSDKUpgradeHelpers.cs, MainApplication.cs, MauiProgram.cs"
+              }
+            }
+          ]
+        }
+      },
+      "results": [
+        {
+          "ruleId": "Microsoft.DotNet.UpgradeAssistant.Steps.Templates.TemplateInserterStep",
+          "level": "note",
+          "message": {
+            "text": "Complete: Added template file MainWindow.xaml"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/Users/Gabriele/GitHub/ClassevivaPCTO/MainWindow.xaml"
+                },
+                "region": {}
+              }
+            }
+          ]
+        }
+      ],
+      "columnKind": "utf16CodeUnits"
+    },
+    {
+      "tool": {
+        "driver": {
+          "name": "Add template files",
+          "semanticVersion": "",
+          "informationUri": "https://github.com/dotnet/upgrade-assistant#usage",
+          "rules": [
+            {
+              "id": "Microsoft.DotNet.UpgradeAssistant.Steps.Templates.TemplateInserterStep",
+              "fullDescription": {
+                "text": "Add template files (for startup code paths, for example) based on template files described in: Program.cs, Startup.cs, appsettings.json, appsettings.Development.json, Program.vb, Startup.vb, appsettings.json, appsettings.Development.json, app.manifest, Properties\\launchSettings.json, Properties\\PublishProfiles\\win10-arm64.pubxml, Properties\\PublishProfiles\\win10-x64.pubxml, Properties\\PublishProfiles\\win10-x86.pubxml, App.xaml.cs, MainWindow.xaml.cs, MainWindow.xaml, UWPToWinAppSDKUpgradeHelpers.cs, MainApplication.cs, MauiProgram.cs"
+              }
+            }
+          ]
+        }
+      },
+      "results": [
+        {
+          "ruleId": "Microsoft.DotNet.UpgradeAssistant.Steps.Templates.TemplateInserterStep",
+          "level": "note",
+          "message": {
+            "text": "Complete: Added template file UWPToWinAppSDKUpgradeHelpers.cs"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/Users/Gabriele/GitHub/ClassevivaPCTO/UWPToWinAppSDKUpgradeHelpers.cs"
+                },
+                "region": {}
+              }
+            }
+          ]
+        }
+      ],
+      "columnKind": "utf16CodeUnits"
+    },
+    {
+      "tool": {
+        "driver": {
+          "name": "Update WinUI namespaces",
+          "semanticVersion": "",
+          "informationUri": "https://github.com/dotnet/upgrade-assistant#usage",
+          "rules": [
+            {
+              "id": "UA301",
+              "name": "Microsoft.DotNet.UpgradeAssistant.Extensions.Windows.WinUINamespaceUpdater",
+              "fullDescription": {
+                "text": "Update WinUI namespaces"
+              }
+            }
+          ]
+        }
+      },
+      "results": [
+        {
+          "ruleId": "UA301",
+          "level": "note",
+          "message": {
+            "text": "Success: "
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/Users/Gabriele/GitHub/ClassevivaPCTO/ClassevivaPCTO/ClassevivaPCTO.csproj"
+                },
+                "region": {}
+              }
+            }
+          ]
+        }
+      ],
+      "columnKind": "utf16CodeUnits"
+    },
+    {
+      "tool": {
+        "driver": {
+          "name": "Update WinUI Project Properties",
+          "semanticVersion": "",
+          "informationUri": "https://github.com/dotnet/upgrade-assistant#usage",
+          "rules": [
+            {
+              "id": "UA302",
+              "name": "Microsoft.DotNet.UpgradeAssistant.Extensions.Windows.WinUIPropertiesUpdater",
+              "fullDescription": {
+                "text": "Update WinUI Project Properties"
+              }
+            }
+          ]
+        }
+      },
+      "results": [
+        {
+          "ruleId": "UA302",
+          "level": "note",
+          "message": {
+            "text": "Success: "
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/Users/Gabriele/GitHub/ClassevivaPCTO/ClassevivaPCTO/ClassevivaPCTO.csproj"
+                },
+                "region": {}
+              }
+            }
+          ]
+        }
+      ],
+      "columnKind": "utf16CodeUnits"
+    },
+    {
+      "tool": {
+        "driver": {
+          "name": "Update package.appxmanifest",
+          "semanticVersion": "",
+          "informationUri": "https://github.com/dotnet/upgrade-assistant#usage",
+          "rules": [
+            {
+              "id": "UA304",
+              "name": "Microsoft.DotNet.UpgradeAssistant.Extensions.Windows.WinUIPackageAppxmanifestUpdater",
+              "fullDescription": {
+                "text": "Update package.appxmanifest"
+              }
+            }
+          ]
+        }
+      },
+      "results": [
+        {
+          "ruleId": "UA304",
+          "level": "note",
+          "message": {
+            "text": "Success: "
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/Users/Gabriele/GitHub/ClassevivaPCTO/ClassevivaPCTO/ClassevivaPCTO.csproj"
+                },
+                "region": {}
+              }
+            }
+          ]
+        }
+      ],
+      "columnKind": "utf16CodeUnits"
+    },
+    {
+      "tool": {
+        "driver": {
+          "name": "Remove unnecessary files",
+          "semanticVersion": "",
+          "informationUri": "https://github.com/dotnet/upgrade-assistant#usage",
+          "rules": [
+            {
+              "id": "UA303",
+              "name": "Microsoft.DotNet.UpgradeAssistant.Extensions.Windows.WinUIUnnecessaryFilesUpdater",
+              "fullDescription": {
+                "text": "Remove unnecessary files"
+              }
+            }
+          ]
+        }
+      },
+      "results": [
+        {
+          "ruleId": "UA303",
+          "level": "note",
+          "message": {
+            "text": "Success: "
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/Users/Gabriele/GitHub/ClassevivaPCTO/ClassevivaPCTO/ClassevivaPCTO.csproj"
+                },
+                "region": {}
+              }
+            }
+          ]
+        }
+      ],
+      "columnKind": "utf16CodeUnits"
+    },
+    {
+      "tool": {
+        "driver": {
+          "name": "Apply fix for UA307: Custom back button implementation is needed",
+          "semanticVersion": "",
+          "informationUri": "https://github.com/dotnet/upgrade-assistant#usage",
+          "rules": [
+            {
+              "id": "UA307",
+              "fullDescription": {
+                "text": "Update source files to automatically fix upgrade analyzer UA307"
+              }
+            }
+          ]
+        }
+      },
+      "results": [
+        {
+          "ruleId": "UA307",
+          "level": "note",
+          "message": {
+            "text": "Complete: Diagnostic UA307 fixed in C:\\Users\\Gabriele\\GitHub\\ClassevivaPCTO\\ClassevivaPCTO\\ViewModels\\NavigationViewViewModel.cs"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/Users/Gabriele/GitHub/ClassevivaPCTO/ClassevivaPCTO/ViewModels/NavigationViewViewModel.cs"
+                },
+                "region": {}
+              }
+            }
+          ]
+        }
+      ],
+      "columnKind": "utf16CodeUnits"
+    },
+    {
+      "tool": {
+        "driver": {
+          "name": "Apply fix for UA309: ContentDialog API needs to set XamlRoot",
+          "semanticVersion": "",
+          "informationUri": "https://github.com/dotnet/upgrade-assistant#usage",
+          "rules": [
+            {
+              "id": "UA309",
+              "fullDescription": {
+                "text": "Update source files to automatically fix upgrade analyzer UA309"
+              }
+            }
+          ]
+        }
+      },
+      "results": [
+        {
+          "ruleId": "UA309",
+          "level": "note",
+          "message": {
+            "text": "Complete: Diagnostic UA309 fixed in C:\\Users\\Gabriele\\GitHub\\ClassevivaPCTO\\ClassevivaPCTO\\Views\\LoginPage.xaml.cs"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/Users/Gabriele/GitHub/ClassevivaPCTO/ClassevivaPCTO/Views/LoginPage.xaml.cs"
+                },
+                "region": {}
+              }
+            }
+          ]
+        }
+      ],
+      "columnKind": "utf16CodeUnits"
+    },
+    {
+      "tool": {
+        "driver": {
+          "name": "Apply fix for [UA315_A, UA315_C, UA315_B]: Windows App SDK apps should use Microsoft.UI.Windowing.AppWindow, Windows App SDK apps should use Microsoft.UI.Windowing.AppWindow, Windows App SDK apps should use Microsoft.UI.Windowing.AppWindow",
+          "semanticVersion": "",
+          "informationUri": "https://github.com/dotnet/upgrade-assistant#usage",
+          "rules": [
+            {
+              "id": "UA315_A",
+              "fullDescription": {
+                "text": "Update source files to automatically fix upgrade analyzer [UA315_A, UA315_C, UA315_B]"
+              }
+            }
+          ]
+        }
+      },
+      "results": [
+        {
+          "ruleId": "UA315_A",
+          "level": "note",
+          "message": {
+            "text": "Complete: Diagnostic UA315_A fixed in C:\\Users\\Gabriele\\GitHub\\ClassevivaPCTO\\ClassevivaPCTO\\Views\\MainPage.xaml.cs"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/Users/Gabriele/GitHub/ClassevivaPCTO/ClassevivaPCTO/Views/MainPage.xaml.cs"
+                },
+                "region": {}
+              }
+            }
+          ]
+        }
+      ],
+      "columnKind": "utf16CodeUnits"
+    },
+    {
+      "tool": {
+        "driver": {
+          "name": "Apply fix for [UA315_A, UA315_C, UA315_B]: Windows App SDK apps should use Microsoft.UI.Windowing.AppWindow, Windows App SDK apps should use Microsoft.UI.Windowing.AppWindow, Windows App SDK apps should use Microsoft.UI.Windowing.AppWindow",
+          "semanticVersion": "",
+          "informationUri": "https://github.com/dotnet/upgrade-assistant#usage",
+          "rules": [
+            {
+              "id": "UA315_A",
+              "fullDescription": {
+                "text": "Update source files to automatically fix upgrade analyzer [UA315_A, UA315_C, UA315_B]"
+              }
+            }
+          ]
+        }
+      },
+      "results": [
+        {
+          "ruleId": "UA315_A",
+          "level": "note",
+          "message": {
+            "text": "Complete: Diagnostic UA315_A fixed in C:\\Users\\Gabriele\\GitHub\\ClassevivaPCTO\\ClassevivaPCTO\\Views\\LoginPage.xaml.cs"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/Users/Gabriele/GitHub/ClassevivaPCTO/ClassevivaPCTO/Views/LoginPage.xaml.cs"
+                },
+                "region": {}
+              }
+            }
+          ]
+        }
+      ],
+      "columnKind": "utf16CodeUnits"
+    }
+  ]
+}

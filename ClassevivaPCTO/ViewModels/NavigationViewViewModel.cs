@@ -1,4 +1,4 @@
-﻿using ClassevivaPCTO.Helpers;
+using ClassevivaPCTO.Helpers;
 using ClassevivaPCTO.Services;
 using ClassevivaPCTO.Views;
 using CommunityToolkit.Mvvm.ComponentModel;
@@ -9,9 +9,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Windows.System;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Navigation;
+using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Input;
+using Microsoft.UI.Xaml.Navigation;
 using WinUI = Microsoft.UI.Xaml.Controls;
 
 namespace ClassevivaPCTO.ViewModels
@@ -55,7 +55,14 @@ namespace ClassevivaPCTO.ViewModels
             NavigationService.Frame = frame;
             NavigationService.NavigationFailed += Frame_NavigationFailed;
             NavigationService.Navigated += Frame_Navigated;
-            _navigationView.BackRequested += OnBackRequested;
+
+            /*
+              
+            TODO UA307 Default back button in the title bar does not exist in WinUI3 apps.
+            The tool has generated a custom back button in the MainWindow.xaml.cs file.
+            Feel free to edit its position, behavior and use the custom back button instead.
+            Read: https://docs.microsoft.com/en-us/windows/apps/windows-app-sdk/migrate-to-windows-app-sdk/case-study-1#restoring-back-button-functionality
+            */_navigationView.BackRequested += OnBackRequested;
             _navigationView.ItemInvoked += OnItemInvoked;
         }
 

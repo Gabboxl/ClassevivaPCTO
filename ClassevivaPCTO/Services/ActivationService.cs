@@ -1,11 +1,11 @@
-﻿using ClassevivaPCTO.Activation;
+using ClassevivaPCTO.Activation;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Windows.ApplicationModel.Activation;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Controls;
 
 namespace ClassevivaPCTO.Services
 {
@@ -36,10 +36,10 @@ namespace ClassevivaPCTO.Services
 
                 // Do not repeat app initialization when the Window already has content,
                 // just ensure that the window is active
-                if (Window.Current.Content == null)
+                if (App.Window.Content == null)
                 {
                     // Create a Shell or Frame to act as the navigation context
-                    Window.Current.Content = _shell?.Value ?? new Frame();
+                    App.Window.Content = _shell?.Value ?? new Frame();
                 }
             }
 
@@ -51,7 +51,7 @@ namespace ClassevivaPCTO.Services
             if (IsInteractive(activationArgs))
             {
                 // Ensure the current window is active
-                Window.Current.Activate();
+                App.Window.Activate();
 
                 // Tasks after activation
                 await StartupAsync();

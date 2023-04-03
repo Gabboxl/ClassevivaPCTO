@@ -1,7 +1,4 @@
-﻿using ClassevivaPCTO.Views;
-using Microsoft.Toolkit.Uwp.Helpers;
-using System;
-using System.Threading.Tasks;
+using ClassevivaPCTO.Views;
 using Windows.ApplicationModel.Core;
 using Windows.UI.Core;
 
@@ -16,12 +13,12 @@ namespace ClassevivaPCTO.Services
             await CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(
                 CoreDispatcherPriority.Normal, async () =>
                 {
-                    if (SystemInformation.Instance.IsFirstRun && !shown)
-                    {
+                    //if (ApplicationDeployment.CurrentDeployment.isFirstRun && !shown)
+                    //{
                         shown = true;
                         var dialog = new FirstRunDialog();
                         await dialog.ShowAsync();
-                    }
+                    //}
                 });
         }
     }

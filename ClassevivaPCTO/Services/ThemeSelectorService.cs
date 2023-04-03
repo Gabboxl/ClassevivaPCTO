@@ -1,10 +1,10 @@
-﻿using ClassevivaPCTO.Helpers;
+using ClassevivaPCTO.Helpers;
 using System;
 using System.Threading.Tasks;
 using Windows.ApplicationModel.Core;
 using Windows.Storage;
 using Windows.UI.Core;
-using Windows.UI.Xaml;
+using Microsoft.UI.Xaml;
 
 namespace ClassevivaPCTO.Services
 {
@@ -33,7 +33,7 @@ namespace ClassevivaPCTO.Services
             {
                 await view.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
                 {
-                    if (Window.Current.Content is FrameworkElement frameworkElement)
+                    if (App.Window.Content is FrameworkElement frameworkElement)
                     {
                         frameworkElement.RequestedTheme = Theme;
                     }
