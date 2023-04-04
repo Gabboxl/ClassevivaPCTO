@@ -3,11 +3,16 @@ using ClassevivaPCTO.Services;
 using ClassevivaPCTO.Utils;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Http;
+using Microsoft.Extensions.Logging;
 using Microsoft.UI.Xaml;
 using Microsoft.Windows.AppLifecycle;
 using Polly;
+using Polly.Registry;
+using Polly.Retry;
 using Refit;
 using System;
+using System.Runtime.CompilerServices;
 using WinUIEx;
 
 namespace ClassevivaPCTO
@@ -71,21 +76,40 @@ namespace ClassevivaPCTO
                 services.AddTransient<ShellViewModel>();
                 */
 
+                /*
+                // 1. Define your Polly policy
+                var retryPolicy = Policy.Handle<ApiException>()
+                                        .WaitAndRetryAsync(new[]
+                                        {
+                            TimeSpan.FromSeconds(1),
+                            TimeSpan.FromSeconds(2),
+                            TimeSpan.FromSeconds(3)
+                                        });
+
+
+                var refitSettings = new RefitSettings
+                {
+                    HttpMessageHandlerFactory = () => new PollyHandler(retryPolicy)
+                };
+
+                // 3. Configure the Refit client to use the HttpClient instance with the PolicyHttpMessageHandler added
+                //var refitClient = RestService.For<IClassevivaAPI>(Endpoint.CurrentEndpoint);
+
+                */
+
+                //services.AddTransient<PollyContextInjectingDelegatingHandler>();
+
+
+
 
                 services.AddRefitClient(typeof(IClassevivaAPI))
-                .AddPolicyHandler(Policy<HttpResponseMessage>
-    .Handle<ApiException>()
-    .RetryAsync(97)
-)
-.ConfigureHttpClient(
+                .ConfigureHttpClient(
     (sp, client) =>
     {
         client.BaseAddress = new Uri(Endpoint.CurrentEndpoint);
+
     }
 );
-
-    
-
 
 
                 // Configuration
@@ -94,6 +118,10 @@ namespace ClassevivaPCTO
 
             UnhandledException += App_UnhandledException;
         }
+
+
+
+
 
         private void App_UnhandledException(object sender, Microsoft.UI.Xaml.UnhandledExceptionEventArgs e)
         {
