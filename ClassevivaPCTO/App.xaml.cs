@@ -1,5 +1,8 @@
 ﻿using ClassevivaPCTO.Services;
 using ClassevivaPCTO.Utils;
+using Microsoft.AppCenter;
+using Microsoft.AppCenter.Analytics;
+using Microsoft.AppCenter.Crashes;
 using Microsoft.Extensions.DependencyInjection;
 using Polly;
 using Refit;
