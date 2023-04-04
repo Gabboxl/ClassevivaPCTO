@@ -12,7 +12,13 @@ using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Media;
 using Microsoft.UI.Xaml.Navigation;
-
+using Polly;
+using Polly.Retry;
+using System.Linq.Expressions;
+using System.Diagnostics;
+using Windows.ApplicationModel.Core;
+using Microsoft.UI.Dispatching;
+using CommunityToolkit.WinUI;
 
 namespace ClassevivaPCTO.Views
 {
@@ -25,6 +31,7 @@ namespace ClassevivaPCTO.Views
         private readonly IClassevivaAPI apiClient;
 
         public DashboardPageViewModel DashboardPageViewModel { get; } = new DashboardPageViewModel();
+
 
 
         public DashboardPage()
@@ -97,7 +104,11 @@ namespace ClassevivaPCTO.Views
 
             
             var api = RestService.For<IClassevivaAPI>(Endpoint.CurrentEndpoint);
-            var result1 = await apiClient.GetGrades(cardResult.usrId.ToString(), "tony"); //loginResult.Token.ToString()
+
+            var wrapper = new ApiWrapper<IClassevivaAPI>(apiClient);
+
+
+            var result1 = await wrapper.CallApi(x => x.GetGrades(cardResult.usrId.ToString(), loginResult.Token.ToString())); //loginResult.Token.ToString()
 
 
             // Calcoliamo la media dei voti
@@ -110,6 +121,68 @@ namespace ClassevivaPCTO.Views
             TextBlockMedia.Visibility = Visibility.Visible;
 
             DashboardPageViewModel.IsLoadingMedia = false;
+        }
+
+
+        public class ApiWrapper<T> where T : class
+        {
+            private readonly T _api;
+
+            public ApiWrapper(T api)
+            {
+                _api = api;
+            }
+
+            public async Task<TResult> CallApi<TResult>(Func<T, Task<TResult>> apiCall)
+            {
+
+                DispatcherQueue dispatcherQueue = DispatcherQueue.GetForCurrentThread();
+
+                var policy = Policy
+                    .Handle<ApiException>()
+                    
+                    .RetryAsync(96,
+                            async (ex, count) =>
+                            {
+                                Debug.WriteLine("Retry {0} times", count);
+
+                                var loginCredentials = new CredUtils().GetCredentialFromLocker();
+
+                                if (loginCredentials != null)
+                                {
+                                    
+                                        await App.Window.DispatcherQueue.EnqueueAsync(async () =>
+                                        {
+                                            ContentDialog dialog = new ContentDialog();
+                                            dialog.Title = "Errore";
+                                            dialog.PrimaryButtonText = "OK";
+                                            dialog.DefaultButton = ContentDialogButton.Primary;
+                                            dialog.Content = "Errore durante il login. Controlla il nome utente e la password. \n Errore:" ;
+                                            dialog.XamlRoot = App.Window.Content.XamlRoot;
+
+                                            try
+                                            {
+                                                var result = await dialog.ShowAsync(); //attenzione, se togli l'await l'esecuzione dei retry continua fino alla fine del limite massimo
+                                            }
+                                            catch (Exception e)
+                                            {
+                                                System.Console.WriteLine(e.ToString());
+                                            }
+                                        });
+
+                                 
+                                }
+
+                                        
+                            }
+                                );
+
+                return await policy.ExecuteAsync(async () => await apiCall(_api));
+            }
+
+
+
+
         }
 
 
