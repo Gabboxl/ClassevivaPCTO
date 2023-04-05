@@ -23,6 +23,9 @@ namespace ClassevivaPCTO.Views
     {
 
         private readonly IClassevivaAPI apiClient;
+        private readonly ApiPolicyWrapper<IClassevivaAPI> apiWrapper;
+
+
 
         public DashboardPageViewModel DashboardPageViewModel { get; } = new DashboardPageViewModel();
 
@@ -33,6 +36,9 @@ namespace ClassevivaPCTO.Views
 
             App app = (App)App.Current;
             apiClient = app.Container.GetService<IClassevivaAPI>();
+
+            apiWrapper = new ApiPolicyWrapper<IClassevivaAPI>(apiClient);
+
         }
 
         protected override async void OnNavigatedTo(NavigationEventArgs e)
@@ -59,9 +65,10 @@ namespace ClassevivaPCTO.Views
 
             */
 
+            
 
-            var api = RestService.For<IClassevivaAPI>(Endpoint.CurrentEndpoint);
-            var result1 = await api.GetGrades(cardResult.usrId.ToString(), loginResult.Token.ToString());
+
+            var result1 = await apiWrapper.CallApi(x => x.GetGrades(cardResult.usrId.ToString(), loginResult.Token.ToString()));
 
 
 
@@ -77,6 +84,7 @@ namespace ClassevivaPCTO.Views
 
 
             await CaricaMediaCard();
+
 
         }
 
