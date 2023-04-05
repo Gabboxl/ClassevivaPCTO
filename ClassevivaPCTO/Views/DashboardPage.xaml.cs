@@ -3,12 +3,14 @@ using ClassevivaPCTO.Services;
 using ClassevivaPCTO.Utils;
 using ClassevivaPCTO.ViewModels;
 using Microsoft.Extensions.DependencyInjection;
+using Polly;
 using Refit;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
+using Windows.ApplicationModel.Core;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media;
@@ -60,8 +62,40 @@ namespace ClassevivaPCTO.Views
             protected override object Invoke(MethodInfo targetMethod, object[] args)
             {
                 // Code here to track time, log call etc.
-                var result = targetMethod.Invoke(Target, args);
-                return result;
+                var policy = Policy
+                    .Handle<ApiException>()
+                    .RetryAsync(2,
+                            async (ex, count) =>
+                            {
+
+                                await CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(
+                                       Windows.UI.Core.CoreDispatcherPriority.Normal,
+                                       async () =>
+                                       {
+                                           ContentDialog dialog = new ContentDialog();
+                                           dialog.Title = "ApiException";
+                                           dialog.PrimaryButtonText = "OK";
+                                           dialog.DefaultButton = ContentDialogButton.Primary;
+                                           dialog.Content =
+                                               "Errore: " + ex.Message;
+
+                                           try
+                                           {
+                                               var result = await dialog.ShowAsync();
+                                           }
+                                           catch (Exception e)
+                                           {
+                                               System.Console.WriteLine(e.ToString());
+                                           }
+                                       }
+                                   );
+
+
+                            }
+                                );
+
+                return policy.ExecuteAsync(async () => targetMethod.Invoke(Target, args));
+
             }
 
             public static T CreateProxy(T target)
@@ -105,7 +139,7 @@ namespace ClassevivaPCTO.Views
 
             //var result1 = await apiWrapper.CallApi(x => x.GetGrades(cardResult.usrId.ToString(), loginResult.Token.ToString()));
 
-            var result1 = await apiWrapper2.GetGrades(cardResult.usrId.ToString(), loginResult.Token.ToString());
+            var result1 = await (Task<Grades2Result>)apiWrapper2.GetGrades(cardResult.usrId.ToString(), loginResult.Token.ToString());
 
 
             var fiveMostRecent = result1.Grades.OrderByDescending(x => x.evtDate).Take(5);
