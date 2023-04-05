@@ -38,44 +38,6 @@ namespace ClassevivaPCTO
 
             serviceCollection
                 .AddRefitClient(typeof(IClassevivaAPI))
-                .AddPolicyHandler(
-                    Policy<HttpResponseMessage>
-                        .HandleResult(r => r.StatusCode == System.Net.HttpStatusCode.Unauthorized)
-                        .RetryAsync(
-                            1,
-                            async (ex, count) =>
-                            {
-                                Debug.WriteLine("Retry {0} times", count);
-
-                                var loginCredentials = new CredUtils().GetCredentialFromLocker();
-
-                                if (loginCredentials != null)
-                                {
-                                    await CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(
-                                        Windows.UI.Core.CoreDispatcherPriority.Normal,
-                                        async () =>
-                                        {
-                                            ContentDialog dialog = new ContentDialog();
-                                            dialog.Title = "Sessione scaduta";
-                                            dialog.PrimaryButtonText = "OK";
-                                            dialog.DefaultButton = ContentDialogButton.Primary;
-                                            dialog.Content =
-                                                "Aggiornamento dei dati di login in corso...";
-
-                                            try
-                                            {
-                                                var result = await dialog.ShowAsync();
-                                            }
-                                            catch (Exception e)
-                                            {
-                                                System.Console.WriteLine(e.ToString());
-                                            }
-                                        }
-                                    );
-                                }
-                            }
-                        )
-                )
                 .ConfigureHttpClient(
                     (sp, client) =>
                     {
