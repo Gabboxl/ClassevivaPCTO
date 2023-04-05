@@ -7,10 +7,8 @@ using Windows.System;
 using Windows.UI.Xaml.Controls;
 
 
-namespace ClassevivaPCTO.Views
+namespace ClassevivaPCTO.Utils
 {
-    public sealed partial class DashboardPage
-    {
         public class ApiPolicyWrapper<T> where T : class
         {
             private readonly T _api;
@@ -62,5 +60,4 @@ namespace ClassevivaPCTO.Views
 
 
         }
-    }
 }
