@@ -7,6 +7,7 @@ using Refit;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -16,6 +17,9 @@ using Windows.UI.Xaml.Navigation;
 
 namespace ClassevivaPCTO.Views
 {
+
+
+
     /// <summary>
     /// Pagina vuota che può essere usata autonomamente oppure per l'esplorazione all'interno di un frame.
     /// </summary>
@@ -25,6 +29,7 @@ namespace ClassevivaPCTO.Views
         private readonly IClassevivaAPI apiClient;
         private readonly ApiPolicyWrapper<IClassevivaAPI> apiWrapper;
 
+        private readonly IClassevivaAPI apiWrapper2;
 
 
         public DashboardPageViewModel DashboardPageViewModel { get; } = new DashboardPageViewModel();
@@ -37,9 +42,39 @@ namespace ClassevivaPCTO.Views
             App app = (App)App.Current;
             apiClient = app.Container.GetService<IClassevivaAPI>();
 
-            apiWrapper = new ApiPolicyWrapper<IClassevivaAPI>(apiClient);
+            //apiWrapper = new ApiPolicyWrapper<IClassevivaAPI>(apiClient);
+
+            apiWrapper2 = HelloDispatchProxy<IClassevivaAPI>.CreateProxy(apiClient);
+            
 
         }
+
+
+
+        //the app crashed with the error "Access is denied" because that class wasn't marked as "public"
+
+        public class HelloDispatchProxy<T> : DispatchProxy where T : class, IClassevivaAPI
+        {
+            private IClassevivaAPI Target { get; set; }
+
+            protected override object Invoke(MethodInfo targetMethod, object[] args)
+            {
+                // Code here to track time, log call etc.
+                var result = targetMethod.Invoke(Target, args);
+                return result;
+            }
+
+            public static T CreateProxy(T target)
+            {
+                var proxy = Create<T, HelloDispatchProxy<T>>() as HelloDispatchProxy<T>;
+                proxy.Target = target;
+                return proxy as T;
+            }
+        }
+
+
+
+
 
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
@@ -68,8 +103,9 @@ namespace ClassevivaPCTO.Views
             
 
 
-            var result1 = await apiWrapper.CallApi(x => x.GetGrades(cardResult.usrId.ToString(), loginResult.Token.ToString()));
+            //var result1 = await apiWrapper.CallApi(x => x.GetGrades(cardResult.usrId.ToString(), loginResult.Token.ToString()));
 
+            var result1 = await apiWrapper2.GetGrades(cardResult.usrId.ToString(), loginResult.Token.ToString());
 
 
             var fiveMostRecent = result1.Grades.OrderByDescending(x => x.evtDate).Take(5);
@@ -102,7 +138,7 @@ namespace ClassevivaPCTO.Views
 
             //apiClient = Container.GetService<IClassevivaAPI>();
 
-            var result1 = await apiClient.GetGrades(cardResult.usrId.ToString(), loginResult.Token.ToString());
+            var result1 = await apiWrapper2.GetGrades(cardResult.usrId.ToString(), loginResult.Token.ToString());
 
 
             // Calcoliamo la media dei voti

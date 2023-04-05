@@ -300,6 +300,7 @@ namespace ClassevivaPCTO.Utils
         public List<Notice> Notices { get; set; }
     }
 
+    
     [Headers("User-Agent: CVVS/std/4.2.3 Android/10", "Z-Dev-Apikey: Tg1NWEwNGIgIC0K", "Content-Type: application/json")]
     public interface IClassevivaAPI
     {
