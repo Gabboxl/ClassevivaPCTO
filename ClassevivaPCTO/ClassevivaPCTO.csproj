@@ -146,6 +146,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Utils\ApiPolicyWrapper.cs" />
     <Compile Include="Views\Assenze.xaml.cs">
       <DependentUpon>Assenze.xaml</DependentUpon>
     </Compile>
