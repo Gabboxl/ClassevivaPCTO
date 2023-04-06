@@ -3,12 +3,17 @@ using ClassevivaPCTO.Services;
 using ClassevivaPCTO.Utils;
 using ClassevivaPCTO.ViewModels;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Toolkit;
+using Newtonsoft.Json.Linq;
 using Polly;
+using Polly.Wrap;
 using Refit;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Reflection;
+using System.Threading;
 using System.Threading.Tasks;
 using Windows.ApplicationModel.Core;
 using Windows.UI.Xaml;
@@ -47,7 +52,7 @@ namespace ClassevivaPCTO.Views
             //apiWrapper = new ApiPolicyWrapper<IClassevivaAPI>(apiClient);
 
             apiWrapper2 = HelloDispatchProxy<IClassevivaAPI>.CreateProxy(apiClient);
-            
+
 
         }
 
@@ -57,45 +62,51 @@ namespace ClassevivaPCTO.Views
 
         public class HelloDispatchProxy<T> : DispatchProxy where T : class, IClassevivaAPI
         {
-            private IClassevivaAPI Target { get; set; }
+            private T Target { get; set; }
 
             protected override object Invoke(MethodInfo targetMethod, object[] args)
             {
-                // Code here to track time, log call etc.
-                var policy = Policy
-                    .Handle<ApiException>()
-                    .RetryAsync(2,
-                            async (ex, count) =>
-                            {
-
-                                await CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(
-                                       Windows.UI.Core.CoreDispatcherPriority.Normal,
-                                       async () =>
-                                       {
-                                           ContentDialog dialog = new ContentDialog();
-                                           dialog.Title = "ApiException";
-                                           dialog.PrimaryButtonText = "OK";
-                                           dialog.DefaultButton = ContentDialogButton.Primary;
-                                           dialog.Content =
-                                               "Errore: " + ex.Message;
-
-                                           try
-                                           {
-                                               var result = await dialog.ShowAsync();
-                                           }
-                                           catch (Exception e)
-                                           {
-                                               System.Console.WriteLine(e.ToString());
-                                           }
-                                       }
-                                   );
+                var retryPolicy = Policy
+                    .Handle<Exception>()
+                    //
+                    .RetryAsync(3, (exception, retryCount, context) =>
+                    {
+                        Debug.WriteLine($"Retry {retryCount} of {context.PolicyKey} due to {exception.Message}");
+                    })
+                    ;
 
 
-                            }
-                                );
+                var fallback = Policy<object>
+    .Handle<Exception>()
+    .FallbackAsync(async ct =>
+    {
+        
+        var lol = (targetMethod.Invoke(Target, args));
 
-                return policy.ExecuteAsync(async () => targetMethod.Invoke(Target, args));
+        return lol;
+    });
 
+                AsyncPolicyWrap<object> combinedpolicy = fallback.WrapAsync(retryPolicy);
+
+
+             
+
+
+                
+
+                return combinedpolicy.ExecuteAsync(async () => {
+
+                    var lol = (targetMethod.Invoke(Target, args));
+
+                    if (lol is Task task)
+                    {
+                        task.Wait();
+
+                        //returntask;
+                    }
+
+                    return lol;
+                }).Result;
             }
 
             public static T CreateProxy(T target)
@@ -134,12 +145,17 @@ namespace ClassevivaPCTO.Views
 
             */
 
-            
 
+            var api = RestService.For<IClassevivaAPI>(Endpoint.CurrentEndpoint);
+            var result1 = await api.GetGrades(cardResult.usrId.ToString(), loginResult.Token.ToString());
 
             //var result1 = await apiWrapper.CallApi(x => x.GetGrades(cardResult.usrId.ToString(), loginResult.Token.ToString()));
 
-            var result1 = await (Task<Grades2Result>)apiWrapper2.GetGrades(cardResult.usrId.ToString(), loginResult.Token.ToString());
+
+
+
+             //api.GetGrades(cardResult.usrId.ToString(), "tony");
+
 
 
             var fiveMostRecent = result1.Grades.OrderByDescending(x => x.evtDate).Take(5);
@@ -172,8 +188,8 @@ namespace ClassevivaPCTO.Views
 
             //apiClient = Container.GetService<IClassevivaAPI>();
 
-            var result1 = await apiWrapper2.GetGrades(cardResult.usrId.ToString(), loginResult.Token.ToString());
-
+          
+                var result1 = await apiWrapper2.GetGrades(cardResult.usrId.ToString(), "asd");
 
             // Calcoliamo la media dei voti
             float media = CalcolaMedia(result1.Grades);
