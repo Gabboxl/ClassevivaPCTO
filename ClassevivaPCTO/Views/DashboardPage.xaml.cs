@@ -21,26 +21,20 @@ using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
-
 namespace ClassevivaPCTO.Views
 {
-
-
-
     /// <summary>
     /// Pagina vuota che può essere usata autonomamente oppure per l'esplorazione all'interno di un frame.
     /// </summary>
     public sealed partial class DashboardPage : Page
     {
-
         private readonly IClassevivaAPI apiClient;
         private readonly ApiPolicyWrapper<IClassevivaAPI> apiWrapper;
 
         private readonly IClassevivaAPI apiWrapper2;
 
-
-        public DashboardPageViewModel DashboardPageViewModel { get; } = new DashboardPageViewModel();
-
+        public DashboardPageViewModel DashboardPageViewModel { get; } =
+            new DashboardPageViewModel();
 
         public DashboardPage()
         {
@@ -52,15 +46,12 @@ namespace ClassevivaPCTO.Views
             //apiWrapper = new ApiPolicyWrapper<IClassevivaAPI>(apiClient);
 
             apiWrapper2 = HelloDispatchProxy<IClassevivaAPI>.CreateProxy(apiClient);
-
-
         }
-
-
 
         //the app crashed with the error "Access is denied" because that class wasn't marked as "public"
 
-        public class HelloDispatchProxy<T> : DispatchProxy where T : class, IClassevivaAPI
+        public class HelloDispatchProxy<T> : DispatchProxy
+            where T : class, IClassevivaAPI
         {
             private T Target { get; set; }
 
@@ -69,44 +60,42 @@ namespace ClassevivaPCTO.Views
                 var retryPolicy = Policy
                     .Handle<Exception>()
                     //
-                    .RetryAsync(3, (exception, retryCount, context) =>
-                    {
-                        Debug.WriteLine($"Retry {retryCount} of {context.PolicyKey} due to {exception.Message}");
-                    })
-                    ;
-
+                    .RetryAsync(
+                        3,
+                        (exception, retryCount, context) =>
+                        {
+                            Debug.WriteLine(
+                                $"Retry {retryCount} of {context.PolicyKey} due to {exception.Message}"
+                            );
+                        }
+                    );
 
                 var fallback = Policy<object>
-    .Handle<Exception>()
-    .FallbackAsync(async ct =>
-    {
-        
-        var lol = (targetMethod.Invoke(Target, args));
+                    .Handle<Exception>()
+                    .FallbackAsync(async ct =>
+                    {
+                        var lol = (targetMethod.Invoke(Target, args));
 
-        return lol;
-    });
+                        return lol;
+                    });
 
                 AsyncPolicyWrap<object> combinedpolicy = fallback.WrapAsync(retryPolicy);
 
-
-             
-
-
-                
-
-                return combinedpolicy.ExecuteAsync(async () => {
-
-                    var lol = (targetMethod.Invoke(Target, args));
-
-                    if (lol is Task task)
+                return combinedpolicy
+                    .ExecuteAsync(async () =>
                     {
-                        task.Wait();
+                        var lol = (targetMethod.Invoke(Target, args));
 
-                        //returntask;
-                    }
+                        if (lol is Task task)
+                        {
+                            task.Wait();
 
-                    return lol;
-                }).Result;
+                            //returntask;
+                        }
+
+                        return lol;
+                    })
+                    .Result;
             }
 
             public static T CreateProxy(T target)
@@ -117,20 +106,15 @@ namespace ClassevivaPCTO.Views
             }
         }
 
-
-
-
-
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
 
-
             LoginResult loginResult = ViewModelHolder.getViewModel().LoginResult;
             Card cardResult = ViewModelHolder.getViewModel().CardsResult.Cards[0];
 
-            TextBenvenuto.Text = "Dashboard di " + VariousUtils.UppercaseFirst(cardResult.firstName);
-
+            TextBenvenuto.Text =
+                "Dashboard di " + VariousUtils.UppercaseFirst(cardResult.firstName);
 
             /*
 
@@ -147,14 +131,17 @@ namespace ClassevivaPCTO.Views
 
 
             var api = RestService.For<IClassevivaAPI>(Endpoint.CurrentEndpoint);
-            var result1 = await api.GetGrades(cardResult.usrId.ToString(), loginResult.Token.ToString());
+            var result1 = await api.GetGrades(
+                cardResult.usrId.ToString(),
+                loginResult.Token.ToString()
+            );
 
             //var result1 = await apiWrapper.CallApi(x => x.GetGrades(cardResult.usrId.ToString(), loginResult.Token.ToString()));
 
 
 
 
-             //api.GetGrades(cardResult.usrId.ToString(), "tony");
+            //api.GetGrades(cardResult.usrId.ToString(), "tony");
 
 
 
@@ -162,24 +149,17 @@ namespace ClassevivaPCTO.Views
 
             ListRecentGrades.ItemsSource = fiveMostRecent;
 
-
             //todoo
             ListViewAbsencesDate.ItemsSource = result1.Grades;
             ListViewVotiDate.ItemsSource = result1.Grades;
             ListViewAgendaDate.ItemsSource = result1.Grades;
 
-
             await CaricaMediaCard();
-
-
         }
-
-
 
         public async Task CaricaMediaCard()
         {
             DashboardPageViewModel.IsLoadingMedia = true;
-
 
             LoginResult loginResult = ViewModelHolder.getViewModel().LoginResult;
             Card cardResult = ViewModelHolder.getViewModel().CardsResult.Cards[0];
@@ -188,13 +168,14 @@ namespace ClassevivaPCTO.Views
 
             //apiClient = Container.GetService<IClassevivaAPI>();
 
-          
-                var result1 = await apiWrapper2.GetGrades(cardResult.usrId.ToString(), "asd");
+
+            var result1 = await apiWrapper2.GetGrades(cardResult.usrId.ToString(), "asd");
 
             // Calcoliamo la media dei voti
             float media = CalcolaMedia(result1.Grades);
 
-            TextBlockMedia.Foreground = (Brush)new GradeToColorConverter().Convert(media, null, null, null);
+            TextBlockMedia.Foreground = (Brush)
+                new GradeToColorConverter().Convert(media, null, null, null);
 
             // Stampiamo la media dei voti
             TextBlockMedia.Text = media.ToString("0.00");
@@ -202,9 +183,6 @@ namespace ClassevivaPCTO.Views
 
             DashboardPageViewModel.IsLoadingMedia = false;
         }
-
-
-
 
         static float CalcolaMedia(List<Grade> voti)
         {
@@ -226,16 +204,11 @@ namespace ClassevivaPCTO.Views
             return somma / numVoti;
         }
 
-
-
-
-
         private void HyperlinkButton_Click(object sender, RoutedEventArgs e)
         {
             //NavigationService.Navigate(typeof(Views.DettaglioVoti), null);
             NavigationService.Navigate(typeof(Views.DettaglioVoti));
         }
-
 
         private async void HyperlinkButton_Click_1(object sender, RoutedEventArgs e)
         {
