@@ -16,6 +16,7 @@ using System.Reflection;
 using System.Threading;
 using System.Threading.Tasks;
 using Windows.ApplicationModel.Core;
+using Windows.UI.Core;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media;
@@ -45,12 +46,12 @@ namespace ClassevivaPCTO.Views
 
             //apiWrapper = new ApiPolicyWrapper<IClassevivaAPI>(apiClient);
 
-            apiWrapper2 = HelloDispatchProxy<IClassevivaAPI>.CreateProxy(apiClient);
+            apiWrapper2 = PoliciesDispatchProxy<IClassevivaAPI>.CreateProxy(apiClient);
         }
 
         //the app crashed with the error "Access is denied" because that class wasn't marked as "public"
 
-        public class HelloDispatchProxy<T> : DispatchProxy
+        public class PoliciesDispatchProxy<T> : DispatchProxy
             where T : class, IClassevivaAPI
         {
             private T Target { get; set; }
@@ -58,15 +59,46 @@ namespace ClassevivaPCTO.Views
             protected override object Invoke(MethodInfo targetMethod, object[] args)
             {
                 var retryPolicy = Policy
-                    .Handle<Exception>()
-                    //
+                    .Handle<AggregateException>()
                     .RetryAsync(
                         3,
-                        (exception, retryCount, context) =>
+                        async (exception, retryCount, context) =>
                         {
-                            Debug.WriteLine(
-                                $"Retry {retryCount} of {context.PolicyKey} due to {exception.Message}"
-                            );
+                            if(exception.InnerException is ApiException apiException)
+                            {
+                                if(apiException.StatusCode == System.Net.HttpStatusCode.Unauthorized)
+                                {
+                                    //refresh token
+                                    //await apiClient.RefreshTokenAsync();
+                                    Debug.WriteLine("tonyeffe ok");
+                                }
+                            }
+
+                            //Task.Delay(3000);
+
+                            //run on ui thread
+                            
+                                //show dialog
+                                ContentDialog dialog = new ContentDialog();
+                                dialog.Title = "Sessione scaduta";
+                                dialog.PrimaryButtonText = "OK";
+                                dialog.DefaultButton = ContentDialogButton.Primary;
+                                //dialog.XamlRoot = Window.Current.Content.XamlRoot;
+                                dialog.Content =
+                                    "Aggiornamento dei dati di login in corso...";
+                                try
+                                {
+                                    var result = dialog.ShowAsync();
+                                }
+                                catch (Exception e)
+                                {
+                                    Debug.WriteLine(e.ToString());
+                                }
+
+                            
+                        
+
+
                         }
                     );
 
@@ -74,9 +106,8 @@ namespace ClassevivaPCTO.Views
                     .Handle<Exception>()
                     .FallbackAsync(async ct =>
                     {
-                        var lol = (targetMethod.Invoke(Target, args));
-
-                        return lol;
+                        //if after the retries another exception occurs, then we let the call flow go ahead
+                        return targetMethod.Invoke(Target, args);
                     });
 
                 AsyncPolicyWrap<object> combinedpolicy = fallback.WrapAsync(retryPolicy);
@@ -88,19 +119,17 @@ namespace ClassevivaPCTO.Views
 
                         if (lol is Task task)
                         {
-                            task.Wait();
-
-                            //returntask;
+                            task.Wait(); //we wait for the result of the task, so we catch the exceptions if there are any
                         }
 
-                        return lol;
+                        return lol; //if no exception occur then we return the result of the method call
                     })
                     .Result;
             }
 
             public static T CreateProxy(T target)
             {
-                var proxy = Create<T, HelloDispatchProxy<T>>() as HelloDispatchProxy<T>;
+                var proxy = Create<T, PoliciesDispatchProxy<T>>() as PoliciesDispatchProxy<T>;
                 proxy.Target = target;
                 return proxy as T;
             }
@@ -154,10 +183,10 @@ namespace ClassevivaPCTO.Views
             ListViewVotiDate.ItemsSource = result1.Grades;
             ListViewAgendaDate.ItemsSource = result1.Grades;
 
-            await CaricaMediaCard();
+            CaricaMediaCard();
         }
 
-        public async Task CaricaMediaCard()
+        public async void CaricaMediaCard()
         {
             DashboardPageViewModel.IsLoadingMedia = true;
 
