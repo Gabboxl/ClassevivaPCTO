@@ -187,7 +187,7 @@ namespace ClassevivaPCTO.Views
             var fiveMostRecent = result1.Grades.OrderByDescending(x => x.evtDate).Take(5);
 
             //update UI on UI thread
-            await Window.Current.Dispatcher.RunAsync(
+            await CoreApplication.MainView.Dispatcher.RunAsync(
                 CoreDispatcherPriority.Normal,
                 async () =>
                 {
