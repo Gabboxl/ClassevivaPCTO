@@ -181,17 +181,25 @@ namespace ClassevivaPCTO.Views
             Card cardResult = ViewModelHolder.getViewModel().CardsResult.Cards[0];
 
             var result1 = await apiWrapper
-                .GetGrades(cardResult.usrId.ToString(), "asd")
+                .GetGrades(cardResult.usrId.ToString(), loginResult.Token.ToString())
                 .ConfigureAwait(false);
 
             var fiveMostRecent = result1.Grades.OrderByDescending(x => x.evtDate).Take(5);
 
-            ListRecentGrades.ItemsSource = fiveMostRecent;
+            //update UI on UI thread
+            await Window.Current.Dispatcher.RunAsync(
+                CoreDispatcherPriority.Normal,
+                async () =>
+                {
+                    ListRecentGrades.ItemsSource = fiveMostRecent;
 
-            //todoo
-            ListViewAbsencesDate.ItemsSource = result1.Grades;
-            ListViewVotiDate.ItemsSource = result1.Grades;
-            ListViewAgendaDate.ItemsSource = result1.Grades;
+                    //todoo
+                    ListViewAbsencesDate.ItemsSource = result1.Grades;
+                    ListViewVotiDate.ItemsSource = result1.Grades;
+                    ListViewAgendaDate.ItemsSource = result1.Grades;
+                }
+            );
+
         }
 
         public async Task CaricaMediaCard()
