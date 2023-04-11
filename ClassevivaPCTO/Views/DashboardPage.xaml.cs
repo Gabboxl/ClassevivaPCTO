@@ -90,7 +90,7 @@ namespace ClassevivaPCTO.Views
                                         new TaskCompletionSource<bool>();
 
                                     Debug.WriteLine(
-                                        "side ok " + CoreApplication.MainView.Dispatcher
+                                        "Test retry n.{0} policy ok ", retryCount
                                     );
 
                                     //the dispatcher.runasync method does not return any value, so actually the "await" is redundant, so to know when the dialog is done showing, we use the Taskcompletionsource hack
@@ -100,8 +100,8 @@ namespace ClassevivaPCTO.Views
                                         {
                                             ContentDialog noWifiDialog = new ContentDialog
                                             {
-                                                Title = "No wifi connection",
-                                                Content = "omgxx.",
+                                                Title = "Error",
+                                                Content = "Retry n." + retryCount + "\n" + apiException.Message,
                                                 CloseButtonText = "Ok"
                                             };
 
