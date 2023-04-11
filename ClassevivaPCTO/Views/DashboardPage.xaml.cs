@@ -145,6 +145,8 @@ namespace ClassevivaPCTO.Views
         {
             base.OnNavigatedTo(e);
 
+            Card cardResult = ViewModelHolder.getViewModel().CardsResult.Cards[0];
+
             TextBenvenuto.Text =
                 "Dashboard di " + VariousUtils.UppercaseFirst(cardResult.firstName);
 
