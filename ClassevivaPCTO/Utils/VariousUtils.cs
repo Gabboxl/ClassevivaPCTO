@@ -1,9 +1,31 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace ClassevivaPCTO.Utils
 {
     internal class VariousUtils
     {
+        public static float CalcolaMedia(List<Grade> voti)
+        {
+            float somma = 0;
+            float numVoti = 0;
+
+            foreach (Grade voto in voti)
+            {
+                float? valoreDaSommare = VariousUtils.GradeToFloat(voto);
+
+                if (valoreDaSommare != null)
+                {
+                    somma += (float)valoreDaSommare;
+
+                    numVoti++;
+                }
+            }
+
+            return somma / numVoti;
+        }
+
+
         public static string UppercaseFirst(string s)
         {
             // Check for empty string.
