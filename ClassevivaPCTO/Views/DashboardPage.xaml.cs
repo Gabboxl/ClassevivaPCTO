@@ -218,7 +218,7 @@ namespace ClassevivaPCTO.Views
                 .ConfigureAwait(false);
 
             // Calcoliamo la media dei voti
-            float media = CalcolaMedia(result1.Grades);
+            float media = VariousUtils.CalcolaMedia(result1.Grades);
 
             TextBlockMedia.Foreground = (Brush)
                 new GradeToColorConverter().Convert(media, null, null, null);
@@ -230,25 +230,7 @@ namespace ClassevivaPCTO.Views
             DashboardPageViewModel.IsLoadingMedia = false;
         }
 
-        static float CalcolaMedia(List<Grade> voti)
-        {
-            float somma = 0;
-            float numVoti = 0;
 
-            foreach (Grade voto in voti)
-            {
-                float? valoreDaSommare = VariousUtils.GradeToFloat(voto);
-
-                if (valoreDaSommare != null)
-                {
-                    somma += (float)valoreDaSommare;
-
-                    numVoti++;
-                }
-            }
-
-            return somma / numVoti;
-        }
 
         private void HyperlinkButton_Click(object sender, RoutedEventArgs e)
         {
