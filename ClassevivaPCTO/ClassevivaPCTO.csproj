@@ -176,6 +176,7 @@
     <Compile Include="Utils\VariousUtils.cs" />
     <Compile Include="ViewModels\ViewModelHolder.cs" />
     <Compile Include="ViewModels\AppViewModel.cs" />
+    <Compile Include="Utils\PoliciesDispatchProxy.cs" />
     <Compile Include="Views\SettingsPage.xaml.cs">
       <DependentUpon>SettingsPage.xaml</DependentUpon>
     </Compile>
