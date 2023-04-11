@@ -4,6 +4,8 @@ using ClassevivaPCTO.Utils;
 using ClassevivaPCTO.ViewModels;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Toolkit;
+using Microsoft.Toolkit.Uwp;
+using Microsoft.Toolkit.Uwp.Helpers;
 using Newtonsoft.Json.Linq;
 using Polly;
 using Polly.Wrap;
@@ -13,9 +15,11 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Reflection;
+using System.Runtime.CompilerServices;
 using System.Threading;
 using System.Threading.Tasks;
 using Windows.ApplicationModel.Core;
+using Windows.System;
 using Windows.UI.Core;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -30,7 +34,8 @@ namespace ClassevivaPCTO.Views
     public sealed partial class DashboardPage : Page
     {
         private readonly IClassevivaAPI apiClient;
-        private readonly ApiPolicyWrapper<IClassevivaAPI> apiWrapper;
+
+        //private readonly ApiPolicyWrapper<IClassevivaAPI> apiWrapper;
 
         private readonly IClassevivaAPI apiWrapper2;
 
@@ -47,6 +52,11 @@ namespace ClassevivaPCTO.Views
             //apiWrapper = new ApiPolicyWrapper<IClassevivaAPI>(apiClient);
 
             apiWrapper2 = PoliciesDispatchProxy<IClassevivaAPI>.CreateProxy(apiClient);
+
+            this.Loaded += async (sender, args) =>
+            {
+                //CaricaMediaCard();
+            };
         }
 
         //the app crashed with the error "Access is denied" because that class wasn't marked as "public"
@@ -64,41 +74,56 @@ namespace ClassevivaPCTO.Views
                         3,
                         async (exception, retryCount, context) =>
                         {
-                            if(exception.InnerException is ApiException apiException)
+                            if (exception.InnerException is ApiException apiException)
                             {
-                                if(apiException.StatusCode == System.Net.HttpStatusCode.Unauthorized)
+                                if (
+                                    apiException.StatusCode
+                                    == System.Net.HttpStatusCode.Unauthorized
+                                )
                                 {
                                     //refresh token
                                     //await apiClient.RefreshTokenAsync();
-                                    Debug.WriteLine("tonyeffe ok");
+
+
+
+                                    TaskCompletionSource<bool> IsSomethingLoading =
+                                        new TaskCompletionSource<bool>();
+
+
+                                            Debug.WriteLine(
+                                                "side ok " + CoreApplication.MainView.Dispatcher
+                                            );
+
+                                            await CoreApplication.MainView.Dispatcher.RunAsync(
+                                                CoreDispatcherPriority.Normal,
+                                                async () =>
+                                                {
+                                                    ContentDialog noWifiDialog = new ContentDialog
+                                                    {
+                                                        Title = "No wifi connection",
+                                                        Content = "omgxx.",
+                                                        CloseButtonText = "Ok"
+                                                    };
+
+                                                    try
+                                                    {
+                                                        ContentDialogResult result =
+                                                            await noWifiDialog.ShowAsync();
+
+                                                        IsSomethingLoading.SetResult(true);
+                                                    }
+                                                    catch (Exception ex) { }
+                                                }
+                                            );
+
+
+                                    await IsSomethingLoading.Task;
                                 }
                             }
 
                             //Task.Delay(3000);
 
                             //run on ui thread
-                            
-                                //show dialog
-                                ContentDialog dialog = new ContentDialog();
-                                dialog.Title = "Sessione scaduta";
-                                dialog.PrimaryButtonText = "OK";
-                                dialog.DefaultButton = ContentDialogButton.Primary;
-                                //dialog.XamlRoot = Window.Current.Content.XamlRoot;
-                                dialog.Content =
-                                    "Aggiornamento dei dati di login in corso...";
-                                try
-                                {
-                                    var result = dialog.ShowAsync();
-                                }
-                                catch (Exception e)
-                                {
-                                    Debug.WriteLine(e.ToString());
-                                }
-
-                            
-                        
-
-
                         }
                     );
 
@@ -106,6 +131,12 @@ namespace ClassevivaPCTO.Views
                     .Handle<Exception>()
                     .FallbackAsync(async ct =>
                     {
+                        //run on ui thread
+
+
+
+
+
                         //if after the retries another exception occurs, then we let the call flow go ahead
                         return targetMethod.Invoke(Target, args);
                     });
@@ -183,10 +214,15 @@ namespace ClassevivaPCTO.Views
             ListViewVotiDate.ItemsSource = result1.Grades;
             ListViewAgendaDate.ItemsSource = result1.Grades;
 
-            CaricaMediaCard();
+
+            //run in a background thread
+            await Task.Run(async () => {
+                await CaricaMediaCard();
+            });
+            
         }
 
-        public async void CaricaMediaCard()
+        public async Task CaricaMediaCard()
         {
             DashboardPageViewModel.IsLoadingMedia = true;
 
@@ -197,20 +233,25 @@ namespace ClassevivaPCTO.Views
 
             //apiClient = Container.GetService<IClassevivaAPI>();
 
+            try
+            {
+                var result1 = await apiWrapper2
+                    .GetGrades(cardResult.usrId.ToString(), "asd")
+                    .ConfigureAwait(false);
 
-            var result1 = await apiWrapper2.GetGrades(cardResult.usrId.ToString(), "asd");
+                // Calcoliamo la media dei voti
+                float media = CalcolaMedia(result1.Grades);
 
-            // Calcoliamo la media dei voti
-            float media = CalcolaMedia(result1.Grades);
+                TextBlockMedia.Foreground = (Brush)
+                    new GradeToColorConverter().Convert(media, null, null, null);
 
-            TextBlockMedia.Foreground = (Brush)
-                new GradeToColorConverter().Convert(media, null, null, null);
+                // Stampiamo la media dei voti
+                TextBlockMedia.Text = media.ToString("0.00");
+                TextBlockMedia.Visibility = Visibility.Visible;
 
-            // Stampiamo la media dei voti
-            TextBlockMedia.Text = media.ToString("0.00");
-            TextBlockMedia.Visibility = Visibility.Visible;
-
-            DashboardPageViewModel.IsLoadingMedia = false;
+                DashboardPageViewModel.IsLoadingMedia = false;
+            }
+            catch (Exception ex) { }
         }
 
         static float CalcolaMedia(List<Grade> voti)
