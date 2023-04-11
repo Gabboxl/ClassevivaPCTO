@@ -52,14 +52,9 @@ namespace ClassevivaPCTO.Views
             //apiWrapper = new ApiPolicyWrapper<IClassevivaAPI>(apiClient);
 
             apiWrapper2 = PoliciesDispatchProxy<IClassevivaAPI>.CreateProxy(apiClient);
-
-            this.Loaded += async (sender, args) => {
-                //CaricaMediaCard();
-            };
         }
 
         //the app crashed with the error "Access is denied" because that class wasn't marked as "public"
-
         public class PoliciesDispatchProxy<T> : DispatchProxy
             where T : class, IClassevivaAPI
         {
@@ -182,12 +177,6 @@ namespace ClassevivaPCTO.Views
             );
 
             //var result1 = await apiWrapper.CallApi(x => x.GetGrades(cardResult.usrId.ToString(), loginResult.Token.ToString()));
-
-
-
-
-            //api.GetGrades(cardResult.usrId.ToString(), "tony");
-
 
 
             var fiveMostRecent = result1.Grades.OrderByDescending(x => x.evtDate).Take(5);
