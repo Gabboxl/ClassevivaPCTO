@@ -163,13 +163,9 @@ namespace ClassevivaPCTO.Views
 
             */
 
-
-            var api = RestService.For<IClassevivaAPI>(Endpoint.CurrentEndpoint);
-            var result1 = await api.GetGrades(
-                cardResult.usrId.ToString(),
-                loginResult.Token.ToString()
-            );
-
+            var result1 = await apiWrapper
+    .GetGrades(cardResult.usrId.ToString(), "asd")
+    .ConfigureAwait(false);
 
             var fiveMostRecent = result1.Grades.OrderByDescending(x => x.evtDate).Take(5);
 
@@ -180,7 +176,7 @@ namespace ClassevivaPCTO.Views
             ListViewVotiDate.ItemsSource = result1.Grades;
             ListViewAgendaDate.ItemsSource = result1.Grades;
 
-            //run in a background thread
+            //run in a background thread otherwise the UI thread gets stuck when displaying a dialog
             await Task.Run(async () =>
             {
                 await CaricaMediaCard();
