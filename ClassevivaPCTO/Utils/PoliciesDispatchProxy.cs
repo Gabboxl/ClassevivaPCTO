@@ -34,7 +34,7 @@ namespace ClassevivaPCTO.Utils
                                     == System.Net.HttpStatusCode.Unauthorized
                                 )
                                 {
-                                    //refresh token
+                                    //TODO: refresh token
                                     //await apiClient.RefreshTokenAsync();
 
 
