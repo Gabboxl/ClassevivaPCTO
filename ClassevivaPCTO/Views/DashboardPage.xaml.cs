@@ -28,14 +28,10 @@ using Windows.UI.Xaml.Navigation;
 
 namespace ClassevivaPCTO.Views
 {
-    /// <summary>
-    /// Pagina vuota che può essere usata autonomamente oppure per l'esplorazione all'interno di un frame.
-    /// </summary>
+
     public sealed partial class DashboardPage : Page
     {
         private readonly IClassevivaAPI apiClient;
-
-        //private readonly ApiPolicyWrapper<IClassevivaAPI> apiWrapper;
 
         private readonly IClassevivaAPI apiWrapper2;
 
@@ -48,8 +44,6 @@ namespace ClassevivaPCTO.Views
 
             App app = (App)App.Current;
             apiClient = app.Container.GetService<IClassevivaAPI>();
-
-            //apiWrapper = new ApiPolicyWrapper<IClassevivaAPI>(apiClient);
 
             apiWrapper2 = PoliciesDispatchProxy<IClassevivaAPI>.CreateProxy(apiClient);
         }
@@ -176,8 +170,6 @@ namespace ClassevivaPCTO.Views
                 loginResult.Token.ToString()
             );
 
-            //var result1 = await apiWrapper.CallApi(x => x.GetGrades(cardResult.usrId.ToString(), loginResult.Token.ToString()));
-
 
             var fiveMostRecent = result1.Grades.OrderByDescending(x => x.evtDate).Take(5);
 
@@ -194,7 +186,7 @@ namespace ClassevivaPCTO.Views
                 await CaricaMediaCard();
             });
         }
-
+        
         public async Task CaricaMediaCard()
         {
             DashboardPageViewModel.IsLoadingMedia = true;
