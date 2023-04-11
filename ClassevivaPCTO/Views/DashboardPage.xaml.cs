@@ -220,12 +220,7 @@ namespace ClassevivaPCTO.Views
             LoginResult loginResult = ViewModelHolder.getViewModel().LoginResult;
             Card cardResult = ViewModelHolder.getViewModel().CardsResult.Cards[0];
 
-            //var api = RestService.For<IClassevivaAPI>(Endpoint.CurrentEndpoint);
 
-            //apiClient = Container.GetService<IClassevivaAPI>();
-
-            try
-            {
                 var result1 = await apiWrapper2
                     .GetGrades(cardResult.usrId.ToString(), "asd")
                     .ConfigureAwait(false);
@@ -241,8 +236,7 @@ namespace ClassevivaPCTO.Views
                 TextBlockMedia.Visibility = Visibility.Visible;
 
                 DashboardPageViewModel.IsLoadingMedia = false;
-            }
-            catch (Exception ex) { }
+
         }
 
         static float CalcolaMedia(List<Grade> voti)
