@@ -1,5 +1,4 @@
-﻿using ClassevivaPCTO.Utils;
-using Polly;
+﻿using Polly;
 using Polly.Wrap;
 using Refit;
 using System;
@@ -12,8 +11,8 @@ using Windows.UI.Xaml.Controls;
 
 namespace ClassevivaPCTO.Utils
 {
-        //the app crashed with the error "Access is denied" because that class wasn't marked as "public"
-        public class PoliciesDispatchProxy<T> : DispatchProxy
+    //the app crashed with the error "Access is denied" because that class wasn't marked as "public"
+    public class PoliciesDispatchProxy<T> : DispatchProxy
             where T : class, IClassevivaAPI
         {
             private T Target { get; set; }
@@ -86,14 +85,14 @@ namespace ClassevivaPCTO.Utils
                 return combinedpolicy
                     .ExecuteAsync(async () =>
                     {
-                        var lol = (targetMethod.Invoke(Target, args));
+                        var result = (targetMethod.Invoke(Target, args));
 
-                        if (lol is Task task)
+                        if (result is Task task)
                         {
                             task.Wait(); //we wait for the result of the task, so we catch the exceptions if there are any
                         }
 
-                        return lol; //if no exception occur then we return the result of the method call
+                        return result; //if no exception occur then we return the result of the method call
                     })
                     .Result;
             }
