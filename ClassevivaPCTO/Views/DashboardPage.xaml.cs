@@ -74,6 +74,7 @@ namespace ClassevivaPCTO.Views
                         3,
                         async (exception, retryCount, context) =>
                         {
+                            //we check whether the exception thrown is actually a Refit's ApiException
                             if (exception.InnerException is ApiException apiException)
                             {
                                 if (
@@ -94,6 +95,7 @@ namespace ClassevivaPCTO.Views
                                                 "side ok " + CoreApplication.MainView.Dispatcher
                                             );
 
+                                            //the dispatcher.runasync method does not return any value, so actually the "await" is redundant, so to know when the dialog is done showing, we use the Taskcompletionsource hack
                                             await CoreApplication.MainView.Dispatcher.RunAsync(
                                                 CoreDispatcherPriority.Normal,
                                                 async () =>
@@ -119,9 +121,6 @@ namespace ClassevivaPCTO.Views
                                 }
                             }
 
-                            //Task.Delay(3000);
-
-                            //run on ui thread
                         }
                     );
 
