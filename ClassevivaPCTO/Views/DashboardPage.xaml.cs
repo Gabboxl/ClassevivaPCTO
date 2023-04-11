@@ -33,7 +33,7 @@ namespace ClassevivaPCTO.Views
     {
         private readonly IClassevivaAPI apiClient;
 
-        private readonly IClassevivaAPI apiWrapper2;
+        private readonly IClassevivaAPI apiWrapper;
 
         public DashboardPageViewModel DashboardPageViewModel { get; } =
             new DashboardPageViewModel();
@@ -45,7 +45,7 @@ namespace ClassevivaPCTO.Views
             App app = (App)App.Current;
             apiClient = app.Container.GetService<IClassevivaAPI>();
 
-            apiWrapper2 = PoliciesDispatchProxy<IClassevivaAPI>.CreateProxy(apiClient);
+            apiWrapper = PoliciesDispatchProxy<IClassevivaAPI>.CreateProxy(apiClient);
         }
 
         //the app crashed with the error "Access is denied" because that class wasn't marked as "public"
@@ -194,7 +194,7 @@ namespace ClassevivaPCTO.Views
             LoginResult loginResult = ViewModelHolder.getViewModel().LoginResult;
             Card cardResult = ViewModelHolder.getViewModel().CardsResult.Cards[0];
 
-            var result1 = await apiWrapper2
+            var result1 = await apiWrapper
                 .GetGrades(cardResult.usrId.ToString(), "asd")
                 .ConfigureAwait(false);
 
