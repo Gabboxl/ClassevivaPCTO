@@ -144,9 +144,6 @@ namespace ClassevivaPCTO.Views
         {
             base.OnNavigatedTo(e);
 
-            LoginResult loginResult = ViewModelHolder.getViewModel().LoginResult;
-            Card cardResult = ViewModelHolder.getViewModel().CardsResult.Cards[0];
-
             TextBenvenuto.Text =
                 "Dashboard di " + VariousUtils.UppercaseFirst(cardResult.firstName);
 
@@ -163,9 +160,26 @@ namespace ClassevivaPCTO.Views
 
             */
 
+            await Task.Run(async () =>
+            {
+                await LoadAgendaCard();
+            });
+
+            //run in a background thread otherwise the UI thread gets stuck when displaying a dialog
+            await Task.Run(async () =>
+            {
+                await CaricaMediaCard();
+            });
+        }
+
+        public async Task LoadAgendaCard()
+        {
+            LoginResult loginResult = ViewModelHolder.getViewModel().LoginResult;
+            Card cardResult = ViewModelHolder.getViewModel().CardsResult.Cards[0];
+
             var result1 = await apiWrapper
-    .GetGrades(cardResult.usrId.ToString(), "asd")
-    .ConfigureAwait(false);
+.GetGrades(cardResult.usrId.ToString(), "asd")
+.ConfigureAwait(false);
 
             var fiveMostRecent = result1.Grades.OrderByDescending(x => x.evtDate).Take(5);
 
@@ -176,13 +190,8 @@ namespace ClassevivaPCTO.Views
             ListViewVotiDate.ItemsSource = result1.Grades;
             ListViewAgendaDate.ItemsSource = result1.Grades;
 
-            //run in a background thread otherwise the UI thread gets stuck when displaying a dialog
-            await Task.Run(async () =>
-            {
-                await CaricaMediaCard();
-            });
         }
-        
+
         public async Task CaricaMediaCard()
         {
             DashboardPageViewModel.IsLoadingMedia = true;
