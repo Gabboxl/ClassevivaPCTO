@@ -28,7 +28,6 @@ using Windows.UI.Xaml.Navigation;
 
 namespace ClassevivaPCTO.Views
 {
-
     public sealed partial class DashboardPage : Page
     {
         private readonly IClassevivaAPI apiClient;
@@ -78,9 +77,7 @@ namespace ClassevivaPCTO.Views
                                     TaskCompletionSource<bool> IsSomethingLoading =
                                         new TaskCompletionSource<bool>();
 
-                                    Debug.WriteLine(
-                                        "Test retry n.{0} policy ok ", retryCount
-                                    );
+                                    Debug.WriteLine("Test retry n.{0} policy ok ", retryCount);
 
                                     //the dispatcher.runasync method does not return any value, so actually the "await" is redundant, so to know when the dialog is done showing, we use the Taskcompletionsource hack
                                     await CoreApplication.MainView.Dispatcher.RunAsync(
@@ -90,7 +87,11 @@ namespace ClassevivaPCTO.Views
                                             ContentDialog noWifiDialog = new ContentDialog
                                             {
                                                 Title = "Error",
-                                                Content = "Retry n." + retryCount + "\n" + apiException.Message,
+                                                Content =
+                                                    "Retry n."
+                                                    + retryCount
+                                                    + "\n"
+                                                    + apiException.Message,
                                                 CloseButtonText = "Ok"
                                             };
 
@@ -178,8 +179,8 @@ namespace ClassevivaPCTO.Views
             Card cardResult = ViewModelHolder.getViewModel().CardsResult.Cards[0];
 
             var result1 = await apiWrapper
-.GetGrades(cardResult.usrId.ToString(), "asd")
-.ConfigureAwait(false);
+                .GetGrades(cardResult.usrId.ToString(), "asd")
+                .ConfigureAwait(false);
 
             var fiveMostRecent = result1.Grades.OrderByDescending(x => x.evtDate).Take(5);
 
@@ -189,7 +190,6 @@ namespace ClassevivaPCTO.Views
             ListViewAbsencesDate.ItemsSource = result1.Grades;
             ListViewVotiDate.ItemsSource = result1.Grades;
             ListViewAgendaDate.ItemsSource = result1.Grades;
-
         }
 
         public async Task CaricaMediaCard()
@@ -215,8 +215,6 @@ namespace ClassevivaPCTO.Views
 
             DashboardPageViewModel.IsLoadingMedia = false;
         }
-
-
 
         private void HyperlinkButton_Click(object sender, RoutedEventArgs e)
         {
