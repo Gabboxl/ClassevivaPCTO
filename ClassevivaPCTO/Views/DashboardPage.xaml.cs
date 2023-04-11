@@ -53,8 +53,7 @@ namespace ClassevivaPCTO.Views
 
             apiWrapper2 = PoliciesDispatchProxy<IClassevivaAPI>.CreateProxy(apiClient);
 
-            this.Loaded += async (sender, args) =>
-            {
+            this.Loaded += async (sender, args) => {
                 //CaricaMediaCard();
             };
         }
@@ -90,37 +89,32 @@ namespace ClassevivaPCTO.Views
                                     TaskCompletionSource<bool> IsSomethingLoading =
                                         new TaskCompletionSource<bool>();
 
+                                    Debug.WriteLine(
+                                        "side ok " + CoreApplication.MainView.Dispatcher
+                                    );
 
-                                            Debug.WriteLine(
-                                                "side ok " + CoreApplication.MainView.Dispatcher
-                                            );
+                                    //the dispatcher.runasync method does not return any value, so actually the "await" is redundant, so to know when the dialog is done showing, we use the Taskcompletionsource hack
+                                    await CoreApplication.MainView.Dispatcher.RunAsync(
+                                        CoreDispatcherPriority.Normal,
+                                        async () =>
+                                        {
+                                            ContentDialog noWifiDialog = new ContentDialog
+                                            {
+                                                Title = "No wifi connection",
+                                                Content = "omgxx.",
+                                                CloseButtonText = "Ok"
+                                            };
 
-                                            //the dispatcher.runasync method does not return any value, so actually the "await" is redundant, so to know when the dialog is done showing, we use the Taskcompletionsource hack
-                                            await CoreApplication.MainView.Dispatcher.RunAsync(
-                                                CoreDispatcherPriority.Normal,
-                                                async () =>
-                                                {
-                                                    ContentDialog noWifiDialog = new ContentDialog
-                                                    {
-                                                        Title = "No wifi connection",
-                                                        Content = "omgxx.",
-                                                        CloseButtonText = "Ok"
-                                                    };
+                                            ContentDialogResult result =
+                                                await noWifiDialog.ShowAsync();
 
-                                                        ContentDialogResult result =
-                                                            await noWifiDialog.ShowAsync();
-
-                                                        IsSomethingLoading.SetResult(true);
-
-
-                                                }
-                                            );
-
+                                            IsSomethingLoading.SetResult(true);
+                                        }
+                                    );
 
                                     await IsSomethingLoading.Task;
                                 }
                             }
-
                         }
                     );
 
@@ -205,12 +199,11 @@ namespace ClassevivaPCTO.Views
             ListViewVotiDate.ItemsSource = result1.Grades;
             ListViewAgendaDate.ItemsSource = result1.Grades;
 
-
             //run in a background thread
-            await Task.Run(async () => {
+            await Task.Run(async () =>
+            {
                 await CaricaMediaCard();
             });
-            
         }
 
         public async Task CaricaMediaCard()
@@ -220,23 +213,21 @@ namespace ClassevivaPCTO.Views
             LoginResult loginResult = ViewModelHolder.getViewModel().LoginResult;
             Card cardResult = ViewModelHolder.getViewModel().CardsResult.Cards[0];
 
+            var result1 = await apiWrapper2
+                .GetGrades(cardResult.usrId.ToString(), "asd")
+                .ConfigureAwait(false);
 
-                var result1 = await apiWrapper2
-                    .GetGrades(cardResult.usrId.ToString(), "asd")
-                    .ConfigureAwait(false);
+            // Calcoliamo la media dei voti
+            float media = CalcolaMedia(result1.Grades);
 
-                // Calcoliamo la media dei voti
-                float media = CalcolaMedia(result1.Grades);
+            TextBlockMedia.Foreground = (Brush)
+                new GradeToColorConverter().Convert(media, null, null, null);
 
-                TextBlockMedia.Foreground = (Brush)
-                    new GradeToColorConverter().Convert(media, null, null, null);
+            // Stampiamo la media dei voti
+            TextBlockMedia.Text = media.ToString("0.00");
+            TextBlockMedia.Visibility = Visibility.Visible;
 
-                // Stampiamo la media dei voti
-                TextBlockMedia.Text = media.ToString("0.00");
-                TextBlockMedia.Visibility = Visibility.Visible;
-
-                DashboardPageViewModel.IsLoadingMedia = false;
-
+            DashboardPageViewModel.IsLoadingMedia = false;
         }
 
         static float CalcolaMedia(List<Grade> voti)
