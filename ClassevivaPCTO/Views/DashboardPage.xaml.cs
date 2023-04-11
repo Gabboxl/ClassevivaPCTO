@@ -105,14 +105,12 @@ namespace ClassevivaPCTO.Views
                                                         CloseButtonText = "Ok"
                                                     };
 
-                                                    try
-                                                    {
                                                         ContentDialogResult result =
                                                             await noWifiDialog.ShowAsync();
 
                                                         IsSomethingLoading.SetResult(true);
-                                                    }
-                                                    catch (Exception ex) { }
+
+
                                                 }
                                             );
 
@@ -131,12 +129,6 @@ namespace ClassevivaPCTO.Views
                     .Handle<Exception>()
                     .FallbackAsync(async ct =>
                     {
-                        //run on ui thread
-
-
-
-
-
                         //if after the retries another exception occurs, then we let the call flow go ahead
                         return targetMethod.Invoke(Target, args);
                     });
