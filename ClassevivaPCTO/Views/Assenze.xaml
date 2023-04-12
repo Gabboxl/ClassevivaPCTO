@@ -15,5 +15,8 @@
         <TextBlock x:Name="TextTitolo"  Grid.Row="0" Text="Assenze e Ritardi" FontSize="42" VerticalAlignment="Top"
                    Margin="32,16,0,0" />
 
+        <TextBlock x:Name="TextCenter"  Grid.Row="2" Text="There is nothing here right now" FontSize="42" VerticalAlignment="Center"
+        HorizontalAlignment="Center"             />
+
     </Grid>
 </Page>
