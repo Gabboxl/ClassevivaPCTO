@@ -50,7 +50,7 @@ namespace ClassevivaPCTO.Utils
                                         {
                                             ContentDialog noWifiDialog = new ContentDialog
                                             {
-                                                Title = "Error",
+                                                Title = "Error during API call",
                                                 Content =
                                                     "Retry n."
                                                     + retryCount
