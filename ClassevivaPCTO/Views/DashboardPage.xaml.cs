@@ -103,7 +103,7 @@ namespace ClassevivaPCTO.Views
             Card cardResult = ViewModelHolder.getViewModel().CardsResult.Cards[0];
 
             var result1 = await apiWrapper
-                .GetGrades(cardResult.usrId.ToString(), "asd")
+                .GetGrades(cardResult.usrId.ToString(), loginResult.Token.ToString())
                 .ConfigureAwait(false);
 
             // Calcoliamo la media dei voti
