@@ -109,14 +109,26 @@ namespace ClassevivaPCTO.Views
             // Calcoliamo la media dei voti
             float media = VariousUtils.CalcolaMedia(result1.Grades);
 
-            TextBlockMedia.Foreground = (Brush)
+
+            //update UI on UI thread
+            await CoreApplication.MainView.Dispatcher.RunAsync(
+                CoreDispatcherPriority.Normal,
+                async () =>
+                {
+
+                    TextBlockMedia.Foreground = (Brush)
                 new GradeToColorConverter().Convert(media, null, null, null);
 
             // Stampiamo la media dei voti
             TextBlockMedia.Text = media.ToString("0.00");
             TextBlockMedia.Visibility = Visibility.Visible;
 
-            DashboardPageViewModel.IsLoadingMedia = false;
+                    DashboardPageViewModel.IsLoadingMedia = false;
+
+                }
+            );
+
+            
         }
 
         private void HyperlinkButton_Click(object sender, RoutedEventArgs e)
