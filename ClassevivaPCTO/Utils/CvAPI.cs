@@ -325,7 +325,7 @@ namespace ClassevivaPCTO.Utils
         [Get("/students/{userId}/periods")]
         Task<PeriodsResult> GetPeriods(string userId, [Header("Z-Auth-Token")] string token);
 
-        [Get("/students/{userId}/periods")]
+        [Get("/students/{userId}/subjects")]
         Task<SubjectsResult> GetSubjects(string userId, [Header("Z-Auth-Token")] string token);
 
         [Get("/students/{userId}/notes/all")]
