@@ -92,12 +92,17 @@ namespace ClassevivaPCTO.Views
                     ListViewAgendaDate.ItemsSource = result1.Grades;
                 }
             );
-
         }
 
         public async Task CaricaMediaCard()
         {
-            DashboardPageViewModel.IsLoadingMedia = true;
+            await CoreApplication.MainView.Dispatcher.RunAsync(
+                CoreDispatcherPriority.Normal,
+                async () =>
+                {
+                    DashboardPageViewModel.IsLoadingMedia = true;
+                }
+            );
 
             LoginResult loginResult = ViewModelHolder.getViewModel().LoginResult;
             Card cardResult = ViewModelHolder.getViewModel().CardsResult.Cards[0];
@@ -109,26 +114,21 @@ namespace ClassevivaPCTO.Views
             // Calcoliamo la media dei voti
             float media = VariousUtils.CalcolaMedia(result1.Grades);
 
-
             //update UI on UI thread
             await CoreApplication.MainView.Dispatcher.RunAsync(
                 CoreDispatcherPriority.Normal,
                 async () =>
                 {
-
                     TextBlockMedia.Foreground = (Brush)
-                new GradeToColorConverter().Convert(media, null, null, null);
+                        new GradeToColorConverter().Convert(media, null, null, null);
 
-            // Stampiamo la media dei voti
-            TextBlockMedia.Text = media.ToString("0.00");
-            TextBlockMedia.Visibility = Visibility.Visible;
+                    // Stampiamo la media dei voti
+                    TextBlockMedia.Text = media.ToString("0.00");
+                    TextBlockMedia.Visibility = Visibility.Visible;
 
                     DashboardPageViewModel.IsLoadingMedia = false;
-
                 }
             );
-
-            
         }
 
         private void HyperlinkButton_Click(object sender, RoutedEventArgs e)
@@ -140,6 +140,21 @@ namespace ClassevivaPCTO.Views
         private async void HyperlinkButton_Click_1(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(typeof(Views.Agenda));
+        }
+
+        private async void AggiornaButton_Click(object sender, RoutedEventArgs e)
+        {
+            DashboardPageViewModel.IsLoadingMedia = true;
+
+            await Task.Run(async () =>
+            {
+                await LoadAgendaCard();
+            });
+
+            await Task.Run(async () =>
+            {
+                await CaricaMediaCard();
+            });
         }
     }
 }
