@@ -121,9 +121,9 @@
                             <MenuFlyoutItem.Template  >
                                 <ControlTemplate x:Name="FlyoutItemPersonPictureTemp">
                                     <StackPanel Grid.Row="0" Grid.RowSpan="2" VerticalAlignment="Center" Margin="16">
-                                        <TextBlock IsTextSelectionEnabled="True" x:Name="TNomeCognome" TextWrapping="Wrap" TextAlignment="Center"  Text="{Binding FirstName}"   Style="{ThemeResource BodyStrongTextBlockStyle}"   FontSize="14" HorizontalAlignment="Center" VerticalAlignment="Top" FontWeight="Bold" />
-                                        <TextBlock IsTextSelectionEnabled="True" x:Name="TCodiceUtente" TextWrapping="Wrap" TextAlignment="Center"  Text="{Binding Codice}"   Style="{ThemeResource BodyTextBlockStyle}"  FontSize="12" HorizontalAlignment="Center" VerticalAlignment="Top" />
-                                        <TextBlock IsTextSelectionEnabled="True" x:Name="TScuola" TextWrapping="Wrap" TextAlignment="Center"  Text="{Binding Scuola}"   Style="{ThemeResource BodyTextBlockStyle}"  FontSize="12" HorizontalAlignment="Center" VerticalAlignment="Top"  />
+                                        <TextBlock IsTextSelectionEnabled="True" x:Name="TNomeCognome" TextWrapping="Wrap" TextAlignment="Center"  Text="{Binding FirstName}"   Style="{ThemeResource BodyStrongTextBlockStyle}"   FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Top" FontWeight="Bold" />
+                                        <TextBlock IsTextSelectionEnabled="True" Margin="0,8,0,0" x:Name="TCodiceUtente" TextWrapping="Wrap" TextAlignment="Center"  Text="{Binding Codice}"   Style="{ThemeResource BodyTextBlockStyle}"  FontSize="12" HorizontalAlignment="Center" VerticalAlignment="Top" />
+                                        <TextBlock IsTextSelectionEnabled="True" x:Name="TScuola" Margin="0,8,0,0" TextWrapping="Wrap" TextAlignment="Center"  Text="{Binding Scuola}"   Style="{ThemeResource BodyTextBlockStyle}"  FontSize="12" HorizontalAlignment="Center" VerticalAlignment="Top"  />
                                     </StackPanel>
                                 </ControlTemplate>
                             </MenuFlyoutItem.Template>
