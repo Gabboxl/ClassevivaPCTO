@@ -58,7 +58,12 @@ namespace ClassevivaPCTO.Views
 
             await Task.Run(async () =>
             {
-                await LoadAgendaCard();
+                await LoadOverviewCard();
+            });
+
+            await Task.Run(async () =>
+            {
+                await CaricaRecentGradesCard();
             });
 
             //run in a background thread otherwise the UI thread gets stuck when displaying a dialog
@@ -68,7 +73,7 @@ namespace ClassevivaPCTO.Views
             });
         }
 
-        public async Task LoadAgendaCard()
+        public async Task LoadOverviewCard()
         {
             LoginResult loginResult = ViewModelHolder.getViewModel().LoginResult;
             Card cardResult = ViewModelHolder.getViewModel().CardsResult.Cards[0];
@@ -77,19 +82,34 @@ namespace ClassevivaPCTO.Views
                 .GetGrades(cardResult.usrId.ToString(), loginResult.Token.ToString())
                 .ConfigureAwait(false);
 
-            var fiveMostRecent = result1.Grades.OrderByDescending(x => x.evtDate).Take(5);
+            //update UI on UI thread
+            await CoreApplication.MainView.Dispatcher.RunAsync(
+                CoreDispatcherPriority.Normal,
+                async () =>
+                { 
 
+                    ListViewLezioniDate.ItemsSource = result1.Grades;
+                    ListViewAbsencesDate.ItemsSource = result1.Grades;
+                    ListViewVotiDate.ItemsSource = result1.Grades;
+                    ListViewAgendaDate.ItemsSource = result1.Grades;
+                }
+            );
+        }
+
+        public async Task CaricaRecentGradesCard()
+        {
+            LoginResult loginResult = ViewModelHolder.getViewModel().LoginResult;
+            Card cardResult = ViewModelHolder.getViewModel().CardsResult.Cards[0];
+            var result1 = await apiWrapper
+                .GetGrades(cardResult.usrId.ToString(), loginResult.Token.ToString())
+                .ConfigureAwait(false);
+            var fiveMostRecent = result1.Grades.OrderByDescending(x => x.evtDate).Take(5);
             //update UI on UI thread
             await CoreApplication.MainView.Dispatcher.RunAsync(
                 CoreDispatcherPriority.Normal,
                 async () =>
                 {
                     ListRecentGrades.ItemsSource = fiveMostRecent;
-
-                    //todoo
-                    ListViewAbsencesDate.ItemsSource = result1.Grades;
-                    ListViewVotiDate.ItemsSource = result1.Grades;
-                    ListViewAgendaDate.ItemsSource = result1.Grades;
                 }
             );
         }
@@ -148,8 +168,14 @@ namespace ClassevivaPCTO.Views
 
             await Task.Run(async () =>
             {
-                await LoadAgendaCard();
+                await LoadOverviewCard();
             });
+
+            await Task.Run(async () =>
+            {
+                await CaricaRecentGradesCard();
+            });
+
 
             await Task.Run(async () =>
             {
