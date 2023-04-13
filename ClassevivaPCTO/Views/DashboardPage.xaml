@@ -39,9 +39,15 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
+        <RelativePanel Grid.Row="0">
 
-        <TextBlock x:Name="TextBenvenuto"  Grid.Row="0" Text="test " FontSize="42" VerticalAlignment="Top"
+            <TextBlock x:Name="TextBenvenuto"   Text="test " FontSize="42" VerticalAlignment="Top"
                    Margin="32,16,0,0" />
+
+            <AppBarButton  RelativePanel.RightOf="TextBenvenuto" VerticalAlignment="Top"  Margin="32,16,0,0" Icon="Refresh" Label="Aggiorna" Click="AggiornaButton_Click"/>
+        </RelativePanel>
+
+
 
 
         <controls:UniformGrid Grid.Row="1"
