@@ -78,20 +78,21 @@ namespace ClassevivaPCTO.Views
             LoginResult loginResult = ViewModelHolder.getViewModel().LoginResult;
             Card cardResult = ViewModelHolder.getViewModel().CardsResult.Cards[0];
 
-            var result1 = await apiWrapper
-                .GetGrades(cardResult.usrId.ToString(), loginResult.Token.ToString())
-                .ConfigureAwait(false);
+
+
+            string caldate = VariousUtils.ToApiDateTime(DateTime.Now);
+            OverviewResult overviewResult = await apiWrapper.GetOverview(cardResult.usrId.ToString(), caldate, caldate, loginResult.Token.ToString());
+
 
             //update UI on UI thread
             await CoreApplication.MainView.Dispatcher.RunAsync(
                 CoreDispatcherPriority.Normal,
                 async () =>
-                { 
-
-                    ListViewLezioniDate.ItemsSource = result1.Grades;
-                    ListViewAbsencesDate.ItemsSource = result1.Grades;
-                    ListViewVotiDate.ItemsSource = result1.Grades;
-                    ListViewAgendaDate.ItemsSource = result1.Grades;
+                {   
+                    ListViewAbsencesDate.ItemsSource = overviewResult.AgendaEvents;
+                    ListViewVotiDate.ItemsSource = overviewResult.Grades;
+                    ListViewLezioniDate.ItemsSource = overviewResult.Grades;
+                    ListViewAgendaDate.ItemsSource = overviewResult.Grades;
                 }
             );
         }
