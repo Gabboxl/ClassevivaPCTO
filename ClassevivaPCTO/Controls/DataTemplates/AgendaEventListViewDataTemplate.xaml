@@ -1,0 +1,61 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:contract7Present="http://schemas.microsoft.com/winfx/2006/xaml/presentation?IsApiContractPresent(Windows.Foundation.UniversalApiContract, 7)"
+    xmlns:converters="using:ClassevivaPCTO.Converters"
+    xmlns:utils="using:ClassevivaPCTO.Utils"
+    x:Class="ClassevivaPCTO.Controls.DataTemplates.AgendaEventListViewDataTemplate"
+    xmlns:muxc="using:Microsoft.UI.Xaml.Controls">
+
+    <utils:AgendaEvent x:Key="AgendaEvent"/>
+
+
+    <DataTemplate x:Key="AgendaEventListViewDataTemplate"
+                  
+                  x:DataType="utils:AgendaEvent">
+        <RelativePanel>
+    
+
+                <TextBlock x:Name="titoloEvento" TextWrapping="Wrap"
+                                           MaxWidth="500"
+                                           Text="{x:Bind subjectDesc}"
+                                           Style="{ThemeResource BaseTextBlockStyle}"
+                                           Margin="12,6,0,0" />
+
+            <TextBlock RelativePanel.RightOf="titoloEvento" x:Name="tipoEvento" TextWrapping="Wrap"
+                                           MaxWidth="500"
+                                           Text="{x:Bind evtCode}"
+                                           Style="{ThemeResource BaseTextBlockStyle}"
+                                           Margin="12,6,0,0" />
+
+
+            <TextBlock RelativePanel.Below="titoloEvento" x:Name="dataStart"
+                                           Text="{x:Bind evtDatetimeBegin, Converter={StaticResource DateTimeToNormalDateConverter}}"
+                                           FontStyle="Italic"
+                                           Style="{ThemeResource BodyTextBlockStyle}"
+                                           Margin="12,0,0,0" />
+
+            <TextBlock RelativePanel.RightOf="dataFrom" x:Name="placeholderData"
+                                           Text=" - "
+                                           FontStyle="Italic"
+                                           Style="{ThemeResource BodyTextBlockStyle}"
+                                           Margin="12,0,0,0" />
+
+
+            <TextBlock RelativePanel.RightOf="placeholderData" x:Name="dataEnd"
+                                           Text="{x:Bind evtDatetimeEnd, Converter={StaticResource DateTimeToNormalDateConverter}}"
+                                           FontStyle="Italic"
+                                           Style="{ThemeResource BodyTextBlockStyle}"
+                                           Margin="12,0,0,0" />
+
+            <TextBlock RelativePanel.Below="dataFrom" x:Name="descriptionEvent"
+                                           TextWrapping="Wrap"
+                                           Text="{x:Bind notes}"
+                                           Style="{ThemeResource BodyTextBlockStyle}"
+                                           Margin="12,0,0,6" />
+
+
+
+        </RelativePanel>
+    </DataTemplate>
+</ResourceDictionary>

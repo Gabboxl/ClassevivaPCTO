@@ -1,0 +1,68 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:contract7Present="http://schemas.microsoft.com/winfx/2006/xaml/presentation?IsApiContractPresent(Windows.Foundation.UniversalApiContract, 7)"
+    xmlns:converters="using:ClassevivaPCTO.Converters"
+    xmlns:roba="using:ClassevivaPCTO.Utils"
+    x:Class="ClassevivaPCTO.Controls.DataTemplates.AgendaListViewDataTemplate"
+    xmlns:muxc="using:Microsoft.UI.Xaml.Controls">
+
+    <roba:AgendaEvent x:Key="AgendaEvent"/>
+
+
+    <DataTemplate x:Key="AgendaListViewDataTemplate"
+                  
+                  x:DataType="roba:AgendaEvent">
+        <RelativePanel>
+    
+            <Grid RelativePanel.AlignVerticalCenterWithPanel="True" x:Name="gridVoto">
+                <Ellipse x:Name="Ellipse"
+                                             Grid.RowSpan="2"
+                                             Width="42"
+                                             Height="42"
+                                             Margin="2"
+                                         
+                                             Fill="{x:Bind Converter={StaticResource GradeToColorConverter}}"
+
+                                             VerticalAlignment="Center"
+                                             HorizontalAlignment="Center">
+                    <!-- ="{ThemeResource SystemControlBackgroundBaseMediumBrush}" -->
+                </Ellipse>
+                <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center"
+                                               Text="{x:Bind subjectDesc}" FontSize="14" Foreground="#FFFFFF" />
+
+            </Grid>
+
+            <RelativePanel RelativePanel.AlignVerticalCenterWithPanel="True" RelativePanel.RightOf="gridVoto">
+                <TextBlock x:Name="textMateria" TextWrapping="Wrap"
+                                           MaxWidth="500"
+                                           Text="{x:Bind subjectDesc}"
+                                           Style="{ThemeResource BaseTextBlockStyle}"
+                                           Margin="12,6,0,0" />
+
+
+                <TextBlock RelativePanel.Below="textMateria" x:Name="dataVoto"
+                                           Text="{x:Bind subjectDesc, Converter={StaticResource DateTimeToNormalDateConverter}}"
+                                           FontStyle="Italic"
+                                           Style="{ThemeResource BodyTextBlockStyle}"
+                                           Margin="12,0,0,0" />
+
+                <TextBlock RelativePanel.RightOf="dataVoto" RelativePanel.Below="textMateria"
+                                           Text="{x:Bind subjectDesc}"
+                                           Style="{ThemeResource BodyTextBlockStyle}"
+                                           FontStyle="Italic"
+                                           Margin="12,0,0,0" />
+
+                <TextBlock RelativePanel.Below="dataVoto"
+                                           TextWrapping="Wrap"
+                                           Text="{x:Bind subjectDesc}"
+                                           Style="{ThemeResource BodyTextBlockStyle}"
+                                           Margin="12,0,0,6" />
+
+            </RelativePanel>
+
+
+
+        </RelativePanel>
+    </DataTemplate>
+</ResourceDictionary>
