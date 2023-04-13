@@ -108,7 +108,18 @@
 
                         </ListView>
 
-                        <ListView x:Name="ListViewAgendaDate" RelativePanel.Below="ListViewVotiDate"
+                        <ListView x:Name="ListViewLezioniDate" RelativePanel.Below="ListViewVotiDate"
+                          SelectionMode="Single"
+                              
+                          HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+                          ItemTemplate="{StaticResource VotiListViewDataTemplateNope}"
+                              
+                          ScrollViewer.VerticalScrollMode="Disabled"
+                                  ScrollViewer.VerticalScrollBarVisibility="Disabled">
+
+                        </ListView>
+
+                        <ListView x:Name="ListViewAgendaDate" RelativePanel.Below="ListViewLezioniDate"
                           SelectionMode="Single"
                               
                           HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
@@ -174,9 +185,6 @@
                 <HyperlinkButton Grid.Row="2"  Content="Vedi tutti i voti"
                  Click="HyperlinkButton_Click" VerticalAlignment="Bottom" HorizontalAlignment="Right"
                 />
-
-
-
 
             </Grid>
 
