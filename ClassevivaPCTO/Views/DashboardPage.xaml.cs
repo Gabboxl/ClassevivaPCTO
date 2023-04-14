@@ -89,10 +89,10 @@ namespace ClassevivaPCTO.Views
                 CoreDispatcherPriority.Normal,
                 async () =>
                 {   
-                   // ListViewAbsencesDate.ItemsSource = overviewResult.AgendaEvents;
+                    ListViewAbsencesDate.ItemsSource = overviewResult.Grades;
                     ListViewVotiDate.ItemsSource = overviewResult.Grades;
                     ListViewLezioniDate.ItemsSource = overviewResult.Grades;
-                    ListViewAgendaDate.ItemsSource = overviewResult.Grades;
+                    ListViewAgendaDate.ItemsSource = overviewResult.AgendaEvents;
                 }
             );
         }

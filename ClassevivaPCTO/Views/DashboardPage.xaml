@@ -123,7 +123,7 @@
                           SelectionMode="Single"
                               
                           HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
-                          ItemTemplate="{StaticResource VotiListViewDataTemplateNope}"
+                          ItemTemplate="{StaticResource AgendaEventListViewDataTemplate}"
                               
                           ScrollViewer.VerticalScrollMode="Disabled"
                                   ScrollViewer.VerticalScrollBarVisibility="Disabled">

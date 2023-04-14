@@ -20,7 +20,7 @@
                                            MaxWidth="500"
                                            Text="{x:Bind subjectDesc}"
                                            Style="{ThemeResource BaseTextBlockStyle}"
-                                           Margin="12,6,0,0" />
+                                           Margin="6,6,0,0" />
 
             <TextBlock RelativePanel.RightOf="titoloEvento" x:Name="tipoEvento" TextWrapping="Wrap"
                                            MaxWidth="500"
@@ -29,26 +29,26 @@
                                            Margin="12,6,0,0" />
 
 
-            <TextBlock RelativePanel.Below="titoloEvento" x:Name="dataStart"
+            <TextBlock RelativePanel.RightOf="tipoEvento" x:Name="dataStart"
                                            Text="{x:Bind evtDatetimeBegin, Converter={StaticResource DateTimeToNormalDateConverter}}"
                                            FontStyle="Italic"
                                            Style="{ThemeResource BodyTextBlockStyle}"
-                                           Margin="12,0,0,0" />
+                                           Margin="6,6,0,0" />
 
-            <TextBlock RelativePanel.RightOf="dataFrom" x:Name="placeholderData"
-                                           Text=" - "
+            <TextBlock RelativePanel.RightOf="dataStart" x:Name="placeholderData"
+                                           Text="-"
                                            FontStyle="Italic"
                                            Style="{ThemeResource BodyTextBlockStyle}"
-                                           Margin="12,0,0,0" />
+                                           Margin="6,6,6,0" />
 
 
             <TextBlock RelativePanel.RightOf="placeholderData" x:Name="dataEnd"
                                            Text="{x:Bind evtDatetimeEnd, Converter={StaticResource DateTimeToNormalDateConverter}}"
                                            FontStyle="Italic"
                                            Style="{ThemeResource BodyTextBlockStyle}"
-                                           Margin="12,0,0,0" />
+                                           Margin="0,6,0,0" />
 
-            <TextBlock RelativePanel.Below="dataFrom" x:Name="descriptionEvent"
+            <TextBlock RelativePanel.Below="dataStart" x:Name="descriptionEvent"
                                            TextWrapping="Wrap"
                                            Text="{x:Bind notes}"
                                            Style="{ThemeResource BodyTextBlockStyle}"
