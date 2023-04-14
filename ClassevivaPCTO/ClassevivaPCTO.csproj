@@ -136,8 +136,10 @@
     <Compile Include="Services\FirstRunDisplayService.cs" />
     <Compile Include="Services\NavigationService.cs" />
     <Compile Include="Services\ThemeSelectorService.cs" />
+    <Compile Include="Utils\Adapters.cs" />
     <Compile Include="Utils\Cache.cs" />
     <Compile Include="Utils\CvUtils.cs" />
+    <Compile Include="Utils\IClassevivaAPI.cs" />
     <Compile Include="ViewModels\AgendaViewModel.cs" />
     <Compile Include="ViewModels\DashboardPageViewModel.cs" />
     <Compile Include="ViewModels\NavigationViewViewModel.cs" />
