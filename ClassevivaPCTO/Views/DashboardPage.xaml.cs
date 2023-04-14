@@ -3,6 +3,7 @@ using ClassevivaPCTO.Services;
 using ClassevivaPCTO.Utils;
 using ClassevivaPCTO.ViewModels;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
@@ -92,10 +93,24 @@ namespace ClassevivaPCTO.Views
                     ListViewAbsencesDate.ItemsSource = overviewResult.Grades;
                     ListViewVotiDate.ItemsSource = overviewResult.Grades;
                     ListViewLezioniDate.ItemsSource = overviewResult.Grades;
-                    ListViewAgendaDate.ItemsSource = overviewResult.AgendaEvents;
+
+                    // Wrap each AgendaEvent object in an instance of AgendaEventAdapter
+                    var eventAdapters = overviewResult.AgendaEvents.Select(ev => new AgendaEventAdapter(ev)).ToList();
+
+                    ListViewAgendaDate.ItemsSource = eventAdapters;
                 }
             );
         }
+
+
+
+
+
+
+
+
+
+
 
         public async Task CaricaRecentGradesCard()
         {

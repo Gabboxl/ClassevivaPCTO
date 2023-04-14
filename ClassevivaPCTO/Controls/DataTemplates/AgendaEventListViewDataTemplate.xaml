@@ -12,16 +12,17 @@
 
     <DataTemplate x:Key="AgendaEventListViewDataTemplate"
                   
-                  x:DataType="utils:AgendaEvent">
+                  x:DataType="utils:AgendaEventAdapter">
         <RelativePanel>
     
 
                 <TextBlock x:Name="titoloEvento" TextWrapping="Wrap"
                                            MaxWidth="500"
-                                           Text="{x:Bind subjectDesc}"
+                                           Text="{x:Bind Title}"
                                            Style="{ThemeResource BaseTextBlockStyle}"
                                            Margin="6,6,0,0" />
 
+            <!--
             <TextBlock RelativePanel.RightOf="titoloEvento" x:Name="tipoEvento" TextWrapping="Wrap"
                                            MaxWidth="500"
                                            Text="{x:Bind evtCode}"
@@ -53,6 +54,8 @@
                                            Text="{x:Bind notes}"
                                            Style="{ThemeResource BodyTextBlockStyle}"
                                            Margin="12,0,0,6" />
+            
+            -->
 
 
 
