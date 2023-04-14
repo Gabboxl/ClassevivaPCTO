@@ -141,9 +141,9 @@ namespace ClassevivaPCTO.Utils
         public string notes { get; set; }
         public string authorName { get; set; }
         public string classDesc { get; set; }
-        public object subjectId { get; set; }
-        public object subjectDesc { get; set; }
-        public object homeworkId { get; set; }
+        public int subjectId { get; set; }
+        public string subjectDesc { get; set; }
+        public int homeworkId { get; set; }
     }
 
 
