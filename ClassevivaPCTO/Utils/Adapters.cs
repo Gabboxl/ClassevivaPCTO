@@ -2,27 +2,28 @@
 {
     public class AgendaEventAdapter : BindableBase.BindableBase
     {
-        public AgendaEvent Event;
+        public AgendaEvent CurrentObject;
 
         public string Title { 
             get {
-                if(string.IsNullOrEmpty(Event.subjectDesc))
+
+                if(string.IsNullOrEmpty(CurrentObject.subjectDesc))
                 {
-                    return Event.authorName;
+                    return CurrentObject.authorName;
                 } else
                 {
-                    return Event.subjectDesc + " (" + Event.authorName + ")";
+                    return CurrentObject.subjectDesc + " (" + CurrentObject.authorName + ")";
                 }
 
             
             }
         }
 
-        public string Notes => Event.notes;
+        public string Notes => CurrentObject.notes;
 
         public AgendaEventAdapter(AgendaEvent ev)
         {
-            Event = ev;
+            CurrentObject = ev;
         }
     }
 
