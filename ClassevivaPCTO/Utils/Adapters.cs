@@ -19,6 +19,17 @@
             }
         }
 
+        public string EventType
+        {
+            get
+            {
+
+                return "[" + CurrentObject.evtCode + "]";
+
+
+            }
+        }
+
         public string Notes => CurrentObject.notes;
 
         public AgendaEventAdapter(AgendaEvent ev)

@@ -81,7 +81,7 @@ namespace ClassevivaPCTO.Views
 
 
 
-            string caldate = VariousUtils.ToApiDateTime(DateTime.Now.AddDays(-1));
+            string caldate = VariousUtils.ToApiDateTime(DateTime.Now.AddDays(-2));
             OverviewResult overviewResult = await apiWrapper.GetOverview(cardResult.usrId.ToString(), caldate, caldate, loginResult.Token.ToString());
 
 
