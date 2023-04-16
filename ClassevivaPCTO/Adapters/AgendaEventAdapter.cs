@@ -1,4 +1,6 @@
-﻿namespace ClassevivaPCTO.Utils
+﻿using ClassevivaPCTO.Utils;
+
+namespace ClassevivaPCTO.Adapters
 {
     public class AgendaEventAdapter : BindableBase.BindableBase
     {
