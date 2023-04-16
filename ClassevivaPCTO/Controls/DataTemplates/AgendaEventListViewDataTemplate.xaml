@@ -7,8 +7,6 @@
     x:Class="ClassevivaPCTO.Controls.DataTemplates.AgendaEventListViewDataTemplate"
     xmlns:muxc="using:Microsoft.UI.Xaml.Controls">
 
-    <utils:AgendaEvent x:Key="AgendaEvent"/>
-
     <converters:DateTimeToHourConverter x:Key="DateTimeToHourConverter" />
 
 

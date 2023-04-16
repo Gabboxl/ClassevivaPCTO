@@ -3,16 +3,13 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:contract7Present="http://schemas.microsoft.com/winfx/2006/xaml/presentation?IsApiContractPresent(Windows.Foundation.UniversalApiContract, 7)"
     xmlns:converters="using:ClassevivaPCTO.Converters"
-    xmlns:roba="using:ClassevivaPCTO.Utils"
+    xmlns:utils="using:ClassevivaPCTO.Utils"
     x:Class="ClassevivaPCTO.Controls.DataTemplates.AgendaListViewDataTemplate"
     xmlns:muxc="using:Microsoft.UI.Xaml.Controls">
 
-    <roba:AgendaEvent x:Key="AgendaEvent"/>
-
-
-    <DataTemplate x:Key="AgendaListViewDataTemplate"
+    <DataTemplate x:Key="LessonListViewDataTemplate"
                   
-                  x:DataType="roba:AgendaEvent">
+                  x:DataType="utils:AgendaEvent">
         <RelativePanel>
     
             <Grid RelativePanel.AlignVerticalCenterWithPanel="True" x:Name="gridVoto">

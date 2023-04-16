@@ -91,12 +91,11 @@ namespace ClassevivaPCTO.Views
                 async () =>
                 {   
                     //ListViewAbsencesDate.ItemsSource = overviewResult.Grades;
-                    //ListViewVotiDate.ItemsSource = overviewResult.Grades;
+                    ListViewVotiDate.ItemsSource = overviewResult.Grades;
                     //ListViewLezioniDate.ItemsSource = overviewResult.Grades;
 
                     // Wrap each AgendaEvent object in an instance of AgendaEventAdapter
                     var eventAdapters = overviewResult.AgendaEvents.Select(ev => new AgendaEventAdapter(ev)).ToList();
-
                     ListViewAgendaDate.ItemsSource = eventAdapters;
                 }
             );
