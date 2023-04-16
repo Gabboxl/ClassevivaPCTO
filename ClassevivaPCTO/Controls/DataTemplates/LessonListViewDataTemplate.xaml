@@ -4,55 +4,39 @@
     xmlns:contract7Present="http://schemas.microsoft.com/winfx/2006/xaml/presentation?IsApiContractPresent(Windows.Foundation.UniversalApiContract, 7)"
     xmlns:converters="using:ClassevivaPCTO.Converters"
     xmlns:utils="using:ClassevivaPCTO.Utils"
-    x:Class="ClassevivaPCTO.Controls.DataTemplates.AgendaListViewDataTemplate"
+    xmlns:adapters="using:ClassevivaPCTO.Adapters"
+    x:Class="ClassevivaPCTO.Controls.DataTemplates.LessonListViewDataTemplate"
     xmlns:muxc="using:Microsoft.UI.Xaml.Controls">
 
     <DataTemplate x:Key="LessonListViewDataTemplate"
                   
-                  x:DataType="utils:AgendaEvent">
+                  x:DataType="adapters:LessonAdapter">
         <RelativePanel>
     
-            <Grid RelativePanel.AlignVerticalCenterWithPanel="True" x:Name="gridVoto">
-                <Ellipse x:Name="Ellipse"
-                                             Grid.RowSpan="2"
-                                             Width="42"
-                                             Height="42"
-                                             Margin="2"
-                                         
-                                             Fill="{x:Bind Converter={StaticResource GradeToColorConverter}}"
 
-                                             VerticalAlignment="Center"
-                                             HorizontalAlignment="Center">
-                    <!-- ="{ThemeResource SystemControlBackgroundBaseMediumBrush}" -->
-                </Ellipse>
-                <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center"
-                                               Text="{x:Bind subjectDesc}" FontSize="14" Foreground="#FFFFFF" />
-
-            </Grid>
-
-            <RelativePanel RelativePanel.AlignVerticalCenterWithPanel="True" RelativePanel.RightOf="gridVoto">
+            <RelativePanel RelativePanel.AlignVerticalCenterWithPanel="True" >
                 <TextBlock x:Name="textMateria" TextWrapping="Wrap"
                                            MaxWidth="500"
-                                           Text="{x:Bind subjectDesc}"
+                                           Text="{x:Bind CurrentObject.subjectDesc}"
                                            Style="{ThemeResource BaseTextBlockStyle}"
                                            Margin="12,6,0,0" />
 
 
-                <TextBlock RelativePanel.Below="textMateria" x:Name="dataVoto"
-                                           Text="{x:Bind subjectDesc, Converter={StaticResource DateTimeToNormalDateConverter}}"
+                <TextBlock RelativePanel.Below="textMateria" x:Name="nomeAutore"
+                                           Text="{x:Bind CurrentObject.authorName}"
                                            FontStyle="Italic"
                                            Style="{ThemeResource BodyTextBlockStyle}"
                                            Margin="12,0,0,0" />
 
-                <TextBlock RelativePanel.RightOf="dataVoto" RelativePanel.Below="textMateria"
-                                           Text="{x:Bind subjectDesc}"
+                <TextBlock RelativePanel.Below="nomeAutore" x:Name="tipoLezione"
+                                           Text="{x:Bind CurrentObject.lessonType}"
                                            Style="{ThemeResource BodyTextBlockStyle}"
                                            FontStyle="Italic"
                                            Margin="12,0,0,0" />
 
-                <TextBlock RelativePanel.Below="dataVoto"
+                <TextBlock RelativePanel.Below="nomeAutore" RelativePanel.RightOf="tipoLezione"
                                            TextWrapping="Wrap"
-                                           Text="{x:Bind subjectDesc}"
+                                           Text="{x:Bind CurrentObject.lessonArg}"
                                            Style="{ThemeResource BodyTextBlockStyle}"
                                            Margin="12,0,0,6" />
 

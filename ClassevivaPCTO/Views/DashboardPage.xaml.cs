@@ -1,4 +1,5 @@
-﻿using ClassevivaPCTO.Converters;
+﻿using ClassevivaPCTO.Adapters;
+using ClassevivaPCTO.Converters;
 using ClassevivaPCTO.Services;
 using ClassevivaPCTO.Utils;
 using ClassevivaPCTO.ViewModels;
@@ -92,7 +93,12 @@ namespace ClassevivaPCTO.Views
                 {   
                     //ListViewAbsencesDate.ItemsSource = overviewResult.Grades;
                     ListViewVotiDate.ItemsSource = overviewResult.Grades;
-                    //ListViewLezioniDate.ItemsSource = overviewResult.Grades;
+
+                    //order lessons by evtHPos
+                    var orderedlessons = overviewResult.Lessons = overviewResult.Lessons.OrderBy(x => x.evtHPos).ToList();
+
+                    var lessonAdapters = orderedlessons.Select(les => new LessonAdapter(les)).ToList();
+                    ListViewLezioniDate.ItemsSource = lessonAdapters;
 
                     // Wrap each AgendaEvent object in an instance of AgendaEventAdapter
                     var eventAdapters = overviewResult.AgendaEvents.Select(ev => new AgendaEventAdapter(ev)).ToList();
