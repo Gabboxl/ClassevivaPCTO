@@ -13,14 +13,31 @@
                   x:DataType="adapters:LessonAdapter">
         <RelativePanel>
     
+            <!-- vertical colored line with 3px width-->
+            <Rectangle x:Name="verticalLine" Width="3" Height="Auto" Fill="#FFFFFF" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignTopWithPanel="True" RelativePanel.AlignBottomWithPanel="True" />
 
             <RelativePanel RelativePanel.AlignVerticalCenterWithPanel="True" >
+                
+               
+
+
+
+
+
+
+
                 <TextBlock x:Name="textMateria" TextWrapping="Wrap"
                                            MaxWidth="500"
                                            Text="{x:Bind CurrentObject.subjectDesc}"
                                            Style="{ThemeResource BaseTextBlockStyle}"
                                            Margin="12,6,0,0" />
 
+                <TextBlock x:Name="durationHours" TextWrapping="Wrap" RelativePanel.RightOf="textMateria"
+                                           MaxWidth="500"
+                                           Text="{x:Bind Durata}"
+                                           Style="{ThemeResource BaseTextBlockStyle}"
+                                           Margin="12,6,0,0" >
+                </TextBlock>
 
                 <TextBlock RelativePanel.Below="textMateria" x:Name="nomeAutore"
                                            Text="{x:Bind CurrentObject.authorName}"

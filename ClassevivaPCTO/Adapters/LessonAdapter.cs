@@ -32,6 +32,22 @@ namespace ClassevivaPCTO.Adapters
             }
         }
 
+        public string Durata
+        {
+            get
+            {
+                if(CurrentObject.evtDuration == 1)
+                {
+                    return "1h";
+                } else
+                {
+                    return CurrentObject.evtDuration + "hh";
+                }
+
+
+            }
+        }
+
 
         public LessonAdapter(Lesson ev)
         {
