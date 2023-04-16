@@ -4,6 +4,7 @@
     xmlns:contract7Present="http://schemas.microsoft.com/winfx/2006/xaml/presentation?IsApiContractPresent(Windows.Foundation.UniversalApiContract, 7)"
     xmlns:converters="using:ClassevivaPCTO.Converters"
     xmlns:utils="using:ClassevivaPCTO.Utils"
+    xmlns:adapters="using:ClassevivaPCTO.Adapters"
     x:Class="ClassevivaPCTO.Controls.DataTemplates.AgendaEventListViewDataTemplate"
     xmlns:muxc="using:Microsoft.UI.Xaml.Controls">
 
@@ -12,7 +13,7 @@
 
     <DataTemplate x:Key="AgendaEventListViewDataTemplate"
                   
-                  x:DataType="utils:AgendaEventAdapter">
+                  x:DataType="adapters:AgendaEventAdapter">
         <RelativePanel>
     
 
