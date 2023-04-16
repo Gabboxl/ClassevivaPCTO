@@ -27,7 +27,7 @@
             
             <TextBlock RelativePanel.RightOf="titoloEvento" x:Name="tipoEvento" TextWrapping="Wrap"
                                            MaxWidth="500"
-                                           Text="{x:Bind CurrentObject.evtCode}"
+                                           Text="{x:Bind EventType}"
                                            Style="{ThemeResource BaseTextBlockStyle}"
                                            Margin="6,6,0,0" />
 
