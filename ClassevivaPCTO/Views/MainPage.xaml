@@ -182,7 +182,7 @@
 
                 <muxc:NavigationViewItem Content="Assenze e ritardi" helpers:NavHelper.NavigateTo="views:Assenze" >
                     <muxc:NavigationViewItem.Icon>
-                        <FontIcon Glyph="&#xe787;" FontFamily="{StaticResource FluentIcons}"/>
+                        <FontIcon Glyph="&#xe94d;" FontFamily="{StaticResource FluentIcons}"/>
                     </muxc:NavigationViewItem.Icon>
                 </muxc:NavigationViewItem>
 

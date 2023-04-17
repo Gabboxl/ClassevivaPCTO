@@ -108,10 +108,7 @@ namespace ClassevivaPCTO.Views
                         }
                     }
 
-
-
                     //orderedlessons = orderedlessons.GroupBy(x => x.lessonArg).Select(x => x.First()).ToList();
-
 
                     ListViewLezioniDate.ItemsSource = orderedlessons.Select(les => new LessonAdapter(les)).ToList();
 
