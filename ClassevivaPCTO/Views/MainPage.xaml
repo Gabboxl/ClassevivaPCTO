@@ -139,7 +139,7 @@
                                     Click="ButtonLogout_Click" VerticalAlignment="Top" >
 
                             <MenuFlyoutItem.Icon>
-                                <FontIcon FontFamily="{StaticResource SymbolThemeFontFamily}" Glyph="&#xE112;" />
+                                <FontIcon FontFamily="{StaticResource SymbolThemeFontFamily}" Glyph="&#xf3b1;" /> <!-- or e966 -->
                             </MenuFlyoutItem.Icon>
                         </MenuFlyoutItem>
                     </MenuFlyout>
