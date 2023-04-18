@@ -178,7 +178,7 @@ namespace ClassevivaPCTO.Views
                 dialog.Title = "Errore";
                 dialog.PrimaryButtonText = "OK";
                 dialog.DefaultButton = ContentDialogButton.Primary;
-                dialog.Content = "Errore durante il login. Controlla il nome utente e la password. \n Errore: " + ex.Headers + "\n\n" + ex.Content;
+                dialog.Content = "Errore durante il login. Controlla il nome utente e la password. \n Errore: " + ex.Content;
 
                 try
                 {
@@ -207,32 +207,26 @@ namespace ClassevivaPCTO.Views
 
             if (res.StatusCode == System.Net.HttpStatusCode.OK)
             {
+                var responseContent = await res.Content.ReadAsStringAsync();
 
-                if (res.Content.Contains("choice"))
+                if (responseContent.Contains("choice"))
                 {
-                    LoginResultChoices loginResultchoices = JsonConvert.DeserializeObject<LoginResultChoices>(res.Content);
+                    LoginResultChoices loginResultchoices = JsonConvert.DeserializeObject<LoginResultChoices>(responseContent);
                     return loginResultchoices;
                 }
                 else
                 {
-                    LoginResultComplete loginResult = JsonConvert.DeserializeObject<LoginResultComplete>(res.Content);
+                    LoginResultComplete loginResult = JsonConvert.DeserializeObject<LoginResultComplete>(responseContent);
                     return loginResult;
                 }
 
             } else
             {
-                // Create HttpRequestMessage object
-                HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Get, "https://api.example.com/some-resource");
-
-                // Create HttpResponseMessage object with response details
-                HttpResponseMessage httpResponseMessage = new HttpResponseMessage(res.StatusCode);
-                httpResponseMessage.Content = new StringContent(res.Content ?? "");
-
                 // Create RefitSettings object
                 RefitSettings refitSettings = new RefitSettings();
 
                 // Create ApiException with request and response details
-                throw await ApiException.Create(request, HttpMethod.Get, httpResponseMessage, refitSettings);
+                throw await ApiException.Create(res.RequestMessage, HttpMethod.Get, res, refitSettings);
 
 
             }

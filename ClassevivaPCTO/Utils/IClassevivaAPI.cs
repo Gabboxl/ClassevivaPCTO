@@ -1,5 +1,6 @@
 ﻿using Refit;
 using System.Collections.Generic;
+using System.Net.Http;
 using System.Threading.Tasks;
 
 namespace ClassevivaPCTO.Utils
@@ -8,7 +9,7 @@ namespace ClassevivaPCTO.Utils
     public interface IClassevivaAPI
     {
         [Post("/auth/login")]
-        Task<ApiResponse<string>> LoginAsync([Body(BodySerializationMethod.Serialized)] LoginData logdata);
+        Task<HttpResponseMessage> LoginAsync([Body(BodySerializationMethod.Serialized)] LoginData logdata);
 
         [Get("/students/{userId}/absences/details")]
         Task<AbsencesResult> GetAbsences(string userId, [Header("Z-Auth-Token")] string token);
