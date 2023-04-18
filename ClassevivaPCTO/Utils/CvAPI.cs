@@ -94,15 +94,29 @@ namespace ClassevivaPCTO.Utils
         public List<Grade> Grades { get; set; }
     }
 
+    public class LoginChoice
+    {
+        public string cid { get; set; }
+        public string ident { get; set; }
+        public string name { get; set; }
+        public string school { get; set; }
+    }
 
+    public class LoginResultChoices
+    {
+        public string requestedAction { get; set; }
 
-    public class LoginResult
+        [JsonPropertyName("choices")]
+        public List<LoginChoice> choices { get; set; }
+
+        public string message { get; set; }
+    }
+
+    public class LoginResultComplete
     {
         public string Ident { get; set; }
         public string FirstName { get; set; }
-
         public string LastName { get; set; }
-
         public string Token { get; set; }
 
         [JsonProperty("release")]

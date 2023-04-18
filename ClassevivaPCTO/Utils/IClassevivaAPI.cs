@@ -8,7 +8,7 @@ namespace ClassevivaPCTO.Utils
     public interface IClassevivaAPI
     {
         [Post("/auth/login")]
-        Task<LoginResult> LoginAsync([Body(BodySerializationMethod.Serialized)] LoginData logdata);
+        Task<dynamic> LoginAsync([Body(BodySerializationMethod.Serialized)] LoginData logdata);
 
         [Get("/students/{userId}/absences/details")]
         Task<AbsencesResult> GetAbsences(string userId, [Header("Z-Auth-Token")] string token);

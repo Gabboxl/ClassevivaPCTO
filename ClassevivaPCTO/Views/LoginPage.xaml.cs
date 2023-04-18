@@ -1,4 +1,6 @@
-﻿using ClassevivaPCTO.Utils;
+﻿using ClassevivaPCTO.Controls.DataTemplates;
+using ClassevivaPCTO.Dialogs;
+using ClassevivaPCTO.Utils;
 using ClassevivaPCTO.ViewModels;
 using Refit;
 using System;
@@ -120,7 +122,17 @@ namespace ClassevivaPCTO.Views
                 };
 
 
-                LoginResult loginResult = await api.LoginAsync(measurement);
+                var res = await api.LoginAsync(measurement);
+
+
+                if(res is LoginResultComplete loginResult)
+                { 
+
+
+                } else if(res is LoginResultChoices loginChoice)
+                {
+                    ShowChoicesDialog();
+                }
 
 
                 ViewModelHolder.getViewModel().LoginResult = loginResult;
@@ -145,7 +157,6 @@ namespace ClassevivaPCTO.Views
             }
             catch (ApiException ex)
             {
-
 
                 //var message = ex.GetContentAsAsync<CvError>();
 
@@ -173,6 +184,18 @@ namespace ClassevivaPCTO.Views
         }
 
 
+        private async void ShowChoicesDialog()
+        {
+            ContentDialog dialog = new ContentDialog();
+            dialog.Title = "Save your work?";
+            dialog.PrimaryButtonText = "Save";
+            dialog.SecondaryButtonText = "Don't Save";
+            dialog.CloseButtonText = "Cancel";
+            dialog.DefaultButton = ContentDialogButton.Primary;
+            dialog.Content = new ContentDialogContent();
+
+            var result = await dialog.ShowAsync();
+        }
 
 
     }
