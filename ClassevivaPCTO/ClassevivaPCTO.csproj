@@ -138,6 +138,7 @@
     <Compile Include="Services\ActivationService.cs" />
     <Compile Include="Services\FirstRunDisplayService.cs" />
     <Compile Include="Services\NavigationService.cs" />
+    <Compile Include="Services\ChoiceSaverService.cs" />
     <Compile Include="Services\ThemeSelectorService.cs" />
     <Compile Include="Adapters\AgendaEventAdapter.cs" />
     <Compile Include="Utils\Cache.cs" />
