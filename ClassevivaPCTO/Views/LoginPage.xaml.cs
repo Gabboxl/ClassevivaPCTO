@@ -161,7 +161,7 @@ namespace ClassevivaPCTO.Views
                 } else if (resLogin is LoginResultChoices loginResultChoices) 
                 {
 
-                    ShowChoicesDialog();
+                    ShowChoicesDialog(loginResultChoices);
                     buttonLogin.Visibility = Visibility.Visible;
                     progresslogin.Visibility = Visibility.Collapsed;
                 }
@@ -234,15 +234,16 @@ namespace ClassevivaPCTO.Views
 
 
 
-        private async void ShowChoicesDialog()
+        private async void ShowChoicesDialog(LoginResultChoices loginResultChoices)
         {
             ContentDialog dialog = new ContentDialog();
-            dialog.Title = "Save your work?";
-            dialog.PrimaryButtonText = "Save";
-            dialog.SecondaryButtonText = "Don't Save";
-            dialog.CloseButtonText = "Cancel";
+            dialog.Title = "Scegli un profilo";
+            dialog.PrimaryButtonText = "Accedi";
+            dialog.CloseButtonText = "Annulla";
             dialog.DefaultButton = ContentDialogButton.Primary;
-            dialog.Content = new ContentDialogContent();
+            dialog.Content = new ContentDialogContent(loginResultChoices.choices);
+
+            
 
             var result = await dialog.ShowAsync();
         }
