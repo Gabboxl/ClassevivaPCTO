@@ -114,16 +114,17 @@ namespace ClassevivaPCTO.Utils
 
     public class LoginResultComplete
     {
-        public string Ident { get; set; }
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public string Token { get; set; }
+        public string ident { get; set; }
+        public string firstName { get; set; }
+        public string lastName { get; set; }
+        public string token { get; set; }
+        public bool showPwdChangeReminder { get; set; }
 
         [JsonProperty("release")]
-        public DateTime Release { get; set; }
+        public DateTime release { get; set; }
 
         [JsonProperty("expire")]
-        public DateTime Expire { get; set; }
+        public DateTime expire { get; set; }
     }
 
 

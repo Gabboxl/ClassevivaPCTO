@@ -14,20 +14,20 @@ namespace ClassevivaPCTO.Utils
         }
 
 
-        public void AddToCache(LoginResult loginResult)
+        public void AddToCache(LoginResultComplete loginResult)
         {
             var option = new MemoryCacheEntryOptions
             {
                 //SlidingExpiration = TimeSpan.FromSeconds(1),
-                AbsoluteExpiration = loginResult.Expire
+                //AbsoluteExpiration = loginResult.expire
             };
 
-            memoryCache.Set<LoginResult>(KEY, loginResult, option);
+            memoryCache.Set<LoginResultComplete>(KEY, loginResult, option);
         }
 
-        public LoginResult GetCachedLoginResult()
+        public LoginResultComplete GetCachedLoginResult()
         {
-            LoginResult loginResult = null;
+            LoginResultComplete loginResult = null;
             memoryCache.TryGetValue(KEY, out loginResult);
 
             return loginResult;

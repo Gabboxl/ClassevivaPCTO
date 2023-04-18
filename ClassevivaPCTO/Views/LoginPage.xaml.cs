@@ -2,6 +2,8 @@
 using ClassevivaPCTO.Dialogs;
 using ClassevivaPCTO.Utils;
 using ClassevivaPCTO.ViewModels;
+using Newtonsoft.Json.Serialization;
+using Newtonsoft.Json;
 using Refit;
 using System;
 using System.Threading.Tasks;
@@ -17,8 +19,12 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media.Animation;
-
-// Il modello di elemento Pagina vuota è documentato all'indirizzo https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x410
+using Newtonsoft.Json.Converters;
+using System.Globalization;
+using System.Reflection.Emit;
+using Windows.Services.Maps;
+using System.Diagnostics.Metrics;
+using System.Net.Http;
 
 namespace ClassevivaPCTO.Views
 {
@@ -58,9 +64,9 @@ namespace ClassevivaPCTO.Views
                 loginCredentials.RetrievePassword(); //dobbiamo per forza chiamare questo metodo per fare sì che la proprietà loginCredential.Password non sia vuota
 
                 edittext_username.Text = loginCredentials.UserName.ToString();
-                edittext_password.Password = loginCredentials.Password.ToString();
+                //edittext_password.Password = loginCredentials.Password.ToString();
 
-                doLoginAsync();
+                //doLoginAsync();
             }
 
 
@@ -113,7 +119,13 @@ namespace ClassevivaPCTO.Views
 
 
 
-                var api = RestService.For<IClassevivaAPI>(Endpoint.CurrentEndpoint);
+                var api = RestService.For<IClassevivaAPI>(Endpoint.CurrentEndpoint, new RefitSettings(
+                    new NewtonsoftJsonContentSerializer(new JsonSerializerSettings { 
+                        ContractResolver = new CamelCasePropertyNamesContractResolver(),
+                        Converters = { new IsoDateTimeConverter { DateTimeStyles = DateTimeStyles.AssumeUniversal } }
+
+
+                    })));
 
                 var measurement = new LoginData
                 {
@@ -122,37 +134,39 @@ namespace ClassevivaPCTO.Views
                 };
 
 
-                var res = await api.LoginAsync(measurement);
+                var resLogin = await LoginApi(api, measurement);
 
 
-                if(res is LoginResultComplete loginResult)
-                { 
-
-
-                } else if(res is LoginResultChoices loginChoice)
+                if(resLogin is LoginResultComplete loginResult)
                 {
+                    ViewModelHolder.getViewModel().LoginResult = loginResult;
+
+
+                    string fixedId = new CvUtils().GetCode(loginResult.ident);
+                    CardsResult cardsResult = await api.GetCards(fixedId, loginResult.token.ToString());
+
+                    ViewModelHolder.getViewModel().CardsResult = cardsResult;
+
+
+                    if ((bool)checkboxCredenziali.IsChecked)
+                    {
+                        var vault = new PasswordVault();
+                        vault.Add(new PasswordCredential("classevivapcto", edittext_username.Text, edittext_password.Password));
+                    }
+
+
+                    Frame rootFrame = Window.Current.Content as Frame;
+                    rootFrame.Navigate(typeof(MainPage), null, new DrillInNavigationTransitionInfo());
+
+                } else if (resLogin is LoginResultChoices loginResultChoices) 
+                {
+
                     ShowChoicesDialog();
+                    buttonLogin.Visibility = Visibility.Visible;
+                    progresslogin.Visibility = Visibility.Collapsed;
                 }
 
 
-                ViewModelHolder.getViewModel().LoginResult = loginResult;
-
-
-                string fixedId = new CvUtils().GetCode(loginResult.Ident);
-                CardsResult cardsResult = await api.GetCards(fixedId, loginResult.Token.ToString());
-
-                ViewModelHolder.getViewModel().CardsResult = cardsResult;
-
-
-                if ((bool)checkboxCredenziali.IsChecked)
-                {
-                    var vault = new PasswordVault();
-                    vault.Add(new PasswordCredential("classevivapcto", edittext_username.Text, edittext_password.Password));
-                }
-
-
-                Frame rootFrame = Window.Current.Content as Frame;
-                rootFrame.Navigate(typeof(MainPage), null, new DrillInNavigationTransitionInfo());
 
             }
             catch (ApiException ex)
@@ -164,7 +178,7 @@ namespace ClassevivaPCTO.Views
                 dialog.Title = "Errore";
                 dialog.PrimaryButtonText = "OK";
                 dialog.DefaultButton = ContentDialogButton.Primary;
-                dialog.Content = "Errore durante il login. Controlla il nome utente e la password. \n Errore: " + ex.Content;
+                dialog.Content = "Errore durante il login. Controlla il nome utente e la password. \n Errore: " + ex.Headers + "\n\n" + ex.Content;
 
                 try
                 {
@@ -182,6 +196,48 @@ namespace ClassevivaPCTO.Views
             }
 
         }
+
+        public async Task<object> LoginApi(IClassevivaAPI classevivaAPI, LoginData loginData)
+        {
+
+            var res = await classevivaAPI.LoginAsync(loginData);
+
+            // Code to execute after the API call
+            Console.WriteLine("Executing some code after API call");
+
+            if (res.StatusCode == System.Net.HttpStatusCode.OK)
+            {
+
+                if (res.Content.Contains("choice"))
+                {
+                    LoginResultChoices loginResultchoices = JsonConvert.DeserializeObject<LoginResultChoices>(res.Content);
+                    return loginResultchoices;
+                }
+                else
+                {
+                    LoginResultComplete loginResult = JsonConvert.DeserializeObject<LoginResultComplete>(res.Content);
+                    return loginResult;
+                }
+
+            } else
+            {
+                // Create HttpRequestMessage object
+                HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Get, "https://api.example.com/some-resource");
+
+                // Create HttpResponseMessage object with response details
+                HttpResponseMessage httpResponseMessage = new HttpResponseMessage(res.StatusCode);
+                httpResponseMessage.Content = new StringContent(res.Content ?? "");
+
+                // Create RefitSettings object
+                RefitSettings refitSettings = new RefitSettings();
+
+                // Create ApiException with request and response details
+                throw await ApiException.Create(request, HttpMethod.Get, httpResponseMessage, refitSettings);
+
+
+            }
+        }
+
 
 
         private async void ShowChoicesDialog()
