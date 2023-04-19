@@ -145,7 +145,7 @@ namespace ClassevivaPCTO.Views
 
                 if (resLogin is LoginResultComplete loginResult)
                 {
-                    DoFinalLogin(loginResult, checkboxCredenzialiChecked);
+                    DoFinalLogin(loginResult, measurement, checkboxCredenzialiChecked);
                 }
                 else if (resLogin is LoginResultChoices loginResultChoices)
                 {
@@ -167,7 +167,7 @@ namespace ClassevivaPCTO.Views
 
                         if (resLoginFinal is LoginResultComplete loginResultChoice)
                         {
-                            DoFinalLogin(loginResultChoice, checkboxCredenzialiChecked, resloginChoice);
+                            DoFinalLogin(loginResultChoice, loginData, checkboxCredenzialiChecked, resloginChoice);
                         }
                     }
 
@@ -221,7 +221,7 @@ namespace ClassevivaPCTO.Views
         }
 
         public async void DoFinalLogin(
-            LoginResultComplete loginResultComplete,
+            LoginResultComplete loginResultComplete, LoginData loginData,
             bool saveCredentials, LoginChoice loginChoice = null
         )
         {
@@ -241,8 +241,8 @@ namespace ClassevivaPCTO.Views
                 vault.Add(
                     new PasswordCredential(
                         "classevivapcto",
-                        edittext_username.Text,
-                        edittext_password.Password
+                        loginData.Uid,
+                        loginData.Pass
                     )
                 );
             }
