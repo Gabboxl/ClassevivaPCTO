@@ -25,12 +25,12 @@ namespace ClassevivaPCTO.Views
 
         public string FirstName
         {
-            get { return VariousUtils.UppercaseFirst(AppViewModel.LoginResult.FirstName) + " " + VariousUtils.UppercaseFirst(AppViewModel.LoginResult.LastName); }
+            get { return VariousUtils.UppercaseFirst(AppViewModel.LoginResult.firstName) + " " + VariousUtils.UppercaseFirst(AppViewModel.LoginResult.lastName); }
         }
 
         public string Codice
         {
-            get { return AppViewModel.LoginResult.Ident; }
+            get { return AppViewModel.LoginResult.ident; }
         }
 
         public string Scuola
@@ -81,9 +81,9 @@ namespace ClassevivaPCTO.Views
             NavigationViewViewModel.Initialize(contentFrame, navigationView, KeyboardAccelerators);
 
 
-            LoginResult loginResult = ViewModelHolder.getViewModel().LoginResult;
+            LoginResultComplete loginResult = ViewModelHolder.getViewModel().LoginResult;
 
-            PersonPictureDashboard.DisplayName = VariousUtils.UppercaseFirst(loginResult.FirstName) + " " + VariousUtils.UppercaseFirst(loginResult.LastName);
+            PersonPictureDashboard.DisplayName = VariousUtils.UppercaseFirst(loginResult.firstName) + " " + VariousUtils.UppercaseFirst(loginResult.lastName);
 
 
             //pagina di default

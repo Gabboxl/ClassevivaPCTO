@@ -35,7 +35,7 @@ namespace ClassevivaPCTO.Views
             //imposto la data di oggi del picker
             CalendarAgenda.Date = DateTime.Now;
 
-            LoginResult loginResult = ViewModelHolder.getViewModel().LoginResult;
+            LoginResultComplete loginResult = ViewModelHolder.getViewModel().LoginResult;
             Card cardResult = ViewModelHolder.getViewModel().CardsResult.Cards[0];
 
             var api = RestService.For<IClassevivaAPI>(Endpoint.CurrentEndpoint);
@@ -44,7 +44,7 @@ namespace ClassevivaPCTO.Views
 
             string caldate = VariousUtils.ToApiDateTime(CalendarAgenda.Date.Value.DateTime);
 
-            OverviewResult overviewResult = await api.GetOverview(cardResult.usrId.ToString(), caldate, caldate, loginResult.Token.ToString());
+            OverviewResult overviewResult = await api.GetOverview(cardResult.usrId.ToString(), caldate, caldate, loginResult.token.ToString());
 
 
 

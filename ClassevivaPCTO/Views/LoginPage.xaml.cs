@@ -1,5 +1,9 @@
-﻿using ClassevivaPCTO.Utils;
+﻿using ClassevivaPCTO.Controls.DataTemplates;
+using ClassevivaPCTO.Dialogs;
+using ClassevivaPCTO.Utils;
 using ClassevivaPCTO.ViewModels;
+using Newtonsoft.Json.Serialization;
+using Newtonsoft.Json;
 using Refit;
 using System;
 using System.Threading.Tasks;
@@ -15,13 +19,21 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media.Animation;
-
-// Il modello di elemento Pagina vuota è documentato all'indirizzo https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x410
+using Newtonsoft.Json.Converters;
+using System.Globalization;
+using System.Reflection.Emit;
+using Windows.Services.Maps;
+using System.Diagnostics.Metrics;
+using System.Net.Http;
+using Microsoft.Extensions.DependencyInjection;
+using Windows.UI.Core;
 
 namespace ClassevivaPCTO.Views
 {
     public sealed partial class LoginPage : Page
     {
+        private IClassevivaAPI apiWrapper;
+
         public LoginPage()
         {
             this.InitializeComponent();
@@ -45,7 +57,6 @@ namespace ClassevivaPCTO.Views
 
             Window.Current.SetTitleBar(AppTitleBar);
 
-
             var loginCredentials = new CredUtils().GetCredentialFromLocker();
 
             if (loginCredentials != null)
@@ -61,10 +72,8 @@ namespace ClassevivaPCTO.Views
                 doLoginAsync();
             }
 
-
             loginGrid.KeyDown += grid_KeyDown;
         }
-
 
         private async void grid_KeyDown(object sender, KeyRoutedEventArgs args)
         {
@@ -72,7 +81,10 @@ namespace ClassevivaPCTO.Views
             {
                 case VirtualKey.Enter:
 
-                    await doLoginAsync();
+                    await Task.Run(async () =>
+                    {
+                        await doLoginAsync();
+                    });
 
                     break;
                 default:
@@ -82,16 +94,30 @@ namespace ClassevivaPCTO.Views
 
         private async void Button_Click(object sender, RoutedEventArgs e)
         {
-
-            await doLoginAsync();
-
+            await Task.Run(async () =>
+            {
+                await doLoginAsync();
+            });
         }
-
 
         public async Task doLoginAsync()
         {
-            string edituid = edittext_username.Text;
-            string editpass = edittext_password.Password;
+            string edituid = null;
+            string editpass = null;
+            bool checkboxCredenzialiChecked = false;
+
+            await CoreApplication.MainView.Dispatcher.RunAsync(
+                CoreDispatcherPriority.Normal,
+                async () =>
+                {
+                    buttonLogin.Visibility = Visibility.Collapsed;
+                    progresslogin.Visibility = Visibility.Visible;
+
+                    edituid = edittext_username.Text;
+                    editpass = edittext_password.Password;
+                    checkboxCredenzialiChecked = (bool)checkboxCredenziali.IsChecked;
+                }
+            );
 
             if (edituid.Equals("test") && editpass.Equals("test"))
             {
@@ -102,78 +128,209 @@ namespace ClassevivaPCTO.Views
                 Endpoint.CurrentEndpoint = Endpoint.Official;
             }
 
+            //get the refit api client from the service provider only after having set the endpoint
+            App app = (App)App.Current;
+            var apiClient = app.Container.GetService<IClassevivaAPI>();
 
+            apiWrapper = PoliciesDispatchProxy<IClassevivaAPI>.CreateProxy(apiClient);
 
             try
             {
-                buttonLogin.Visibility = Visibility.Collapsed;
-                progresslogin.Visibility = Visibility.Visible;
-
-
-
-                var api = RestService.For<IClassevivaAPI>(Endpoint.CurrentEndpoint);
-
-                var measurement = new LoginData
-                {
-                    Uid = edituid,
+                var measurement = new LoginData { Uid = edituid,
                     Pass = editpass,
-                };
+                Ident = null};
 
+                var resLogin = await GetLoginData(measurement);
 
-                LoginResult loginResult = await api.LoginAsync(measurement);
-
-
-                ViewModelHolder.getViewModel().LoginResult = loginResult;
-
-
-                string fixedId = new CvUtils().GetCode(loginResult.Ident);
-                CardsResult cardsResult = await api.GetCards(fixedId, loginResult.Token.ToString());
-
-                ViewModelHolder.getViewModel().CardsResult = cardsResult;
-
-
-                if ((bool)checkboxCredenziali.IsChecked)
+                if (resLogin is LoginResultComplete loginResult)
                 {
-                    var vault = new PasswordVault();
-                    vault.Add(new PasswordCredential("classevivapcto", edittext_username.Text, edittext_password.Password));
+                    DoFinalLogin(loginResult, checkboxCredenzialiChecked);
                 }
+                else if (resLogin is LoginResultChoices loginResultChoices)
+                {
+                    var result = await ShowChoicesDialog(loginResultChoices);
 
+                    if(result.Item1 == ContentDialogResult.Primary)
+                    {
+                        //get the chosen index from the dialog combobox
+                        LoginChoice resloginChoice = loginResultChoices.choices[result.Item2.chosenIndex];
 
-                Frame rootFrame = Window.Current.Content as Frame;
-                rootFrame.Navigate(typeof(MainPage), null, new DrillInNavigationTransitionInfo());
+                        var loginData = new LoginData
+                        {
+                            Uid = edituid,
+                            Pass = editpass,
+                            Ident = resloginChoice.ident
+                        };
 
+                        var resLoginFinal = await GetLoginData(loginData);
+
+                        if (resLoginFinal is LoginResultComplete loginResultChoice)
+                        {
+                            DoFinalLogin(loginResultChoice, checkboxCredenzialiChecked, resloginChoice);
+                        }
+                    }
+
+                    //execute on the main thread
+                    await CoreApplication.MainView.Dispatcher.RunAsync(
+                        CoreDispatcherPriority.Normal,
+                        async () =>
+                        {
+                            buttonLogin.Visibility = Visibility.Visible;
+                            progresslogin.Visibility = Visibility.Collapsed;
+                        }
+                    );
+                }
             }
             catch (ApiException ex)
             {
-
-
                 //var message = ex.GetContentAsAsync<CvError>();
 
-                ContentDialog dialog = new ContentDialog();
-                dialog.Title = "Errore";
-                dialog.PrimaryButtonText = "OK";
-                dialog.DefaultButton = ContentDialogButton.Primary;
-                dialog.Content = "Errore durante il login. Controlla il nome utente e la password. \n Errore: " + ex.Content;
+                await CoreApplication.MainView.Dispatcher.RunAsync(
+                    CoreDispatcherPriority.Normal,
+                    async () =>
+                    {
+                        ContentDialog dialog = new ContentDialog();
+                        dialog.Title = "Errore";
+                        dialog.PrimaryButtonText = "OK";
+                        dialog.DefaultButton = ContentDialogButton.Primary;
+                        dialog.Content =
+                            "Errore durante il login. Controlla il nome utente e la password. \n Errore: "
+                            + ex.Content;
 
-                try
-                {
-                    var result = await dialog.ShowAsync();
-                }
-                catch (Exception e)
-                {
-                    System.Console.WriteLine(e.ToString());
-                }
+                        try
+                        {
+                            var result = await dialog.ShowAsync();
+                        }
+                        catch (Exception e)
+                        {
+                            System.Console.WriteLine(e.ToString());
+                        }
+                    }
+                );
 
-
-                buttonLogin.Visibility = Visibility.Visible;
-                progresslogin.Visibility = Visibility.Collapsed;
-
+                await CoreApplication.MainView.Dispatcher.RunAsync(
+                    CoreDispatcherPriority.Normal,
+                    async () =>
+                    {
+                        buttonLogin.Visibility = Visibility.Visible;
+                        progresslogin.Visibility = Visibility.Collapsed;
+                    }
+                );
             }
-
         }
 
+        public async void DoFinalLogin(
+            LoginResultComplete loginResultComplete,
+            bool saveCredentials, LoginChoice loginChoice = null
+        )
+        {
+            ViewModelHolder.getViewModel().LoginResult = loginResultComplete;
+
+            string fixedId = new CvUtils().GetCode(loginResultComplete.ident);
+            CardsResult cardsResult = await apiWrapper.GetCards(
+                fixedId,
+                loginResultComplete.token.ToString()
+            );
+
+            ViewModelHolder.getViewModel().CardsResult = cardsResult;
+
+            if (saveCredentials)
+            {
+                var vault = new PasswordVault();
+                vault.Add(
+                    new PasswordCredential(
+                        "classevivapcto",
+                        edittext_username.Text,
+                        edittext_password.Password
+                    )
+                );
+            }
+
+            await CoreApplication.MainView.Dispatcher.RunAsync(
+                CoreDispatcherPriority.Normal,
+                async () =>
+                {
+                    Frame rootFrame = Window.Current.Content as Frame;
+                    rootFrame.Navigate(
+                        typeof(MainPage),
+                        null,
+                        new DrillInNavigationTransitionInfo()
+                    );
+                }
+            );
+        }
+
+        public async Task<object> GetLoginData(LoginData loginData)
+        {
+            var res = await apiWrapper.LoginAsync(loginData);
+
+            // Code to execute after the API call
+            Console.WriteLine("Executing some code after API call");
+
+            if (res.StatusCode == System.Net.HttpStatusCode.OK)
+            {
+                var responseContent = await res.Content.ReadAsStringAsync();
+
+                if (responseContent.Contains("choice"))
+                {
+                    LoginResultChoices loginResultchoices =
+                        JsonConvert.DeserializeObject<LoginResultChoices>(responseContent);
+                    return loginResultchoices;
+                }
+                else
+                {
+                    LoginResultComplete loginResult =
+                        JsonConvert.DeserializeObject<LoginResultComplete>(responseContent);
+                    return loginResult;
+                }
+            }
+            else
+            {
+                // Create RefitSettings object
+                RefitSettings refitSettings = new RefitSettings();
+
+                // Create ApiException with request and response details
+                throw await ApiException.Create(
+                    res.RequestMessage,
+                    HttpMethod.Get,
+                    res,
+                    refitSettings
+                );
+            }
+        }
+
+        private async Task<(ContentDialogResult, ContentDialogContent)> ShowChoicesDialog(LoginResultChoices loginResultChoices)
+        {
+            ContentDialogResult? result = null;
+            ContentDialogContent contentDialogContent = null;
+
+            TaskCompletionSource<bool> IsSomethingLoading =
+    new TaskCompletionSource<bool>();
+
+            //make sure we are executing it on the main thread
+            await CoreApplication.MainView.Dispatcher.RunAsync(
+                CoreDispatcherPriority.Normal,
+                async () =>
+                {
+                    contentDialogContent = new ContentDialogContent(loginResultChoices.choices);
+
+                    ContentDialog dialog = new ContentDialog();
+                    dialog.Title = "Scegli un profilo";
+                    dialog.PrimaryButtonText = "Accedi";
+                    dialog.CloseButtonText = "Annulla";
+                    dialog.DefaultButton = ContentDialogButton.Primary;
+                    dialog.Content = contentDialogContent;
 
 
+                    result = await dialog.ShowAsync();
 
+                    IsSomethingLoading.SetResult(true);
+                }
+            );
+
+            await IsSomethingLoading.Task;
+
+            return ((ContentDialogResult)result, contentDialogContent);
+        }
     }
 }

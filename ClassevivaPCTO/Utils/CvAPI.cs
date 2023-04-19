@@ -31,6 +31,9 @@ namespace ClassevivaPCTO.Utils
         [AliasAs("pass")]
         public string Pass { get; set; }
 
+        [AliasAs("ident")]
+        public string Ident { get; set; }
+
     }
 
     public class AbsenceEvent
@@ -94,22 +97,37 @@ namespace ClassevivaPCTO.Utils
         public List<Grade> Grades { get; set; }
     }
 
-
-
-    public class LoginResult
+    public class LoginChoice
     {
-        public string Ident { get; set; }
-        public string FirstName { get; set; }
+        public string cid { get; set; }
+        public string ident { get; set; }
+        public string name { get; set; }
+        public string school { get; set; }
+    }
 
-        public string LastName { get; set; }
+    public class LoginResultChoices
+    {
+        public string requestedAction { get; set; }
 
-        public string Token { get; set; }
+        [JsonPropertyName("choices")]
+        public List<LoginChoice> choices { get; set; }
+
+        public string message { get; set; }
+    }
+
+    public class LoginResultComplete
+    {
+        public string ident { get; set; }
+        public string firstName { get; set; }
+        public string lastName { get; set; }
+        public string token { get; set; }
+        public bool showPwdChangeReminder { get; set; }
 
         [JsonProperty("release")]
-        public DateTime Release { get; set; }
+        public DateTime release { get; set; }
 
         [JsonProperty("expire")]
-        public DateTime Expire { get; set; }
+        public DateTime expire { get; set; }
     }
 
 
