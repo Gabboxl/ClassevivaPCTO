@@ -138,10 +138,6 @@ namespace ClassevivaPCTO.Views
 
         }
 
-        private void navigationView_ItemInvoked(WinUI.NavigationView sender, WinUI.NavigationViewItemInvokedEventArgs args)
-        {
-
-        }
     }
 
 
