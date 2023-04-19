@@ -55,7 +55,7 @@ namespace ClassevivaPCTO
             Container = ConfigureDependencyInjection();
 
 #if DEBUG
-            Debug.WriteLine("Mode=Debug");
+            System.Diagnostics.Debug.WriteLine("Mode=Debug");
 #else
             AppCenter.Start("test", typeof(Analytics), typeof(Crashes));
 
