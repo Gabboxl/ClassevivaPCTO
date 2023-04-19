@@ -136,7 +136,9 @@ namespace ClassevivaPCTO.Views
 
             try
             {
-                var measurement = new LoginData { Uid = edituid, Pass = editpass, };
+                var measurement = new LoginData { Uid = edituid,
+                    Pass = editpass,
+                Ident = null};
 
                 var resLogin = await GetLoginData(measurement);
 
@@ -146,7 +148,27 @@ namespace ClassevivaPCTO.Views
                 }
                 else if (resLogin is LoginResultChoices loginResultChoices)
                 {
-                    ShowChoicesDialog(loginResultChoices);
+                    var result = await ShowChoicesDialog(loginResultChoices);
+
+                    if(result.Item1 == ContentDialogResult.Primary)
+                    {
+                        //get the chosen index from the dialog combobox
+                        LoginChoice resloginChoice = loginResultChoices.choices[result.Item2.chosenIndex];
+
+                        var loginData = new LoginData
+                        {
+                            Uid = edituid,
+                            Pass = editpass,
+                            Ident = resloginChoice.ident
+                        };
+
+                        var resLoginFinal = await GetLoginData(loginData);
+
+                        if (resLoginFinal is LoginResultComplete loginResultChoice)
+                        {
+                            DoFinalLogin(loginResultChoice, checkboxCredenzialiChecked, resloginChoice);
+                        }
+                    }
 
                     //execute on the main thread
                     await CoreApplication.MainView.Dispatcher.RunAsync(
@@ -199,7 +221,7 @@ namespace ClassevivaPCTO.Views
 
         public async void DoFinalLogin(
             LoginResultComplete loginResultComplete,
-            bool saveCredentials
+            bool saveCredentials, LoginChoice loginChoice = null
         )
         {
             ViewModelHolder.getViewModel().LoginResult = loginResultComplete;
@@ -277,23 +299,31 @@ namespace ClassevivaPCTO.Views
             }
         }
 
-        private async void ShowChoicesDialog(LoginResultChoices loginResultChoices)
+        private async Task<(ContentDialogResult, ContentDialogContent)> ShowChoicesDialog(LoginResultChoices loginResultChoices)
         {
+            ContentDialogResult? result = null;
+            ContentDialogContent contentDialogContent = null;
+
             //make sure we are executing it on the main thread
             await CoreApplication.MainView.Dispatcher.RunAsync(
                 CoreDispatcherPriority.Normal,
                 async () =>
                 {
+                    var contentDialogContent = new ContentDialogContent(loginResultChoices.choices);
+
                     ContentDialog dialog = new ContentDialog();
                     dialog.Title = "Scegli un profilo";
                     dialog.PrimaryButtonText = "Accedi";
                     dialog.CloseButtonText = "Annulla";
                     dialog.DefaultButton = ContentDialogButton.Primary;
-                    dialog.Content = new ContentDialogContent(loginResultChoices.choices);
+                    dialog.Content = contentDialogContent;
 
-                    var result = await dialog.ShowAsync();
+
+                    result = await dialog.ShowAsync();
                 }
             );
+
+            return ((ContentDialogResult)result, contentDialogContent);
         }
     }
 }

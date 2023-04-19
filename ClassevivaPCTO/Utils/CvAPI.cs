@@ -31,6 +31,9 @@ namespace ClassevivaPCTO.Utils
         [AliasAs("pass")]
         public string Pass { get; set; }
 
+        [AliasAs("ident")]
+        public string Ident { get; set; }
+
     }
 
     public class AbsenceEvent

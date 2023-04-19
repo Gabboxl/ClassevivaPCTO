@@ -10,6 +10,8 @@ namespace ClassevivaPCTO.Dialogs
 {
     public sealed partial class ContentDialogContent : Page
     {
+        public int chosenIndex { get; set; }
+
         public ContentDialogContent(List<LoginChoice> loginChoices)
         {
             this.InitializeComponent();
