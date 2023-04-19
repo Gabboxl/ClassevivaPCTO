@@ -309,7 +309,7 @@ namespace ClassevivaPCTO.Views
                 CoreDispatcherPriority.Normal,
                 async () =>
                 {
-                    var contentDialogContent = new ContentDialogContent(loginResultChoices.choices);
+                    contentDialogContent = new ContentDialogContent(loginResultChoices.choices);
 
                     ContentDialog dialog = new ContentDialog();
                     dialog.Title = "Scegli un profilo";
