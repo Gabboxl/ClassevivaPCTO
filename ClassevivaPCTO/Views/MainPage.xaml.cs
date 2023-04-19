@@ -129,7 +129,7 @@ namespace ClassevivaPCTO.Views
                     "classevivapcto", loginCredential.UserName.ToString(), loginCredential.Password.ToString()));
 
                 //delete localsettings data in case of multiple account chosen
-                if(ChoiceSaverService.LoadChoiceIdentAsync().Result != null)
+                if(await ChoiceSaverService.LoadChoiceIdentAsync() != null)
                 {
                     ChoiceSaverService.RemoveSavedChoiceIdent();
                 }
