@@ -5,8 +5,8 @@ namespace ClassevivaPCTO.ViewModels
 {
     public class AppViewModel : ObservableObject
     {
-        private LoginResult loginResult;
-        public LoginResult LoginResult
+        private LoginResultComplete loginResult;
+        public LoginResultComplete LoginResult
         {
             get => loginResult;
             set => SetProperty(ref loginResult, value);

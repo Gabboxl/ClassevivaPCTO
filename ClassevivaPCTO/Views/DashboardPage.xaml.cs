@@ -77,13 +77,13 @@ namespace ClassevivaPCTO.Views
 
         public async Task LoadOverviewCard()
         {
-            LoginResult loginResult = ViewModelHolder.getViewModel().LoginResult;
+            LoginResultComplete loginResult = ViewModelHolder.getViewModel().LoginResult;
             Card cardResult = ViewModelHolder.getViewModel().CardsResult.Cards[0];
 
 
 
             string caldate = VariousUtils.ToApiDateTime(DateTime.Now.AddDays(-2));
-            OverviewResult overviewResult = await apiWrapper.GetOverview(cardResult.usrId.ToString(), caldate, caldate, loginResult.Token.ToString());
+            OverviewResult overviewResult = await apiWrapper.GetOverview(cardResult.usrId.ToString(), caldate, caldate, loginResult.token.ToString());
 
 
             //update UI on UI thread
@@ -112,8 +112,10 @@ namespace ClassevivaPCTO.Views
 
                     ListViewLezioniDate.ItemsSource = orderedlessons.Select(les => new LessonAdapter(les)).ToList();
 
-                    // Wrap each AgendaEvent object in an instance of AgendaEventAdapter
-                    var eventAdapters = overviewResult.AgendaEvents.Select(ev => new AgendaEventAdapter(ev)).ToList();
+                    // Wrap each AgendaEvent object in an instance of AgendaEventAdapter and handle null case
+                    var eventAdapters = overviewResult.AgendaEvents?.Select(evt => new AgendaEventAdapter(evt)).ToList();
+
+
                     ListViewAgendaDate.ItemsSource = eventAdapters;
                 }
             );
@@ -131,10 +133,10 @@ namespace ClassevivaPCTO.Views
 
         public async Task CaricaRecentGradesCard()
         {
-            LoginResult loginResult = ViewModelHolder.getViewModel().LoginResult;
+            LoginResultComplete loginResult = ViewModelHolder.getViewModel().LoginResult;
             Card cardResult = ViewModelHolder.getViewModel().CardsResult.Cards[0];
             var result1 = await apiWrapper
-                .GetGrades(cardResult.usrId.ToString(), loginResult.Token.ToString())
+                .GetGrades(cardResult.usrId.ToString(), loginResult.token.ToString())
                 .ConfigureAwait(false);
             var fiveMostRecent = result1.Grades.OrderByDescending(x => x.evtDate).Take(5);
             //update UI on UI thread
@@ -157,11 +159,11 @@ namespace ClassevivaPCTO.Views
                 }
             );
 
-            LoginResult loginResult = ViewModelHolder.getViewModel().LoginResult;
+            LoginResultComplete loginResult = ViewModelHolder.getViewModel().LoginResult;
             Card cardResult = ViewModelHolder.getViewModel().CardsResult.Cards[0];
 
             var result1 = await apiWrapper
-                .GetGrades(cardResult.usrId.ToString(), loginResult.Token.ToString())
+                .GetGrades(cardResult.usrId.ToString(), loginResult.token.ToString())
                 .ConfigureAwait(false);
 
             // Calcoliamo la media dei voti
