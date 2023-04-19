@@ -1,4 +1,5 @@
 ﻿using ClassevivaPCTO.Dialogs;
+using ClassevivaPCTO.Helpers;
 using ClassevivaPCTO.Services;
 using ClassevivaPCTO.Utils;
 using ClassevivaPCTO.ViewModels;
@@ -50,6 +51,16 @@ namespace ClassevivaPCTO.Views
             AppTitleTextBlock.Text = "Login - " + AppInfo.Current.DisplayInfo.DisplayName;
 
             Window.Current.SetTitleBar(AppTitleBar);
+
+            //display app version
+            var appName = "AppDisplayName".GetLocalized();
+            var package = Package.Current;
+            var packageId = package.Id;
+            var version = packageId.Version;
+
+            VersionTextBlock.Text =  $"{appName} - {version.Major}.{version.Minor}.{version.Build}"; //.{version.Revision}
+
+
 
             var loginCredentials = new CredUtils().GetCredentialFromLocker();
 
