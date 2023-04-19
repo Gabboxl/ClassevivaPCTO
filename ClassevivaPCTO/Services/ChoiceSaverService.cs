@@ -24,9 +24,9 @@ namespace ClassevivaPCTO.Services
             await ApplicationData.Current.LocalSettings.SaveAsync(SettingsKey, ident.ToString());
         }
 
-        public static async Task RemoveSavedChoiceIdent()
+        public static void RemoveSavedChoiceIdent()
         {
-            await ApplicationData.Current.LocalSettings.RemoveKey(SettingsKey);
+            ApplicationData.Current.LocalSettings.RemoveKey(SettingsKey);
         }
     }
 }
