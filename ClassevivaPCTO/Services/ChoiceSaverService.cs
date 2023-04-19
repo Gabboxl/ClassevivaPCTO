@@ -12,9 +12,9 @@ namespace ClassevivaPCTO.Services
     {
         private const string SettingsKey = "AppLoginChoiceIdent";
 
-        public static async Task<string?> LoadChoiceIdentAsync()
+        public static async Task<string> LoadChoiceIdentAsync()
         {
-            string? ident = await ApplicationData.Current.LocalSettings.ReadAsync<string>(SettingsKey);
+            string ident = await ApplicationData.Current.LocalSettings.ReadAsync<string>(SettingsKey);
 
             return ident;
         }
@@ -22,6 +22,11 @@ namespace ClassevivaPCTO.Services
         public static async Task SaveChoiceIdentAsync(string ident)
         {
             await ApplicationData.Current.LocalSettings.SaveAsync(SettingsKey, ident.ToString());
+        }
+
+        public static void RemoveSavedChoiceIdent()
+        {
+            ApplicationData.Current.LocalSettings.RemoveKey(SettingsKey);
         }
     }
 }
