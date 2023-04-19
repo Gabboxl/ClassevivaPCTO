@@ -6,18 +6,18 @@ namespace ClassevivaPCTO.Adapters
     {
         public Lesson CurrentObject;
 
-        public string Title { 
-            get {
-
-                if(string.IsNullOrEmpty(CurrentObject.subjectDesc))
+        public string Title
+        {
+            get
+            {
+                if (string.IsNullOrEmpty(CurrentObject.subjectDesc))
                 {
                     return CurrentObject.authorName;
-                } else
+                }
+                else
                 {
                     return CurrentObject.subjectDesc + " (" + CurrentObject.authorName + ")";
                 }
-
-            
             }
         }
 
@@ -27,8 +27,6 @@ namespace ClassevivaPCTO.Adapters
             {
 
                 return "[" + CurrentObject.evtCode + "]";
-
-
             }
         }
 
@@ -36,23 +34,20 @@ namespace ClassevivaPCTO.Adapters
         {
             get
             {
-                if(CurrentObject.evtDuration == 1)
+                if (CurrentObject.evtDuration == 1)
                 {
                     return "1h";
-                } else
+                }
+                else
                 {
                     return CurrentObject.evtDuration + "hh";
                 }
-
-
             }
         }
-
 
         public LessonAdapter(Lesson ev)
         {
             CurrentObject = ev;
         }
     }
-
 }
