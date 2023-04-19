@@ -246,6 +246,8 @@ namespace ClassevivaPCTO.Views
                 );
             }
 
+            //TODO: check if loginChoice is not null and save it in the localsettings
+
             await CoreApplication.MainView.Dispatcher.RunAsync(
                 CoreDispatcherPriority.Normal,
                 async () =>
