@@ -27,6 +27,7 @@ using System.Diagnostics.Metrics;
 using System.Net.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Windows.UI.Core;
+using ClassevivaPCTO.Services;
 
 namespace ClassevivaPCTO.Views
 {
@@ -244,6 +245,11 @@ namespace ClassevivaPCTO.Views
                         edittext_password.Password
                     )
                 );
+            }
+
+            if(loginChoice != null)
+            {
+                await ChoiceSaverService.SaveChoiceAsync(1);
             }
 
             //TODO: check if loginChoice is not null and save it in the localsettings
