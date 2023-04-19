@@ -1,11 +1,12 @@
-﻿using ClassevivaPCTO.Controls.DataTemplates;
-using ClassevivaPCTO.Dialogs;
+﻿using ClassevivaPCTO.Dialogs;
+using ClassevivaPCTO.Services;
 using ClassevivaPCTO.Utils;
 using ClassevivaPCTO.ViewModels;
-using Newtonsoft.Json.Serialization;
+using Microsoft.Extensions.DependencyInjection;
 using Newtonsoft.Json;
 using Refit;
 using System;
+using System.Net.Http;
 using System.Threading.Tasks;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Core;
@@ -14,20 +15,12 @@ using Windows.Media.Playback;
 using Windows.Security.Credentials;
 using Windows.System;
 using Windows.UI;
+using Windows.UI.Core;
 using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media.Animation;
-using Newtonsoft.Json.Converters;
-using System.Globalization;
-using System.Reflection.Emit;
-using Windows.Services.Maps;
-using System.Diagnostics.Metrics;
-using System.Net.Http;
-using Microsoft.Extensions.DependencyInjection;
-using Windows.UI.Core;
-using ClassevivaPCTO.Services;
 
 namespace ClassevivaPCTO.Views
 {

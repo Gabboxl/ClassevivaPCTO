@@ -1,10 +1,6 @@
 ﻿using ClassevivaPCTO.Helpers;
-using System;
 using System.Threading.Tasks;
-using Windows.ApplicationModel.Core;
 using Windows.Storage;
-using Windows.UI.Core;
-using Windows.UI.Xaml;
 
 namespace ClassevivaPCTO.Services
 {

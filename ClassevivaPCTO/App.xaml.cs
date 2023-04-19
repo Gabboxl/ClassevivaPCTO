@@ -1,17 +1,11 @@
 ﻿using ClassevivaPCTO.Services;
 using ClassevivaPCTO.Utils;
-using Microsoft.AppCenter;
-using Microsoft.AppCenter.Analytics;
-using Microsoft.AppCenter.Crashes;
 using Microsoft.Extensions.DependencyInjection;
-using Polly;
 using Refit;
 using System;
 using System.Diagnostics;
-using System.Net.Http;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
-using Windows.ApplicationModel.Core;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
