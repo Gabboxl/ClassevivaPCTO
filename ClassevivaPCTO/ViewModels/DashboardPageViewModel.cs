@@ -4,7 +4,6 @@ namespace ClassevivaPCTO.ViewModels
 {
     public class DashboardPageViewModel : ObservableObject
     {
-
         private bool _isLoadingGrades = true;
         public bool IsLoadingGrades
         {
@@ -26,11 +25,6 @@ namespace ClassevivaPCTO.ViewModels
             set { SetProperty(ref _isLoadingMedia, value); }
         }
 
-        public DashboardPageViewModel()
-        {
-        }
-
-
-
+        public DashboardPageViewModel() { }
     }
 }

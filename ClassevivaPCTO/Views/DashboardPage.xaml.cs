@@ -80,17 +80,19 @@ namespace ClassevivaPCTO.Views
             LoginResultComplete loginResult = ViewModelHolder.getViewModel().LoginResult;
             Card cardResult = ViewModelHolder.getViewModel().CardsResult.Cards[0];
 
-
-
             string caldate = VariousUtils.ToApiDateTime(DateTime.Now.AddDays(-2));
-            OverviewResult overviewResult = await apiWrapper.GetOverview(cardResult.usrId.ToString(), caldate, caldate, loginResult.token.ToString());
-
+            OverviewResult overviewResult = await apiWrapper.GetOverview(
+                cardResult.usrId.ToString(),
+                caldate,
+                caldate,
+                loginResult.token.ToString()
+            );
 
             //update UI on UI thread
             await CoreApplication.MainView.Dispatcher.RunAsync(
                 CoreDispatcherPriority.Normal,
                 async () =>
-                {   
+                {
                     //ListViewAbsencesDate.ItemsSource = overviewResult.Grades;
                     ListViewVotiDate.ItemsSource = overviewResult.Grades;
 
@@ -100,7 +102,13 @@ namespace ClassevivaPCTO.Views
                     //remove duplicates based on lessonArg and authorname and increment evtDuration it it is a duplicate
                     foreach (var lesson in orderedlessons.ToList())
                     {
-                        var duplicates = orderedlessons.Where(x => x.lessonArg == lesson.lessonArg && x.authorName == lesson.authorName).ToList();
+                        var duplicates = orderedlessons
+                            .Where(
+                                x =>
+                                    x.lessonArg == lesson.lessonArg
+                                    && x.authorName == lesson.authorName
+                            )
+                            .ToList();
                         if (duplicates.Count > 1)
                         {
                             lesson.evtDuration += duplicates[1].evtDuration;
@@ -110,26 +118,19 @@ namespace ClassevivaPCTO.Views
 
                     //orderedlessons = orderedlessons.GroupBy(x => x.lessonArg).Select(x => x.First()).ToList();
 
-                    ListViewLezioniDate.ItemsSource = orderedlessons.Select(les => new LessonAdapter(les)).ToList();
+                    ListViewLezioniDate.ItemsSource = orderedlessons
+                        .Select(les => new LessonAdapter(les))
+                        .ToList();
 
                     // Wrap each AgendaEvent object in an instance of AgendaEventAdapter and handle null case
-                    var eventAdapters = overviewResult.AgendaEvents?.Select(evt => new AgendaEventAdapter(evt)).ToList();
-
+                    var eventAdapters = overviewResult.AgendaEvents
+                        ?.Select(evt => new AgendaEventAdapter(evt))
+                        .ToList();
 
                     ListViewAgendaDate.ItemsSource = eventAdapters;
                 }
             );
         }
-
-
-
-
-
-
-
-
-
-
 
         public async Task CaricaRecentGradesCard()
         {
@@ -210,7 +211,6 @@ namespace ClassevivaPCTO.Views
             {
                 await CaricaRecentGradesCard();
             });
-
 
             await Task.Run(async () =>
             {

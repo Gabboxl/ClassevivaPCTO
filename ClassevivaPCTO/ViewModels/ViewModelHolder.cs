@@ -13,7 +13,5 @@
 
             return viewModel;
         }
-
-
     }
 }

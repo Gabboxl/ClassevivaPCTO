@@ -16,15 +16,10 @@ namespace ClassevivaPCTO.Views
     {
         public AgendaViewModel AgendaViewModel { get; } = new AgendaViewModel();
 
-
         public Agenda()
         {
             this.InitializeComponent();
-
-
-
         }
-
 
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
@@ -44,9 +39,12 @@ namespace ClassevivaPCTO.Views
 
             string caldate = VariousUtils.ToApiDateTime(CalendarAgenda.Date.Value.DateTime);
 
-            OverviewResult overviewResult = await api.GetOverview(cardResult.usrId.ToString(), caldate, caldate, loginResult.token.ToString());
-
-
+            OverviewResult overviewResult = await api.GetOverview(
+                cardResult.usrId.ToString(),
+                caldate,
+                caldate,
+                loginResult.token.ToString()
+            );
 
             AgendaViewModel.IsLoadingAgenda = false;
         }

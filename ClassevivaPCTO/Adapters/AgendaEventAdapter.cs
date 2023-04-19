@@ -6,18 +6,18 @@ namespace ClassevivaPCTO.Adapters
     {
         public AgendaEvent CurrentObject;
 
-        public string Title { 
-            get {
-
-                if(string.IsNullOrEmpty(CurrentObject.subjectDesc))
+        public string Title
+        {
+            get
+            {
+                if (string.IsNullOrEmpty(CurrentObject.subjectDesc))
                 {
                     return CurrentObject.authorName;
-                } else
+                }
+                else
                 {
                     return CurrentObject.subjectDesc + " (" + CurrentObject.authorName + ")";
                 }
-
-            
             }
         }
 
@@ -27,8 +27,6 @@ namespace ClassevivaPCTO.Adapters
             {
 
                 return "[" + CurrentObject.evtCode + "]";
-
-
             }
         }
 
@@ -39,5 +37,4 @@ namespace ClassevivaPCTO.Adapters
             CurrentObject = ev;
         }
     }
-
 }
