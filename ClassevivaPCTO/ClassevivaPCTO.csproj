@@ -132,7 +132,7 @@
     <Compile Include="Activation\DefaultActivationHandler.cs" />
     <Compile Include="Adapters\LessonAdapter.cs" />
     <Compile Include="Converters\DateTimeToHourConverter.cs" />
-    <Compile Include="Dialogs\ContentDialogContent.cs" />
+    <Compile Include="Dialogs\ContentDialogContent.xaml.cs" />
     <Compile Include="Helpers\EnumToBooleanConverter.cs" />
     <Compile Include="Helpers\NavHelper.cs" />
     <Compile Include="Helpers\ResourceExtensions.cs" />
