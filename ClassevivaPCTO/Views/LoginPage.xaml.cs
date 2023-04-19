@@ -141,9 +141,12 @@ namespace ClassevivaPCTO.Views
 
             try
             {
-                var measurement = new LoginData { Uid = edituid,
+                var measurement = new LoginData
+                {
+                    Uid = edituid,
                     Pass = editpass,
-                Ident = null};
+                    Ident = null
+                };
 
                 var resLogin = await GetLoginData(measurement);
 
@@ -157,16 +160,20 @@ namespace ClassevivaPCTO.Views
 
                     if (ChoiceSaverService.LoadChoiceIdentAsync().Result != null)
                     {
-                        resloginChoice = loginResultChoices.choices.Find(x => x.ident == ChoiceSaverService.LoadChoiceIdentAsync().Result);
-                    } else
+                        resloginChoice = loginResultChoices.choices.Find(
+                            x => x.ident == ChoiceSaverService.LoadChoiceIdentAsync().Result
+                        );
+                    }
+                    else
                     {
                         var resultDialog = await ShowChoicesDialog(loginResultChoices);
 
                         if (resultDialog.Item1 == ContentDialogResult.Primary)
                         {
                             //get the chosen index from the dialog combobox
-                            resloginChoice = loginResultChoices.choices[resultDialog.Item2.chosenIndex];
-
+                            resloginChoice = loginResultChoices.choices[
+                                resultDialog.Item2.chosenIndex
+                            ];
                         }
                     }
 
@@ -181,7 +188,12 @@ namespace ClassevivaPCTO.Views
 
                     if (resLoginFinal is LoginResultComplete loginResultChoice)
                     {
-                        DoFinalLogin(loginResultChoice, loginData, checkboxCredenzialiChecked, resloginChoice);
+                        DoFinalLogin(
+                            loginResultChoice,
+                            loginData,
+                            checkboxCredenzialiChecked,
+                            resloginChoice
+                        );
                     }
 
                     //execute on the main thread
@@ -234,8 +246,10 @@ namespace ClassevivaPCTO.Views
         }
 
         public async void DoFinalLogin(
-            LoginResultComplete loginResultComplete, LoginData loginData,
-            bool saveCredentials, LoginChoice loginChoice = null
+            LoginResultComplete loginResultComplete,
+            LoginData loginData,
+            bool saveCredentials,
+            LoginChoice loginChoice = null
         )
         {
             ViewModelHolder.getViewModel().LoginResult = loginResultComplete;
@@ -251,21 +265,13 @@ namespace ClassevivaPCTO.Views
             if (saveCredentials)
             {
                 var vault = new PasswordVault();
-                vault.Add(
-                    new PasswordCredential(
-                        "classevivapcto",
-                        loginData.Uid,
-                        loginData.Pass
-                    )
-                );
+                vault.Add(new PasswordCredential("classevivapcto", loginData.Uid, loginData.Pass));
 
                 if (loginChoice != null)
                 {
                     await ChoiceSaverService.SaveChoiceIdentAsync(loginData.Ident);
                 }
-
             }
-
 
             await CoreApplication.MainView.Dispatcher.RunAsync(
                 CoreDispatcherPriority.Normal,
@@ -320,13 +326,14 @@ namespace ClassevivaPCTO.Views
             }
         }
 
-        private async Task<(ContentDialogResult, ContentDialogContent)> ShowChoicesDialog(LoginResultChoices loginResultChoices)
+        private async Task<(ContentDialogResult, ContentDialogContent)> ShowChoicesDialog(
+            LoginResultChoices loginResultChoices
+        )
         {
             ContentDialogResult? result = null;
             ContentDialogContent contentDialogContent = null;
 
-            TaskCompletionSource<bool> IsSomethingLoading =
-    new TaskCompletionSource<bool>();
+            TaskCompletionSource<bool> IsSomethingLoading = new TaskCompletionSource<bool>();
 
             //make sure we are executing it on the main thread
             await CoreApplication.MainView.Dispatcher.RunAsync(
@@ -341,7 +348,6 @@ namespace ClassevivaPCTO.Views
                     dialog.CloseButtonText = "Annulla";
                     dialog.DefaultButton = ContentDialogButton.Primary;
                     dialog.Content = contentDialogContent;
-
 
                     result = await dialog.ShowAsync();
 
