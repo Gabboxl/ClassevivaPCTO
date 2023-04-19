@@ -10,18 +10,18 @@ namespace ClassevivaPCTO.Services
 {
     public static class ChoiceSaverService
     {
-        private const string SettingsKey = "AppLoginAccountChoice";
+        private const string SettingsKey = "AppLoginChoiceIdent";
 
-        public static async Task<int?> LoadChoiceAsync()
+        public static async Task<string?> LoadChoiceIdentAsync()
         {
-            int? choice = await ApplicationData.Current.LocalSettings.ReadAsync<int>(SettingsKey);
+            string? ident = await ApplicationData.Current.LocalSettings.ReadAsync<string>(SettingsKey);
 
-            return choice;
+            return ident;
         }
 
-        public static async Task SaveChoiceAsync(int choice)
+        public static async Task SaveChoiceIdentAsync(string ident)
         {
-            await ApplicationData.Current.LocalSettings.SaveAsync(SettingsKey, choice.ToString());
+            await ApplicationData.Current.LocalSettings.SaveAsync(SettingsKey, ident.ToString());
         }
     }
 }

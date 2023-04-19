@@ -70,7 +70,11 @@ namespace ClassevivaPCTO.Views
                 edittext_username.Text = loginCredentials.UserName.ToString();
                 edittext_password.Password = loginCredentials.Password.ToString();
 
-                doLoginAsync();
+                Task.Run(async () =>
+                {
+                    await doLoginAsync();
+                });
+                //doLoginAsync();
             }
 
             loginGrid.KeyDown += grid_KeyDown;
@@ -149,26 +153,35 @@ namespace ClassevivaPCTO.Views
                 }
                 else if (resLogin is LoginResultChoices loginResultChoices)
                 {
-                    var result = await ShowChoicesDialog(loginResultChoices);
+                    LoginChoice resloginChoice = null;
 
-                    if(result.Item1 == ContentDialogResult.Primary)
+                    if (ChoiceSaverService.LoadChoiceIdentAsync().Result != null)
                     {
-                        //get the chosen index from the dialog combobox
-                        LoginChoice resloginChoice = loginResultChoices.choices[result.Item2.chosenIndex];
+                        resloginChoice = loginResultChoices.choices.Find(x => x.ident == ChoiceSaverService.LoadChoiceIdentAsync().Result);
+                    } else
+                    {
+                        var resultDialog = await ShowChoicesDialog(loginResultChoices);
 
-                        var loginData = new LoginData
+                        if (resultDialog.Item1 == ContentDialogResult.Primary)
                         {
-                            Uid = edituid,
-                            Pass = editpass,
-                            Ident = resloginChoice.ident
-                        };
+                            //get the chosen index from the dialog combobox
+                            resloginChoice = loginResultChoices.choices[resultDialog.Item2.chosenIndex];
 
-                        var resLoginFinal = await GetLoginData(loginData);
-
-                        if (resLoginFinal is LoginResultComplete loginResultChoice)
-                        {
-                            DoFinalLogin(loginResultChoice, loginData, checkboxCredenzialiChecked, resloginChoice);
                         }
+                    }
+
+                    var loginData = new LoginData
+                    {
+                        Uid = edituid,
+                        Pass = editpass,
+                        Ident = resloginChoice.ident
+                    };
+
+                    var resLoginFinal = await GetLoginData(loginData);
+
+                    if (resLoginFinal is LoginResultComplete loginResultChoice)
+                    {
+                        DoFinalLogin(loginResultChoice, loginData, checkboxCredenzialiChecked, resloginChoice);
                     }
 
                     //execute on the main thread
@@ -245,12 +258,14 @@ namespace ClassevivaPCTO.Views
                         loginData.Pass
                     )
                 );
+
+                if (loginChoice != null)
+                {
+                    await ChoiceSaverService.SaveChoiceIdentAsync(loginData.Ident);
+                }
+
             }
 
-            if(loginChoice != null)
-            {
-                await ChoiceSaverService.SaveChoiceAsync(1);
-            }
 
             //TODO: check if loginChoice is not null and save it in the localsettings
 
