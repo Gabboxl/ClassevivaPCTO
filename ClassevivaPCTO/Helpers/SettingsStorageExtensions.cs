@@ -50,6 +50,11 @@ namespace ClassevivaPCTO.Helpers
             settings.Values[key] = value;
         }
 
+        public static void RemoveKey(this ApplicationDataContainer settings, string key)
+        {
+            settings.Values.Remove(key);
+        }
+
         public static async Task<T> ReadAsync<T>(this ApplicationDataContainer settings, string key)
         {
             object obj = null;
