@@ -128,6 +128,11 @@ namespace ClassevivaPCTO.Views
                 vault.Remove(new Windows.Security.Credentials.PasswordCredential(
                     "classevivapcto", loginCredential.UserName.ToString(), loginCredential.Password.ToString()));
 
+                //delete localsettings data in case of multiple account chosen
+                if(ChoiceSaverService.LoadChoiceIdentAsync().Result != null)
+                {
+                    ChoiceSaverService.RemoveSavedChoiceIdent();
+                }
             }
 
             Frame rootFrame = Window.Current.Content as Frame;
