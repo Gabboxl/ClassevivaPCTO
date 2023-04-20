@@ -178,6 +178,9 @@ namespace ClassevivaPCTO.Views
                             resloginChoice = loginResultChoices.choices[
                                 resultDialog.Item2.chosenIndex
                             ];
+                        }else if(resultDialog.Item1 == ContentDialogResult.None)
+                        {
+                            return;
                         }
                     }
 
@@ -200,16 +203,9 @@ namespace ClassevivaPCTO.Views
                         );
                     }
 
-                    //execute on the main thread
-                    await CoreApplication.MainView.Dispatcher.RunAsync(
-                        CoreDispatcherPriority.Normal,
-                        async () =>
-                        {
-                            buttonLogin.Visibility = Visibility.Visible;
-                            progresslogin.Visibility = Visibility.Collapsed;
-                        }
-                    );
                 }
+
+
             }
             catch (ApiException ex)
             {
@@ -238,15 +234,22 @@ namespace ClassevivaPCTO.Views
                     }
                 );
 
+
+            }finally
+            {
+
                 await CoreApplication.MainView.Dispatcher.RunAsync(
-                    CoreDispatcherPriority.Normal,
-                    async () =>
-                    {
-                        buttonLogin.Visibility = Visibility.Visible;
-                        progresslogin.Visibility = Visibility.Collapsed;
-                    }
-                );
+CoreDispatcherPriority.Normal,
+async () =>
+{
+buttonLogin.Visibility = Visibility.Visible;
+progresslogin.Visibility = Visibility.Collapsed;
+}
+);
             }
+
+
+
         }
 
         public async void DoFinalLogin(
