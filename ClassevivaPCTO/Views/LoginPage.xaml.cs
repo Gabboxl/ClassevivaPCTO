@@ -58,9 +58,7 @@ namespace ClassevivaPCTO.Views
             var packageId = package.Id;
             var version = packageId.Version;
 
-            VersionTextBlock.Text =  $"{appName} - {version.Major}.{version.Minor}.{version.Build}"; //.{version.Revision}
-
-
+            VersionTextBlock.Text = $"{appName} - {version.Major}.{version.Minor}.{version.Build}"; //.{version.Revision}
 
             var loginCredentials = new CredUtils().GetCredentialFromLocker();
 
@@ -178,7 +176,8 @@ namespace ClassevivaPCTO.Views
                             resloginChoice = loginResultChoices.choices[
                                 resultDialog.Item2.chosenIndex
                             ];
-                        }else if(resultDialog.Item1 == ContentDialogResult.None)
+                        }
+                        else if (resultDialog.Item1 == ContentDialogResult.None)
                         {
                             return;
                         }
@@ -202,10 +201,7 @@ namespace ClassevivaPCTO.Views
                             resloginChoice
                         );
                     }
-
                 }
-
-
             }
             catch (ApiException ex)
             {
@@ -233,23 +229,18 @@ namespace ClassevivaPCTO.Views
                         }
                     }
                 );
-
-
-            }finally
-            {
-
-                await CoreApplication.MainView.Dispatcher.RunAsync(
-CoreDispatcherPriority.Normal,
-async () =>
-{
-buttonLogin.Visibility = Visibility.Visible;
-progresslogin.Visibility = Visibility.Collapsed;
-}
-);
             }
-
-
-
+            finally
+            {
+                await CoreApplication.MainView.Dispatcher.RunAsync(
+                    CoreDispatcherPriority.Normal,
+                    async () =>
+                    {
+                        buttonLogin.Visibility = Visibility.Visible;
+                        progresslogin.Visibility = Visibility.Collapsed;
+                    }
+                );
+            }
         }
 
         public async void DoFinalLogin(
