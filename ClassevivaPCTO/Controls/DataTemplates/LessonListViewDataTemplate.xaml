@@ -12,9 +12,12 @@
                   
                   x:DataType="adapters:LessonAdapter">
         <RelativePanel>
-    
-            <!-- vertical colored line with 3px width-->
-            <Rectangle x:Name="verticalLine" Width="3" Height="Auto" Fill="#FFFFFF" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignTopWithPanel="True" RelativePanel.AlignBottomWithPanel="True" />
+
+            <!-- vertical colored line with 3px width with rounded tips-->
+            <Rectangle RadiusX="2" RadiusY="2" Margin="0,6,0,6" x:Name="verticalLine" Width="3" Height="Auto" Fill="#FFFFFF" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignTopWithPanel="True" RelativePanel.AlignBottomWithPanel="True" />
+
+
+
 
             <RelativePanel RelativePanel.AlignVerticalCenterWithPanel="True" >
                 
