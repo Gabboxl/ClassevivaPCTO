@@ -2,7 +2,7 @@
 
 namespace ClassevivaPCTO.Adapters
 {
-    public class AgendaEventAdapter : BindableBase.BindableBase
+    public class AgendaEventAdapter
     {
         public AgendaEvent CurrentObject;
 
