@@ -2,7 +2,7 @@
 
 namespace ClassevivaPCTO.Adapters
 {
-    public class LessonAdapter : BindableBase.BindableBase
+    public class LessonAdapter
     {
         public Lesson CurrentObject;
 
