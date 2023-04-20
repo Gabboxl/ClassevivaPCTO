@@ -1,8 +1,5 @@
 ﻿using ClassevivaPCTO.Services;
 using ClassevivaPCTO.Utils;
-using Microsoft.AppCenter;
-using Microsoft.AppCenter.Analytics;
-using Microsoft.AppCenter.Crashes;
 using Microsoft.Extensions.DependencyInjection;
 using Refit;
 using System;
@@ -57,7 +54,7 @@ namespace ClassevivaPCTO
 #if DEBUG
             System.Diagnostics.Debug.WriteLine("Mode=Debug");
 #else
-            AppCenter.Start("test", typeof(Analytics), typeof(Crashes));
+            Microsoft.AppCenter.AppCenter.Start("test", typeof(Microsoft.AppCenter.Analytics.Analytics), typeof(Microsoft.AppCenter.Crashes.Crashes));
 
             //var env = Environment.GetEnvironmentVariable("AppCenterSecret");
 
