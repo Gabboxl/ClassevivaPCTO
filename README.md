@@ -6,6 +6,6 @@ A simple UWP app to consult Classeviva's website
 
 ## Download
 
-<a href="https://apps.microsoft.com/store/detail/9PNST3M88D1S?launch=true&mode=mini" > <img src="https://get.microsoft.com/images/en-US%20dark.svg" width=15% height=15%/> </a>
+<a href="https://apps.microsoft.com/store/detail/9PNST3M88D1S?launch=true&mode=mini" > <img src="https://get.microsoft.com/images/en-US%20dark.svg" width=25% height=25%/> </a>
 
 *A compile guide and Github releases for manual sideload are coming soon!*
