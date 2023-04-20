@@ -59,7 +59,7 @@ namespace ClassevivaPCTO
 #else
             AppCenter.Start("test", typeof(Analytics), typeof(Crashes));
 
-            var env = Environment.GetEnvironmentVariable("AppCenterSecret");
+            //var env = Environment.GetEnvironmentVariable("AppCenterSecret");
 
 #endif
 
