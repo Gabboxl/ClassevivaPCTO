@@ -121,9 +121,9 @@
                     </labs:SettingsExpander.HeaderIcon>
                     <TextBlock IsTextSelectionEnabled="True"
                                Foreground="{ThemeResource TextFillColorSecondaryBrush}"
-                               Style="{StaticResource BodyStrongTextBlockStyle}"
+                               Style="{StaticResource BodyTextBlockStyle}"
                                 >
-                        <Run Text="Version " /> <Run Text="{x:Bind Version}" />
+                        <Run Text="Version " /><Run Text="{x:Bind Version}" />
                     </TextBlock>
                     <labs:SettingsExpander.Items>
                         <labs:SettingsCard HorizontalContentAlignment="Left"
