@@ -55,7 +55,7 @@
                               Margin="24,24,24,24">
 
 
-            <Grid
+            <Grid 
                 CornerRadius="8"
                 Padding="12"
                 BorderThickness="1"
@@ -74,13 +74,17 @@
 
                 <TextBlock x:Name="TextOggiAgenda" Grid.Row="0" Text="Oggi a scuola" FontSize="24" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="8" />
 
-                <ScrollViewer Grid.Row="2" ZoomMode="Enabled"
+
+                <ScrollViewer ZoomMode="Disabled" Grid.Row="2" x:Name="side"
             IsTabStop="False" IsVerticalScrollChainingEnabled="False"
             
-            HorizontalScrollMode="Enabled" HorizontalScrollBarVisibility="Auto"
-            VerticalScrollMode="Enabled" VerticalScrollBarVisibility="Auto">
+            HorizontalScrollMode="Disabled" HorizontalScrollBarVisibility="Auto"
 
-                    <RelativePanel MaxWidth="300">
+            VerticalScrollMode="Enabled" VerticalScrollBarVisibility="Visible">
+
+                    <RelativePanel  ScrollViewer.HorizontalScrollMode="Disabled"
+                                                                  MaxWidth="{Binding ActualWidth, ElementName=side}"
+>
 
                         <ListView x:Name="ListViewAbsencesDate" 
                           SelectionMode="Single"
@@ -128,8 +132,8 @@
                         </ListView>
 
                     </RelativePanel>
-                    
-                    
+
+
                 </ScrollViewer>
 
 
@@ -157,7 +161,7 @@
                 <TextBlock x:Name="TitleRecentGrades" Grid.Row="0" Text="Valutazioni recenti" FontSize="24" VerticalAlignment="Top" Margin="8" />
 
 
-                <ScrollViewer Grid.Row="2" ZoomMode="Enabled"
+                <ScrollViewer Grid.Row="2" ZoomMode="Disabled"
             IsTabStop="False" IsVerticalScrollChainingEnabled="False"
             
             HorizontalScrollMode="Enabled" HorizontalScrollBarVisibility="Auto"
