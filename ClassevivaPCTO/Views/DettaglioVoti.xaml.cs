@@ -45,7 +45,7 @@ namespace ClassevivaPCTO.Views
             );
 
             MainTextBox.Text =
-                "Dettaglio voti di " + VariousUtils.UppercaseFirst(loginResult.firstName);
+                "Dettaglio voti di " + VariousUtils.ToTitleCase(loginResult.firstName);
 
             //add to ComboPeriodi every period of resultPeriods
             foreach (Period period in resultPeriods.Periods)
