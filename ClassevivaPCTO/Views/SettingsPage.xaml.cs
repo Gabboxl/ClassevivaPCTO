@@ -22,12 +22,17 @@ namespace ClassevivaPCTO.Views
             set { Set(ref _elementTheme, value); }
         }
 
-        private string _versionDescription;
-
-        public string VersionDescription
+        public string AppName
         {
-            get { return _versionDescription; }
-            set { Set(ref _versionDescription, value); }
+            get { return "AppDisplayName".GetLocalized(); }
+        }
+
+        private string _version;
+
+        public string Version
+        {
+            get { return _version; }
+            set { Set(ref _version, value); }
         }
 
         public SettingsPage()
@@ -42,18 +47,17 @@ namespace ClassevivaPCTO.Views
 
         private async Task InitializeAsync()
         {
-            VersionDescription = GetVersionDescription();
+            Version = GetVersionDescription();
             await Task.CompletedTask;
         }
 
         private string GetVersionDescription()
         {
-            var appName = "AppDisplayName".GetLocalized();
             var package = Package.Current;
             var packageId = package.Id;
             var version = packageId.Version;
 
-            return $"{appName} - {version.Major}.{version.Minor}.{version.Build}.{version.Revision}";
+            return $"{version.Major}.{version.Minor}.{version.Build}.{version.Revision}";
         }
 
         private async void ThemeChanged_CheckedAsync(object sender, RoutedEventArgs e)

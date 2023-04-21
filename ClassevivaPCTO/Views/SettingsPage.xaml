@@ -5,64 +5,140 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:helper="using:ClassevivaPCTO.Helpers"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    
+    xmlns:labs="using:CommunityToolkit.Labs.WinUI"
     xmlns:xaml="using:Windows.UI.Xaml"
     mc:Ignorable="d">
     <Page.Resources>
+        <!--  These styles can be referenced to create a consistent SettingsPage layout  -->
+
+        <!--  Spacing between cards  -->
+        <x:Double x:Key="SettingsCardSpacing">3</x:Double>
+
+        <!--  Style (inc. the correct spacing) of a section header  -->
+        <Style x:Key="SettingsSectionHeaderTextBlockStyle"
+               BasedOn="{StaticResource BodyStrongTextBlockStyle}"
+               TargetType="TextBlock">
+            <Style.Setters>
+                <Setter Property="Margin" Value="1,29,0,5" />
+            </Style.Setters>
+        </Style>
+
         <helper:EnumToBooleanConverter x:Key="EnumToBooleanConverter" EnumType="ElementTheme" />
     </Page.Resources>
-    <Grid >
-        <StackPanel
-            x:Name="ContentArea">
-            <TextBlock x:Uid="Settings_Personalization" Style="{ThemeResource SubtitleTextBlockStyle}" />
-            <StackPanel >
-                <TextBlock x:Uid="Settings_Theme" />
+    <ScrollViewer>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
 
-                <StackPanel >
-                    <RadioButton 
+            <TextBlock x:Name="TextTitolo"  Grid.Row="0" Text="Impostazioni" FontSize="42" VerticalAlignment="Top"
+                   Margin="32,16,0,0" />
+
+            <StackPanel Grid.Row="1"
+                MaxWidth="1000"
+                        HorizontalAlignment="Stretch"
+                        Spacing="{StaticResource SettingsCardSpacing}">
+                <StackPanel.ChildrenTransitions>
+                    <EntranceThemeTransition FromVerticalOffset="50" />
+                    <RepositionThemeTransition IsStaggeringEnabled="False" />
+                </StackPanel.ChildrenTransitions>
+                
+                
+                <TextBlock Style="{StaticResource SettingsSectionHeaderTextBlockStyle}"
+                           Text="Personalizzazione" />
+                
+                
+                <labs:SettingsExpander Description="Scegli il tema dell'app"
+                                       Header="Tema">
+                    <labs:SettingsExpander.HeaderIcon>
+                        <FontIcon Glyph="&#xE790;" />
+                    </labs:SettingsExpander.HeaderIcon>
+
+                    <labs:SettingsExpander.Items>
+                        <labs:SettingsCard Header="Scegli un tema:">
+                            <StackPanel >
+                                <RadioButton 
                         x:Uid="Settings_Theme_Light"
                         Checked="ThemeChanged_CheckedAsync" 
                         IsChecked="{x:Bind ElementTheme, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter=Light, Mode=OneWay}"
                         FontSize="15"
                         GroupName="AppTheme" >
-                        <RadioButton.CommandParameter>
-                            <xaml:ElementTheme>Light</xaml:ElementTheme>
-                        </RadioButton.CommandParameter> 
-                    </RadioButton>
-                    <RadioButton 
+                                    <RadioButton.CommandParameter>
+                                        <xaml:ElementTheme>Light</xaml:ElementTheme>
+                                    </RadioButton.CommandParameter>
+                                </RadioButton>
+                                <RadioButton 
                         x:Uid="Settings_Theme_Dark"
                         Checked="ThemeChanged_CheckedAsync" 
                         IsChecked="{x:Bind ElementTheme, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter=Dark, Mode=OneWay}"
                         FontSize="15"
                         GroupName="AppTheme">
-                        <RadioButton.CommandParameter>
-                            <xaml:ElementTheme>Dark</xaml:ElementTheme>
-                        </RadioButton.CommandParameter>
-                    </RadioButton>
-                    <RadioButton 
+                                    <RadioButton.CommandParameter>
+                                        <xaml:ElementTheme>Dark</xaml:ElementTheme>
+                                    </RadioButton.CommandParameter>
+                                </RadioButton>
+                                <RadioButton 
                         x:Uid="Settings_Theme_Default"
                         Checked="ThemeChanged_CheckedAsync"
                         IsChecked="{x:Bind ElementTheme, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter=Default, Mode=OneWay}"
                         FontSize="15"
                         GroupName="AppTheme">
-                        <RadioButton.CommandParameter>
-                            <xaml:ElementTheme>Default</xaml:ElementTheme>
-                        </RadioButton.CommandParameter>
-                    </RadioButton>
-                </StackPanel>
+                                    <RadioButton.CommandParameter>
+                                        <xaml:ElementTheme>Default</xaml:ElementTheme>
+                                    </RadioButton.CommandParameter>
+                                </RadioButton>
+                            </StackPanel>
+                        </labs:SettingsCard>
+
+                    </labs:SettingsExpander.Items>
+                </labs:SettingsExpander>
+
+                <TextBlock Style="{StaticResource SettingsSectionHeaderTextBlockStyle}"
+                           Text="Section 2" />
+                <labs:SettingsCard Description="Another card to show grouping of cards"
+                                   Header="Another SettingsCard">
+                    <labs:SettingsCard.HeaderIcon>
+                        <FontIcon Glyph="&#xE799;" />
+                    </labs:SettingsCard.HeaderIcon>
+                    <ComboBox SelectedIndex="0">
+                        <ComboBoxItem>Option 1</ComboBoxItem>
+                        <ComboBoxItem>Option 2</ComboBoxItem>
+                        <ComboBoxItem>Option 3</ComboBoxItem>
+                    </ComboBox>
+                </labs:SettingsCard>
+
+                <!--  Example 'About' section  -->
+                <TextBlock Style="{StaticResource SettingsSectionHeaderTextBlockStyle}"
+                           Text="About" />
+
+                <labs:SettingsExpander Description="© 2023. All rights reserved."
+                                       Header="{x:Bind AppName}">
+                    <labs:SettingsExpander.HeaderIcon>
+                        <BitmapIcon ShowAsMonochrome="False"
+                                    UriSource="ms-appx:///Assets/StoreLogo.scale-400.png" />
+                    </labs:SettingsExpander.HeaderIcon>
+                    <TextBlock IsTextSelectionEnabled="True"
+                               Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                               Style="{StaticResource CaptionTextBlockStyle}"
+                               Text="Version 1.0.0.0" />
+                    <labs:SettingsExpander.Items>
+                        <labs:SettingsCard HorizontalContentAlignment="Left"
+                                           ContentAlignment="Left">
+                            <StackPanel Margin="-12,0,0,0"
+                                        Orientation="Vertical">
+                                <HyperlinkButton Content="Link 1" />
+                                <HyperlinkButton Content="Link 2" />
+                                <HyperlinkButton Content="Link 3" />
+                            </StackPanel>
+                        </labs:SettingsCard>
+                    </labs:SettingsExpander.Items>
+                </labs:SettingsExpander>
+                <HyperlinkButton Margin="0,8,0,0"
+                                 Content="Send feedback" />
             </StackPanel>
+        </Grid>
+    </ScrollViewer>
 
-            <TextBlock x:Uid="Settings_About" Style="{ThemeResource SubtitleTextBlockStyle}" />
-
-            <StackPanel >
-                <TextBlock Style="{ThemeResource BodyTextBlockStyle}" Text="{x:Bind VersionDescription, Mode=OneWay}" />
-                <TextBlock
-                    x:Uid="Settings_AboutDescription"
-                    
-                    Style="{ThemeResource BodyTextBlockStyle}" />
-
-                <HyperlinkButton x:Uid="Settings_PrivacyTermsLink"  />
-            </StackPanel>
-        </StackPanel>
-    </Grid>
 </Page>
