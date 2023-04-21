@@ -27,9 +27,9 @@ namespace ClassevivaPCTO.Views
         {
             get
             {
-                return VariousUtils.UppercaseFirst(AppViewModel.LoginResult.firstName)
+                return VariousUtils.ToTitleCase(AppViewModel.LoginResult.firstName)
                     + " "
-                    + VariousUtils.UppercaseFirst(AppViewModel.LoginResult.lastName);
+                    + VariousUtils.ToTitleCase(AppViewModel.LoginResult.lastName);
             }
         }
 
@@ -77,9 +77,9 @@ namespace ClassevivaPCTO.Views
             LoginResultComplete loginResult = ViewModelHolder.getViewModel().LoginResult;
 
             PersonPictureDashboard.DisplayName =
-                VariousUtils.UppercaseFirst(loginResult.firstName)
+                VariousUtils.ToTitleCase(loginResult.firstName)
                 + " "
-                + VariousUtils.UppercaseFirst(loginResult.lastName);
+                + VariousUtils.ToTitleCase(loginResult.lastName);
 
             //pagina di default
             NavigationService.Navigate(typeof(Views.DashboardPage));

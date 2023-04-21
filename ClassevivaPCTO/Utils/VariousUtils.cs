@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 
 namespace ClassevivaPCTO.Utils
 {
@@ -25,6 +26,10 @@ namespace ClassevivaPCTO.Utils
             return somma / numVoti;
         }
 
+        public static string ToTitleCase(string s)
+        {
+            return CultureInfo.CurrentCulture.TextInfo.ToTitleCase(s.ToLower());
+        }
 
         public static string UppercaseFirst(string s)
         {
