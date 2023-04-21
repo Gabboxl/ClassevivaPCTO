@@ -75,15 +75,15 @@
                 <TextBlock x:Name="TextOggiAgenda" Grid.Row="0" Text="Oggi a scuola" FontSize="24" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="8" />
 
 
-                <ScrollViewer ZoomMode="Disabled" Grid.Row="2" x:Name="side"
+                <ScrollViewer ZoomMode="Disabled" Grid.Row="2" x:Name="OverviewScrollviewer"
             IsTabStop="False" IsVerticalScrollChainingEnabled="False"
             
             HorizontalScrollMode="Disabled" HorizontalScrollBarVisibility="Auto"
 
             VerticalScrollMode="Enabled" VerticalScrollBarVisibility="Visible">
 
-                    <RelativePanel  ScrollViewer.HorizontalScrollMode="Disabled"
-                                                                  MaxWidth="{Binding ActualWidth, ElementName=side}"
+                    <StackPanel  ScrollViewer.HorizontalScrollMode="Disabled"
+                                                                  Width="{Binding ActualWidth, ElementName=OverviewScrollviewer}"
 >
 
                         <ListView x:Name="ListViewAbsencesDate" 
@@ -98,7 +98,7 @@
                         </ListView>
 
 
-                        <ListView x:Name="ListViewVotiDate" RelativePanel.Below="ListViewAbsencesDate"
+                        <ListView x:Name="ListViewVotiDate"
                           SelectionMode="Single"
                               
                           HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
@@ -109,7 +109,7 @@
 
                         </ListView>
 
-                        <ListView x:Name="ListViewLezioniDate" RelativePanel.Below="ListViewVotiDate"
+                        <ListView x:Name="ListViewLezioniDate"
                           SelectionMode="Single"
                               
                           HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
@@ -120,7 +120,7 @@
 
                         </ListView>
 
-                        <ListView x:Name="ListViewAgendaDate" RelativePanel.Below="ListViewLezioniDate"
+                        <ListView x:Name="ListViewAgendaDate"
                           SelectionMode="Single"
                               
                           HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
@@ -131,7 +131,7 @@
 
                         </ListView>
 
-                    </RelativePanel>
+                    </StackPanel>
 
 
                 </ScrollViewer>
