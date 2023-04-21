@@ -56,9 +56,6 @@
 
 
             <Grid
-
-                Grid.ColumnSpan="1"
-                VerticalAlignment="Stretch" HorizontalAlignment="Stretch"
                 CornerRadius="8"
                 Padding="12"
                 BorderThickness="1"
@@ -70,7 +67,7 @@
                     <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition />
+                    <ColumnDefinition Width="*"/>
 
                 </Grid.ColumnDefinitions>
 
@@ -78,12 +75,12 @@
                 <TextBlock x:Name="TextOggiAgenda" Grid.Row="0" Text="Oggi a scuola" FontSize="24" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="8" />
 
                 <ScrollViewer Grid.Row="2" ZoomMode="Enabled"
-            IsTabStop="True" IsVerticalScrollChainingEnabled="True"
+            IsTabStop="False" IsVerticalScrollChainingEnabled="False"
             
             HorizontalScrollMode="Enabled" HorizontalScrollBarVisibility="Auto"
             VerticalScrollMode="Enabled" VerticalScrollBarVisibility="Auto">
 
-                    <RelativePanel>
+                    <RelativePanel MaxWidth="300">
 
                         <ListView x:Name="ListViewAbsencesDate" 
                           SelectionMode="Single"
@@ -144,7 +141,6 @@
 
             <Grid CornerRadius="8"
                   Padding="12"
-                  
                   BorderThickness="1"
                   BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
                   Background="{ThemeResource CardBackgroundFillColorDefaultBrush}">
