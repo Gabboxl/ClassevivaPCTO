@@ -265,5 +265,10 @@ namespace ClassevivaPCTO.Views
         {
             await LoadEverything();
         }
+
+        private void ButtonApriBacheca_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(typeof(Views.Bacheca));
+        }
     }
 }

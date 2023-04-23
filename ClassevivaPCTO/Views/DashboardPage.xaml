@@ -293,8 +293,8 @@
 
                 </ScrollViewer>
 
-                <HyperlinkButton Grid.Row="2"  Content="Vedi comunicazioni"
-                 Click="HyperlinkButton_Click" VerticalAlignment="Bottom" HorizontalAlignment="Right"
+                <HyperlinkButton Grid.Row="2"  Content="Apri bacheca" x:Name="ButtonApriBacheca"
+                 Click="ButtonApriBacheca_Click" VerticalAlignment="Bottom" HorizontalAlignment="Right"
                 />
 
 

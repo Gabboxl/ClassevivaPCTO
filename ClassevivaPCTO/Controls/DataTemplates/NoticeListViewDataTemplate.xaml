@@ -48,7 +48,7 @@
                                            Text="{x:Bind  CurrentObject.cntValidTo, Converter={StaticResource DateTimeToNormalDateConverter}}"
                                            FontStyle="Italic"
                                            Style="{ThemeResource BodyTextBlockStyle}"
-                                           Margin="0,0,0,0" />
+                                           Margin="0,0,0,8" />
 
 
         </RelativePanel>
