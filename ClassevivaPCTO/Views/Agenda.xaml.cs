@@ -51,17 +51,18 @@ namespace ClassevivaPCTO.Views
 
         private void ButtonToday_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
-
+            CalendarAgenda.Date = DateTime.Now;
         }
 
         private void ButtonYesterday_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
-
+            CalendarAgenda.Date = CalendarAgenda.Date.Value.AddDays(-1);
         }
 
         private void ButtonTomorrow_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
-
+            //add one day to the calendaragenda date
+            CalendarAgenda.Date = CalendarAgenda.Date.Value.AddDays(1);
         }
     }
 }
