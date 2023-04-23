@@ -41,8 +41,7 @@ namespace ClassevivaPCTO.Views
 
             Card cardResult = ViewModelHolder.getViewModel().CardsResult.Cards[0];
 
-            TextBenvenuto.Text =
-                "Dashboard di " + VariousUtils.ToTitleCase(cardResult.firstName);
+            TextBenvenuto.Text = "Dashboard di " + VariousUtils.ToTitleCase(cardResult.firstName);
 
             /*
 
@@ -58,7 +57,6 @@ namespace ClassevivaPCTO.Views
             */
 
             await LoadEverything();
-
         }
 
         public async Task LoadOverviewCard()
@@ -70,7 +68,6 @@ namespace ClassevivaPCTO.Views
                     DashboardPageViewModel.IsLoadingAgenda = true;
                 }
             );
-
 
             LoginResultComplete loginResult = ViewModelHolder.getViewModel().LoginResult;
             Card cardResult = ViewModelHolder.getViewModel().CardsResult.Cards[0];
@@ -124,7 +121,6 @@ namespace ClassevivaPCTO.Views
 
                     ListViewAgendaDate.ItemsSource = eventAdapters;
 
-
                     DashboardPageViewModel.IsLoadingAgenda = false;
                 }
             );
@@ -133,12 +129,12 @@ namespace ClassevivaPCTO.Views
         public async Task CaricaRecentGradesCard()
         {
             await CoreApplication.MainView.Dispatcher.RunAsync(
-    CoreDispatcherPriority.Normal,
-    async () =>
-    {
-        DashboardPageViewModel.IsLoadingGrades = true;
-    }
-);
+                CoreDispatcherPriority.Normal,
+                async () =>
+                {
+                    DashboardPageViewModel.IsLoadingGrades = true;
+                }
+            );
 
             LoginResultComplete loginResult = ViewModelHolder.getViewModel().LoginResult;
             Card cardResult = ViewModelHolder.getViewModel().CardsResult.Cards[0];
@@ -195,9 +191,6 @@ namespace ClassevivaPCTO.Views
             );
         }
 
-
-
-
         public async Task CaricaNoticesCard()
         {
             await CoreApplication.MainView.Dispatcher.RunAsync(
@@ -215,13 +208,12 @@ namespace ClassevivaPCTO.Views
                 .GetNotices(cardResult.usrId.ToString(), loginResult.token.ToString())
                 .ConfigureAwait(false);
 
+            //get only most recent 5 notices
+            var fiveMostRecent = resultNotices.Notices
+                .OrderByDescending(x => x.cntValidFrom)
+                .Take(5);
 
-             //get only most recent 5 notices
-             var fiveMostRecent = resultNotices.Notices.OrderByDescending(x => x.cntValidFrom).Take(5);
-
-            var noticesAdapters = fiveMostRecent
-    ?.Select(evt => new NoticeAdapter(evt))
-    .ToList();
+            var noticesAdapters = fiveMostRecent?.Select(evt => new NoticeAdapter(evt)).ToList();
 
             //update UI on UI thread
             await CoreApplication.MainView.Dispatcher.RunAsync(
@@ -258,7 +250,6 @@ namespace ClassevivaPCTO.Views
             });
         }
 
-
         private void HyperlinkButton_Click(object sender, RoutedEventArgs e)
         {
             //NavigationService.Navigate(typeof(Views.DettaglioVoti), null);
@@ -272,7 +263,6 @@ namespace ClassevivaPCTO.Views
 
         private async void AggiornaButton_Click(object sender, RoutedEventArgs e)
         {
-
             await LoadEverything();
         }
     }
