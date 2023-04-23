@@ -236,7 +236,7 @@
 
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
-                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
                     <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
@@ -246,9 +246,30 @@
 
                 <TextBlock x:Name="TextBachecaRecenti" Grid.Row="0" Text="Comunicazioni recenti" FontSize="24" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="8" />
 
+                <ScrollViewer Grid.Row="2" ZoomMode="Disabled"
+            IsTabStop="False" IsVerticalScrollChainingEnabled="False"
+            
+            HorizontalScrollMode="Enabled" HorizontalScrollBarVisibility="Auto"
+            VerticalScrollMode="Enabled" VerticalScrollBarVisibility="Auto">
 
 
+                    <ListView x:Name="ListRecentNotices" 
+                          SelectionMode="Single"
+                              
+                          HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+                          ItemTemplate="{StaticResource NoticeListViewDataTemplate}"
+                              
+                          ScrollViewer.VerticalScrollMode="Disabled"
+                                  ScrollViewer.VerticalScrollBarVisibility="Disabled">
 
+                    </ListView>
+
+
+                </ScrollViewer>
+
+                <HyperlinkButton Grid.Row="2"  Content="Vedi comunicazioni"
+                 Click="HyperlinkButton_Click" VerticalAlignment="Bottom" HorizontalAlignment="Right"
+                />
 
 
             </Grid>

@@ -1,0 +1,56 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:contract7Present="http://schemas.microsoft.com/winfx/2006/xaml/presentation?IsApiContractPresent(Windows.Foundation.UniversalApiContract, 7)"
+    xmlns:converters="using:ClassevivaPCTO.Converters"
+    xmlns:utils="using:ClassevivaPCTO.Utils"
+    xmlns:adapters="using:ClassevivaPCTO.Adapters"
+    x:Class="ClassevivaPCTO.Controls.DataTemplates.NoticeListViewDataTemplate"
+    xmlns:muxc="using:Microsoft.UI.Xaml.Controls">
+
+    <converters:DateTimeToHourConverter x:Key="DateTimeToHourConverter" />
+
+
+    <DataTemplate x:Key="NoticeListViewDataTemplate"
+                  
+                  x:DataType="adapters:NoticeAdapter">
+        <RelativePanel>
+    
+
+                <TextBlock x:Name="titoloEvento" TextWrapping="Wrap"
+                                           MaxWidth="500"
+                                           Text="{x:Bind CurrentObject.cntTitle}"
+                                           Style="{ThemeResource BaseTextBlockStyle}"
+                                           Margin="6,6,0,0" />
+
+            
+            <TextBlock RelativePanel.RightOf="titoloEvento" x:Name="tipoEvento" TextWrapping="Wrap"
+                                           MaxWidth="500"
+                                           Text="{x:Bind CurrentObject.cntCategory}"
+                                           Style="{ThemeResource BaseTextBlockStyle}"
+                                           Margin="6,6,0,0" />
+
+
+            <TextBlock RelativePanel.Below="titoloEvento" x:Name="dataStart"
+                                           Text="{x:Bind  CurrentObject.cntValidFrom, Converter={StaticResource DateTimeToNormalDateConverter}}"
+                                           FontStyle="Italic"
+                                           Style="{ThemeResource BodyTextBlockStyle}"
+                                           Margin="6,0,0,0" />
+
+            <TextBlock RelativePanel.RightOf="dataStart" RelativePanel.Below="titoloEvento" x:Name="placeholderData"
+                                           Text="-"
+                                           FontStyle="Italic"
+                                           Style="{ThemeResource BodyTextBlockStyle}"
+                                           Margin="6,0,6,0" />
+
+
+            <TextBlock RelativePanel.RightOf="placeholderData" RelativePanel.Below="titoloEvento" x:Name="dataEnd"
+                                           Text="{x:Bind  CurrentObject.cntValidTo, Converter={StaticResource DateTimeToNormalDateConverter}}"
+                                           FontStyle="Italic"
+                                           Style="{ThemeResource BodyTextBlockStyle}"
+                                           Margin="0,0,0,0" />
+
+
+        </RelativePanel>
+    </DataTemplate>
+</ResourceDictionary>
