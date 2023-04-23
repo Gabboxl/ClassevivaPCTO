@@ -18,6 +18,7 @@
                 <datatemplates:VotiListViewDataTemplateCompact  Source="Controls/DataTemplates/VotiListViewDataTemplateCompact.xaml"/>
                 <datatemplates:AgendaEventListViewDataTemplate  Source="Controls/DataTemplates/AgendaEventListViewDataTemplate.xaml"/>
                 <datatemplates:LessonListViewDataTemplate  Source="Controls/DataTemplates/LessonListViewDataTemplate.xaml"/>
+                <datatemplates:NoticeListViewDataTemplate  Source="Controls/DataTemplates/NoticeListViewDataTemplate.xaml"/>
             </ResourceDictionary.MergedDictionaries>
 
         </ResourceDictionary>

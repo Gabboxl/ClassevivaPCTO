@@ -251,8 +251,8 @@ namespace ClassevivaPCTO.Utils
         public bool readStatus { get; set; }
         public string evtCode { get; set; }
         public int cntId { get; set; }
-        public string cntValidFrom { get; set; }
-        public string cntValidTo { get; set; }
+        public DateTime cntValidFrom { get; set; }
+        public DateTime cntValidTo { get; set; }
         public bool cntValidInRange { get; set; }
         public string cntStatus { get; set; }
         public string cntTitle { get; set; }

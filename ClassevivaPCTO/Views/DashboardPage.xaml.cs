@@ -57,21 +57,8 @@ namespace ClassevivaPCTO.Views
 
             */
 
-            await Task.Run(async () =>
-            {
-                await LoadOverviewCard();
-            });
+            await LoadEverything();
 
-            await Task.Run(async () =>
-            {
-                await CaricaRecentGradesCard();
-            });
-
-            //run in a background thread otherwise the UI thread gets stuck when displaying a dialog
-            await Task.Run(async () =>
-            {
-                await CaricaMediaCard();
-            });
         }
 
         public async Task LoadOverviewCard()
@@ -186,21 +173,48 @@ namespace ClassevivaPCTO.Views
             );
         }
 
-        private void HyperlinkButton_Click(object sender, RoutedEventArgs e)
+
+
+
+        public async Task CaricaNoticesCard()
         {
-            //NavigationService.Navigate(typeof(Views.DettaglioVoti), null);
-            NavigationService.Navigate(typeof(Views.DettaglioVoti));
+            await CoreApplication.MainView.Dispatcher.RunAsync(
+                CoreDispatcherPriority.Normal,
+                async () =>
+                {
+                    DashboardPageViewModel.IsLoadingNotices = true;
+                }
+            );
+
+            LoginResultComplete loginResult = ViewModelHolder.getViewModel().LoginResult;
+            Card cardResult = ViewModelHolder.getViewModel().CardsResult.Cards[0];
+
+            var resultNotices = await apiWrapper
+                .GetNotices(cardResult.usrId.ToString(), loginResult.token.ToString())
+                .ConfigureAwait(false);
+
+
+             //get only most recent 5 notices
+             var fiveMostRecent = resultNotices.Notices.OrderByDescending(x => x.cntValidFrom).Take(5);
+
+            var noticesAdapters = fiveMostRecent
+    ?.Select(evt => new NoticeAdapter(evt))
+    .ToList();
+
+            //update UI on UI thread
+            await CoreApplication.MainView.Dispatcher.RunAsync(
+                CoreDispatcherPriority.Normal,
+                async () =>
+                {
+                    ListRecentNotices.ItemsSource = noticesAdapters;
+
+                    DashboardPageViewModel.IsLoadingNotices = false;
+                }
+            );
         }
 
-        private async void HyperlinkButton_Click_1(object sender, RoutedEventArgs e)
+        private async Task LoadEverything()
         {
-            NavigationService.Navigate(typeof(Views.Agenda));
-        }
-
-        private async void AggiornaButton_Click(object sender, RoutedEventArgs e)
-        {
-            DashboardPageViewModel.IsLoadingMedia = true;
-
             await Task.Run(async () =>
             {
                 await LoadOverviewCard();
@@ -215,6 +229,29 @@ namespace ClassevivaPCTO.Views
             {
                 await CaricaMediaCard();
             });
+
+            await Task.Run(async () =>
+            {
+                await CaricaNoticesCard();
+            });
+        }
+
+
+        private void HyperlinkButton_Click(object sender, RoutedEventArgs e)
+        {
+            //NavigationService.Navigate(typeof(Views.DettaglioVoti), null);
+            NavigationService.Navigate(typeof(Views.DettaglioVoti));
+        }
+
+        private async void HyperlinkButton_Click_1(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(typeof(Views.Agenda));
+        }
+
+        private async void AggiornaButton_Click(object sender, RoutedEventArgs e)
+        {
+
+            await LoadEverything();
         }
     }
 }

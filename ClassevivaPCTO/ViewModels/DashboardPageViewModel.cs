@@ -25,6 +25,13 @@ namespace ClassevivaPCTO.ViewModels
             set { SetProperty(ref _isLoadingMedia, value); }
         }
 
+        private bool _isLoadingNotices = true;
+        public bool IsLoadingNotices
+        {
+            get { return _isLoadingNotices; }
+            set { SetProperty(ref _isLoadingNotices, value); }
+        }
+
         public DashboardPageViewModel() { }
     }
 }
