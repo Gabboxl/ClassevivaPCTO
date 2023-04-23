@@ -5,6 +5,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Refit;
 using System;
 using System.Linq;
+using System.Threading.Tasks;
 using Windows.ApplicationModel.Core;
 using Windows.UI.Core;
 using Windows.UI.Xaml.Controls;
@@ -81,16 +82,27 @@ namespace ClassevivaPCTO.Views
                 //ButtonToday.IsEnabled = true;
             }
 
+            string apiDate = VariousUtils.ToApiDateTime(CalendarAgenda.Date.Value.Date);
 
+            await Task.Run(async () =>
+            {
+                await LoadData(apiDate);
+            });
+
+        }
+
+
+        private async Task LoadData(string apiDateToLoad)
+        {
 
             LoginResultComplete loginResult = ViewModelHolder.getViewModel().LoginResult;
             Card cardResult = ViewModelHolder.getViewModel().CardsResult.Cards[0];
 
-            string caldate = VariousUtils.ToApiDateTime(CalendarAgenda.Date.Value.Date);
+            
             OverviewResult overviewResult = await apiWrapper.GetOverview(
                 cardResult.usrId.ToString(),
-                caldate,
-                caldate,
+                apiDateToLoad,
+                apiDateToLoad,
                 loginResult.token.ToString()
             );
 
