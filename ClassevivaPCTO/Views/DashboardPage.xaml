@@ -8,6 +8,7 @@
     mc:Ignorable="d"
     xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
     xmlns:microconverters="using:Microsoft.Toolkit.Uwp.UI.Converters"
+    xmlns:toolkit="using:Microsoft.Toolkit.Uwp.UI"
     xmlns:controlscust="using:ClassevivaPCTO.Controls"
     xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
     xmlns:animatedvisuals="using:Microsoft.UI.Xaml.Controls.AnimatedVisuals"
@@ -75,7 +76,7 @@
                 <TextBlock x:Name="TextOggiAgenda" Grid.Row="0" Text="Oggi a scuola" FontSize="24" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="8" />
 
 
-                <ScrollViewer ZoomMode="Disabled" Grid.Row="2" x:Name="OverviewScrollviewer"
+                <ScrollViewer ZoomMode="Disabled" Grid.Row="2" x:Name="OverviewScrollviewer" toolkit:FrameworkElementExtensions.EnableActualSizeBinding="true"
             IsTabStop="False" IsVerticalScrollChainingEnabled="False"
             
             HorizontalScrollMode="Disabled" HorizontalScrollBarVisibility="Auto"
@@ -83,7 +84,7 @@
             VerticalScrollMode="Enabled" VerticalScrollBarVisibility="Visible">
 
                     <StackPanel  ScrollViewer.HorizontalScrollMode="Disabled"
-                                                                  Width="{Binding ActualWidth, ElementName=OverviewScrollviewer}"
+                                                                  Width="{Binding ElementName=OverviewScrollviewer, Path=(toolkit:FrameworkElementExtensions.ActualWidth)}"
 >
 
                         <ListView x:Name="ListViewAbsencesDate" 
