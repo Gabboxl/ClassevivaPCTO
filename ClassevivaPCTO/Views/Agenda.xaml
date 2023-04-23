@@ -8,6 +8,7 @@
     mc:Ignorable="d"
     xmlns:microconverters="using:Microsoft.Toolkit.Uwp.UI.Converters"
     xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
+    xmlns:toolkit="using:Microsoft.Toolkit.Uwp.UI"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
     muxc:BackdropMaterial.ApplyToRootOrPageBackground="True">
 
@@ -23,15 +24,15 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
 
 
 
         <TextBlock x:Name="TextTitolo"  Grid.Row="0" Text="Agenda" FontSize="42" VerticalAlignment="Top"
                    Margin="32,16,0,0" />
         
-        <!-- center page textblock -->
-        <TextBlock x:Name="TextCenter"  Grid.Row="2" Text="There is nothing here right now" FontSize="42" VerticalAlignment="Center"
-        HorizontalAlignment="Center"             />
 
         <RelativePanel Grid.Row="2" 
                        Margin="32,32,32,20"
@@ -47,49 +48,45 @@
                            RelativePanel.AlignHorizontalCenterWithPanel="True"
                                        Visibility="{x:Bind AgendaViewModel.IsLoadingAgenda, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}"/>
 
+            <TextBlock x:Name="TextCenter"
+                       RelativePanel.AlignVerticalCenterWithPanel="True"
+                           RelativePanel.AlignHorizontalCenterWithPanel="True"
+                       Text="There is nothing here right now" FontSize="42" VerticalAlignment="Center"
+                       Visibility="{x:Bind AgendaViewModel.IsLoadingAgenda, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}"
+        HorizontalAlignment="Center" />
 
 
-            <AutoSuggestBox QueryIcon="Find"
-                            PlaceholderText="Cerca"
+            <Button x:Name="ButtonYesterday" Margin="0,8,0,0" 
+                    Click="ButtonYesterday_Click" >
+                <FontIcon Glyph="&#xEC52;" HorizontalAlignment="Center"/>
+            </Button>
+
+
+            <CalendarDatePicker x:Name="CalendarAgenda" 
+                                RelativePanel.RightOf="ButtonYesterday"
+                                PlaceholderText="Scegli una data" Grid.Row="1" Margin="8,8,8,0" />
+
+            <Button x:Name="ButtonTomorrow" Margin="0,8,0,0" 
+                    RelativePanel.RightOf="CalendarAgenda"
+                    Click="ButtonTomorrow_Click" >
+                <FontIcon Glyph="&#xEBE7;" HorizontalAlignment="Center"/>
+            </Button>
+
+            <!-- button to return to today's date-->
+            <Button x:Name="ButtonToday" Content="Oggi" Margin="8,8,0,0" 
+                    RelativePanel.RightOf="ButtonTomorrow"
+                    toolkit:FrameworkElementExtensions.Cursor="Hand"
+                    Click="ButtonToday_Click" />
+
+
+
+            <AutoSuggestBox QueryIcon="Find" 
+                            PlaceholderText="Cerca" RelativePanel.AlignHorizontalCenterWithPanel="True"
                             HorizontalAlignment="Center"
                             Width="260" Height="32" />
-
-            <CalendarDatePicker x:Name="CalendarAgenda" PlaceholderText="Scegli una data" Grid.Row="1" Margin="0,8,0,0" />
-
-
-            <ListView x:Name="ListViewAbsencesDate" 
-                          SelectionMode="Single"
-                              
-                          HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
-                          ItemTemplate="{StaticResource VotiListViewDataTemplateNope}"
-                              
-                          ScrollViewer.VerticalScrollMode="Disabled"
-                                  ScrollViewer.VerticalScrollBarVisibility="Disabled">
-
-            </ListView>
+            
 
 
-            <ListView x:Name="ListViewVotiDate" RelativePanel.Below="ListViewAbsencesDate"
-                          SelectionMode="Single"
-                              
-                          HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
-                          ItemTemplate="{StaticResource VotiListViewDataTemplateNope}"
-                              
-                          ScrollViewer.VerticalScrollMode="Disabled"
-                                  ScrollViewer.VerticalScrollBarVisibility="Disabled">
-
-            </ListView>
-
-            <ListView x:Name="ListViewAgendaDate" RelativePanel.Below="ListViewVotiDate"
-                          SelectionMode="Single"
-                              
-                          HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
-                          ItemTemplate="{StaticResource VotiListViewDataTemplateNope}"
-                              
-                          ScrollViewer.VerticalScrollMode="Disabled"
-                                  ScrollViewer.VerticalScrollBarVisibility="Disabled">
-
-            </ListView>
 
         </RelativePanel>
 

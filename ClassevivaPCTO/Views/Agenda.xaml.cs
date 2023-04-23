@@ -48,5 +48,20 @@ namespace ClassevivaPCTO.Views
 
             AgendaViewModel.IsLoadingAgenda = false;
         }
+
+        private void ButtonToday_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+
+        }
+
+        private void ButtonYesterday_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+
+        }
+
+        private void ButtonTomorrow_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+
+        }
     }
 }
