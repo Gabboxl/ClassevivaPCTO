@@ -37,6 +37,8 @@
         <RelativePanel Grid.Row="2" 
                        Margin="32,32,32,20"
                        VerticalAlignment="Stretch" HorizontalAlignment="Stretch"
+                       x:Name="CardPanel"
+                        toolkit:FrameworkElementExtensions.EnableActualSizeBinding="true"
                 CornerRadius="8"
                 Padding="12"
                 BorderThickness="1"
@@ -73,7 +75,7 @@
             </Button>
 
             <!-- button to return to today's date-->
-            <Button x:Name="ButtonToday" Content="Oggi" Margin="8,8,0,0" 
+            <ToggleButton x:Name="ButtonToday" Content="Oggi" Margin="8,8,0,0" 
                     RelativePanel.RightOf="ButtonTomorrow"
                     toolkit:FrameworkElementExtensions.Cursor="Hand"
                     Click="ButtonToday_Click" />
@@ -84,8 +86,71 @@
                             PlaceholderText="Cerca" RelativePanel.AlignHorizontalCenterWithPanel="True"
                             HorizontalAlignment="Center"
                             Width="260" Height="32" />
-            
 
+
+
+
+            <ScrollViewer ZoomMode="Disabled" RelativePanel.Below="ButtonYesterday" Margin="0,0,0,0" x:Name="AgendaScrollviewer" toolkit:FrameworkElementExtensions.EnableActualSizeBinding="true"
+            IsTabStop="False" IsVerticalScrollChainingEnabled="False"
+                          Width="{Binding ElementName=CardPanel, Path=(toolkit:FrameworkElementExtensions.ActualWidth)}"
+            
+            HorizontalScrollMode="Disabled" HorizontalScrollBarVisibility="Auto"
+
+            VerticalScrollMode="Enabled" VerticalScrollBarVisibility="Visible">
+
+                <StackPanel  ScrollViewer.HorizontalScrollMode="Disabled"
+                                                                  Width="{Binding ElementName=AgendaScrollviewer, Path=(toolkit:FrameworkElementExtensions.ActualWidth)}"
+>
+
+                    <ListView x:Name="ListViewAbsencesDate" 
+                          SelectionMode="Single"
+                              
+                          HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+                          ItemTemplate="{StaticResource VotiListViewDataTemplateNope}"
+                              
+                          ScrollViewer.VerticalScrollMode="Disabled"
+                                  ScrollViewer.VerticalScrollBarVisibility="Disabled">
+
+                    </ListView>
+
+
+                    <ListView x:Name="ListViewVotiDate"
+                          SelectionMode="Single"
+                              
+                          HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+                          ItemTemplate="{StaticResource VotiListViewDataTemplateNope}"
+                              
+                          ScrollViewer.VerticalScrollMode="Disabled"
+                                  ScrollViewer.VerticalScrollBarVisibility="Disabled">
+
+                    </ListView>
+
+                    <ListView x:Name="ListViewLezioniDate"
+                          SelectionMode="Single"
+                              
+                          HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+                          ItemTemplate="{StaticResource LessonListViewDataTemplate}"
+                              
+                          ScrollViewer.VerticalScrollMode="Disabled"
+                                  ScrollViewer.VerticalScrollBarVisibility="Disabled">
+
+                    </ListView>
+
+                    <ListView x:Name="ListViewAgendaDate"
+                          SelectionMode="Single"
+                              
+                          HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+                          ItemTemplate="{StaticResource AgendaEventListViewDataTemplate}"
+                              
+                          ScrollViewer.VerticalScrollMode="Disabled"
+                                  ScrollViewer.VerticalScrollBarVisibility="Disabled">
+
+                    </ListView>
+
+                </StackPanel>
+
+
+            </ScrollViewer>
 
 
         </RelativePanel>
