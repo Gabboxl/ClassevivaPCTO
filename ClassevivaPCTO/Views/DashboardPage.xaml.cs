@@ -63,6 +63,15 @@ namespace ClassevivaPCTO.Views
 
         public async Task LoadOverviewCard()
         {
+            await CoreApplication.MainView.Dispatcher.RunAsync(
+                CoreDispatcherPriority.Normal,
+                async () =>
+                {
+                    DashboardPageViewModel.IsLoadingAgenda = true;
+                }
+            );
+
+
             LoginResultComplete loginResult = ViewModelHolder.getViewModel().LoginResult;
             Card cardResult = ViewModelHolder.getViewModel().CardsResult.Cards[0];
 
@@ -114,12 +123,23 @@ namespace ClassevivaPCTO.Views
                         .ToList();
 
                     ListViewAgendaDate.ItemsSource = eventAdapters;
+
+
+                    DashboardPageViewModel.IsLoadingAgenda = false;
                 }
             );
         }
 
         public async Task CaricaRecentGradesCard()
         {
+            await CoreApplication.MainView.Dispatcher.RunAsync(
+    CoreDispatcherPriority.Normal,
+    async () =>
+    {
+        DashboardPageViewModel.IsLoadingGrades = true;
+    }
+);
+
             LoginResultComplete loginResult = ViewModelHolder.getViewModel().LoginResult;
             Card cardResult = ViewModelHolder.getViewModel().CardsResult.Cards[0];
             var result1 = await apiWrapper
@@ -132,6 +152,8 @@ namespace ClassevivaPCTO.Views
                 async () =>
                 {
                     ListRecentGrades.ItemsSource = fiveMostRecent;
+
+                    DashboardPageViewModel.IsLoadingGrades = false;
                 }
             );
         }

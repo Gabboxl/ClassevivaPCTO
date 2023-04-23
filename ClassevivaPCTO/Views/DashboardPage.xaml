@@ -72,8 +72,16 @@
 
                 </Grid.ColumnDefinitions>
 
+                <RelativePanel Grid.Row="0">
 
-                <TextBlock x:Name="TextOggiAgenda" Grid.Row="0" Text="Oggi a scuola" FontSize="24" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="8" />
+
+                    <TextBlock x:Name="TextOggiAgenda" Text="Oggi a scuola" FontSize="24" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="8" />
+
+                    <muxc:ProgressRing IsActive="True" x:Name="ProgressRingAgenda" 
+                           RelativePanel.RightOf="TextOggiAgenda"
+                                       RelativePanel.AlignVerticalCenterWith="TextOggiAgenda"
+                                       Visibility="{x:Bind DashboardPageViewModel.IsLoadingAgenda, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}"/>
+                </RelativePanel>
 
 
                 <ScrollViewer ZoomMode="Disabled" Grid.Row="2" x:Name="OverviewScrollviewer" toolkit:FrameworkElementExtensions.EnableActualSizeBinding="true"
@@ -159,7 +167,16 @@
                 </Grid.ColumnDefinitions>
 
 
-                <TextBlock x:Name="TitleRecentGrades" Grid.Row="0" Text="Valutazioni recenti" FontSize="24" VerticalAlignment="Top" Margin="8" />
+                <RelativePanel Grid.Row="0">
+
+                    <TextBlock x:Name="TitleRecentGrades" Text="Valutazioni recenti" FontSize="24" VerticalAlignment="Top" Margin="8" />
+
+                    <muxc:ProgressRing IsActive="True" x:Name="ProgressRingRecentGrades" 
+                           RelativePanel.RightOf="TitleRecentGrades"
+                                       RelativePanel.AlignVerticalCenterWith="TitleRecentGrades"
+                                       Visibility="{x:Bind DashboardPageViewModel.IsLoadingGrades, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}"/>
+                </RelativePanel>
+
 
 
                 <ScrollViewer Grid.Row="2" ZoomMode="Disabled"
@@ -244,7 +261,16 @@
 
                 </Grid.ColumnDefinitions>
 
-                <TextBlock x:Name="TextBachecaRecenti" Grid.Row="0" Text="Comunicazioni recenti" FontSize="24" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="8" />
+                <RelativePanel Grid.Row="0">
+
+                    <TextBlock x:Name="TextBachecaRecenti"  Text="Comunicazioni recenti" FontSize="24" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="8" />
+
+                    <muxc:ProgressRing IsActive="True" x:Name="ProgressRingRecentNotices" 
+                           RelativePanel.RightOf="TextBachecaRecenti"
+                                       RelativePanel.AlignVerticalCenterWith="TextBachecaRecenti"
+                                       Visibility="{x:Bind DashboardPageViewModel.IsLoadingNotices, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}"/>
+                </RelativePanel>
+                
 
                 <ScrollViewer Grid.Row="2" ZoomMode="Disabled"
             IsTabStop="False" IsVerticalScrollChainingEnabled="False"
