@@ -45,10 +45,6 @@
                 BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
                 Background="{ThemeResource CardBackgroundFillColorDefaultBrush}">
 
-            <muxc:ProgressRing IsActive="True" x:Name="ProgressRingAgenda" 
-                           RelativePanel.AlignVerticalCenterWithPanel="True"
-                           RelativePanel.AlignHorizontalCenterWithPanel="True"
-                                       Visibility="{x:Bind AgendaViewModel.IsLoadingAgenda, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}"/>
 
             <TextBlock x:Name="TextCenter"
                        RelativePanel.AlignVerticalCenterWithPanel="True"
@@ -79,6 +75,13 @@
                     RelativePanel.RightOf="ButtonTomorrow"
                     toolkit:FrameworkElementExtensions.Cursor="Hand"
                     Click="ButtonToday_Click" />
+
+
+            <muxc:ProgressRing IsActive="True" x:Name="ProgressRingAgenda" 
+                           RelativePanel.RightOf="ButtonToday"
+                               
+                               Margin="12,8,0,0"
+                                       Visibility="{x:Bind AgendaViewModel.IsLoadingAgenda, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}"/>
 
 
 
