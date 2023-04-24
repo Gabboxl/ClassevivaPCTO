@@ -159,5 +159,15 @@ namespace ClassevivaPCTO.Views
             //add one day to the calendaragenda date
             CalendarAgenda.Date = CalendarAgenda.Date.Value.AddDays(1);
         }
+
+        private async void AggiornaCommand_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+            string apiDate = VariousUtils.ToApiDateTime(CalendarAgenda.Date.Value.Date);
+
+            await Task.Run(async () =>
+            {
+                await LoadData(apiDate);
+            });
+        }
     }
 }

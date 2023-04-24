@@ -79,5 +79,13 @@ namespace ClassevivaPCTO.Views
             );
 
         }
+
+        private async void AggiornaCommand_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+            await Task.Run(async () =>
+            {
+                await LoadData();
+            });
+        }
     }
 }
