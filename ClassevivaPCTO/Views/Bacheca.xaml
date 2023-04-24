@@ -6,17 +6,90 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
+    xmlns:microconverters="using:Microsoft.Toolkit.Uwp.UI.Converters"
     xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
+    xmlns:toolkit="using:Microsoft.Toolkit.Uwp.UI"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
     muxc:BackdropMaterial.ApplyToRootOrPageBackground="True">
 
+
+    <Page.Resources>
+        <ResourceDictionary>
+            <microconverters:BoolToVisibilityConverter  x:Key="BoolToVisibilityConverter" />
+        </ResourceDictionary>
+    </Page.Resources>
+
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+
 
         <TextBlock x:Name="TextTitolo"  Grid.Row="0" Text="Bacheca" FontSize="42" VerticalAlignment="Top"
                    Margin="32,16,0,0" />
 
-        <TextBlock x:Name="TextCenter"  Grid.Row="2" Text="There is nothing here right now" FontSize="42" VerticalAlignment="Center"
-        HorizontalAlignment="Center"             />
+
+        <RelativePanel Grid.Row="2" 
+                       Margin="32,32,32,20"
+                       VerticalAlignment="Stretch" HorizontalAlignment="Stretch"
+                       x:Name="CardPanel"
+                        toolkit:FrameworkElementExtensions.EnableActualSizeBinding="true"
+                CornerRadius="8"
+                Padding="12"
+                BorderThickness="1"
+                BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
+                Background="{ThemeResource CardBackgroundFillColorDefaultBrush}">
+
+
+
+            <muxc:ProgressRing IsActive="True" x:Name="ProgressRingBacheca" 
+                           
+                               Margin="12,8,0,0"
+                                       Visibility="{x:Bind BachecaViewModel.IsLoadingBacheca, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}"/>
+
+
+
+            <AutoSuggestBox QueryIcon="Find" 
+                            x:Name="SearchBoxBacheca"
+                            PlaceholderText="Cerca" RelativePanel.AlignHorizontalCenterWithPanel="True"
+                            HorizontalAlignment="Center"
+                            Width="260" Height="32" />
+
+
+
+
+            <ScrollViewer ZoomMode="Disabled" Margin="0,8,0,0"
+                          RelativePanel.Below="SearchBoxBacheca"
+                          x:Name="BachecaScrollviewer" toolkit:FrameworkElementExtensions.EnableActualSizeBinding="true"
+            IsTabStop="False" IsVerticalScrollChainingEnabled="False"
+                          Width="{Binding ElementName=CardPanel, Path=(toolkit:FrameworkElementExtensions.ActualWidth)}"
+            
+            HorizontalScrollMode="Disabled" HorizontalScrollBarVisibility="Auto"
+
+            VerticalScrollMode="Enabled" VerticalScrollBarVisibility="Visible">
+
+                <ListView x:Name="NoticesListView" 
+                          SelectionMode="Single"
+                              
+                          HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+                          ItemTemplate="{StaticResource NoticeListViewDataTemplate}"
+                              
+                          ScrollViewer.VerticalScrollMode="Disabled"
+                                  ScrollViewer.VerticalScrollBarVisibility="Disabled">
+
+                </ListView>
+
+
+            </ScrollViewer>
+
+
+        </RelativePanel>
 
     </Grid>
 </Page>
