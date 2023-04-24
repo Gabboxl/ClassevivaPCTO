@@ -44,11 +44,8 @@ namespace ClassevivaPCTO.Views
             //listender for calendaragenda date change
             CalendarAgenda.DateChanged += CalendarAgenda_DateChanged;
 
-            //imposto la data di oggi del picker
+            //imposto la data di oggi del picker, e aziono il listener per il cambiamento della data
             CalendarAgenda.Date = DateTime.Now;
-
-
-            AgendaViewModel.IsLoadingAgenda = false;
 
         }
 
@@ -78,6 +75,15 @@ namespace ClassevivaPCTO.Views
 
         private async Task LoadData(string apiDateToLoad)
         {
+            await CoreApplication.MainView.Dispatcher.RunAsync(
+                CoreDispatcherPriority.Normal,
+                async () =>
+                {
+                    AgendaViewModel.IsLoadingAgenda = true;
+                }
+            );
+
+
 
             LoginResultComplete loginResult = ViewModelHolder.getViewModel().LoginResult;
             Card cardResult = ViewModelHolder.getViewModel().CardsResult.Cards[0];
@@ -131,6 +137,9 @@ namespace ClassevivaPCTO.Views
 
                     ListViewAgendaDate.ItemsSource = eventAdapters;
 
+
+
+                    AgendaViewModel.IsLoadingAgenda = false;
                 }
             );
         }
