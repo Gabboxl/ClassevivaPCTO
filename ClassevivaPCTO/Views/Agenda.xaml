@@ -30,8 +30,13 @@
 
 
 
-        <TextBlock x:Name="TextTitolo"  Grid.Row="0" Text="Agenda" FontSize="42" VerticalAlignment="Top"
+        <RelativePanel Grid.Row="0">
+            <TextBlock x:Name="TextTitolo"  Grid.Row="0" Text="Agenda" FontSize="42" VerticalAlignment="Top"
                    Margin="32,16,0,0" />
+
+            <AppBarButton  RelativePanel.RightOf="TextTitolo" x:Name="AggiornaCommand" VerticalAlignment="Top"  Margin="32,16,0,0" Icon="Refresh" Label="Aggiorna" Click="AggiornaCommand_Click"/>
+        </RelativePanel>
+
         
 
         <RelativePanel Grid.Row="2" 
