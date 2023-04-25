@@ -16,7 +16,6 @@
     <Page.Resources>
         <ResourceDictionary>
             <microconverters:BoolToVisibilityConverter  x:Key="BoolToVisibilityConverter" />
-            <converters:VisibleWhenZeroConverter x:Key="VisibleWhenZeroConverter" />
         </ResourceDictionary>
     </Page.Resources>
 
