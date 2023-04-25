@@ -72,7 +72,7 @@ namespace ClassevivaPCTO.Views
             LoginResultComplete loginResult = ViewModelHolder.getViewModel().LoginResult;
             Card cardResult = ViewModelHolder.getViewModel().CardsResult.Cards[0];
 
-            string caldate = VariousUtils.ToApiDateTime(DateTime.Now.AddDays(-2));
+            string caldate = VariousUtils.ToApiDateTime(DateTime.Now);
             OverviewResult overviewResult = await apiWrapper.GetOverview(
                 cardResult.usrId.ToString(),
                 caldate,
