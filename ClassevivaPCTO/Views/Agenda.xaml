@@ -7,6 +7,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     xmlns:microconverters="using:Microsoft.Toolkit.Uwp.UI.Converters"
+    xmlns:converters="using:ClassevivaPCTO.Converters"
     xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
     xmlns:toolkit="using:Microsoft.Toolkit.Uwp.UI"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
@@ -15,6 +16,7 @@
     <Page.Resources>
         <ResourceDictionary>
             <microconverters:BoolToVisibilityConverter  x:Key="BoolToVisibilityConverter" />
+            <converters:VisibleWhenZeroConverter x:Key="VisibleWhenZeroConverter" />
         </ResourceDictionary>
     </Page.Resources>
 
@@ -51,11 +53,11 @@
                 Background="{ThemeResource CardBackgroundFillColorDefaultBrush}">
 
 
-            <TextBlock x:Name="TextCenter"
+            <TextBlock x:Name="NoEventText"
                        RelativePanel.AlignVerticalCenterWithPanel="True"
                            RelativePanel.AlignHorizontalCenterWithPanel="True"
-                       Text="There is nothing here right now" FontSize="42" VerticalAlignment="Center"
-                       Visibility="{x:Bind AgendaViewModel.IsLoadingAgenda, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}"
+                       Text="Nessun evento" FontSize="42" VerticalAlignment="Center"
+                       Visibility="{x:Bind AgendaViewModel.AreSourcesEmpty, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}"
         HorizontalAlignment="Center" />
 
 
