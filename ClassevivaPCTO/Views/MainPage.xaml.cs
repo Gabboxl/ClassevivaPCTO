@@ -129,7 +129,7 @@ namespace ClassevivaPCTO.Views
             Frame rootFrame = Window.Current.Content as Frame;
             if (rootFrame.CanGoBack)
             {
-                rootFrame.GoBack();
+                rootFrame.GoBack(); //ritorniamo alla pagina di login
             }
         }
     }
