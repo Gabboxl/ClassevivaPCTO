@@ -12,9 +12,6 @@ using Windows.UI.Xaml.Navigation;
 
 namespace ClassevivaPCTO
 {
-    /// <summary>
-    /// Fornisci un comportamento specifico dell'applicazione in supplemento alla classe Application predefinita.
-    /// </summary>
     public sealed partial class App : Application
     {
         private Lazy<ActivationService> _activationService;
