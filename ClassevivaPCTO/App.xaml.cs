@@ -1,5 +1,6 @@
 ﻿using ClassevivaPCTO.Services;
 using ClassevivaPCTO.Utils;
+using Microsoft.AppCenter.Crashes;
 using Microsoft.Extensions.DependencyInjection;
 using Refit;
 using System;
@@ -51,14 +52,25 @@ namespace ClassevivaPCTO
             this.Suspending += OnSuspending;
             Container = ConfigureDependencyInjection();
 
+            UnhandledException += OnAppUnhandledException;
+
+
+            bool isDebugMode = false;
+
 #if DEBUG
-            System.Diagnostics.Debug.WriteLine("Mode=Debug");
-#else
-            Microsoft.AppCenter.AppCenter.Start("test", typeof(Microsoft.AppCenter.Analytics.Analytics), typeof(Microsoft.AppCenter.Crashes.Crashes));
-
-            //var env = Environment.GetEnvironmentVariable("AppCenterSecret");
-
+            isDebugMode = true;
 #endif
+
+            if (!isDebugMode)
+            {
+                Microsoft.AppCenter.AppCenter.Start(
+                    "test",
+                    typeof(Microsoft.AppCenter.Analytics.Analytics),
+                    typeof(Microsoft.AppCenter.Crashes.Crashes)
+                );
+
+                //Microsoft.AppCenter.Analytics.Analytics.TrackEvent("App started");
+            }
 
             // Deferred execution until used. Check https://docs.microsoft.com/dotnet/api/system.lazy-1 for further info on Lazy<T> class.
             _activationService = new Lazy<ActivationService>(CreateActivationService);
@@ -112,7 +124,7 @@ namespace ClassevivaPCTO
 
         void OnNavigationFailed(object sender, NavigationFailedEventArgs e)
         {
-            throw new Exception("Failed to load Page " + e.SourcePageType.FullName);
+            throw new System.Exception("Failed to load Page " + e.SourcePageType.FullName);
         }
 
         /// <summary>
@@ -139,8 +151,11 @@ namespace ClassevivaPCTO
             Windows.UI.Xaml.UnhandledExceptionEventArgs e
         )
         {
-            // TODO: Please log and handle the exception as appropriate to your scenario
-            // For more info see https://docs.microsoft.com/uwp/api/windows.ui.xaml.application.unhandledexception
+            var attachments = new ErrorAttachmentLog[]
+            {
+                ErrorAttachmentLog.AttachmentWithText("Hello world!", "hello.txt"),
+            };
+            Crashes.TrackError(e.Exception, attachments: attachments);
         }
 
         private ActivationService CreateActivationService()
