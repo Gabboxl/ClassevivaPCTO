@@ -345,6 +345,7 @@ namespace ClassevivaPCTO.Views
                     dialog.PrimaryButtonText = "Accedi";
                     dialog.CloseButtonText = "Annulla";
                     dialog.DefaultButton = ContentDialogButton.Primary;
+                    dialog.RequestedTheme = (Window.Current.Content as FrameworkElement).RequestedTheme;
                     dialog.Content = contentDialogContent;
 
                     result = await dialog.ShowAsync();
