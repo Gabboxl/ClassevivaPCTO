@@ -144,6 +144,7 @@
     <Compile Include="Services\ChoiceSaverService.cs" />
     <Compile Include="Services\ThemeSelectorService.cs" />
     <Compile Include="Adapters\AgendaEventAdapter.cs" />
+    <Compile Include="Services\WhatsNewDisplayService.cs" />
     <Compile Include="Utils\Cache.cs" />
     <Compile Include="Utils\CvUtils.cs" />
     <Compile Include="Utils\IClassevivaAPI.cs" />
@@ -189,6 +190,9 @@
     <Compile Include="Utils\PoliciesDispatchProxy.cs" />
     <Compile Include="Views\SettingsPage.xaml.cs">
       <DependentUpon>SettingsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\WhatsNewDialog.xaml.cs">
+      <DependentUpon>WhatsNewDialog.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -325,6 +329,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\SettingsPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\WhatsNewDialog.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
