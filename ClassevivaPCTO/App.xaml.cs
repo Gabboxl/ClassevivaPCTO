@@ -1,7 +1,9 @@
 ﻿using ClassevivaPCTO.Services;
 using ClassevivaPCTO.Utils;
+using ClassevivaPCTO.ViewModels;
 using Microsoft.AppCenter.Crashes;
 using Microsoft.Extensions.DependencyInjection;
+using Newtonsoft.Json;
 using Refit;
 using System;
 using Windows.ApplicationModel;
@@ -148,10 +150,19 @@ namespace ClassevivaPCTO
             Windows.UI.Xaml.UnhandledExceptionEventArgs e
         )
         {
+            //get the data from the viewmodel
+            var dataCards = ViewModelHolder.getViewModel().CardsResult;
+            var dataLogin = ViewModelHolder.getViewModel().LoginResult;
+
+            var serializedCards = Newtonsoft.Json.JsonConvert.SerializeObject(dataCards, Formatting.Indented);
+            var serializedLogin = Newtonsoft.Json.JsonConvert.SerializeObject(dataLogin, Formatting.Indented);
+
             var attachments = new ErrorAttachmentLog[]
             {
-                ErrorAttachmentLog.AttachmentWithText("Hello world!", "hello.txt"),
+                ErrorAttachmentLog.AttachmentWithText(serializedCards, "dataCards.txt"),
+                ErrorAttachmentLog.AttachmentWithText(serializedLogin, "dataLogin.txt")
             };
+
             Crashes.TrackError(e.Exception, attachments: attachments);
         }
 
