@@ -102,10 +102,23 @@
                     <labs:SettingsCard.HeaderIcon>
                         <FontIcon Glyph="&#xE799;" />
                     </labs:SettingsCard.HeaderIcon>
-                    <ComboBox SelectedIndex="0">
-                        <ComboBoxItem>Option 1</ComboBoxItem>
-                        <ComboBoxItem>Option 2</ComboBoxItem>
-                        <ComboBoxItem>Option 3</ComboBoxItem>
+                    <ComboBox SelectedIndex="0" >
+                        <ComboBoxItem
+                            x:Uid="Settings_Theme_Light"
+                            >
+                            
+                        </ComboBoxItem>
+                        <ComboBoxItem
+                            x:Uid="Settings_Theme_Dark"
+                            >
+                            
+                        </ComboBoxItem>
+                        <ComboBoxItem
+                            x:Uid="Settings_Theme_Default"
+                            
+                            >
+                            
+                        </ComboBoxItem>
                     </ComboBox>
                 </labs:SettingsCard>
 
