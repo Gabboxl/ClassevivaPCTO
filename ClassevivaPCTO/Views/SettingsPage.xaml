@@ -47,7 +47,7 @@
                 
                 
                 <TextBlock Style="{StaticResource SettingsSectionHeaderTextBlockStyle}"
-                           Text="Personalizzazione" />
+                           x:Uid="Settings_Personalization" />
                 
                 
                 <labs:SettingsExpander Description="Scegli il tema dell'app"
