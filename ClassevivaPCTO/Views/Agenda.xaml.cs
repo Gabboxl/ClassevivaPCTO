@@ -40,38 +40,40 @@ namespace ClassevivaPCTO.Views
 
             AgendaViewModel.IsLoadingAgenda = true;
 
-
             //listender for calendaragenda date change
             CalendarAgenda.DateChanged += CalendarAgenda_DateChanged;
 
             //imposto la data di oggi del picker, e aziono il listener per il cambiamento della data
             CalendarAgenda.Date = DateTime.Now;
-
         }
 
-        private async void CalendarAgenda_DateChanged(CalendarDatePicker sender, CalendarDatePickerDateChangedEventArgs args)
+        private async void CalendarAgenda_DateChanged(
+            CalendarDatePicker sender,
+            CalendarDatePickerDateChangedEventArgs args
+        )
         {
-            //if the date is today, then the button to go to today is disabled
-            if (CalendarAgenda.Date.Value.Date == DateTime.Now.Date)
+            if (CalendarAgenda.Date.HasValue)
             {
-                ButtonToday.IsChecked = true;
-                //ButtonToday.IsEnabled = false;
+                //if the date is today, then the button to go to today is disabled
+                if (CalendarAgenda.Date.Value.Date == DateTime.Now.Date)
+                {
+                    ButtonToday.IsChecked = true;
+                    //ButtonToday.IsEnabled = false;
+                }
+                else
+                {
+                    ButtonToday.IsChecked = false;
+                    //ButtonToday.IsEnabled = true;
+                }
+
+                string apiDate = VariousUtils.ToApiDateTime(CalendarAgenda.Date.Value.Date);
+
+                await Task.Run(async () =>
+                {
+                    await LoadData(apiDate);
+                });
             }
-            else
-            {
-                ButtonToday.IsChecked = false;
-                //ButtonToday.IsEnabled = true;
-            }
-
-            string apiDate = VariousUtils.ToApiDateTime(CalendarAgenda.Date.Value.Date);
-
-            await Task.Run(async () =>
-            {
-                await LoadData(apiDate);
-            });
-
         }
-
 
         private async Task LoadData(string apiDateToLoad)
         {
@@ -83,12 +85,9 @@ namespace ClassevivaPCTO.Views
                 }
             );
 
-
-
             LoginResultComplete loginResult = ViewModelHolder.getViewModel().LoginResult;
             Card cardResult = ViewModelHolder.getViewModel().CardsResult.Cards[0];
 
-            
             OverviewResult overviewResult = await apiWrapper.GetOverview(
                 cardResult.usrId.ToString(),
                 apiDateToLoad,
@@ -137,12 +136,11 @@ namespace ClassevivaPCTO.Views
 
                     ListViewAgendaDate.ItemsSource = eventAdapters;
 
-
                     AgendaViewModel.AreSourcesEmpty = (
-                                           ListViewVotiDate.Items.Count == 0
-                                                                  && ListViewLezioniDate.Items.Count == 0
-                                                                                         && ListViewAgendaDate.Items.Count == 0
-                                                                                                            );
+                        ListViewVotiDate.Items.Count == 0
+                        && ListViewLezioniDate.Items.Count == 0
+                        && ListViewAgendaDate.Items.Count == 0
+                    );
 
                     AgendaViewModel.IsLoadingAgenda = false;
                 }
