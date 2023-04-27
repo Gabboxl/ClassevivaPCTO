@@ -273,7 +273,9 @@
                 
 
                 <ScrollViewer Grid.Row="2" ZoomMode="Disabled"
+                              x:Name="SideScroll"
             IsTabStop="False" IsVerticalScrollChainingEnabled="False"
+             toolkit:FrameworkElementExtensions.EnableActualSizeBinding="true"
             
             HorizontalScrollMode="Enabled" HorizontalScrollBarVisibility="Auto"
             VerticalScrollMode="Enabled" VerticalScrollBarVisibility="Auto">
@@ -281,7 +283,7 @@
 
                     <ListView x:Name="ListRecentNotices" 
                           SelectionMode="Single"
-                              
+                          Width="{Binding ElementName=SideScroll, Path=(toolkit:FrameworkElementExtensions.ActualWidth)}"
                           HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
                           ItemTemplate="{StaticResource NoticeListViewDataTemplate}"
                               
