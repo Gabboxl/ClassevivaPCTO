@@ -160,7 +160,9 @@
   <data name="FirstRun_Body.Text" xml:space="preserve">
     <value>Con quest'app potrai gestire i tuoi dati del registro elettronico Classeviva in maniera intuitiva.
 
-Ricorda che quest'app è rivolta soltanto agli account studente.</value>
+Quest'app è rivolta soltanto agli account studente.
+
+Ricorda che quest'app è ancora in fase di sviluppo e alcune sezioni/funzionalità possono non essere disponibili al momento. Se hai idee apri un issue al seguente link! https://github.com/Gabboxl/ClassevivaPCTO/issues</value>
     <comment>First use prompt message body</comment>
   </data>
   <data name="FirstRunDialog.Title" xml:space="preserve">
