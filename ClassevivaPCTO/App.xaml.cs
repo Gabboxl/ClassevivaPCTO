@@ -163,6 +163,12 @@ namespace ClassevivaPCTO
                 ErrorAttachmentLog.AttachmentWithText(serializedLogin, "dataLogin.txt")
             };
 
+            {
+                var serializedException = JsonConvert.SerializeObject(e.Exception, Formatting.Indented);
+                attachments[2] = ErrorAttachmentLog.AttachmentWithText(serializedException, "exception.txt");
+            }
+
+
             Crashes.TrackError(e.Exception, attachments: attachments);
         }
 
