@@ -132,6 +132,7 @@
     <Compile Include="Activation\DefaultActivationHandler.cs" />
     <Compile Include="Adapters\NoticeAdapter.cs" />
     <Compile Include="Adapters\LessonAdapter.cs" />
+    <Compile Include="Controls\UniformGridEx.cs" />
     <Compile Include="Controls\DataTemplates\NoticeListViewDataTemplate.cs" />
     <Compile Include="Converters\DateTimeToHourConverter.cs" />
     <Compile Include="Dialogs\ContentDialogContent.xaml.cs" />

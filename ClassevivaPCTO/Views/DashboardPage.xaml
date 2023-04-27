@@ -7,6 +7,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    xmlns:controls2="using:ClassevivaPCTO.Controls"
     xmlns:microconverters="using:Microsoft.Toolkit.Uwp.UI.Converters"
     xmlns:toolkit="using:Microsoft.Toolkit.Uwp.UI"
     xmlns:controlscust="using:ClassevivaPCTO.Controls"
@@ -51,8 +52,10 @@
 
 
 
-        <controls:UniformGrid Grid.Row="1"
-                              ColumnSpacing="48" RowSpacing="48"
+        <controls2:UniformGridEx  Grid.Row="1"
+                                  ColumnSpacing="36" RowSpacing="36"
+                                    MinRowHeight="250"
+                                    
                               Margin="24,24,24,24">
 
 
@@ -303,7 +306,7 @@
             </Grid>
 
 
-        </controls:UniformGrid>
+        </controls2:UniformGridEx>
 
     </Grid>
 </Page>
