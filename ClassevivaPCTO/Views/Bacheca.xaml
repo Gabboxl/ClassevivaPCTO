@@ -5,6 +5,7 @@
     xmlns:local="using:ClassevivaPCTO"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:controls="using:ClassevivaPCTO.Controls"
     mc:Ignorable="d"
     xmlns:microconverters="using:Microsoft.Toolkit.Uwp.UI.Converters"
     xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
@@ -70,24 +71,24 @@
 
             <ScrollViewer ZoomMode="Disabled" Margin="0,8,0,0"
                           RelativePanel.Below="SearchBoxBacheca"
-                          x:Name="BachecaScrollviewer" toolkit:FrameworkElementExtensions.EnableActualSizeBinding="true"
+                          x:Name="BachecaScrollviewer"
             IsTabStop="False" IsVerticalScrollChainingEnabled="False"
-                          Width="{Binding ElementName=CardPanel, Path=(toolkit:FrameworkElementExtensions.ActualWidth)}"
+                          
+                          RelativePanel.AlignRightWithPanel="True"
+                          RelativePanel.AlignLeftWithPanel="True"
             
             HorizontalScrollMode="Disabled" HorizontalScrollBarVisibility="Auto"
 
             VerticalScrollMode="Enabled" VerticalScrollBarVisibility="Visible">
 
-                <ListView x:Name="NoticesListView" 
-                          SelectionMode="Single"
-                              
-                          HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
-                          ItemTemplate="{StaticResource NoticeListViewDataTemplate}"
-                              
-                          ScrollViewer.VerticalScrollMode="Disabled"
-                                  ScrollViewer.VerticalScrollBarVisibility="Disabled">
 
-                </ListView>
+                <controls:NoticesListView
+                    x:Name="NoticesListView"></controls:NoticesListView>
+                
+                
+                
+                
+                
 
 
             </ScrollViewer>
