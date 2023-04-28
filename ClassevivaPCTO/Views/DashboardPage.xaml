@@ -98,28 +98,16 @@
                                                                   Width="{Binding ElementName=OverviewScrollviewer, Path=(toolkit:FrameworkElementExtensions.ActualWidth)}"
 >
 
-                        <ListView x:Name="ListViewAbsencesDate" 
-                          SelectionMode="Single"
-                              
+                        <!-- listview per le assenze e ritardi da mettere -->
+                        
+                        
+                        <controls2:GradesListView x:Name="ListViewVotiDate"
                           HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
-                          ItemTemplate="{StaticResource VotiListViewDataTemplateNope}"
                               
                           ScrollViewer.VerticalScrollMode="Disabled"
                                   ScrollViewer.VerticalScrollBarVisibility="Disabled">
 
-                        </ListView>
-
-
-                        <ListView x:Name="ListViewVotiDate"
-                          SelectionMode="Single"
-                              
-                          HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
-                          ItemTemplate="{StaticResource VotiListViewDataTemplateNope}"
-                              
-                          ScrollViewer.VerticalScrollMode="Disabled"
-                                  ScrollViewer.VerticalScrollBarVisibility="Disabled">
-
-                        </ListView>
+                        </controls2:GradesListView>
 
                         <ListView x:Name="ListViewLezioniDate"
                           SelectionMode="Single"
