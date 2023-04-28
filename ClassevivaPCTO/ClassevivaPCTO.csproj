@@ -141,7 +141,9 @@
     </Compile>
     <Compile Include="Controls\UniformGridEx.cs" />
     <Compile Include="Converters\DateTimeToHourConverter.cs" />
-    <Compile Include="Dialogs\ChoiceDialogContent.cs" />
+    <Compile Include="Dialogs\ChoiceDialogContent.xaml.cs">
+      <DependentUpon>ChoiceDialogContent.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Helpers\EnumToBooleanConverter.cs" />
     <Compile Include="Helpers\NavHelper.cs" />
     <Compile Include="Helpers\ResourceExtensions.cs" />
