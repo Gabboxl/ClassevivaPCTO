@@ -80,13 +80,17 @@ namespace ClassevivaPCTO.Views
                 loginResult.token.ToString()
             );
 
+            var gradeAdapters = overviewResult.Grades
+                ?.Select(evt => new GradeAdapter(evt))
+                .ToList();
+
             //update UI on UI thread
             await CoreApplication.MainView.Dispatcher.RunAsync(
                 CoreDispatcherPriority.Normal,
                 async () =>
                 {
                     //ListViewAbsencesDate.ItemsSource = overviewResult.Grades;
-                    ListViewVotiDate.ItemsSource = overviewResult.Grades;
+                    ListViewVotiDate.ItemsSource = gradeAdapters;
 
                     //order lessons by evtHPos
                     var orderedlessons = overviewResult.Lessons.OrderBy(x => x.evtHPos).ToList();
@@ -143,9 +147,7 @@ namespace ClassevivaPCTO.Views
                 .ConfigureAwait(false);
             var fiveMostRecent = result1.Grades.OrderByDescending(x => x.evtDate).Take(5);
 
-            var eventAdapters = fiveMostRecent
-    ?.Select(evt => new GradeAdapter(evt))
-    .ToList();
+            var eventAdapters = fiveMostRecent?.Select(evt => new GradeAdapter(evt)).ToList();
 
             //update UI on UI thread
             await CoreApplication.MainView.Dispatcher.RunAsync(
