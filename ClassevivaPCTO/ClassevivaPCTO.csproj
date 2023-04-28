@@ -141,7 +141,7 @@
     </Compile>
     <Compile Include="Controls\UniformGridEx.cs" />
     <Compile Include="Converters\DateTimeToHourConverter.cs" />
-    <Compile Include="Dialogs\ContentDialogContent.xaml.cs" />
+    <Compile Include="Dialogs\ChoiceDialogContent.cs" />
     <Compile Include="Helpers\EnumToBooleanConverter.cs" />
     <Compile Include="Helpers\NavHelper.cs" />
     <Compile Include="Helpers\ResourceExtensions.cs" />
@@ -288,7 +288,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Dialogs\ContentDialogContent.xaml">
+    <Page Include="Dialogs\ChoiceDialogContent.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
