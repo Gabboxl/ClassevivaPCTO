@@ -1,0 +1,51 @@
+﻿<Page
+    x:Class="ClassevivaPCTO.Dialogs.NoticeDialogContent"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ClassevivaPCTO.Dialogs"
+    xmlns:utils="using:ClassevivaPCTO.Utils"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Page.Resources>
+        <!-- datatemplate to show notice attachment name and a commandbutton to download it -->
+        <DataTemplate x:Key="AttachmentListViewDataTemplate"
+                  x:DataType="utils:Attachment">
+            <RelativePanel>
+
+
+                <TextBlock x:Name="nomeAllegato" TextWrapping="Wrap"
+                                           MaxWidth="500"
+                                           Text="{x:Bind fileName}"
+                                           Style="{ThemeResource BaseTextBlockStyle}"
+                                           Margin="6,6,0,0" />
+
+                <AppBarButton x:Name="ButtonOpen" RelativePanel.RightOf="nomeAllegato" Click="ButtonOpen_Click"  RelativePanel.AlignVerticalCenterWithPanel="True" Icon="Like" Label="Open" />
+
+                <AppBarButton x:Name="ButtonSave" RelativePanel.RightOf="ButtonOpen" Click="ButtonSave_Click" RelativePanel.AlignVerticalCenterWithPanel="True" Icon="Like" Label="Save" />
+
+
+
+            </RelativePanel>
+        </DataTemplate>
+    </Page.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        
+        <TextBlock Grid.Row="0" x:Name="titolo" TextWrapping="Wrap"
+                                           MaxWidth="500"
+                                           Text="{x:Bind CurrentNotice.cntTitle}"
+                                           Margin="6,6,0,0" />
+        
+        <ListView Grid.Row="1" x:Name="AttachmentsListView" ItemTemplate="{StaticResource AttachmentListViewDataTemplate}"></ListView>
+    </Grid>
+</Page>

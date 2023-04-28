@@ -9,6 +9,7 @@
         <ResourceDictionary >
             <FontFamily x:Key="FluentIcons" >/Assets/Fonts/SegoeFluentIcons.ttf#Segoe Fluent Icons</FontFamily>
 
+            <x:Double x:Key="ContentDialogMaxWidth">2000</x:Double>
             <ResourceDictionary.MergedDictionaries>
 
                 <XamlControlsResources xmlns="using:Microsoft.UI.Xaml.Controls" />

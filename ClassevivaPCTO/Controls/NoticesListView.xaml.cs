@@ -1,8 +1,11 @@
 ﻿using ClassevivaPCTO.Adapters;
+using ClassevivaPCTO.Dialogs;
 using ClassevivaPCTO.Utils;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Windows.ApplicationModel.Core;
+using Windows.UI.Core;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
@@ -56,13 +59,16 @@ namespace ClassevivaPCTO.Controls
 
 
 
-            //create and show a custom dialog
-            ContentDialog dialog = new ContentDialog();
-            dialog.Title = "side";
-            dialog.PrimaryButtonText = "OK";
-            dialog.DefaultButton = ContentDialogButton.Primary;
-            dialog.Content =
-                notice.cntTitle;
+        var noticeDialogContent = new NoticeDialogContent(notice);
+
+        ContentDialog dialog = new ContentDialog();
+        dialog.Title = "xd";
+        dialog.PrimaryButtonText = "Chiudi";
+        dialog.DefaultButton = ContentDialogButton.Primary;
+        dialog.RequestedTheme = (Window.Current.Content as FrameworkElement).RequestedTheme;
+        dialog.Content = noticeDialogContent;
+            //dialog.FullSizeDesired = true;
+            dialog.Width = 1200;
 
             try
             {
