@@ -137,9 +137,11 @@ namespace ClassevivaPCTO.Views
                     ListViewAgendaDate.ItemsSource = eventAdapters;
 
                     AgendaViewModel.AreSourcesEmpty = (
-                        ListViewVotiDate.Items.Count == 0
-                        && ListViewLezioniDate.Items.Count == 0
-                        && ListViewAgendaDate.Items.Count == 0
+                        overviewResult.AbsenceEvents.Count == 0
+                        && overviewResult.Lessons.Count == 0
+                        && overviewResult.Grades.Count == 0
+                        && overviewResult.AgendaEvents.Count == 0
+                        //need to check notes
                     );
 
                     AgendaViewModel.IsLoadingAgenda = false;
