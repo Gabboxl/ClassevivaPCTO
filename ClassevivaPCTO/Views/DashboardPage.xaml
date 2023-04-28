@@ -283,17 +283,12 @@
             HorizontalScrollMode="Enabled" HorizontalScrollBarVisibility="Auto"
             VerticalScrollMode="Enabled" VerticalScrollBarVisibility="Auto">
 
-
-                    <ListView x:Name="ListRecentNotices" 
-                          SelectionMode="Single"
-                          Width="{Binding ElementName=SideScroll, Path=(toolkit:FrameworkElementExtensions.ActualWidth)}"
+                    <controls2:NoticesListView x:Name="ListRecentNotices" 
+                          Width="{Binding ElementName=SideScroll, Path=(toolkit:FrameworkElementExtensions.ActualWidth)}" 
                           HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
-                          ItemTemplate="{StaticResource NoticeListViewDataTemplate}"
                               
                           ScrollViewer.VerticalScrollMode="Disabled"
-                                  ScrollViewer.VerticalScrollBarVisibility="Disabled">
-
-                    </ListView>
+                                  ScrollViewer.VerticalScrollBarVisibility="Disabled"/>
 
 
                 </ScrollViewer>
