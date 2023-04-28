@@ -139,9 +139,6 @@ namespace ClassevivaPCTO.Views
                     {
                         if (y == ComboMaterie.SelectedIndex)
                         {
-                            var gradesAdapters = materiaWithGrades
-                                ?.Select(evt => new GradeAdapter(evt))
-                                .ToList();
                             ListViewVoti.ItemsSource = materiaWithGrades;
                         }
 
