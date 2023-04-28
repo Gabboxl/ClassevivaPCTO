@@ -142,12 +142,17 @@ namespace ClassevivaPCTO.Views
                 .GetGrades(cardResult.usrId.ToString(), loginResult.token.ToString())
                 .ConfigureAwait(false);
             var fiveMostRecent = result1.Grades.OrderByDescending(x => x.evtDate).Take(5);
+
+            var eventAdapters = fiveMostRecent
+    ?.Select(evt => new GradeAdapter(evt))
+    .ToList();
+
             //update UI on UI thread
             await CoreApplication.MainView.Dispatcher.RunAsync(
                 CoreDispatcherPriority.Normal,
                 async () =>
                 {
-                    ListRecentGrades.ItemsSource = fiveMostRecent;
+                    ListRecentGrades.ItemsSource = eventAdapters;
 
                     DashboardPageViewModel.IsLoadingGrades = false;
                 }

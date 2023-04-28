@@ -6,21 +6,12 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    xmlns:datatemplates="using:ClassevivaPCTO.Controls.DataTemplates"
+    xmlns:controls2="using:ClassevivaPCTO.Controls"
     xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
     xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
     xmlns:animatedvisuals="using:Microsoft.UI.Xaml.Controls.AnimatedVisuals"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
     muxc:BackdropMaterial.ApplyToRootOrPageBackground="True">
-
-    <Page.Resources>
-        <ResourceDictionary>
-            <ResourceDictionary.MergedDictionaries>
-               <datatemplates:VotiListViewDataTemplate  Source="/Controls/DataTemplates/VotiListViewDataTemplate.xaml"/>
-            </ResourceDictionary.MergedDictionaries>
-        </ResourceDictionary>
-
-    </Page.Resources>
 
     <Grid>
         <Grid.RowDefinitions>
@@ -54,18 +45,16 @@
 
             </ComboBox>
 
-            <ListView x:Name="ListViewVoti" 
-                          SelectionMode="Single"
+            <controls2:GradesListView x:Name="ListViewVoti" 
                               
                       Margin="16,24,0,0"
                       RelativePanel.Below="ComboPeriodi"
                           HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
-                          ItemTemplate="{StaticResource VotiListViewDataTemplateNope}"
                               
                           ScrollViewer.VerticalScrollMode="Auto"
                                   ScrollViewer.VerticalScrollBarVisibility="Auto">
 
-            </ListView>
+            </controls2:GradesListView>
 
         </RelativePanel>
 
