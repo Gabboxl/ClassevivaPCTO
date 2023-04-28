@@ -5,11 +5,11 @@ using Windows.UI.Xaml.Controls;
 
 namespace ClassevivaPCTO.Dialogs
 {
-    public sealed partial class ContentDialogContent : Page
+    public sealed partial class ChoiceDialogContent : Page
     {
         public int chosenIndex { get; set; }
 
-        public ContentDialogContent(List<LoginChoice> loginChoices)
+        public ChoiceDialogContent(List<LoginChoice> loginChoices)
         {
             this.InitializeComponent();
 

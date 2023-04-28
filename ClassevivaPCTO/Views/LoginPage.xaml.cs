@@ -324,12 +324,12 @@ namespace ClassevivaPCTO.Views
             }
         }
 
-        private async Task<(ContentDialogResult, ContentDialogContent)> ShowChoicesDialog(
+        private async Task<(ContentDialogResult, ChoiceDialogContent)> ShowChoicesDialog(
             LoginResultChoices loginResultChoices
         )
         {
             ContentDialogResult? result = null;
-            ContentDialogContent contentDialogContent = null;
+            ChoiceDialogContent contentDialogContent = null;
 
             TaskCompletionSource<bool> IsSomethingLoading = new TaskCompletionSource<bool>();
 
@@ -338,7 +338,7 @@ namespace ClassevivaPCTO.Views
                 CoreDispatcherPriority.Normal,
                 async () =>
                 {
-                    contentDialogContent = new ContentDialogContent(loginResultChoices.choices);
+                    contentDialogContent = new ChoiceDialogContent(loginResultChoices.choices);
 
                     ContentDialog dialog = new ContentDialog();
                     dialog.Title = "Scegli un profilo";
