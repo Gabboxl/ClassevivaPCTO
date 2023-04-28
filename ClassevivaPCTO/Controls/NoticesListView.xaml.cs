@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
@@ -36,8 +37,19 @@ namespace ClassevivaPCTO.Controls
                 "ItemsSource",
                 typeof(List<NoticeAdapter>),
                 typeof(NoticesListView),
-                new PropertyMetadata(null));
+                new PropertyMetadata(null, new PropertyChangedCallback(OnItemsSourceChanged)));
 
+
+        private static void OnItemsSourceChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            NoticesListView currentInstance = d as NoticesListView;
+
+            var newValue = e.NewValue as List<Notice>;
+
+            var eventAdapters = newValue?.Select(evt => new NoticeAdapter(evt)).ToList();
+
+            currentInstance.listView.ItemsSource = eventAdapters;
+        }
 
         public NoticesListView()
         {
