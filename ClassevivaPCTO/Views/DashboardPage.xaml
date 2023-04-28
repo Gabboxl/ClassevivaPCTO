@@ -188,18 +188,11 @@
             HorizontalScrollMode="Enabled" HorizontalScrollBarVisibility="Auto"
             VerticalScrollMode="Enabled" VerticalScrollBarVisibility="Auto">
 
-
-                        <ListView x:Name="ListRecentGrades" 
-                          SelectionMode="Single"
-                              
+                    <controls2:GradesListView x:Name="ListRecentGrades" 
                           HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
-                          ItemTemplate="{StaticResource VotiListViewDataTemplateCompact}"
                               
                           ScrollViewer.VerticalScrollMode="Disabled"
-                                  ScrollViewer.VerticalScrollBarVisibility="Disabled">
-
-                        </ListView>
-
+                                  ScrollViewer.VerticalScrollBarVisibility="Disabled"/>
 
                 </ScrollViewer>
 

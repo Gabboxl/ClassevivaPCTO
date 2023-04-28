@@ -130,8 +130,12 @@
   <ItemGroup>
     <Compile Include="Activation\ActivationHandler.cs" />
     <Compile Include="Activation\DefaultActivationHandler.cs" />
+    <Compile Include="Adapters\GradeAdapter.cs" />
     <Compile Include="Adapters\NoticeAdapter.cs" />
     <Compile Include="Adapters\LessonAdapter.cs" />
+    <Compile Include="Controls\GradesListView.xaml.cs">
+      <DependentUpon>GradesListView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\NoticesListView.xaml.cs">
       <DependentUpon>NoticesListView.xaml</DependentUpon>
     </Compile>
@@ -273,6 +277,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Controls\DataTemplates\AgendaEventListViewDataTemplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\GradesListView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

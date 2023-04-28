@@ -1,4 +1,5 @@
-﻿using ClassevivaPCTO.Utils;
+﻿using ClassevivaPCTO.Adapters;
+using ClassevivaPCTO.Utils;
 using ClassevivaPCTO.ViewModels;
 using Refit;
 using System.Collections.Generic;
@@ -138,7 +139,10 @@ namespace ClassevivaPCTO.Views
                     {
                         if (y == ComboMaterie.SelectedIndex)
                         {
-                            ListViewVoti.ItemsSource = materiaWithGrades;
+                            var gradesAdapters = materiaWithGrades
+                                ?.Select(evt => new GradeAdapter(evt))
+                                .ToList();
+                            ListViewVoti.ItemsSource = gradesAdapters;
                         }
 
                         y++;
