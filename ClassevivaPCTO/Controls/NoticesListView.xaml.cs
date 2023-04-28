@@ -17,7 +17,6 @@ namespace ClassevivaPCTO.Controls
         {
             get { return (List<Notice>)GetValue(ItemsSourceProperty); }
             set {
-                listView.ItemsSource = value;
                 SetValue(ItemsSourceProperty, value); 
             }
         }
