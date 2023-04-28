@@ -136,7 +136,6 @@
       <DependentUpon>NoticesListView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\UniformGridEx.cs" />
-    <Compile Include="Controls\DataTemplates\NoticeListViewDataTemplate.cs" />
     <Compile Include="Converters\DateTimeToHourConverter.cs" />
     <Compile Include="Dialogs\ContentDialogContent.xaml.cs" />
     <Compile Include="Helpers\EnumToBooleanConverter.cs" />
@@ -269,10 +268,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="Controls\DataTemplates\NoticeListViewDataTemplate.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="Controls\DataTemplates\LessonListViewDataTemplate.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
