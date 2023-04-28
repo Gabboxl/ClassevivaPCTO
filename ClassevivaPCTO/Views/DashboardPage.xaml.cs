@@ -90,7 +90,7 @@ namespace ClassevivaPCTO.Views
                 async () =>
                 {
                     //ListViewAbsencesDate.ItemsSource = overviewResult.Grades;
-                    ListViewVotiDate.ItemsSource = gradeAdapters;
+                    ListViewVotiDate.ItemsSource = overviewResult.Grades;
 
                     //order lessons by evtHPos
                     var orderedlessons = overviewResult.Lessons.OrderBy(x => x.evtHPos).ToList();
@@ -154,7 +154,7 @@ namespace ClassevivaPCTO.Views
                 CoreDispatcherPriority.Normal,
                 async () =>
                 {
-                    ListRecentGrades.ItemsSource = eventAdapters;
+                    ListRecentGrades.ItemsSource = fiveMostRecent.ToList();
 
                     DashboardPageViewModel.IsLoadingGrades = false;
                 }

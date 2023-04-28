@@ -142,7 +142,7 @@ namespace ClassevivaPCTO.Views
                             var gradesAdapters = materiaWithGrades
                                 ?.Select(evt => new GradeAdapter(evt))
                                 .ToList();
-                            ListViewVoti.ItemsSource = gradesAdapters;
+                            ListViewVoti.ItemsSource = materiaWithGrades;
                         }
 
                         y++;
