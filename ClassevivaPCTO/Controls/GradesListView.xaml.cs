@@ -40,13 +40,13 @@ namespace ClassevivaPCTO.Controls
 
         private static void OnItemsSourceChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            GradesListView asd = d as GradesListView;
+            GradesListView currentInstance = d as GradesListView;
 
             var newValue = e.NewValue as List<Grade>;
 
             var eventAdapters = newValue?.Select(evt => new GradeAdapter(evt)).ToList();
 
-            asd.listView.ItemsSource = eventAdapters;
+            currentInstance.listView.ItemsSource = eventAdapters;
         }
 
 
