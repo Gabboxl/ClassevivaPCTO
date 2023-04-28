@@ -133,5 +133,5 @@
 
     
     
-        <ListView x:Name="listView" ItemsSource="{x:Bind ItemsSource}" ItemTemplate="{StaticResource VotiListViewDataTemplateStandard}" />
+        <ListView x:Name="listView"  ItemTemplate="{StaticResource VotiListViewDataTemplateStandard}" />
 </UserControl>

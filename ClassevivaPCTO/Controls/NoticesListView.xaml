@@ -60,5 +60,5 @@
         </DataTemplate>
     </UserControl.Resources>
 
-        <ListView x:Name="listView" ItemsSource="{x:Bind ItemsSource}" ItemTemplate="{StaticResource NoticeListViewDataTemplate}" />
+        <ListView x:Name="listView" ItemTemplate="{StaticResource NoticeListViewDataTemplate}" />
 </UserControl>

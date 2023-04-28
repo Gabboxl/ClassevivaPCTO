@@ -1,5 +1,6 @@
 ﻿using ClassevivaPCTO.Adapters;
 using ClassevivaPCTO.Utils;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -22,11 +23,10 @@ namespace ClassevivaPCTO.Controls
     public sealed partial class GradesListView : UserControl
     {
 
-        public List<GradeAdapter> ItemsSource
+        public List<Grade> ItemsSource
         {
-            get { return (List<GradeAdapter>)GetValue(ItemsSourceProperty); }
+            get { return (List<Grade>)GetValue(ItemsSourceProperty); }
             set {
-                listView.ItemsSource = value;
                 SetValue(ItemsSourceProperty, value); 
             }
         }
@@ -34,9 +34,20 @@ namespace ClassevivaPCTO.Controls
         public static readonly DependencyProperty ItemsSourceProperty =
             DependencyProperty.Register(
                 "ItemsSource",
-                typeof(List<GradeAdapter>),
+                typeof(List<Grade>),
                 typeof(GradesListView),
-                new PropertyMetadata(null));
+                new PropertyMetadata(null, new PropertyChangedCallback(OnItemsSourceChanged)));
+
+        private static void OnItemsSourceChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            GradesListView asd = d as GradesListView;
+
+            var newValue = e.NewValue as List<Grade>;
+
+            var eventAdapters = newValue?.Select(evt => new GradeAdapter(evt)).ToList();
+
+            asd.listView.ItemsSource = eventAdapters;
+        }
 
 
         public GradesListView()
