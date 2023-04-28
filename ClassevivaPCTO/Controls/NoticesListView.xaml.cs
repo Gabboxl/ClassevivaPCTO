@@ -23,9 +23,9 @@ namespace ClassevivaPCTO.Controls
     public sealed partial class NoticesListView : UserControl
     {
 
-        public List<NoticeAdapter> ItemsSource
+        public List<Notice> ItemsSource
         {
-            get { return (List<NoticeAdapter>)GetValue(ItemsSourceProperty); }
+            get { return (List<Notice>)GetValue(ItemsSourceProperty); }
             set {
                 listView.ItemsSource = value;
                 SetValue(ItemsSourceProperty, value); 
@@ -35,7 +35,7 @@ namespace ClassevivaPCTO.Controls
         public static readonly DependencyProperty ItemsSourceProperty =
             DependencyProperty.Register(
                 "ItemsSource",
-                typeof(List<NoticeAdapter>),
+                typeof(List<Notice>),
                 typeof(NoticesListView),
                 new PropertyMetadata(null, new PropertyChangedCallback(OnItemsSourceChanged)));
 

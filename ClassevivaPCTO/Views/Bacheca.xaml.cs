@@ -72,7 +72,7 @@ namespace ClassevivaPCTO.Views
                 CoreDispatcherPriority.Normal,
                 async () =>
                 {
-                    NoticesListView.ItemsSource = noticeAdapters;
+                    NoticesListView.ItemsSource = noticeboardResult.Notices;
 
                     BachecaViewModel.IsLoadingBacheca = false;
                 }

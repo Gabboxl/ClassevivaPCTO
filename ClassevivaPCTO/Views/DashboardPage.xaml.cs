@@ -80,9 +80,6 @@ namespace ClassevivaPCTO.Views
                 loginResult.token.ToString()
             );
 
-            var gradeAdapters = overviewResult.Grades
-                ?.Select(evt => new GradeAdapter(evt))
-                .ToList();
 
             //update UI on UI thread
             await CoreApplication.MainView.Dispatcher.RunAsync(
@@ -145,9 +142,8 @@ namespace ClassevivaPCTO.Views
             var result1 = await apiWrapper
                 .GetGrades(cardResult.usrId.ToString(), loginResult.token.ToString())
                 .ConfigureAwait(false);
-            var fiveMostRecent = result1.Grades.OrderByDescending(x => x.evtDate).Take(5);
 
-            var eventAdapters = fiveMostRecent?.Select(evt => new GradeAdapter(evt)).ToList();
+            var fiveMostRecent = result1.Grades.OrderByDescending(x => x.evtDate).Take(5);
 
             //update UI on UI thread
             await CoreApplication.MainView.Dispatcher.RunAsync(
@@ -220,14 +216,12 @@ namespace ClassevivaPCTO.Views
                 .OrderByDescending(x => x.cntValidFrom)
                 .Take(5);
 
-            var noticesAdapters = fiveMostRecent?.Select(evt => new NoticeAdapter(evt)).ToList();
-
             //update UI on UI thread
             await CoreApplication.MainView.Dispatcher.RunAsync(
                 CoreDispatcherPriority.Normal,
                 async () =>
                 {
-                    ListRecentNotices.ItemsSource = noticesAdapters;
+                    ListRecentNotices.ItemsSource = fiveMostRecent.ToList();
 
                     DashboardPageViewModel.IsLoadingNotices = false;
                 }
