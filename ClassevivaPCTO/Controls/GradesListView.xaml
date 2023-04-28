@@ -6,11 +6,15 @@
     xmlns:adapters="using:ClassevivaPCTO.Adapters"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:converters="using:ClassevivaPCTO.Converters"
     mc:Ignorable="d"
     d:DesignHeight="300"
     d:DesignWidth="400">
 
     <UserControl.Resources>
+
+        <converters:DateTimeToNormalDateConverter x:Key="DateTimeToNormalDateConverter" />
+        <converters:GradeToColorConverter x:Key="GradeToColorConverter" />
 
         <DataTemplate x:Key="VotiListViewDataTemplateStandard"
                   x:DataType="adapters:GradeAdapter">
