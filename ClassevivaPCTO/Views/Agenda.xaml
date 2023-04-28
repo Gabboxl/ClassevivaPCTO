@@ -6,6 +6,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
+    xmlns:controls2="using:ClassevivaPCTO.Controls"
     xmlns:microconverters="using:Microsoft.Toolkit.Uwp.UI.Converters"
     xmlns:converters="using:ClassevivaPCTO.Converters"
     xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
@@ -111,28 +112,19 @@
                                                                   Width="{Binding ElementName=AgendaScrollviewer, Path=(toolkit:FrameworkElementExtensions.ActualWidth)}"
 >
 
-                    <ListView x:Name="ListViewAbsencesDate" 
-                          SelectionMode="Single"
-                              
+
+
+                    <!-- listview per le assenze e ritardi da mettere -->
+
+
+                    <controls2:GradesListView x:Name="ListViewVotiDate"
                           HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
-                          ItemTemplate="{StaticResource VotiListViewDataTemplateNope}"
                               
                           ScrollViewer.VerticalScrollMode="Disabled"
                                   ScrollViewer.VerticalScrollBarVisibility="Disabled">
 
-                    </ListView>
+                    </controls2:GradesListView>
 
-
-                    <ListView x:Name="ListViewVotiDate"
-                          SelectionMode="Single"
-                              
-                          HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
-                          ItemTemplate="{StaticResource VotiListViewDataTemplateNope}"
-                              
-                          ScrollViewer.VerticalScrollMode="Disabled"
-                                  ScrollViewer.VerticalScrollBarVisibility="Disabled">
-
-                    </ListView>
 
                     <ListView x:Name="ListViewLezioniDate"
                           SelectionMode="Single"
