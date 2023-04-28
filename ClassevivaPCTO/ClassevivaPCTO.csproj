@@ -141,6 +141,9 @@
     </Compile>
     <Compile Include="Controls\UniformGridEx.cs" />
     <Compile Include="Converters\DateTimeToHourConverter.cs" />
+    <Compile Include="Dialogs\NoticeDialogContent.xaml.cs">
+      <DependentUpon>NoticeDialogContent.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Dialogs\ChoiceDialogContent.xaml.cs">
       <DependentUpon>ChoiceDialogContent.xaml</DependentUpon>
     </Compile>
@@ -287,6 +290,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Controls\NoticesListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Dialogs\NoticeDialogContent.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
