@@ -15,11 +15,16 @@
 
         <converters:DateTimeToNormalDateConverter x:Key="DateTimeToNormalDateConverter" />
 
+
+        <!-- being "BasedOn" the DefaultListViewItemStyle style, it removes the highlight effect of windows 10  -->
+        <Style x:Key="ListViewFullStretchStyle" TargetType="ListViewItem" BasedOn="{StaticResource DefaultListViewItemStyle}">
+            <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+            <Setter Property="VerticalContentAlignment" Value="Stretch"/>
+        </Style>
+
+
         <DataTemplate x:Key="NoticeListViewDataTemplate"
                   x:DataType="adapters:NoticeAdapter">
-
-
-
 
             <Grid HorizontalAlignment="Stretch" >
                 <Grid.RowDefinitions>
@@ -30,7 +35,7 @@
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
 
-                <RelativePanel Grid.Column="0">
+                <RelativePanel Grid.Column="0" HorizontalAlignment="Stretch">
 
 
                     <TextBlock x:Name="titoloEvento" TextWrapping="Wrap"
@@ -79,5 +84,11 @@
         </DataTemplate>
     </UserControl.Resources>
 
-        <ListView x:Name="listView" ItemTemplate="{StaticResource NoticeListViewDataTemplate}" />
+    <ListView x:Name="listView"
+              HorizontalAlignment="Stretch"
+              HorizontalContentAlignment="Stretch"
+              ItemTemplate="{StaticResource NoticeListViewDataTemplate}" 
+              ItemContainerStyle="{StaticResource ListViewFullStretchStyle}">
+
+    </ListView>
 </UserControl>
