@@ -21,9 +21,9 @@
                                            Style="{ThemeResource BaseTextBlockStyle}"
                                            Margin="6,6,0,0" />
 
-                <AppBarButton x:Name="ButtonOpen" RelativePanel.RightOf="nomeAllegato" Click="ButtonOpen_Click"  RelativePanel.AlignVerticalCenterWithPanel="True" Icon="Like" Label="Open" />
+                <AppBarButton x:Name="ButtonOpen" RelativePanel.RightOf="nomeAllegato" Click="ButtonOpen_Click"  RelativePanel.AlignVerticalCenterWithPanel="True" Icon="OpenFile" Label="Open" />
 
-                <AppBarButton x:Name="ButtonSave" RelativePanel.RightOf="ButtonOpen" Click="ButtonSave_Click" RelativePanel.AlignVerticalCenterWithPanel="True" Icon="Like" Label="Save" />
+                <AppBarButton x:Name="ButtonSave" RelativePanel.RightOf="ButtonOpen" Click="ButtonSave_Click" RelativePanel.AlignVerticalCenterWithPanel="True" Icon="SaveLocal" Label="Save" />
 
 
 
