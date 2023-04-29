@@ -9,6 +9,11 @@
     mc:Ignorable="d">
 
     <Page.Resources>
+        <Style x:Key="ListViewFullStretchStyle" TargetType="ListViewItem">
+            <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+            <Setter Property="VerticalContentAlignment" Value="Stretch"/>
+        </Style>
+
         <!-- datatemplate to show notice attachment name and a commandbutton to download it -->
         <DataTemplate x:Key="AttachmentListViewDataTemplate"
                   x:DataType="utils:Attachment">
@@ -60,6 +65,11 @@
                                            Text="Allegati"
                                            Margin="8,8,0,8" />
         
-        <ListView Grid.Row="1" x:Name="AttachmentsListView" ItemTemplate="{StaticResource AttachmentListViewDataTemplate}"></ListView>
+        <ListView Grid.Row="1" 
+                  x:Name="AttachmentsListView"
+                  ItemContainerStyle="{StaticResource ListViewFullStretchStyle}"
+                  ItemTemplate="{StaticResource AttachmentListViewDataTemplate}">
+            
+        </ListView>
     </Grid>
 </Page>
