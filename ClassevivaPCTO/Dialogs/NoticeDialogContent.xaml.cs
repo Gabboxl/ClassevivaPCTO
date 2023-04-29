@@ -2,6 +2,7 @@
 using ClassevivaPCTO.ViewModels;
 using Microsoft.Extensions.DependencyInjection;
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -33,7 +34,6 @@ namespace ClassevivaPCTO.Dialogs
             var senderbutton = sender as AppBarButton;
             var currentAttachment = senderbutton.DataContext as Attachment;
 
-
             byte[] bytes = await GetAttachmentAsBytes(currentAttachment);
 
             var file = await Windows.Storage.ApplicationData.Current.LocalFolder.CreateFileAsync(
@@ -45,7 +45,47 @@ namespace ClassevivaPCTO.Dialogs
         }
 
         private async void ButtonSave_Click(object sender, RoutedEventArgs e) {
+           
+            var senderbutton = sender as AppBarButton;
+            var currentAttachment = senderbutton.DataContext as Attachment;
         
+
+
+
+            byte[] bytes = await GetAttachmentAsBytes(currentAttachment);
+
+            var savePicker = new Windows.Storage.Pickers.FileSavePicker();
+            savePicker.SuggestedStartLocation =
+                Windows.Storage.Pickers.PickerLocationId.DocumentsLibrary;
+
+            savePicker.FileTypeChoices.Add("Plain Text", new List<string>() { ".txt" });
+            savePicker.SuggestedFileName = currentAttachment.fileName;
+
+            Windows.Storage.StorageFile file = await savePicker.PickSaveFileAsync();
+            if (file != null)
+            {
+                // Prevent updates to the remote version of the file until we finish making changes and call CompleteUpdatesAsync.
+                Windows.Storage.CachedFileManager.DeferUpdates(file);
+
+                //scrivo il file
+                await Windows.Storage.FileIO.WriteBytesAsync(file, bytes);
+
+                Windows.Storage.Provider.FileUpdateStatus status =
+                    await Windows.Storage.CachedFileManager.CompleteUpdatesAsync(file);
+                if (status == Windows.Storage.Provider.FileUpdateStatus.Complete)
+                {
+                    //completato
+                }
+                else
+                {
+                    //trakkar errore?
+                }
+            }
+            else
+            {
+                //we need to track the error
+            }
+
         }
 
 
