@@ -62,11 +62,12 @@ namespace ClassevivaPCTO.Controls
         var noticeDialogContent = new NoticeDialogContent(notice);
 
         ContentDialog dialog = new ContentDialog();
-        dialog.Title = "xd";
+        dialog.Title = notice.cntTitle;
         dialog.PrimaryButtonText = "Chiudi";
         dialog.DefaultButton = ContentDialogButton.Primary;
         dialog.RequestedTheme = (Window.Current.Content as FrameworkElement).RequestedTheme;
         dialog.Content = noticeDialogContent;
+
             //dialog.FullSizeDesired = true;
             dialog.Width = 1200;
 

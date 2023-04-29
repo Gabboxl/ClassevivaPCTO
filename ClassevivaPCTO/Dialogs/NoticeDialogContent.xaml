@@ -23,7 +23,7 @@
                     </Grid.ColumnDefinitions>
 
 
-                    <TextBlock x:Name="nomeAllegato"
+                  <TextBlock x:Name="nomeAllegato"
                                Grid.Column="0"
                                TextWrapping="Wrap"
                                            MaxWidth="500"
@@ -53,10 +53,12 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         
-        <TextBlock Grid.Row="0" x:Name="titolo" TextWrapping="Wrap"
+        <TextBlock Grid.Row="0" x:Name="titoloAttachments" 
+                   TextWrapping="Wrap"
+                   Style="{ThemeResource BodyStrongTextBlockStyle}"
                                            MaxWidth="500"
-                                           Text="{x:Bind CurrentNotice.cntTitle}"
-                                           Margin="6,6,0,0" />
+                                           Text="Allegati"
+                                           Margin="8,8,0,8" />
         
         <ListView Grid.Row="1" x:Name="AttachmentsListView" ItemTemplate="{StaticResource AttachmentListViewDataTemplate}"></ListView>
     </Grid>
