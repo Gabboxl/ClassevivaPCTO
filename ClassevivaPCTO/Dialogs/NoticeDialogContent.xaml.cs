@@ -50,9 +50,9 @@ namespace ClassevivaPCTO.Dialogs
             var currentAttachment = senderbutton.DataContext as Attachment;
 
 
-            //check whether the attachments needs to be read, if yes create a flyout and with a text and button to confirm and display it on the button
+            //check whether the notice needs to be read, if yes create a flyout and with a text and button to confirm and display it on the button
             //if the user clicks the button, the flyout will be closed and the attachment will be read
-            //check if the attachment is already read
+
             if (CurrentNotice.readStatus == false)
             {
                 //create a flyout
@@ -72,6 +72,7 @@ namespace ClassevivaPCTO.Dialogs
                     //leggi il comunicato con API e poi salva l'allegato
                     //await ReadAttachment(currentAttachment);
                 };
+
                 //add the textblock and the button to the flyout
                 flyout.Content = new StackPanel
                 {
@@ -81,6 +82,7 @@ namespace ClassevivaPCTO.Dialogs
                         button
                     }
                 };
+
                 //display the flyout on the button
                 flyout.ShowAt(senderbutton);
             }
