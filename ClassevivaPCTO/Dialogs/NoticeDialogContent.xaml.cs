@@ -2,6 +2,7 @@
 using ClassevivaPCTO.ViewModels;
 using Microsoft.Extensions.DependencyInjection;
 using System;
+using System.Threading.Tasks;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
@@ -32,17 +33,8 @@ namespace ClassevivaPCTO.Dialogs
             var senderbutton = sender as AppBarButton;
             var currentAttachment = senderbutton.DataContext as Attachment;
 
-            LoginResultComplete loginResult = ViewModelHolder.getViewModel().LoginResult;
-            Card cardResult = ViewModelHolder.getViewModel().CardsResult.Cards[0];
 
-            var attachmentBinary = await apiWrapper.GetNoticeAttachment(
-                cardResult.usrId.ToString(),
-                CurrentNotice.pubId.ToString(),
-                CurrentNotice.evtCode.ToString(),
-                currentAttachment.attachNum.ToString(),
-                loginResult.token.ToString()
-            );
-            byte[] bytes = await attachmentBinary.Content.ReadAsByteArrayAsync();
+            byte[] bytes = await GetAttachmentAsBytes(currentAttachment);
 
             var file = await Windows.Storage.ApplicationData.Current.LocalFolder.CreateFileAsync(
                 currentAttachment.fileName,
@@ -52,6 +44,26 @@ namespace ClassevivaPCTO.Dialogs
             await Windows.System.Launcher.LaunchFileAsync(file);
         }
 
-        private async void ButtonSave_Click(object sender, RoutedEventArgs e) { }
+        private async void ButtonSave_Click(object sender, RoutedEventArgs e) {
+        
+        }
+
+
+        private async Task<byte[]> GetAttachmentAsBytes(Attachment attachment)
+        {
+            LoginResultComplete loginResult = ViewModelHolder.getViewModel().LoginResult;
+            Card cardResult = ViewModelHolder.getViewModel().CardsResult.Cards[0];
+
+            var attachmentBinary = await apiWrapper.GetNoticeAttachment(
+                cardResult.usrId.ToString(),
+                CurrentNotice.pubId.ToString(),
+                CurrentNotice.evtCode.ToString(),
+                attachment.attachNum.ToString(),
+                loginResult.token.ToString()
+            );
+            byte[] bytes = await attachmentBinary.Content.ReadAsByteArrayAsync();
+
+            return bytes;
+        }
     }
 }
