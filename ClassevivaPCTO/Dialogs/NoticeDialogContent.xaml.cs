@@ -1,4 +1,7 @@
 ﻿using ClassevivaPCTO.Utils;
+using ClassevivaPCTO.ViewModels;
+using Microsoft.Extensions.DependencyInjection;
+using System;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
@@ -8,6 +11,8 @@ namespace ClassevivaPCTO.Dialogs
     {
         Notice CurrentNotice;
 
+        private readonly IClassevivaAPI apiWrapper;
+
         public NoticeDialogContent(Notice notice)
         {
             this.InitializeComponent();
@@ -15,10 +20,36 @@ namespace ClassevivaPCTO.Dialogs
             CurrentNotice = notice;
 
             AttachmentsListView.ItemsSource = notice.attachments;
+
+            App app = (App)App.Current;
+            var apiClient = app.Container.GetService<IClassevivaAPI>();
+
+            apiWrapper = PoliciesDispatchProxy<IClassevivaAPI>.CreateProxy(apiClient);
         }
 
         private async void ButtonOpen_Click(object sender, RoutedEventArgs e) {
-            
+
+            var senderbutton = sender as AppBarButton;
+            var currentAttachment = senderbutton.DataContext as Attachment;
+
+            LoginResultComplete loginResult = ViewModelHolder.getViewModel().LoginResult;
+            Card cardResult = ViewModelHolder.getViewModel().CardsResult.Cards[0];
+
+            var attachmentBinary = await apiWrapper.GetNoticeAttachment(
+    cardResult.usrId.ToString(),
+    CurrentNotice.pubId.ToString(),
+    CurrentNotice.evtCode.ToString(),
+    currentAttachment.attachNum.ToString(),
+    loginResult.token.ToString()
+);
+            byte[] bytes = await attachmentBinary.Content.ReadAsByteArrayAsync();
+
+
+            var file = await Windows.Storage.ApplicationData.Current.LocalFolder.CreateFileAsync(
+                               currentAttachment.fileName,
+                                              Windows.Storage.CreationCollisionOption.ReplaceExisting);
+            await Windows.Storage.FileIO.WriteBytesAsync(file, bytes);
+            await Windows.System.Launcher.LaunchFileAsync(file);
         }
 
         private async void ButtonSave_Click(object sender, RoutedEventArgs e) {
