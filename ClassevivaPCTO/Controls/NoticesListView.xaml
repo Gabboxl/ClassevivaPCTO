@@ -17,45 +17,7 @@
 
         <DataTemplate x:Key="NoticeListViewDataTemplate"
                   x:DataType="adapters:NoticeAdapter">
-            <RelativePanel>
 
-
-                <TextBlock x:Name="titoloEvento" TextWrapping="Wrap"
-                                           MaxWidth="500"
-                                           Text="{x:Bind CurrentObject.cntTitle}"
-                                           Style="{ThemeResource BaseTextBlockStyle}"
-                                           Margin="6,6,0,0" />
-
-
-                <TextBlock RelativePanel.RightOf="titoloEvento" x:Name="tipoEvento" TextWrapping="Wrap"
-                                           MaxWidth="500"
-                                           Text="{x:Bind CurrentObject.cntCategory}"
-                                           Style="{ThemeResource BaseTextBlockStyle}"
-                                           Margin="6,6,0,0" />
-
-
-                <TextBlock RelativePanel.Below="titoloEvento" x:Name="dataStart"
-                                           Text="{x:Bind  CurrentObject.cntValidFrom, Converter={StaticResource DateTimeToNormalDateConverter}}"
-                                           FontStyle="Italic"
-                                           Style="{ThemeResource BodyTextBlockStyle}"
-                                           Margin="6,0,0,0" />
-
-                <TextBlock RelativePanel.RightOf="dataStart" RelativePanel.Below="titoloEvento" x:Name="placeholderData"
-                                           Text="-"
-                                           FontStyle="Italic"
-                                           Style="{ThemeResource BodyTextBlockStyle}"
-                                           Margin="6,0,6,0" />
-
-
-                <TextBlock RelativePanel.RightOf="placeholderData" RelativePanel.Below="titoloEvento" x:Name="dataEnd"
-                                           Text="{x:Bind  CurrentObject.cntValidTo, Converter={StaticResource DateTimeToNormalDateConverter}}"
-                                           FontStyle="Italic"
-                                           Style="{ThemeResource BodyTextBlockStyle}"
-                                           Margin="0,0,0,8" />
-
-
-
-            </RelativePanel>
 
 
 
@@ -68,14 +30,47 @@
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
 
+                <RelativePanel Grid.Column="0">
 
-                <TextBlock x:Name="nomeAllegato"
-                               Grid.Column="0"
-                               TextWrapping="Wrap"
+
+                    <TextBlock x:Name="titoloEvento" TextWrapping="Wrap"
                                            MaxWidth="500"
-                                           Text="{x:Bind fileName}"
+                                           Text="{x:Bind CurrentObject.cntTitle}"
                                            Style="{ThemeResource BaseTextBlockStyle}"
                                            Margin="6,6,0,0" />
+
+
+                    <TextBlock RelativePanel.RightOf="titoloEvento" x:Name="tipoEvento" TextWrapping="Wrap"
+                                           MaxWidth="500"
+                                           Text="{x:Bind CurrentObject.cntCategory}"
+                                           Style="{ThemeResource BaseTextBlockStyle}"
+                                           Margin="6,6,0,0" />
+
+
+                    <TextBlock RelativePanel.Below="titoloEvento" x:Name="dataStart"
+                                           Text="{x:Bind  CurrentObject.cntValidFrom, Converter={StaticResource DateTimeToNormalDateConverter}}"
+                                           FontStyle="Italic"
+                                           Style="{ThemeResource BodyTextBlockStyle}"
+                                           Margin="6,0,0,0" />
+
+                    <TextBlock RelativePanel.RightOf="dataStart" RelativePanel.Below="titoloEvento" x:Name="placeholderData"
+                                           Text="-"
+                                           FontStyle="Italic"
+                                           Style="{ThemeResource BodyTextBlockStyle}"
+                                           Margin="6,0,6,0" />
+
+
+                    <TextBlock RelativePanel.RightOf="placeholderData" RelativePanel.Below="titoloEvento" x:Name="dataEnd"
+                                           Text="{x:Bind  CurrentObject.cntValidTo, Converter={StaticResource DateTimeToNormalDateConverter}}"
+                                           FontStyle="Italic"
+                                           Style="{ThemeResource BodyTextBlockStyle}"
+                                           Margin="0,0,0,8" />
+
+
+
+                </RelativePanel>
+
+
 
                 <AppBarButton Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Center" Click="AppBarButton_Click" Icon="View" Label="Leggi" />
 
