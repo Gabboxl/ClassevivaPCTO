@@ -53,10 +53,34 @@
                                            Style="{ThemeResource BodyTextBlockStyle}"
                                            Margin="0,0,0,8" />
 
-                <AppBarButton Click="AppBarButton_Click" RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignVerticalCenterWithPanel="True" Icon="View" Label="Leggi" />
 
 
             </RelativePanel>
+
+
+
+            <Grid HorizontalAlignment="Stretch" >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+
+                <TextBlock x:Name="nomeAllegato"
+                               Grid.Column="0"
+                               TextWrapping="Wrap"
+                                           MaxWidth="500"
+                                           Text="{x:Bind fileName}"
+                                           Style="{ThemeResource BaseTextBlockStyle}"
+                                           Margin="6,6,0,0" />
+
+                <AppBarButton Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Center" Click="AppBarButton_Click" Icon="View" Label="Leggi" />
+
+
+            </Grid>
         </DataTemplate>
     </UserControl.Resources>
 
