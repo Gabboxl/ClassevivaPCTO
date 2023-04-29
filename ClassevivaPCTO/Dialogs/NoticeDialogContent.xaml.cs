@@ -27,8 +27,8 @@ namespace ClassevivaPCTO.Dialogs
             apiWrapper = PoliciesDispatchProxy<IClassevivaAPI>.CreateProxy(apiClient);
         }
 
-        private async void ButtonOpen_Click(object sender, RoutedEventArgs e) {
-
+        private async void ButtonOpen_Click(object sender, RoutedEventArgs e)
+        {
             var senderbutton = sender as AppBarButton;
             var currentAttachment = senderbutton.DataContext as Attachment;
 
@@ -36,24 +36,22 @@ namespace ClassevivaPCTO.Dialogs
             Card cardResult = ViewModelHolder.getViewModel().CardsResult.Cards[0];
 
             var attachmentBinary = await apiWrapper.GetNoticeAttachment(
-    cardResult.usrId.ToString(),
-    CurrentNotice.pubId.ToString(),
-    CurrentNotice.evtCode.ToString(),
-    currentAttachment.attachNum.ToString(),
-    loginResult.token.ToString()
-);
+                cardResult.usrId.ToString(),
+                CurrentNotice.pubId.ToString(),
+                CurrentNotice.evtCode.ToString(),
+                currentAttachment.attachNum.ToString(),
+                loginResult.token.ToString()
+            );
             byte[] bytes = await attachmentBinary.Content.ReadAsByteArrayAsync();
 
-
             var file = await Windows.Storage.ApplicationData.Current.LocalFolder.CreateFileAsync(
-                               currentAttachment.fileName,
-                                              Windows.Storage.CreationCollisionOption.ReplaceExisting);
+                currentAttachment.fileName,
+                Windows.Storage.CreationCollisionOption.ReplaceExisting
+            );
             await Windows.Storage.FileIO.WriteBytesAsync(file, bytes);
             await Windows.System.Launcher.LaunchFileAsync(file);
         }
 
-        private async void ButtonSave_Click(object sender, RoutedEventArgs e) {
-        
-        }
+        private async void ButtonSave_Click(object sender, RoutedEventArgs e) { }
     }
 }
