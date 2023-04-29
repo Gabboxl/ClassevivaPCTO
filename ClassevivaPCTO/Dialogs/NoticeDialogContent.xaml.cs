@@ -12,14 +12,17 @@ namespace ClassevivaPCTO.Dialogs
         {
             this.InitializeComponent();
 
-
             CurrentNotice = notice;
 
             AttachmentsListView.ItemsSource = notice.attachments;
         }
 
-        private async void ButtonOpen_Click(object sender, RoutedEventArgs e) { }
+        private async void ButtonOpen_Click(object sender, RoutedEventArgs e) {
+            
+        }
 
-        private async void ButtonSave_Click(object sender, RoutedEventArgs e) { }
+        private async void ButtonSave_Click(object sender, RoutedEventArgs e) {
+        
+        }
     }
 }
