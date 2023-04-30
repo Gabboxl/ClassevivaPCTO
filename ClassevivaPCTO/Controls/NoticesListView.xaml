@@ -26,20 +26,12 @@
         <DataTemplate x:Key="NoticeListViewDataTemplate"
                   x:DataType="adapters:NoticeAdapter">
 
-            <Grid HorizontalAlignment="Stretch" >
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto" />
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
 
-                <RelativePanel Grid.Column="0" HorizontalAlignment="Stretch">
+                <RelativePanel  HorizontalAlignment="Stretch">
 
 
                     <TextBlock x:Name="titoloEvento" TextWrapping="Wrap"
-                                           
+                                           MaxWidth="1000"
                                            Text="{x:Bind CurrentObject.cntTitle}"
                                            Style="{ThemeResource BaseTextBlockStyle}"
                                            Margin="6,6,0,0" />
@@ -50,7 +42,7 @@
                                            Text="{x:Bind  CurrentObject.pubDT, Converter={StaticResource DateTimeToNormalDateConverter}}"
                                            Style="{ThemeResource BodyStrongTextBlockStyle}"
                                Foreground="{ThemeResource TextFillColorTertiaryBrush}"
-                                           Margin="6,6,0,0" />
+                                           Margin="16,6,0,0" />
 
 
                     <TextBlock RelativePanel.Below="titoloEvento" x:Name="categoriaEvento" TextWrapping="Wrap"
@@ -67,15 +59,16 @@
                                            Margin="6,6,0,0" />
 
 
-
-                </RelativePanel>
-
-
-
-                <AppBarButton Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Center" Click="ReadButton_Click" Icon="View" Label="Leggi" />
+                <AppBarButton 
+                    RelativePanel.AlignRightWithPanel="True"
+                    HorizontalAlignment="Right" VerticalAlignment="Center" Click="ReadButton_Click" Icon="View" Label="Leggi" />
 
 
-            </Grid>
+            </RelativePanel>
+
+
+
+
         </DataTemplate>
     </UserControl.Resources>
 
