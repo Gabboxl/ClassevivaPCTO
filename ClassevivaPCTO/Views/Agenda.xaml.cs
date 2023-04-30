@@ -52,7 +52,9 @@ namespace ClassevivaPCTO.Views
             CalendarDatePickerDateChangedEventArgs args
         )
         {
-            if (CalendarAgenda.Date.HasValue)
+            var agendaSelectedDate = CalendarAgenda.Date;
+
+            if (agendaSelectedDate.HasValue)
             {
                 //if the date is today, then the button to go to today is disabled
                 if (CalendarAgenda.Date.Value.Date == DateTime.Now.Date)
@@ -66,16 +68,14 @@ namespace ClassevivaPCTO.Views
                     //ButtonToday.IsEnabled = true;
                 }
 
-                string apiDate = VariousUtils.ToApiDateTime(CalendarAgenda.Date.Value.Date);
-
                 await Task.Run(async () =>
                 {
-                    await LoadData(apiDate);
+                    await LoadData(agendaSelectedDate.Value.Date);
                 });
             }
         }
 
-        private async Task LoadData(string apiDateToLoad)
+        private async Task LoadData(DateTime dateToLoad)
         {
             await CoreApplication.MainView.Dispatcher.RunAsync(
                 CoreDispatcherPriority.Normal,
@@ -88,10 +88,12 @@ namespace ClassevivaPCTO.Views
             LoginResultComplete loginResult = ViewModelHolder.getViewModel().LoginResult;
             Card cardResult = ViewModelHolder.getViewModel().CardsResult.Cards[0];
 
+            string apiDate = VariousUtils.ToApiDateTime(dateToLoad);
+
             OverviewResult overviewResult = await apiWrapper.GetOverview(
                 cardResult.usrId.ToString(),
-                apiDateToLoad,
-                apiDateToLoad,
+                apiDate,
+                apiDate,
                 loginResult.token.ToString()
             );
 
@@ -101,18 +103,33 @@ namespace ClassevivaPCTO.Views
                 async () =>
                 {
                     //ListViewAbsencesDate.ItemsSource = overviewResult.Grades;
-                    ListViewVotiDate.ItemsSource = overviewResult.Grades;
+
+
+
+                    var filteredGrades = overviewResult.Grades
+                        .Where(grade => grade.evtDate == dateToLoad)
+                        .ToList();
+
+                    ListViewVotiDate.ItemsSource = filteredGrades;
 
                     ListViewLezioniDate.ItemsSource = overviewResult.Lessons;
 
-                    ListViewAgendaDate.ItemsSource = overviewResult.AgendaEvents;
+                    //filter agenda events if the selected date is between the start and end date of the event
+                    var filteredAgendaEvents = overviewResult.AgendaEvents
+                        .Where(
+                            agendaEvent =>
+                                agendaEvent.evtDatetimeBegin <= dateToLoad && agendaEvent.evtDatetimeEnd >= dateToLoad
+                        )
+                        .ToList();
+
+                    ListViewAgendaDate.ItemsSource = filteredAgendaEvents;
 
                     AgendaViewModel.AreSourcesEmpty = (
                         overviewResult.AbsenceEvents.Count == 0
                         && overviewResult.Lessons.Count == 0
                         && overviewResult.Grades.Count == 0
                         && overviewResult.AgendaEvents.Count == 0
-                        //need to check notes
+                    //need to check notes
                     );
 
                     AgendaViewModel.IsLoadingAgenda = false;
@@ -138,11 +155,11 @@ namespace ClassevivaPCTO.Views
 
         private async void AggiornaCommand_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
-            string apiDate = VariousUtils.ToApiDateTime(CalendarAgenda.Date.Value.Date);
+            var agendaSelectedDate = CalendarAgenda.Date;
 
             await Task.Run(async () =>
             {
-                await LoadData(apiDate);
+                await LoadData(agendaSelectedDate.Value.Date);
             });
         }
     }
