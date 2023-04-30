@@ -5,16 +5,14 @@ using System.Linq;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
-// The User Control item template is documented at https://go.microsoft.com/fwlink/?LinkId=234236
-
 namespace ClassevivaPCTO.Controls
 {
-    public sealed partial class GradesListView : UserControl
+    public sealed partial class AgendaListView : UserControl
     {
 
-        public List<Grade> ItemsSource
+        public List<AgendaEvent> ItemsSource
         {
-            get { return (List<Grade>)GetValue(ItemsSourceProperty); }
+            get { return (List<AgendaEvent>)GetValue(ItemsSourceProperty); }
             set {
                 SetValue(ItemsSourceProperty, value); 
             }
@@ -23,23 +21,23 @@ namespace ClassevivaPCTO.Controls
         public static readonly DependencyProperty ItemsSourceProperty =
             DependencyProperty.Register(
                 "ItemsSource",
-                typeof(List<Grade>),
+                typeof(List<AgendaEvent>),
                 typeof(GradesListView),
                 new PropertyMetadata(null, new PropertyChangedCallback(OnItemsSourceChanged)));
 
         private static void OnItemsSourceChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            var currentInstance = d as GradesListView;
+            var currentInstance = d as AgendaListView;
 
-            var newValue = e.NewValue as List<Grade>;
+            var newValue = e.NewValue as List<AgendaEvent>;
 
-            var eventAdapters = newValue?.Select(evt => new GradeAdapter(evt)).ToList();
+            var eventAdapters = newValue?.Select(evt => new AgendaEventAdapter(evt)).ToList();
 
             currentInstance.listView.ItemsSource = eventAdapters;
         }
 
 
-        public GradesListView()
+        public AgendaListView()
         {
             this.InitializeComponent();
         }

@@ -115,12 +115,8 @@ namespace ClassevivaPCTO.Views
                         .Select(les => new LessonAdapter(les))
                         .ToList();
 
-                    // Wrap each AgendaEvent object in an instance of AgendaEventAdapter and handle null case
-                    var eventAdapters = overviewResult.AgendaEvents
-                        ?.Select(evt => new AgendaEventAdapter(evt))
-                        .ToList();
 
-                    ListViewAgendaDate.ItemsSource = eventAdapters;
+                    ListViewAgendaDate.ItemsSource = overviewResult.AgendaEvents;
 
                     DashboardPageViewModel.IsLoadingAgenda = false;
                 }

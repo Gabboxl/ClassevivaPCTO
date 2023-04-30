@@ -133,6 +133,9 @@
     <Compile Include="Adapters\GradeAdapter.cs" />
     <Compile Include="Adapters\NoticeAdapter.cs" />
     <Compile Include="Adapters\LessonAdapter.cs" />
+    <Compile Include="Controls\AgendaListViewTest.xaml.cs">
+      <DependentUpon>AgendaListViewTest.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\GradesListView.xaml.cs">
       <DependentUpon>GradesListView.xaml</DependentUpon>
     </Compile>
@@ -281,7 +284,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Controls\DataTemplates\AgendaEventListViewDataTemplate.xaml">
+    <Page Include="Controls\AgendaListViewTest.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
