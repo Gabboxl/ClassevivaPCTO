@@ -104,14 +104,14 @@ namespace ClassevivaPCTO.Views
                 {
                     //ListViewAbsencesDate.ItemsSource = overviewResult.Grades;
 
-
-
                     var filteredGrades = overviewResult.Grades
                         .Where(grade => grade.evtDate == dateToLoad)
                         .ToList();
 
+                    //grades
                     ListViewVotiDate.ItemsSource = filteredGrades;
 
+                    //lessons
                     ListViewLezioniDate.ItemsSource = overviewResult.Lessons;
 
                     //filter agenda events if the selected date is between the start and end date of the event
@@ -122,13 +122,14 @@ namespace ClassevivaPCTO.Views
                         )
                         .ToList();
 
+                    //agenda
                     ListViewAgendaDate.ItemsSource = filteredAgendaEvents;
 
                     AgendaViewModel.AreSourcesEmpty = (
                         overviewResult.AbsenceEvents.Count == 0
                         && overviewResult.Lessons.Count == 0
-                        && overviewResult.Grades.Count == 0
-                        && overviewResult.AgendaEvents.Count == 0
+                        && filteredGrades.Count == 0
+                        && filteredAgendaEvents.Count == 0
                     //need to check notes
                     );
 
