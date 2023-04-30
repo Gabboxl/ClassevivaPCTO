@@ -2,7 +2,6 @@
     x:Class="ClassevivaPCTO.App"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:datatemplates="using:ClassevivaPCTO.Controls.DataTemplates"
     xmlns:local="using:ClassevivaPCTO">
     <Application.Resources>
 
@@ -15,7 +14,6 @@
                 <XamlControlsResources xmlns="using:Microsoft.UI.Xaml.Controls" />
                 <ResourceDictionary Source="Styles/Button.xaml"/>
                 <!--<ResourceDictionary Source="Controls/DataTemplates/VotiListViewDataTemplate.xaml"/>--> <!-- guarda questo https://stackoverflow.com/questions/51620412/uwp-xaml-and-c-sharp-xbind-on-a-datatemplate-inside-a-resourcedictionary --> 
-                <datatemplates:LessonListViewDataTemplate  Source="Controls/DataTemplates/LessonListViewDataTemplate.xaml"/>
             </ResourceDictionary.MergedDictionaries>
 
         </ResourceDictionary>

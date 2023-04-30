@@ -15,7 +15,6 @@
     xmlns:animatedvisuals="using:Microsoft.UI.Xaml.Controls.AnimatedVisuals"
     xmlns:converters="using:ClassevivaPCTO.Converters"
         xmlns:contract7Present="http://schemas.microsoft.com/winfx/2006/xaml/presentation?IsApiContractPresent(Windows.Foundation.UniversalApiContract, 7)"
-    xmlns:datatemplates="using:ClassevivaPCTO.Controls.DataTemplates"
     xmlns:roba="using:ClassevivaPCTO.Utils"
 
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
@@ -109,16 +108,13 @@
 
                         </controls2:GradesListView>
 
-                        <ListView x:Name="ListViewLezioniDate"
-                          SelectionMode="Single"
-                              
+                        <controls2:LessonsListView x:Name="ListViewLezioniDate"
                           HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
-                          ItemTemplate="{StaticResource LessonListViewDataTemplate}"
                               
                           ScrollViewer.VerticalScrollMode="Disabled"
                                   ScrollViewer.VerticalScrollBarVisibility="Disabled">
 
-                        </ListView>
+                        </controls2:LessonsListView>
 
                         <controls2:AgendaListView x:Name="ListViewAgendaDate"
                           HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
