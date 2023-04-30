@@ -137,16 +137,14 @@
 
                     </ListView>
 
-                    <ListView x:Name="ListViewAgendaDate"
-                          SelectionMode="Single"
-                              
+
+                    <controls2:AgendaListView x:Name="ListViewAgendaDate"
                           HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
-                          ItemTemplate="{StaticResource AgendaEventListViewDataTemplate}"
                               
                           ScrollViewer.VerticalScrollMode="Disabled"
                                   ScrollViewer.VerticalScrollBarVisibility="Disabled">
 
-                    </ListView>
+                    </controls2:AgendaListView>
 
                 </StackPanel>
 

@@ -15,7 +15,6 @@
                 <XamlControlsResources xmlns="using:Microsoft.UI.Xaml.Controls" />
                 <ResourceDictionary Source="Styles/Button.xaml"/>
                 <!--<ResourceDictionary Source="Controls/DataTemplates/VotiListViewDataTemplate.xaml"/>--> <!-- guarda questo https://stackoverflow.com/questions/51620412/uwp-xaml-and-c-sharp-xbind-on-a-datatemplate-inside-a-resourcedictionary --> 
-                <datatemplates:AgendaEventListViewDataTemplate  Source="Controls/DataTemplates/AgendaEventListViewDataTemplate.xaml"/>
                 <datatemplates:LessonListViewDataTemplate  Source="Controls/DataTemplates/LessonListViewDataTemplate.xaml"/>
             </ResourceDictionary.MergedDictionaries>
 
