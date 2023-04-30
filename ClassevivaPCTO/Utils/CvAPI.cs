@@ -306,6 +306,7 @@ namespace ClassevivaPCTO.Utils
 
         public DateTime? evtBegin { get; set; }
         public DateTime? evtEnd { get; set; }
+        public bool? toUpload { get; set; }
         public string? warningType { get; set; }
     }
 
