@@ -286,11 +286,11 @@ namespace ClassevivaPCTO.Utils
     {
         public bool replJoin { get; set; }
 
-        public object replText { get; set; }
+        public bool replText { get; set; }
 
-        public object replFile { get; set; }
+        public bool replFile { get; set; }
 
-        public object replSign { get; set; }
+        public bool replSign { get; set; }
     }
 
 
