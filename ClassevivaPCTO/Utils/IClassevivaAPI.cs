@@ -51,7 +51,7 @@ namespace ClassevivaPCTO.Utils
         Task<HttpResponseMessage> GetNoticeAttachment(string userId, string noticePubId, string noticeEvtCode, string attachmentNumber, [Header("Z-Auth-Token")] string token);
 
         [Post("/students/{userId}/noticeboard/read/{noticeEvtCode}/{noticePubId}/101")]
-        Task<HttpResponseMessage> ReadNotice(string userId, string noticePubId, string noticeEvtCode, [Header("Z-Auth-Token")] string token);
+        Task<NoticeReadResult> ReadNotice(string userId, string noticePubId, string noticeEvtCode, [Header("Z-Auth-Token")] string token);
     }
 
 }

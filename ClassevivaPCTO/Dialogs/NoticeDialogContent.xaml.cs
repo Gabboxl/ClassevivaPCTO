@@ -15,7 +15,7 @@ namespace ClassevivaPCTO.Dialogs
 
         private readonly IClassevivaAPI apiWrapper;
 
-        public NoticeDialogContent(Notice notice)
+        public NoticeDialogContent(Notice notice, NoticeReadResult noticeReadResult)
         {
             this.InitializeComponent();
 
