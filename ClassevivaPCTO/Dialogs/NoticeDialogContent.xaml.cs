@@ -62,7 +62,18 @@ namespace ClassevivaPCTO.Dialogs
                 textBlock.Text = "Prima di salvare l'allegato è necessario contrassegnare come letta la comunicazione. Confermi?";
                 textBlock.TextWrapping = TextWrapping.WrapWholeWords;
                 textBlock.Margin = new Thickness(0, 0, 0, 12);
-                
+
+                //create a flyoutpresenterstyle with the SystemFillColorCautionBackgroundBrush color and set it to the flyout
+                var flyoutPresenterStyle = new Style(typeof(FlyoutPresenter));
+                flyoutPresenterStyle.Setters.Add(new Setter(FlyoutPresenter.BackgroundProperty, (Windows.UI.Xaml.Media.Brush)Application.Current.Resources["SystemFillColorCautionBackgroundBrush"]));
+
+                //make the flyoutPresenterStyle based on the default one
+                flyoutPresenterStyle.BasedOn = (Style)Application.Current.Resources["DefaultFlyoutPresenterStyle"];
+
+
+                flyout.FlyoutPresenterStyle = flyoutPresenterStyle;
+
+
                 //create a button
                 var button = new Button();
                 button.Content = "Conferma";
