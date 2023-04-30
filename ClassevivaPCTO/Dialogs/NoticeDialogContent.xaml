@@ -60,12 +60,25 @@
         </DataTemplate>
     </Page.Resources>
 
-    <RelativePanel>
-        <TextBlock  x:Name="titoloAttachments" 
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>  
+        </Grid.RowDefinitions>
+    <RelativePanel Grid.Row="0" HorizontalAlignment="Stretch">
+
+        <TextBlock x:Name="noticeBodyText" 
+                   TextWrapping="Wrap"
+                   Style="{ThemeResource BodyTextBlockStyle}"
+                                           
+                                           Text="{x:Bind CurrentReadResult.item.text}"
+                                           Margin="8,8,0,8" />
+
+
+        <TextBlock  x:Name="titoloAttachments" RelativePanel.Below="noticeBodyText"
                    TextWrapping="Wrap"
                    Style="{ThemeResource BodyStrongTextBlockStyle}"
                                            MaxWidth="500"
-                                           Text="Allegati"
+                                           Text="{x:Bind AllegatiText}"
                                            Margin="8,8,0,8" />
         
         <ListView RelativePanel.Below="titoloAttachments"
@@ -75,4 +88,5 @@
             
         </ListView>
     </RelativePanel>
+    </Grid>
 </Page>
