@@ -60,28 +60,19 @@
         </DataTemplate>
     </Page.Resources>
 
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
-        
-        <TextBlock Grid.Row="0" x:Name="titoloAttachments" 
+    <RelativePanel>
+        <TextBlock  x:Name="titoloAttachments" 
                    TextWrapping="Wrap"
                    Style="{ThemeResource BodyStrongTextBlockStyle}"
                                            MaxWidth="500"
                                            Text="Allegati"
                                            Margin="8,8,0,8" />
         
-        <ListView Grid.Row="1" 
+        <ListView RelativePanel.Below="titoloAttachments"
                   x:Name="AttachmentsListView"
                   ItemContainerStyle="{StaticResource ListViewFullStretchStyle}"
                   ItemTemplate="{StaticResource AttachmentListViewDataTemplate}">
             
         </ListView>
-    </Grid>
+    </RelativePanel>
 </Page>
