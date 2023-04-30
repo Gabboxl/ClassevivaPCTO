@@ -60,6 +60,9 @@ namespace ClassevivaPCTO.Dialogs
                 //create a textblock
                 var textBlock = new TextBlock();
                 textBlock.Text = "Prima di salvare l'allegato è necessario contrassegnare come letta la comunicazione. Confermi?";
+                textBlock.TextWrapping = TextWrapping.WrapWholeWords;
+                textBlock.Margin = new Thickness(0, 0, 0, 12);
+                
                 //create a button
                 var button = new Button();
                 button.Content = "Conferma";
