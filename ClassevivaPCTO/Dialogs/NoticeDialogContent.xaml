@@ -16,7 +16,7 @@
 
         <!-- datatemplate to show notice attachment name and a commandbutton to download it -->
         <DataTemplate x:Key="AttachmentListViewDataTemplate"
-                  x:DataType="utils:Attachment">
+                  x:DataType="utils:NoticeAttachment">
 
             <Grid HorizontalAlignment="Stretch" >
                     <Grid.RowDefinitions>
