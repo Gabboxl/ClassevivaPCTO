@@ -32,7 +32,7 @@ namespace ClassevivaPCTO.Dialogs
         private async void ButtonOpen_Click(object sender, RoutedEventArgs e)
         {
             var senderbutton = sender as AppBarButton;
-            var currentAttachment = senderbutton.DataContext as Attachment;
+            var currentAttachment = senderbutton.DataContext as NoticeAttachment;
 
             byte[] bytes = await GetAttachmentAsBytes(currentAttachment);
 
@@ -47,7 +47,7 @@ namespace ClassevivaPCTO.Dialogs
         private async void ButtonSave_Click(object sender, RoutedEventArgs e) {
            
             var senderbutton = sender as AppBarButton;
-            var currentAttachment = senderbutton.DataContext as Attachment;
+            var currentAttachment = senderbutton.DataContext as NoticeAttachment;
 
 
             //check whether the notice needs to be read, if yes create a flyout and with a text and button to confirm and display it on the button
@@ -132,7 +132,7 @@ namespace ClassevivaPCTO.Dialogs
         }
 
 
-        private async Task<byte[]> GetAttachmentAsBytes(Attachment attachment)
+        private async Task<byte[]> GetAttachmentAsBytes(NoticeAttachment attachment)
         {
             LoginResultComplete loginResult = ViewModelHolder.getViewModel().LoginResult;
             Card cardResult = ViewModelHolder.getViewModel().CardsResult.Cards[0];

@@ -238,7 +238,7 @@ namespace ClassevivaPCTO.Utils
         public List<Teacher> teachers { get; set; }
     }
 
-    public class Attachment
+    public class NoticeAttachment
     {
         public string fileName { get; set; }
         public int attachNum { get; set; }
@@ -265,7 +265,7 @@ namespace ClassevivaPCTO.Utils
         public bool needSign { get; set; }
         public string evento_id { get; set; }
         public string dinsert_allegato { get; set; }
-        public List<Attachment> attachments { get; set; }
+        public List<NoticeAttachment> attachments { get; set; }
     }
 
 
