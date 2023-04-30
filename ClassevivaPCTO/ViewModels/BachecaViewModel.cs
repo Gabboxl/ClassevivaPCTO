@@ -11,6 +11,13 @@ namespace ClassevivaPCTO.ViewModels
             set { SetProperty(ref _isLoadingBacheca, value); }
         }
 
+        private bool _mostraSoloComAttive = false;
+        public bool MostraSoloComAttive
+        {
+            get { return _mostraSoloComAttive; }
+            set { SetProperty(ref _mostraSoloComAttive, value); }
+        }
+
         public BachecaViewModel() { }
     }
 }
