@@ -50,65 +50,6 @@ namespace ClassevivaPCTO.Dialogs
             var currentAttachment = senderbutton.DataContext as NoticeAttachment;
 
 
-            //check whether the notice needs to be read, if yes create a flyout and with a text and button to confirm and display it on the button
-            //if the user clicks the button, the flyout will be closed and the attachment will be read
-
-            if (CurrentNotice.readStatus == false)
-            {
-                //create a flyout
-                var flyout = new Flyout();
-                //create a textblock
-                var textBlock = new TextBlock();
-                textBlock.Text = "Prima di salvare l'allegato è necessario contrassegnare come letta la comunicazione. Confermi?";
-                textBlock.TextWrapping = TextWrapping.WrapWholeWords;
-                textBlock.Margin = new Thickness(0, 0, 0, 12);
-
-                //create a flyoutpresenterstyle with the SystemFillColorCautionBackgroundBrush color and set it to the flyout
-                var flyoutPresenterStyle = new Style(typeof(FlyoutPresenter));
-                flyoutPresenterStyle.Setters.Add(new Setter(FlyoutPresenter.BackgroundProperty, (Windows.UI.Xaml.Media.Brush)Application.Current.Resources["SystemFillColorCautionBackgroundBrush"]));
-
-                //make the flyoutPresenterStyle based on the default one
-                flyoutPresenterStyle.BasedOn = (Style)Application.Current.Resources["DefaultFlyoutPresenterStyle"];
-
-
-                flyout.FlyoutPresenterStyle = flyoutPresenterStyle;
-
-
-                //create a button
-                var button = new Button();
-                button.Content = "Conferma";
-                button.Click += async delegate
-                {
-                    //close the flyout
-                    flyout.Hide();
-
-
-                    //leggi il comunicato con API e poi salva l'allegato
-                    //await ReadAttachment(currentAttachment);
-                };
-
-                //add the textblock and the button to the flyout
-                flyout.Content = new StackPanel
-                {
-                    Children =
-                    {
-                        textBlock,
-                        button
-                    }
-                };
-
-                //display the flyout on the button
-                flyout.ShowAt(senderbutton);
-            }
-            else
-            {
-                //vai avanti e salva l'allegato
-                //await ReadAttachment(currentAttachment);
-            }
-        
-
-
-
             byte[] bytes = await GetAttachmentAsBytes(currentAttachment);
 
             var savePicker = new Windows.Storage.Pickers.FileSavePicker();
