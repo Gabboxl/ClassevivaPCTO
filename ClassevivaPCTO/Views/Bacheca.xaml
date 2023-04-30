@@ -66,6 +66,14 @@
                             HorizontalAlignment="Center"
                             Width="260" Height="32" />
 
+            
+            <CheckBox x:Name="CheckboxAttive" 
+                      Content="Mostra solo comunicazioni attive"
+                      Margin="0,0,16,0"
+                      RelativePanel.AlignRightWithPanel="True" 
+                      RelativePanel.AlignHorizontalCenterWithPanel="True"
+                      IsChecked="{x:Bind BachecaViewModel.MostraSoloComAttive, Mode=TwoWay}"/>
+
 
 
 

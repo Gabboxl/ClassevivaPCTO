@@ -39,37 +39,32 @@
 
 
                     <TextBlock x:Name="titoloEvento" TextWrapping="Wrap"
-                                           MaxWidth="500"
+                                           
                                            Text="{x:Bind CurrentObject.cntTitle}"
                                            Style="{ThemeResource BaseTextBlockStyle}"
                                            Margin="6,6,0,0" />
-
-
-                    <TextBlock RelativePanel.RightOf="titoloEvento" x:Name="tipoEvento" TextWrapping="Wrap"
+                    
+                    <!-- data pubblicazione -->
+                    <TextBlock RelativePanel.RightOf="titoloEvento" x:Name="dataPubblicazione" TextWrapping="Wrap"
                                            MaxWidth="500"
-                                           Text="{x:Bind CurrentObject.cntCategory}"
-                                           Style="{ThemeResource BaseTextBlockStyle}"
+                                           Text="{x:Bind  CurrentObject.pubDT, Converter={StaticResource DateTimeToNormalDateConverter}}"
+                                           Style="{ThemeResource BodyStrongTextBlockStyle}"
+                               Foreground="{ThemeResource TextFillColorTertiaryBrush}"
                                            Margin="6,6,0,0" />
 
 
-                    <TextBlock RelativePanel.Below="titoloEvento" x:Name="dataStart"
-                                           Text="{x:Bind  CurrentObject.cntValidFrom, Converter={StaticResource DateTimeToNormalDateConverter}}"
-                                           FontStyle="Italic"
-                                           Style="{ThemeResource BodyTextBlockStyle}"
-                                           Margin="6,0,0,0" />
-
-                    <TextBlock RelativePanel.RightOf="dataStart" RelativePanel.Below="titoloEvento" x:Name="placeholderData"
-                                           Text="-"
-                                           FontStyle="Italic"
-                                           Style="{ThemeResource BodyTextBlockStyle}"
-                                           Margin="6,0,6,0" />
+                    <TextBlock RelativePanel.Below="titoloEvento" x:Name="categoriaEvento" TextWrapping="Wrap"
+                                           MaxWidth="500"
+                                           Text="{x:Bind Category}"
+                                           Style="{ThemeResource CaptionTextBlockStyle}"
+                                           Margin="6,6,0,0" />
 
 
-                    <TextBlock RelativePanel.RightOf="placeholderData" RelativePanel.Below="titoloEvento" x:Name="dataEnd"
-                                           Text="{x:Bind  CurrentObject.cntValidTo, Converter={StaticResource DateTimeToNormalDateConverter}}"
+                    <TextBlock x:Name="dataStart" RelativePanel.Below="titoloEvento" RelativePanel.RightOf="categoriaEvento"
+                                           Text="{x:Bind  FromToValidDate}"
                                            FontStyle="Italic"
-                                           Style="{ThemeResource BodyTextBlockStyle}"
-                                           Margin="0,0,0,8" />
+                                           Style="{ThemeResource CaptionTextBlockStyle}"
+                                           Margin="6,6,0,0" />
 
 
 
