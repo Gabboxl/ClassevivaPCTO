@@ -268,6 +268,33 @@ namespace ClassevivaPCTO.Utils
         public List<NoticeAttachment> attachments { get; set; }
     }
 
+    public partial class NoticeReadResult
+    {
+        public NoticeReadItem item { get; set; }
+
+        public NoticeReadReply reply { get; set; }
+    }
+
+    public partial class NoticeReadItem
+    {
+        public string title { get; set; }
+
+        public string text { get; set; }
+    }
+
+    public partial class NoticeReadReply
+    {
+        public bool replJoin { get; set; }
+
+        public object replText { get; set; }
+
+        public object replFile { get; set; }
+
+        public object replSign { get; set; }
+    }
+
+
+    //notes
 
     public class NoteNTTE
     {
