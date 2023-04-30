@@ -126,16 +126,14 @@
                     </controls2:GradesListView>
 
 
-                    <ListView x:Name="ListViewLezioniDate"
-                          SelectionMode="Single"
-                              
+
+                    <controls2:LessonsListView x:Name="ListViewLezioniDate"
                           HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
-                          ItemTemplate="{StaticResource LessonListViewDataTemplate}"
                               
                           ScrollViewer.VerticalScrollMode="Disabled"
                                   ScrollViewer.VerticalScrollBarVisibility="Disabled">
 
-                    </ListView>
+                    </controls2:LessonsListView>
 
 
                     <controls2:AgendaListView x:Name="ListViewAgendaDate"

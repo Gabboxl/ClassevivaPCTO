@@ -103,32 +103,7 @@ namespace ClassevivaPCTO.Views
                     //ListViewAbsencesDate.ItemsSource = overviewResult.Grades;
                     ListViewVotiDate.ItemsSource = overviewResult.Grades;
 
-                    //order lessons by evtHPos
-                    var orderedlessons = overviewResult.Lessons.OrderBy(x => x.evtHPos).ToList();
-
-                    //remove duplicates based on lessonArg and authorname and increment evtDuration it it is a duplicate
-                    foreach (var lesson in orderedlessons.ToList())
-                    {
-                        var duplicates = orderedlessons
-                            .Where(
-                                x =>
-                                    x.lessonArg == lesson.lessonArg
-                                    && x.authorName == lesson.authorName
-                            )
-                            .ToList();
-                        if (duplicates.Count > 1)
-                        {
-                            lesson.evtDuration += duplicates[1].evtDuration;
-                            orderedlessons.Remove(duplicates[1]);
-                        }
-                    }
-
-                    //orderedlessons = orderedlessons.GroupBy(x => x.lessonArg).Select(x => x.First()).ToList();
-
-                    ListViewLezioniDate.ItemsSource = orderedlessons
-                        .Select(les => new LessonAdapter(les))
-                        .ToList();
-
+                    ListViewLezioniDate.ItemsSource = overviewResult.Lessons;
 
                     ListViewAgendaDate.ItemsSource = overviewResult.AgendaEvents;
 

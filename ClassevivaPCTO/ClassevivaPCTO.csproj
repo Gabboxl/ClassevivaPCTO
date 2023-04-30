@@ -133,6 +133,9 @@
     <Compile Include="Adapters\GradeAdapter.cs" />
     <Compile Include="Adapters\NoticeAdapter.cs" />
     <Compile Include="Adapters\LessonAdapter.cs" />
+    <Compile Include="Controls\LessonsListView.xaml.cs">
+      <DependentUpon>LessonsListView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\AgendaListView.xaml.cs">
       <DependentUpon>AgendaListView.xaml</DependentUpon>
     </Compile>
@@ -280,7 +283,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="Controls\DataTemplates\LessonListViewDataTemplate.xaml">
+    <Page Include="Controls\LessonsListView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
