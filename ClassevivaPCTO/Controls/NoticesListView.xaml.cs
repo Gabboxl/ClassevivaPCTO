@@ -73,13 +73,20 @@ namespace ClassevivaPCTO.Controls
                 var flyout = new Flyout();
                 //create a textblock
                 var textBlock = new TextBlock();
-                textBlock.Text = "Prima di salvare l'allegato è necessario contrassegnare come letta la comunicazione. Confermi?";
+                textBlock.Text = "Prima di salvare l'allegato è necessario contrassegnare la comunicazione come letta sul server. Confermi?";
                 textBlock.TextWrapping = TextWrapping.WrapWholeWords;
                 textBlock.Margin = new Thickness(0, 0, 0, 12);
+                
+                
 
                 //create a flyoutpresenterstyle with the SystemFillColorCautionBackgroundBrush color and set it to the flyout
                 var flyoutPresenterStyle = new Style(typeof(FlyoutPresenter));
                 flyoutPresenterStyle.Setters.Add(new Setter(FlyoutPresenter.BackgroundProperty, (Windows.UI.Xaml.Media.Brush)Application.Current.Resources["SystemFillColorCautionBackgroundBrush"]));
+
+                //make the flyout wrap the text vertically
+                flyoutPresenterStyle.Setters.Add(new Setter(ScrollViewer.HorizontalScrollModeProperty, ScrollMode.Disabled));
+                flyoutPresenterStyle.Setters.Add(new Setter(ScrollViewer.HorizontalScrollBarVisibilityProperty, ScrollBarVisibility.Disabled));
+
 
                 //make the flyoutPresenterStyle based on the default one
                 flyoutPresenterStyle.BasedOn = (Style)Application.Current.Resources["DefaultFlyoutPresenterStyle"];
