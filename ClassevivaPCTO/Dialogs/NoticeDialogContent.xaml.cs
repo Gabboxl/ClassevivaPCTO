@@ -12,14 +12,32 @@ namespace ClassevivaPCTO.Dialogs
     public sealed partial class NoticeDialogContent : Page
     {
         Notice CurrentNotice;
+        NoticeReadResult CurrentReadResult;
 
         private readonly IClassevivaAPI apiWrapper;
+
+
+        private string AllegatiText
+        {
+            get
+            {
+                if (CurrentNotice.attachments.Count == 0)
+                {
+                    return "Nessun allegato";
+                }
+                else
+                {
+                    return "Allegati";
+                }
+            }
+        }
 
         public NoticeDialogContent(Notice notice, NoticeReadResult noticeReadResult)
         {
             this.InitializeComponent();
 
             CurrentNotice = notice;
+            CurrentReadResult = noticeReadResult;
 
             AttachmentsListView.ItemsSource = notice.attachments;
 
