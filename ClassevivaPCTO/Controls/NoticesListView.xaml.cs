@@ -1,6 +1,8 @@
 ﻿using ClassevivaPCTO.Adapters;
 using ClassevivaPCTO.Dialogs;
 using ClassevivaPCTO.Utils;
+using ClassevivaPCTO.ViewModels;
+using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,6 +17,8 @@ namespace ClassevivaPCTO.Controls
 {
     public sealed partial class NoticesListView : UserControl
     {
+        private readonly IClassevivaAPI apiWrapper;
+
         public List<Notice> ItemsSource
         {
             get { return (List<Notice>)GetValue(ItemsSourceProperty); }
@@ -45,18 +49,98 @@ namespace ClassevivaPCTO.Controls
         public NoticesListView()
         {
             this.InitializeComponent();
+
+            App app = (App)App.Current;
+            var apiClient = app.Container.GetService<IClassevivaAPI>();
+
+            apiWrapper = PoliciesDispatchProxy<IClassevivaAPI>.CreateProxy(apiClient);
         }
 
         //appbarbutton onclick handler
         private async void ReadButton_Click(object sender, RoutedEventArgs e)
         {
-            var item = (sender as Button).DataContext as NoticeAdapter;
-            var notice = item.CurrentObject;
+            var senderbutton = sender as AppBarButton;
+            var currentNotice = (senderbutton.DataContext as NoticeAdapter).CurrentObject;
 
-            var noticeDialogContent = new NoticeDialogContent(notice);
+
+
+            //check whether the notice needs to be read, if yes create a flyout and with a text and button to confirm and display it on the button
+            //if the user clicks the button, the flyout will be closed and the attachment will be read
+
+            if (currentNotice.readStatus == false)
+            {
+                //create a flyout
+                var flyout = new Flyout();
+                //create a textblock
+                var textBlock = new TextBlock();
+                textBlock.Text = "Prima di salvare l'allegato è necessario contrassegnare come letta la comunicazione. Confermi?";
+                textBlock.TextWrapping = TextWrapping.WrapWholeWords;
+                textBlock.Margin = new Thickness(0, 0, 0, 12);
+
+                //create a flyoutpresenterstyle with the SystemFillColorCautionBackgroundBrush color and set it to the flyout
+                var flyoutPresenterStyle = new Style(typeof(FlyoutPresenter));
+                flyoutPresenterStyle.Setters.Add(new Setter(FlyoutPresenter.BackgroundProperty, (Windows.UI.Xaml.Media.Brush)Application.Current.Resources["SystemFillColorCautionBackgroundBrush"]));
+
+                //make the flyoutPresenterStyle based on the default one
+                flyoutPresenterStyle.BasedOn = (Style)Application.Current.Resources["DefaultFlyoutPresenterStyle"];
+
+
+                flyout.FlyoutPresenterStyle = flyoutPresenterStyle;
+
+
+                //create a button
+                var button = new Button();
+                button.Content = "Leggi e apri";
+                button.Click += async delegate
+                {
+                    //close the flyout
+                    flyout.Hide();
+
+                    //apro la comunicazione
+                    ReadAndOpenNoticeDialog(currentNotice);
+                };
+
+                //add the textblock and the button to the flyout
+                flyout.Content = new StackPanel
+                {
+                    Children =
+                    {
+                        textBlock,
+                        button
+                    }
+                };
+
+                //display the flyout on the clicked button
+                flyout.ShowAt(senderbutton);
+            }
+            else
+            {
+                ReadAndOpenNoticeDialog(currentNotice);
+            }
+
+
+
+
+        }
+
+
+        public async void ReadAndOpenNoticeDialog(Notice currentNotice)
+        {
+            LoginResultComplete loginResult = ViewModelHolder.getViewModel().LoginResult;
+            Card cardResult = ViewModelHolder.getViewModel().CardsResult.Cards[0];
+
+
+            //we need to read the notice first
+            NoticeReadResult noticeReadResult =
+             await apiWrapper.ReadNotice(cardResult.usrId.ToString(), currentNotice.pubId.ToString(),
+             currentNotice.evtCode,
+                loginResult.token.ToString());
+
+
+            var noticeDialogContent = new NoticeDialogContent(currentNotice, noticeReadResult);
 
             ContentDialog dialog = new ContentDialog();
-            dialog.Title = notice.cntTitle;
+            dialog.Title = currentNotice.cntTitle;
             dialog.PrimaryButtonText = "Chiudi";
             dialog.DefaultButton = ContentDialogButton.Primary;
             dialog.RequestedTheme = (Window.Current.Content as FrameworkElement).RequestedTheme;
