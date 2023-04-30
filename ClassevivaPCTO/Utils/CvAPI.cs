@@ -303,20 +303,24 @@ namespace ClassevivaPCTO.Utils
         public DateTime evtDate { get; set; }
         public string authorName { get; set; }
         public bool readStatus { get; set; }
+
+        public DateTime? evtBegin { get; set; }
+        public DateTime? evtEnd { get; set; }
+        public string? warningType { get; set; }
     }
 
     public class Notes
     {
-        [JsonPropertyName("NTTE")]
+        [JsonPropertyName("NTTE")] //Annotazioni
         public List<NoteNTTE> NotesNTTE { get; set; }
 
-        [JsonPropertyName("NTCL")]
+        [JsonPropertyName("NTCL")] //Note disciplinari
         public List<NoteNTTE> NotesNTCL { get; set; } //to create a dedicated note class for this one note type
 
-        [JsonPropertyName("NTWN")]
+        [JsonPropertyName("NTWN")] //Richiami
         public List<NoteNTTE> NotesNTWN { get; set; } //to create a dedicated note class for this one note type
 
-        [JsonPropertyName("NTST")]
+        [JsonPropertyName("NTST")] //Sanzioni disciplinari
         public List<NoteNTTE> NotesNTST { get; set; } //to create a dedicated note class for this one note type
     }
 
