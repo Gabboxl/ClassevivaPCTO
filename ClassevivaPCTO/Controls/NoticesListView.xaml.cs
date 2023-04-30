@@ -48,7 +48,7 @@ namespace ClassevivaPCTO.Controls
         }
 
         //appbarbutton onclick handler
-        private async void AppBarButton_Click(object sender, RoutedEventArgs e)
+        private async void ReadButton_Click(object sender, RoutedEventArgs e)
         {
             var item = (sender as Button).DataContext as NoticeAdapter;
             var notice = item.CurrentObject;
