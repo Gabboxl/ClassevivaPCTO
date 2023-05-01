@@ -49,9 +49,9 @@
 
 
                 <RelativePanel Grid.Column="1" HorizontalAlignment="Right" >
-                    <AppBarButton x:Name="ButtonOpen" RelativePanel.LeftOf="ButtonSave" Click="ButtonOpen_Click"  RelativePanel.AlignVerticalCenterWithPanel="True" Icon="OpenFile" Label="Open" />
+                    <AppBarButton x:Name="ButtonOpen" RelativePanel.LeftOf="ButtonSave" Click="ButtonOpen_Click"  RelativePanel.AlignVerticalCenterWithPanel="True" Icon="OpenFile" Label="Apri" />
 
-                    <AppBarButton x:Name="ButtonSave" Click="ButtonSave_Click" RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignVerticalCenterWithPanel="True" Icon="SaveLocal" Label="Save" />
+                    <AppBarButton x:Name="ButtonSave" Click="ButtonSave_Click" RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignVerticalCenterWithPanel="True" Icon="SaveLocal" Label="Salva" />
 
                 </RelativePanel>
 
