@@ -349,4 +349,39 @@ namespace ClassevivaPCTO.Utils
         public List<Notice> Notices { get; set; }
     }
 
+    //scrutini
+
+    public class ScrutiniSchoolReport
+    {
+        public string desc { get; set; }
+        public string confirmLink { get; set; }
+        public string viewLink { get; set; }
+    }
+
+    public class ScrutiniDocument
+    {
+        public string hash { get; set; }
+        public string desc { get; set; }
+    }
+
+    public class ScrutiniDocumentsResult
+    {
+        [JsonPropertyName("documents")]
+        public List<ScrutiniDocument> Documents { get; set; }
+
+        [JsonPropertyName("schoolReports")]
+        public List<ScrutiniSchoolReport> SchoolReports { get; set; }
+    }
+
+    public class ScrutiniDocumentStatus
+    {
+        public bool available { get; set; }
+    }
+
+    public class ScrutiniCheckResult
+    {
+        public ScrutiniDocumentStatus document { get; set; }
+    }
+
+
 }
