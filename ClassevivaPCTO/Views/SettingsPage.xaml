@@ -149,8 +149,22 @@
                         </labs:SettingsCard>
                     </labs:SettingsExpander.Items>
                 </labs:SettingsExpander>
-                <HyperlinkButton Margin="0,8,0,0"
-                                 Content="Send feedback" />
+
+
+                <RelativePanel>
+
+                    <HyperlinkButton Margin="0,8,0,0" 
+                                     x:Name="hyperlinkVote"
+                                 Content="Vota l'app" />
+
+                    <HyperlinkButton Margin="0,8,0,0" 
+                                     x:Name="hyperlinkIssue"
+                                     RelativePanel.RightOf="hyperlinkVote"
+                                     NavigateUri="http://github.com/Gabboxl/ClassevivaPCTO/issues"
+                                 Content="Segnala un problema" />
+                </RelativePanel>
+
+                
             </StackPanel>
         </Grid>
     </ScrollViewer>
