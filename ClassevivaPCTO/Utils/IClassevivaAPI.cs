@@ -14,6 +14,9 @@ namespace ClassevivaPCTO.Utils
         [Get("/students/{userId}/absences/details")]
         Task<AbsencesResult> GetAbsences(string userId, [Header("Z-Auth-Token")] string token);
 
+        [Get("/students/{userId}/absences/details/{startDate}/{endDate}")]
+        Task<AbsencesResult> GetAbsencesBetweenDates(string userId, string startDate, string endDate, [Header("Z-Auth-Token")] string token);
+
         [Get("/students/{userId}/grades2")]
         Task<Grades2Result> GetGrades(string userId, [Header("Z-Auth-Token")] string token);
 
