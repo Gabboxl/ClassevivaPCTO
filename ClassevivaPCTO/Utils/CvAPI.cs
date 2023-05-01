@@ -36,10 +36,18 @@ namespace ClassevivaPCTO.Utils
 
     }
 
+    public enum AbsenceEventCode
+    {
+        ABA0, //assenza
+        ABR0, //ritardo
+        ABR1, //ritardo breve
+        ABU0 //uscita anticipata
+    }
+
     public class AbsenceEvent
     {
         public long? evtId { get; set; }
-        public string evtCode { get; set; }
+        public AbsenceEventCode evtCode { get; set; }
         public DateTime evtDate { get; set; }
         public long? evtHPos { get; set; }
         public long? evtValue { get; set; }

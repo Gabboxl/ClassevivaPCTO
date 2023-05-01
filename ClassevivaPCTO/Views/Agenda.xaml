@@ -114,7 +114,13 @@
 
 
 
-                    <!-- listview per le assenze e ritardi da mettere -->
+                    <controls2:AbsencesListView x:Name="AbsencesListView"
+                          HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+                              
+                          ScrollViewer.VerticalScrollMode="Disabled"
+                                  ScrollViewer.VerticalScrollBarVisibility="Disabled">
+
+                    </controls2:AbsencesListView>
 
 
                     <controls2:GradesListView x:Name="ListViewVotiDate"

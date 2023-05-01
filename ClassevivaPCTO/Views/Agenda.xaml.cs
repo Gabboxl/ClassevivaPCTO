@@ -102,7 +102,7 @@ namespace ClassevivaPCTO.Views
                 CoreDispatcherPriority.Normal,
                 async () =>
                 {
-                    //ListViewAbsencesDate.ItemsSource = overviewResult.Grades;
+                    AbsencesListView.ItemsSource = overviewResult.AbsenceEvents;
 
                     var filteredGrades = overviewResult.Grades
                         .Where(grade => grade.evtDate == dateToLoad)

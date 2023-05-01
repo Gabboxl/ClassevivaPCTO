@@ -130,9 +130,16 @@
   <ItemGroup>
     <Compile Include="Activation\ActivationHandler.cs" />
     <Compile Include="Activation\DefaultActivationHandler.cs" />
+    <Compile Include="Adapters\AbsenceEventAdapter.cs" />
     <Compile Include="Adapters\GradeAdapter.cs" />
     <Compile Include="Adapters\NoticeAdapter.cs" />
     <Compile Include="Adapters\LessonAdapter.cs" />
+    <Compile Include="Controls\AbsencesListView.xaml.cs">
+      <DependentUpon>AbsencesListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\OverviewListView.xaml.cs">
+      <DependentUpon>OverviewListView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\LessonsListView.xaml.cs">
       <DependentUpon>LessonsListView.xaml</DependentUpon>
     </Compile>
@@ -283,6 +290,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Controls\AbsencesListView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\OverviewListView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Controls\LessonsListView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
