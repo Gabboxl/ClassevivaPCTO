@@ -55,6 +55,13 @@ namespace ClassevivaPCTO.Utils
 
         [Post("/students/{userId}/noticeboard/read/{noticeEvtCode}/{noticePubId}/101")]
         Task<NoticeReadResult> ReadNotice(string userId, string noticePubId, string noticeEvtCode, [Header("Z-Auth-Token")] string token);
+
+        [Post("/students/{userId}/documents")]
+        Task<ScrutiniDocumentsResult> GetScrutiniDocuments(string userId, [Header("Z-Auth-Token")] string token);
+
+        [Post("/students/{userId}/documents/check/{documentHash}")]
+        Task<ScrutiniCheckResult> CheckScrutinioDocument(string userId, string documentHash, [Header("Z-Auth-Token")] string token);
+
     }
 
 }
