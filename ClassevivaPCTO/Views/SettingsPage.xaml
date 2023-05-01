@@ -96,7 +96,7 @@
                 </labs:SettingsExpander>
 
                 <TextBlock Style="{StaticResource SettingsSectionHeaderTextBlockStyle}"
-                           Text="Section 2" />
+                           Text="Sezione 2" />
                 <labs:SettingsCard Description="Another card to show grouping of cards"
                                    Header="Another SettingsCard">
                     <labs:SettingsCard.HeaderIcon>
@@ -124,7 +124,7 @@
 
                 <!--  Example 'About' section  -->
                 <TextBlock Style="{StaticResource SettingsSectionHeaderTextBlockStyle}"
-                           Text="About" />
+                           x:Uid="Settings_About" />
 
                 <labs:SettingsExpander Description="© 2023. All rights reserved."
                                        Header="{x:Bind AppName}">
