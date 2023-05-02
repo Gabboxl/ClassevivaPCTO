@@ -16,7 +16,7 @@
         <converters:DateTimeToHourConverter x:Key="DateTimeToHourConverter" />
 
 
-        <DataTemplate x:Key="AbsenceEventListViewDataTemplate"
+        <DataTemplate x:Key="AbsenceEventListViewDataTemplateCompact"
                   
                   x:DataType="adapters:AbsenceEventAdapter">
             <RelativePanel>
@@ -29,9 +29,9 @@
                                            Margin="6,6,0,0" />
 
 
-                <TextBlock RelativePanel.RightOf="titoloEvento" x:Name="tipoEvento" TextWrapping="Wrap"
+                <TextBlock RelativePanel.RightOf="titoloEvento" x:Name="justifiedText" TextWrapping="Wrap"
                                            MaxWidth="500"
-                                           Text="{x:Bind CurrentObject.evtCode}"
+                                           Text="{x:Bind JustifiedText}"
                                            Style="{ThemeResource BaseTextBlockStyle}"
                                            Margin="6,6,0,0" />
 
@@ -45,5 +45,5 @@
 
     
     
-        <ListView x:Name="listView"  ItemTemplate="{StaticResource AbsenceEventListViewDataTemplate}" />
+        <ListView x:Name="listView"  ItemTemplate="{StaticResource AbsenceEventListViewDataTemplateCompact}" />
 </UserControl>
