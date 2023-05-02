@@ -6,6 +6,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Newtonsoft.Json;
 using Refit;
 using System;
+using System.Collections.Generic;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
 using Windows.UI.Xaml;
@@ -150,6 +151,9 @@ namespace ClassevivaPCTO
             Windows.UI.Xaml.UnhandledExceptionEventArgs e
         )
         {
+            //http://blog.wpdev.fr/inspecting-unhandled-exceptions-youve-got-only-one-chance/
+            Exception exceptionThatDoesntGoAway = e.Exception;
+
             //get the data from the viewmodel
             var dataCards = ViewModelHolder.getViewModel().CardsResult;
             var dataLogin = ViewModelHolder.getViewModel().LoginResult;
@@ -157,19 +161,29 @@ namespace ClassevivaPCTO
             var serializedCards = Newtonsoft.Json.JsonConvert.SerializeObject(dataCards, Formatting.Indented);
             var serializedLogin = Newtonsoft.Json.JsonConvert.SerializeObject(dataLogin, Formatting.Indented);
 
-            var attachments = new ErrorAttachmentLog[]
-            {
-                ErrorAttachmentLog.AttachmentWithText(serializedCards, "dataCards.txt"),
-                ErrorAttachmentLog.AttachmentWithText(serializedLogin, "dataLogin.txt")
-            };
-
-            {
-                var serializedException = JsonConvert.SerializeObject(e.Exception, Formatting.Indented);
-                attachments[2] = ErrorAttachmentLog.AttachmentWithText(serializedException, "exception.txt");
-            }
+            //create a list of ErrorAttachmentLog
+            var attachments = new List<ErrorAttachmentLog>();
 
 
-            Crashes.TrackError(e.Exception, attachments: attachments);
+
+
+
+
+            var er1 = ErrorAttachmentLog.AttachmentWithText(serializedCards, "dataCards.txt");
+            var er2 = ErrorAttachmentLog.AttachmentWithText(serializedLogin, "dataLogin.txt");
+
+            attachments.Add(er1);
+            attachments.Add(er2);
+
+
+
+            var serializedException = JsonConvert.SerializeObject(e.Exception, Formatting.Indented);
+                var er3 = ErrorAttachmentLog.AttachmentWithText(serializedException, "exception.txt");
+
+            attachments.Add(er3);
+
+
+            Crashes.TrackError(exceptionThatDoesntGoAway, attachments: attachments.ToArray());
         }
 
         private ActivationService CreateActivationService()
