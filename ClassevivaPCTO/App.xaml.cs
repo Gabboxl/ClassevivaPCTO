@@ -54,7 +54,6 @@ namespace ClassevivaPCTO
 
             UnhandledException += OnAppUnhandledException;
 
-
             bool isDebugMode = false;
 
 #if DEBUG
@@ -158,16 +157,17 @@ namespace ClassevivaPCTO
             var dataCards = ViewModelHolder.getViewModel().CardsResult;
             var dataLogin = ViewModelHolder.getViewModel().LoginResult;
 
-            var serializedCards = Newtonsoft.Json.JsonConvert.SerializeObject(dataCards, Formatting.Indented);
-            var serializedLogin = Newtonsoft.Json.JsonConvert.SerializeObject(dataLogin, Formatting.Indented);
+            var serializedCards = Newtonsoft.Json.JsonConvert.SerializeObject(
+                dataCards,
+                Formatting.Indented
+            );
+            var serializedLogin = Newtonsoft.Json.JsonConvert.SerializeObject(
+                dataLogin,
+                Formatting.Indented
+            );
 
             //create a list of ErrorAttachmentLog
             var attachments = new List<ErrorAttachmentLog>();
-
-
-
-
-
 
             var er1 = ErrorAttachmentLog.AttachmentWithText(serializedCards, "dataCards.txt");
             var er2 = ErrorAttachmentLog.AttachmentWithText(serializedLogin, "dataLogin.txt");
@@ -175,13 +175,10 @@ namespace ClassevivaPCTO
             attachments.Add(er1);
             attachments.Add(er2);
 
-
-
             var serializedException = JsonConvert.SerializeObject(e.Exception, Formatting.Indented);
-                var er3 = ErrorAttachmentLog.AttachmentWithText(serializedException, "exception.txt");
+            var er3 = ErrorAttachmentLog.AttachmentWithText(serializedException, "exception.txt");
 
             attachments.Add(er3);
-
 
             Crashes.TrackError(exceptionThatDoesntGoAway, attachments: attachments.ToArray());
         }
