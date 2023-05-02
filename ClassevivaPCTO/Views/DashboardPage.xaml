@@ -94,35 +94,15 @@
             VerticalScrollMode="Enabled" VerticalScrollBarVisibility="Visible">
 
                     <StackPanel  ScrollViewer.HorizontalScrollMode="Disabled"
-                                                                  Width="{Binding ElementName=OverviewScrollviewer, Path=(toolkit:FrameworkElementExtensions.ActualWidth)}"
->
+                                                                  Width="{Binding ElementName=OverviewScrollviewer, Path=(toolkit:FrameworkElementExtensions.ActualWidth)}">
 
-                        <!-- listview per le assenze e ritardi da mettere -->
-                        
-                        
-                        <controls2:GradesListView x:Name="ListViewVotiDate"
+                        <controls2:OverviewListView x:Name="OverviewListView"
                           HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
                               
                           ScrollViewer.VerticalScrollMode="Disabled"
                                   ScrollViewer.VerticalScrollBarVisibility="Disabled">
 
-                        </controls2:GradesListView>
-
-                        <controls2:LessonsListView x:Name="ListViewLezioniDate"
-                          HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
-                              
-                          ScrollViewer.VerticalScrollMode="Disabled"
-                                  ScrollViewer.VerticalScrollBarVisibility="Disabled">
-
-                        </controls2:LessonsListView>
-
-                        <controls2:AgendaListView x:Name="ListViewAgendaDate"
-                          HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
-                              
-                          ScrollViewer.VerticalScrollMode="Disabled"
-                                  ScrollViewer.VerticalScrollBarVisibility="Disabled">
-
-                        </controls2:AgendaListView>
+                        </controls2:OverviewListView>
 
                     </StackPanel>
 

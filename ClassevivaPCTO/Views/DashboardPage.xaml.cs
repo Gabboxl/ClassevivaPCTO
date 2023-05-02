@@ -90,14 +90,9 @@ namespace ClassevivaPCTO.Views
                 CoreDispatcherPriority.Normal,
                 async () =>
                 {
-                    //ListViewAbsencesDate.ItemsSource = overviewResult.Grades;
-                    ListViewVotiDate.ItemsSource = overviewResult.Grades;
+                    var overviewData = new OverviewDataModel(overviewResult, DateTime.Now);
 
-
-                    ListViewLezioniDate.ItemsSource = overviewResult.Lessons;
-
-
-                    ListViewAgendaDate.ItemsSource = overviewResult.AgendaEvents;
+                    OverviewListView.ItemsSource = overviewData;
 
                     DashboardPageViewModel.IsLoadingAgenda = false;
                 }
