@@ -73,7 +73,7 @@ namespace ClassevivaPCTO.Controls
                 var flyout = new Flyout();
                 //create a textblock
                 var textBlock = new TextBlock();
-                textBlock.Text = "Prima di salvare l'allegato è necessario contrassegnare la comunicazione come letta sul server. Confermi?";
+                textBlock.Text = "Prima di salvare l'allegato è necessario contrassegnare la comunicazione come letta sul server. Continuare?";
                 textBlock.TextWrapping = TextWrapping.WrapWholeWords;
                 textBlock.Margin = new Thickness(0, 0, 0, 12);
                 
