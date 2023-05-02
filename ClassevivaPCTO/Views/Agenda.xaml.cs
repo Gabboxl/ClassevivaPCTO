@@ -102,36 +102,10 @@ namespace ClassevivaPCTO.Views
                 CoreDispatcherPriority.Normal,
                 async () =>
                 {
-                    AbsencesListView.ItemsSource = overviewResult.AbsenceEvents;
+                    //create new OverviewDataModel instance and set the data var inside
+                    var overviewData = new OverviewDataModel(overviewResult, dateToLoad);
 
-                    var filteredGrades = overviewResult.Grades
-                        .Where(grade => grade.evtDate == dateToLoad)
-                        .ToList();
-
-                    //grades
-                    ListViewVotiDate.ItemsSource = filteredGrades;
-
-                    //lessons
-                    ListViewLezioniDate.ItemsSource = overviewResult.Lessons;
-
-                    //filter agenda events if the selected date is between the start and end date of the event
-                    var filteredAgendaEvents = overviewResult.AgendaEvents
-                        .Where(
-                            agendaEvent =>
-                                agendaEvent.evtDatetimeBegin <= dateToLoad && agendaEvent.evtDatetimeEnd >= dateToLoad
-                        )
-                        .ToList();
-
-                    //agenda
-                    ListViewAgendaDate.ItemsSource = filteredAgendaEvents;
-
-                    AgendaViewModel.AreSourcesEmpty = (
-                        overviewResult.AbsenceEvents.Count == 0
-                        && overviewResult.Lessons.Count == 0
-                        && filteredGrades.Count == 0
-                        && filteredAgendaEvents.Count == 0
-                    //need to check notes
-                    );
+                    OverviewListView.ItemsSource = overviewData;
 
                     AgendaViewModel.IsLoadingAgenda = false;
                 }
