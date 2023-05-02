@@ -57,6 +57,7 @@
                                            Text="{x:Bind JustifiedText}"
                                            Style="{ThemeResource BaseTextBlockStyle}"
                                            Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                                    FontStyle="Italic"
                                            Margin="6,0,0,8" />
 
 
