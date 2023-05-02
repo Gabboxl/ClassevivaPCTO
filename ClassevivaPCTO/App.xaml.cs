@@ -64,6 +64,7 @@ namespace ClassevivaPCTO
             {
                 Microsoft.AppCenter.AppCenter.Start(
                     "test",
+                    "cb5e4d6a-61ba-4b3a-b267-b0d9a13a850e",
                     typeof(Microsoft.AppCenter.Analytics.Analytics),
                     typeof(Microsoft.AppCenter.Crashes.Crashes)
                 );
@@ -159,11 +160,19 @@ namespace ClassevivaPCTO
 
             var serializedCards = Newtonsoft.Json.JsonConvert.SerializeObject(
                 dataCards,
-                Formatting.Indented
+                Formatting.Indented,
+                new JsonSerializerSettings
+                {
+                    ReferenceLoopHandling = ReferenceLoopHandling.Serialize
+                }
             );
             var serializedLogin = Newtonsoft.Json.JsonConvert.SerializeObject(
                 dataLogin,
-                Formatting.Indented
+                Formatting.Indented,
+                new JsonSerializerSettings
+                {
+                    ReferenceLoopHandling = ReferenceLoopHandling.Serialize
+                }
             );
 
             //create a list of ErrorAttachmentLog
@@ -175,12 +184,11 @@ namespace ClassevivaPCTO
             attachments.Add(er1);
             attachments.Add(er2);
 
-            var serializedException = JsonConvert.SerializeObject(e.Exception, Formatting.Indented);
-            var er3 = ErrorAttachmentLog.AttachmentWithText(serializedException, "exception.txt");
-
-            attachments.Add(er3);
+            e.Handled = true;
 
             Crashes.TrackError(exceptionThatDoesntGoAway, attachments: attachments.ToArray());
+
+            //visualizzare un dialog con si è verificato un errore
         }
 
         private ActivationService CreateActivationService()
