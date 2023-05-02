@@ -14,30 +14,57 @@
     <UserControl.Resources>
 
         <converters:DateTimeToHourConverter x:Key="DateTimeToHourConverter" />
+        <converters:AbsenceTypeToColorConverter x:Key="AbsenceTypeToColorConverter" />
 
 
         <DataTemplate x:Key="AbsenceEventListViewDataTemplateCompact"
                   
                   x:DataType="adapters:AbsenceEventAdapter">
+
             <RelativePanel>
 
+                <Grid RelativePanel.AlignVerticalCenterWithPanel="True" x:Name="gridVoto">
+                    <Ellipse x:Name="Ellipse"
+                                             Grid.RowSpan="2"
+                                             Width="42"
+                                             Height="42"
+                                             Margin="2"
+                                         
+                                             Fill="{x:Bind CurrentObject.evtCode,Converter={StaticResource AbsenceTypeToColorConverter}}"
 
-                <TextBlock x:Name="titoloEvento" TextWrapping="Wrap"
+                                             VerticalAlignment="Center"
+                                             HorizontalAlignment="Center">
+                        <!-- ="{ThemeResource SystemControlBackgroundBaseMediumBrush}" -->
+                    </Ellipse>
+                    <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center"
+                                               Text="{x:Bind CurrentObject.evtCode}" FontSize="14" Foreground="#FFFFFF" />
+
+                </Grid>
+
+                <RelativePanel RelativePanel.AlignVerticalCenterWithPanel="True" RelativePanel.RightOf="gridVoto">
+                    <RelativePanel>
+
+
+                        <TextBlock x:Name="titoloEvento" TextWrapping="Wrap"
                                            MaxWidth="500"
                                            Text="{x:Bind CurrentObject.evtDate}"
                                            Style="{ThemeResource BaseTextBlockStyle}"
-                                           Margin="6,6,0,0" />
+                                           Margin="6,8,0,0" />
 
 
-                <TextBlock RelativePanel.RightOf="titoloEvento" x:Name="justifiedText" TextWrapping="Wrap"
+                        <TextBlock RelativePanel.Below="titoloEvento" x:Name="justifiedText" TextWrapping="Wrap"
                                            MaxWidth="500"
                                            Text="{x:Bind JustifiedText}"
                                            Style="{ThemeResource BaseTextBlockStyle}"
-                                           Margin="6,6,0,0" />
+                                           Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                                           Margin="6,0,0,8" />
 
 
 
 
+                    </RelativePanel>
+
+                </RelativePanel>
             </RelativePanel>
         </DataTemplate>
 
