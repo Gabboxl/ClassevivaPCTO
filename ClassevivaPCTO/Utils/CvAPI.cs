@@ -1,7 +1,9 @@
-﻿using Newtonsoft.Json;
+﻿using Microsoft.Toolkit.Parsers.Core;
+using Newtonsoft.Json;
 using Refit;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text.Json.Serialization;
 
 namespace ClassevivaPCTO.Utils
@@ -38,9 +40,15 @@ namespace ClassevivaPCTO.Utils
 
     public enum AbsenceEventCode
     {
+
+        //https://josipmisko.com/posts/string-enums-in-c-sharp-everything-you-need-to-know
+        [Description("Assenza")]
         ABA0, //assenza
+        [Description("Ritardo")]
         ABR0, //ritardo
+        [Description("Ritardo breve")]
         ABR1, //ritardo breve
+        [Description("Uscita anticipata")]
         ABU0 //uscita anticipata
     }
 
