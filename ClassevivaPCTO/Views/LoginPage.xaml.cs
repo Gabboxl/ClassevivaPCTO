@@ -129,10 +129,14 @@ namespace ClassevivaPCTO.Views
             if (edituid.Equals("test") && editpass.Equals("test"))
             {
                 Endpoint.CurrentEndpoint = Endpoint.Test;
+
+                Microsoft.AppCenter.Analytics.Analytics.TrackEvent("Used mock test account");
             }
             else
             {
                 Endpoint.CurrentEndpoint = Endpoint.Official;
+
+                Microsoft.AppCenter.Analytics.Analytics.TrackEvent("Used real account");
             }
 
             //get the refit api client from the service provider only after having set the endpoint
