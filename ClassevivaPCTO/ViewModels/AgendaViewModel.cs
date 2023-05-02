@@ -11,13 +11,6 @@ namespace ClassevivaPCTO.ViewModels
             set { SetProperty(ref _isLoadingAgenda, value); }
         }
 
-        private bool _areSourcesEmpty = true;
-        public bool AreSourcesEmpty
-        {
-            get { return _areSourcesEmpty; }
-            set { SetProperty(ref _areSourcesEmpty, value); }
-        }
-
 
         public AgendaViewModel() { }
     }

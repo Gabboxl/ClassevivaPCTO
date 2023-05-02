@@ -1,0 +1,77 @@
+﻿<UserControl
+    x:Class="ClassevivaPCTO.Controls.AbsencesListView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ClassevivaPCTO.Controls"
+    xmlns:adapters="using:ClassevivaPCTO.Adapters"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:converters="using:ClassevivaPCTO.Converters"
+    mc:Ignorable="d"
+    d:DesignHeight="300"
+    d:DesignWidth="400">
+
+    <UserControl.Resources>
+
+        <converters:DateTimeToHourConverter x:Key="DateTimeToHourConverter" />
+        <converters:AbsenceTypeToColorConverter x:Key="AbsenceTypeToColorConverter" />
+
+
+        <DataTemplate x:Key="AbsenceEventListViewDataTemplateCompact"
+                  
+                  x:DataType="adapters:AbsenceEventAdapter">
+
+            <RelativePanel>
+
+                <Grid RelativePanel.AlignVerticalCenterWithPanel="True" x:Name="gridVoto">
+                    <Ellipse x:Name="Ellipse"
+                                             Grid.RowSpan="2"
+                                             Width="42"
+                                             Height="42"
+                                             Margin="2"
+                                         
+                                             Fill="{x:Bind CurrentObject.evtCode,Converter={StaticResource AbsenceTypeToColorConverter}}"
+
+                                             VerticalAlignment="Center"
+                                             HorizontalAlignment="Center">
+                        <!-- ="{ThemeResource SystemControlBackgroundBaseMediumBrush}" -->
+                    </Ellipse>
+                    <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center"
+                                               Text="{x:Bind CurrentObject.evtCode}" FontSize="14" Foreground="#FFFFFF" />
+
+                </Grid>
+
+                <RelativePanel RelativePanel.AlignVerticalCenterWithPanel="True" RelativePanel.RightOf="gridVoto">
+                    <RelativePanel>
+
+
+                        <TextBlock x:Name="titoloEvento" TextWrapping="Wrap"
+                                           MaxWidth="500"
+                                           Text="{x:Bind CurrentObject.evtDate}"
+                                           Style="{ThemeResource BaseTextBlockStyle}"
+                                           Margin="6,8,0,0" />
+
+
+                        <TextBlock RelativePanel.Below="titoloEvento" x:Name="justifiedText" TextWrapping="Wrap"
+                                           MaxWidth="500"
+                                           Text="{x:Bind JustifiedText}"
+                                           Style="{ThemeResource BaseTextBlockStyle}"
+                                           Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                                    FontStyle="Italic"
+                                           Margin="6,0,0,8" />
+
+
+
+
+                    </RelativePanel>
+
+                </RelativePanel>
+            </RelativePanel>
+        </DataTemplate>
+
+    </UserControl.Resources>
+
+    
+    
+        <ListView x:Name="listView"  ItemTemplate="{StaticResource AbsenceEventListViewDataTemplateCompact}" />
+</UserControl>

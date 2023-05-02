@@ -39,7 +39,7 @@
             <AppBarButton  RelativePanel.RightOf="TextTitolo" x:Name="AggiornaCommand" VerticalAlignment="Top"  Margin="32,16,0,0" Icon="Refresh" Label="Aggiorna" Click="AggiornaCommand_Click"/>
         </RelativePanel>
 
-        
+
 
         <RelativePanel Grid.Row="2" 
                        Margin="32,32,32,20"
@@ -51,14 +51,6 @@
                 BorderThickness="1"
                 BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
                 Background="{ThemeResource CardBackgroundFillColorDefaultBrush}">
-
-
-            <TextBlock x:Name="NoEventText"
-                       RelativePanel.AlignVerticalCenterWithPanel="True"
-                           RelativePanel.AlignHorizontalCenterWithPanel="True"
-                       Text="Nessun evento" FontSize="42" VerticalAlignment="Center"
-                       Visibility="{x:Bind AgendaViewModel.AreSourcesEmpty, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}"
-        HorizontalAlignment="Center" />
 
 
             <Button x:Name="ButtonYesterday" Margin="0,8,0,0" 
@@ -114,35 +106,15 @@
 
 
 
-                    <!-- listview per le assenze e ritardi da mettere -->
-
-
-                    <controls2:GradesListView x:Name="ListViewVotiDate"
+                    <controls2:OverviewListView x:Name="OverviewListView"
                           HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
                               
                           ScrollViewer.VerticalScrollMode="Disabled"
                                   ScrollViewer.VerticalScrollBarVisibility="Disabled">
 
-                    </controls2:GradesListView>
+                    </controls2:OverviewListView>
 
 
-
-                    <controls2:LessonsListView x:Name="ListViewLezioniDate"
-                          HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
-                              
-                          ScrollViewer.VerticalScrollMode="Disabled"
-                                  ScrollViewer.VerticalScrollBarVisibility="Disabled">
-
-                    </controls2:LessonsListView>
-
-
-                    <controls2:AgendaListView x:Name="ListViewAgendaDate"
-                          HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
-                              
-                          ScrollViewer.VerticalScrollMode="Disabled"
-                                  ScrollViewer.VerticalScrollBarVisibility="Disabled">
-
-                    </controls2:AgendaListView>
 
                 </StackPanel>
 

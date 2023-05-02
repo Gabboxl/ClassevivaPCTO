@@ -1,0 +1,65 @@
+﻿<UserControl
+    x:Class="ClassevivaPCTO.Controls.OverviewListView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ClassevivaPCTO.Controls"
+    xmlns:adapters="using:ClassevivaPCTO.Adapters"
+    xmlns:controls2="using:ClassevivaPCTO.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:converters="using:ClassevivaPCTO.Converters"
+    xmlns:microconverters="using:Microsoft.Toolkit.Uwp.UI.Converters"
+    mc:Ignorable="d"
+    d:DesignHeight="300"
+    d:DesignWidth="400">
+
+    <UserControl.Resources>
+        <microconverters:BoolToVisibilityConverter  x:Key="BoolToVisibilityConverter" />
+    </UserControl.Resources>
+
+
+    <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+
+        <controls2:AbsencesListView x:Name="AbsencesListView"
+                          HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+                              
+                          ScrollViewer.VerticalScrollMode="Disabled"
+                                  ScrollViewer.VerticalScrollBarVisibility="Disabled">
+
+        </controls2:AbsencesListView>
+
+
+
+        <controls2:GradesListView x:Name="GradesListView"
+                          HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+                              
+                          ScrollViewer.VerticalScrollMode="Disabled"
+                                  ScrollViewer.VerticalScrollBarVisibility="Disabled">
+
+    </controls2:GradesListView>
+
+
+
+        <controls2:LessonsListView x:Name="LessonsListView"
+                          HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+                              
+                          ScrollViewer.VerticalScrollMode="Disabled"
+                                  ScrollViewer.VerticalScrollBarVisibility="Disabled">
+
+    </controls2:LessonsListView>
+
+
+        <controls2:AgendaListView x:Name="AgendaListView"
+                          HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+                              
+                          ScrollViewer.VerticalScrollMode="Disabled"
+                                  ScrollViewer.VerticalScrollBarVisibility="Disabled">
+
+    </controls2:AgendaListView>
+
+        <TextBlock x:Name="NoEventText"
+                       Text="Nessun evento" FontSize="42" VerticalAlignment="Center"
+                       Visibility="{x:Bind OverviewViewModel.AreSourcesEmpty, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}"
+        HorizontalAlignment="Center" />
+    </StackPanel>
+</UserControl>

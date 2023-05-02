@@ -6,6 +6,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Newtonsoft.Json;
 using Refit;
 using System;
+using System.Collections.Generic;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
 using Windows.UI.Xaml;
@@ -53,7 +54,6 @@ namespace ClassevivaPCTO
 
             UnhandledException += OnAppUnhandledException;
 
-
             bool isDebugMode = false;
 
 #if DEBUG
@@ -63,7 +63,7 @@ namespace ClassevivaPCTO
             if (!isDebugMode)
             {
                 Microsoft.AppCenter.AppCenter.Start(
-                    "test",
+                    "***REMOVED***",
                     typeof(Microsoft.AppCenter.Analytics.Analytics),
                     typeof(Microsoft.AppCenter.Crashes.Crashes)
                 );
@@ -150,26 +150,44 @@ namespace ClassevivaPCTO
             Windows.UI.Xaml.UnhandledExceptionEventArgs e
         )
         {
+            //http://blog.wpdev.fr/inspecting-unhandled-exceptions-youve-got-only-one-chance/
+            Exception exceptionThatDoesntGoAway = e.Exception;
+
             //get the data from the viewmodel
             var dataCards = ViewModelHolder.getViewModel().CardsResult;
             var dataLogin = ViewModelHolder.getViewModel().LoginResult;
 
-            var serializedCards = Newtonsoft.Json.JsonConvert.SerializeObject(dataCards, Formatting.Indented);
-            var serializedLogin = Newtonsoft.Json.JsonConvert.SerializeObject(dataLogin, Formatting.Indented);
+            var serializedCards = Newtonsoft.Json.JsonConvert.SerializeObject(
+                dataCards,
+                Formatting.Indented,
+                new JsonSerializerSettings
+                {
+                    ReferenceLoopHandling = ReferenceLoopHandling.Serialize
+                }
+            );
+            var serializedLogin = Newtonsoft.Json.JsonConvert.SerializeObject(
+                dataLogin,
+                Formatting.Indented,
+                new JsonSerializerSettings
+                {
+                    ReferenceLoopHandling = ReferenceLoopHandling.Serialize
+                }
+            );
 
-            var attachments = new ErrorAttachmentLog[]
-            {
-                ErrorAttachmentLog.AttachmentWithText(serializedCards, "dataCards.txt"),
-                ErrorAttachmentLog.AttachmentWithText(serializedLogin, "dataLogin.txt")
-            };
+            //create a list of ErrorAttachmentLog
+            var attachments = new List<ErrorAttachmentLog>();
 
-            {
-                var serializedException = JsonConvert.SerializeObject(e.Exception, Formatting.Indented);
-                attachments[2] = ErrorAttachmentLog.AttachmentWithText(serializedException, "exception.txt");
-            }
+            var er1 = ErrorAttachmentLog.AttachmentWithText(serializedCards, "dataCards.txt");
+            var er2 = ErrorAttachmentLog.AttachmentWithText(serializedLogin, "dataLogin.txt");
 
+            attachments.Add(er1);
+            attachments.Add(er2);
 
-            Crashes.TrackError(e.Exception, attachments: attachments);
+            e.Handled = true;
+
+            Crashes.TrackError(exceptionThatDoesntGoAway, attachments: attachments.ToArray());
+
+            //visualizzare un dialog con si è verificato un errore
         }
 
         private ActivationService CreateActivationService()
