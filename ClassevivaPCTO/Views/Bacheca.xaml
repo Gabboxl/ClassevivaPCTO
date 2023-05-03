@@ -82,9 +82,10 @@
                 </Grid.RowDefinitions>
 
                 <controls:NoticesListView 
+                    x:Name="NoticesListView"
+                    Margin="0,8,0,0">
                     
-                   
-                    x:Name="NoticesListView"></controls:NoticesListView>
+                </controls:NoticesListView>
 
             </Grid>
 
