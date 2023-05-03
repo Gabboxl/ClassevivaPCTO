@@ -86,28 +86,12 @@
                 </RelativePanel>
 
 
-                <ScrollViewer ZoomMode="Disabled" Grid.Row="2" x:Name="OverviewScrollviewer" toolkit:FrameworkElementExtensions.EnableActualSizeBinding="true"
-            IsTabStop="False" IsVerticalScrollChainingEnabled="False"
-            
-            HorizontalScrollMode="Disabled" HorizontalScrollBarVisibility="Auto"
 
-            VerticalScrollMode="Enabled" VerticalScrollBarVisibility="Visible">
-
-                    <StackPanel  ScrollViewer.HorizontalScrollMode="Disabled"
-                                                                  Width="{Binding ElementName=OverviewScrollviewer, Path=(toolkit:FrameworkElementExtensions.ActualWidth)}">
-
-                        <controls2:OverviewListView x:Name="OverviewListView"
-                          HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
-                              
-                          ScrollViewer.VerticalScrollMode="Disabled"
-                                  ScrollViewer.VerticalScrollBarVisibility="Disabled">
+                        <controls2:OverviewListView  Grid.Row="2" x:Name="OverviewListView"
+                          HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
 
                         </controls2:OverviewListView>
 
-                    </StackPanel>
-
-
-                </ScrollViewer>
 
 
                 <HyperlinkButton Grid.Row="2"  Content="Apri agenda"

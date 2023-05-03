@@ -75,7 +75,8 @@
                       
                       IsChecked="{x:Bind BachecaViewModel.MostraComInattive, Mode=TwoWay}"/>
 
-            <Grid RelativePanel.Below="SearchBoxBacheca"                           RelativePanel.AlignRightWithPanel="True"
+            <Grid RelativePanel.Below="SearchBoxBacheca" 
+                  RelativePanel.AlignRightWithPanel="True"
                           RelativePanel.AlignLeftWithPanel="True">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*" />

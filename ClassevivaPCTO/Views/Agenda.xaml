@@ -90,36 +90,13 @@
                             Width="260" Height="32" />
 
 
+                <controls2:OverviewListView  RelativePanel.Below="ButtonYesterday"
+                  RelativePanel.AlignRightWithPanel="True"
+                          RelativePanel.AlignLeftWithPanel="True"
+                                         Margin="0,8,0,0" x:Name="OverviewListView">
+                </controls2:OverviewListView>
 
 
-            <ScrollViewer ZoomMode="Disabled" RelativePanel.Below="ButtonYesterday" Margin="0,8,0,0" x:Name="AgendaScrollviewer" toolkit:FrameworkElementExtensions.EnableActualSizeBinding="true"
-            IsTabStop="False" IsVerticalScrollChainingEnabled="False"
-                          Width="{Binding ElementName=CardPanel, Path=(toolkit:FrameworkElementExtensions.ActualWidth)}"
-            
-            HorizontalScrollMode="Disabled" HorizontalScrollBarVisibility="Auto"
-
-            VerticalScrollMode="Enabled" VerticalScrollBarVisibility="Visible">
-
-                <StackPanel  ScrollViewer.HorizontalScrollMode="Disabled"
-                                                                  Width="{Binding ElementName=AgendaScrollviewer, Path=(toolkit:FrameworkElementExtensions.ActualWidth)}"
->
-
-
-
-                    <controls2:OverviewListView x:Name="OverviewListView"
-                          HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
-                              
-                          ScrollViewer.VerticalScrollMode="Disabled"
-                                  ScrollViewer.VerticalScrollBarVisibility="Disabled">
-
-                    </controls2:OverviewListView>
-
-
-
-                </StackPanel>
-
-
-            </ScrollViewer>
 
 
         </RelativePanel>

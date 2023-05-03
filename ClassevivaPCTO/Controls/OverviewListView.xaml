@@ -19,7 +19,9 @@
     </UserControl.Resources>
 
 
-    <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+    <ScrollViewer>
+
+        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
 
         <TextBlock x:Name="AbsencesTitle"
                    Text="Assenze"
@@ -28,10 +30,7 @@
                    Style="{ThemeResource BodyStrongTextBlockStyle}"/>
 
         <controls2:AbsencesListView x:Name="AbsencesListView"
-                          HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
-                              
-                          ScrollViewer.VerticalScrollMode="Disabled"
-                                  ScrollViewer.VerticalScrollBarVisibility="Disabled">
+                          HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
 
         </controls2:AbsencesListView>
 
@@ -43,10 +42,7 @@
                    Style="{ThemeResource BodyStrongTextBlockStyle}"/>
 
         <controls2:GradesListView x:Name="GradesListView"
-                          HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
-                              
-                          ScrollViewer.VerticalScrollMode="Disabled"
-                                  ScrollViewer.VerticalScrollBarVisibility="Disabled">
+                          HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
 
     </controls2:GradesListView>
 
@@ -57,10 +53,7 @@
                    Style="{ThemeResource BodyStrongTextBlockStyle}" />
 
         <controls2:LessonsListView x:Name="LessonsListView"
-                          HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
-                              
-                          ScrollViewer.VerticalScrollMode="Disabled"
-                                  ScrollViewer.VerticalScrollBarVisibility="Disabled">
+                          HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
 
     </controls2:LessonsListView>
 
@@ -72,10 +65,7 @@
 
 
         <controls2:AgendaListView x:Name="AgendaListView"
-                          HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
-                              
-                          ScrollViewer.VerticalScrollMode="Disabled"
-                                  ScrollViewer.VerticalScrollBarVisibility="Disabled">
+                          HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
 
     </controls2:AgendaListView>
 
@@ -84,4 +74,6 @@
                        Visibility="{x:Bind OverviewViewModel.AreSourcesEmpty, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}"
         HorizontalAlignment="Center" />
     </StackPanel>
+
+    </ScrollViewer>
 </UserControl>
