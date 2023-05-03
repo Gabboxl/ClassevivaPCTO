@@ -90,7 +90,11 @@ namespace ClassevivaPCTO.Views
                 CoreDispatcherPriority.Normal,
                 async () =>
                 {
-                    var overviewData = new OverviewDataModel(overviewResult, DateTime.Now);
+                    var overviewData = new OverviewDataModel
+                    {
+                        OverviewData = overviewResult,
+                        FilterDate = DateTime.Now
+                    };
 
                     OverviewListView.ItemsSource = overviewData;
 

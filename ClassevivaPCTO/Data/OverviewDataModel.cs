@@ -1,6 +1,7 @@
 ﻿using ClassevivaPCTO.Utils;
 using CommunityToolkit.Mvvm.ComponentModel;
 using System;
+using Windows.UI.Xaml.Data;
 
 namespace ClassevivaPCTO.ViewModels
 {
@@ -10,10 +11,5 @@ namespace ClassevivaPCTO.ViewModels
 
         public DateTime FilterDate { get; set; }
 
-        public OverviewDataModel(OverviewResult overviewData, DateTime filterDate)
-        {
-            OverviewData = overviewData;
-            FilterDate = filterDate;
-        }
     }
 }

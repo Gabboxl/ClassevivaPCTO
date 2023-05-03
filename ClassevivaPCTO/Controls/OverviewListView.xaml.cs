@@ -37,7 +37,7 @@ namespace ClassevivaPCTO.Controls
 
             OverviewResult filteredOverviewResults = overviewResult;
 
-            if(newValue.FilterDate != null)
+            if (newValue.FilterDate != null)
             {
                 //filteredOverviewResults = new OverviewResult();
                 filteredOverviewResults.AbsenceEvents = overviewResult.AbsenceEvents.Where(abs => abs.evtDate.Date == newValue.FilterDate.Date).ToList();

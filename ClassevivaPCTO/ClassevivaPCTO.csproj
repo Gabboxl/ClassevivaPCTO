@@ -176,7 +176,7 @@
     <Compile Include="Utils\ColorGenerator.cs" />
     <Compile Include="Utils\CvUtils.cs" />
     <Compile Include="Utils\IClassevivaAPI.cs" />
-    <Compile Include="Adapters\OverviewDataModel.cs" />
+    <Compile Include="Data\OverviewDataModel.cs" />
     <Compile Include="ViewModels\OverviewViewModel.cs" />
     <Compile Include="ViewModels\BachecaViewModel.cs" />
     <Compile Include="ViewModels\AgendaViewModel.cs" />
