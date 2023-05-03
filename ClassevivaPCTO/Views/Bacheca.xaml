@@ -72,34 +72,25 @@
                       Margin="0,0,16,0"
                       RelativePanel.AlignRightWithPanel="True" 
                       RelativePanel.AlignHorizontalCenterWithPanel="True"
+                      
                       IsChecked="{x:Bind BachecaViewModel.MostraSoloComAttive, Mode=TwoWay}"/>
 
+            <Grid RelativePanel.Below="SearchBoxBacheca"                           RelativePanel.AlignRightWithPanel="True"
+                          RelativePanel.AlignLeftWithPanel="True">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
 
-
-
-            <ScrollViewer ZoomMode="Disabled" Margin="0,8,0,0"
-                          RelativePanel.Below="SearchBoxBacheca"
-                          x:Name="BachecaScrollviewer"
-            IsTabStop="False" IsVerticalScrollChainingEnabled="False"
-                          
-                          RelativePanel.AlignRightWithPanel="True"
-                          RelativePanel.AlignLeftWithPanel="True"
-            
-            HorizontalScrollMode="Disabled" HorizontalScrollBarVisibility="Auto"
-
-            VerticalScrollMode="Enabled" VerticalScrollBarVisibility="Visible">
-
-
-                <controls:NoticesListView
+                <controls:NoticesListView 
+                    
+                    Width="{Binding ElementName=CardPanel, Path=(toolkit:FrameworkElementExtensions.ActualWidth)}" 
                     x:Name="NoticesListView"></controls:NoticesListView>
-                
-                
-                
-                
-                
+
+            </Grid>
 
 
-            </ScrollViewer>
+
+
 
 
         </RelativePanel>
