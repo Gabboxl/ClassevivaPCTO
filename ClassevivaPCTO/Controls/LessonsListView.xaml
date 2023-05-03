@@ -37,9 +37,9 @@
 
                     <TextBlock x:Name="durationHours" TextWrapping="Wrap" RelativePanel.RightOf="textMateria"
                                            MaxWidth="500"
-                                           Text="{x:Bind Durata}"
                                            Style="{ThemeResource BaseTextBlockStyle}"
                                            Margin="12,6,0,0" >
+                        <Run Text="(" /><Run Text="{x:Bind Durata}" /><Run Text=")" />
                     </TextBlock>
 
                     <TextBlock RelativePanel.Below="textMateria" x:Name="nomeAutore"
