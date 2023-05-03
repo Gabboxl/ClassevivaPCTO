@@ -20,6 +20,11 @@
 
     <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
 
+        <TextBlock x:Name="AbsencesTitle"
+                   Text="Assenze"
+                   Margin="16,6,0,6"
+                   Style="{ThemeResource BodyStrongTextBlockStyle}"/>
+
         <controls2:AbsencesListView x:Name="AbsencesListView"
                           HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
                               
@@ -29,6 +34,10 @@
         </controls2:AbsencesListView>
 
 
+        <TextBlock x:Name="GradesTitle"
+                   Text="Valutazioni"
+                   Margin="16,6,0,6"
+                   Style="{ThemeResource BodyStrongTextBlockStyle}"/>
 
         <controls2:GradesListView x:Name="GradesListView"
                           HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
@@ -38,7 +47,10 @@
 
     </controls2:GradesListView>
 
-
+        <TextBlock x:Name="LessonsTitle"
+                   Text="Lezioni"
+                   Margin="16,6,0,6"
+                   Style="{ThemeResource BodyStrongTextBlockStyle}" />
 
         <controls2:LessonsListView x:Name="LessonsListView"
                           HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
@@ -47,6 +59,11 @@
                                   ScrollViewer.VerticalScrollBarVisibility="Disabled">
 
     </controls2:LessonsListView>
+
+        <TextBlock x:Name="AgendaTitle"
+                   Text="Agenda"
+                   Margin="16,6,0,6"
+                   Style="{ThemeResource BodyStrongTextBlockStyle}"/>
 
 
         <controls2:AgendaListView x:Name="AgendaListView"
