@@ -83,7 +83,7 @@
 
                 <controls:NoticesListView 
                     
-                    Width="{Binding ElementName=CardPanel, Path=(toolkit:FrameworkElementExtensions.ActualWidth)}" 
+                   
                     x:Name="NoticesListView"></controls:NoticesListView>
 
             </Grid>
