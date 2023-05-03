@@ -194,7 +194,7 @@
     <Compile Include="Views\Bacheca.xaml.cs">
       <DependentUpon>Bacheca.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\FirstRunDialog.xaml.cs">
+    <Compile Include="Dialogs\FirstRunDialog.xaml.cs">
       <DependentUpon>FirstRunDialog.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\MainPage.xaml.cs">
@@ -221,7 +221,7 @@
     <Compile Include="Views\SettingsPage.xaml.cs">
       <DependentUpon>SettingsPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\WhatsNewDialog.xaml.cs">
+    <Compile Include="Dialogs\WhatsNewDialog.xaml.cs">
       <DependentUpon>WhatsNewDialog.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
@@ -338,7 +338,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\FirstRunDialog.xaml">
+    <Page Include="Dialogs\FirstRunDialog.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -370,7 +370,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\WhatsNewDialog.xaml">
+    <Page Include="Dialogs\WhatsNewDialog.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
