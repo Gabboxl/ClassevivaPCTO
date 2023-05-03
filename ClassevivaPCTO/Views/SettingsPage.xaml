@@ -95,6 +95,7 @@
                     </labs:SettingsExpander.Items>
                 </labs:SettingsExpander>
 
+                <!--
                 <TextBlock Style="{StaticResource SettingsSectionHeaderTextBlockStyle}"
                            Text="Sezione 2" />
                 <labs:SettingsCard Description="Another card to show grouping of cards"
@@ -121,8 +122,10 @@
                         </ComboBoxItem>
                     </ComboBox>
                 </labs:SettingsCard>
+                
+                -->
 
-                <!--  Example 'About' section  -->
+                <!--  'About' section  -->
                 <TextBlock Style="{StaticResource SettingsSectionHeaderTextBlockStyle}"
                            x:Uid="Settings_About" />
 
