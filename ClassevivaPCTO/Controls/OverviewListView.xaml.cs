@@ -33,7 +33,10 @@ namespace ClassevivaPCTO.Controls
 
             var newValue = e.NewValue as OverviewDataModel;
 
-            OverviewResult overviewResult = newValue.OverviewData;
+            currentInstance.OverviewViewModel.CurrentOverviewData = newValue;
+
+            //OverviewResult overviewResult = newValue.OverviewData;
+            OverviewResult overviewResult = currentInstance.OverviewViewModel.CurrentOverviewData.OverviewData;
 
             OverviewResult filteredOverviewResults = overviewResult;
 
@@ -67,15 +70,7 @@ namespace ClassevivaPCTO.Controls
             //listview note da mettere
 
 
-
-            currentInstance.OverviewViewModel.AreSourcesEmpty = (
-    filteredOverviewResults.AbsenceEvents.Count == 0
-    && filteredOverviewResults.Lessons.Count == 0
-    && filteredOverviewResults.Grades.Count == 0
-    && filteredOverviewResults.AgendaEvents.Count == 0
-//need to check notes
-);
-            //da mettere controllo che se è vuoto visualizza un testo enorme
+            currentInstance.OverviewViewModel.FilteredOverviewResult = filteredOverviewResults;
         }
 
 

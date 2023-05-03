@@ -15,6 +15,7 @@
 
     <UserControl.Resources>
         <microconverters:BoolToVisibilityConverter  x:Key="BoolToVisibilityConverter" />
+        <converters:EmptyListToVisibilityConverter  x:Key="EmptyListToVisibilityConverter" />
     </UserControl.Resources>
 
 
@@ -23,6 +24,7 @@
         <TextBlock x:Name="AbsencesTitle"
                    Text="Assenze"
                    Margin="16,6,0,6"
+                   Visibility="{x:Bind OverviewViewModel.FilteredOverviewResult.AbsenceEvents, Mode=OneWay, Converter={StaticResource EmptyListToVisibilityConverter}}"
                    Style="{ThemeResource BodyStrongTextBlockStyle}"/>
 
         <controls2:AbsencesListView x:Name="AbsencesListView"
@@ -37,6 +39,7 @@
         <TextBlock x:Name="GradesTitle"
                    Text="Valutazioni"
                    Margin="16,6,0,6"
+                   Visibility="{x:Bind OverviewViewModel.FilteredOverviewResult.Grades, Mode=OneWay, Converter={StaticResource EmptyListToVisibilityConverter}}"
                    Style="{ThemeResource BodyStrongTextBlockStyle}"/>
 
         <controls2:GradesListView x:Name="GradesListView"
@@ -50,6 +53,7 @@
         <TextBlock x:Name="LessonsTitle"
                    Text="Lezioni"
                    Margin="16,6,0,6"
+                   Visibility="{x:Bind OverviewViewModel.FilteredOverviewResult.Lessons, Mode=OneWay, Converter={StaticResource EmptyListToVisibilityConverter}}"
                    Style="{ThemeResource BodyStrongTextBlockStyle}" />
 
         <controls2:LessonsListView x:Name="LessonsListView"
@@ -63,6 +67,7 @@
         <TextBlock x:Name="AgendaTitle"
                    Text="Agenda"
                    Margin="16,6,0,6"
+                   Visibility="{x:Bind OverviewViewModel.FilteredOverviewResult.AgendaEvents, Mode=OneWay, Converter={StaticResource EmptyListToVisibilityConverter}}"
                    Style="{ThemeResource BodyStrongTextBlockStyle}"/>
 
 

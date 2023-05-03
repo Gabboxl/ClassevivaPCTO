@@ -155,6 +155,7 @@
     <Compile Include="Controls\UniformGridEx.cs" />
     <Compile Include="Converters\DateTimeToHourConverter.cs" />
     <Compile Include="Converters\AbsenceTypeToColorConverter.cs" />
+    <Compile Include="Converters\EmptyListToVisibilityConverter.cs" />
     <Compile Include="Dialogs\NoticeDialogContent.xaml.cs">
       <DependentUpon>NoticeDialogContent.xaml</DependentUpon>
     </Compile>
