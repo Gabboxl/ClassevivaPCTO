@@ -189,6 +189,9 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Scrutini.xaml.cs">
+      <DependentUpon>Scrutini.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Assenze.xaml.cs">
       <DependentUpon>Assenze.xaml</DependentUpon>
     </Compile>
@@ -330,6 +333,10 @@
     <Page Include="Views\Agenda.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Scrutini.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\Assenze.xaml">
       <Generator>MSBuild:Compile</Generator>

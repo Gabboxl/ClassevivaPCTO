@@ -192,6 +192,12 @@
                     </muxc:NavigationViewItem.Icon>
                 </muxc:NavigationViewItem>
 
+                <muxc:NavigationViewItem Content="Scrutini" helpers:NavHelper.NavigateTo="views:Scrutini" >
+                    <muxc:NavigationViewItem.Icon>
+                        <FontIcon Glyph="&#xf180;" FontFamily="{StaticResource FluentIcons}"/>
+                    </muxc:NavigationViewItem.Icon>
+                </muxc:NavigationViewItem>
+
                 <muxc:NavigationViewItem  Content="Bacheca" helpers:NavHelper.NavigateTo="views:Bacheca" >
                     <muxc:NavigationViewItem.Icon>
                         <FontIcon Glyph="&#xe718;" FontFamily="{StaticResource FluentIcons}"/>
