@@ -26,19 +26,33 @@
         <DataTemplate x:Key="NoticeListViewDataTemplate"
                   x:DataType="adapters:NoticeAdapter">
 
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+            
 
-                <RelativePanel  HorizontalAlignment="Stretch">
+                <RelativePanel ScrollViewer.HorizontalScrollMode="Disabled" Grid.Row="0" Grid.Column="0"
+                               >
 
+                    
 
-                    <TextBlock x:Name="titoloEvento" TextWrapping="Wrap"
-                                           MaxWidth="1000"
+                    <TextBlock x:Name="titoloEvento" TextWrapping="WrapWholeWords"
+                               
+
                                            Text="{x:Bind CurrentObject.cntTitle}"
                                            Style="{ThemeResource BaseTextBlockStyle}"
                                            Margin="6,6,0,0" />
                     
                     <!-- data pubblicazione -->
-                    <TextBlock RelativePanel.RightOf="titoloEvento" x:Name="dataPubblicazione" TextWrapping="Wrap"
-                                           MaxWidth="500"
+                    <TextBlock RelativePanel.RightOf="titoloEvento" x:Name="dataPubblicazione" TextWrapping="NoWrap"
+                               TextTrimming="None"
+                               
+                                          
                                            Text="{x:Bind  CurrentObject.pubDT, Converter={StaticResource DateTimeToNormalDateConverter}}"
                                            Style="{ThemeResource BodyStrongTextBlockStyle}"
                                Foreground="{ThemeResource TextFillColorTertiaryBrush}"
@@ -52,20 +66,23 @@
                                            Margin="6,6,0,0" />
 
 
-                    <TextBlock x:Name="dataStart" RelativePanel.Below="titoloEvento" RelativePanel.RightOf="categoriaEvento"
+                <TextBlock x:Name="dataStart" RelativePanel.Below="titoloEvento"  TextWrapping="Wrap" RelativePanel.RightOf="categoriaEvento"
                                            Text="{x:Bind  FromToValidDate}"
                                            FontStyle="Italic"
                                            Style="{ThemeResource CaptionTextBlockStyle}"
                                            Margin="6,6,0,0" />
 
 
-                <AppBarButton 
-                    RelativePanel.AlignRightWithPanel="True"
-                    HorizontalAlignment="Right" VerticalAlignment="Center" Click="ReadButton_Click" Icon="View" Label="Leggi" />
 
 
             </RelativePanel>
 
+                <AppBarButton 
+                    Grid.Column="1"
+                    
+                     Click="ReadButton_Click" Icon="View" Label="Leggi" />
+
+            </Grid>
 
 
 
@@ -73,6 +90,7 @@
     </UserControl.Resources>
 
     <ListView x:Name="listView"
+              ScrollViewer.VerticalScrollMode="Enabled"
               HorizontalAlignment="Stretch"
               HorizontalContentAlignment="Stretch"
               ItemTemplate="{StaticResource NoticeListViewDataTemplate}" 
