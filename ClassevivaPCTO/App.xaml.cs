@@ -63,7 +63,7 @@ namespace ClassevivaPCTO
             if (!isDebugMode)
             {
                 Microsoft.AppCenter.AppCenter.Start(
-                    "***REMOVED***",
+                    "test",
                     typeof(Microsoft.AppCenter.Analytics.Analytics),
                     typeof(Microsoft.AppCenter.Crashes.Crashes)
                 );
