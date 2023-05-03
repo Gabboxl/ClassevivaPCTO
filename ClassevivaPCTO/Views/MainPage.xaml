@@ -170,7 +170,7 @@
             <muxc:NavigationView.MenuItems>
                 <muxc:NavigationViewItem Content="Dashboard" helpers:NavHelper.NavigateTo="views:DashboardPage" >
                     <muxc:NavigationViewItem.Icon>
-                        <FontIcon Glyph="&#xF246;" FontFamily="{StaticResource FluentIcons}"/>
+                        <FontIcon Glyph="&#xe80f;" FontFamily="{StaticResource FluentIcons}"/>
                     </muxc:NavigationViewItem.Icon>
                 </muxc:NavigationViewItem>
 
