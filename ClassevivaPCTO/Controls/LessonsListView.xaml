@@ -29,13 +29,13 @@
 
 
 
-                    <TextBlock x:Name="textMateria" TextWrapping="Wrap"
+                    <TextBlock x:Name="textMateria" TextWrapping="WrapWholeWords"
                                            MaxWidth="500"
                                            Text="{x:Bind CurrentObject.subjectDesc}"
                                            Style="{ThemeResource BaseTextBlockStyle}"
                                            Margin="12,6,0,0" />
 
-                    <TextBlock x:Name="durationHours" TextWrapping="Wrap" RelativePanel.RightOf="textMateria"
+                    <TextBlock x:Name="durationHours" TextWrapping="NoWrap" RelativePanel.RightOf="textMateria"
                                            MaxWidth="500"
                                            Style="{ThemeResource BaseTextBlockStyle}"
                                            Margin="12,6,0,0" >
@@ -55,7 +55,7 @@
                                            Margin="12,0,0,0" />
 
                     <TextBlock RelativePanel.Below="nomeAutore" RelativePanel.RightOf="tipoLezione"
-                                           TextWrapping="Wrap"
+                                           TextWrapping="WrapWholeWords"
                                            Text="{x:Bind CurrentObject.lessonArg}"
                                            Style="{ThemeResource BodyTextBlockStyle}"
                                            Margin="12,0,0,6" />
