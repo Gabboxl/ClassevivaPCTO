@@ -68,12 +68,12 @@
 
             
             <CheckBox x:Name="CheckboxAttive" 
-                      Content="Mostra solo comunicazioni attive"
+                      Content="Mostra comunicazioni inattive"
                       Margin="0,0,16,0"
                       RelativePanel.AlignRightWithPanel="True" 
                       RelativePanel.AlignHorizontalCenterWithPanel="True"
                       
-                      IsChecked="{x:Bind BachecaViewModel.MostraSoloComAttive, Mode=TwoWay}"/>
+                      IsChecked="{x:Bind BachecaViewModel.MostraComInattive, Mode=TwoWay}"/>
 
             <Grid RelativePanel.Below="SearchBoxBacheca"                           RelativePanel.AlignRightWithPanel="True"
                           RelativePanel.AlignLeftWithPanel="True">
