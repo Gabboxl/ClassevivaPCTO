@@ -153,35 +153,45 @@ namespace ClassevivaPCTO
             //http://blog.wpdev.fr/inspecting-unhandled-exceptions-youve-got-only-one-chance/
             Exception exceptionThatDoesntGoAway = e.Exception;
 
-            //get the data from the viewmodel
-            var dataCards = ViewModelHolder.getViewModel().CardsResult;
-            var dataLogin = ViewModelHolder.getViewModel().LoginResult;
-
-            var serializedCards = Newtonsoft.Json.JsonConvert.SerializeObject(
-                dataCards,
-                Formatting.Indented,
-                new JsonSerializerSettings
-                {
-                    ReferenceLoopHandling = ReferenceLoopHandling.Serialize
-                }
-            );
-            var serializedLogin = Newtonsoft.Json.JsonConvert.SerializeObject(
-                dataLogin,
-                Formatting.Indented,
-                new JsonSerializerSettings
-                {
-                    ReferenceLoopHandling = ReferenceLoopHandling.Serialize
-                }
-            );
-
             //create a list of ErrorAttachmentLog
             var attachments = new List<ErrorAttachmentLog>();
 
-            var er1 = ErrorAttachmentLog.AttachmentWithText(serializedCards, "dataCards.txt");
-            var er2 = ErrorAttachmentLog.AttachmentWithText(serializedLogin, "dataLogin.txt");
+            try
+            {
 
-            attachments.Add(er1);
-            attachments.Add(er2);
+                //get the data from the viewmodel
+                var dataCards = ViewModelHolder.getViewModel().CardsResult;
+                var dataLogin = ViewModelHolder.getViewModel().LoginResult;
+
+                var serializedCards = Newtonsoft.Json.JsonConvert.SerializeObject(
+                    dataCards,
+                    Formatting.Indented,
+                    new JsonSerializerSettings
+                    {
+                        ReferenceLoopHandling = ReferenceLoopHandling.Serialize
+                    }
+                );
+                var serializedLogin = Newtonsoft.Json.JsonConvert.SerializeObject(
+                    dataLogin,
+                    Formatting.Indented,
+                    new JsonSerializerSettings
+                    {
+                        ReferenceLoopHandling = ReferenceLoopHandling.Serialize
+                    }
+                );
+
+
+                var er1 = ErrorAttachmentLog.AttachmentWithText(serializedCards, "dataCards.txt");
+                var er2 = ErrorAttachmentLog.AttachmentWithText(serializedLogin, "dataLogin.txt");
+                attachments.Add(er1);
+                attachments.Add(er2);
+            }
+            catch (Exception ex)
+            {
+
+            }
+
+
 
             e.Handled = true;
 
