@@ -137,7 +137,6 @@
     <Compile Include="Controls\AbsencesListView.xaml.cs">
       <DependentUpon>AbsencesListView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\WebViewContentControl.cs" />
     <Compile Include="Controls\OverviewListView.xaml.cs">
       <DependentUpon>OverviewListView.xaml</DependentUpon>
     </Compile>
@@ -312,10 +311,6 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Controls\NiceNavigationView\NavigationView.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Controls\WebViewContentControl.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
