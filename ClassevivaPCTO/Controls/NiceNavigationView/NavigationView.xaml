@@ -539,7 +539,7 @@
                                     <VisualState.Setters>
                                         <Setter Target="HeaderContent.Margin" Value="{ThemeResource NavigationViewMinimalHeaderMargin}" />
                                         <Setter Target="ContentGrid.BorderThickness" Value="{ThemeResource NavigationViewMinimalContentGridBorderThickness}" />
-                                        <Setter Target="ContentGrid.ContentCornerRadius" Value="{ThemeResource NavigationViewMinimalContentGridCornerRadius}" />
+                                        <!--<Setter Target="ContentGrid.ContentCornerRadius" Value="{ThemeResource NavigationViewMinimalContentGridCornerRadius}" />-->
                                         <Setter Target="ContentGrid.Margin" Value="{ThemeResource NavigationViewMinimalContentMargin}" />
                                         <!--<Setter Target="PaneContentGridToggleButtonRow.Height" Value="40" />-->
                                     </VisualState.Setters>
@@ -549,7 +549,7 @@
                                     <VisualState.Setters>
                                         <Setter Target="HeaderContent.Margin" Value="{ThemeResource NavigationViewTopHeaderMargin}" />
                                         <Setter Target="ContentGrid.BorderThickness" Value="{ThemeResource TopNavigationViewContentGridBorderThickness}" />
-                                        <Setter Target="ContentGrid.ContentCornerRadius" Value="{ThemeResource TopNavigationViewContentGridCornerRadius}" />
+                                        <!--<Setter Target="ContentGrid.ContentCornerRadius" Value="{ThemeResource TopNavigationViewContentGridCornerRadius}" />-->
                                         <Setter Target="ContentGrid.Margin" Value="{ThemeResource TopNavigationViewContentMargin}" />
                                     </VisualState.Setters>
                                 </VisualState>
@@ -558,7 +558,7 @@
                                     <VisualState.Setters>
                                         <Setter Target="HeaderContent.Margin" Value="{ThemeResource NavigationViewMinimalHeaderMargin}" />
                                         <Setter Target="ContentGrid.BorderThickness" Value="{ThemeResource NavigationViewMinimalContentGridBorderThickness}" />
-                                        <Setter Target="ContentGrid.ContentCornerRadius" Value="{ThemeResource NavigationViewMinimalContentGridCornerRadius}" />
+                                        <!--<Setter Target="ContentGrid.ContentCornerRadius" Value="{ThemeResource NavigationViewMinimalContentGridCornerRadius}" />-->
                                         <Setter Target="ContentGrid.Margin" Value="{ThemeResource NavigationViewMinimalContentMargin}" />
                                         <!--<Setter Target="PaneContentGridToggleButtonRow.Height" Value="40" />-->
                                     </VisualState.Setters>
