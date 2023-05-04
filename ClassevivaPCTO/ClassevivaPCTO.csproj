@@ -137,6 +137,7 @@
     <Compile Include="Controls\AbsencesListView.xaml.cs">
       <DependentUpon>AbsencesListView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\WebViewContentControl.cs" />
     <Compile Include="Controls\OverviewListView.xaml.cs">
       <DependentUpon>OverviewListView.xaml</DependentUpon>
     </Compile>
@@ -302,6 +303,22 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Controls\NiceNavigationView\NavigationBackButton.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\NiceNavigationView\NavigationView.Themeresources.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\NiceNavigationView\NavigationView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\WebViewContentControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Controls\OverviewListView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -456,6 +473,7 @@
       <Name>ClassevivaPCTO.Core</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>

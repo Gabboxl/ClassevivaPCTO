@@ -158,14 +158,13 @@
 
 
         <muxc:NavigationView  Grid.Row="1"
-                              IsTitleBarAutoPaddingEnabled="True"
+                              IsTitleBarAutoPaddingEnabled="False"
                               IsBackButtonVisible="Collapsed"
                               IsBackEnabled="{x:Bind NavigationViewViewModel.IsBackEnabled, Mode=OneWay}"
                               SelectedItem="{x:Bind NavigationViewViewModel.Selected, Mode=OneWay}"
                               x:Name="navigationView"
-                              
                               PaneDisplayMode="LeftCompact"
-                              OpenPaneLength="256"
+                              IsPaneToggleButtonVisible="False"
                               >
             <muxc:NavigationView.MenuItems>
                 <muxc:NavigationViewItem Content="Dashboard" helpers:NavHelper.NavigateTo="views:DashboardPage" >
