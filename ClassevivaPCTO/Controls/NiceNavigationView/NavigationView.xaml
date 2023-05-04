@@ -266,7 +266,7 @@
                                         BorderBrush="{ThemeResource NavigationViewContentGridBorderBrush}"
                                         BorderThickness="{ThemeResource NavigationViewContentGridBorderThickness}"
                                         Background="{ThemeResource NavigationViewContentBackground}"
-                                        Margin="{ThemeResource NavigationViewContentMargin}"
+                                        
                                         contract7Present:CornerRadius="{ThemeResource NavigationViewContentGridCornerRadius}">
                                         <contract7Present:Grid.BackgroundTransition>
                                                 <contract7Present:BrushTransition />
