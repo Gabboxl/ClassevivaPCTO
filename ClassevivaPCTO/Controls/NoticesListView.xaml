@@ -77,10 +77,26 @@
 
             </RelativePanel>
 
-                <AppBarButton 
-                    Grid.Column="1"
+                <RelativePanel
+                     Grid.Column="1">
+
+                    <FontIcon RelativePanel.LeftOf="ReadButton"
+                              FontFamily="{StaticResource FluentIcons}"
+                              Glyph="{x:Bind ReadIcon}"
+                              RelativePanel.AlignVerticalCenterWithPanel="True"
+                              Foreground="{x:Bind ReadColor}"
+                        />
+
+
+                    <AppBarButton 
+                    RelativePanel.AlignVerticalCenterWithPanel="True"
+                    RelativePanel.AlignRightWithPanel="True"
+                        x:Name="ReadButton"
                     
                      Click="ReadButton_Click" Icon="View" Label="Leggi" />
+                    
+
+                </RelativePanel>
 
             </Grid>
 

@@ -1,10 +1,49 @@
 ﻿using ClassevivaPCTO.Utils;
+using System.Security.Policy;
+using Windows.UI;
+using Windows.UI.Xaml.Media;
 
 namespace ClassevivaPCTO.Adapters
 {
     public class NoticeAdapter
     {
         public Notice CurrentObject;
+
+        public string ReadIcon
+        {
+            get
+            {
+                if (CurrentObject.readStatus)
+                {
+                    return "\ue8c3"; 
+
+                }
+                else
+                {
+                    return "\ue715";
+                }
+            }
+        }
+
+        public SolidColorBrush ReadColor
+        {
+            get
+            {
+                SolidColorBrush brush = new SolidColorBrush();
+
+                if (CurrentObject.readStatus)
+                {
+                    brush.Color = Colors.Green;
+
+                }
+                else
+                {
+                    brush.Color = Colors.Red;
+                }
+
+                return brush;
+            }
+        }
 
         public string FromToValidDate
         {
