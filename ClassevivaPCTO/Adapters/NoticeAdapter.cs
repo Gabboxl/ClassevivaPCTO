@@ -15,12 +15,12 @@ namespace ClassevivaPCTO.Adapters
             {
                 if (CurrentObject.readStatus)
                 {
-                    return "\ue8c3"; 
+                    return "\ue8c3"; //open mail
 
                 }
                 else
                 {
-                    return "\ue715";
+                    return "\ue715"; //closed mail
                 }
             }
         }
