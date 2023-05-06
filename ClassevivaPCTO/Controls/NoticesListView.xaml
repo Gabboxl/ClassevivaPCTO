@@ -85,6 +85,7 @@
                               Glyph="{x:Bind ReadIcon}"
                               RelativePanel.AlignVerticalCenterWithPanel="True"
                               Foreground="{x:Bind ReadColor}"
+                              Margin="0,0,8,0"
                         />
 
 
@@ -106,6 +107,7 @@
     </UserControl.Resources>
 
     <ListView x:Name="listView"
+             
               ScrollViewer.VerticalScrollMode="Enabled"
               HorizontalAlignment="Stretch"
               HorizontalContentAlignment="Stretch"
