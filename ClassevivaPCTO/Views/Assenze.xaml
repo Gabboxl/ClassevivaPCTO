@@ -5,18 +5,73 @@
     xmlns:local="using:ClassevivaPCTO"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:controls="using:ClassevivaPCTO.Controls"
+    xmlns:microconverters="using:Microsoft.Toolkit.Uwp.UI.Converters"
     mc:Ignorable="d"
     xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
     muxc:BackdropMaterial.ApplyToRootOrPageBackground="True">
 
-    <Grid>
+    <Page.Resources>
+        <ResourceDictionary>
+            <microconverters:BoolToVisibilityConverter  x:Key="BoolToVisibilityConverter" />
+        </ResourceDictionary>
+    </Page.Resources>
 
-        <TextBlock x:Name="TextTitolo"  Grid.Row="0" Text="Assenze e Ritardi" FontSize="42" VerticalAlignment="Top"
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+
+        <RelativePanel Grid.Row="0">
+
+            <TextBlock x:Name="TextTitolo"  Grid.Row="0" Text="Assenze e Ritardi" FontSize="42" VerticalAlignment="Top"
                    Margin="32,16,0,0" />
 
-        <TextBlock x:Name="TextCenter"  Grid.Row="2" Text="Sezione disponibile prossimamente" FontSize="42" VerticalAlignment="Center"
-        HorizontalAlignment="Center"             />
+            <AppBarButton  RelativePanel.RightOf="TextTitolo" x:Name="AggiornaCommand" VerticalAlignment="Top"  Margin="32,16,0,0" Icon="Refresh" Label="Aggiorna" Click="AggiornaCommand_Click"/>
+        </RelativePanel>
+
+
+        <RelativePanel Grid.Row="2" 
+                       Margin="32,32,32,20"
+                       VerticalAlignment="Stretch" HorizontalAlignment="Stretch"
+                       x:Name="CardPanel"
+                CornerRadius="8"
+                Padding="12"
+                BorderThickness="1"
+                BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
+                Background="{ThemeResource CardBackgroundFillColorDefaultBrush}">
+
+
+            <TextBlock Text="File" x:Name="TextComunicazioni"
+                       Margin="8,6,0,0"
+                       Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                       Style="{ThemeResource BodyStrongTextBlockStyle}" />
+
+            <muxc:ProgressRing IsActive="True" x:Name="ProgressRingBacheca" 
+                           RelativePanel.RightOf="TextComunicazioni"
+                               Margin="12,0,0,0"
+                                       Visibility="{x:Bind AssenzeViewModel.IsLoadingAssenze, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}"/>
+
+            <Grid 
+                  RelativePanel.AlignRightWithPanel="True"
+                          RelativePanel.AlignLeftWithPanel="True">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+
+                <!-- qua va il lsitview degli scrutini-->
+
+            </Grid>
+
+
+        </RelativePanel>
 
     </Grid>
 </Page>

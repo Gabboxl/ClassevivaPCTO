@@ -178,6 +178,7 @@
     <Compile Include="Utils\CvUtils.cs" />
     <Compile Include="Utils\IClassevivaAPI.cs" />
     <Compile Include="Data\OverviewDataModel.cs" />
+    <Compile Include="ViewModels\AssenzeViewModel.cs" />
     <Compile Include="ViewModels\ScrutiniViewModel.cs" />
     <Compile Include="ViewModels\OverviewViewModel.cs" />
     <Compile Include="ViewModels\BachecaViewModel.cs" />
