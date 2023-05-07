@@ -52,10 +52,14 @@
                 Background="{ThemeResource CardBackgroundFillColorDefaultBrush}">
 
 
+            <TextBlock Text="Comunicazioni" x:Name="TextComunicazioni"
+                       Margin="8,6,0,0"
+                       Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                       Style="{ThemeResource BodyStrongTextBlockStyle}" />
 
             <muxc:ProgressRing IsActive="True" x:Name="ProgressRingBacheca" 
-                           
-                               Margin="12,8,0,0"
+                           RelativePanel.RightOf="TextComunicazioni"
+                               Margin="12,0,0,0"
                                        Visibility="{x:Bind BachecaViewModel.IsLoadingBacheca, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}"/>
 
 
