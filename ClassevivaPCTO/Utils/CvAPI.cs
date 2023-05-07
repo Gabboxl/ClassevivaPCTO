@@ -59,7 +59,7 @@ namespace ClassevivaPCTO.Utils
         public DateTime evtDate { get; set; }
         public long? evtHPos { get; set; }
         public long? evtValue { get; set; }
-        public bool? isJustified { get; set; }
+        public bool isJustified { get; set; }
         public string justifReasonCode { get; set; }
         public string justifReasonDesc { get; set; }
         public List<int?> hoursAbsence { get; set; }
