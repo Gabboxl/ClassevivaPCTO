@@ -35,6 +35,14 @@
                    Margin="32,16,0,0" />
 
             <AppBarButton  RelativePanel.RightOf="TextTitolo" x:Name="AggiornaCommand" VerticalAlignment="Top"  Margin="32,16,0,0" Icon="Refresh" Label="Aggiorna" Click="AggiornaCommand_Click"/>
+
+            <muxc:ProgressRing IsActive="True" x:Name="ProgressRingBacheca" 
+                           RelativePanel.RightOf="AggiornaCommand"
+                               RelativePanel.AlignVerticalCenterWith="AggiornaCommand"
+                               Margin="32,16,0,0"
+                                       Visibility="{x:Bind AssenzeViewModel.IsLoadingAssenze, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}"/>
+
+
         </RelativePanel>
 
 
@@ -49,15 +57,6 @@
                 Background="{ThemeResource CardBackgroundFillColorDefaultBrush}">
 
 
-            <TextBlock Text="File" x:Name="TextComunicazioni"
-                       Margin="8,6,0,0"
-                       Foreground="{ThemeResource TextFillColorSecondaryBrush}"
-                       Style="{ThemeResource BodyStrongTextBlockStyle}" />
-
-            <muxc:ProgressRing IsActive="True" x:Name="ProgressRingBacheca" 
-                           RelativePanel.RightOf="TextComunicazioni"
-                               Margin="12,0,0,0"
-                                       Visibility="{x:Bind AssenzeViewModel.IsLoadingAssenze, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}"/>
 
             <Grid 
                   RelativePanel.AlignRightWithPanel="True"
@@ -66,7 +65,35 @@
                     <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
 
-                <!-- qua va il lsitview degli scrutini-->
+                <ScrollViewer>
+
+                    <StackPanel>
+                    
+                <TextBlock x:Name="TojustifyText"
+                   Text="Da giustificare: "
+                   Margin="16,6,0,6"
+                    Style="{ThemeResource BodyStrongTextBlockStyle}"/>
+
+
+                <controls:AbsencesListView x:Name="AbsencesTojustifyListView"
+                          HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+
+                </controls:AbsencesListView>
+
+                    <TextBlock x:Name="JustifiedText"
+                   Text="Giustificate"
+                   Margin="16,6,0,6"
+                     Style="{ThemeResource BodyStrongTextBlockStyle}"/>
+
+
+                    <controls:AbsencesListView x:Name="AbsencesJustifiedListView"
+                          HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+
+                    </controls:AbsencesListView>
+
+                </StackPanel>
+
+                    </ScrollViewer>
 
             </Grid>
 

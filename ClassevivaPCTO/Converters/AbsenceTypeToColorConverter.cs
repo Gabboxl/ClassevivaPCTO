@@ -18,19 +18,19 @@ namespace ClassevivaPCTO.Converters
             switch (valore)
             {
                 case AbsenceEventCode.ABA0:
-                    brush.Color = Colors.Red;
+                    brush.Color = Colors.Crimson;
                     break;
 
                 case AbsenceEventCode.ABR0:
-                    brush.Color = Colors.Orange;
+                    brush.Color = Colors.DarkOrange;
                     break;
 
                 case AbsenceEventCode.ABR1:
-                    brush.Color = Colors.Teal;
+                    brush.Color = Colors.DarkOrange;
                     break;
 
                 case AbsenceEventCode.ABU0:
-                    brush.Color = Colors.LightGoldenrodYellow;
+                    brush.Color = Colors.Goldenrod;
                     break;
             }
 
