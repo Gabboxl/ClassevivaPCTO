@@ -7,8 +7,12 @@ using Newtonsoft.Json;
 using Refit;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.Runtime.ExceptionServices;
+using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
+using Windows.ApplicationModel.Core;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
@@ -73,6 +77,29 @@ namespace ClassevivaPCTO
 
             // Deferred execution until used. Check https://docs.microsoft.com/dotnet/api/system.lazy-1 for further info on Lazy<T> class.
             _activationService = new Lazy<ActivationService>(CreateActivationService);
+
+
+
+
+/*
+
+            CoreApplication.UnhandledErrorDetected += (sender, eventArgs) =>
+            {
+                try
+                {
+                    eventArgs.UnhandledError.Propagate();
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine("OKBRO:" + ex.StackTrace);
+                    ExceptionDispatchInfo.Capture(ex).Throw();
+                    
+                }
+            };
+            */
+
+
+
         }
 
         /// <summary>
@@ -191,7 +218,8 @@ namespace ClassevivaPCTO
 
             }
 
-
+            Debug.WriteLine("TESTEXCEPTION: " + exceptionThatDoesntGoAway.StackTrace);
+            //Trace.WriteLine("SIDE: " + exceptionThatDoesntGoAway.StackTraceEx());
 
             e.Handled = true;
 
