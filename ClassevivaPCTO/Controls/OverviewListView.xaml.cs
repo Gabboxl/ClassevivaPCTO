@@ -49,7 +49,7 @@ namespace ClassevivaPCTO.Controls
                 filteredOverviewResults.AgendaEvents = overviewResult.AgendaEvents
                     .Where(
                         agendaEvent =>
-                            agendaEvent.evtDatetimeBegin <= newValue.FilterDate.Date && agendaEvent.evtDatetimeEnd >= newValue.FilterDate.Date
+                            agendaEvent.evtDatetimeBegin.Date <= newValue.FilterDate.Date && agendaEvent.evtDatetimeEnd.Date >= newValue.FilterDate.Date //be sure to use the Date property instead of the DateTime one because the time is not important and there is risk some oneday-only events are not shown
                     )
                     .ToList();
 
