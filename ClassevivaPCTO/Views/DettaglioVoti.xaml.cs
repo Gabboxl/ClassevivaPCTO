@@ -92,7 +92,7 @@ namespace ClassevivaPCTO.Views
                     var gradesGroupedByMaterie = periodWithGrades
                         .OrderByDescending(x => x.evtDate)
                         .GroupBy(x => x.subjectDesc)
-                        .Select(grp => grp.ToList())
+                        .Select(grp => grp.ToList()) //creo una lista di liste delle materie con i voti
                         .ToList();
 
                     foreach (List<Grade> materiaWithGrades in gradesGroupedByMaterie)
@@ -116,7 +116,7 @@ namespace ClassevivaPCTO.Views
             var gradesGroupedByPeriodoDesc = grades2Result.Grades
                 .OrderBy(x => x.evtDate)
                 .GroupBy(x => x.periodDesc)
-                .Select(grp => grp.ToList())
+                .Select(grp => grp.ToList()) //metto ogni gruppo di periodo in una lista a parte
                 .ToList();
 
             int c = 0;
