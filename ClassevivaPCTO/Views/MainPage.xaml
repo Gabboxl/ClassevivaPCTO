@@ -81,7 +81,7 @@
                 
                 -->
 
-                <Image Source="/Assets/Square44x44Logo.scale-400.png"
+                <Image Source="/Assets/Square44x44Logo.png"
                        Grid.Column="1"
                        HorizontalAlignment="Left"
                        Width="24" Height="24"

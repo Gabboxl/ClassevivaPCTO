@@ -27,7 +27,7 @@
                     <ColumnDefinition />
                     <ColumnDefinition x:Name="RightPaddingColumn" Width="0" />
                 </Grid.ColumnDefinitions>
-                <Image Source="Assets/Square44x44Logo.scale-200.png"
+                <Image Source="/Assets/Square44x44Logo.png"
                        Grid.Column="1"
                        HorizontalAlignment="Left"
                        Width="16" Height="16"
