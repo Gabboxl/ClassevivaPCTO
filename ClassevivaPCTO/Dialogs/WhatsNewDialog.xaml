@@ -16,7 +16,7 @@
                     Height="40"
                     Source="ms-appx:///Assets/StoreLogo.png" />
                 <TextBlock
-                    Margin="{StaticResource SmallLeftMargin}"
+                    Margin="16"
                     VerticalAlignment="Center"
                     Text="{x:Bind}" />
             </StackPanel>
