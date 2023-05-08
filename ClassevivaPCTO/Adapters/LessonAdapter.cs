@@ -43,7 +43,6 @@ namespace ClassevivaPCTO.Adapters
         {
             get
             {
-
                 return "[" + CurrentObject.evtCode + "]";
             }
         }
