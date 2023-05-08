@@ -69,13 +69,13 @@
 
                     <StackPanel>
 
-                        <TextBlock x:Name="TojustifyText"
+                        <TextBlock x:Name="ToJustifyText"
                                    Text="Da giustificare: "
                                    Margin="16,6,0,6"
                                    Style="{ThemeResource BodyStrongTextBlockStyle}" />
 
 
-                        <controls:AbsencesListView x:Name="AbsencesTojustifyListView"
+                        <controls:AbsencesListView x:Name="AbsencesToJustifyListView"
                                                    HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
 
                         </controls:AbsencesListView>

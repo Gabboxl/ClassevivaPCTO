@@ -80,7 +80,7 @@ namespace ClassevivaPCTO.Views
                 CoreDispatcherPriority.Normal,
                 async () =>
                 {
-                    AbsencesTojustifyListView.ItemsSource = notJustifiedAbsences;
+                    AbsencesToJustifyListView.ItemsSource = notJustifiedAbsences;
                     AbsencesJustifiedListView.ItemsSource = justifiedAbsences;
 
                     AssenzeViewModel.IsLoadingAssenze = false;
