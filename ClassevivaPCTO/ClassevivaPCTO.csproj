@@ -239,7 +239,6 @@
   <ItemGroup>
     <Content Include="Assets\Fonts\SegoeFluentIcons.ttf" />
     <None Include="ClassevivaPCTO_TemporaryKey.pfx" />
-    <None Include="Package.StoreAssociation.xml" />
     <Content Include="Assets\LargeTile.scale-100.png" />
     <Content Include="Assets\LargeTile.scale-125.png" />
     <Content Include="Assets\LargeTile.scale-150.png" />
