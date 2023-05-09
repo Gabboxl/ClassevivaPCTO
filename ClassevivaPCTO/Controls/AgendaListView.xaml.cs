@@ -27,7 +27,7 @@ namespace ClassevivaPCTO.Controls
 
         private static void OnItemsSourceChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            var currentInstance = d as AgendaListView;
+            var currentInstance = (AgendaListView)d;
 
             var newValue = e.NewValue as List<AgendaEvent>;
 

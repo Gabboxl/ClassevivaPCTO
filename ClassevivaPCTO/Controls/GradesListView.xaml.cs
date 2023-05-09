@@ -5,8 +5,6 @@ using System.Linq;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
-// The User Control item template is documented at https://go.microsoft.com/fwlink/?LinkId=234236
-
 namespace ClassevivaPCTO.Controls
 {
     public sealed partial class GradesListView : UserControl
@@ -29,7 +27,7 @@ namespace ClassevivaPCTO.Controls
 
         private static void OnItemsSourceChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            var currentInstance = d as GradesListView;
+            var currentInstance = (GradesListView)d;
 
             var newValue = e.NewValue as List<Grade>;
 

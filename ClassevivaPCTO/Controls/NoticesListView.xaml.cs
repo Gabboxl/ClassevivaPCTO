@@ -35,7 +35,7 @@ namespace ClassevivaPCTO.Controls
             DependencyPropertyChangedEventArgs e
         )
         {
-            NoticesListView currentInstance = d as NoticesListView;
+            NoticesListView currentInstance = (NoticesListView)d;
 
             var newValue = e.NewValue as List<Notice>;
 

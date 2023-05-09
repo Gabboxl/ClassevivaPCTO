@@ -27,7 +27,7 @@ namespace ClassevivaPCTO.Controls
 
         private static void OnItemsSourceChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            var currentInstance = d as AbsencesListView;
+            var currentInstance = (AbsencesListView)d;
 
             var newValue = e.NewValue as List<AbsenceEvent>;
 
