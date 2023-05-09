@@ -1,7 +1,5 @@
-﻿using ClassevivaPCTO.Adapters;
-using ClassevivaPCTO.Utils;
+﻿using ClassevivaPCTO.Utils;
 using ClassevivaPCTO.ViewModels;
-using System.Collections.Generic;
 using System.Linq;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;

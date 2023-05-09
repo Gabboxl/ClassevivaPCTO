@@ -1,6 +1,5 @@
 ﻿using Microsoft.Toolkit.Uwp.UI.Controls;
 using System;
-using System.Linq;
 using Windows.Foundation;
 using Windows.UI.Xaml;
 

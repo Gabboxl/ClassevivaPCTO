@@ -1,11 +1,7 @@
-﻿using ClassevivaPCTO.Utils;
-using Microsoft.Toolkit.Uwp.UI.Controls.TextToolbarSymbols;
-using System;
+﻿using System;
 using System.Collections;
-using Windows.UI;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Media;
 
 namespace ClassevivaPCTO.Converters
 {

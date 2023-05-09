@@ -1,5 +1,4 @@
 ﻿using ClassevivaPCTO.Utils;
-using System.Security.Policy;
 using Windows.UI;
 using Windows.UI.Xaml.Media;
 

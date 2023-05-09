@@ -1,10 +1,7 @@
-﻿using ClassevivaPCTO.Adapters;
-using ClassevivaPCTO.Utils;
+﻿using ClassevivaPCTO.Utils;
 using ClassevivaPCTO.ViewModels;
 using Microsoft.Extensions.DependencyInjection;
-using Refit;
 using System;
-using System.Linq;
 using System.Threading.Tasks;
 using Windows.ApplicationModel.Core;
 using Windows.UI.Core;

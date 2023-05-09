@@ -1,14 +1,9 @@
-﻿using ClassevivaPCTO.Adapters;
-using ClassevivaPCTO.Converters;
+﻿using ClassevivaPCTO.Converters;
 using ClassevivaPCTO.Services;
 using ClassevivaPCTO.Utils;
 using ClassevivaPCTO.ViewModels;
-using Microsoft.AppCenter.Crashes;
-using Microsoft.AppCenter.Crashes.Ingestion.Models;
 using Microsoft.Extensions.DependencyInjection;
-using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Windows.ApplicationModel.Core;

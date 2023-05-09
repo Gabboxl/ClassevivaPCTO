@@ -1,7 +1,6 @@
 ﻿using ClassevivaPCTO.Utils;
 using CommunityToolkit.Mvvm.ComponentModel;
 using System;
-using Windows.UI.Xaml.Data;
 
 namespace ClassevivaPCTO.ViewModels
 {

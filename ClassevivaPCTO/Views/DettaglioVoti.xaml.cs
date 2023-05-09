@@ -1,5 +1,4 @@
-﻿using ClassevivaPCTO.Adapters;
-using ClassevivaPCTO.Utils;
+﻿using ClassevivaPCTO.Utils;
 using ClassevivaPCTO.ViewModels;
 using Refit;
 using System.Collections.Generic;
