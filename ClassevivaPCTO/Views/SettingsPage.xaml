@@ -158,7 +158,7 @@
 
                     <HyperlinkButton Margin="0,8,0,0" 
                                      x:Name="hyperlinkVote"
-                                     Click="hyperlinkVote_Click"
+                                     Click="HyperlinkVote_Click"
                                  Content="Vota l'app" />
 
                     <HyperlinkButton Margin="0,8,0,0" 

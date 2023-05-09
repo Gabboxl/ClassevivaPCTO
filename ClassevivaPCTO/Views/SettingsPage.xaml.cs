@@ -86,7 +86,7 @@ namespace ClassevivaPCTO.Views
         private void OnPropertyChanged(string propertyName) =>
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
 
-        private async void hyperlinkVote_Click(object sender, RoutedEventArgs e)
+        private async void HyperlinkVote_Click(object sender, RoutedEventArgs e)
         {
             //https://learn.microsoft.com/en-us/windows/uwp/monetize/request-ratings-and-reviews
 

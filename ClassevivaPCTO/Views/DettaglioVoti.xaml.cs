@@ -61,15 +61,15 @@ namespace ClassevivaPCTO.Views
 
         private void ComboPeriodi_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            aggiornaComboMaterie();
+            AggiornaComboMaterie();
         }
 
         private void ComboMaterie_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            aggiornaListViewVoti();
+            AggiornaListViewVoti();
         }
 
-        private void aggiornaComboMaterie()
+        private void AggiornaComboMaterie()
         {
             //pulisco il ComboMaterie
             ComboMaterie.Items.Clear();
@@ -110,7 +110,7 @@ namespace ClassevivaPCTO.Views
             }
         }
 
-        private void aggiornaListViewVoti()
+        private void AggiornaListViewVoti()
         {
             var gradesGroupedByPeriodoDesc = grades2Result.Grades
                 .OrderBy(x => x.evtDate)
@@ -153,7 +153,7 @@ namespace ClassevivaPCTO.Views
 
         public void GoBack(object sender, RoutedEventArgs e)
         {
-            Frame rootFrame = Window.Current.Content as Frame;
+            Frame rootFrame = (Frame)Window.Current.Content;
             if (rootFrame.CanGoBack)
             {
                 rootFrame.GoBack();
