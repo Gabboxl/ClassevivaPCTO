@@ -4,8 +4,7 @@ namespace ClassevivaPCTO.Adapters
 {
     public class AbsenceEventAdapter
     {
-        public AbsenceEvent CurrentObject;
-
+        public readonly AbsenceEvent CurrentObject;
 
         public string JustifiedText
         {

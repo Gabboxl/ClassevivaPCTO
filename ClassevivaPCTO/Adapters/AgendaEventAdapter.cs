@@ -4,7 +4,7 @@ namespace ClassevivaPCTO.Adapters
 {
     public class AgendaEventAdapter
     {
-        public AgendaEvent CurrentObject;
+        public readonly AgendaEvent CurrentObject;
 
         public string Title
         {

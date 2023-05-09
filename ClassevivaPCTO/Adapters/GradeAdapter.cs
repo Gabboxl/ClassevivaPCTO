@@ -4,7 +4,7 @@ namespace ClassevivaPCTO.Adapters
 {
     public class GradeAdapter
     {
-        public Grade CurrentObject;
+        public readonly Grade CurrentObject;
 
 
         public GradeAdapter(Grade ev)
