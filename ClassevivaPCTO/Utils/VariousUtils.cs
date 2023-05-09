@@ -54,10 +54,8 @@ namespace ClassevivaPCTO.Utils
         {
             float? valoreFinale = null;
 
-            if (value is Grade)
+            if (value is Grade grade)
             {
-                Grade grade = (Grade)value;
-
                 if (grade.decimalValue != null)
                 {
                     valoreFinale = grade.decimalValue;
