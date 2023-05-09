@@ -162,11 +162,11 @@ namespace ClassevivaPCTO.Views
                 }
                 else if (resLogin is LoginResultChoices loginResultChoices)
                 {
-                    LoginChoice resloginChoice = null;
+                    LoginChoice resLoginChoice = null;
 
                     if (ChoiceSaverService.LoadChoiceIdentAsync().Result != null)
                     {
-                        resloginChoice = loginResultChoices.choices.Find(
+                        resLoginChoice = loginResultChoices.choices.Find(
                             x => x.ident == ChoiceSaverService.LoadChoiceIdentAsync().Result
                         );
                     }
@@ -177,7 +177,7 @@ namespace ClassevivaPCTO.Views
                         if (resultDialog.Item1 == ContentDialogResult.Primary)
                         {
                             //get the chosen index from the dialog combobox
-                            resloginChoice = loginResultChoices.choices[
+                            resLoginChoice = loginResultChoices.choices[
                                 resultDialog.Item2.chosenIndex
                             ];
                         }
@@ -191,7 +191,7 @@ namespace ClassevivaPCTO.Views
                     {
                         Uid = edituid,
                         Pass = editpass,
-                        Ident = resloginChoice.ident
+                        Ident = resLoginChoice.ident
                     };
 
                     var resLoginFinal = await GetLoginData(loginData);
@@ -202,7 +202,7 @@ namespace ClassevivaPCTO.Views
                             loginResultChoice,
                             loginData,
                             checkboxCredenzialiChecked,
-                            resloginChoice
+                            resLoginChoice
                         );
                     }
                 }
@@ -260,11 +260,11 @@ namespace ClassevivaPCTO.Views
 
             CardsResult cardsResult = await apiWrapper.GetCards(
                 fixedId,
-                loginResultComplete.token.ToString()
+                loginResultComplete.token
             );
 
             SingleCardResult singleCardResult = await apiWrapper.GetCardSingle(fixedId,
-                loginResultComplete.token.ToString());
+                loginResultComplete.token);
 
 
             ViewModelHolder.getViewModel().SingleCardResult = singleCardResult.Card;
