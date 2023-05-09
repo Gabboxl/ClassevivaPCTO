@@ -114,8 +114,8 @@ namespace ClassevivaPCTO.Views
                 vault.Remove(
                     new Windows.Security.Credentials.PasswordCredential(
                         "classevivapcto",
-                        loginCredential.UserName.ToString(),
-                        loginCredential.Password.ToString()
+                        loginCredential.UserName,
+                        loginCredential.Password
                     )
                 );
 
@@ -126,7 +126,7 @@ namespace ClassevivaPCTO.Views
                 }
             }
 
-            Frame rootFrame = Window.Current.Content as Frame;
+            Frame rootFrame = (Frame)Window.Current.Content;
             if (rootFrame.CanGoBack)
             {
                 rootFrame.GoBack(); //ritorniamo alla pagina di login
