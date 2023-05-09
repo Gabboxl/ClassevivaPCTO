@@ -7,7 +7,7 @@ namespace ClassevivaPCTO.Adapters
 {
     public class NoticeAdapter
     {
-        public Notice CurrentObject;
+        public readonly Notice CurrentObject;
 
         public string ReadIcon
         {

@@ -5,7 +5,7 @@ namespace ClassevivaPCTO.Adapters
 {
     public class LessonAdapter
     {
-        public Lesson CurrentObject;
+        public readonly Lesson CurrentObject;
 
         public SolidColorBrush ColorBrush
         {

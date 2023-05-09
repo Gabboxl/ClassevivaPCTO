@@ -20,7 +20,7 @@ namespace ClassevivaPCTO.Controls
             }
         }
 
-        public static readonly DependencyProperty ItemsSourceProperty =
+        private static readonly DependencyProperty ItemsSourceProperty =
             DependencyProperty.Register(
                 "ItemsSource",
                 typeof(OverviewDataModel),
