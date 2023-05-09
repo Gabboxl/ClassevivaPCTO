@@ -74,15 +74,15 @@ namespace ClassevivaPCTO.Views
 
                 Task.Run(async () =>
                 {
-                    await doLoginAsync();
+                    await DoLoginAsync();
                 });
                 //doLoginAsync();
             }
 
-            loginGrid.KeyDown += grid_KeyDown;
+            loginGrid.KeyDown += Grid_KeyDown;
         }
 
-        private async void grid_KeyDown(object sender, KeyRoutedEventArgs args)
+        private async void Grid_KeyDown(object sender, KeyRoutedEventArgs args)
         {
             switch (args.Key)
             {
@@ -90,7 +90,7 @@ namespace ClassevivaPCTO.Views
 
                     await Task.Run(async () =>
                     {
-                        await doLoginAsync();
+                        await DoLoginAsync();
                     });
 
                     break;
@@ -103,11 +103,11 @@ namespace ClassevivaPCTO.Views
         {
             await Task.Run(async () =>
             {
-                await doLoginAsync();
+                await DoLoginAsync();
             });
         }
 
-        public async Task doLoginAsync()
+        private async Task DoLoginAsync()
         {
             string edituid = null;
             string editpass = null;
