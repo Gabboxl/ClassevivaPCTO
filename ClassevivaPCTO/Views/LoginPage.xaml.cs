@@ -341,7 +341,7 @@ namespace ClassevivaPCTO.Views
             ContentDialogResult? result = null;
             ChoiceDialogContent contentDialogContent = null;
 
-            TaskCompletionSource<bool> IsSomethingLoading = new TaskCompletionSource<bool>();
+            TaskCompletionSource<bool> isSomethingLoading = new TaskCompletionSource<bool>();
 
             //make sure we are executing it on the main thread
             await CoreApplication.MainView.Dispatcher.RunAsync(
@@ -360,11 +360,11 @@ namespace ClassevivaPCTO.Views
 
                     result = await dialog.ShowAsync();
 
-                    IsSomethingLoading.SetResult(true);
+                    isSomethingLoading.SetResult(true);
                 }
             );
 
-            await IsSomethingLoading.Task;
+            await isSomethingLoading.Task;
 
             return ((ContentDialogResult)result, contentDialogContent);
         }
