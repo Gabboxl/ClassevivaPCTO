@@ -299,9 +299,6 @@ namespace ClassevivaPCTO.Views
         {
             var res = await apiWrapper.LoginAsync(loginData);
 
-            // Code to execute after the API call
-            Console.WriteLine("Executing some code after API call");
-
             if (res.StatusCode == System.Net.HttpStatusCode.OK)
             {
                 var responseContent = await res.Content.ReadAsStringAsync();
