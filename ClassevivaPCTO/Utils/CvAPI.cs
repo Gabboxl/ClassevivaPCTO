@@ -10,8 +10,8 @@ namespace ClassevivaPCTO.Utils
 
     public static class Endpoint
     {
-        public static string Official = "https://web.spaggiari.eu/rest/v1";
-        public static string Test = "https://stoplight.io/mocks/gabboxl/classeviva/155337827";
+        public const string Official = "https://web.spaggiari.eu/rest/v1";
+        public const string Test = "https://stoplight.io/mocks/gabboxl/classeviva/155337827";
 
         public static string CurrentEndpoint { get; set; }
     }
