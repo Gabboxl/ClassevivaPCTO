@@ -51,7 +51,7 @@ namespace ClassevivaPCTO.Views
             );
 
             LoginResultComplete loginResult = ViewModelHolder.getViewModel().LoginResult;
-            Card cardResult = ViewModelHolder.getViewModel().CardsResult.Cards[0];
+            Card cardResult = ViewModelHolder.getViewModel().SingleCardResult;
 
 
             NoticeboardResult noticeboardResult = await apiWrapper.GetNotices(

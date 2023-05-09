@@ -12,6 +12,12 @@ namespace ClassevivaPCTO.ViewModels
             set => SetProperty(ref _loginResult, value);
         }
 
+        private Card _singleCardsResult;
+        public Card SingleCardResult
+        {
+            get => _singleCardsResult;
+            set => SetProperty(ref _singleCardsResult, value);
+        }
 
         private CardsResult _cardsResult;
         public CardsResult CardsResult

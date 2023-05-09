@@ -27,7 +27,7 @@ namespace ClassevivaPCTO.Utils
         Task<CardsResult> GetCards(string userId, [Header("Z-Auth-Token")] string token);
 
         [Get("/students/{userId}/card")]
-        Task<Card> GetCardSingle(string userId, [Header("Z-Auth-Token")] string token);
+        Task<SingleCardResult> GetCardSingle(string userId, [Header("Z-Auth-Token")] string token);
 
         [Get("/students/{userId}/periods")]
         Task<PeriodsResult> GetPeriods(string userId, [Header("Z-Auth-Token")] string token);

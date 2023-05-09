@@ -81,7 +81,7 @@ namespace ClassevivaPCTO.Views
             );
 
             LoginResultComplete loginResult = ViewModelHolder.getViewModel().LoginResult;
-            Card cardResult = ViewModelHolder.getViewModel().CardsResult.Cards[0];
+            Card cardResult = ViewModelHolder.getViewModel().SingleCardResult;
 
             string apiDate = VariousUtils.ToApiDateTime(dateToLoad);
 

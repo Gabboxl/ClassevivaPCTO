@@ -257,11 +257,17 @@ namespace ClassevivaPCTO.Views
             ViewModelHolder.getViewModel().LoginResult = loginResultComplete;
 
             string fixedId = new CvUtils().GetCode(loginResultComplete.ident);
+
             CardsResult cardsResult = await apiWrapper.GetCards(
                 fixedId,
                 loginResultComplete.token.ToString()
             );
 
+            SingleCardResult singleCardResult = await apiWrapper.GetCardSingle(fixedId,
+                loginResultComplete.token.ToString());
+
+
+            ViewModelHolder.getViewModel().SingleCardResult = singleCardResult.Card;
             ViewModelHolder.getViewModel().CardsResult = cardsResult;
 
             if (saveCredentials)

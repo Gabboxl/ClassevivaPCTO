@@ -43,7 +43,7 @@ namespace ClassevivaPCTO.Views
         {
             base.OnNavigatedTo(e);
 
-            Card cardResult = ViewModelHolder.getViewModel().CardsResult.Cards[0];
+            Card cardResult = ViewModelHolder.getViewModel().SingleCardResult;
 
             TextBenvenuto.Text = "Dashboard di " + VariousUtils.ToTitleCase(cardResult.firstName);
 
@@ -74,7 +74,7 @@ namespace ClassevivaPCTO.Views
             );
 
             LoginResultComplete loginResult = ViewModelHolder.getViewModel().LoginResult;
-            Card cardResult = ViewModelHolder.getViewModel().CardsResult.Cards[0];
+            Card cardResult = ViewModelHolder.getViewModel().SingleCardResult;
 
             string caldate = VariousUtils.ToApiDateTime(DateTime.Now);
             OverviewResult overviewResult = await apiWrapper.GetOverview(
@@ -114,7 +114,7 @@ namespace ClassevivaPCTO.Views
             );
 
             LoginResultComplete loginResult = ViewModelHolder.getViewModel().LoginResult;
-            Card cardResult = ViewModelHolder.getViewModel().CardsResult.Cards[0];
+            Card cardResult = ViewModelHolder.getViewModel().SingleCardResult;
             var result1 = await apiWrapper
                 .GetGrades(cardResult.usrId.ToString(), loginResult.token.ToString())
                 .ConfigureAwait(false);
@@ -144,7 +144,7 @@ namespace ClassevivaPCTO.Views
             );
 
             LoginResultComplete loginResult = ViewModelHolder.getViewModel().LoginResult;
-            Card cardResult = ViewModelHolder.getViewModel().CardsResult.Cards[0];
+            Card cardResult = ViewModelHolder.getViewModel().SingleCardResult;
 
             var result1 = await apiWrapper
                 .GetGrades(cardResult.usrId.ToString(), loginResult.token.ToString())
@@ -181,7 +181,7 @@ namespace ClassevivaPCTO.Views
             );
 
             LoginResultComplete loginResult = ViewModelHolder.getViewModel().LoginResult;
-            Card cardResult = ViewModelHolder.getViewModel().CardsResult.Cards[0];
+            Card cardResult = ViewModelHolder.getViewModel().SingleCardResult;
 
             var resultNotices = await apiWrapper
                 .GetNotices(cardResult.usrId.ToString(), loginResult.token.ToString())

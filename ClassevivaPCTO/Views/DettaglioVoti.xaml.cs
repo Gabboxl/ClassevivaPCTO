@@ -29,7 +29,7 @@ namespace ClassevivaPCTO.Views
             base.OnNavigatedTo(e);
 
             LoginResultComplete loginResult = ViewModelHolder.getViewModel().LoginResult;
-            Card cardResult = ViewModelHolder.getViewModel().CardsResult.Cards[0];
+            Card cardResult = ViewModelHolder.getViewModel().SingleCardResult;
 
             var api = RestService.For<IClassevivaAPI>(Endpoint.CurrentEndpoint);
 

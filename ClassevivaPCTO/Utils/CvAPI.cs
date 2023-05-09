@@ -200,6 +200,12 @@ namespace ClassevivaPCTO.Utils
     }
 
 
+    public class SingleCardResult
+    {
+        [JsonPropertyName("card")]
+        public Card Card { get; set; }
+    }
+
 
     public class Card
     {
