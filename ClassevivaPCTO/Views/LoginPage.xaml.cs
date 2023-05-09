@@ -247,7 +247,7 @@ namespace ClassevivaPCTO.Views
             }
         }
 
-        public async void DoFinalLogin(
+        private async void DoFinalLogin(
             LoginResultComplete loginResultComplete,
             LoginData loginData,
             bool saveCredentials,
@@ -295,7 +295,7 @@ namespace ClassevivaPCTO.Views
             );
         }
 
-        public async Task<object> GetLoginData(LoginData loginData)
+        private async Task<object> GetLoginData(LoginData loginData)
         {
             var res = await apiWrapper.LoginAsync(loginData);
 
