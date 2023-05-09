@@ -285,7 +285,7 @@ namespace ClassevivaPCTO.Views
                 CoreDispatcherPriority.Normal,
                 async () =>
                 {
-                    Frame rootFrame = Window.Current.Content as Frame;
+                    Frame rootFrame = (Frame)Window.Current.Content;
                     rootFrame.Navigate(
                         typeof(MainPage),
                         null,
@@ -355,7 +355,7 @@ namespace ClassevivaPCTO.Views
                     dialog.PrimaryButtonText = "Accedi";
                     dialog.CloseButtonText = "Annulla";
                     dialog.DefaultButton = ContentDialogButton.Primary;
-                    dialog.RequestedTheme = (Window.Current.Content as FrameworkElement).RequestedTheme;
+                    dialog.RequestedTheme = ((FrameworkElement) Window.Current.Content).RequestedTheme;
                     dialog.Content = contentDialogContent;
 
                     result = await dialog.ShowAsync();
