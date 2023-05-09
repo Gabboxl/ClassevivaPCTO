@@ -58,7 +58,7 @@ namespace ClassevivaPCTO.Views
             await LoadEverything();
         }
 
-        public async Task LoadOverviewCard()
+        private async Task LoadOverviewCard()
         {
             await CoreApplication.MainView.Dispatcher.RunAsync(
                 CoreDispatcherPriority.Normal,
@@ -98,7 +98,7 @@ namespace ClassevivaPCTO.Views
             );
         }
 
-        public async Task CaricaRecentGradesCard()
+        private async Task CaricaRecentGradesCard()
         {
             await CoreApplication.MainView.Dispatcher.RunAsync(
                 CoreDispatcherPriority.Normal,
@@ -111,7 +111,7 @@ namespace ClassevivaPCTO.Views
             LoginResultComplete loginResult = ViewModelHolder.getViewModel().LoginResult;
             Card cardResult = ViewModelHolder.getViewModel().SingleCardResult;
             var result1 = await apiWrapper
-                .GetGrades(cardResult.usrId.ToString(), loginResult.token.ToString())
+                .GetGrades(cardResult.usrId.ToString(), loginResult.token)
                 .ConfigureAwait(false);
 
             var fiveMostRecent = result1.Grades.OrderByDescending(x => x.evtDate).Take(5);
@@ -128,7 +128,7 @@ namespace ClassevivaPCTO.Views
             );
         }
 
-        public async Task CaricaMediaCard()
+        private async Task CaricaMediaCard()
         {
             await CoreApplication.MainView.Dispatcher.RunAsync(
                 CoreDispatcherPriority.Normal,
@@ -142,7 +142,7 @@ namespace ClassevivaPCTO.Views
             Card cardResult = ViewModelHolder.getViewModel().SingleCardResult;
 
             var result1 = await apiWrapper
-                .GetGrades(cardResult.usrId.ToString(), loginResult.token.ToString())
+                .GetGrades(cardResult.usrId.ToString(), loginResult.token)
                 .ConfigureAwait(false);
 
             // Calcoliamo la media dei voti
@@ -165,7 +165,7 @@ namespace ClassevivaPCTO.Views
             );
         }
 
-        public async Task CaricaNoticesCard()
+        private async Task CaricaNoticesCard()
         {
             await CoreApplication.MainView.Dispatcher.RunAsync(
                 CoreDispatcherPriority.Normal,
