@@ -3,6 +3,7 @@ using ClassevivaPCTO.ViewModels;
 using System.Linq;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using ClassevivaPCTO.Data;
 
 namespace ClassevivaPCTO.Controls
 {

@@ -2,7 +2,7 @@
 using CommunityToolkit.Mvvm.ComponentModel;
 using System;
 
-namespace ClassevivaPCTO.ViewModels
+namespace ClassevivaPCTO.Data
 {
     public class OverviewDataModel : ObservableObject
     {
