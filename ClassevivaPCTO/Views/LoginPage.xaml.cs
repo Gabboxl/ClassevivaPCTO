@@ -154,7 +154,7 @@ namespace ClassevivaPCTO.Views
                     Ident = null
                 };
 
-                var resLogin = await GetLoginData(measurement);
+                var resLogin = await GetApiLoginData(measurement);
 
                 if (resLogin is LoginResultComplete loginResult)
                 {
@@ -194,7 +194,7 @@ namespace ClassevivaPCTO.Views
                         Ident = resLoginChoice.ident
                     };
 
-                    var resLoginFinal = await GetLoginData(loginData);
+                    var resLoginFinal = await GetApiLoginData(loginData);
 
                     if (resLoginFinal is LoginResultComplete loginResultChoice)
                     {
@@ -295,7 +295,10 @@ namespace ClassevivaPCTO.Views
             );
         }
 
-        private async Task<object> GetLoginData(LoginData loginData)
+
+
+
+        private async Task<object> GetApiLoginData(LoginData loginData)
         {
             var res = await apiWrapper.LoginAsync(loginData);
 
