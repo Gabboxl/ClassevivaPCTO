@@ -69,8 +69,8 @@ namespace ClassevivaPCTO.Views
                 // for automatic login.
                 loginCredentials.RetrievePassword(); //dobbiamo per forza chiamare questo metodo per fare sì che la proprietà loginCredential.Password non sia vuota
 
-                edittext_username.Text = loginCredentials.UserName.ToString();
-                edittext_password.Password = loginCredentials.Password.ToString();
+                edittext_username.Text = loginCredentials.UserName;
+                edittext_password.Password = loginCredentials.Password;
 
                 Task.Run(async () =>
                 {
