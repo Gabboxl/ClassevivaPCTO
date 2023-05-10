@@ -76,7 +76,6 @@ namespace ClassevivaPCTO.Views
                 {
                     await DoLoginAsync();
                 });
-                //doLoginAsync();
             }
 
             loginGrid.KeyDown += Grid_KeyDown;
@@ -158,7 +157,7 @@ namespace ClassevivaPCTO.Views
 
                 if (resLogin is LoginResultComplete loginResult)
                 {
-                    DoFinalLogin(loginResult, measurement, checkboxCredenzialiChecked);
+                    GetUserDataAndGoAhead(loginResult, measurement, checkboxCredenzialiChecked);
                 }
                 else if (resLogin is LoginResultChoices loginResultChoices)
                 {
@@ -198,7 +197,7 @@ namespace ClassevivaPCTO.Views
 
                     if (resLoginFinal is LoginResultComplete loginResultChoice)
                     {
-                        DoFinalLogin(
+                        GetUserDataAndGoAhead(
                             loginResultChoice,
                             loginData,
                             checkboxCredenzialiChecked,
@@ -247,7 +246,7 @@ namespace ClassevivaPCTO.Views
             }
         }
 
-        private async void DoFinalLogin(
+        private async void GetUserDataAndGoAhead(
             LoginResultComplete loginResultComplete,
             LoginData loginData,
             bool saveCredentials,
