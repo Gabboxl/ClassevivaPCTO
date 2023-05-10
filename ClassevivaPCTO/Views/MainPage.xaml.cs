@@ -13,12 +13,9 @@ using WinUI = Microsoft.UI.Xaml.Controls;
 
 namespace ClassevivaPCTO.Views
 {
-    /// <summary>
-    /// Pagina vuota che può essere usata autonomamente oppure per l'esplorazione all'interno di un frame.
-    /// </summary>
     public sealed partial class MainPage : Page
     {
-        public AppViewModel AppViewModel { get; set; }
+        private AppViewModel AppViewModel { get; }
 
         public NavigationViewViewModel NavigationViewViewModel { get; } =
             new NavigationViewViewModel();
