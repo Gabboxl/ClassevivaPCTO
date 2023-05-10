@@ -157,6 +157,41 @@ namespace ClassevivaPCTO.Views
 
                 if (resLogin is LoginResultComplete loginResult)
                 {
+
+                    //check if the first letter of loginResult.ident is not letters S, X and G
+                    if (loginResult.ident[0] != 'S' && loginResult.ident[0] != 'X' && loginResult.ident[0] != 'G')
+                    {
+                        Microsoft.AppCenter.Analytics.Analytics.TrackEvent("Used TEACHER account");
+
+                        await CoreApplication.MainView.Dispatcher.RunAsync(
+                            CoreDispatcherPriority.Normal,
+                            async () =>
+                            {
+                                ContentDialog dialog = new ContentDialog();
+                                dialog.Title = "Account insegnante non supportato";
+                                dialog.PrimaryButtonText = "OK";
+                                dialog.DefaultButton = ContentDialogButton.Primary;
+                                dialog.Content =
+                                    "In questa app sono solo supportati gli account studente. \n\n" +
+                                    "Gli account studente hanno l'username che inizia con le lettere S, G o X.";
+
+                                try
+                                {
+                                    var result = await dialog.ShowAsync();
+                                }
+                                catch (Exception e)
+                                {
+                                    System.Console.WriteLine(e.ToString());
+                                }
+                            });
+
+
+
+                        return;
+                    }
+
+
+
                     GetUserDataAndGoAhead(loginResult, measurement, checkboxCredenzialiChecked);
                 }
                 else if (resLogin is LoginResultChoices loginResultChoices)
