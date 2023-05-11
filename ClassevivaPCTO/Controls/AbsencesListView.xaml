@@ -47,7 +47,7 @@
 
                         <TextBlock x:Name="titoloEvento" TextWrapping="Wrap"
                                            MaxWidth="500"
-                                           Text="{x:Bind CurrentObject.evtDate}"
+                                           Text="{x:Bind EventTitle}"
                                            Style="{ThemeResource BaseTextBlockStyle}"
                                            Margin="6,8,0,0" />
 

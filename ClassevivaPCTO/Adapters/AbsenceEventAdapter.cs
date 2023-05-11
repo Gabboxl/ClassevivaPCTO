@@ -14,6 +14,14 @@ namespace ClassevivaPCTO.Adapters
             }
         }
 
+        public string EventTitle
+        {
+            get
+            {
+                return CurrentObject.evtCode.GetLongName() + " del " + CurrentObject.evtDate.ToString("dd/MM/yyyy");
+            }
+        }
+
         public string JustifiedText
         {
             get
