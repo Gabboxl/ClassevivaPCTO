@@ -22,7 +22,6 @@
                 <ResourceDictionary Source="Styles/Button.xaml"/>
                 <ResourceDictionary Source="Controls/NiceNavigationView/NavigationView.xaml"/>
                 <ResourceDictionary Source="Controls/NiceNavigationView/NavigationView.Themeresources.xaml"/>
-                <!--<ResourceDictionary Source="Controls/DataTemplates/VotiListViewDataTemplate.xaml"/>--> <!-- guarda questo https://stackoverflow.com/questions/51620412/uwp-xaml-and-c-sharp-xbind-on-a-datatemplate-inside-a-resourcedictionary --> 
 
                 <ResourceDictionary>
                     <Style x:Name="CautionFlyoutStyle" TargetType="FlyoutPresenter" BasedOn="{StaticResource DefaultFlyoutPresenterStyle}">
