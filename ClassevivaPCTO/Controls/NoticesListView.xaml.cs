@@ -127,7 +127,7 @@ namespace ClassevivaPCTO.Controls
         }
 
 
-        public async void ReadAndOpenNoticeDialog(Notice currentNotice)
+        private async void ReadAndOpenNoticeDialog(Notice currentNotice)
         {
             LoginResultComplete loginResult = ViewModelHolder.getViewModel().LoginResult;
             Card cardResult = ViewModelHolder.getViewModel().CardsResult.Cards[0];
@@ -137,7 +137,7 @@ namespace ClassevivaPCTO.Controls
             NoticeReadResult noticeReadResult =
              await apiWrapper.ReadNotice(cardResult.usrId.ToString(), currentNotice.pubId.ToString(),
              currentNotice.evtCode,
-                loginResult.token.ToString());
+                loginResult.token);
 
 
             var noticeDialogContent = new NoticeDialogContent(currentNotice, noticeReadResult);

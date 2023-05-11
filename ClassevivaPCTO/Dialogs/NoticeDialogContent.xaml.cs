@@ -113,9 +113,9 @@ namespace ClassevivaPCTO.Dialogs
             var attachmentBinary = await apiWrapper.GetNoticeAttachment(
                 cardResult.usrId.ToString(),
                 CurrentNotice.pubId.ToString(),
-                CurrentNotice.evtCode.ToString(),
+                CurrentNotice.evtCode,
                 attachment.attachNum.ToString(),
-                loginResult.token.ToString()
+                loginResult.token
             );
             byte[] bytes = await attachmentBinary.Content.ReadAsByteArrayAsync();
 
