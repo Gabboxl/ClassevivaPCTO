@@ -36,12 +36,12 @@ namespace ClassevivaPCTO.Views
 
             grades2Result = await api.GetGrades(
                 cardResult.usrId.ToString(),
-                loginResult.token.ToString()
+                loginResult.token
             );
 
             var resultPeriods = await api.GetPeriods(
                 cardResult.usrId.ToString(),
-                loginResult.token.ToString()
+                loginResult.token
             );
 
             MainTextBox.Text =
