@@ -39,15 +39,16 @@ namespace ClassevivaPCTO.Utils
 
     public enum AbsenceEventCode
     {
-
-        //https://josipmisko.com/posts/string-enums-in-c-sharp-everything-you-need-to-know
-        [Description("Assenza")]
+        [ApiValue("A", "Assenza")]
         ABA0, //assenza
-        [Description("Ritardo")]
+
+        [ApiValue("R", "Ritardo")]
         ABR0, //ritardo
-        [Description("Ritardo breve")]
+
+        [ApiValue("Rb", "Ritardo breve")]
         ABR1, //ritardo breve
-        [Description("Uscita anticipata")]
+
+        [ApiValue("U", "Uscita anticipata")]
         ABU0 //uscita anticipata
     }
 

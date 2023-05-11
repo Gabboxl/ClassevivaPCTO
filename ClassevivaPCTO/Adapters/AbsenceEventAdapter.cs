@@ -6,6 +6,14 @@ namespace ClassevivaPCTO.Adapters
     {
         public readonly AbsenceEvent CurrentObject;
 
+        public string ShortEventName
+        {
+            get
+            {
+                return CurrentObject.evtCode.GetShortName();
+            }
+        }
+
         public string JustifiedText
         {
             get
