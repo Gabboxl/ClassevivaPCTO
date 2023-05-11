@@ -1,4 +1,5 @@
-﻿using ClassevivaPCTO.Services;
+﻿using System;
+using ClassevivaPCTO.Services;
 using ClassevivaPCTO.Utils;
 using ClassevivaPCTO.ViewModels;
 using System.ComponentModel;
@@ -39,7 +40,7 @@ namespace ClassevivaPCTO.Views
         {
             get
             {
-                Card card = AppViewModel.CardsResult.Cards[0];
+                Card card = AppViewModel.SingleCardResult;
 
                 return card.schName + " " + card.schDedication + " [" + card.schCode + "]";
             }

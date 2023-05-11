@@ -130,7 +130,7 @@ namespace ClassevivaPCTO.Controls
         private async void ReadAndOpenNoticeDialog(Notice currentNotice)
         {
             LoginResultComplete loginResult = ViewModelHolder.getViewModel().LoginResult;
-            Card cardResult = ViewModelHolder.getViewModel().CardsResult.Cards[0];
+            Card cardResult = ViewModelHolder.getViewModel().SingleCardResult;
 
 
             //we need to read the notice first
