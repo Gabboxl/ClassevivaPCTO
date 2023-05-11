@@ -179,6 +179,7 @@
     <Compile Include="Utils\IClassevivaAPI.cs" />
     <Compile Include="Data\OverviewDataModel.cs" />
     <Compile Include="ViewModels\AssenzeViewModel.cs" />
+    <Compile Include="ViewModels\NoteViewModel.cs" />
     <Compile Include="ViewModels\ScrutiniViewModel.cs" />
     <Compile Include="ViewModels\OverviewViewModel.cs" />
     <Compile Include="ViewModels\BachecaViewModel.cs" />
@@ -190,6 +191,9 @@
     </Compile>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Note.xaml.cs">
+      <DependentUpon>Note.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Scrutini.xaml.cs">
       <DependentUpon>Scrutini.xaml</DependentUpon>
@@ -347,6 +351,10 @@
     <Page Include="Views\Agenda.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Note.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\Scrutini.xaml">
       <Generator>MSBuild:Compile</Generator>

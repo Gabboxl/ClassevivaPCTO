@@ -191,6 +191,12 @@
                     </muxc:NavigationViewItem.Icon>
                 </muxc:NavigationViewItem>
 
+                <muxc:NavigationViewItem Content="Note" helpers:NavHelper.NavigateTo="views:Note" >
+                    <muxc:NavigationViewItem.Icon>
+                        <FontIcon Glyph="&#xe789;" FontFamily="{StaticResource FluentIcons}"/>
+                    </muxc:NavigationViewItem.Icon>
+                </muxc:NavigationViewItem>
+
                 <muxc:NavigationViewItem Content="Scrutini" helpers:NavHelper.NavigateTo="views:Scrutini" >
                     <muxc:NavigationViewItem.Icon>
                         <FontIcon Glyph="&#xf180;" FontFamily="{StaticResource FluentIcons}"/>
