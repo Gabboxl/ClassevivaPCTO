@@ -37,6 +37,9 @@ namespace ClassevivaPCTO.Views
 
             this.NoticesListView.OnShouldUpdate += OnShouldUpdate; 
 
+            CheckboxAttive.Checked += AggiornaCommand_Click;
+            CheckboxAttive.Unchecked += AggiornaCommand_Click;
+
             await Task.Run(async () =>
             {
                 await LoadData();
@@ -50,11 +53,15 @@ namespace ClassevivaPCTO.Views
 
         private async Task LoadData()
         {
+            bool ShowInactiveNotices = false;
+
             await CoreApplication.MainView.Dispatcher.RunAsync(
                 CoreDispatcherPriority.Normal,
                 async () =>
                 {
                     BachecaViewModel.IsLoadingBacheca = true;
+
+                    if (CheckboxAttive.IsChecked != null) ShowInactiveNotices = CheckboxAttive.IsChecked.Value;
                 }
             );
 
@@ -67,13 +74,21 @@ namespace ClassevivaPCTO.Views
                 loginResult.token
             );
 
+            var notices = noticeboardResult.Notices;
+
+            if (!ShowInactiveNotices)
+            {
+                //filter notices that are valid from the cntValidInRange property
+                notices = notices.Where(n => n.cntValidInRange).ToList();
+            }
+
 
             //update UI on UI thread
             await CoreApplication.MainView.Dispatcher.RunAsync(
                 CoreDispatcherPriority.Normal,
                 async () =>
                 {
-                    NoticesListView.ItemsSource = noticeboardResult.Notices;
+                    NoticesListView.ItemsSource = notices;
 
                     BachecaViewModel.IsLoadingBacheca = false;
                 }
