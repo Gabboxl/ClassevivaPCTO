@@ -193,7 +193,7 @@
 
                 <muxc:NavigationViewItem Content="Note" helpers:NavHelper.NavigateTo="views:Note" >
                     <muxc:NavigationViewItem.Icon>
-                        <FontIcon Glyph="&#xe789;" FontFamily="{StaticResource FluentIcons}"/>
+                        <FontIcon Glyph="&#xe91c;" FontFamily="{StaticResource FluentIcons}"/>
                     </muxc:NavigationViewItem.Icon>
                 </muxc:NavigationViewItem>
 
