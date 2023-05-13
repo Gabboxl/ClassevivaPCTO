@@ -22,7 +22,7 @@ namespace ClassevivaPCTO.Controls
         }
 
         private static readonly DependencyProperty ItemsSourceProperty = DependencyProperty.Register(
-            "ItemsSource",
+            nameof(ItemsSource),
             typeof(List<Notice>),
             typeof(NoticesListView),
             new PropertyMetadata(null, new PropertyChangedCallback(OnItemsSourceChanged))
