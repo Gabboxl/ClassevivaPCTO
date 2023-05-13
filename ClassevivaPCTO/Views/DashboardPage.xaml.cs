@@ -183,8 +183,9 @@ namespace ClassevivaPCTO.Views
                 .GetNotices(cardResult.usrId.ToString(), loginResult.token.ToString())
                 .ConfigureAwait(false);
 
-            //get only most recent 5 notices
+            //get only most recent 5 notices and filter by active status
             var fiveMostRecent = resultNotices.Notices
+                .Where(x => x.cntValidInRange)
                 .OrderByDescending(x => x.cntValidFrom)
                 .Take(5);
 
