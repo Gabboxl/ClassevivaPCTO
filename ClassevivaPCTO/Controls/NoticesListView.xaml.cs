@@ -172,8 +172,8 @@ namespace ClassevivaPCTO.Controls
 
                 if (result == ContentDialogResult.Primary)
                 {
-                    //raise OnSHouldUpdate event
-                    OnShouldUpdate.Invoke(this, EventArgs.Empty);
+                    //raise OnShouldUpdate event
+                    OnShouldUpdate?.Invoke(this, EventArgs.Empty);
                 }
             }
             catch (Exception ex)
