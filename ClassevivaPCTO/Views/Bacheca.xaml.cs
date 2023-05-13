@@ -68,8 +68,6 @@ namespace ClassevivaPCTO.Views
             );
 
 
-            var noticeAdapters = noticeboardResult.Notices?.Select(evt => new NoticeAdapter(evt)).ToList();
-
             //update UI on UI thread
             await CoreApplication.MainView.Dispatcher.RunAsync(
                 CoreDispatcherPriority.Normal,
