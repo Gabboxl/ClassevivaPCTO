@@ -15,6 +15,19 @@ namespace ClassevivaPCTO.Controls
     {
         private readonly IClassevivaAPI apiWrapper;
 
+        public EventHandler OnShouldUpdate
+        {
+            get { return (EventHandler)GetValue(OnShouldUpdateProperty); }
+            set { SetValue(OnShouldUpdateProperty, value); }
+        }
+
+        private static readonly DependencyProperty OnShouldUpdateProperty =
+            DependencyProperty.Register(nameof(OnShouldUpdate),
+                typeof(EventHandler),
+                typeof(NoticesListView),
+                new PropertyMetadata(null, null));
+
+
         public List<Notice> ItemsSource
         {
             get { return (List<Notice>)GetValue(ItemsSourceProperty); }
@@ -133,6 +146,7 @@ namespace ClassevivaPCTO.Controls
             Card cardResult = ViewModelHolder.getViewModel().SingleCardResult;
 
 
+
             //we need to read the notice first
             NoticeReadResult noticeReadResult =
              await apiWrapper.ReadNotice(cardResult.usrId.ToString(), currentNotice.pubId.ToString(),
@@ -155,6 +169,12 @@ namespace ClassevivaPCTO.Controls
             try
             {
                 var result = await dialog.ShowAsync();
+
+                if (result == ContentDialogResult.Primary)
+                {
+                    //raise OnSHouldUpdate event
+                    OnShouldUpdate.Invoke(this, EventArgs.Empty);
+                }
             }
             catch (Exception ex)
             {
