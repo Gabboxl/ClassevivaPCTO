@@ -73,9 +73,18 @@
                                            Margin="6,6,0,0" />
 
 
+                    <TextBlock x:Name="StatusText" RelativePanel.RightOf="dataPubblicazione" TextWrapping="NoWrap"
+                               TextTrimming="None"
+                               Text="{x:Bind  StatusText}"
+                               FontStyle="Italic"
+                               Foreground="{x:Bind StatusTextColor}"
+                               Style="{ThemeResource CaptionTextBlockStyle}"
+                               Margin="6,6,0,0" />
 
 
-            </RelativePanel>
+
+
+                </RelativePanel>
 
                 <RelativePanel
                      Grid.Column="1">
