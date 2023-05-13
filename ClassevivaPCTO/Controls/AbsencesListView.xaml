@@ -18,26 +18,26 @@
 
 
         <DataTemplate x:Key="AbsenceEventListViewDataTemplateCompact"
-                  
-                  x:DataType="adapters:AbsenceEventAdapter">
+
+                      x:DataType="adapters:AbsenceEventAdapter">
 
             <RelativePanel>
 
                 <Grid RelativePanel.AlignVerticalCenterWithPanel="True" x:Name="gridVoto">
                     <Ellipse x:Name="Ellipse"
-                                             Grid.RowSpan="2"
-                                             Width="42"
-                                             Height="42"
-                                             Margin="2"
-                                         
-                                             Fill="{x:Bind CurrentObject.evtCode,Converter={StaticResource AbsenceTypeToColorConverter}}"
+                             Grid.RowSpan="2"
+                             Width="42"
+                             Height="42"
+                             Margin="2"
 
-                                             VerticalAlignment="Center"
-                                             HorizontalAlignment="Center">
+                             Fill="{x:Bind CurrentObject.evtCode,Converter={StaticResource AbsenceTypeToColorConverter}}"
+
+                             VerticalAlignment="Center"
+                             HorizontalAlignment="Center">
                         <!-- ="{ThemeResource SystemControlBackgroundBaseMediumBrush}" -->
                     </Ellipse>
                     <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center"
-                                               Text="{x:Bind ShortEventName}" FontSize="14" Foreground="#FFFFFF" />
+                               Text="{x:Bind ShortEventName}" FontSize="14" Foreground="#FFFFFF" />
 
                 </Grid>
 
@@ -46,21 +46,19 @@
 
 
                         <TextBlock x:Name="titoloEvento" TextWrapping="Wrap"
-                                           MaxWidth="500"
-                                           Text="{x:Bind EventTitle}"
-                                           Style="{ThemeResource BaseTextBlockStyle}"
-                                           Margin="6,8,0,0" />
+                                   MaxWidth="500"
+                                   Text="{x:Bind EventTitle}"
+                                   Style="{ThemeResource BaseTextBlockStyle}"
+                                   Margin="6,8,0,0" />
 
 
                         <TextBlock RelativePanel.Below="titoloEvento" x:Name="justifiedText" TextWrapping="Wrap"
-                                           MaxWidth="500"
-                                           Text="{x:Bind JustifiedText}"
-                                           Style="{ThemeResource BaseTextBlockStyle}"
-                                           Foreground="{ThemeResource TextFillColorSecondaryBrush}"
-                                    FontStyle="Italic"
-                                           Margin="6,0,0,8" />
-
-
+                                   MaxWidth="500"
+                                   Text="{x:Bind JustifiedText}"
+                                   Style="{ThemeResource BaseTextBlockStyle}"
+                                   Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                                   FontStyle="Italic"
+                                   Margin="6,0,0,8" />
 
 
                     </RelativePanel>
@@ -71,7 +69,6 @@
 
     </UserControl.Resources>
 
-    
-    
-        <ListView x:Name="listView"  ItemTemplate="{StaticResource AbsenceEventListViewDataTemplateCompact}" />
+
+    <ListView x:Name="listView" ItemTemplate="{StaticResource AbsenceEventListViewDataTemplateCompact}" />
 </UserControl>

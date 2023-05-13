@@ -16,87 +16,83 @@
 
     <Page.Resources>
         <ResourceDictionary>
-            <microconverters:BoolToVisibilityConverter  x:Key="BoolToVisibilityConverter" />
+            <microconverters:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" />
         </ResourceDictionary>
     </Page.Resources>
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
 
 
-
         <RelativePanel Grid.Row="0">
-            <TextBlock x:Name="TextTitolo"  Grid.Row="0" Text="Agenda" FontSize="42" VerticalAlignment="Top"
-                   Margin="32,16,0,0" />
+            <TextBlock x:Name="TextTitolo" Grid.Row="0" Text="Agenda" FontSize="42" VerticalAlignment="Top"
+                       Margin="32,16,0,0" />
 
-            <AppBarButton  RelativePanel.RightOf="TextTitolo" x:Name="AggiornaCommand" VerticalAlignment="Top"  Margin="32,16,0,0" Icon="Refresh" Label="Aggiorna" Click="AggiornaCommand_Click"/>
+            <AppBarButton RelativePanel.RightOf="TextTitolo" x:Name="AggiornaCommand" VerticalAlignment="Top"
+                          Margin="32,16,0,0" Icon="Refresh" Label="Aggiorna" Click="AggiornaCommand_Click" />
         </RelativePanel>
 
 
-
-        <RelativePanel Grid.Row="2" 
+        <RelativePanel Grid.Row="2"
                        Margin="32,32,32,20"
                        VerticalAlignment="Stretch" HorizontalAlignment="Stretch"
                        x:Name="CardPanel"
-                        toolkit:FrameworkElementExtensions.EnableActualSizeBinding="true"
-                CornerRadius="8"
-                Padding="12"
-                BorderThickness="1"
-                BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
-                Background="{ThemeResource CardBackgroundFillColorDefaultBrush}">
+                       toolkit:FrameworkElementExtensions.EnableActualSizeBinding="true"
+                       CornerRadius="8"
+                       Padding="12"
+                       BorderThickness="1"
+                       BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
+                       Background="{ThemeResource CardBackgroundFillColorDefaultBrush}">
 
 
-            <Button x:Name="ButtonYesterday" Margin="0,8,0,0" 
-                    Click="ButtonYesterday_Click" >
-                <FontIcon Glyph="&#xEC52;" HorizontalAlignment="Center"/>
+            <Button x:Name="ButtonYesterday" Margin="0,8,0,0"
+                    Click="ButtonYesterday_Click">
+                <FontIcon Glyph="&#xEC52;" HorizontalAlignment="Center" />
             </Button>
 
 
-            <CalendarDatePicker x:Name="CalendarAgenda" 
+            <CalendarDatePicker x:Name="CalendarAgenda"
                                 RelativePanel.RightOf="ButtonYesterday"
                                 PlaceholderText="Scegli una data" Grid.Row="1" Margin="8,8,8,0" />
 
-            <Button x:Name="ButtonTomorrow" Margin="0,8,0,0" 
+            <Button x:Name="ButtonTomorrow" Margin="0,8,0,0"
                     RelativePanel.RightOf="CalendarAgenda"
-                    Click="ButtonTomorrow_Click" >
-                <FontIcon Glyph="&#xEBE7;" HorizontalAlignment="Center"/>
+                    Click="ButtonTomorrow_Click">
+                <FontIcon Glyph="&#xEBE7;" HorizontalAlignment="Center" />
             </Button>
 
             <!-- button to return to today's date-->
-            <ToggleButton x:Name="ButtonToday" Content="Oggi" Margin="8,8,0,0" 
-                    RelativePanel.RightOf="ButtonTomorrow"
-                    toolkit:FrameworkElementExtensions.Cursor="Hand"
-                    Click="ButtonToday_Click" />
+            <ToggleButton x:Name="ButtonToday" Content="Oggi" Margin="8,8,0,0"
+                          RelativePanel.RightOf="ButtonTomorrow"
+                          toolkit:FrameworkElementExtensions.Cursor="Hand"
+                          Click="ButtonToday_Click" />
 
 
-            <muxc:ProgressRing IsActive="True" x:Name="ProgressRingAgenda" 
-                           RelativePanel.RightOf="ButtonToday"
-                               
+            <muxc:ProgressRing IsActive="True" x:Name="ProgressRingAgenda"
+                               RelativePanel.RightOf="ButtonToday"
+
                                Margin="12,8,0,0"
-                                       Visibility="{x:Bind AgendaViewModel.IsLoadingAgenda, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}"/>
+                               Visibility="{x:Bind AgendaViewModel.IsLoadingAgenda, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" />
 
 
-
-            <AutoSuggestBox QueryIcon="Find" 
+            <AutoSuggestBox QueryIcon="Find"
                             PlaceholderText="Cerca" RelativePanel.AlignHorizontalCenterWithPanel="True"
                             HorizontalAlignment="Center"
                             Width="260" Height="32" />
 
 
-                <controls2:OverviewListView  RelativePanel.Below="ButtonYesterday"
-                  RelativePanel.AlignRightWithPanel="True"
-                          RelativePanel.AlignLeftWithPanel="True"
-                                         Margin="0,8,0,0" x:Name="OverviewListView">
-                </controls2:OverviewListView>
-
-
+            <controls2:OverviewListView RelativePanel.Below="ButtonYesterday"
+                                        RelativePanel.AlignRightWithPanel="True"
+                                        RelativePanel.AlignLeftWithPanel="True"
+                                        Margin="0,8,0,0" x:Name="OverviewListView">
+            </controls2:OverviewListView>
 
 
         </RelativePanel>

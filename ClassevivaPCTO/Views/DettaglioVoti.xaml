@@ -15,44 +15,47 @@
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
 
-        <TextBlock x:Name="MainTextBox"  Grid.Row="1" Text="test " FontSize="42" VerticalAlignment="Top"
+        <TextBlock x:Name="MainTextBox" Grid.Row="1" Text="test " FontSize="42" VerticalAlignment="Top"
                    Margin="32,16,0,0" />
 
-        <RelativePanel Grid.Row="2" 
+        <RelativePanel Grid.Row="2"
                        Margin="32,32,32,20"
                        VerticalAlignment="Stretch" HorizontalAlignment="Stretch"
-                CornerRadius="8"
-                Padding="12"
-                BorderThickness="1"
-                BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
-                Background="{ThemeResource CardBackgroundFillColorDefaultBrush}">
+                       CornerRadius="8"
+                       Padding="12"
+                       BorderThickness="1"
+                       BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
+                       Background="{ThemeResource CardBackgroundFillColorDefaultBrush}">
 
-        <muxc:ProgressRing IsActive="True" x:Name="ProgressRingVoti" 
-                           RelativePanel.AlignVerticalCenterWithPanel="True"
-                           
-                           RelativePanel.AlignHorizontalCenterWithPanel="True"/>
-            <ComboBox x:Name="ComboPeriodi"  Header="Periodo didattico" PlaceholderText="Seleziona un periodo" Width="200" SelectionChanged="ComboPeriodi_SelectionChanged">
-              
-            </ComboBox>
+            <muxc:ProgressRing IsActive="True" x:Name="ProgressRingVoti"
+                               RelativePanel.AlignVerticalCenterWithPanel="True"
 
-            <ComboBox  RelativePanel.RightOf="ComboPeriodi"  x:Name="ComboMaterie" Header="Materia" PlaceholderText="Seleziona una materia" HorizontalAlignment="Left" Margin="25,0,0,0" SelectionChanged="ComboMaterie_SelectionChanged">
+                               RelativePanel.AlignHorizontalCenterWithPanel="True" />
+            <ComboBox x:Name="ComboPeriodi" Header="Periodo didattico" PlaceholderText="Seleziona un periodo"
+                      Width="200" SelectionChanged="ComboPeriodi_SelectionChanged">
 
             </ComboBox>
 
-            <controls2:GradesListView x:Name="ListViewVoti" 
-                              
-                      Margin="16,24,0,0"
-                      RelativePanel.Below="ComboPeriodi"
-                          HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
-                              
-                          ScrollViewer.VerticalScrollMode="Auto"
-                                  ScrollViewer.VerticalScrollBarVisibility="Auto">
+            <ComboBox RelativePanel.RightOf="ComboPeriodi" x:Name="ComboMaterie" Header="Materia"
+                      PlaceholderText="Seleziona una materia" HorizontalAlignment="Left" Margin="25,0,0,0"
+                      SelectionChanged="ComboMaterie_SelectionChanged">
+
+            </ComboBox>
+
+            <controls2:GradesListView x:Name="ListViewVoti"
+
+                                      Margin="16,24,0,0"
+                                      RelativePanel.Below="ComboPeriodi"
+                                      HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+
+                                      ScrollViewer.VerticalScrollMode="Auto"
+                                      ScrollViewer.VerticalScrollBarVisibility="Auto">
 
             </controls2:GradesListView>
 

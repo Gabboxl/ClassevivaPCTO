@@ -7,8 +7,8 @@
         <!-- Content body -->
         <TextBlock Text="Più profili sono associati a questo account." TextWrapping="Wrap" Margin="0,0,0,12" />
 
-        <ComboBox x:Name="ComboChoice" 
-          Header="Seleziona un profilo:" Width="350" SelectedIndex="{x:Bind chosenIndex, Mode=TwoWay}" />
+        <ComboBox x:Name="ComboChoice"
+                  Header="Seleziona un profilo:" Width="350" SelectedIndex="{x:Bind chosenIndex, Mode=TwoWay}" />
     </StackPanel>
 
 </Page>

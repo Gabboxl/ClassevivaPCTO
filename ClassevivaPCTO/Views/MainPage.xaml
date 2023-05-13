@@ -4,12 +4,12 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:ClassevivaPCTO"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-     xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
+    xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
     xmlns:controlscust="using:ClassevivaPCTO.Controls"
-        xmlns:roba="using:ClassevivaPCTO.Utils"
-        xmlns:helpers="using:ClassevivaPCTO.Helpers"
+    xmlns:roba="using:ClassevivaPCTO.Utils"
+    xmlns:helpers="using:ClassevivaPCTO.Helpers"
     xmlns:views="using:ClassevivaPCTO.Views"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
@@ -17,7 +17,7 @@
 
     <Page.Resources>
 
-        <roba:VariousUtils x:Key="VariousUtils"/>
+        <roba:VariousUtils x:Key="VariousUtils" />
     </Page.Resources>
 
 
@@ -95,8 +95,6 @@
             </Grid>
 
 
-
-
             <Button Style="{StaticResource ProfileButtonStyle}" HorizontalAlignment="Right" Margin="0,0,200,0">
                 <!--  <Button.ContextFlyout>
                     <MenuFlyout>
@@ -114,16 +112,27 @@
                     </MenuFlyout>
                 </Button.ContextFlyout> -->
                 <Button.Flyout>
-                    <MenuFlyout x:Name="ProfileFlyout" >
+                    <MenuFlyout x:Name="ProfileFlyout">
 
 
-                        <MenuFlyoutItem >
-                            <MenuFlyoutItem.Template  >
+                        <MenuFlyoutItem>
+                            <MenuFlyoutItem.Template>
                                 <ControlTemplate x:Name="FlyoutItemPersonPictureTemp">
                                     <StackPanel Grid.Row="0" Grid.RowSpan="2" VerticalAlignment="Center" Margin="16">
-                                        <TextBlock IsTextSelectionEnabled="True" x:Name="TNomeCognome" TextWrapping="Wrap" TextAlignment="Center"  Text="{Binding FirstName}"   Style="{ThemeResource BodyStrongTextBlockStyle}"   FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Top" FontWeight="Bold" />
-                                        <TextBlock IsTextSelectionEnabled="True" Margin="0,8,0,0" x:Name="TCodiceUtente" TextWrapping="Wrap" TextAlignment="Center"  Text="{Binding Codice}"   Style="{ThemeResource BodyTextBlockStyle}"  FontSize="12" HorizontalAlignment="Center" VerticalAlignment="Top" />
-                                        <TextBlock IsTextSelectionEnabled="True" x:Name="TScuola" Margin="0,8,0,0" TextWrapping="Wrap" TextAlignment="Center"  Text="{Binding Scuola}"   Style="{ThemeResource BodyTextBlockStyle}"  FontSize="12" HorizontalAlignment="Center" VerticalAlignment="Top"  />
+                                        <TextBlock IsTextSelectionEnabled="True" x:Name="TNomeCognome"
+                                                   TextWrapping="Wrap" TextAlignment="Center"
+                                                   Text="{Binding FirstName}"
+                                                   Style="{ThemeResource BodyStrongTextBlockStyle}" FontSize="18"
+                                                   HorizontalAlignment="Center" VerticalAlignment="Top"
+                                                   FontWeight="Bold" />
+                                        <TextBlock IsTextSelectionEnabled="True" Margin="0,8,0,0"
+                                                   x:Name="TCodiceUtente" TextWrapping="Wrap" TextAlignment="Center"
+                                                   Text="{Binding Codice}" Style="{ThemeResource BodyTextBlockStyle}"
+                                                   FontSize="12" HorizontalAlignment="Center" VerticalAlignment="Top" />
+                                        <TextBlock IsTextSelectionEnabled="True" x:Name="TScuola" Margin="0,8,0,0"
+                                                   TextWrapping="Wrap" TextAlignment="Center" Text="{Binding Scuola}"
+                                                   Style="{ThemeResource BodyTextBlockStyle}" FontSize="12"
+                                                   HorizontalAlignment="Center" VerticalAlignment="Top" />
                                     </StackPanel>
                                 </ControlTemplate>
                             </MenuFlyoutItem.Template>
@@ -133,90 +142,86 @@
 
 
                         <MenuFlyoutItem Text="Esci"
-                        x:Name="LogoutButton2"
-                                    Height="32" 
-                                    RenderTransformOrigin="2.13,0.797" HorizontalAlignment="Stretch"
-                                    Click="ButtonLogout_Click" VerticalAlignment="Top" >
+                                        x:Name="LogoutButton2"
+                                        Height="32"
+                                        RenderTransformOrigin="2.13,0.797" HorizontalAlignment="Stretch"
+                                        Click="ButtonLogout_Click" VerticalAlignment="Top">
 
                             <MenuFlyoutItem.Icon>
-                                <FontIcon FontFamily="{StaticResource SymbolThemeFontFamily}" Glyph="&#xf3b1;" /> <!-- or e966 -->
+                                <FontIcon FontFamily="{StaticResource SymbolThemeFontFamily}" Glyph="&#xf3b1;" />
+                                <!-- or e966 -->
                             </MenuFlyoutItem.Icon>
                         </MenuFlyoutItem>
                     </MenuFlyout>
                 </Button.Flyout>
                 <muxc:PersonPicture
-                        Width="42"
-                        Height="42"
-                        DisplayName="asdddd b"
-                    x:Name="PersonPictureDashboard"
-                         />
+                    Width="42"
+                    Height="42"
+                    DisplayName="asdddd b"
+                    x:Name="PersonPictureDashboard" />
             </Button>
 
 
         </Grid>
 
 
-
-        <muxc:NavigationView  Grid.Row="1"
-                              IsTitleBarAutoPaddingEnabled="False"
-                              IsBackButtonVisible="Collapsed"
-                              IsBackEnabled="{x:Bind NavigationViewViewModel.IsBackEnabled, Mode=OneWay}"
-                              SelectedItem="{x:Bind NavigationViewViewModel.Selected, Mode=OneWay}"
-                              x:Name="navigationView"
-                              PaneDisplayMode="LeftCompact"
-                              IsPaneToggleButtonVisible="False"
-                              >
+        <muxc:NavigationView Grid.Row="1"
+                             IsTitleBarAutoPaddingEnabled="False"
+                             IsBackButtonVisible="Collapsed"
+                             IsBackEnabled="{x:Bind NavigationViewViewModel.IsBackEnabled, Mode=OneWay}"
+                             SelectedItem="{x:Bind NavigationViewViewModel.Selected, Mode=OneWay}"
+                             x:Name="navigationView"
+                             PaneDisplayMode="LeftCompact"
+                             IsPaneToggleButtonVisible="False">
             <muxc:NavigationView.MenuItems>
-                <muxc:NavigationViewItem Content="Dashboard" helpers:NavHelper.NavigateTo="views:DashboardPage" >
+                <muxc:NavigationViewItem Content="Dashboard" helpers:NavHelper.NavigateTo="views:DashboardPage">
                     <muxc:NavigationViewItem.Icon>
-                        <FontIcon Glyph="&#xe80f;" FontFamily="{StaticResource FluentIcons}"/>
+                        <FontIcon Glyph="&#xe80f;" FontFamily="{StaticResource FluentIcons}" />
                     </muxc:NavigationViewItem.Icon>
                 </muxc:NavigationViewItem>
 
-                <muxc:NavigationViewItem Content="Agenda" helpers:NavHelper.NavigateTo="views:Agenda" >
+                <muxc:NavigationViewItem Content="Agenda" helpers:NavHelper.NavigateTo="views:Agenda">
                     <muxc:NavigationViewItem.Icon>
-                        <FontIcon Glyph="&#xe787;" FontFamily="{StaticResource FluentIcons}"/>
+                        <FontIcon Glyph="&#xe787;" FontFamily="{StaticResource FluentIcons}" />
                     </muxc:NavigationViewItem.Icon>
                 </muxc:NavigationViewItem>
 
-                <muxc:NavigationViewItem  Content="Valutazioni" helpers:NavHelper.NavigateTo="views:DettaglioVoti" >
+                <muxc:NavigationViewItem Content="Valutazioni" helpers:NavHelper.NavigateTo="views:DettaglioVoti">
                     <muxc:NavigationViewItem.Icon>
-                        <FontIcon Glyph="&#xe9f9;" FontFamily="{StaticResource FluentIcons}"/>
+                        <FontIcon Glyph="&#xe9f9;" FontFamily="{StaticResource FluentIcons}" />
                     </muxc:NavigationViewItem.Icon>
                 </muxc:NavigationViewItem>
 
-                <muxc:NavigationViewItem Content="Assenze e ritardi" helpers:NavHelper.NavigateTo="views:Assenze" >
+                <muxc:NavigationViewItem Content="Assenze e ritardi" helpers:NavHelper.NavigateTo="views:Assenze">
                     <muxc:NavigationViewItem.Icon>
-                        <FontIcon Glyph="&#xe7c1;" FontFamily="{StaticResource FluentIcons}"/>
+                        <FontIcon Glyph="&#xe7c1;" FontFamily="{StaticResource FluentIcons}" />
                     </muxc:NavigationViewItem.Icon>
                 </muxc:NavigationViewItem>
 
-                <muxc:NavigationViewItem Content="Note" helpers:NavHelper.NavigateTo="views:Note" >
+                <muxc:NavigationViewItem Content="Note" helpers:NavHelper.NavigateTo="views:Note">
                     <muxc:NavigationViewItem.Icon>
-                        <FontIcon Glyph="&#xe91c;" FontFamily="{StaticResource FluentIcons}"/>
+                        <FontIcon Glyph="&#xe91c;" FontFamily="{StaticResource FluentIcons}" />
                     </muxc:NavigationViewItem.Icon>
                 </muxc:NavigationViewItem>
 
-                <muxc:NavigationViewItem Content="Scrutini" helpers:NavHelper.NavigateTo="views:Scrutini" >
+                <muxc:NavigationViewItem Content="Scrutini" helpers:NavHelper.NavigateTo="views:Scrutini">
                     <muxc:NavigationViewItem.Icon>
-                        <FontIcon Glyph="&#xf180;" FontFamily="{StaticResource FluentIcons}"/>
+                        <FontIcon Glyph="&#xf180;" FontFamily="{StaticResource FluentIcons}" />
                     </muxc:NavigationViewItem.Icon>
                 </muxc:NavigationViewItem>
 
-                <muxc:NavigationViewItem  Content="Bacheca" helpers:NavHelper.NavigateTo="views:Bacheca" >
+                <muxc:NavigationViewItem Content="Bacheca" helpers:NavHelper.NavigateTo="views:Bacheca">
                     <muxc:NavigationViewItem.Icon>
-                        <FontIcon Glyph="&#xe718;" FontFamily="{StaticResource FluentIcons}"/>
+                        <FontIcon Glyph="&#xe718;" FontFamily="{StaticResource FluentIcons}" />
                     </muxc:NavigationViewItem.Icon>
                 </muxc:NavigationViewItem>
             </muxc:NavigationView.MenuItems>
 
-            <Frame x:Name="contentFrame" IsTabStop="True"/>
-            
+            <Frame x:Name="contentFrame" IsTabStop="True" />
+
         </muxc:NavigationView>
 
     </Grid>
-
-
 
 
 </Page>

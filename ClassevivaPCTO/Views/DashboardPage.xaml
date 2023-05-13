@@ -14,20 +14,20 @@
     xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
     xmlns:animatedvisuals="using:Microsoft.UI.Xaml.Controls.AnimatedVisuals"
     xmlns:converters="using:ClassevivaPCTO.Converters"
-        xmlns:contract7Present="http://schemas.microsoft.com/winfx/2006/xaml/presentation?IsApiContractPresent(Windows.Foundation.UniversalApiContract, 7)"
+    xmlns:contract7Present="http://schemas.microsoft.com/winfx/2006/xaml/presentation?IsApiContractPresent(Windows.Foundation.UniversalApiContract, 7)"
     xmlns:roba="using:ClassevivaPCTO.Utils"
 
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
     muxc:BackdropMaterial.ApplyToRootOrPageBackground="True">
 
     <Page.Resources>
-        
-        
+
+
         <ResourceDictionary>
-            <microconverters:BoolToVisibilityConverter  x:Key="BoolToVisibilityConverter" />
+            <microconverters:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" />
             <ResourceDictionary.MergedDictionaries>
-                
-               
+
+
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
 
@@ -42,23 +42,22 @@
 
         <RelativePanel Grid.Row="0">
 
-            <TextBlock x:Name="TextBenvenuto"   Text="test " FontSize="42" VerticalAlignment="Top"
-                   Margin="32,16,0,0" />
+            <TextBlock x:Name="TextBenvenuto" Text="test " FontSize="42" VerticalAlignment="Top"
+                       Margin="32,16,0,0" />
 
-            <AppBarButton  RelativePanel.RightOf="TextBenvenuto" VerticalAlignment="Top"  Margin="32,16,0,0" Icon="Refresh" Label="Aggiorna" Click="AggiornaButton_Click"/>
+            <AppBarButton RelativePanel.RightOf="TextBenvenuto" VerticalAlignment="Top" Margin="32,16,0,0"
+                          Icon="Refresh" Label="Aggiorna" Click="AggiornaButton_Click" />
         </RelativePanel>
 
 
+        <controls2:UniformGridEx Grid.Row="1"
+                                 ColumnSpacing="36" RowSpacing="36"
+                                 MinRowHeight="250"
+
+                                 Margin="24,24,24,24">
 
 
-        <controls2:UniformGridEx  Grid.Row="1"
-                                  ColumnSpacing="36" RowSpacing="36"
-                                    MinRowHeight="250"
-                                    
-                              Margin="24,24,24,24">
-
-
-            <Grid 
+            <Grid
                 CornerRadius="8"
                 Padding="12"
                 BorderThickness="1"
@@ -70,33 +69,31 @@
                     <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*" />
 
                 </Grid.ColumnDefinitions>
 
                 <RelativePanel Grid.Row="0">
 
 
-                    <TextBlock x:Name="TextOggiAgenda" Text="Oggi a scuola" FontSize="24" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="8" />
+                    <TextBlock x:Name="TextOggiAgenda" Text="Oggi a scuola" FontSize="24" VerticalAlignment="Top"
+                               HorizontalAlignment="Left" Margin="8" />
 
-                    <muxc:ProgressRing IsActive="True" x:Name="ProgressRingAgenda" 
-                           RelativePanel.RightOf="TextOggiAgenda"
+                    <muxc:ProgressRing IsActive="True" x:Name="ProgressRingAgenda"
+                                       RelativePanel.RightOf="TextOggiAgenda"
                                        RelativePanel.AlignVerticalCenterWith="TextOggiAgenda"
-                                       Visibility="{x:Bind DashboardPageViewModel.IsLoadingAgenda, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}"/>
+                                       Visibility="{x:Bind DashboardPageViewModel.IsLoadingAgenda, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" />
                 </RelativePanel>
 
 
+                <controls2:OverviewListView Grid.Row="2" x:Name="OverviewListView"
+                                            HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
 
-                        <controls2:OverviewListView  Grid.Row="2" x:Name="OverviewListView"
-                          HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-
-                        </controls2:OverviewListView>
-
+                </controls2:OverviewListView>
 
 
-                <HyperlinkButton Grid.Row="2"  Content="Apri agenda"
-                 Click="HyperlinkButton_Click_1" VerticalAlignment="Bottom" HorizontalAlignment="Right"
-                />
+                <HyperlinkButton Grid.Row="2" Content="Apri agenda"
+                                 Click="HyperlinkButton_Click_1" VerticalAlignment="Bottom" HorizontalAlignment="Right" />
 
             </Grid>
 
@@ -117,33 +114,32 @@
 
                 <RelativePanel Grid.Row="0">
 
-                    <TextBlock x:Name="TitleRecentGrades" Text="Valutazioni recenti" FontSize="24" VerticalAlignment="Top" Margin="8" />
+                    <TextBlock x:Name="TitleRecentGrades" Text="Valutazioni recenti" FontSize="24"
+                               VerticalAlignment="Top" Margin="8" />
 
-                    <muxc:ProgressRing IsActive="True" x:Name="ProgressRingRecentGrades" 
-                           RelativePanel.RightOf="TitleRecentGrades"
+                    <muxc:ProgressRing IsActive="True" x:Name="ProgressRingRecentGrades"
+                                       RelativePanel.RightOf="TitleRecentGrades"
                                        RelativePanel.AlignVerticalCenterWith="TitleRecentGrades"
-                                       Visibility="{x:Bind DashboardPageViewModel.IsLoadingGrades, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}"/>
+                                       Visibility="{x:Bind DashboardPageViewModel.IsLoadingGrades, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" />
                 </RelativePanel>
 
 
-
                 <ScrollViewer Grid.Row="2" ZoomMode="Disabled"
-            IsTabStop="False" IsVerticalScrollChainingEnabled="False"
-            
-            HorizontalScrollMode="Enabled" HorizontalScrollBarVisibility="Auto"
-            VerticalScrollMode="Enabled" VerticalScrollBarVisibility="Auto">
+                              IsTabStop="False" IsVerticalScrollChainingEnabled="False"
 
-                    <controls2:GradesListView x:Name="ListRecentGrades" 
-                          HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
-                              
-                          ScrollViewer.VerticalScrollMode="Disabled"
-                                  ScrollViewer.VerticalScrollBarVisibility="Disabled"/>
+                              HorizontalScrollMode="Enabled" HorizontalScrollBarVisibility="Auto"
+                              VerticalScrollMode="Enabled" VerticalScrollBarVisibility="Auto">
+
+                    <controls2:GradesListView x:Name="ListRecentGrades"
+                                              HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+
+                                              ScrollViewer.VerticalScrollMode="Disabled"
+                                              ScrollViewer.VerticalScrollBarVisibility="Disabled" />
 
                 </ScrollViewer>
 
-                <HyperlinkButton Grid.Row="2"  Content="Vedi tutti i voti"
-                 Click="HyperlinkButton_Click" VerticalAlignment="Bottom" HorizontalAlignment="Right"
-                />
+                <HyperlinkButton Grid.Row="2" Content="Vedi tutti i voti"
+                                 Click="HyperlinkButton_Click" VerticalAlignment="Bottom" HorizontalAlignment="Right" />
 
             </Grid>
 
@@ -166,24 +162,21 @@
                 </Grid.ColumnDefinitions>
 
                 <StackPanel Grid.Row="0" Grid.RowSpan="2" VerticalAlignment="Center">
-                <TextBlock TextWrapping="Wrap" TextAlignment="Center"  Text="Media totale dei voti:"    FontSize="50" HorizontalAlignment="Center" VerticalAlignment="Top" />
+                    <TextBlock TextWrapping="Wrap" TextAlignment="Center" Text="Media totale dei voti:" FontSize="50"
+                               HorizontalAlignment="Center" VerticalAlignment="Top" />
 
-                    <muxc:ProgressRing IsActive="True" x:Name="ProgressRingMedia" 
-                           RelativePanel.AlignVerticalCenterWithPanel="True"
-                           RelativePanel.AlignHorizontalCenterWithPanel="True"
-                                       Visibility="{x:Bind DashboardPageViewModel.IsLoadingMedia, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}"/>
-                    
-                    <TextBlock  x:Name="TextBlockMedia" Text="test" Visibility="Collapsed"  HorizontalAlignment="Center" FontSize="45" FontWeight="Bold" VerticalAlignment="Center"  />
+                    <muxc:ProgressRing IsActive="True" x:Name="ProgressRingMedia"
+                                       RelativePanel.AlignVerticalCenterWithPanel="True"
+                                       RelativePanel.AlignHorizontalCenterWithPanel="True"
+                                       Visibility="{x:Bind DashboardPageViewModel.IsLoadingMedia, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" />
+
+                    <TextBlock x:Name="TextBlockMedia" Text="test" Visibility="Collapsed" HorizontalAlignment="Center"
+                               FontSize="45" FontWeight="Bold" VerticalAlignment="Center" />
                 </StackPanel>
 
             </Grid>
-            
-            
-            
-            
-            
-            
-            
+
+
             <Grid
                 VerticalAlignment="Stretch" HorizontalAlignment="Stretch"
                 CornerRadius="8"
@@ -204,36 +197,36 @@
 
                 <RelativePanel Grid.Row="0">
 
-                    <TextBlock x:Name="TextBachecaRecenti"  Text="Comunicazioni recenti" FontSize="24" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="8" />
+                    <TextBlock x:Name="TextBachecaRecenti" Text="Comunicazioni recenti" FontSize="24"
+                               VerticalAlignment="Top" HorizontalAlignment="Left" Margin="8" />
 
-                    <muxc:ProgressRing IsActive="True" x:Name="ProgressRingRecentNotices" 
-                           RelativePanel.RightOf="TextBachecaRecenti"
+                    <muxc:ProgressRing IsActive="True" x:Name="ProgressRingRecentNotices"
+                                       RelativePanel.RightOf="TextBachecaRecenti"
                                        RelativePanel.AlignVerticalCenterWith="TextBachecaRecenti"
-                                       Visibility="{x:Bind DashboardPageViewModel.IsLoadingNotices, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}"/>
+                                       Visibility="{x:Bind DashboardPageViewModel.IsLoadingNotices, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" />
                 </RelativePanel>
-                
+
 
                 <ScrollViewer Grid.Row="2" ZoomMode="Disabled"
                               x:Name="SideScroll"
-            IsTabStop="False" IsVerticalScrollChainingEnabled="False"
-             toolkit:FrameworkElementExtensions.EnableActualSizeBinding="true"
-            
-            HorizontalScrollMode="Enabled" HorizontalScrollBarVisibility="Auto"
-            VerticalScrollMode="Enabled" VerticalScrollBarVisibility="Auto">
+                              IsTabStop="False" IsVerticalScrollChainingEnabled="False"
+                              toolkit:FrameworkElementExtensions.EnableActualSizeBinding="true"
 
-                    <controls2:NoticesListView x:Name="ListRecentNotices" 
-                          Width="{Binding ElementName=SideScroll, Path=(toolkit:FrameworkElementExtensions.ActualWidth)}" 
-                          HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
-                              
-                          ScrollViewer.VerticalScrollMode="Disabled"
-                                  ScrollViewer.VerticalScrollBarVisibility="Disabled"/>
+                              HorizontalScrollMode="Enabled" HorizontalScrollBarVisibility="Auto"
+                              VerticalScrollMode="Enabled" VerticalScrollBarVisibility="Auto">
+
+                    <controls2:NoticesListView x:Name="ListRecentNotices"
+                                               Width="{Binding ElementName=SideScroll, Path=(toolkit:FrameworkElementExtensions.ActualWidth)}"
+                                               HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+
+                                               ScrollViewer.VerticalScrollMode="Disabled"
+                                               ScrollViewer.VerticalScrollBarVisibility="Disabled" />
 
 
                 </ScrollViewer>
 
-                <HyperlinkButton Grid.Row="2"  Content="Apri bacheca" x:Name="ButtonApriBacheca"
-                 Click="ButtonApriBacheca_Click" VerticalAlignment="Bottom" HorizontalAlignment="Right"
-                />
+                <HyperlinkButton Grid.Row="2" Content="Apri bacheca" x:Name="ButtonApriBacheca"
+                                 Click="ButtonApriBacheca_Click" VerticalAlignment="Bottom" HorizontalAlignment="Right" />
 
 
             </Grid>

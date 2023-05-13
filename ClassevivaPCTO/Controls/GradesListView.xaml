@@ -17,58 +17,58 @@
         <converters:GradeToColorConverter x:Key="GradeToColorConverter" />
 
         <DataTemplate x:Key="VotiListViewDataTemplateStandard"
-                  x:DataType="adapters:GradeAdapter">
+                      x:DataType="adapters:GradeAdapter">
             <RelativePanel>
 
                 <Grid RelativePanel.AlignVerticalCenterWithPanel="True" x:Name="gridVoto">
                     <Ellipse x:Name="Ellipse"
-                                             Grid.RowSpan="2"
-                                             Width="42"
-                                             Height="42"
-                                             Margin="2"
-                                         
-                                             Fill="{x:Bind CurrentObject,Converter={StaticResource GradeToColorConverter}}"
+                             Grid.RowSpan="2"
+                             Width="42"
+                             Height="42"
+                             Margin="2"
 
-                                             VerticalAlignment="Center"
-                                             HorizontalAlignment="Center">
+                             Fill="{x:Bind CurrentObject,Converter={StaticResource GradeToColorConverter}}"
+
+                             VerticalAlignment="Center"
+                             HorizontalAlignment="Center">
                         <!-- ="{ThemeResource SystemControlBackgroundBaseMediumBrush}" -->
                     </Ellipse>
                     <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center"
-                                               Text="{x:Bind CurrentObject.displayValue}" FontSize="14" Foreground="#FFFFFF" />
+                               Text="{x:Bind CurrentObject.displayValue}" FontSize="14" Foreground="#FFFFFF" />
 
                 </Grid>
 
                 <RelativePanel RelativePanel.AlignVerticalCenterWithPanel="True" RelativePanel.RightOf="gridVoto">
                     <TextBlock x:Name="textMateria" TextWrapping="Wrap"
-                                           MaxWidth="500"
-                                           Text="{x:Bind CurrentObject.subjectDesc}"
+                               MaxWidth="500"
+                               Text="{x:Bind CurrentObject.subjectDesc}"
 
-                                           Style="{ThemeResource BaseTextBlockStyle}"
-                                           Margin="12,6,0,0" />
+                               Style="{ThemeResource BaseTextBlockStyle}"
+                               Margin="12,6,0,0" />
 
                     <TextBlock RelativePanel.Below="textMateria"
-                                           TextWrapping="Wrap"
-                                              
+                               TextWrapping="Wrap"
 
-                                           Text="{x:Bind CurrentObject.notesForFamily}"
 
-                                           Style="{ThemeResource BodyTextBlockStyle}"
-                                           Margin="12,0,0,6" />
+                               Text="{x:Bind CurrentObject.notesForFamily}"
+
+                               Style="{ThemeResource BodyTextBlockStyle}"
+                               Margin="12,0,0,6" />
 
                     <TextBlock RelativePanel.RightOf="textMateria" x:Name="dataVoto"
-                                           Text="{x:Bind CurrentObject.evtDate, Converter={StaticResource DateTimeToNormalDateConverter}}"
+                               Text="{x:Bind CurrentObject.evtDate, Converter={StaticResource DateTimeToNormalDateConverter}}"
 
-                                           
-                                           Style="{ThemeResource CaptionTextBlockStyle}"
-                                           Margin="12,6,0,0" />
+
+                               Style="{ThemeResource CaptionTextBlockStyle}"
+                               Margin="12,6,0,0" />
 
                     <TextBlock RelativePanel.RightOf="dataVoto"
-                                           Text="{x:Bind CurrentObject.componentDesc}"
+                               Text="{x:Bind CurrentObject.componentDesc}"
 
 
-                                           Style="{ThemeResource CaptionTextBlockStyle}"
-                                           
-                                           Margin="12,6,0,0" />
+                               Style="{ThemeResource CaptionTextBlockStyle}"
+
+                               Margin="12,6,0,0" />
 
                 </RelativePanel>
             </RelativePanel>
@@ -76,54 +76,54 @@
 
 
         <DataTemplate x:Key="VotiListViewDataTemplateCompact"
-                  x:DataType="adapters:GradeAdapter">
+                      x:DataType="adapters:GradeAdapter">
             <RelativePanel>
 
                 <Grid RelativePanel.AlignVerticalCenterWithPanel="True" x:Name="gridVoto">
                     <Ellipse x:Name="Ellipse"
-                                             Grid.RowSpan="2"
-                                             Width="42"
-                                             Height="42"
-                                             Margin="2"
-                                         
-                                             Fill="{x:Bind CurrentObject, Converter={StaticResource GradeToColorConverter}}"
+                             Grid.RowSpan="2"
+                             Width="42"
+                             Height="42"
+                             Margin="2"
 
-                                             VerticalAlignment="Center"
-                                             HorizontalAlignment="Center">
+                             Fill="{x:Bind CurrentObject, Converter={StaticResource GradeToColorConverter}}"
+
+                             VerticalAlignment="Center"
+                             HorizontalAlignment="Center">
                         <!-- ="{ThemeResource SystemControlBackgroundBaseMediumBrush}" -->
                     </Ellipse>
                     <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center"
-                                               Text="{x:Bind CurrentObject.displayValue}" FontSize="14" Foreground="#FFFFFF" />
+                               Text="{x:Bind CurrentObject.displayValue}" FontSize="14" Foreground="#FFFFFF" />
 
                 </Grid>
 
                 <RelativePanel RelativePanel.AlignVerticalCenterWithPanel="True" RelativePanel.RightOf="gridVoto">
                     <TextBlock x:Name="textMateria" TextWrapping="Wrap"
-                                           MaxWidth="500"
-                                           Text="{x:Bind CurrentObject.subjectDesc}"
-                                           Style="{ThemeResource BaseTextBlockStyle}"
-                                           Margin="12,6,0,0" />
+                               MaxWidth="500"
+                               Text="{x:Bind CurrentObject.subjectDesc}"
+                               Style="{ThemeResource BaseTextBlockStyle}"
+                               Margin="12,6,0,0" />
 
 
                     <TextBlock RelativePanel.Below="textMateria" x:Name="dataVoto"
-                                           Text="{x:Bind CurrentObject.evtDate, Converter={StaticResource DateTimeToNormalDateConverter}}"
-                                           FontStyle="Italic"
-                                           Style="{ThemeResource BodyTextBlockStyle}"
-                                           Margin="12,0,0,0" />
+                               Text="{x:Bind CurrentObject.evtDate, Converter={StaticResource DateTimeToNormalDateConverter}}"
+                               FontStyle="Italic"
+                               Style="{ThemeResource BodyTextBlockStyle}"
+                               Margin="12,0,0,0" />
 
                     <TextBlock RelativePanel.RightOf="dataVoto" RelativePanel.Below="textMateria"
-                                           Text="{x:Bind CurrentObject.componentDesc}"
-                                           Style="{ThemeResource BodyTextBlockStyle}"
-                                           FontStyle="Italic"
-                                           Margin="12,0,0,0" />
+                               Text="{x:Bind CurrentObject.componentDesc}"
+                               Style="{ThemeResource BodyTextBlockStyle}"
+                               FontStyle="Italic"
+                               Margin="12,0,0,0" />
 
                     <TextBlock RelativePanel.Below="dataVoto"
-                                           TextWrapping="Wrap"
-                                           Text="{x:Bind CurrentObject.notesForFamily}"
-                                           Style="{ThemeResource BodyTextBlockStyle}"
-                                           Margin="12,0,0,6" />
+                               TextWrapping="Wrap"
+                               Text="{x:Bind CurrentObject.notesForFamily}"
+                               Style="{ThemeResource BodyTextBlockStyle}"
+                               Margin="12,0,0,6" />
 
-                    
+
                 </RelativePanel>
 
             </RelativePanel>
@@ -131,7 +131,6 @@
 
     </UserControl.Resources>
 
-    
-    
-        <ListView x:Name="listView"  ItemTemplate="{StaticResource VotiListViewDataTemplateStandard}" />
+
+    <ListView x:Name="listView" ItemTemplate="{StaticResource VotiListViewDataTemplateStandard}" />
 </UserControl>

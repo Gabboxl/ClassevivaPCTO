@@ -16,40 +16,41 @@
 
     <Page.Resources>
         <ResourceDictionary>
-            <microconverters:BoolToVisibilityConverter  x:Key="BoolToVisibilityConverter" />
+            <microconverters:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" />
         </ResourceDictionary>
     </Page.Resources>
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
 
 
         <RelativePanel Grid.Row="0">
 
-            <TextBlock x:Name="TextTitolo"  Grid.Row="0" Text="Bacheca" FontSize="42" VerticalAlignment="Top"
-                   Margin="32,16,0,0" />
+            <TextBlock x:Name="TextTitolo" Grid.Row="0" Text="Bacheca" FontSize="42" VerticalAlignment="Top"
+                       Margin="32,16,0,0" />
 
-            <AppBarButton  RelativePanel.RightOf="TextTitolo" x:Name="AggiornaCommand" VerticalAlignment="Top"  Margin="32,16,0,0" Icon="Refresh" Label="Aggiorna" Click="AggiornaCommand_Click"/>
+            <AppBarButton RelativePanel.RightOf="TextTitolo" x:Name="AggiornaCommand" VerticalAlignment="Top"
+                          Margin="32,16,0,0" Icon="Refresh" Label="Aggiorna" Click="AggiornaCommand_Click" />
         </RelativePanel>
 
 
-        <RelativePanel Grid.Row="2" 
+        <RelativePanel Grid.Row="2"
                        Margin="32,32,32,20"
                        VerticalAlignment="Stretch" HorizontalAlignment="Stretch"
                        x:Name="CardPanel"
-                        toolkit:FrameworkElementExtensions.EnableActualSizeBinding="true"
-                CornerRadius="8"
-                Padding="12"
-                BorderThickness="1"
-                BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
-                Background="{ThemeResource CardBackgroundFillColorDefaultBrush}">
+                       toolkit:FrameworkElementExtensions.EnableActualSizeBinding="true"
+                       CornerRadius="8"
+                       Padding="12"
+                       BorderThickness="1"
+                       BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
+                       Background="{ThemeResource CardBackgroundFillColorDefaultBrush}">
 
 
             <TextBlock Text="Comunicazioni" x:Name="TextComunicazioni"
@@ -57,46 +58,41 @@
                        Foreground="{ThemeResource TextFillColorSecondaryBrush}"
                        Style="{ThemeResource BodyStrongTextBlockStyle}" />
 
-            <muxc:ProgressRing IsActive="True" x:Name="ProgressRingBacheca" 
-                           RelativePanel.RightOf="TextComunicazioni"
+            <muxc:ProgressRing IsActive="True" x:Name="ProgressRingBacheca"
+                               RelativePanel.RightOf="TextComunicazioni"
                                Margin="12,0,0,0"
-                                       Visibility="{x:Bind BachecaViewModel.IsLoadingBacheca, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}"/>
+                               Visibility="{x:Bind BachecaViewModel.IsLoadingBacheca, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" />
 
 
-
-            <AutoSuggestBox QueryIcon="Find" 
+            <AutoSuggestBox QueryIcon="Find"
                             x:Name="SearchBoxBacheca"
                             PlaceholderText="Cerca" RelativePanel.AlignHorizontalCenterWithPanel="True"
                             HorizontalAlignment="Center"
                             Width="260" Height="32" />
 
-            
-            <CheckBox x:Name="CheckboxAttive" 
+
+            <CheckBox x:Name="CheckboxAttive"
                       Content="Mostra comunicazioni inattive"
                       Margin="0,0,16,0"
-                      RelativePanel.AlignRightWithPanel="True" 
+                      RelativePanel.AlignRightWithPanel="True"
                       RelativePanel.AlignHorizontalCenterWithPanel="True"
-                      
-                      IsChecked="{x:Bind BachecaViewModel.MostraComInattive, Mode=TwoWay}"/>
 
-            <Grid RelativePanel.Below="SearchBoxBacheca" 
+                      IsChecked="{x:Bind BachecaViewModel.MostraComInattive, Mode=TwoWay}" />
+
+            <Grid RelativePanel.Below="SearchBoxBacheca"
                   RelativePanel.AlignRightWithPanel="True"
-                          RelativePanel.AlignLeftWithPanel="True">
+                  RelativePanel.AlignLeftWithPanel="True">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
 
-                <controls:NoticesListView 
+                <controls:NoticesListView
                     x:Name="NoticesListView"
                     Margin="0,8,0,0">
-                    
+
                 </controls:NoticesListView>
 
             </Grid>
-
-
-
-
 
 
         </RelativePanel>

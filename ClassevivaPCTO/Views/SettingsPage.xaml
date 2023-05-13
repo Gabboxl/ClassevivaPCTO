@@ -28,28 +28,28 @@
     <ScrollViewer>
         <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
 
-            <TextBlock x:Name="TextTitolo"  Grid.Row="0" Text="Impostazioni" FontSize="42" VerticalAlignment="Top"
-                   Margin="32,16,0,0" />
+            <TextBlock x:Name="TextTitolo" Grid.Row="0" Text="Impostazioni" FontSize="42" VerticalAlignment="Top"
+                       Margin="32,16,0,0" />
 
             <StackPanel Grid.Row="1"
-                MaxWidth="1000"
+                        MaxWidth="1000"
                         HorizontalAlignment="Stretch"
                         Spacing="{StaticResource SettingsCardSpacing}">
                 <StackPanel.ChildrenTransitions>
                     <EntranceThemeTransition FromVerticalOffset="50" />
                     <RepositionThemeTransition IsStaggeringEnabled="False" />
                 </StackPanel.ChildrenTransitions>
-                
-                
+
+
                 <TextBlock Style="{StaticResource SettingsSectionHeaderTextBlockStyle}"
                            x:Uid="Settings_Personalization" />
-                
-                
+
+
                 <labs:SettingsExpander Description="Scegli il tema dell'app"
                                        Header="Tema">
                     <labs:SettingsExpander.HeaderIcon>
@@ -58,33 +58,33 @@
 
                     <labs:SettingsExpander.Items>
                         <labs:SettingsCard Header="Scegli un tema:">
-                            <StackPanel >
-                                <RadioButton 
-                        x:Uid="Settings_Theme_Light"
-                        Checked="ThemeChanged_CheckedAsync" 
-                        IsChecked="{x:Bind ElementTheme, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter=Light, Mode=OneWay}"
-                        FontSize="15"
-                        GroupName="AppTheme" >
+                            <StackPanel>
+                                <RadioButton
+                                    x:Uid="Settings_Theme_Light"
+                                    Checked="ThemeChanged_CheckedAsync"
+                                    IsChecked="{x:Bind ElementTheme, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter=Light, Mode=OneWay}"
+                                    FontSize="15"
+                                    GroupName="AppTheme">
                                     <RadioButton.CommandParameter>
                                         <xaml:ElementTheme>Light</xaml:ElementTheme>
                                     </RadioButton.CommandParameter>
                                 </RadioButton>
-                                <RadioButton 
-                        x:Uid="Settings_Theme_Dark"
-                        Checked="ThemeChanged_CheckedAsync" 
-                        IsChecked="{x:Bind ElementTheme, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter=Dark, Mode=OneWay}"
-                        FontSize="15"
-                        GroupName="AppTheme">
+                                <RadioButton
+                                    x:Uid="Settings_Theme_Dark"
+                                    Checked="ThemeChanged_CheckedAsync"
+                                    IsChecked="{x:Bind ElementTheme, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter=Dark, Mode=OneWay}"
+                                    FontSize="15"
+                                    GroupName="AppTheme">
                                     <RadioButton.CommandParameter>
                                         <xaml:ElementTheme>Dark</xaml:ElementTheme>
                                     </RadioButton.CommandParameter>
                                 </RadioButton>
-                                <RadioButton 
-                        x:Uid="Settings_Theme_Default"
-                        Checked="ThemeChanged_CheckedAsync"
-                        IsChecked="{x:Bind ElementTheme, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter=Default, Mode=OneWay}"
-                        FontSize="15"
-                        GroupName="AppTheme">
+                                <RadioButton
+                                    x:Uid="Settings_Theme_Default"
+                                    Checked="ThemeChanged_CheckedAsync"
+                                    IsChecked="{x:Bind ElementTheme, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter=Default, Mode=OneWay}"
+                                    FontSize="15"
+                                    GroupName="AppTheme">
                                     <RadioButton.CommandParameter>
                                         <xaml:ElementTheme>Default</xaml:ElementTheme>
                                     </RadioButton.CommandParameter>
@@ -137,8 +137,7 @@
                     </labs:SettingsExpander.HeaderIcon>
                     <TextBlock IsTextSelectionEnabled="True"
                                Foreground="{ThemeResource TextFillColorSecondaryBrush}"
-                               Style="{StaticResource BodyTextBlockStyle}"
-                                >
+                               Style="{StaticResource BodyTextBlockStyle}">
                         <Run Text="Version " /><Run Text="{x:Bind Version}" />
                     </TextBlock>
                     <labs:SettingsExpander.Items>
@@ -147,7 +146,8 @@
                             <StackPanel Margin="-12,0,0,0"
                                         Orientation="Vertical">
 
-                                <HyperlinkButton Content="Progetto su GitHub" NavigateUri="http://github.com/Gabboxl/ClassevivaPCTO" />
+                                <HyperlinkButton Content="Progetto su GitHub"
+                                                 NavigateUri="http://github.com/Gabboxl/ClassevivaPCTO" />
                             </StackPanel>
                         </labs:SettingsCard>
                     </labs:SettingsExpander.Items>
@@ -156,19 +156,19 @@
 
                 <RelativePanel>
 
-                    <HyperlinkButton Margin="0,8,0,0" 
+                    <HyperlinkButton Margin="0,8,0,0"
                                      x:Name="hyperlinkVote"
                                      Click="HyperlinkVote_Click"
-                                 Content="Vota l'app" />
+                                     Content="Vota l'app" />
 
-                    <HyperlinkButton Margin="0,8,0,0" 
+                    <HyperlinkButton Margin="0,8,0,0"
                                      x:Name="hyperlinkIssue"
                                      RelativePanel.RightOf="hyperlinkVote"
                                      NavigateUri="http://github.com/Gabboxl/ClassevivaPCTO/issues"
-                                 Content="Segnala un problema" />
+                                     Content="Segnala un problema" />
                 </RelativePanel>
 
-                
+
             </StackPanel>
         </Grid>
     </ScrollViewer>

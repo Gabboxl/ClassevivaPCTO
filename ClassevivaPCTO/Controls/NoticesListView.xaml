@@ -17,14 +17,15 @@
 
 
         <!-- being "BasedOn" the DefaultListViewItemStyle style, it removes the highlight effect of windows 10  -->
-        <Style x:Key="ListViewFullStretchStyle" TargetType="ListViewItem" BasedOn="{StaticResource DefaultListViewItemStyle}">
-            <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
-            <Setter Property="VerticalContentAlignment" Value="Stretch"/>
+        <Style x:Key="ListViewFullStretchStyle" TargetType="ListViewItem"
+               BasedOn="{StaticResource DefaultListViewItemStyle}">
+            <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+            <Setter Property="VerticalContentAlignment" Value="Stretch" />
         </Style>
 
 
         <DataTemplate x:Key="NoticeListViewDataTemplate"
-                  x:DataType="adapters:NoticeAdapter">
+                      x:DataType="adapters:NoticeAdapter">
 
             <Grid>
                 <Grid.RowDefinitions>
@@ -34,43 +35,42 @@
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="Auto" />
                 </Grid.ColumnDefinitions>
-            
 
-                <RelativePanel ScrollViewer.HorizontalScrollMode="Disabled" Grid.Row="0" Grid.Column="0"
-                               >
 
-                    
+                <RelativePanel ScrollViewer.HorizontalScrollMode="Disabled" Grid.Row="0" Grid.Column="0">
+
 
                     <TextBlock x:Name="titoloEvento" TextWrapping="WrapWholeWords"
-                               
 
-                                           Text="{x:Bind CurrentObject.cntTitle}"
-                                           Style="{ThemeResource BaseTextBlockStyle}"
-                                           Margin="6,6,0,0" />
-                    
+
+                               Text="{x:Bind CurrentObject.cntTitle}"
+                               Style="{ThemeResource BaseTextBlockStyle}"
+                               Margin="6,6,0,0" />
+
                     <!-- data pubblicazione -->
                     <TextBlock RelativePanel.RightOf="titoloEvento" x:Name="dataPubblicazione" TextWrapping="NoWrap"
                                TextTrimming="None"
-                               
-                                          
-                                           Text="{x:Bind  CurrentObject.pubDT, Converter={StaticResource DateTimeToNormalDateConverter}}"
-                                           Style="{ThemeResource BodyStrongTextBlockStyle}"
+
+
+                               Text="{x:Bind  CurrentObject.pubDT, Converter={StaticResource DateTimeToNormalDateConverter}}"
+                               Style="{ThemeResource BodyStrongTextBlockStyle}"
                                Foreground="{ThemeResource TextFillColorTertiaryBrush}"
-                                           Margin="16,6,0,0" />
+                               Margin="16,6,0,0" />
 
 
                     <TextBlock RelativePanel.Below="titoloEvento" x:Name="categoriaEvento" TextWrapping="Wrap"
-                                           MaxWidth="500"
-                                           Text="{x:Bind Category}"
-                                           Style="{ThemeResource CaptionTextBlockStyle}"
-                                           Margin="6,6,0,0" />
+                               MaxWidth="500"
+                               Text="{x:Bind Category}"
+                               Style="{ThemeResource CaptionTextBlockStyle}"
+                               Margin="6,6,0,0" />
 
 
-                <TextBlock x:Name="dataStart" RelativePanel.Below="titoloEvento"  TextWrapping="Wrap" RelativePanel.RightOf="categoriaEvento"
-                                           Text="{x:Bind  FromToValidDate}"
-                                           FontStyle="Italic"
-                                           Style="{ThemeResource CaptionTextBlockStyle}"
-                                           Margin="6,6,0,0" />
+                    <TextBlock x:Name="dataStart" RelativePanel.Below="titoloEvento" TextWrapping="Wrap"
+                               RelativePanel.RightOf="categoriaEvento"
+                               Text="{x:Bind  FromToValidDate}"
+                               FontStyle="Italic"
+                               Style="{ThemeResource CaptionTextBlockStyle}"
+                               Margin="6,6,0,0" />
 
 
                     <TextBlock x:Name="StatusText" RelativePanel.RightOf="dataPubblicazione" TextWrapping="NoWrap"
@@ -82,45 +82,41 @@
                                Margin="6,6,0,0" />
 
 
-
-
                 </RelativePanel>
 
                 <RelativePanel
-                     Grid.Column="1">
+                    Grid.Column="1">
 
                     <FontIcon RelativePanel.LeftOf="ReadButton"
                               FontFamily="{StaticResource FluentIcons}"
                               Glyph="{x:Bind ReadIcon}"
                               RelativePanel.AlignVerticalCenterWithPanel="True"
                               Foreground="{x:Bind ReadColor}"
-                              Margin="0,0,8,0"
-                        />
+                              Margin="0,0,8,0" />
 
 
-                    <AppBarButton 
-                    RelativePanel.AlignVerticalCenterWithPanel="True"
-                    RelativePanel.AlignRightWithPanel="True"
+                    <AppBarButton
+                        RelativePanel.AlignVerticalCenterWithPanel="True"
+                        RelativePanel.AlignRightWithPanel="True"
                         x:Name="ReadButton"
-                    
-                     Click="ReadButton_Click" Icon="View" Label="Leggi" />
-                    
+
+                        Click="ReadButton_Click" Icon="View" Label="Leggi" />
+
 
                 </RelativePanel>
 
             </Grid>
 
 
-
         </DataTemplate>
     </UserControl.Resources>
 
     <ListView x:Name="listView"
-             
+
               ScrollViewer.VerticalScrollMode="Enabled"
               HorizontalAlignment="Stretch"
               HorizontalContentAlignment="Stretch"
-              ItemTemplate="{StaticResource NoticeListViewDataTemplate}" 
+              ItemTemplate="{StaticResource NoticeListViewDataTemplate}"
               ItemContainerStyle="{StaticResource ListViewFullStretchStyle}">
 
     </ListView>
