@@ -7,6 +7,7 @@
     xmlns:converters="using:ClassevivaPCTO.Converters"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:microconverters="using:Microsoft.Toolkit.Uwp.UI.Converters"
     mc:Ignorable="d"
     d:DesignHeight="300"
     d:DesignWidth="400">
@@ -14,6 +15,7 @@
     <UserControl.Resources>
 
         <converters:DateTimeToNormalDateConverter x:Key="DateTimeToNormalDateConverter" />
+        <microconverters:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" />
 
 
         <!-- being "BasedOn" the DefaultListViewItemStyle style, it removes the highlight effect of windows 10  -->
@@ -63,9 +65,11 @@
                     Grid.Column="1">
 
                     <AppBarButton x:Name="ButtonOpen" RelativePanel.LeftOf="ButtonSave" Click="ButtonOpen_Click"
+                                  Visibility="{x:Bind CurrentObject.checkStatus.available, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}"
                                   RelativePanel.AlignVerticalCenterWithPanel="True" Icon="OpenFile" Label="Apri" />
 
                     <AppBarButton x:Name="ButtonSave" Click="ButtonSave_Click" RelativePanel.AlignRightWithPanel="True"
+                                  Visibility="{x:Bind CurrentObject.checkStatus.available, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}"
                                   RelativePanel.AlignVerticalCenterWithPanel="True" Icon="Save" Label="Salva" />
 
 
