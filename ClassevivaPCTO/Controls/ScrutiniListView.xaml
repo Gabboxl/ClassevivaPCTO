@@ -64,11 +64,11 @@
                 <RelativePanel
                     Grid.Column="1">
 
-                    <AppBarButton x:Name="ButtonOpen" RelativePanel.LeftOf="ButtonSave" Click="ButtonOpen_Click"
+                    <AppBarButton x:Name="ButtonOpenScrutinio" RelativePanel.LeftOf="ButtonSaveScrutinio" Click="ButtonOpen_Click"
                                   Visibility="{x:Bind CurrentObject.checkStatus.available, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}"
                                   RelativePanel.AlignVerticalCenterWithPanel="True" Icon="OpenFile" Label="Apri" />
 
-                    <AppBarButton x:Name="ButtonSave" Click="ButtonSave_Click" RelativePanel.AlignRightWithPanel="True"
+                    <AppBarButton x:Name="ButtonSaveScrutinio" Click="ButtonSave_Click" RelativePanel.AlignRightWithPanel="True"
                                   Visibility="{x:Bind CurrentObject.checkStatus.available, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}"
                                   RelativePanel.AlignVerticalCenterWithPanel="True" Icon="Save" Label="Salva" />
 
@@ -78,9 +78,65 @@
 
             </Grid>
 
+        </DataTemplate>
+
+
+
+        <DataTemplate x:Key="SchoolReportListViewDataTemplate"
+                      x:DataType="adapters:SchoolReportAdapter">
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+
+
+                <RelativePanel ScrollViewer.HorizontalScrollMode="Disabled" Grid.Row="0" Grid.Column="0">
+
+
+                    <!-- globe icon -->
+                    <FontIcon x:Name="testIcon"
+                              FontSize="24"
+                              RelativePanel.AlignVerticalCenterWithPanel="True"
+                              FontFamily="{StaticResource FluentIcons}" Glyph="&#xE774;" />
+
+
+                    <TextBlock x:Name="titoloReport" RelativePanel.RightOf="testIcon"
+                               RelativePanel.AlignVerticalCenterWithPanel="True"
+                               TextWrapping="WrapWholeWords"
+                               Text="{x:Bind CurrentObject.desc}"
+                               Style="{ThemeResource BaseTextBlockStyle}"
+                               Margin="12,0,0,0" />
+
+
+
+
+                </RelativePanel>
+
+                <RelativePanel
+                    Grid.Column="1">
+
+                    <AppBarButton x:Name="ButtonOpenReport" Click="ButtonOpenReport_OnClick"
+                                  RelativePanel.AlignVerticalCenterWithPanel="True" Label="Apri">
+                        <!-- custom icon -->
+                        <AppBarButton.Icon>
+                            <FontIcon FontFamily="{StaticResource FluentIcons}" Glyph="&#xE71B;" />
+                        </AppBarButton.Icon>
+                    </AppBarButton>
+
+
+                </RelativePanel>
+
+            </Grid>
 
         </DataTemplate>
     </UserControl.Resources>
+
+    <StackPanel>
 
     <ListView x:Name="listViewScrutini"
 
@@ -91,4 +147,16 @@
               ItemContainerStyle="{StaticResource ListViewFullStretchStyle}">
 
     </ListView>
+
+    <ListView x:Name="listViewSchoolReports"
+
+              ScrollViewer.VerticalScrollMode="Enabled"
+              HorizontalAlignment="Stretch"
+              HorizontalContentAlignment="Stretch"
+              ItemTemplate="{StaticResource SchoolReportListViewDataTemplate}"
+              ItemContainerStyle="{StaticResource ListViewFullStretchStyle}">
+
+    </ListView>
+
+    </StackPanel>
 </UserControl>

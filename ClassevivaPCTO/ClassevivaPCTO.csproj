@@ -132,6 +132,7 @@
     <Compile Include="Activation\DefaultActivationHandler.cs" />
     <Compile Include="Adapters\AbsenceEventAdapter.cs" />
     <Compile Include="Adapters\GradeAdapter.cs" />
+    <Compile Include="Adapters\SchoolReportAdapter.cs" />
     <Compile Include="Adapters\ScrutinioAdapter.cs" />
     <Compile Include="Adapters\NoticeAdapter.cs" />
     <Compile Include="Adapters\LessonAdapter.cs" />

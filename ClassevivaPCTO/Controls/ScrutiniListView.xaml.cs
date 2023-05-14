@@ -43,6 +43,7 @@ namespace ClassevivaPCTO.Controls
             var newValue = e.NewValue as ScrutiniDocumentsResult;
 
             var scrutiniAdapters = newValue.Documents?.Select(evt => new ScrutinioAdapter(evt)).ToList();
+            var schoolReportsAdapters = newValue.SchoolReports?.Select(evt => new SchoolReportAdapter(evt)).ToList();
 
             //save the scroll position
             var scrollViewer = currentInstance.listViewScrutini.FindDescendant<ScrollViewer>();
@@ -52,6 +53,7 @@ namespace ClassevivaPCTO.Controls
 
             //update the listview contents
             currentInstance.listViewScrutini.ItemsSource = scrutiniAdapters;
+            currentInstance.listViewSchoolReports.ItemsSource = schoolReportsAdapters;
 
 
 
@@ -89,7 +91,6 @@ namespace ClassevivaPCTO.Controls
 
         private async void ButtonSave_Click(object sender, RoutedEventArgs e)
         {
-
             var senderbutton = sender as AppBarButton;
             var currentScrutinio = (senderbutton.DataContext as ScrutinioAdapter).CurrentObject;
 
@@ -154,6 +155,18 @@ namespace ClassevivaPCTO.Controls
             byte[] bytes = await attachmentBinary.Content.ReadAsByteArrayAsync();
 
             return (bytes, filename);
+        }
+
+        private void ButtonOpenReport_OnClick(object sender, RoutedEventArgs e)
+        {
+            var senderbutton = sender as AppBarButton;
+            var currentSchoolReport = (senderbutton.DataContext as SchoolReportAdapter).CurrentObject;
+
+            var link = currentSchoolReport.viewLink;
+
+            //open link in browser
+            Windows.System.Launcher.LaunchUriAsync(new Uri(link));
+
         }
     }
 }
