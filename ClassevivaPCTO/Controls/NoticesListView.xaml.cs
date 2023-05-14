@@ -18,7 +18,7 @@ namespace ClassevivaPCTO.Controls
 
         public EventHandler OnShouldUpdate
         {
-            get { return (EventHandler)GetValue(OnShouldUpdateProperty); }
+            get { return (EventHandler) GetValue(OnShouldUpdateProperty); }
             set { SetValue(OnShouldUpdateProperty, value); }
         }
 
@@ -31,7 +31,7 @@ namespace ClassevivaPCTO.Controls
 
         public List<Notice> ItemsSource
         {
-            get { return (List<Notice>)GetValue(ItemsSourceProperty); }
+            get { return (List<Notice>) GetValue(ItemsSourceProperty); }
             set { SetValue(ItemsSourceProperty, value); }
         }
 
@@ -47,7 +47,7 @@ namespace ClassevivaPCTO.Controls
             DependencyPropertyChangedEventArgs e
         )
         {
-            NoticesListView currentInstance = (NoticesListView)d;
+            NoticesListView currentInstance = (NoticesListView) d;
 
             var newValue = e.NewValue as List<Notice>;
 
@@ -60,7 +60,7 @@ namespace ClassevivaPCTO.Controls
         {
             this.InitializeComponent();
 
-            App app = (App)App.Current;
+            App app = (App) App.Current;
             var apiClient = app.Container.GetService<IClassevivaAPI>();
 
             apiWrapper = PoliciesDispatchProxy<IClassevivaAPI>.CreateProxy(apiClient);
@@ -71,7 +71,6 @@ namespace ClassevivaPCTO.Controls
         {
             var senderbutton = sender as AppBarButton;
             var currentNotice = (senderbutton.DataContext as NoticeAdapter).CurrentObject;
-
 
 
             //check whether the notice needs to be read, if yes create a flyout and with a text and button to confirm and display it on the button
@@ -86,8 +85,7 @@ namespace ClassevivaPCTO.Controls
                 textBlock.Text = "La comunicazione verrà contrassegnata come letta sul server. Continuare?";
                 textBlock.TextWrapping = TextWrapping.WrapWholeWords;
                 textBlock.Margin = new Thickness(0, 0, 0, 12);
-                
-                
+
 
                 //create a flyoutpresenterstyle with the SystemFillColorCautionBackgroundBrush color and set it to the flyout
                 var flyoutPresenterStyle = new Style(typeof(FlyoutPresenter));
@@ -96,12 +94,14 @@ namespace ClassevivaPCTO.Controls
                 //    flyoutPresenterStyle.Setters.Add(new Setter(FlyoutPresenter.BackgroundProperty, (Windows.UI.Xaml.Media.Brush)Application.Current.Resources["SystemFillColorCautionBackgroundBrush"]));
 
                 //make the flyout wrap the text vertically
-                flyoutPresenterStyle.Setters.Add(new Setter(ScrollViewer.HorizontalScrollModeProperty, ScrollMode.Disabled));
-                flyoutPresenterStyle.Setters.Add(new Setter(ScrollViewer.HorizontalScrollBarVisibilityProperty, ScrollBarVisibility.Disabled));
+                flyoutPresenterStyle.Setters.Add(new Setter(ScrollViewer.HorizontalScrollModeProperty,
+                    ScrollMode.Disabled));
+                flyoutPresenterStyle.Setters.Add(new Setter(ScrollViewer.HorizontalScrollBarVisibilityProperty,
+                    ScrollBarVisibility.Disabled));
 
 
                 //make the flyoutPresenterStyle based on the default one
-                flyoutPresenterStyle.BasedOn = (Style)Application.Current.Resources["CautionFlyoutStyle"];
+                flyoutPresenterStyle.BasedOn = (Style) Application.Current.Resources["CautionFlyoutStyle"];
 
 
                 flyout.FlyoutPresenterStyle = flyoutPresenterStyle;
@@ -137,8 +137,6 @@ namespace ClassevivaPCTO.Controls
                 //apro la comunicazione in background
                 await Task.Run(() => ReadAndOpenNoticeDialog(currentNotice));
             }
-
-
         }
 
 
@@ -148,33 +146,29 @@ namespace ClassevivaPCTO.Controls
             Card cardResult = ViewModelHolder.getViewModel().SingleCardResult;
 
 
-
             //we need to read the notice first
             NoticeReadResult noticeReadResult =
-             await apiWrapper.ReadNotice(cardResult.usrId.ToString(), currentNotice.pubId.ToString(),
-             currentNotice.evtCode,
-                loginResult.token);
+                await apiWrapper.ReadNotice(cardResult.usrId.ToString(), currentNotice.pubId.ToString(),
+                    currentNotice.evtCode,
+                    loginResult.token);
 
             //execute on main UI thread
             await Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, async () =>
             {
-
                 var noticeDialogContent = new NoticeDialogContent(currentNotice, noticeReadResult);
 
-            ContentDialog dialog = new ContentDialog();
-            dialog.Title = currentNotice.cntTitle;
-            dialog.PrimaryButtonText = "Chiudi";
-            dialog.DefaultButton = ContentDialogButton.Primary;
-            dialog.RequestedTheme = (Window.Current.Content as FrameworkElement).RequestedTheme;
-            dialog.Content = noticeDialogContent;
+                ContentDialog dialog = new ContentDialog();
+                dialog.Title = currentNotice.cntTitle;
+                dialog.PrimaryButtonText = "Chiudi";
+                dialog.DefaultButton = ContentDialogButton.Primary;
+                dialog.RequestedTheme = (Window.Current.Content as FrameworkElement).RequestedTheme;
+                dialog.Content = noticeDialogContent;
 
-            //dialog.FullSizeDesired = true;
-            dialog.Width = 1200;
+                //dialog.FullSizeDesired = true;
+                dialog.Width = 1200;
 
-            try
-            {
-
-
+                try
+                {
                     var result = await dialog.ShowAsync();
 
                     if (result == ContentDialogResult.Primary)
@@ -182,15 +176,11 @@ namespace ClassevivaPCTO.Controls
                         //raise OnShouldUpdate event
                         OnShouldUpdate?.Invoke(this, EventArgs.Empty);
                     }
-                
-
-
-            }
-            catch (Exception ex)
-            {
-                System.Console.WriteLine(ex.ToString());
-            }
-
+                }
+                catch (Exception ex)
+                {
+                    System.Console.WriteLine(ex.ToString());
+                }
             });
         }
     }
