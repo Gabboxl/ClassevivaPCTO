@@ -44,19 +44,20 @@
 
                     <TextBlock x:Name="titoloScrutinio" TextWrapping="WrapWholeWords"
 
-
+                               RelativePanel.AlignVerticalCenterWithPanel="True"
                                Text="{x:Bind CurrentObject.desc}"
                                Style="{ThemeResource BaseTextBlockStyle}"
-                               Margin="6,6,0,0" />
+                               Margin="6,0,0,0" />
 
 
                     <TextBlock x:Name="StatusText" RelativePanel.RightOf="titoloScrutinio" TextWrapping="NoWrap"
+                               RelativePanel.AlignVerticalCenterWith="titoloScrutinio"
                                TextTrimming="None"
                                Text="{x:Bind  StatusText}"
                                FontStyle="Italic"
                                Foreground="{x:Bind StatusTextColor}"
                                Style="{ThemeResource CaptionTextBlockStyle}"
-                               Margin="6,6,0,0" />
+                               Margin="6,0,0,6" />
 
 
                 </RelativePanel>
