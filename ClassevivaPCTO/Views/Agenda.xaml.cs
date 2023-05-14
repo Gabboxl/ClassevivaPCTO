@@ -7,7 +7,7 @@ using Windows.ApplicationModel.Core;
 using Windows.UI.Core;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
-using ClassevivaPCTO.Data;
+using ClassevivaPCTO.DataModels;
 
 namespace ClassevivaPCTO.Views
 {

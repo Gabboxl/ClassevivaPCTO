@@ -384,6 +384,9 @@ namespace ClassevivaPCTO.Utils
     {
         public string hash { get; set; }
         public string desc { get; set; }
+
+        //this value is not present in the API response, but it's added by us later
+        public ScrutiniDocumentCheckStatus checkStatus { get; set; }
     }
 
     public class ScrutiniDocumentsResult
@@ -395,14 +398,14 @@ namespace ClassevivaPCTO.Utils
         public List<ScrutiniSchoolReport> SchoolReports { get; set; }
     }
 
-    public class ScrutiniDocumentStatus
+    public class ScrutiniDocumentCheckStatus
     {
         public bool available { get; set; }
     }
 
     public class ScrutiniCheckResult
     {
-        public ScrutiniDocumentStatus document { get; set; }
+        public ScrutiniDocumentCheckStatus document { get; set; }
     }
 
 

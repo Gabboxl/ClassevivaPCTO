@@ -132,10 +132,14 @@
     <Compile Include="Activation\DefaultActivationHandler.cs" />
     <Compile Include="Adapters\AbsenceEventAdapter.cs" />
     <Compile Include="Adapters\GradeAdapter.cs" />
+    <Compile Include="Adapters\ScrutinioAdapter.cs" />
     <Compile Include="Adapters\NoticeAdapter.cs" />
     <Compile Include="Adapters\LessonAdapter.cs" />
     <Compile Include="Controls\AbsencesListView.xaml.cs">
       <DependentUpon>AbsencesListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ScrutiniListView.xaml.cs">
+      <DependentUpon>ScrutiniListView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\OverviewListView.xaml.cs">
       <DependentUpon>OverviewListView.xaml</DependentUpon>
@@ -178,7 +182,7 @@
     <Compile Include="Utils\ColorGenerator.cs" />
     <Compile Include="Utils\CvUtils.cs" />
     <Compile Include="Utils\IClassevivaAPI.cs" />
-    <Compile Include="Data\OverviewDataModel.cs" />
+    <Compile Include="DataModels\OverviewDataModel.cs" />
     <Compile Include="ViewModels\AssenzeViewModel.cs" />
     <Compile Include="ViewModels\NoteViewModel.cs" />
     <Compile Include="ViewModels\ScrutiniViewModel.cs" />
@@ -318,6 +322,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Controls\NiceNavigationView\NavigationView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\ScrutiniListView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

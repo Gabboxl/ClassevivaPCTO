@@ -1,0 +1,90 @@
+﻿<UserControl
+    x:Class="ClassevivaPCTO.Controls.ScrutiniListView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ClassevivaPCTO.Controls"
+    xmlns:adapters="using:ClassevivaPCTO.Adapters"
+    xmlns:converters="using:ClassevivaPCTO.Converters"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="300"
+    d:DesignWidth="400">
+
+    <UserControl.Resources>
+
+        <converters:DateTimeToNormalDateConverter x:Key="DateTimeToNormalDateConverter" />
+
+
+        <!-- being "BasedOn" the DefaultListViewItemStyle style, it removes the highlight effect of windows 10  -->
+        <Style x:Key="ListViewFullStretchStyle" TargetType="ListViewItem"
+               BasedOn="{StaticResource DefaultListViewItemStyle}">
+            <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+            <Setter Property="VerticalContentAlignment" Value="Stretch" />
+        </Style>
+
+
+        <DataTemplate x:Key="ScrutiniListViewDataTemplate"
+                      x:DataType="adapters:ScrutinioAdapter">
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+
+
+                <RelativePanel ScrollViewer.HorizontalScrollMode="Disabled" Grid.Row="0" Grid.Column="0">
+
+
+                    <TextBlock x:Name="titoloScrutinio" TextWrapping="WrapWholeWords"
+
+
+                               Text="{x:Bind CurrentObject.desc}"
+                               Style="{ThemeResource BaseTextBlockStyle}"
+                               Margin="6,6,0,0" />
+
+
+                    <TextBlock x:Name="StatusText" RelativePanel.RightOf="titoloScrutinio" TextWrapping="NoWrap"
+                               TextTrimming="None"
+                               Text="{x:Bind  StatusText}"
+                               FontStyle="Italic"
+                               Foreground="{x:Bind StatusTextColor}"
+                               Style="{ThemeResource CaptionTextBlockStyle}"
+                               Margin="6,6,0,0" />
+
+
+                </RelativePanel>
+
+                <RelativePanel
+                    Grid.Column="1">
+
+                    <AppBarButton x:Name="ButtonOpen" RelativePanel.LeftOf="ButtonSave" Click="ButtonOpen_Click"
+                                  RelativePanel.AlignVerticalCenterWithPanel="True" Icon="OpenFile" Label="Apri" />
+
+                    <AppBarButton x:Name="ButtonSave" Click="ButtonSave_Click" RelativePanel.AlignRightWithPanel="True"
+                                  RelativePanel.AlignVerticalCenterWithPanel="True" Icon="Save" Label="Salva" />
+
+
+
+                </RelativePanel>
+
+            </Grid>
+
+
+        </DataTemplate>
+    </UserControl.Resources>
+
+    <ListView x:Name="listViewScrutini"
+
+              ScrollViewer.VerticalScrollMode="Enabled"
+              HorizontalAlignment="Stretch"
+              HorizontalContentAlignment="Stretch"
+              ItemTemplate="{StaticResource ScrutiniListViewDataTemplate}"
+              ItemContainerStyle="{StaticResource ListViewFullStretchStyle}">
+
+    </ListView>
+</UserControl>

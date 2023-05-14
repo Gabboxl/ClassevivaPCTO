@@ -1,8 +1,8 @@
-﻿using ClassevivaPCTO.Utils;
+﻿using System;
+using ClassevivaPCTO.Utils;
 using CommunityToolkit.Mvvm.ComponentModel;
-using System;
 
-namespace ClassevivaPCTO.Data
+namespace ClassevivaPCTO.DataModels
 {
     public class OverviewDataModel : ObservableObject
     {
