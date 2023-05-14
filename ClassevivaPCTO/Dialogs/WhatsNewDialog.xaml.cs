@@ -1,7 +1,7 @@
 ﻿using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
-namespace ClassevivaPCTO.Views
+namespace ClassevivaPCTO.Dialogs
 {
     public sealed partial class WhatsNewDialog : ContentDialog
     {
