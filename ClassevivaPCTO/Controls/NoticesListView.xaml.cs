@@ -9,6 +9,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using Microsoft.Toolkit.Uwp.UI;
+
 
 namespace ClassevivaPCTO.Controls
 {
@@ -53,7 +55,19 @@ namespace ClassevivaPCTO.Controls
 
             var eventAdapters = newValue?.Select(evt => new NoticeAdapter(evt)).ToList();
 
+            //save the scroll position
+            var scrollViewer = currentInstance.listView.FindDescendant<ScrollViewer>();
+            double horizontalOffset = scrollViewer.HorizontalOffset;
+            double verticalOffset = scrollViewer.VerticalOffset;
+
+
+            //update the listview contents
             currentInstance.listView.ItemsSource = eventAdapters;
+
+
+            //restore the scroll position
+            scrollViewer.ChangeView(horizontalOffset, verticalOffset, null);
+
         }
 
         public NoticesListView()
