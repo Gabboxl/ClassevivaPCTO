@@ -6,6 +6,7 @@ using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
@@ -114,8 +115,8 @@ namespace ClassevivaPCTO.Controls
                     //close the flyout
                     flyout.Hide();
 
-                    //apro la comunicazione
-                    ReadAndOpenNoticeDialog(currentNotice);
+                    //apro la comunicazione in background
+                    await Task.Run(() => ReadAndOpenNoticeDialog(currentNotice));
                 };
 
                 //add the textblock and the button to the flyout
@@ -133,7 +134,8 @@ namespace ClassevivaPCTO.Controls
             }
             else
             {
-                ReadAndOpenNoticeDialog(currentNotice);
+                //apro la comunicazione in background
+                await Task.Run(() => ReadAndOpenNoticeDialog(currentNotice));
             }
 
 
@@ -153,8 +155,11 @@ namespace ClassevivaPCTO.Controls
              currentNotice.evtCode,
                 loginResult.token);
 
+            //execute on main UI thread
+            await Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, async () =>
+            {
 
-            var noticeDialogContent = new NoticeDialogContent(currentNotice, noticeReadResult);
+                var noticeDialogContent = new NoticeDialogContent(currentNotice, noticeReadResult);
 
             ContentDialog dialog = new ContentDialog();
             dialog.Title = currentNotice.cntTitle;
@@ -168,18 +173,25 @@ namespace ClassevivaPCTO.Controls
 
             try
             {
-                var result = await dialog.ShowAsync();
 
-                if (result == ContentDialogResult.Primary)
-                {
-                    //raise OnShouldUpdate event
-                    OnShouldUpdate?.Invoke(this, EventArgs.Empty);
-                }
+
+                    var result = await dialog.ShowAsync();
+
+                    if (result == ContentDialogResult.Primary)
+                    {
+                        //raise OnShouldUpdate event
+                        OnShouldUpdate?.Invoke(this, EventArgs.Empty);
+                    }
+                
+
+
             }
             catch (Exception ex)
             {
                 System.Console.WriteLine(ex.ToString());
             }
+
+            });
         }
     }
 }
