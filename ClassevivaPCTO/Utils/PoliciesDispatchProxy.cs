@@ -38,7 +38,7 @@ namespace ClassevivaPCTO.Utils
 
 
 
-                                TaskCompletionSource<bool> IsSomethingLoading =
+                                TaskCompletionSource<bool> isSomethingLoading =
                                     new TaskCompletionSource<bool>();
 
                                 Debug.WriteLine("Test retry n.{0} policy ok ", retryCount);
@@ -62,11 +62,11 @@ namespace ClassevivaPCTO.Utils
                                         ContentDialogResult result =
                                             await noWifiDialog.ShowAsync();
 
-                                        IsSomethingLoading.SetResult(true);
+                                        isSomethingLoading.SetResult(true);
                                     }
                                 );
 
-                                await IsSomethingLoading.Task;
+                                await isSomethingLoading.Task;
                             }
                         }
                     }
