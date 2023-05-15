@@ -38,9 +38,6 @@
                           Margin="32,16,0,0" Icon="Refresh" Label="Aggiorna" Click="AggiornaCommand_Click" />
         </RelativePanel>
 
-        <TextBlock x:Name="TextCenter" Grid.Row="2" Text="Sezione disponibile prossimamente" FontSize="42"
-                   VerticalAlignment="Center"
-                   HorizontalAlignment="Center" />
 
         <RelativePanel Grid.Row="2"
                        Margin="32,32,32,20"
