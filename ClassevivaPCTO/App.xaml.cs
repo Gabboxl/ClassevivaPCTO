@@ -183,18 +183,8 @@ namespace ClassevivaPCTO
             try
             {
 
-                //get the data from the viewmodel
-                var dataCards = ViewModelHolder.getViewModel().CardsResult;
                 var dataLogin = ViewModelHolder.getViewModel().LoginResult;
 
-                var serializedCards = Newtonsoft.Json.JsonConvert.SerializeObject(
-                    dataCards,
-                    Formatting.Indented,
-                    new JsonSerializerSettings
-                    {
-                        ReferenceLoopHandling = ReferenceLoopHandling.Serialize
-                    }
-                );
                 var serializedLogin = Newtonsoft.Json.JsonConvert.SerializeObject(
                     dataLogin,
                     Formatting.Indented,
@@ -204,10 +194,7 @@ namespace ClassevivaPCTO
                     }
                 );
 
-
-                var er1 = ErrorAttachmentLog.AttachmentWithText(serializedCards, "dataCards.txt");
                 var er2 = ErrorAttachmentLog.AttachmentWithText(serializedLogin, "dataLogin.txt");
-                attachments.Add(er1);
                 attachments.Add(er2);
             }
             catch (Exception ex)
