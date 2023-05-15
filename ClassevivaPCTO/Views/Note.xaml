@@ -71,7 +71,11 @@
                     <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
 
-                <!-- qua va il lsitview degli scrutini-->
+                <controls:NotesListView
+                    x:Name="NotesListView"
+                    Margin="0,8,0,0">
+
+                </controls:NotesListView>
 
             </Grid>
 

@@ -133,11 +133,15 @@
     <Compile Include="Adapters\AbsenceEventAdapter.cs" />
     <Compile Include="Adapters\GradeAdapter.cs" />
     <Compile Include="Adapters\SchoolReportAdapter.cs" />
+    <Compile Include="Adapters\NoteAdapter.cs" />
     <Compile Include="Adapters\ScrutinioAdapter.cs" />
     <Compile Include="Adapters\NoticeAdapter.cs" />
     <Compile Include="Adapters\LessonAdapter.cs" />
     <Compile Include="Controls\AbsencesListView.xaml.cs">
       <DependentUpon>AbsencesListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\NotesListView.xaml.cs">
+      <DependentUpon>NotesListView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\ScrutiniListView.xaml.cs">
       <DependentUpon>ScrutiniListView.xaml</DependentUpon>
@@ -161,6 +165,10 @@
     <Compile Include="Converters\DateTimeToHourConverter.cs" />
     <Compile Include="Converters\AbsenceTypeToColorConverter.cs" />
     <Compile Include="Converters\EmptyListToVisibilityConverter.cs" />
+    <Compile Include="Deserializers\NoteDeserializer.cs" />
+    <Compile Include="Dialogs\NoteDialogContent.xaml.cs">
+      <DependentUpon>NoteDialogContent.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Dialogs\NoticeDialogContent.xaml.cs">
       <DependentUpon>NoticeDialogContent.xaml</DependentUpon>
     </Compile>
@@ -326,6 +334,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Controls\NotesListView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Controls\ScrutiniListView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -349,6 +361,10 @@
     <Page Include="Controls\NoticesListView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Dialogs\NoteDialogContent.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Dialogs\NoticeDialogContent.xaml">
       <SubType>Designer</SubType>

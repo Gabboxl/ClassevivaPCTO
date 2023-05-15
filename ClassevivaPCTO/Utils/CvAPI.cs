@@ -196,7 +196,7 @@ namespace ClassevivaPCTO.Utils
         public List<Grade> Grades { get; set; }
 
         [JsonPropertyName("notes")]
-        public Notes Notes { get; set; }
+        public NotesResult NotesResult { get; set; }
     }
 
 
@@ -318,7 +318,22 @@ namespace ClassevivaPCTO.Utils
 
     //notes
 
-    public class NoteNTTE
+    public enum NoteEventCode
+    {
+        [ApiValue("", "Annotazione")]
+        NTTE,
+
+        [ApiValue("", "Nota disciplinare")]
+        NTCL,
+
+        [ApiValue("", "Richiamo")]
+        NTWN,
+
+        [ApiValue("", "Sanzione disciplinare")]
+        NTST
+    }
+
+    public class Note
     {
         public long evtId { get; set; }
         public string evtText { get; set; }
@@ -326,25 +341,32 @@ namespace ClassevivaPCTO.Utils
         public string authorName { get; set; }
         public bool readStatus { get; set; }
 
+        public NoteEventCode? evtCode { get; set; }
         public DateTime? evtBegin { get; set; }
         public DateTime? evtEnd { get; set; }
         public bool? toUpload { get; set; }
         public string? warningType { get; set; }
     }
 
-    public class Notes
+    public class NotesResult
     {
         [JsonPropertyName("NTTE")] //Annotazioni
-        public List<NoteNTTE> NotesNTTE { get; set; }
+        public List<Note> NotesNTTE { get; set; }
 
         [JsonPropertyName("NTCL")] //Note disciplinari
-        public List<NoteNTTE> NotesNTCL { get; set; } //to create a dedicated note class for this one note type
+        public List<Note> NotesNTCL { get; set; }
 
         [JsonPropertyName("NTWN")] //Richiami
-        public List<NoteNTTE> NotesNTWN { get; set; } //to create a dedicated note class for this one note type
+        public List<Note> NotesNTWN { get; set; }
 
         [JsonPropertyName("NTST")] //Sanzioni disciplinari
-        public List<NoteNTTE> NotesNTST { get; set; } //to create a dedicated note class for this one note type
+        public List<Note> NotesNTST { get; set; }
+    }
+
+    public class ReadNoteResult
+    {
+        [JsonPropertyName("event")]
+        public Note Note { get; set; }
     }
 
     public class PeriodsResult

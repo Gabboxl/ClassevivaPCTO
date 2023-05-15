@@ -36,7 +36,10 @@ namespace ClassevivaPCTO.Utils
         Task<SubjectsResult> GetSubjects(string userId, [Header("Z-Auth-Token")] string token);
 
         [Get("/students/{userId}/notes/all")]
-        Task<Notes> GetAllNotes(string userId, [Header("Z-Auth-Token")] string token);
+        Task<ApiResponse<string>> GetAllNotes(string userId, [Header("Z-Auth-Token")] string token);
+
+        [Post("/students/{userId}/notes/{evtCode}/read/{evtId}")]
+        Task<ReadNoteResult> ReadNote(string userId, string evtCode, string evtId, [Header("Z-Auth-Token")] string token);
 
         [Get("/students/{userId}/lessons/{startDate}/{endDate}")]
         Task<LessonsResult> GetLessons(string userId, string startDate, string endDate, [Header("Z-Auth-Token")] string token);
