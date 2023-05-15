@@ -178,10 +178,10 @@ Ricorda che quest'app è ancora in fase di sviluppo e alcune funzionalità posso
     <comment>What's new prompt message title</comment>
   </data>
   <data name="WhatsNew_Body.Text" xml:space="preserve">
-    <value>- Nuova barra di navigazione laterale
-- Implementata generazione unica di colori per le materie
-- Sezione Bacheca messa a posto
-- Migliorata performance di caricamento delle listview</value>
+    <value>- Implementata sezione Scrutini
+- Possibilità di vedere le comunicazioni scadute
+- Messo a posto il login per alcuni tipi di account
+- Altri fix riguardo al tema di alcuni flyout</value>
     <comment>What's new prompt message body</comment>
   </data>
 </root>
