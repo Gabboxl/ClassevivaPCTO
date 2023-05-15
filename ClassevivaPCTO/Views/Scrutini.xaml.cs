@@ -22,7 +22,7 @@ namespace ClassevivaPCTO.Views
         {
             this.InitializeComponent();
 
-            App app = (App)App.Current;
+            App app = (App) App.Current;
             var apiClient = app.Container.GetService<IClassevivaAPI>();
 
             apiWrapper = PoliciesDispatchProxy<IClassevivaAPI>.CreateProxy(apiClient);
@@ -34,27 +34,12 @@ namespace ClassevivaPCTO.Views
 
             ScrutiniViewModel.IsLoadingScrutini = true;
 
-            CheckboxEliminati.Checked += async (sender, args) =>
-            {
-                await Task.Run(async () =>
-                {
-                    await LoadData();
-                });
-            };
+            CheckboxEliminati.Checked += async (sender, args) => { await Task.Run(async () => { await LoadData(); }); };
             CheckboxEliminati.Unchecked +=
-                async (sender, args) =>
-                {
-                await Task.Run(async () =>
-                {
-                    await LoadData();
-                });
-            };
+                async (sender, args) => { await Task.Run(async () => { await LoadData(); }); };
 
-            
-            await Task.Run(async () =>
-            {
-                await LoadData();
-            });
+
+            await Task.Run(async () => { await LoadData(); });
         }
 
 
@@ -82,7 +67,6 @@ namespace ClassevivaPCTO.Views
             );
 
 
-
             foreach (ScrutiniDocument document in scrutiniDocumentsResult.Documents)
             {
                 ScrutiniCheckResult scrutiniCheckResult = await apiWrapper.CheckScrutinioDocument(
@@ -98,7 +82,8 @@ namespace ClassevivaPCTO.Views
             //we take only available documents if the checkbox isnt checked, after we have checked them via the API
             if (!showDeletedDocuments)
             {
-                scrutiniDocumentsResult.Documents = scrutiniDocumentsResult.Documents.Where(d => d.checkStatus.available).ToList();
+                scrutiniDocumentsResult.Documents =
+                    scrutiniDocumentsResult.Documents.Where(d => d.checkStatus.available).ToList();
             }
 
 
@@ -112,16 +97,12 @@ namespace ClassevivaPCTO.Views
                     ScrutiniViewModel.IsLoadingScrutini = false;
                 }
             );
-
         }
 
 
         private async void AggiornaCommand_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
-            await Task.Run(async () =>
-            {
-                await LoadData();
-            });
+            await Task.Run(async () => { await LoadData(); });
         }
     }
 }
