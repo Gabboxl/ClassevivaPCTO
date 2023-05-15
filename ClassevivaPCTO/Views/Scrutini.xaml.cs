@@ -34,6 +34,22 @@ namespace ClassevivaPCTO.Views
 
             ScrutiniViewModel.IsLoadingScrutini = true;
 
+            CheckboxEliminati.Checked += async (sender, args) =>
+            {
+                await Task.Run(async () =>
+                {
+                    await LoadData();
+                });
+            };
+            CheckboxEliminati.Unchecked +=
+                async (sender, args) =>
+                {
+                await Task.Run(async () =>
+                {
+                    await LoadData();
+                });
+            };
+
             
             await Task.Run(async () =>
             {
@@ -44,7 +60,7 @@ namespace ClassevivaPCTO.Views
 
         private async Task LoadData()
         {
-            bool ShowDeletedScrutini = false;
+            bool showDeletedDocuments = false;
 
             await CoreApplication.MainView.Dispatcher.RunAsync(
                 CoreDispatcherPriority.Normal,
@@ -52,7 +68,7 @@ namespace ClassevivaPCTO.Views
                 {
                     ScrutiniViewModel.IsLoadingScrutini = true;
 
-                    //if (CheckboxAttive.IsChecked != null) ShowDeletedScrutini = CheckboxAttive.IsChecked.Value;
+                    if (CheckboxEliminati.IsChecked != null) showDeletedDocuments = CheckboxEliminati.IsChecked.Value;
                 }
             );
 
@@ -64,6 +80,8 @@ namespace ClassevivaPCTO.Views
                 cardResult.usrId.ToString(),
                 loginResult.token
             );
+
+
 
             foreach (ScrutiniDocument document in scrutiniDocumentsResult.Documents)
             {
@@ -77,10 +95,10 @@ namespace ClassevivaPCTO.Views
             }
 
 
-            if (!ShowDeletedScrutini)
+            //we take only available documents if the checkbox isnt checked, after we have checked them via the API
+            if (!showDeletedDocuments)
             {
-                //filter notices that are valid from the cntValidInRange property
-                //notices = notices.Where(n => n.cntValidInRange).ToList();
+                scrutiniDocumentsResult.Documents = scrutiniDocumentsResult.Documents.Where(d => d.checkStatus.available).ToList();
             }
 
 

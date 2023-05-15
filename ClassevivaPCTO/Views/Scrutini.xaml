@@ -49,6 +49,12 @@
                        BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
                        Background="{ThemeResource CardBackgroundFillColorDefaultBrush}">
 
+            <CheckBox x:Name="CheckboxEliminati"
+                      Content="Mostra documenti eliminati"
+                      Margin="0,0,16,0"
+                      RelativePanel.AlignRightWithPanel="True"
+                      RelativePanel.AlignHorizontalCenterWithPanel="True"/>
+
 
             <TextBlock Text="File" x:Name="TextFileScrutini"
                        Margin="8,6,0,0"
