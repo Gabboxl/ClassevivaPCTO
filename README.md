@@ -14,6 +14,8 @@ A simple UWP app to consult Classeviva's website
 
 - Windows 10 version 1809 (build 17763)
 
+> **Note**: This app is available for ARM/ARM64/x86/x64 architectures.
+
 *Github releases for manual sideloading are coming soon!*
 
 
@@ -23,5 +25,4 @@ To compile this app you will need the following tools:
 - Visual Studio 2022
 - The .NET development workload for Visual Studio
 - The UWP development workload for Visual Studio
-- 
 
