@@ -8,4 +8,20 @@ A simple UWP app to consult Classeviva's website
 
 <a href="https://apps.microsoft.com/store/detail/9PNST3M88D1S?launch=true&mode=mini" > <img src="https://get.microsoft.com/images/en-US%20dark.svg" width=25% height=25%/> </a>
 
-*A compile guide and Github releases for manual sideloading are coming soon!*
+## How to install from Github Releases
+
+### Minimum requirements
+
+- Windows 10 version 1809 (build 17763)
+
+*Github releases for manual sideloading are coming soon!*
+
+
+## How to compile
+
+To compile this app you will need the following tools:
+- Visual Studio 2022
+- The .NET development workload for Visual Studio
+- The UWP development workload for Visual Studio
+- 
+
