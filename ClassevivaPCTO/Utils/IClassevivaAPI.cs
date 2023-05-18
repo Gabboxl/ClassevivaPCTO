@@ -67,6 +67,9 @@ namespace ClassevivaPCTO.Utils
 
         [Post("/students/{userId}/documents/read/{documentHash}")]
         Task<HttpResponseMessage> GetScrutinioDocumentFile(string userId, string documentHash, [Header("Z-Auth-Token")] string token);
+
+        [Get("/students/{userId}/calendar/all")]
+        Task<CalendarResult> GetCalendar(string userId, [Header("Z-Auth-Token")] string token);
     }
 
 }

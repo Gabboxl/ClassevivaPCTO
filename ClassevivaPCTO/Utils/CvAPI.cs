@@ -431,4 +431,32 @@ namespace ClassevivaPCTO.Utils
     }
 
 
+    //calendar
+
+    public enum DayStatus
+    {
+        SD, //school day
+
+        ND, // non school day
+
+        HD, //holiday
+
+        NW, // no work day
+
+        US //unknown status
+    }
+
+    public class CalendarDay
+    {
+        public DateTime dayDate { get; set; }
+        public int dayOfWeek { get; set; }
+        public DayStatus dayStatus { get; set; }
+    }
+
+    public class CalendarResult {
+
+        [JsonPropertyName("calendar")]
+        public List<CalendarDay> CalendarDays { get; set; }
+    }
+
 }

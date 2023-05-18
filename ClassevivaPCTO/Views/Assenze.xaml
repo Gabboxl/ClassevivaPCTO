@@ -59,7 +59,8 @@
 
 
             <Grid
-                RelativePanel.AlignRightWithPanel="True"
+                x:Name="Grid1"
+                
                 RelativePanel.AlignLeftWithPanel="True">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*" />
@@ -97,6 +98,13 @@
 
             </Grid>
 
+
+
+            <CalendarView
+                x:Name="TestCalendar"
+                RelativePanel.AlignRightWithPanel="True"
+                RelativePanel.AlignBottomWithPanel="True"
+                RelativePanel.RightOf="Grid1" CalendarViewDayItemChanging="MyCalendarView_CalendarViewDayItemChanging"/>
 
         </RelativePanel>
 
