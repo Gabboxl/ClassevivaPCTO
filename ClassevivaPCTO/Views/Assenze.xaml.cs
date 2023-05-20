@@ -104,7 +104,7 @@ namespace ClassevivaPCTO.Views
                 CoreDispatcherPriority.Normal,
                 async () =>
                 {
-                    await UpdateCalendar();
+                    //await UpdateCalendar();
 
                     AbsencesToJustifyListView.ItemsSource = notJustifiedAbsences;
                     AbsencesJustifiedListView.ItemsSource = justifiedAbsences;
@@ -136,13 +136,13 @@ namespace ClassevivaPCTO.Views
             foreach (var displayedDay in displayedDays)
             {
 
-                await ColorDay(displayedDay);
+                    await ColorDay(displayedDay);
 
             }
         }
 
 
-        private void MyCalendarView_CalendarViewDayItemChanging(CalendarView sender, CalendarViewDayItemChangingEventArgs args)
+        private async void MyCalendarView_CalendarViewDayItemChanging(CalendarView sender, CalendarViewDayItemChangingEventArgs args)
         {
             /*// Check if the day item is being added to the calendar
             if (args.Phase == 0)
@@ -163,11 +163,11 @@ namespace ClassevivaPCTO.Views
 
             if (_calendarResult != null)
             {
-                ColorDay(args.Item);
+                await ColorDay(args.Item);
             }
         }
 
-        private async Task ColorDay(CalendarViewDayItem calendarViewDayItem)
+        private Task ColorDay(CalendarViewDayItem calendarViewDayItem)
         {
             foreach (var calendarDay in _calendarResult.CalendarDays)
             {
@@ -206,7 +206,7 @@ namespace ClassevivaPCTO.Views
                 }
             }
 
-            return;
+            return Task.CompletedTask;
         }
 
     }
