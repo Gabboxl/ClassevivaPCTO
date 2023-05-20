@@ -8,7 +8,7 @@ namespace ClassevivaPCTO.Controls
     public class UniformGridEx : UniformGrid
     {
         public static readonly DependencyProperty MinRowHeightProperty = DependencyProperty.Register(
-            "MinRowHeight", typeof(double), typeof(UniformGrid), new PropertyMetadata(0d));
+            nameof(MinRowHeight), typeof(double), typeof(UniformGrid), new PropertyMetadata(0d));
 
         private int _columns;
         private int _rows;
