@@ -7,6 +7,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:controls="using:ClassevivaPCTO.Controls"
     xmlns:microconverters="using:Microsoft.Toolkit.Uwp.UI.Converters"
+    xmlns:toolkit="using:Microsoft.Toolkit.Uwp.UI.Controls"
     mc:Ignorable="d"
     xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
@@ -26,8 +27,48 @@
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
+
+
+
+
+
+
+
+
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup>
+                <VisualState x:Name="WideState">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="750" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="CardPanel.(Grid.Row)" Value="0" />
+                        <Setter Target="CardPanel.(Grid.Column)" Value="0" />
+                        <Setter Target="CalendarPanel.(Grid.Row)" Value="0" />
+                        <Setter Target="CalendarPanel.(Grid.Column)" Value="1" />
+                        <!--<Setter Target="MyUniformGrid.Rows" Value="2" />-->
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="NarrowState">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="0" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="CardPanel.(Grid.Row)" Value="1" />
+                        <Setter Target="CardPanel.(Grid.Column)" Value="0" />
+
+                        <Setter Target="CalendarPanel.(Grid.Row)" Value="0" />
+                        <Setter Target="CalendarPanel.(Grid.Column)" Value="0" />
+                        <Setter Target="CardPanel.Height" Value="500"></Setter>
+                        <!--
+                        <Setter Target="MyUniformGrid.Rows" Value="3" />
+                        -->
+
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
 
 
         <RelativePanel Grid.Row="0">
@@ -47,21 +88,45 @@
 
         </RelativePanel>
 
+        
 
-        <RelativePanel Grid.Row="2"
+        <Grid Grid.Row="2" x:Name="MyGrid"
+                               HorizontalAlignment="Stretch"
+                               VerticalAlignment="Stretch"
+                               
+        >
+            <Grid.ColumnDefinitions>
+
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition> 
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+
+
+            <RelativePanel
+                       Margin="8"
                        Grid.Column="0"
-                       Margin="32,32,32,20"
                        VerticalAlignment="Stretch" HorizontalAlignment="Stretch"
                        x:Name="CardPanel"
                        CornerRadius="8"
                        Padding="12"
                        BorderThickness="1"
+                       Grid.RowSpan="2"
+
+
+
                        BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
                        Background="{ThemeResource CardBackgroundFillColorDefaultBrush}">
 
 
             <Grid
                 x:Name="Grid1"
+                HorizontalAlignment="Stretch"
                 
                 RelativePanel.AlignLeftWithPanel="True">
                 <Grid.RowDefinitions>
@@ -103,25 +168,37 @@
         </RelativePanel>
 
 
-        <RelativePanel Grid.Row="2"
-                       Grid.Column="1"
-                       Margin="8,32,8,8"
-                       
-                       
-                       x:Name="CalendarPanel"
-                       CornerRadius="8"
-                       Padding="12"
-                       BorderThickness="1"
-                       BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
-                       Background="{ThemeResource CardBackgroundFillColorDefaultBrush}">
+            <RelativePanel 
+                Grid.Row="0"
+                Margin="8"
+                           Grid.Column="1"
+                           x:Name="CalendarPanel"
+                           CornerRadius="8"
+                           VerticalAlignment="Top"
 
-            <CalendarView
-                x:Name="TestCalendar"
-                RelativePanel.AlignLeftWithPanel="True"
-                RelativePanel.AlignTopWithPanel="True"
-                CalendarViewDayItemChanging="MyCalendarView_CalendarViewDayItemChanging"/>
 
-        </RelativePanel>
+                           Padding="12"
+                           BorderThickness="1"
+                           BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
+                           Background="{ThemeResource CardBackgroundFillColorDefaultBrush}">
+
+                <CalendarView
+                    x:Name="TestCalendar"
+                    RelativePanel.AlignLeftWithPanel="True"
+                    RelativePanel.AlignTopWithPanel="True"
+                    CalendarViewDayItemChanging="MyCalendarView_CalendarViewDayItemChanging"/>
+
+            </RelativePanel>
+
+
+
+
+
+        </Grid>
+
+
+
+
 
     </Grid>
 </Page>
