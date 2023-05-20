@@ -26,6 +26,7 @@
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
 
 
@@ -48,6 +49,7 @@
 
 
         <RelativePanel Grid.Row="2"
+                       Grid.Column="0"
                        Margin="32,32,32,20"
                        VerticalAlignment="Stretch" HorizontalAlignment="Stretch"
                        x:Name="CardPanel"
@@ -98,13 +100,26 @@
 
             </Grid>
 
+        </RelativePanel>
 
+
+        <RelativePanel Grid.Row="2"
+                       Grid.Column="1"
+                       Margin="8,32,8,8"
+                       
+                       
+                       x:Name="CalendarPanel"
+                       CornerRadius="8"
+                       Padding="12"
+                       BorderThickness="1"
+                       BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
+                       Background="{ThemeResource CardBackgroundFillColorDefaultBrush}">
 
             <CalendarView
                 x:Name="TestCalendar"
-                RelativePanel.AlignRightWithPanel="True"
-                RelativePanel.AlignBottomWithPanel="True"
-                RelativePanel.RightOf="Grid1" CalendarViewDayItemChanging="MyCalendarView_CalendarViewDayItemChanging"/>
+                RelativePanel.AlignLeftWithPanel="True"
+                RelativePanel.AlignTopWithPanel="True"
+                CalendarViewDayItemChanging="MyCalendarView_CalendarViewDayItemChanging"/>
 
         </RelativePanel>
 
