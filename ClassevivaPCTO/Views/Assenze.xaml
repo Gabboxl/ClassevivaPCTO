@@ -103,7 +103,7 @@
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
 
-                <RowDefinition></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
                 <RowDefinition></RowDefinition>
             </Grid.RowDefinitions>
 
@@ -182,10 +182,17 @@
                            BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
                            Background="{ThemeResource CardBackgroundFillColorDefaultBrush}">
 
+
+                <TextBlock x:Name="TextBlock1"
+                           Text="Calendario eventi"
+                           Margin="0,0,0,12"
+                           Style="{ThemeResource BodyStrongTextBlockStyle}" />
+
                 <CalendarView
                     x:Name="TestCalendar"
+                    RelativePanel.Below="TextBlock1"
                     RelativePanel.AlignLeftWithPanel="True"
-                    RelativePanel.AlignTopWithPanel="True"
+
                     CalendarViewDayItemChanging="MyCalendarView_CalendarViewDayItemChanging"/>
 
             </RelativePanel>
