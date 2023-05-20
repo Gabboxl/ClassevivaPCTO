@@ -2,6 +2,7 @@
 using ClassevivaPCTO.ViewModels;
 using Microsoft.Extensions.DependencyInjection;
 using System;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Windows.ApplicationModel.Core;
@@ -135,33 +136,7 @@ namespace ClassevivaPCTO.Views
             foreach (var displayedDay in displayedDays)
             {
 
-                foreach (var calendarDay in _calendarResult.CalendarDays)
-                {
-                    if (displayedDay.Date.Date == calendarDay.dayDate.Date)
-                    {
-                        if (calendarDay.dayStatus == DayStatus.SD)
-                        {
-
-                            foreach (var priv in _absencesResult.AbsenceEvents)
-                            {
-                                if (priv.evtDate.Date.Equals(displayedDay.Date.Date))
-                                {
-
-                                    displayedDay.Background = CvUtils.GetColorFromAbsenceCode(priv.evtCode);
-
-                                    break;
-                                }
-
-                            }
-
-                            displayedDay.Background = new SolidColorBrush(Colors.Teal);
-                        }
-                        else
-                        {
-                            displayedDay.Background = new SolidColorBrush(Colors.Transparent);
-                        }
-                    }
-                }
+                ColorDay(displayedDay);
 
             }
         }
@@ -169,7 +144,7 @@ namespace ClassevivaPCTO.Views
 
         private void MyCalendarView_CalendarViewDayItemChanging(CalendarView sender, CalendarViewDayItemChangingEventArgs args)
         {
-            // Check if the day item is being added to the calendar
+            /*// Check if the day item is being added to the calendar
             if (args.Phase == 0)
             {
 
@@ -179,25 +154,59 @@ namespace ClassevivaPCTO.Views
             }
             else if (args.Phase == 1)
             {
-                // Check if the day should be colored in teal
-                if (ShouldColorDayInTeal(args.Item.Date))
+                if (_calendarResult != null)
                 {
-                    // Set the background color of the day item to teal
-                    args.Item.Background = new SolidColorBrush(Colors.Teal);
+                    ColorDay(args.Item);
                 }
-                else
-                {
-                    // Explicitly set the background color for odd days
-                    args.Item.Background = new SolidColorBrush(Colors.Transparent);
-                }
+            }*/
+
+
+            if (_calendarResult != null)
+            {
+                ColorDay(args.Item);
             }
         }
 
-        private bool ShouldColorDayInTeal(DateTimeOffset date)
+        private bool ColorDay(CalendarViewDayItem calendarViewDayItem)
         {
-            // Add your custom logic to determine if the day should be colored in teal
-            // For example, you can check if the day is a specific date or part of a list of dates
-            return date.Day % 2 == 0; // This example colors all even days in teal
+            foreach (var calendarDay in _calendarResult.CalendarDays)
+            {
+                if (calendarViewDayItem.Date.Date == calendarDay.dayDate.Date)
+                {
+                    Debug.WriteLine(calendarViewDayItem.Date.Date + ", " + calendarDay.dayDate.Date);
+
+                    if (calendarDay.dayStatus == DayStatus.SD)
+                    {
+
+                        calendarViewDayItem.Background = new SolidColorBrush(Colors.Teal);
+
+                        foreach (var currentAbsenceEvent in _absencesResult.AbsenceEvents)
+                        {
+                            if (currentAbsenceEvent.evtDate.Date.Equals(calendarViewDayItem.Date.Date))
+                            {
+
+                                calendarViewDayItem.Background = CvUtils.GetColorFromAbsenceCode(currentAbsenceEvent.evtCode);
+
+                                break;
+                            }
+
+                        }
+
+                    }
+                    else
+                    {
+                        calendarViewDayItem.Background = new SolidColorBrush(Colors.Transparent);
+                    }
+
+                    break;
+                }
+                else
+                {
+                    calendarViewDayItem.Background = new SolidColorBrush(Colors.Transparent);
+                }
+            }
+
+            return true;
         }
 
     }
