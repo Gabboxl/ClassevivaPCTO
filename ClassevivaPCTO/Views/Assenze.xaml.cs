@@ -104,10 +104,10 @@ namespace ClassevivaPCTO.Views
                 CoreDispatcherPriority.Normal,
                 async () =>
                 {
-                    //await UpdateCalendar();
-
                     AbsencesToJustifyListView.ItemsSource = notJustifiedAbsences;
                     AbsencesJustifiedListView.ItemsSource = justifiedAbsences;
+
+                    await UpdateCalendar();
 
                     AssenzeViewModel.IsLoadingAssenze = false;
                 }
