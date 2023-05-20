@@ -104,7 +104,7 @@ namespace ClassevivaPCTO.Views
                 CoreDispatcherPriority.Normal,
                 async () =>
                 {
-                    UpdateCalendar();
+                    await UpdateCalendar();
 
                     AbsencesToJustifyListView.ItemsSource = notJustifiedAbsences;
                     AbsencesJustifiedListView.ItemsSource = justifiedAbsences;
@@ -127,7 +127,7 @@ namespace ClassevivaPCTO.Views
         }
 
 
-        private void UpdateCalendar()
+        private async Task UpdateCalendar()
         {
             var displayedDays = TestCalendar.FindDescendants().OfType<CalendarViewDayItem>();
 
@@ -136,7 +136,7 @@ namespace ClassevivaPCTO.Views
             foreach (var displayedDay in displayedDays)
             {
 
-                ColorDay(displayedDay);
+                await ColorDay(displayedDay);
 
             }
         }
@@ -167,7 +167,7 @@ namespace ClassevivaPCTO.Views
             }
         }
 
-        private bool ColorDay(CalendarViewDayItem calendarViewDayItem)
+        private async Task ColorDay(CalendarViewDayItem calendarViewDayItem)
         {
             foreach (var calendarDay in _calendarResult.CalendarDays)
             {
@@ -206,7 +206,7 @@ namespace ClassevivaPCTO.Views
                 }
             }
 
-            return true;
+            return;
         }
 
     }
