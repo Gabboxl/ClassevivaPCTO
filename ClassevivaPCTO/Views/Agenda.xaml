@@ -31,11 +31,6 @@
         </Grid.ColumnDefinitions>
 
 
-
-
-
-
-
         <VisualStateManager.VisualStateGroups>
             <VisualStateGroup>
                 <VisualState x:Name="WideState">
@@ -60,14 +55,6 @@
         </VisualStateManager.VisualStateGroups>
 
 
-
-
-
-
-
-
-
-
         <RelativePanel Grid.Row="0">
             <TextBlock x:Name="TextTitolo" Grid.Row="0" Text="Agenda" FontSize="42" VerticalAlignment="Top"
                        Margin="32,16,0,0" />
@@ -81,9 +68,9 @@
             x:Name="AutoSuggestBox"
             Grid.Row="1"
             QueryIcon="Find"
-                        PlaceholderText="Cerca" RelativePanel.AlignHorizontalCenterWithPanel="True"
-                        HorizontalAlignment="Center"
-                        Width="260" Height="32" />
+            PlaceholderText="Cerca" RelativePanel.AlignHorizontalCenterWithPanel="True"
+            HorizontalAlignment="Center"
+            Width="260" Height="32" />
 
         <RelativePanel Grid.Row="2"
                        Margin="32,32,32,20"
@@ -125,9 +112,6 @@
 
                                Margin="12,8,0,0"
                                Visibility="{x:Bind AgendaViewModel.IsLoadingAgenda, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" />
-
-
-
 
 
             <controls2:OverviewListView RelativePanel.Below="ButtonYesterday"
