@@ -87,7 +87,7 @@ namespace ClassevivaPCTO.Views
                 cardResult.usrId.ToString(),
                 apiDate,
                 apiDate,
-                loginResult.token.ToString()
+                loginResult.token
             );
 
             //update UI on UI thread
