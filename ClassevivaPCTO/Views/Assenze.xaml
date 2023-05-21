@@ -10,6 +10,7 @@
     xmlns:toolkit="using:Microsoft.Toolkit.Uwp.UI.Controls"
     mc:Ignorable="d"
     xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
+    xmlns:ui="using:Microsoft.Toolkit.Uwp.UI"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
     muxc:BackdropMaterial.ApplyToRootOrPageBackground="True">
 
@@ -82,6 +83,13 @@
 
         </RelativePanel>
 
+<ScrollViewer
+    x:Name="MainScrollViewer"
+    Grid.Row="2"
+    
+    ui:FrameworkElementExtensions.EnableActualSizeBinding="true">
+
+
 
         <Grid Grid.Row="2" x:Name="MyGrid"
               HorizontalAlignment="Stretch"
@@ -113,6 +121,7 @@
                 BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
                 Background="{ThemeResource CardBackgroundFillColorDefaultBrush}">
 
+                
 
                 <Grid
                     x:Name="Grid1"
@@ -199,6 +208,6 @@
 
         </Grid>
 
-
+</ScrollViewer>
     </Grid>
 </Page>
