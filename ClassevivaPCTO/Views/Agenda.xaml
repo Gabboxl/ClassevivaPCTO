@@ -79,7 +79,6 @@ RelativePanel.AlignTopWithPanel="True"
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="Auto" />
         </Grid.ColumnDefinitions>
 
 
@@ -149,8 +148,10 @@ RelativePanel.AlignTopWithPanel="True"
             </Button>
 
 
+            <!-- should we set the firstdayofweek in code instead? -->
             <CalendarDatePicker x:Name="CalendarAgenda"
                                 RelativePanel.RightOf="ButtonYesterday"
+                                FirstDayOfWeek="Monday"
                                 PlaceholderText="Scegli una data" Grid.Row="1" Margin="8,8,8,0" />
 
             <Button x:Name="ButtonTomorrow" Margin="0,8,0,0"
