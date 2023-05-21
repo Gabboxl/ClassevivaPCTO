@@ -201,6 +201,7 @@ RelativePanel.AlignRightWithPanel="True"
                     x:Name="TestCalendar"
                     RelativePanel.Below="TodayButton"
                     RelativePanel.AlignLeftWithPanel="True"
+                    FirstDayOfWeek="Monday"
 
                     CalendarViewDayItemChanging="MyCalendarView_CalendarViewDayItemChanging"/>
 
