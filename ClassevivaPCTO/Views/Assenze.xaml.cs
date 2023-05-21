@@ -182,18 +182,14 @@ namespace ClassevivaPCTO.Views
 
                     if (apiCalendarDay.dayStatus == DayStatus.SD)
                     {
-
                         calendarViewDayItem.Background = new SolidColorBrush(Colors.Teal);
 
-                        foreach (var currentAbsenceEvent in _absencesResult.AbsenceEvents)
+                        foreach (var currentAbsenceEvent in _absencesResult.AbsenceEvents.Where(currentAbsenceEvent => currentAbsenceEvent.evtDate.Date.Equals(calendarViewDayItem.Date.Date)))
                         {
-                            if (!currentAbsenceEvent.evtDate.Date.Equals(calendarViewDayItem.Date.Date)) continue;
                             calendarViewDayItem.Background = CvUtils.GetColorFromAbsenceCode(currentAbsenceEvent.evtCode);
 
                             break;
-
                         }
-
                     }
                     else
                     {
