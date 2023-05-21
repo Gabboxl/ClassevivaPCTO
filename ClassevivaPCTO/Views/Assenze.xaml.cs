@@ -187,13 +187,10 @@ namespace ClassevivaPCTO.Views
 
                         foreach (var currentAbsenceEvent in _absencesResult.AbsenceEvents)
                         {
-                            if (currentAbsenceEvent.evtDate.Date.Equals(calendarViewDayItem.Date.Date))
-                            {
+                            if (!currentAbsenceEvent.evtDate.Date.Equals(calendarViewDayItem.Date.Date)) continue;
+                            calendarViewDayItem.Background = CvUtils.GetColorFromAbsenceCode(currentAbsenceEvent.evtCode);
 
-                                calendarViewDayItem.Background = CvUtils.GetColorFromAbsenceCode(currentAbsenceEvent.evtCode);
-
-                                break;
-                            }
+                            break;
 
                         }
 
