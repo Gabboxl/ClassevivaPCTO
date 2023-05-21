@@ -40,9 +40,13 @@
 
                 <RelativePanel ScrollViewer.HorizontalScrollMode="Disabled" Grid.Row="0" Grid.Column="0">
 
+                    <!-- icon pin -->
+                    <FontIcon x:Name="pinIcon" FontFamily="{StaticResource FluentIcons}" Glyph="&#xE840;"
+                              RelativePanel.AlignVerticalCenterWithPanel="True"
+                              Margin="0,0,8,0" />
 
                     <TextBlock x:Name="titoloEvento" TextWrapping="WrapWholeWords"
-
+                               RelativePanel.RightOf="pinIcon"
 
                                Text="{x:Bind CurrentObject.cntTitle}"
                                Style="{ThemeResource BaseTextBlockStyle}"
@@ -60,6 +64,7 @@
 
 
                     <TextBlock RelativePanel.Below="titoloEvento" x:Name="categoriaEvento" TextWrapping="Wrap"
+                               RelativePanel.RightOf="pinIcon"
                                MaxWidth="500"
                                Text="{x:Bind Category}"
                                Style="{ThemeResource CaptionTextBlockStyle}"
