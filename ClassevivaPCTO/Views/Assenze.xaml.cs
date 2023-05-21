@@ -21,7 +21,7 @@ namespace ClassevivaPCTO.Views
 
         private readonly IClassevivaAPI apiWrapper;
 
-        private CalendarResult _calendarResult;
+        private CalendarResult _apiCalendarResult;
 
         private AbsencesResult _absencesResult;
 
@@ -92,7 +92,7 @@ namespace ClassevivaPCTO.Views
                                               loginResult.token
                                           );
 
-            _calendarResult = calendarResult;
+            _apiCalendarResult = calendarResult;
 
             
 
@@ -161,7 +161,7 @@ namespace ClassevivaPCTO.Views
             }*/
 
 
-            if (_calendarResult != null)
+            if (_apiCalendarResult != null)
             {
                 await ColorDay(args.Item);
             }
@@ -169,13 +169,13 @@ namespace ClassevivaPCTO.Views
 
         private Task ColorDay(CalendarViewDayItem calendarViewDayItem)
         {
-            foreach (var calendarDay in _calendarResult.CalendarDays)
+            foreach (var apiCalendarDay in _apiCalendarResult.CalendarDays)
             {
-                if (calendarViewDayItem.Date.Date == calendarDay.dayDate.Date)
+                if (calendarViewDayItem.Date.Date == apiCalendarDay.dayDate.Date && calendarViewDayItem.Date.Date <= DateTime.Now.Date) //we make sure that the date is not in the future
                 {
-                    Debug.WriteLine(calendarViewDayItem.Date.Date + ", " + calendarDay.dayDate.Date);
+                    Debug.WriteLine(calendarViewDayItem.Date.Date + ", " + apiCalendarDay.dayDate.Date);
 
-                    if (calendarDay.dayStatus == DayStatus.SD)
+                    if (apiCalendarDay.dayStatus == DayStatus.SD)
                     {
 
                         calendarViewDayItem.Background = new SolidColorBrush(Colors.Teal);
