@@ -30,12 +30,6 @@
         </Grid.ColumnDefinitions>
 
 
-
-
-
-
-
-
         <VisualStateManager.VisualStateGroups>
             <VisualStateGroup>
                 <VisualState x:Name="WideState">
@@ -88,18 +82,15 @@
 
         </RelativePanel>
 
-        
 
         <Grid Grid.Row="2" x:Name="MyGrid"
-                               HorizontalAlignment="Stretch"
-                               VerticalAlignment="Stretch"
-                               
-        >
+              HorizontalAlignment="Stretch"
+              VerticalAlignment="Stretch">
             <Grid.ColumnDefinitions>
 
                 <ColumnDefinition Width="Auto"></ColumnDefinition>
                 <ColumnDefinition Width="Auto"></ColumnDefinition>
-                <ColumnDefinition Width="*"></ColumnDefinition> 
+                <ColumnDefinition Width="*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
 
@@ -109,78 +100,77 @@
 
 
             <RelativePanel
-                       Margin="8"
-                       Grid.Column="0"
-                       VerticalAlignment="Stretch" HorizontalAlignment="Stretch"
-                       x:Name="CardPanel"
-                       CornerRadius="8"
-                       Padding="12"
-                       BorderThickness="1"
-                       Grid.RowSpan="2"
+                Margin="8"
+                Grid.Column="0"
+                VerticalAlignment="Stretch" HorizontalAlignment="Stretch"
+                x:Name="CardPanel"
+                CornerRadius="8"
+                Padding="12"
+                BorderThickness="1"
+                Grid.RowSpan="2"
 
 
-
-                       BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
-                       Background="{ThemeResource CardBackgroundFillColorDefaultBrush}">
-
-
-            <Grid
-                x:Name="Grid1"
-                HorizontalAlignment="Stretch"
-                
-                RelativePanel.AlignLeftWithPanel="True">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="*" />
-                </Grid.RowDefinitions>
-
-                <ScrollViewer>
-
-                    <StackPanel>
-
-                        <TextBlock x:Name="ToJustifyText"
-                                   Text="Da giustificare"
-                                   Margin="16,6,0,6"
-                                   Style="{ThemeResource BodyStrongTextBlockStyle}" />
+                BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
+                Background="{ThemeResource CardBackgroundFillColorDefaultBrush}">
 
 
-                        <controls:AbsencesListView x:Name="AbsencesToJustifyListView"
-                                                   HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                <Grid
+                    x:Name="Grid1"
+                    HorizontalAlignment="Stretch"
 
-                        </controls:AbsencesListView>
+                    RelativePanel.AlignLeftWithPanel="True">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
 
-                        <TextBlock x:Name="JustifiedText"
-                                   Text="Giustificate"
-                                   Margin="16,6,0,6"
-                                   Style="{ThemeResource BodyStrongTextBlockStyle}" />
+                    <ScrollViewer>
 
+                        <StackPanel>
 
-                        <controls:AbsencesListView x:Name="AbsencesJustifiedListView"
-                                                   HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-
-                        </controls:AbsencesListView>
-
-                    </StackPanel>
-
-                </ScrollViewer>
-
-            </Grid>
-
-        </RelativePanel>
+                            <TextBlock x:Name="ToJustifyText"
+                                       Text="Da giustificare"
+                                       Margin="16,6,0,6"
+                                       Style="{ThemeResource BodyStrongTextBlockStyle}" />
 
 
-            <RelativePanel 
+                            <controls:AbsencesListView x:Name="AbsencesToJustifyListView"
+                                                       HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+
+                            </controls:AbsencesListView>
+
+                            <TextBlock x:Name="JustifiedText"
+                                       Text="Giustificate"
+                                       Margin="16,6,0,6"
+                                       Style="{ThemeResource BodyStrongTextBlockStyle}" />
+
+
+                            <controls:AbsencesListView x:Name="AbsencesJustifiedListView"
+                                                       HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+
+                            </controls:AbsencesListView>
+
+                        </StackPanel>
+
+                    </ScrollViewer>
+
+                </Grid>
+
+            </RelativePanel>
+
+
+            <RelativePanel
                 Grid.Row="0"
                 Margin="8"
-                           Grid.Column="1"
-                           x:Name="CalendarPanel"
-                           CornerRadius="8"
-                           VerticalAlignment="Top"
+                Grid.Column="1"
+                x:Name="CalendarPanel"
+                CornerRadius="8"
+                VerticalAlignment="Top"
 
 
-                           Padding="12"
-                           BorderThickness="1"
-                           BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
-                           Background="{ThemeResource CardBackgroundFillColorDefaultBrush}">
+                Padding="12"
+                BorderThickness="1"
+                BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
+                Background="{ThemeResource CardBackgroundFillColorDefaultBrush}">
 
 
                 <TextBlock x:Name="TextBlock1"
@@ -189,13 +179,12 @@
                            Margin="0,0,0,12"
                            Style="{ThemeResource BodyStrongTextBlockStyle}" />
 
-                <Button 
+                <Button
                     x:Name="TodayButton"
                     Content="Oggi"
-RelativePanel.AlignRightWithPanel="True"
+                    RelativePanel.AlignRightWithPanel="True"
                     Click="TodayButton_OnClick"
-                    Margin="0,0,0,12"
-                    />
+                    Margin="0,0,0,12" />
 
                 <CalendarView
                     x:Name="TestCalendar"
@@ -203,18 +192,12 @@ RelativePanel.AlignRightWithPanel="True"
                     RelativePanel.AlignLeftWithPanel="True"
                     FirstDayOfWeek="Monday"
 
-                    CalendarViewDayItemChanging="MyCalendarView_CalendarViewDayItemChanging"/>
+                    CalendarViewDayItemChanging="MyCalendarView_CalendarViewDayItemChanging" />
 
             </RelativePanel>
 
 
-
-
-
         </Grid>
-
-
-
 
 
     </Grid>
