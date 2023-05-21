@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -164,6 +164,7 @@
     <Compile Include="Controls\UniformGridEx.cs" />
     <Compile Include="Converters\DateTimeToHourConverter.cs" />
     <Compile Include="Converters\AbsenceTypeToColorConverter.cs" />
+    <Compile Include="Converters\BetterBoolToVisibilityConverter.cs" />
     <Compile Include="Converters\EmptyListToVisibilityConverter.cs" />
     <Compile Include="Deserializers\NoteDeserializer.cs" />
     <Compile Include="Dialogs\NoteDialogContent.xaml.cs">

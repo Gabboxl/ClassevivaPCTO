@@ -8,6 +8,14 @@ namespace ClassevivaPCTO.Adapters
     {
         public readonly Notice CurrentObject;
 
+        public bool IsDeleted
+        {
+            get
+            {
+                return CurrentObject.cntStatus == "deleted";
+            }
+        }
+
         public SolidColorBrush StatusTextColor
         {
             get

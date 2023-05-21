@@ -14,6 +14,7 @@
     <UserControl.Resources>
 
         <converters:DateTimeToNormalDateConverter x:Key="DateTimeToNormalDateConverter" />
+        <converters:BetterBoolToVisibilityConverter x:Key="BetterBoolToVisibilityConverter" />
 
 
         <!-- being "BasedOn" the DefaultListViewItemStyle style, it removes the highlight effect of windows 10  -->
@@ -99,8 +100,21 @@
                         RelativePanel.AlignVerticalCenterWithPanel="True"
                         RelativePanel.AlignRightWithPanel="True"
                         x:Name="ReadButton"
+                        Visibility="{x:Bind IsDeleted, Converter={StaticResource BetterBoolToVisibilityConverter}, ConverterParameter=False}"
 
                         Click="ReadButton_Click" Icon="View" Label="Leggi" />
+
+                    <AppBarButton RelativePanel.AlignVerticalCenterWithPanel="True"
+                                  RelativePanel.AlignRightWithPanel="True"
+                                  x:Name="NotAvailableButton"
+                                  Label="Non disponibile"
+                                  IsEnabled="False"
+                                  Visibility="{x:Bind IsDeleted, Converter={StaticResource BetterBoolToVisibilityConverter}, ConverterParameter=True}">
+                        <!-- custom icon -->
+                        <AppBarButton.Icon>
+                            <FontIcon FontFamily="{StaticResource FluentIcons}" Glyph="&#xE894;" />
+                        </AppBarButton.Icon>
+                    </AppBarButton>
 
 
                 </RelativePanel>
