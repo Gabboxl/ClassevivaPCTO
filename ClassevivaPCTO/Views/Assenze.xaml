@@ -184,13 +184,22 @@
 
 
                 <TextBlock x:Name="TextBlock1"
+
                            Text="Calendario eventi"
                            Margin="0,0,0,12"
                            Style="{ThemeResource BodyStrongTextBlockStyle}" />
 
+                <Button 
+                    x:Name="TodayButton"
+                    Content="Oggi"
+RelativePanel.AlignRightWithPanel="True"
+                    Click="TodayButton_OnClick"
+                    Margin="0,0,0,12"
+                    />
+
                 <CalendarView
                     x:Name="TestCalendar"
-                    RelativePanel.Below="TextBlock1"
+                    RelativePanel.Below="TodayButton"
                     RelativePanel.AlignLeftWithPanel="True"
 
                     CalendarViewDayItemChanging="MyCalendarView_CalendarViewDayItemChanging"/>

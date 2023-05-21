@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using Windows.ApplicationModel.Core;
 using Windows.UI;
 using Windows.UI.Core;
+using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
@@ -109,6 +110,10 @@ namespace ClassevivaPCTO.Views
 
                     await UpdateCalendar();
 
+                    //select the current day of the calendar
+                    TestCalendar.SetDisplayDate(DateTime.Now.Date);
+                    
+
                     AssenzeViewModel.IsLoadingAssenze = false;
                 }
             );
@@ -209,5 +214,10 @@ namespace ClassevivaPCTO.Views
             return Task.CompletedTask;
         }
 
+        private void TodayButton_OnClick(object sender, RoutedEventArgs e)
+        {
+            //select the current day of the calendar
+            TestCalendar.SetDisplayDate(DateTime.Now.Date);
+        }
     }
 }
