@@ -31,6 +31,43 @@
         </Grid.ColumnDefinitions>
 
 
+
+
+
+
+
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup>
+                <VisualState x:Name="WideState">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="850" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="AutoSuggestBox.(Grid.Row)" Value="0" />
+
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="NarrowState">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="0" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="AutoSuggestBox.(Grid.Row)" Value="1" />
+
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+
+
+
+
+
+
+
+
+
+
         <RelativePanel Grid.Row="0">
             <TextBlock x:Name="TextTitolo" Grid.Row="0" Text="Agenda" FontSize="42" VerticalAlignment="Top"
                        Margin="32,16,0,0" />
@@ -39,6 +76,14 @@
                           Margin="32,16,0,0" Icon="Refresh" Label="Aggiorna" Click="AggiornaCommand_Click" />
         </RelativePanel>
 
+
+        <AutoSuggestBox
+            x:Name="AutoSuggestBox"
+            Grid.Row="1"
+            QueryIcon="Find"
+                        PlaceholderText="Cerca" RelativePanel.AlignHorizontalCenterWithPanel="True"
+                        HorizontalAlignment="Center"
+                        Width="260" Height="32" />
 
         <RelativePanel Grid.Row="2"
                        Margin="32,32,32,20"
@@ -82,10 +127,7 @@
                                Visibility="{x:Bind AgendaViewModel.IsLoadingAgenda, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" />
 
 
-            <AutoSuggestBox QueryIcon="Find"
-                            PlaceholderText="Cerca" RelativePanel.AlignHorizontalCenterWithPanel="True"
-                            HorizontalAlignment="Center"
-                            Width="260" Height="32" />
+
 
 
             <controls2:OverviewListView RelativePanel.Below="ButtonYesterday"
