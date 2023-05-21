@@ -138,8 +138,8 @@ namespace ClassevivaPCTO.Views
         private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
         {
             //this.StatusPane.IsPaneOpen = !this.StatusPane.IsPaneOpen;
-            testPopup.Height = Window.Current.Bounds.Height;
-            testPopup.IsOpen = true;
+            TestPopup.Height = Window.Current.Bounds.Height;
+            TestPopup.IsOpen = true;
         }
     }
 }

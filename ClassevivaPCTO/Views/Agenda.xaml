@@ -23,9 +23,33 @@
     <RelativePanel>
 
 
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup>
+                <VisualState x:Name="WideState">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="850" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="AutoSuggestBox.(Grid.Row)" Value="0" />
+
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="NarrowState">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="0" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="AutoSuggestBox.(Grid.Row)" Value="1" />
+
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+
+
         <Popup
 
-            x:Name="testPopup"
+            x:Name="TestPopup"
             IsOpen="False"
             Width="700"
             RelativePanel.AlignRightWithPanel="True"
@@ -44,7 +68,7 @@
                 BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
                 Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
                 Width="900"
-                Height="{Binding ElementName=testPopup, Path=Height}">
+                Height="{Binding ElementName=TestPopup, Path=Height}">
 
                 <RelativePanel Grid.Row="0">
                     <TextBlock x:Name="testTitolo1" Grid.Row="0" Text="Lezioni" FontSize="42" VerticalAlignment="Top"
@@ -80,31 +104,6 @@ RelativePanel.AlignTopWithPanel="True"
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
-
-
-        <VisualStateManager.VisualStateGroups>
-            <VisualStateGroup>
-                <VisualState x:Name="WideState">
-                    <VisualState.StateTriggers>
-                        <AdaptiveTrigger MinWindowWidth="850" />
-                    </VisualState.StateTriggers>
-                    <VisualState.Setters>
-                        <Setter Target="AutoSuggestBox.(Grid.Row)" Value="0" />
-
-                    </VisualState.Setters>
-                </VisualState>
-                <VisualState x:Name="NarrowState">
-                    <VisualState.StateTriggers>
-                        <AdaptiveTrigger MinWindowWidth="0" />
-                    </VisualState.StateTriggers>
-                    <VisualState.Setters>
-                        <Setter Target="AutoSuggestBox.(Grid.Row)" Value="1" />
-
-                    </VisualState.Setters>
-                </VisualState>
-            </VisualStateGroup>
-        </VisualStateManager.VisualStateGroups>
-
 
 
 
