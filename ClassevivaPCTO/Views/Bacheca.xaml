@@ -31,6 +31,31 @@
         </Grid.ColumnDefinitions>
 
 
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup>
+                <VisualState x:Name="WideState">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="850" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="SearchBoxBacheca.(Grid.Row)" Value="0" />
+
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="NarrowState">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="0" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="SearchBoxBacheca.(Grid.Row)" Value="1" />
+
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+
+
+
         <RelativePanel Grid.Row="0">
 
             <TextBlock x:Name="TextTitolo" Grid.Row="0" Text="Bacheca" FontSize="42" VerticalAlignment="Top"
@@ -39,6 +64,14 @@
             <AppBarButton RelativePanel.RightOf="TextTitolo" x:Name="AggiornaCommand" VerticalAlignment="Top"
                           Margin="32,16,0,0" Icon="Refresh" Label="Aggiorna" Click="AggiornaCommand_Click" />
         </RelativePanel>
+
+        <AutoSuggestBox
+            Grid.Row="0"
+            QueryIcon="Find"
+                        x:Name="SearchBoxBacheca"
+                        PlaceholderText="Cerca" RelativePanel.AlignHorizontalCenterWithPanel="True"
+                        HorizontalAlignment="Center"
+                        Width="260" Height="32" />
 
 
         <RelativePanel Grid.Row="2"
@@ -64,13 +97,6 @@
                                Visibility="{x:Bind BachecaViewModel.IsLoadingBacheca, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" />
 
 
-            <AutoSuggestBox QueryIcon="Find"
-                            x:Name="SearchBoxBacheca"
-                            PlaceholderText="Cerca" RelativePanel.AlignHorizontalCenterWithPanel="True"
-                            HorizontalAlignment="Center"
-                            Width="260" Height="32" />
-
-
             <CheckBox x:Name="CheckboxAttive"
                       Content="Mostra comunicazioni inattive"
                       Margin="0,0,16,0"
@@ -79,7 +105,7 @@
 
                       IsChecked="{x:Bind BachecaViewModel.MostraComInattive, Mode=TwoWay}" />
 
-            <Grid RelativePanel.Below="SearchBoxBacheca"
+            <Grid RelativePanel.Below="TextComunicazioni"
                   RelativePanel.AlignRightWithPanel="True"
                   RelativePanel.AlignLeftWithPanel="True">
                 <Grid.RowDefinitions>
