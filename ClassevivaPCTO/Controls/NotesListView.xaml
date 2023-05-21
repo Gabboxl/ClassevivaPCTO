@@ -39,13 +39,21 @@
 
                 <RelativePanel ScrollViewer.HorizontalScrollMode="Disabled" Grid.Row="0" Grid.Column="0">
 
+                    <!-- note icon -->
+                    <FontIcon x:Name="NoteIcon"
+                              FontSize="24"
+                              RelativePanel.AlignVerticalCenterWithPanel="True"
+                              FontFamily="{StaticResource FluentIcons}" Glyph="&#xe91c;" />
+
+
 
                     <TextBlock x:Name="titoloEvento" TextWrapping="WrapWholeWords"
+                               RelativePanel.RightOf="NoteIcon"
 
 
                                Text="{x:Bind CurrentObject.authorName}"
                                Style="{ThemeResource BaseTextBlockStyle}"
-                               Margin="6,6,0,0" />
+                               Margin="24,6,0,0" />
 
                     <!-- data pubblicazione -->
                     <TextBlock RelativePanel.RightOf="titoloEvento" x:Name="dataPubblicazione" TextWrapping="NoWrap"
@@ -60,11 +68,12 @@
 
 
                     <TextBlock x:Name="bodyText" RelativePanel.Below="titoloEvento" TextWrapping="Wrap"
+                                RelativePanel.RightOf="NoteIcon"
                                MaxWidth="400"
                                Text="{x:Bind  CurrentObject.evtText}"
                                FontStyle="Italic"
                                Style="{ThemeResource CaptionTextBlockStyle}"
-                               Margin="6,6,0,0" />
+                               Margin="24,6,0,0" />
 
 
                 </RelativePanel>
