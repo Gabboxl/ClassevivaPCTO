@@ -50,7 +50,6 @@
                     <TextBlock x:Name="titoloEvento" TextWrapping="WrapWholeWords"
                                RelativePanel.RightOf="NoteIcon"
 
-
                                Text="{x:Bind CurrentObject.authorName}"
                                Style="{ThemeResource BaseTextBlockStyle}"
                                Margin="24,6,0,0" />
@@ -73,7 +72,7 @@
                                Text="{x:Bind  CurrentObject.evtText}"
                                FontStyle="Italic"
                                Style="{ThemeResource CaptionTextBlockStyle}"
-                               Margin="24,6,0,0" />
+                               Margin="24,6,0,8" />
 
 
                 </RelativePanel>
