@@ -17,6 +17,7 @@
     xmlns:contract7Present="http://schemas.microsoft.com/winfx/2006/xaml/presentation?IsApiContractPresent(Windows.Foundation.UniversalApiContract, 7)"
     xmlns:roba="using:ClassevivaPCTO.Utils"
 
+
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
     muxc:BackdropMaterial.ApplyToRootOrPageBackground="True">
 
@@ -40,6 +41,40 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
+
+
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup>
+                <VisualState x:Name="WideState">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="950" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="MyUniformGrid.Columns" Value="2" />
+                        <!--<Setter Target="MyUniformGrid.Rows" Value="2" />-->
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="NarrowState">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="0" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="MyUniformGrid.Columns" Value="1" />
+                        <!--
+                        <Setter Target="MyUniformGrid.Rows" Value="3" />
+                        -->
+
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+
+
+
+
+
+
+
         <RelativePanel Grid.Row="0">
 
             <TextBlock x:Name="TextBenvenuto" Text="test " FontSize="42" VerticalAlignment="Top"
@@ -50,7 +85,16 @@
         </RelativePanel>
 
 
-        <controls2:UniformGridEx Grid.Row="1"
+
+
+                <ScrollViewer
+                    
+                    Grid.Row="1">
+
+
+
+                    <controls2:UniformGridEx 
+                        x:Name="MyUniformGrid"
                                  ColumnSpacing="36" RowSpacing="36"
                                  MinRowHeight="250"
 
@@ -58,6 +102,7 @@
 
 
             <Grid
+                Grid.RowSpan="2"
                 CornerRadius="8"
                 Padding="12"
                 BorderThickness="1"
@@ -121,7 +166,25 @@
                                        RelativePanel.RightOf="TitleRecentGrades"
                                        RelativePanel.AlignVerticalCenterWith="TitleRecentGrades"
                                        Visibility="{x:Bind DashboardPageViewModel.IsLoadingGrades, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" />
-                </RelativePanel>
+
+
+                    <TextBlock TextWrapping="Wrap"
+                               x:Name="TitleMedia"
+                               TextAlignment="Center" Text="Media totale dei voti:" FontSize="18"
+                               RelativePanel.LeftOf="TextBlockMedia"
+                               Margin="0,0,6,0"/>
+
+
+                        <muxc:ProgressRing IsActive="True" x:Name="ProgressRingMedia"
+                                       RelativePanel.RightOf="TitleMedia"
+                                       Visibility="{x:Bind DashboardPageViewModel.IsLoadingMedia, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" />
+
+                    <TextBlock x:Name="TextBlockMedia" Text="test" Visibility="Collapsed" 
+                               RelativePanel.AlignRightWithPanel="True"
+                               FontSize="18" FontWeight="Bold" />
+
+
+                    </RelativePanel>
 
 
                 <ScrollViewer Grid.Row="2" ZoomMode="Disabled"
@@ -144,38 +207,6 @@
             </Grid>
 
 
-            <Grid
-                Grid.ColumnSpan="1"
-                VerticalAlignment="Stretch" HorizontalAlignment="Stretch"
-                CornerRadius="8"
-                Padding="12"
-                BorderThickness="1"
-                BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
-                Background="{ThemeResource CardBackgroundFillColorDefaultBrush}">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="*" />
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition />
-
-                </Grid.ColumnDefinitions>
-
-                <StackPanel Grid.Row="0" Grid.RowSpan="2" VerticalAlignment="Center">
-                    <TextBlock TextWrapping="Wrap" TextAlignment="Center" Text="Media totale dei voti:" FontSize="50"
-                               HorizontalAlignment="Center" VerticalAlignment="Top" />
-
-                    <muxc:ProgressRing IsActive="True" x:Name="ProgressRingMedia"
-                                       RelativePanel.AlignVerticalCenterWithPanel="True"
-                                       RelativePanel.AlignHorizontalCenterWithPanel="True"
-                                       Visibility="{x:Bind DashboardPageViewModel.IsLoadingMedia, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" />
-
-                    <TextBlock x:Name="TextBlockMedia" Text="test" Visibility="Collapsed" HorizontalAlignment="Center"
-                               FontSize="45" FontWeight="Bold" VerticalAlignment="Center" />
-                </StackPanel>
-
-            </Grid>
-
 
             <Grid
                 VerticalAlignment="Stretch" HorizontalAlignment="Stretch"
@@ -192,7 +223,6 @@
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition />
-
                 </Grid.ColumnDefinitions>
 
                 <RelativePanel Grid.Row="0">
@@ -233,6 +263,11 @@
 
 
         </controls2:UniformGridEx>
+                    </ScrollViewer>
+
+
+
+
 
     </Grid>
 </Page>
