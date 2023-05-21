@@ -41,13 +41,20 @@
 
                 <RelativePanel ScrollViewer.HorizontalScrollMode="Disabled" Grid.Row="0" Grid.Column="0">
 
+                    <!-- file icon -->
+                    <FontIcon x:Name="FileIcon"
+                              FontSize="24"
+                              RelativePanel.AlignVerticalCenterWithPanel="True"
+                              FontFamily="{StaticResource FluentIcons}" Glyph="&#xE7C3;" />
+
 
                     <TextBlock x:Name="titoloScrutinio" TextWrapping="WrapWholeWords"
+                               RelativePanel.RightOf="FileIcon"
 
                                RelativePanel.AlignVerticalCenterWithPanel="True"
                                Text="{x:Bind CurrentObject.desc}"
                                Style="{ThemeResource BaseTextBlockStyle}"
-                               Margin="6,0,0,0" />
+                               Margin="12,0,0,0" />
 
 
                     <TextBlock x:Name="StatusText" RelativePanel.RightOf="titoloScrutinio" TextWrapping="NoWrap"
