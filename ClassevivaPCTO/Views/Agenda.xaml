@@ -20,7 +20,58 @@
         </ResourceDictionary>
     </Page.Resources>
 
-    <Grid>
+    <RelativePanel>
+
+
+        <Popup
+
+            x:Name="testPopup"
+            IsOpen="False"
+            Width="700"
+            RelativePanel.AlignRightWithPanel="True"
+            RelativePanel.AlignTopWithPanel="True"
+            RelativePanel.AlignBottomWithPanel="True"
+            IsLightDismissEnabled="True"
+            LightDismissOverlayMode="On">
+            <Popup.ChildTransitions>
+                <TransitionCollection>
+                    <PaneThemeTransition Edge="Right"></PaneThemeTransition>
+                </TransitionCollection>
+
+            </Popup.ChildTransitions>
+
+            <StackPanel
+                BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
+                Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+                Width="900"
+                Height="{Binding ElementName=testPopup, Path=Height}">
+
+                <RelativePanel Grid.Row="0">
+                    <TextBlock x:Name="testTitolo1" Grid.Row="0" Text="Lezioni" FontSize="42" VerticalAlignment="Top"
+                               Margin="32,16,0,0" />
+
+                </RelativePanel>
+
+
+
+
+                <TextBlock Text="hiii"></TextBlock>
+
+            </StackPanel>
+
+        </Popup>
+
+
+
+
+        <Grid
+        HorizontalAlignment="Stretch"
+        VerticalAlignment="Stretch"
+        RelativePanel.AlignRightWithPanel="True"
+        RelativePanel.AlignLeftWithPanel="True"
+RelativePanel.AlignBottomWithPanel="True"
+RelativePanel.AlignTopWithPanel="True"
+        >
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
@@ -28,6 +79,7 @@
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="Auto" />
         </Grid.ColumnDefinitions>
 
 
@@ -53,6 +105,11 @@
                 </VisualState>
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
+
+
+
+
+
 
 
         <RelativePanel Grid.Row="0">
@@ -82,6 +139,8 @@
                        BorderThickness="1"
                        BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
                        Background="{ThemeResource CardBackgroundFillColorDefaultBrush}">
+
+
 
 
             <Button x:Name="ButtonYesterday" Margin="0,8,0,0"
@@ -114,6 +173,39 @@
                                Visibility="{x:Bind AgendaViewModel.IsLoadingAgenda, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" />
 
 
+            <Button
+                x:Name="AllLessonsButton"
+                Content="Tutte le lezioni"
+                RelativePanel.AlignRightWithPanel="True">
+            </Button>
+
+            <Button
+                x:Name="AllAgendaButton"
+                Content="Tutti i compiti"
+                RelativePanel.LeftOf="AllLessonsButton"
+                Margin="0,0,6,0">
+            </Button>
+
+
+
+
+            <!--<SplitView
+                
+                x:Name="StatusPane"
+                PanePlacement="Right">
+                <SplitView.Pane>
+                    ~1~ Your status of performed tasks here... @1@
+                    <Grid>
+                        <TextBlock Text="Status" />
+                    </Grid>
+                </SplitView.Pane>
+
+                <Grid>
+                    
+                </Grid>
+            </SplitView>-->
+            <Button RelativePanel.LeftOf="AllAgendaButton" Content="Open/Close Status" Click="ButtonBase_OnClick" />
+
             <controls2:OverviewListView RelativePanel.Below="ButtonYesterday"
                                         RelativePanel.AlignRightWithPanel="True"
                                         RelativePanel.AlignLeftWithPanel="True"
@@ -121,7 +213,11 @@
             </controls2:OverviewListView>
 
 
+
+
         </RelativePanel>
 
     </Grid>
+
+    </RelativePanel>
 </Page>

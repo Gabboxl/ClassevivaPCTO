@@ -5,6 +5,7 @@ using System;
 using System.Threading.Tasks;
 using Windows.ApplicationModel.Core;
 using Windows.UI.Core;
+using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
 using ClassevivaPCTO.DataModels;
@@ -132,6 +133,13 @@ namespace ClassevivaPCTO.Views
             {
                 await LoadData(agendaSelectedDate.Value.Date);
             });
+        }
+
+        private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
+        {
+            //this.StatusPane.IsPaneOpen = !this.StatusPane.IsPaneOpen;
+            testPopup.Height = Window.Current.Bounds.Height;
+            testPopup.IsOpen = true;
         }
     }
 }
