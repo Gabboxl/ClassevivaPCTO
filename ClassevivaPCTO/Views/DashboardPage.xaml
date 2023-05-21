@@ -172,15 +172,20 @@
                                x:Name="TitleMedia"
                                TextAlignment="Center" Text="Media totale dei voti:" FontSize="18"
                                RelativePanel.LeftOf="TextBlockMedia"
+                               RelativePanel.AlignVerticalCenterWith="TitleRecentGrades"
                                Margin="0,0,6,0"/>
 
 
                         <muxc:ProgressRing IsActive="True" x:Name="ProgressRingMedia"
+                                           RelativePanel.AlignVerticalCenterWith="TitleRecentGrades"
+
                                        RelativePanel.RightOf="TitleMedia"
                                        Visibility="{x:Bind DashboardPageViewModel.IsLoadingMedia, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" />
 
                     <TextBlock x:Name="TextBlockMedia" Text="test" Visibility="Collapsed" 
                                RelativePanel.AlignRightWithPanel="True"
+                               RelativePanel.AlignVerticalCenterWith="TitleRecentGrades"
+
                                FontSize="18" FontWeight="Bold" />
 
 
