@@ -56,7 +56,7 @@
                       RelativePanel.AlignHorizontalCenterWithPanel="True"/>
 
 
-            <TextBlock Text="File" x:Name="TextFileScrutini"
+            <TextBlock Text="Documenti" x:Name="TextFileScrutini"
                        Margin="8,6,0,0"
                        Foreground="{ThemeResource TextFillColorSecondaryBrush}"
                        Style="{ThemeResource BodyStrongTextBlockStyle}" />
