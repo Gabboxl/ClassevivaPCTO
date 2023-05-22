@@ -48,8 +48,7 @@
 
 
         <Popup
-
-            x:Name="TestPopup"
+            x:Name="LezioniPopup"
             IsOpen="False"
             Width="700"
             RelativePanel.AlignRightWithPanel="True"
@@ -65,27 +64,62 @@
             </Popup.ChildTransitions>
 
             <StackPanel
+                x:Name="LezioniPopupStackPanel"
                 BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
                 Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
-                Width="900"
-                Height="{Binding ElementName=TestPopup, Path=Height}">
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Stretch"
+                Width="{Binding ElementName=LezioniPopup, Path=Width}"
+                Height="{Binding ElementName=LezioniPopup, Path=Height}">
 
                 <RelativePanel Grid.Row="0">
-                    <TextBlock x:Name="testTitolo1" Grid.Row="0" Text="Lezioni" FontSize="42" VerticalAlignment="Top"
+                    <TextBlock x:Name="TitoloLezioniPopup" Grid.Row="0" Text="Lezioni" FontSize="42" VerticalAlignment="Top"
                                Margin="32,16,0,0" />
-
                 </RelativePanel>
 
 
-
-
-                <TextBlock Text="hiii"></TextBlock>
 
             </StackPanel>
 
         </Popup>
 
 
+
+        <Popup
+            x:Name="AgendaPopup"
+            IsOpen="False"
+            Width="700"
+            RelativePanel.AlignRightWithPanel="True"
+            RelativePanel.AlignTopWithPanel="True"
+            RelativePanel.AlignBottomWithPanel="True"
+            IsLightDismissEnabled="True"
+            LightDismissOverlayMode="On">
+            <Popup.ChildTransitions>
+                <TransitionCollection>
+                    <PaneThemeTransition Edge="Right"></PaneThemeTransition>
+                </TransitionCollection>
+
+            </Popup.ChildTransitions>
+
+            <StackPanel
+                x:Name="AgendaPopupStackPanel"
+                BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
+                Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Stretch"
+                Width="{Binding ElementName=AgendaPopup, Path=Width}"
+                Height="{Binding ElementName=AgendaPopup, Path=Height}">
+
+                <RelativePanel Grid.Row="0">
+                    <TextBlock x:Name="TitoloAgendaPopup" Grid.Row="0" Text="Agenda" FontSize="42" VerticalAlignment="Top"
+                               Margin="32,16,0,0" />
+                </RelativePanel>
+
+
+
+            </StackPanel>
+
+        </Popup>
 
 
         <Grid
@@ -174,45 +208,26 @@ RelativePanel.AlignTopWithPanel="True"
 
 
             <Button
-                x:Name="AllLessonsButton"
+                x:Name="PopupLessonsButton"
                 Content="Tutte le lezioni"
+                Click="PopupLessonsButton_OnClick"
                 RelativePanel.AlignRightWithPanel="True">
             </Button>
 
             <Button
-                x:Name="AllAgendaButton"
+                x:Name="PopupAgendaButton"
                 Content="Tutti i compiti"
-                RelativePanel.LeftOf="AllLessonsButton"
+                RelativePanel.LeftOf="PopupLessonsButton"
+                Click="PopupAgendaButton_OnClick"
                 Margin="0,0,6,0">
             </Button>
 
-
-
-
-            <!--<SplitView
-                
-                x:Name="StatusPane"
-                PanePlacement="Right">
-                <SplitView.Pane>
-                    ~1~ Your status of performed tasks here... @1@
-                    <Grid>
-                        <TextBlock Text="Status" />
-                    </Grid>
-                </SplitView.Pane>
-
-                <Grid>
-                    
-                </Grid>
-            </SplitView>-->
-            <Button RelativePanel.LeftOf="AllAgendaButton" Content="Open/Close Status" Click="ButtonBase_OnClick" />
 
             <controls2:OverviewListView RelativePanel.Below="ButtonYesterday"
                                         RelativePanel.AlignRightWithPanel="True"
                                         RelativePanel.AlignLeftWithPanel="True"
                                         Margin="0,8,0,0" x:Name="OverviewListView">
             </controls2:OverviewListView>
-
-
 
 
         </RelativePanel>

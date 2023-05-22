@@ -135,11 +135,18 @@ namespace ClassevivaPCTO.Views
             });
         }
 
-        private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
+
+        private void PopupAgendaButton_OnClick(object sender, RoutedEventArgs e)
         {
             //this.StatusPane.IsPaneOpen = !this.StatusPane.IsPaneOpen;
-            TestPopup.Height = Window.Current.Bounds.Height;
-            TestPopup.IsOpen = true;
+            AgendaPopup.Height = Window.Current.Bounds.Height;
+            AgendaPopup.IsOpen = true;
+        }
+
+        private void PopupLessonsButton_OnClick(object sender, RoutedEventArgs e)
+        {
+            LezioniPopup.Height = Window.Current.Bounds.Height;
+            LezioniPopup.IsOpen = true;
         }
     }
 }
