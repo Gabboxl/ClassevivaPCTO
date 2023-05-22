@@ -140,10 +140,21 @@ namespace ClassevivaPCTO.Views
 
         private async void PopupLessonsButton_OnClick(object sender, RoutedEventArgs e)
         {
-            LezioniPopup.Height =
-                this.ActualHeight; //set the height of the popup to the height of the current PAGE (not the window because we do not need to take into account the appbar space)
+            await Task.Run(async () => { await LoadLessonsPopup(); });
+        }
 
-            LezioniPopupStackPanel.Children.Clear();
+
+        private async Task LoadLessonsPopup()
+        {
+            await CoreApplication.MainView.Dispatcher.RunAsync(
+                CoreDispatcherPriority.Normal,
+                async () =>
+                {
+                    LezioniPopup.Height =
+                        this.ActualHeight; //set the height of the popup to the height of the current PAGE (not the window because we do not need to take into account the appbar space)
+
+                    LezioniPopupStackPanel.Children.Clear();
+                });
 
             LoginResultComplete loginResult = ViewModelHolder.getViewModel().LoginResult;
             Card cardResult = ViewModelHolder.getViewModel().SingleCardResult;
@@ -178,28 +189,38 @@ namespace ClassevivaPCTO.Views
             //add an expander control for 10 times in a loop to the LezioniPopupStackPanel
             foreach (var currentSubject in subjects.Subjects)
             {
-                var expander = new Expander
-                {
-                    Header = currentSubject.description,
-                    //Content = "yoyo" 
-                };
-
                 //list of lessons for the current subject id
                 var subjectLessons = lessons.Lessons.Where(lesson => lesson.subjectId == currentSubject.id).ToList();
+                await CoreApplication.MainView.Dispatcher.RunAsync(
+                    CoreDispatcherPriority.Normal,
+                    async () =>
+                    {
+                        var expander = new Expander
+                        {
+                            Header = currentSubject.description,
+                            //Content = "yoyo" 
+                        };
 
-                var listviewlessons = new LessonsListView()
-                {
-                    ItemsSource = subjectLessons,
-                };
 
-                expander.Content = listviewlessons;
+                        var listviewlessons = new LessonsListView()
+                        {
+                            ItemsSource = subjectLessons,
+                        };
 
-                LezioniPopupStackPanel.Children.Add(expander);
+                        expander.Content = listviewlessons;
+
+                        LezioniPopupStackPanel.Children.Add(expander);
+                    });
             }
 
 
-            //we open the popup
-            LezioniPopup.IsOpen = true;
+            await CoreApplication.MainView.Dispatcher.RunAsync(
+                CoreDispatcherPriority.Normal,
+                async () =>
+                {
+                    //we open the popup
+                    LezioniPopup.IsOpen = true;
+                });
         }
     }
 }
