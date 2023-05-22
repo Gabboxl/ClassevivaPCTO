@@ -11,7 +11,7 @@ namespace ClassevivaPCTO.Views
 {
     public sealed partial class DettaglioVoti : Page
     {
-        Grades2Result grades2Result;
+        Grades2Result _grades2Result;
 
         public DettaglioVoti()
         {
@@ -27,7 +27,7 @@ namespace ClassevivaPCTO.Views
 
             var api = RestService.For<IClassevivaAPI>(Endpoint.CurrentEndpoint);
 
-            grades2Result = await api.GetGrades(
+            _grades2Result = await api.GetGrades(
                 cardResult.usrId.ToString(),
                 loginResult.token
             );
@@ -67,7 +67,7 @@ namespace ClassevivaPCTO.Views
             //pulisco il ComboMaterie
             ComboMaterie.Items.Clear();
 
-            var gradesGroupedByPeriodoDesc = grades2Result.Grades
+            var gradesGroupedByPeriodoDesc = _grades2Result.Grades
                 .OrderBy(x => x.evtDate)
                 .GroupBy(x => x.periodDesc)
                 .Select(grp => grp.ToList())
@@ -105,7 +105,7 @@ namespace ClassevivaPCTO.Views
 
         private void AggiornaListViewVoti()
         {
-            var gradesGroupedByPeriodoDesc = grades2Result.Grades
+            var gradesGroupedByPeriodoDesc = _grades2Result.Grades
                 .OrderBy(x => x.evtDate)
                 .GroupBy(x => x.periodDesc)
                 .Select(grp => grp.ToList()) //metto ogni gruppo di periodo in una lista a parte
