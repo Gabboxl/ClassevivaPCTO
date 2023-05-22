@@ -9,6 +9,7 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
 using ClassevivaPCTO.DataModels;
+using Microsoft.Toolkit.Uwp.UI.Controls;
 
 namespace ClassevivaPCTO.Views
 {
@@ -139,14 +140,27 @@ namespace ClassevivaPCTO.Views
         private void PopupAgendaButton_OnClick(object sender, RoutedEventArgs e)
         {
             //this.StatusPane.IsPaneOpen = !this.StatusPane.IsPaneOpen;
-            AgendaPopup.Height = Window.Current.Bounds.Height;
+            AgendaPopup.Height = this.ActualHeight;
             AgendaPopup.IsOpen = true;
         }
 
         private void PopupLessonsButton_OnClick(object sender, RoutedEventArgs e)
         {
-            LezioniPopup.Height = Window.Current.Bounds.Height;
+            LezioniPopup.Height = this.ActualHeight; //set the height of the popup to the height of the current PAGE (not the window because we do not need to take into account the appbar space)
             LezioniPopup.IsOpen = true;
+
+            LezioniPopupStackPanel.Children.Clear();
+
+            //add an expander control for 10 times in a loop to the LezioniPopupStackPanel
+            for (int i = 0; i < 10; i++)
+            {
+                var expander = new Expander
+                {
+                    Header = "Lezione " + i,
+                    Content = "Contenuto della lezione " + i
+                };
+                LezioniPopupStackPanel.Children.Add(expander);
+            }
         }
     }
 }
