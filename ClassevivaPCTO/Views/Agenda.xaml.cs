@@ -2,12 +2,14 @@
 using ClassevivaPCTO.ViewModels;
 using Microsoft.Extensions.DependencyInjection;
 using System;
+using System.Linq;
 using System.Threading.Tasks;
 using Windows.ApplicationModel.Core;
 using Windows.UI.Core;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
+using ClassevivaPCTO.Controls;
 using ClassevivaPCTO.DataModels;
 using Microsoft.Toolkit.Uwp.UI.Controls;
 
@@ -23,7 +25,7 @@ namespace ClassevivaPCTO.Views
         {
             this.InitializeComponent();
 
-            App app = (App)App.Current;
+            App app = (App) App.Current;
             var apiClient = app.Container.GetService<IClassevivaAPI>();
 
             apiWrapper = PoliciesDispatchProxy<IClassevivaAPI>.CreateProxy(apiClient);
@@ -63,10 +65,7 @@ namespace ClassevivaPCTO.Views
                     //ButtonToday.IsEnabled = true;
                 }
 
-                await Task.Run(async () =>
-                {
-                    await LoadData(agendaSelectedDate.Value.Date);
-                });
+                await Task.Run(async () => { await LoadData(agendaSelectedDate.Value.Date); });
             }
         }
 
@@ -74,10 +73,7 @@ namespace ClassevivaPCTO.Views
         {
             await CoreApplication.MainView.Dispatcher.RunAsync(
                 CoreDispatcherPriority.Normal,
-                async () =>
-                {
-                    AgendaViewModel.IsLoadingAgenda = true;
-                }
+                async () => { AgendaViewModel.IsLoadingAgenda = true; }
             );
 
             LoginResultComplete loginResult = ViewModelHolder.getViewModel().LoginResult;
@@ -98,9 +94,10 @@ namespace ClassevivaPCTO.Views
                 async () =>
                 {
                     //create new OverviewDataModel instance and set the data var inside
-                    var overviewData = new OverviewDataModel { 
-                        OverviewData = overviewResult, 
-                        FilterDate = dateToLoad 
+                    var overviewData = new OverviewDataModel
+                    {
+                        OverviewData = overviewResult,
+                        FilterDate = dateToLoad
                     };
 
                     OverviewListView.ItemsSource = overviewData;
@@ -130,10 +127,7 @@ namespace ClassevivaPCTO.Views
         {
             var agendaSelectedDate = CalendarAgenda.Date;
 
-            await Task.Run(async () =>
-            {
-                await LoadData(agendaSelectedDate.Value.Date);
-            });
+            await Task.Run(async () => { await LoadData(agendaSelectedDate.Value.Date); });
         }
 
 
@@ -144,23 +138,68 @@ namespace ClassevivaPCTO.Views
             AgendaPopup.IsOpen = true;
         }
 
-        private void PopupLessonsButton_OnClick(object sender, RoutedEventArgs e)
+        private async void PopupLessonsButton_OnClick(object sender, RoutedEventArgs e)
         {
-            LezioniPopup.Height = this.ActualHeight; //set the height of the popup to the height of the current PAGE (not the window because we do not need to take into account the appbar space)
-            LezioniPopup.IsOpen = true;
+            LezioniPopup.Height =
+                this.ActualHeight; //set the height of the popup to the height of the current PAGE (not the window because we do not need to take into account the appbar space)
 
             LezioniPopupStackPanel.Children.Clear();
 
+            LoginResultComplete loginResult = ViewModelHolder.getViewModel().LoginResult;
+            Card cardResult = ViewModelHolder.getViewModel().SingleCardResult;
+
+            SubjectsResult subjects = await apiWrapper.GetSubjects(
+                cardResult.usrId.ToString(),
+                loginResult.token
+            );
+
+            //var StartDate if i am on the first semester, then start date is 1st of september of the current year
+            //else start date is 1st of september of the next year
+            DateTime startDate = new DateTime(
+                DateTime.Now.Month >= 9 ? DateTime.Now.Year : DateTime.Now.Year - 1,
+                9,
+                1
+            );
+
+
+            //var EndDate of next year + june 30th
+            DateTime endDate = new DateTime(
+                DateTime.Now.Month <= 7 ? DateTime.Now.Year : DateTime.Now.Year + 1,
+                6, 30);
+
+
+            LessonsResult lessons = await apiWrapper.GetLessons(
+                cardResult.usrId.ToString(),
+                VariousUtils.ToApiDateTime(startDate),
+                VariousUtils.ToApiDateTime(endDate),
+                loginResult.token
+            );
+
             //add an expander control for 10 times in a loop to the LezioniPopupStackPanel
-            for (int i = 0; i < 10; i++)
+            foreach (var currentSubject in subjects.Subjects)
             {
                 var expander = new Expander
                 {
-                    Header = "Lezione " + i,
-                    Content = "Contenuto della lezione " + i
+                    Header = currentSubject.description,
+                    //Content = "yoyo" 
                 };
+
+                //list of lessons for the current subject id
+                var subjectLessons = lessons.Lessons.Where(lesson => lesson.subjectId == currentSubject.id).ToList();
+
+                var listviewlessons = new LessonsListView()
+                {
+                    ItemsSource = subjectLessons,
+                };
+
+                expander.Content = listviewlessons;
+
                 LezioniPopupStackPanel.Children.Add(expander);
             }
+
+
+            //we open the popup
+            LezioniPopup.IsOpen = true;
         }
     }
 }
