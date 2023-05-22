@@ -11,7 +11,7 @@ namespace ClassevivaPCTO.Views
 {
     public sealed partial class DettaglioVoti : Page
     {
-        Grades2Result _grades2Result;
+        private Grades2Result _grades2Result;
 
         public DettaglioVoti()
         {
