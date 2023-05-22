@@ -1,5 +1,6 @@
 ﻿using ClassevivaPCTO.Utils;
 using ClassevivaPCTO.ViewModels;
+using Microsoft.Extensions.DependencyInjection;
 using Refit;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,9 +14,16 @@ namespace ClassevivaPCTO.Views
     {
         private Grades2Result _grades2Result;
 
+        private readonly IClassevivaAPI apiWrapper;
+
         public DettaglioVoti()
         {
             this.InitializeComponent();
+
+            App app = (App)App.Current;
+            var apiClient = app.Container.GetService<IClassevivaAPI>();
+
+            apiWrapper = PoliciesDispatchProxy<IClassevivaAPI>.CreateProxy(apiClient);
         }
 
         protected override async void OnNavigatedTo(NavigationEventArgs e)
@@ -25,14 +33,12 @@ namespace ClassevivaPCTO.Views
             LoginResultComplete loginResult = ViewModelHolder.getViewModel().LoginResult;
             Card cardResult = ViewModelHolder.getViewModel().SingleCardResult;
 
-            var api = RestService.For<IClassevivaAPI>(Endpoint.CurrentEndpoint);
-
-            _grades2Result = await api.GetGrades(
+            _grades2Result = await apiWrapper.GetGrades(
                 cardResult.usrId.ToString(),
                 loginResult.token
             );
 
-            var resultPeriods = await api.GetPeriods(
+            var resultPeriods = await apiWrapper.GetPeriods(
                 cardResult.usrId.ToString(),
                 loginResult.token
             );
