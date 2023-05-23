@@ -32,7 +32,7 @@ namespace ClassevivaPCTO.Views
             
             var mediaPlayer = new MediaPlayer();
             mediaPlayer.Source = MediaSource.CreateFromUri(new Uri("ms-appx:///Audio/sweep.mp3"));
-            //mediaPlayer.Play();
+            mediaPlayer.Play();
 
 
 
