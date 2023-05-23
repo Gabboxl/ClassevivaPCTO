@@ -50,7 +50,7 @@
         <Popup
             x:Name="LezioniPopup"
             IsOpen="False"
-            Width="700"
+            Width="1000"
             RelativePanel.AlignRightWithPanel="True"
             RelativePanel.AlignTopWithPanel="True"
             RelativePanel.AlignBottomWithPanel="True"
@@ -145,6 +145,7 @@
 
                 <ScrollViewer Grid.Row="1">
                     <StackPanel
+                        
                         x:Name="AgendaPopupStackPanel">
                     </StackPanel>
                 </ScrollViewer>

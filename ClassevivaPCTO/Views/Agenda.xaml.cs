@@ -12,6 +12,8 @@ using Windows.UI.Xaml.Navigation;
 using ClassevivaPCTO.Controls;
 using ClassevivaPCTO.DataModels;
 using Microsoft.Toolkit.Uwp.UI.Controls;
+using Microsoft.UI.Xaml.Controls;
+using Expander = Microsoft.UI.Xaml.Controls.Expander;
 
 namespace ClassevivaPCTO.Views
 {
@@ -152,7 +154,7 @@ namespace ClassevivaPCTO.Views
                 {
                     LezioniPopup.Height =
                         this.ActualHeight; //set the height of the popup to the height of the current PAGE (not the window because we do not need to take into account the appbar space)
-
+                    LezioniPopup.IsOpen = true;
                     LezioniPopupStackPanel.Children.Clear();
                 });
 
@@ -195,17 +197,22 @@ namespace ClassevivaPCTO.Views
                     CoreDispatcherPriority.Normal,
                     async () =>
                     {
-                        var expander = new Expander
+                        var expander = new Expander()
                         {
                             Header = currentSubject.description,
                             //Content = "yoyo" 
                         };
+
+                        expander.HorizontalAlignment = HorizontalAlignment.Stretch;
+
 
 
                         var listviewlessons = new LessonsListView()
                         {
                             ItemsSource = subjectLessons,
                         };
+
+                        listviewlessons.HorizontalAlignment = HorizontalAlignment.Stretch;
 
                         expander.Content = listviewlessons;
 
