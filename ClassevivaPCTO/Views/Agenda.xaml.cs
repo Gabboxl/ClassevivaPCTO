@@ -23,6 +23,11 @@ namespace ClassevivaPCTO.Views
 
         private readonly IClassevivaAPI apiWrapper;
 
+
+        private SubjectsResult _subjects;
+        private LessonsResult _lessons;
+
+
         public Agenda()
         {
             this.InitializeComponent();
@@ -154,45 +159,57 @@ namespace ClassevivaPCTO.Views
                 {
                     LezioniPopup.Height =
                         this.ActualHeight; //set the height of the popup to the height of the current PAGE (not the window because we do not need to take into account the appbar space)
-                    LezioniPopup.IsOpen = true;
+                    
                     LezioniPopupStackPanel.Children.Clear();
+
+
+                    LezioniPopup.IsOpen = true;
                 });
 
             LoginResultComplete loginResult = ViewModelHolder.getViewModel().LoginResult;
             Card cardResult = ViewModelHolder.getViewModel().SingleCardResult;
 
-            SubjectsResult subjects = await apiWrapper.GetSubjects(
-                cardResult.usrId.ToString(),
-                loginResult.token
-            );
 
-            //var StartDate if i am on the first semester, then start date is 1st of september of the current year
-            //else start date is 1st of september of the next year
-            DateTime startDate = new DateTime(
-                DateTime.Now.Month >= 9 ? DateTime.Now.Year : DateTime.Now.Year - 1,
-                9,
-                1
-            );
+            if (_subjects == null)
+            {
+
+                _subjects = await apiWrapper.GetSubjects(
+                    cardResult.usrId.ToString(),
+                    loginResult.token
+                );
+            }
+
+            if (_lessons == null)
+            {
+
+                //var StartDate if i am on the first semester, then start date is 1st of september of the current year
+                //else start date is 1st of september of the next year
+                DateTime startDate = new DateTime(
+                    DateTime.Now.Month >= 9 ? DateTime.Now.Year : DateTime.Now.Year - 1,
+                    9,
+                    1
+                );
 
 
-            //var EndDate of next year + june 30th
-            DateTime endDate = new DateTime(
-                DateTime.Now.Month <= 7 ? DateTime.Now.Year : DateTime.Now.Year + 1,
-                6, 30);
+                //var EndDate of next year + june 30th
+                DateTime endDate = new DateTime(
+                    DateTime.Now.Month <= 7 ? DateTime.Now.Year : DateTime.Now.Year + 1,
+                    6, 30);
 
 
-            LessonsResult lessons = await apiWrapper.GetLessons(
-                cardResult.usrId.ToString(),
-                VariousUtils.ToApiDateTime(startDate),
-                VariousUtils.ToApiDateTime(endDate),
-                loginResult.token
-            );
+                _lessons = await apiWrapper.GetLessons(
+                    cardResult.usrId.ToString(),
+                    VariousUtils.ToApiDateTime(startDate),
+                    VariousUtils.ToApiDateTime(endDate),
+                    loginResult.token
+                );
+            }
 
             //add an expander control for 10 times in a loop to the LezioniPopupStackPanel
-            foreach (var currentSubject in subjects.Subjects)
+            foreach (var currentSubject in _subjects.Subjects)
             {
                 //list of lessons for the current subject id
-                var subjectLessons = lessons.Lessons.Where(lesson => lesson.subjectId == currentSubject.id).ToList();
+                var subjectLessons = _lessons.Lessons.Where(lesson => lesson.subjectId == currentSubject.id).ToList();
                 await CoreApplication.MainView.Dispatcher.RunAsync(
                     CoreDispatcherPriority.Normal,
                     async () =>
