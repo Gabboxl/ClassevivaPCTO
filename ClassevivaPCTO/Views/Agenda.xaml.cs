@@ -2,6 +2,7 @@
 using ClassevivaPCTO.ViewModels;
 using Microsoft.Extensions.DependencyInjection;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Windows.ApplicationModel.Core;
@@ -12,6 +13,7 @@ using Windows.UI.Xaml.Navigation;
 using ClassevivaPCTO.Controls;
 using ClassevivaPCTO.DataModels;
 using Microsoft.Toolkit.Uwp.UI.Controls;
+using Microsoft.Toolkit.Uwp.UI.Controls.TextToolbarSymbols;
 using Microsoft.UI.Xaml.Controls;
 using Expander = Microsoft.UI.Xaml.Controls.Expander;
 
@@ -138,11 +140,10 @@ namespace ClassevivaPCTO.Views
         }
 
 
-        private void PopupAgendaButton_OnClick(object sender, RoutedEventArgs e)
+        private async void PopupAgendaButton_OnClick(object sender, RoutedEventArgs e)
         {
             //this.StatusPane.IsPaneOpen = !this.StatusPane.IsPaneOpen;
-            AgendaPopup.Height = this.ActualHeight;
-            AgendaPopup.IsOpen = true;
+            await Task.Run(async () => { await LoadAgendaPopup(); });
         }
 
         private async void PopupLessonsButton_OnClick(object sender, RoutedEventArgs e)
@@ -246,5 +247,62 @@ namespace ClassevivaPCTO.Views
                     LezioniPopup.IsOpen = true;
                 });
         }
+
+
+        private async Task LoadAgendaPopup()
+        {
+            await CoreApplication.MainView.Dispatcher.RunAsync(
+                CoreDispatcherPriority.Normal,
+                async () =>
+                {
+                    AgendaPopup.Height =
+                        this.ActualHeight; //set the height of the popup to the height of the current PAGE (not the window because we do not need to take into account the appbar space)
+
+                    AgendaPopupStackPanel.Children.Clear();
+
+
+                    AgendaPopup.IsOpen = true;
+                });
+
+            LoginResultComplete loginResult = ViewModelHolder.getViewModel().LoginResult;
+            Card cardResult = ViewModelHolder.getViewModel().SingleCardResult;
+
+
+
+                //var StartDate if i am on the first semester, then start date is 1st of september of the current year
+                //else start date is 1st of september of the next year
+                DateTime startDate = new DateTime(
+                    DateTime.Now.Month >= 9 ? DateTime.Now.Year : DateTime.Now.Year - 1,
+                    9,
+                    1
+                );
+
+
+                //var EndDate is max +366 days from the start date (this is an api limitation)
+                DateTime endDate = startDate.AddDays(366);
+
+
+                AgendaResult _agendaEvents = await apiWrapper.GetAgendaEvents(
+                    cardResult.usrId.ToString(),
+                    VariousUtils.ToApiDateTime(startDate),
+                    VariousUtils.ToApiDateTime(endDate),
+                    loginResult.token
+                );
+
+
+            
+
+
+
+            /*await CoreApplication.MainView.Dispatcher.RunAsync(
+                CoreDispatcherPriority.Normal,
+                async () =>
+                {
+                    //we open the popup
+                    LezioniPopup.IsOpen = true;
+                });*/
+        }
+
+
     }
 }

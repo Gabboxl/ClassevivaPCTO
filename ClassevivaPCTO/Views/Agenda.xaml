@@ -102,7 +102,7 @@
         <Popup
             x:Name="AgendaPopup"
             IsOpen="False"
-            Width="700"
+            Width="1000"
             RelativePanel.AlignRightWithPanel="True"
             RelativePanel.AlignTopWithPanel="True"
             RelativePanel.AlignBottomWithPanel="True"
