@@ -66,7 +66,6 @@
 
             <!-- con il grid mi prendo lo spazio con il binding, poi ci posiziono come voglio gli elementi all'interno -->
             <Grid
-                x:Name="LezioniPopupGrid"
                 HorizontalAlignment="Stretch"
                 VerticalAlignment="Stretch"
                 BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
@@ -89,8 +88,7 @@
                                Margin="32,16,0,0" />
                 </RelativePanel>
 
-                <ScrollViewer Grid.Row="1"
-                              x:Name="testScroll">
+                <ScrollViewer Grid.Row="1">
                     <StackPanel
                         x:Name="LezioniPopupStackPanel">
                     </StackPanel>
@@ -120,7 +118,6 @@
 
             <!-- con il grid mi prendo lo spazio con il binding, poi ci posiziono come voglio gli elementi all'interno -->
             <Grid
-                x:Name="AgendaPopupGrid"
                 HorizontalAlignment="Stretch"
                 VerticalAlignment="Stretch"
                 BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
@@ -145,7 +142,6 @@
 
                 <ScrollViewer Grid.Row="1">
                     <StackPanel
-                        
                         x:Name="AgendaPopupStackPanel">
                     </StackPanel>
                 </ScrollViewer>
