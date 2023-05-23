@@ -179,6 +179,12 @@ namespace ClassevivaPCTO.Utils
         public int? homeworkId { get; set; }
     }
 
+    public class AgendaResult
+    {
+        [JsonPropertyName("agenda")]
+        public List<AgendaEvent> AgendaEvents { get; set; }
+    }
+
 
 
     public class OverviewResult

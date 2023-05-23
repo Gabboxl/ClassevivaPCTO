@@ -51,7 +51,7 @@ namespace ClassevivaPCTO.Utils
         Task<NoticeboardResult> GetNotices(string userId, [Header("Z-Auth-Token")] string token);
 
         [Get("/students/{userId}/agenda/all/{startDate}/{endDate}")]
-        Task<List<AgendaEvent>> GetAgendaEvents(string userId, string startDate, string endDate, [Header("Z-Auth-Token")] string token);
+        Task<AgendaResult> GetAgendaEvents(string userId, string startDate, string endDate, [Header("Z-Auth-Token")] string token);
 
         [Get("/students/{userId}/noticeboard/attach/{noticeEvtCode}/{noticePubId}/{attachmentNumber}")]
         Task<HttpResponseMessage> GetNoticeAttachment(string userId, string noticePubId, string noticeEvtCode, string attachmentNumber, [Header("Z-Auth-Token")] string token);
