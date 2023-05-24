@@ -1,4 +1,5 @@
 ﻿using ClassevivaPCTO.Adapters;
+using ClassevivaPCTO.DataModels;
 using ClassevivaPCTO.Utils;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,23 @@ namespace ClassevivaPCTO.Controls
 {
     public sealed partial class LessonsListView : UserControl
     {
+
+        public bool IsSingleList
+        {
+            get { return (bool)GetValue(IsSingleListProperty); }
+            set
+            {
+                SetValue(IsSingleListProperty, value);
+            }
+        }
+
+        private static readonly DependencyProperty IsSingleListProperty =
+            DependencyProperty.Register(
+                nameof(IsSingleList),
+                typeof(bool),
+                typeof(LessonsListView),
+                new PropertyMetadata(false, null));
+
 
         public List<Lesson> ItemsSource
         {
@@ -22,7 +40,7 @@ namespace ClassevivaPCTO.Controls
             DependencyProperty.Register(
                 nameof(ItemsSource),
                 typeof(List<Lesson>),
-                typeof(GradesListView),
+                typeof(LessonsListView),
                 new PropertyMetadata(null, new PropertyChangedCallback(OnItemsSourceChanged)));
 
         private static void OnItemsSourceChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
@@ -31,9 +49,19 @@ namespace ClassevivaPCTO.Controls
 
             var newValue = e.NewValue as List<Lesson>;
 
+            List<Lesson> orderedlessons = null;
 
-            //order lessons by first by date and then by evtHPos desc (so that the first lesson of the day is on top)
-            var orderedlessons = newValue?.OrderByDescending(x => x.evtDate).ThenByDescending(x => x.evtHPos).ToList();
+            if (currentInstance.IsSingleList)
+            {
+
+                //order lessons by first by date and then by evtHPos desc (so that the first lesson of the day is on top)
+                orderedlessons = newValue?.OrderByDescending(x => x.evtDate).ThenByDescending(x => x.evtHPos).ToList();
+
+            }
+            else
+            {
+                orderedlessons = newValue?.OrderBy(x => x.evtHPos).ToList();
+            }
 
 
             //remove duplicates based on lessonArg and authorname and same day and increment evtDuration if it is a duplicate
@@ -59,7 +87,7 @@ namespace ClassevivaPCTO.Controls
             //orderedlessons = orderedlessons.GroupBy(x => x.lessonArg).Select(x => x.First()).ToList();
 
 
-            var eventAdapters = orderedlessons?.Select(evt => new LessonAdapter(evt)).ToList();
+            var eventAdapters = orderedlessons.Select(evt => new LessonAdapter(evt)).ToList();
 
             currentInstance.listView.ItemsSource = eventAdapters;
         }

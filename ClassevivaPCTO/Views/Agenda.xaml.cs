@@ -228,7 +228,9 @@ namespace ClassevivaPCTO.Views
 
                         var listviewlessons = new LessonsListView()
                         {
+                            IsSingleList = true,
                             ItemsSource = subjectLessons,
+                            
                         };
 
                         listviewlessons.HorizontalAlignment = HorizontalAlignment.Stretch;
