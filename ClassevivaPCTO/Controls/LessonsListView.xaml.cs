@@ -32,10 +32,11 @@ namespace ClassevivaPCTO.Controls
             var newValue = e.NewValue as List<Lesson>;
 
 
-            //order lessons by evtHPos
-            var orderedlessons = newValue?.OrderBy(x => x.evtHPos).ToList();
+            //order lessons by first by date and then by evtHPos desc (so that the first lesson of the day is on top)
+            var orderedlessons = newValue?.OrderByDescending(x => x.evtDate).ThenByDescending(x => x.evtHPos).ToList();
 
-            //remove duplicates based on lessonArg and authorname and increment evtDuration it it is a duplicate
+
+            //remove duplicates based on lessonArg and authorname and same day and increment evtDuration if it is a duplicate
             foreach (var lesson in orderedlessons.ToList())
             {
                 var duplicates = orderedlessons
@@ -43,6 +44,7 @@ namespace ClassevivaPCTO.Controls
                         x =>
                             x.lessonArg == lesson.lessonArg
                             && x.authorName == lesson.authorName
+                            && x.evtDate == lesson.evtDate
                     )
                     .ToList();
                 if (duplicates.Count > 1)
@@ -51,6 +53,8 @@ namespace ClassevivaPCTO.Controls
                     orderedlessons.Remove(duplicates[1]);
                 }
             }
+
+
 
             //orderedlessons = orderedlessons.GroupBy(x => x.lessonArg).Select(x => x.First()).ToList();
 
