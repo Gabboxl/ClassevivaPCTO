@@ -163,6 +163,7 @@ namespace ClassevivaPCTO.Views
                     
                     LezioniPopupStackPanel.Children.Clear();
 
+                    LezioniPopupProgressRing.IsActive = true;
 
                     LezioniPopup.IsOpen = true;
                 });
@@ -245,6 +246,8 @@ namespace ClassevivaPCTO.Views
                 {
                     //we open the popup
                     LezioniPopup.IsOpen = true;
+
+                    LezioniPopupProgressRing.IsActive = false;
                 });
         }
 
