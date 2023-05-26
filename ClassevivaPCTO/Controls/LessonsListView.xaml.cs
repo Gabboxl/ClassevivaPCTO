@@ -11,6 +11,8 @@ namespace ClassevivaPCTO.Controls
     public sealed partial class LessonsListView : UserControl
     {
 
+
+
         public bool IsSingleList
         {
             get { return (bool)GetValue(IsSingleListProperty); }
@@ -57,10 +59,15 @@ namespace ClassevivaPCTO.Controls
                 //order lessons by first by date and then by evtHPos desc (so that the first lesson of the day is on top)
                 orderedlessons = newValue?.OrderByDescending(x => x.evtDate).ThenByDescending(x => x.evtHPos).ToList();
 
+
+                //set the listview dattemplate to 
+                currentInstance.listView.ItemTemplate = currentInstance.Resources["LessonListViewExpressiveDataTemplate"] as DataTemplate;
             }
             else
             {
                 orderedlessons = newValue?.OrderBy(x => x.evtHPos).ToList();
+
+                currentInstance.listView.ItemTemplate = currentInstance.Resources["LessonListViewDataTemplate"] as DataTemplate;
             }
 
 
@@ -81,7 +88,6 @@ namespace ClassevivaPCTO.Controls
                     orderedlessons.Remove(duplicates[1]);
                 }
             }
-
 
 
             //orderedlessons = orderedlessons.GroupBy(x => x.lessonArg).Select(x => x.First()).ToList();
