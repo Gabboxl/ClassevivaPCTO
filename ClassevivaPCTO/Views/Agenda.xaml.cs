@@ -116,23 +116,23 @@ namespace ClassevivaPCTO.Views
             );
         }
 
-        private void ButtonToday_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        private void ButtonToday_Click(object sender, RoutedEventArgs e)
         {
             CalendarAgenda.Date = DateTime.Now;
         }
 
-        private void ButtonYesterday_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        private void ButtonYesterday_Click(object sender, RoutedEventArgs e)
         {
             CalendarAgenda.Date = CalendarAgenda.Date.Value.AddDays(-1);
         }
 
-        private void ButtonTomorrow_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        private void ButtonTomorrow_Click(object sender, RoutedEventArgs e)
         {
             //add one day to the calendaragenda date
             CalendarAgenda.Date = CalendarAgenda.Date.Value.AddDays(1);
         }
 
-        private async void AggiornaCommand_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        private async void AggiornaCommand_Click(object sender, RoutedEventArgs e)
         {
             var agendaSelectedDate = CalendarAgenda.Date;
 
@@ -216,7 +216,7 @@ namespace ClassevivaPCTO.Views
                     CoreDispatcherPriority.Normal,
                     async () =>
                     {
-                        var expander = new Expander()
+                        var expander = new Expander
                         {
                             Header = currentSubject.description,
                             //Content = "yoyo" 
