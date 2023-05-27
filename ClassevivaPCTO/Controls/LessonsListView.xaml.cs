@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using Force.DeepCloner;
 
 namespace ClassevivaPCTO.Controls
 {
@@ -70,11 +71,14 @@ namespace ClassevivaPCTO.Controls
                 currentInstance.listView.ItemTemplate = currentInstance.Resources["LessonListViewDataTemplate"] as DataTemplate;
             }
 
+            //copy the list so that we can remove duplicates without affecting the original list
+            var copiedOrderedLessons = orderedlessons.DeepClone();
+
 
             //remove duplicates based on lessonArg and authorname and same day and increment evtDuration if it is a duplicate
-            foreach (var lesson in orderedlessons.ToList())
+            foreach (var lesson in copiedOrderedLessons.ToList())
             {
-                var duplicates = orderedlessons
+                var duplicates = copiedOrderedLessons
                     .Where(
                         x =>
                             x.lessonArg == lesson.lessonArg
@@ -85,7 +89,7 @@ namespace ClassevivaPCTO.Controls
                 if (duplicates.Count > 1)
                 {
                     lesson.evtDuration += duplicates[1].evtDuration;
-                    orderedlessons.Remove(duplicates[1]);
+                    copiedOrderedLessons.Remove(duplicates[1]);
                 }
             }
 
@@ -93,7 +97,7 @@ namespace ClassevivaPCTO.Controls
             //orderedlessons = orderedlessons.GroupBy(x => x.lessonArg).Select(x => x.First()).ToList();
 
 
-            var eventAdapters = orderedlessons.Select(evt => new LessonAdapter(evt)).ToList();
+            var eventAdapters = copiedOrderedLessons.Select(evt => new LessonAdapter(evt)).ToList();
 
             currentInstance.listView.ItemsSource = eventAdapters;
         }
