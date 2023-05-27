@@ -21,8 +21,16 @@
                       x:DataType="adapters:AgendaEventAdapter">
             <RelativePanel>
 
+                <!-- icon calendar -->
+                <FontIcon x:Name="IconCalendar" FontFamily="{StaticResource FluentIcons}" Glyph="&#xE787;"
+                          RelativePanel.AlignVerticalCenterWithPanel="True"
+                          Margin="0,0,8,0" />
+
+
+
 
                 <TextBlock x:Name="titoloEvento" TextWrapping="Wrap"
+                           RelativePanel.RightOf="IconCalendar"
                            MaxWidth="500"
                            Text="{x:Bind Title}"
                            IsTextSelectionEnabled="True"
@@ -38,6 +46,7 @@
 
 
                 <TextBlock RelativePanel.Below="titoloEvento" x:Name="dataStart"
+                           RelativePanel.RightOf="IconCalendar"
                            Text="{x:Bind  CurrentObject.evtDatetimeBegin, Converter={StaticResource DateTimeToHourConverter}}"
                            FontStyle="Italic"
                            Style="{ThemeResource BodyTextBlockStyle}"
@@ -60,6 +69,7 @@
                            Margin="0,0,0,0" />
 
                 <TextBlock RelativePanel.Below="dataStart" x:Name="descriptionEvent"
+                           RelativePanel.RightOf="IconCalendar"
                            TextWrapping="Wrap"
                            Text="{x:Bind  CurrentObject.notes}"
                            Style="{ThemeResource BodyTextBlockStyle}"
