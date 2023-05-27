@@ -148,6 +148,15 @@
                     <TextBlock x:Name="TitoloAgendaPopup" Grid.Row="0" Text="Agenda" FontSize="42"
                                VerticalAlignment="Top"
                                Margin="32,16,0,0" />
+
+
+                    <!-- progress ring -->
+                    <muxc:ProgressRing
+                        x:Name="AgendaPopupProgressRing"
+                        IsActive="True"
+                        RelativePanel.RightOf="TitoloAgendaPopup"
+                        RelativePanel.AlignVerticalCenterWith="TitoloAgendaPopup"
+                        Margin="32,16,0,0"/>
                 </RelativePanel>
 
                 <ScrollViewer Grid.Row="1">

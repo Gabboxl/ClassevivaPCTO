@@ -262,6 +262,7 @@ namespace ClassevivaPCTO.Views
 
                     AgendaPopupStackPanel.Children.Clear();
 
+                    AgendaPopupProgressRing.IsActive = true;
 
                     AgendaPopup.IsOpen = true;
                 });
@@ -284,7 +285,7 @@ namespace ClassevivaPCTO.Views
                 DateTime endDate = startDate.AddDays(366);
 
 
-                AgendaResult _agendaEvents = await apiWrapper.GetAgendaEvents(
+                AgendaResult agendaEvents = await apiWrapper.GetAgendaEvents(
                     cardResult.usrId.ToString(),
                     VariousUtils.ToApiDateTime(startDate),
                     VariousUtils.ToApiDateTime(endDate),
@@ -292,17 +293,32 @@ namespace ClassevivaPCTO.Views
                 );
 
 
-            
+                await CoreApplication.MainView.Dispatcher.RunAsync(
+                CoreDispatcherPriority.Normal,
+                async () =>
+                {
+                    var agendaListView = new AgendaListView()
+                    {
+                        //IsSingleSubjectList = true,
+                        ItemsSource = agendaEvents.AgendaEvents,
+
+                    };
+
+                    agendaListView.HorizontalAlignment = HorizontalAlignment.Stretch;
+
+                    AgendaPopupStackPanel.Children.Add(agendaListView);
+                });
 
 
-
-            /*await CoreApplication.MainView.Dispatcher.RunAsync(
+            await CoreApplication.MainView.Dispatcher.RunAsync(
                 CoreDispatcherPriority.Normal,
                 async () =>
                 {
                     //we open the popup
-                    LezioniPopup.IsOpen = true;
-                });*/
+                    AgendaPopup.IsOpen = true;
+
+                    AgendaPopupProgressRing.IsActive = false;
+                });
         }
 
 
