@@ -18,8 +18,6 @@ namespace ClassevivaPCTO.Views
 {
     public sealed partial class DashboardPage : Page
     {
-        private readonly IClassevivaAPI apiClient;
-
         private readonly IClassevivaAPI apiWrapper;
 
         public DashboardPageViewModel DashboardPageViewModel { get; } =
@@ -30,7 +28,7 @@ namespace ClassevivaPCTO.Views
             this.InitializeComponent();
 
             App app = (App)App.Current;
-            apiClient = app.Container.GetService<IClassevivaAPI>();
+            var apiClient = app.Container.GetService<IClassevivaAPI>();
 
             apiWrapper = PoliciesDispatchProxy<IClassevivaAPI>.CreateProxy(apiClient);
         }
