@@ -63,7 +63,7 @@ namespace ClassevivaPCTO.Views
             if (agendaSelectedDate.HasValue)
             {
                 //if the date is today, then the button to go to today is disabled
-                if (CalendarAgenda.Date.Value.Date == DateTime.Now.Date)
+                if (agendaSelectedDate.Value.Date == DateTime.Now.Date)
                 {
                     ButtonToday.IsChecked = true;
                     //ButtonToday.IsEnabled = false;
