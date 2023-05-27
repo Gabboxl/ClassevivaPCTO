@@ -53,7 +53,7 @@ namespace ClassevivaPCTO.Views
 
         private async Task LoadData()
         {
-            bool ShowInactiveNotices = false;
+            bool showInactiveNotices = false;
 
             await CoreApplication.MainView.Dispatcher.RunAsync(
                 CoreDispatcherPriority.Normal,
@@ -61,7 +61,7 @@ namespace ClassevivaPCTO.Views
                 {
                     BachecaViewModel.IsLoadingBacheca = true;
 
-                    if (CheckboxAttive.IsChecked != null) ShowInactiveNotices = CheckboxAttive.IsChecked.Value;
+                    if (CheckboxAttive.IsChecked != null) showInactiveNotices = CheckboxAttive.IsChecked.Value;
                 }
             );
 
@@ -76,7 +76,7 @@ namespace ClassevivaPCTO.Views
 
             var notices = noticeboardResult.Notices;
 
-            if (!ShowInactiveNotices)
+            if (!showInactiveNotices)
             {
                 //filter notices that are valid from the cntValidInRange property
                 notices = notices.Where(n => n.cntValidInRange).ToList();
