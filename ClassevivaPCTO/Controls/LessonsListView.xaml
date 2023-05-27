@@ -35,6 +35,7 @@
                                MaxWidth="500"
                                Text="{x:Bind CurrentObject.subjectDesc}"
                                Style="{ThemeResource BaseTextBlockStyle}"
+                               IsTextSelectionEnabled="True"
                                Margin="12,6,0,0" />
 
                     <TextBlock x:Name="durationHours" TextWrapping="NoWrap" RelativePanel.RightOf="textMateria"
@@ -47,6 +48,7 @@
                     <TextBlock RelativePanel.Below="textMateria" x:Name="nomeAutore"
                                Text="{x:Bind CurrentObject.authorName}"
                                FontStyle="Italic"
+                               IsTextSelectionEnabled="True"
                                Style="{ThemeResource BodyTextBlockStyle}"
                                Margin="12,0,0,0" />
 
@@ -54,12 +56,14 @@
                                Text="{x:Bind CurrentObject.lessonType}"
                                Style="{ThemeResource BodyTextBlockStyle}"
                                FontStyle="Italic"
+                               IsTextSelectionEnabled="True"
                                Margin="12,0,0,0" />
 
                     <TextBlock RelativePanel.Below="nomeAutore" RelativePanel.RightOf="tipoLezione"
                                TextWrapping="WrapWholeWords"
                                Text="{x:Bind CurrentObject.lessonArg}"
                                Style="{ThemeResource BodyTextBlockStyle}"
+                               IsTextSelectionEnabled="True"
                                Margin="12,0,0,6" />
 
                 </RelativePanel>
@@ -88,6 +92,7 @@
                                MaxWidth="500"
                                Text="{x:Bind CurrentObject.subjectDesc}"
                                Style="{ThemeResource BaseTextBlockStyle}"
+                               IsTextSelectionEnabled="True"
                                Margin="12,6,0,0" />
 
                     <TextBlock x:Name="durationHours" TextWrapping="NoWrap" RelativePanel.RightOf="textMateria"
@@ -102,24 +107,28 @@
                                Text="{x:Bind CurrentObject.evtDate, Converter={StaticResource DateTimeToNormalDateConverter}}"
                                Style="{ThemeResource BodyTextBlockStyle}"
                                Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                               IsTextSelectionEnabled="True"
                                Margin="12,6,0,0" />
 
                     <TextBlock RelativePanel.Below="textMateria" x:Name="nomeAutore"
                                Text="{x:Bind CurrentObject.authorName}"
                                FontStyle="Italic"
                                Style="{ThemeResource BodyTextBlockStyle}"
+                               IsTextSelectionEnabled="True"
                                Margin="12,0,0,0" />
 
                     <TextBlock RelativePanel.Below="nomeAutore" x:Name="tipoLezione"
                                Text="{x:Bind CurrentObject.lessonType}"
                                Style="{ThemeResource BodyTextBlockStyle}"
                                FontStyle="Italic"
+                               IsTextSelectionEnabled="True"
                                Margin="12,0,0,0" />
 
                     <TextBlock RelativePanel.Below="nomeAutore" RelativePanel.RightOf="tipoLezione"
                                TextWrapping="WrapWholeWords"
                                Text="{x:Bind CurrentObject.lessonArg}"
                                Style="{ThemeResource BodyTextBlockStyle}"
+                               IsTextSelectionEnabled="True"
                                Margin="12,0,0,6" />
 
                 </RelativePanel>

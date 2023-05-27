@@ -42,32 +42,28 @@
                     <TextBlock x:Name="textMateria" TextWrapping="Wrap"
                                MaxWidth="500"
                                Text="{x:Bind CurrentObject.subjectDesc}"
-
+                               IsTextSelectionEnabled="True"
                                Style="{ThemeResource BaseTextBlockStyle}"
                                Margin="12,6,0,0" />
 
                     <TextBlock RelativePanel.Below="textMateria"
                                TextWrapping="Wrap"
 
-
                                Text="{x:Bind CurrentObject.notesForFamily}"
-
+                               IsTextSelectionEnabled="True"
                                Style="{ThemeResource BodyTextBlockStyle}"
                                Margin="12,0,0,6" />
 
                     <TextBlock RelativePanel.RightOf="textMateria" x:Name="dataVoto"
                                Text="{x:Bind CurrentObject.evtDate, Converter={StaticResource DateTimeToNormalDateConverter}}"
-
-
+                               IsTextSelectionEnabled="True"
                                Style="{ThemeResource CaptionTextBlockStyle}"
                                Margin="12,6,0,0" />
 
                     <TextBlock RelativePanel.RightOf="dataVoto"
                                Text="{x:Bind CurrentObject.componentDesc}"
-
-
                                Style="{ThemeResource CaptionTextBlockStyle}"
-
+                               IsTextSelectionEnabled="True"
                                Margin="12,6,0,0" />
 
                 </RelativePanel>
@@ -102,6 +98,7 @@
                                MaxWidth="500"
                                Text="{x:Bind CurrentObject.subjectDesc}"
                                Style="{ThemeResource BaseTextBlockStyle}"
+                               IsTextSelectionEnabled="True"
                                Margin="12,6,0,0" />
 
 
@@ -109,18 +106,21 @@
                                Text="{x:Bind CurrentObject.evtDate, Converter={StaticResource DateTimeToNormalDateConverter}}"
                                FontStyle="Italic"
                                Style="{ThemeResource BodyTextBlockStyle}"
+                               IsTextSelectionEnabled="True"
                                Margin="12,0,0,0" />
 
                     <TextBlock RelativePanel.RightOf="dataVoto" RelativePanel.Below="textMateria"
                                Text="{x:Bind CurrentObject.componentDesc}"
                                Style="{ThemeResource BodyTextBlockStyle}"
                                FontStyle="Italic"
+                               IsTextSelectionEnabled="True"
                                Margin="12,0,0,0" />
 
                     <TextBlock RelativePanel.Below="dataVoto"
                                TextWrapping="Wrap"
                                Text="{x:Bind CurrentObject.notesForFamily}"
                                Style="{ThemeResource BodyTextBlockStyle}"
+                               IsTextSelectionEnabled="True"
                                Margin="12,0,0,6" />
 
 

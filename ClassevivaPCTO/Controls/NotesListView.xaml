@@ -72,6 +72,7 @@
                                Text="{x:Bind  CurrentObject.evtText}"
                                FontStyle="Italic"
                                Style="{ThemeResource CaptionTextBlockStyle}"
+                                IsTextSelectionEnabled="True"
                                Margin="24,6,0,8" />
 
 

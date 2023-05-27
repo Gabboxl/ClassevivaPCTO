@@ -25,6 +25,7 @@
                 <TextBlock x:Name="titoloEvento" TextWrapping="Wrap"
                            MaxWidth="500"
                            Text="{x:Bind Title}"
+                           IsTextSelectionEnabled="True"
                            Style="{ThemeResource BaseTextBlockStyle}"
                            Margin="6,6,0,0" />
 
@@ -40,6 +41,7 @@
                            Text="{x:Bind  CurrentObject.evtDatetimeBegin, Converter={StaticResource DateTimeToHourConverter}}"
                            FontStyle="Italic"
                            Style="{ThemeResource BodyTextBlockStyle}"
+                           IsTextSelectionEnabled="True"
                            Margin="6,0,0,0" />
 
                 <TextBlock RelativePanel.RightOf="dataStart" RelativePanel.Below="titoloEvento"
@@ -54,12 +56,14 @@
                            Text="{x:Bind  CurrentObject.evtDatetimeEnd, Converter={StaticResource DateTimeToHourConverter}}"
                            FontStyle="Italic"
                            Style="{ThemeResource BodyTextBlockStyle}"
+                           IsTextSelectionEnabled="True"
                            Margin="0,0,0,0" />
 
                 <TextBlock RelativePanel.Below="dataStart" x:Name="descriptionEvent"
                            TextWrapping="Wrap"
                            Text="{x:Bind  CurrentObject.notes}"
                            Style="{ThemeResource BodyTextBlockStyle}"
+                           IsTextSelectionEnabled="True"
                            Margin="6,6,0,6" />
 
 
