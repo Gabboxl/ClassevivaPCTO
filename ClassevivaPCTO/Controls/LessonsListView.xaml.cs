@@ -14,18 +14,18 @@ namespace ClassevivaPCTO.Controls
 
 
 
-        public bool IsSingleList
+        public bool IsSingleSubjectList
         {
-            get { return (bool)GetValue(IsSingleListProperty); }
+            get { return (bool)GetValue(IsSingleSubjectListProperty); }
             set
             {
-                SetValue(IsSingleListProperty, value);
+                SetValue(IsSingleSubjectListProperty, value);
             }
         }
 
-        private static readonly DependencyProperty IsSingleListProperty =
+        private static readonly DependencyProperty IsSingleSubjectListProperty =
             DependencyProperty.Register(
-                nameof(IsSingleList),
+                nameof(IsSingleSubjectList),
                 typeof(bool),
                 typeof(LessonsListView),
                 new PropertyMetadata(false, null));
@@ -54,7 +54,7 @@ namespace ClassevivaPCTO.Controls
 
             List<Lesson> orderedlessons = null;
 
-            if (currentInstance.IsSingleList)
+            if (currentInstance.IsSingleSubjectList)
             {
 
                 //order lessons by first by date and then by evtHPos desc (so that the first lesson of the day is on top)

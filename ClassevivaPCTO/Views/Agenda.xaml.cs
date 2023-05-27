@@ -225,7 +225,7 @@ namespace ClassevivaPCTO.Views
 
                         var listviewlessons = new LessonsListView()
                         {
-                            IsSingleList = true,
+                            IsSingleSubjectList = true,
                             ItemsSource = subjectLessons,
                             
                         };
