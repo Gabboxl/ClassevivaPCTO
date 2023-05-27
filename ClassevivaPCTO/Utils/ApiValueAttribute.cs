@@ -1,16 +1,10 @@
-﻿using Microsoft.Toolkit.Uwp.UI.Controls;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System;
 using System.Reflection;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ClassevivaPCTO.Utils
 {
     [AttributeUsage(AttributeTargets.Field)]
-    public class ApiValueAttribute : System.Attribute
+    public class ApiValueAttribute : Attribute
     {
         public string ShortName { get; }
         public string LongName { get; }
