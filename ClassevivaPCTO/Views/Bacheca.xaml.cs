@@ -1,5 +1,4 @@
-﻿using ClassevivaPCTO.Adapters;
-using ClassevivaPCTO.Utils;
+﻿using ClassevivaPCTO.Utils;
 using ClassevivaPCTO.ViewModels;
 using Microsoft.Extensions.DependencyInjection;
 using System;
@@ -9,7 +8,6 @@ using Windows.ApplicationModel.Core;
 using Windows.UI.Core;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
-using ClassevivaPCTO.Controls;
 
 namespace ClassevivaPCTO.Views
 {

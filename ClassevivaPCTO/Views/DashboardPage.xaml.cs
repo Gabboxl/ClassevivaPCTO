@@ -75,7 +75,7 @@ namespace ClassevivaPCTO.Views
                 cardResult.usrId.ToString(),
                 caldate,
                 caldate,
-                loginResult.token.ToString()
+                loginResult.token
             );
 
 
@@ -178,7 +178,7 @@ namespace ClassevivaPCTO.Views
             Card cardResult = ViewModelHolder.getViewModel().SingleCardResult;
 
             var resultNotices = await apiWrapper
-                .GetNotices(cardResult.usrId.ToString(), loginResult.token.ToString())
+                .GetNotices(cardResult.usrId.ToString(), loginResult.token)
                 .ConfigureAwait(false);
 
             //get only most recent 5 notices and filter by active status

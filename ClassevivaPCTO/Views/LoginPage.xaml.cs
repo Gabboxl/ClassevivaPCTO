@@ -11,8 +11,6 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Core;
-using Windows.Media.Core;
-using Windows.Media.Playback;
 using Windows.Security.Credentials;
 using Windows.System;
 using Windows.UI;
@@ -92,8 +90,6 @@ namespace ClassevivaPCTO.Views
                         await DoLoginAsync();
                     });
 
-                    break;
-                default:
                     break;
             }
         }
@@ -181,7 +177,7 @@ namespace ClassevivaPCTO.Views
                                 }
                                 catch (Exception e)
                                 {
-                                    System.Console.WriteLine(e.ToString());
+                                    Console.WriteLine(e.ToString());
                                 }
                             });
 
@@ -263,7 +259,7 @@ namespace ClassevivaPCTO.Views
                         }
                         catch (Exception e)
                         {
-                            System.Console.WriteLine(e.ToString());
+                            Console.WriteLine(e.ToString());
                         }
                     }
                 );
