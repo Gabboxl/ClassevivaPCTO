@@ -16,7 +16,7 @@ namespace ClassevivaPCTO.Views
 {
     public sealed partial class Note : Page
     {
-        public NoteViewModel NoteViewModel { get; } = new NoteViewModel();
+        private NoteViewModel NoteViewModel { get; } = new NoteViewModel();
 
         private readonly IClassevivaAPI apiWrapper;
 
