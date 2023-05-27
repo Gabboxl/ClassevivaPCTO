@@ -223,6 +223,7 @@ namespace ClassevivaPCTO.Views
                         };
 
                         expander.HorizontalAlignment = HorizontalAlignment.Stretch;
+                        expander.HorizontalContentAlignment = HorizontalAlignment.Stretch;
 
 
 
