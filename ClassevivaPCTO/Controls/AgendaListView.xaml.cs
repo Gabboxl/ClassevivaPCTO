@@ -4,11 +4,28 @@ using System.Collections.Generic;
 using System.Linq;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using Force.DeepCloner;
 
 namespace ClassevivaPCTO.Controls
 {
     public sealed partial class AgendaListView : UserControl
     {
+
+        public bool IsMultipleDaysList
+        {
+            get { return (bool)GetValue(IsMultipleDaysListProperty); }
+            set
+            {
+                SetValue(IsMultipleDaysListProperty, value);
+            }
+        }
+
+        private static readonly DependencyProperty IsMultipleDaysListProperty =
+            DependencyProperty.Register(
+                nameof(IsMultipleDaysList),
+                typeof(bool),
+                typeof(LessonsListView),
+                new PropertyMetadata(false, null));
 
         public List<AgendaEvent> ItemsSource
         {
@@ -31,7 +48,44 @@ namespace ClassevivaPCTO.Controls
 
             var newValue = e.NewValue as List<AgendaEvent>;
 
-            var eventAdapters = newValue?.Select(evt => new AgendaEventAdapter(evt)).ToList();
+            var orderedAgendaEvents = newValue;
+
+            if (currentInstance.IsMultipleDaysList)
+            {
+                //repeat days whose startdate and enddate span multiple days in the list
+
+                var repeatedDays = new List<AgendaEvent>();
+                foreach (var currentEvt in orderedAgendaEvents.ToList())
+                {
+                    if (currentEvt.evtDatetimeEnd.Date > currentEvt.evtDatetimeBegin.Date.AddDays(1))
+                    {
+                        var days = (int)(currentEvt.evtDatetimeEnd.Date - currentEvt.evtDatetimeBegin.Date).TotalDays + 1;
+
+                        for (int i = 0; i < days; i++)
+                        {
+                            var clonedDay = currentEvt.DeepClone();
+
+                            clonedDay.evtDatetimeBegin = currentEvt.evtDatetimeBegin.AddDays(i);
+
+                            clonedDay.evtDatetimeEnd = currentEvt.evtDatetimeEnd.Date.AddDays(i);
+
+                            //add the new event to the list
+                            repeatedDays.Add(clonedDay);
+
+                            //remove the original event
+                            orderedAgendaEvents.Remove(currentEvt);
+                        }
+                        continue;
+                    }
+
+                    repeatedDays.Add(currentEvt);
+                }
+
+                orderedAgendaEvents = repeatedDays.ToList(); //we need to reorder the lissttt
+            }
+
+
+            var eventAdapters = orderedAgendaEvents?.Select(evt => new AgendaEventAdapter(evt)).ToList();
 
             currentInstance.listView.ItemsSource = eventAdapters;
         }

@@ -14,6 +14,7 @@
     <UserControl.Resources>
 
         <converters:DateTimeToHourConverter x:Key="DateTimeToHourConverter" />
+        <converters:DateTimeToNormalDateConverter x:Key="DateTimeToNormalDateConverter" />
 
 
         <DataTemplate x:Key="AgendaEventListViewDataTemplate"
@@ -25,8 +26,6 @@
                 <FontIcon x:Name="IconCalendar" FontFamily="{StaticResource FluentIcons}" Glyph="&#xE787;"
                           RelativePanel.AlignVerticalCenterWithPanel="True"
                           Margin="0,0,8,0" />
-
-
 
 
                 <TextBlock x:Name="titoloEvento" TextWrapping="Wrap"
@@ -80,8 +79,81 @@
             </RelativePanel>
         </DataTemplate>
 
+
+
+
+        <DataTemplate x:Key="AgendaEventExpressiveListViewDataTemplate"
+
+                      x:DataType="adapters:AgendaEventAdapter">
+            <RelativePanel>
+
+                <!-- icon calendar -->
+                <FontIcon x:Name="IconCalendar" FontFamily="{StaticResource FluentIcons}" Glyph="&#xE787;"
+                          RelativePanel.AlignVerticalCenterWithPanel="True"
+                          Margin="0,0,8,0" />
+
+
+                <TextBlock x:Name="titoloEvento" TextWrapping="Wrap"
+                           RelativePanel.RightOf="IconCalendar"
+                           MaxWidth="500"
+                           Text="{x:Bind Title}"
+                           IsTextSelectionEnabled="True"
+                           Style="{ThemeResource BaseTextBlockStyle}"
+                           Margin="6,6,0,0" />
+
+
+                <TextBlock RelativePanel.RightOf="titoloEvento" x:Name="tipoEvento" TextWrapping="Wrap"
+                           MaxWidth="500"
+                           Text="{x:Bind EventType}"
+                           Style="{ThemeResource BaseTextBlockStyle}"
+                           Margin="6,6,0,0" />
+
+                <!-- date of the lesson -->
+                <TextBlock RelativePanel.RightOf="tipoEvento" x:Name="date"
+                           Text="{x:Bind CurrentObject.evtDatetimeBegin, Converter={StaticResource DateTimeToNormalDateConverter}}"
+                           Style="{ThemeResource BodyTextBlockStyle}"
+                           Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                           IsTextSelectionEnabled="True"
+                           Margin="12,6,0,0" />
+
+
+                <TextBlock RelativePanel.Below="titoloEvento" x:Name="dataStart"
+                           RelativePanel.RightOf="IconCalendar"
+                           Text="{x:Bind  CurrentObject.evtDatetimeBegin, Converter={StaticResource DateTimeToHourConverter}}"
+                           FontStyle="Italic"
+                           Style="{ThemeResource BodyTextBlockStyle}"
+                           IsTextSelectionEnabled="True"
+                           Margin="6,0,0,0" />
+
+                <TextBlock RelativePanel.RightOf="dataStart" RelativePanel.Below="titoloEvento"
+                           x:Name="placeholderData"
+                           Text="-"
+                           FontStyle="Italic"
+                           Style="{ThemeResource BodyTextBlockStyle}"
+                           Margin="6,0,6,0" />
+
+
+                <TextBlock RelativePanel.RightOf="placeholderData" RelativePanel.Below="titoloEvento" x:Name="dataEnd"
+                           Text="{x:Bind  CurrentObject.evtDatetimeEnd, Converter={StaticResource DateTimeToHourConverter}}"
+                           FontStyle="Italic"
+                           Style="{ThemeResource BodyTextBlockStyle}"
+                           IsTextSelectionEnabled="True"
+                           Margin="0,0,0,0" />
+
+                <TextBlock RelativePanel.Below="dataStart" x:Name="descriptionEvent"
+                           RelativePanel.RightOf="IconCalendar"
+                           TextWrapping="Wrap"
+                           Text="{x:Bind  CurrentObject.notes}"
+                           Style="{ThemeResource BodyTextBlockStyle}"
+                           IsTextSelectionEnabled="True"
+                           Margin="6,6,0,6" />
+
+
+            </RelativePanel>
+        </DataTemplate>
+
     </UserControl.Resources>
 
 
-    <ListView x:Name="listView" ItemTemplate="{StaticResource AgendaEventListViewDataTemplate}" />
+    <ListView x:Name="listView" ItemTemplate="{StaticResource AgendaEventExpressiveListViewDataTemplate}" />
 </UserControl>

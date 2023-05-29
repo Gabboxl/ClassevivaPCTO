@@ -299,9 +299,8 @@ namespace ClassevivaPCTO.Views
                 {
                     var agendaListView = new AgendaListView()
                     {
-                        //IsSingleSubjectList = true,
+                        IsMultipleDaysList = true,
                         ItemsSource = agendaEvents.AgendaEvents,
-
                     };
 
                     agendaListView.HorizontalAlignment = HorizontalAlignment.Stretch;
