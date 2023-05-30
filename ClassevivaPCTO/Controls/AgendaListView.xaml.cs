@@ -1,15 +1,51 @@
 ﻿using ClassevivaPCTO.Adapters;
 using ClassevivaPCTO.Utils;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
+using System.Threading.Tasks;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Force.DeepCloner;
+using Windows.UI.Xaml.Data;
 
 namespace ClassevivaPCTO.Controls
 {
+    public class GroupInfoList : List<object>
+    {
+        public GroupInfoList(IEnumerable<object> items) : base(items)
+        {
+        }
+
+
+        public object Key { get; set; }
+    }
+
     public sealed partial class AgendaListView : UserControl
     {
+
+        public CollectionViewSource GroupedItems { get; set; }
+
+
+
+
+        public static async Task<ObservableCollection<GroupInfoList>> GetContactsGroupedAsync(List<AgendaEventAdapter> agendaEvents)
+        {
+            var query = from item in agendaEvents
+
+                // Group the items returned from the query, sort and select the ones you want to keep
+                group item by item.CurrentObject.evtDatetimeBegin.Date into g
+                orderby g.Key descending 
+
+
+                //ricorda di trasformare il datetime object in string per la Key siccome in XAML viene visualizzato un oggetto "object" senza ToString()
+                select new GroupInfoList(g) { Key = g.Key.Date.ToShortDateString() };
+
+            return new ObservableCollection<GroupInfoList>(query);
+        }
+
+
+
 
         public bool IsMultipleDaysList
         {
@@ -87,7 +123,17 @@ namespace ClassevivaPCTO.Controls
 
             var eventAdapters = orderedAgendaEvents?.Select(evt => new AgendaEventAdapter(evt)).ToList();
 
-            currentInstance.listView.ItemsSource = eventAdapters;
+            var asd = GetContactsGroupedAsync(eventAdapters);
+
+            currentInstance.GroupedItems = new CollectionViewSource
+            {
+                IsSourceGrouped = true,
+                Source = asd.Result
+            };
+
+
+
+            currentInstance.listView.ItemsSource = currentInstance.GroupedItems.View;
         }
 
 

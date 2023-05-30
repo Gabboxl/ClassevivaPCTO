@@ -260,7 +260,7 @@ namespace ClassevivaPCTO.Views
                     AgendaPopup.Height =
                         this.ActualHeight; //set the height of the popup to the height of the current PAGE (not the window because we do not need to take into account the appbar space)
 
-                    AgendaPopupStackPanel.Children.Clear();
+                    AgendaPopupListviewContainer.Children.Clear();
 
                     AgendaPopupProgressRing.IsActive = true;
 
@@ -305,7 +305,7 @@ namespace ClassevivaPCTO.Views
 
                     agendaListView.HorizontalAlignment = HorizontalAlignment.Stretch;
 
-                    AgendaPopupStackPanel.Children.Add(agendaListView);
+                    AgendaPopupListviewContainer.Children.Add(agendaListView);
                 });
 
 
