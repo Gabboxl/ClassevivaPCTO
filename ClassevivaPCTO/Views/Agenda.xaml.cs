@@ -297,9 +297,8 @@ namespace ClassevivaPCTO.Views
                 CoreDispatcherPriority.Normal,
                 async () =>
                 {
-                    var agendaListView = new AgendaListView()
+                    var agendaListView = new AgendaMultipleDaysListView()
                     {
-                        IsMultipleDaysList = true,
                         ItemsSource = agendaEvents.AgendaEvents,
                     };
 
