@@ -85,8 +85,7 @@
 
         <ScrollViewer
             x:Name="MainScrollViewer"
-            Grid.Row="2"
-            ui:FrameworkElementExtensions.EnableActualSizeBinding="true">
+            Grid.Row="2">
 
 
             <Grid Grid.Row="2" x:Name="MyGrid"
