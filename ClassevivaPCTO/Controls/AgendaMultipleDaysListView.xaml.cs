@@ -77,7 +77,7 @@ namespace ClassevivaPCTO.Controls
 
                         for (int i = 0; i < days; i++)
                         {
-                            var clonedDay = currentEvt.DeepClone();
+                            var clonedDay = currentEvt.GetClone();
 
                             clonedDay.evtDatetimeBegin = currentEvt.evtDatetimeBegin.AddDays(i);
 

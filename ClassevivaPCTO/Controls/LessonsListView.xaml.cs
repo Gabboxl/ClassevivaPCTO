@@ -5,7 +5,9 @@ using System.Collections.Generic;
 using System.Linq;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using CloneExtensions;
 using Force.DeepCloner;
+using Microsoft.Toolkit.Uwp.UI;
 
 namespace ClassevivaPCTO.Controls
 {
@@ -65,7 +67,7 @@ namespace ClassevivaPCTO.Controls
             }
 
             //copy the list so that we can remove duplicates without affecting the original list
-            var copiedOrderedLessons = orderedlessons.DeepClone();
+            var copiedOrderedLessons = orderedlessons.GetClone();
 
 
             //remove duplicates based on lessonArg and authorname and same day and increment evtDuration if it is a duplicate

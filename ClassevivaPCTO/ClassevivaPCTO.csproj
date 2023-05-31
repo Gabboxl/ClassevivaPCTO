@@ -442,6 +442,9 @@
     <PackageReference Include="AsyncStackTraceEx">
       <Version>1.0.1.1</Version>
     </PackageReference>
+    <PackageReference Include="CloneExtensions">
+      <Version>1.4.2</Version>
+    </PackageReference>
     <PackageReference Include="CommunityToolkit.Labs.Uwp.SettingsControls">
       <Version>0.0.18</Version>
     </PackageReference>
