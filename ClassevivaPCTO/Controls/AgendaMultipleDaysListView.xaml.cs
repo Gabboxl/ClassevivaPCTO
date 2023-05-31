@@ -8,6 +8,7 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Force.DeepCloner;
 using Windows.UI.Xaml.Data;
+using CloneExtensions;
 
 namespace ClassevivaPCTO.Controls
 {
@@ -37,7 +38,7 @@ namespace ClassevivaPCTO.Controls
                 orderby g.Key descending
 
                 //ricorda di trasformare il datetime object in string per la Key siccome in XAML viene visualizzato un oggetto "object" senza ToString()
-                select new GroupInfoList(g) { Key = g.Key.Date.ToShortDateString() };
+                select new GroupInfoList(g) {Key = g.Key.Date.ToShortDateString()};
 
             return new ObservableCollection<GroupInfoList>(query);
         }
@@ -45,7 +46,7 @@ namespace ClassevivaPCTO.Controls
 
         public List<AgendaEvent> ItemsSource
         {
-            get { return (List<AgendaEvent>)GetValue(ItemsSourceProperty); }
+            get { return (List<AgendaEvent>) GetValue(ItemsSourceProperty); }
             set { SetValue(ItemsSourceProperty, value); }
         }
 
@@ -58,7 +59,7 @@ namespace ClassevivaPCTO.Controls
 
         private static void OnItemsSourceChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            var currentInstance = (AgendaMultipleDaysListView)d;
+            var currentInstance = (AgendaMultipleDaysListView) d;
 
             var newValue = e.NewValue as List<AgendaEvent>;
 
@@ -72,8 +73,7 @@ namespace ClassevivaPCTO.Controls
                 {
                     if (currentEvt.evtDatetimeEnd.Date > currentEvt.evtDatetimeBegin.Date.AddDays(1))
                     {
-                        var days = (int)(currentEvt.evtDatetimeEnd.Date - currentEvt.evtDatetimeBegin.Date).TotalDays +
-                                   1;
+                        int days = (int) (currentEvt.evtDatetimeEnd.Date - currentEvt.evtDatetimeBegin.Date).TotalDays + 1;
 
                         for (int i = 0; i < days; i++)
                         {

@@ -18,7 +18,6 @@
 
 
         <DataTemplate x:Key="LessonListViewDataTemplate"
-
                       x:DataType="adapters:LessonAdapter">
             <RelativePanel>
 
