@@ -11,16 +11,10 @@ namespace ClassevivaPCTO.Controls
 {
     public sealed partial class LessonsListView : UserControl
     {
-
-
-
         public bool IsSingleSubjectList
         {
             get { return (bool)GetValue(IsSingleSubjectListProperty); }
-            set
-            {
-                SetValue(IsSingleSubjectListProperty, value);
-            }
+            set { SetValue(IsSingleSubjectListProperty, value); }
         }
 
         private static readonly DependencyProperty IsSingleSubjectListProperty =
@@ -34,9 +28,7 @@ namespace ClassevivaPCTO.Controls
         public List<Lesson> ItemsSource
         {
             get { return (List<Lesson>)GetValue(ItemsSourceProperty); }
-            set {
-                SetValue(ItemsSourceProperty, value); 
-            }
+            set { SetValue(ItemsSourceProperty, value); }
         }
 
         private static readonly DependencyProperty ItemsSourceProperty =
@@ -56,19 +48,20 @@ namespace ClassevivaPCTO.Controls
 
             if (currentInstance.IsSingleSubjectList)
             {
-
                 //order lessons by first by date and then by evtHPos desc (so that the first lesson of the day is on top)
                 orderedlessons = newValue?.OrderByDescending(x => x.evtDate).ThenByDescending(x => x.evtHPos).ToList();
 
 
                 //set the listview dattemplate to 
-                currentInstance.listView.ItemTemplate = currentInstance.Resources["LessonListViewExpressiveDataTemplate"] as DataTemplate;
+                currentInstance.listView.ItemTemplate =
+                    currentInstance.Resources["LessonListViewExpressiveDataTemplate"] as DataTemplate;
             }
             else
             {
                 orderedlessons = newValue?.OrderBy(x => x.evtHPos).ToList();
 
-                currentInstance.listView.ItemTemplate = currentInstance.Resources["LessonListViewDataTemplate"] as DataTemplate;
+                currentInstance.listView.ItemTemplate =
+                    currentInstance.Resources["LessonListViewDataTemplate"] as DataTemplate;
             }
 
             //copy the list so that we can remove duplicates without affecting the original list
@@ -107,7 +100,5 @@ namespace ClassevivaPCTO.Controls
         {
             this.InitializeComponent();
         }
-
-
     }
 }

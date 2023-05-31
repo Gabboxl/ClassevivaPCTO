@@ -9,13 +9,10 @@ namespace ClassevivaPCTO.Controls
 {
     public sealed partial class AbsencesListView : UserControl
     {
-
         public List<AbsenceEvent> ItemsSource
         {
             get { return (List<AbsenceEvent>)GetValue(ItemsSourceProperty); }
-            set {
-                SetValue(ItemsSourceProperty, value); 
-            }
+            set { SetValue(ItemsSourceProperty, value); }
         }
 
         private static readonly DependencyProperty ItemsSourceProperty =
@@ -41,7 +38,5 @@ namespace ClassevivaPCTO.Controls
         {
             this.InitializeComponent();
         }
-
-
     }
 }

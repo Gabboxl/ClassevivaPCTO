@@ -3,8 +3,6 @@ using System.Drawing;
 
 namespace ClassevivaPCTO.Utils
 {
-
-
     internal class ColorGenerator
     {
         private static double goldenRatio = 0.618033988749895;
@@ -56,5 +54,4 @@ namespace ClassevivaPCTO.Utils
             return p;
         }
     }
-
 }

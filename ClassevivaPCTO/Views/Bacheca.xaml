@@ -55,7 +55,6 @@
         </VisualStateManager.VisualStateGroups>
 
 
-
         <RelativePanel Grid.Row="0">
 
             <TextBlock x:Name="TextTitolo" Grid.Row="0" Text="Bacheca" FontSize="42" VerticalAlignment="Top"
@@ -68,10 +67,10 @@
         <AutoSuggestBox
             Grid.Row="0"
             QueryIcon="Find"
-                        x:Name="SearchBoxBacheca"
-                        PlaceholderText="Cerca" RelativePanel.AlignHorizontalCenterWithPanel="True"
-                        HorizontalAlignment="Center"
-                        Width="260" Height="32" />
+            x:Name="SearchBoxBacheca"
+            PlaceholderText="Cerca" RelativePanel.AlignHorizontalCenterWithPanel="True"
+            HorizontalAlignment="Center"
+            Width="260" Height="32" />
 
 
         <RelativePanel Grid.Row="2"

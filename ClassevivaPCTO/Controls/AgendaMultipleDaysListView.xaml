@@ -80,8 +80,6 @@
         </DataTemplate>
 
 
-
-
         <DataTemplate x:Key="AgendaEventExpressiveListViewDataTemplate"
 
                       x:DataType="adapters:AgendaEventAdapter">
@@ -156,11 +154,11 @@
 
 
     <ListView x:Name="listView"
-              ItemTemplate="{StaticResource AgendaEventExpressiveListViewDataTemplate}" >
+              ItemTemplate="{StaticResource AgendaEventExpressiveListViewDataTemplate}">
 
         <ListView.ItemsPanel>
             <ItemsPanelTemplate>
-                <ItemsStackPanel AreStickyGroupHeadersEnabled="True"/>
+                <ItemsStackPanel AreStickyGroupHeadersEnabled="True" />
             </ItemsPanelTemplate>
         </ListView.ItemsPanel>
 

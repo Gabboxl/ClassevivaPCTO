@@ -8,7 +8,8 @@ namespace ClassevivaPCTO.Deserializers
 {
     public class NoteDeserializer : JsonConverter<List<Note>>
     {
-        public override List<Note> ReadJson(JsonReader reader, Type objectType, List<Note> existingValue, bool hasExistingValue, JsonSerializer serializer)
+        public override List<Note> ReadJson(JsonReader reader, Type objectType, List<Note> existingValue,
+            bool hasExistingValue, JsonSerializer serializer)
         {
             List<Note> notesList = new List<Note>();
             JObject jsonObject = JObject.Load(reader);
@@ -32,5 +33,4 @@ namespace ClassevivaPCTO.Deserializers
             throw new NotImplementedException("WriteJson is not implemented for this converter.");
         }
     }
-
 }

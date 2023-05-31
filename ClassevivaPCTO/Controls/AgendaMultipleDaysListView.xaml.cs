@@ -23,20 +23,18 @@ namespace ClassevivaPCTO.Controls
 
     public sealed partial class AgendaMultipleDaysListView : UserControl
     {
-
         public CollectionViewSource GroupedItems { get; set; }
 
 
-
-
-        public static async Task<ObservableCollection<GroupInfoList>> GetContactsGroupedAsync(List<AgendaEventAdapter> agendaEvents)
+        public static async Task<ObservableCollection<GroupInfoList>> GetContactsGroupedAsync(
+            List<AgendaEventAdapter> agendaEvents)
         {
             var query = from item in agendaEvents
 
                 // Group the items returned from the query, sort and select the ones you want to keep
-                group item by item.CurrentObject.evtDatetimeBegin.Date into g
-                orderby g.Key descending 
-
+                group item by item.CurrentObject.evtDatetimeBegin.Date
+                into g
+                orderby g.Key descending
 
                 //ricorda di trasformare il datetime object in string per la Key siccome in XAML viene visualizzato un oggetto "object" senza ToString()
                 select new GroupInfoList(g) { Key = g.Key.Date.ToShortDateString() };
@@ -48,9 +46,7 @@ namespace ClassevivaPCTO.Controls
         public List<AgendaEvent> ItemsSource
         {
             get { return (List<AgendaEvent>)GetValue(ItemsSourceProperty); }
-            set {
-                SetValue(ItemsSourceProperty, value); 
-            }
+            set { SetValue(ItemsSourceProperty, value); }
         }
 
         private static readonly DependencyProperty ItemsSourceProperty =
@@ -69,7 +65,6 @@ namespace ClassevivaPCTO.Controls
             var orderedAgendaEvents = newValue;
 
 
-
             {
                 //repeat days whose startdate and enddate span multiple days in the list
                 var repeatedDays = new List<AgendaEvent>();
@@ -77,7 +72,7 @@ namespace ClassevivaPCTO.Controls
                 {
                     if (currentEvt.evtDatetimeEnd.Date > currentEvt.evtDatetimeBegin.Date.AddDays(1))
                     {
-                        var days = (int) (currentEvt.evtDatetimeEnd.Date - currentEvt.evtDatetimeBegin.Date).TotalDays +
+                        var days = (int)(currentEvt.evtDatetimeEnd.Date - currentEvt.evtDatetimeBegin.Date).TotalDays +
                                    1;
 
                         for (int i = 0; i < days; i++)
@@ -115,7 +110,6 @@ namespace ClassevivaPCTO.Controls
             };
 
 
-
             currentInstance.listView.ItemsSource = currentInstance.GroupedItems.View;
         }
 
@@ -124,7 +118,5 @@ namespace ClassevivaPCTO.Controls
         {
             this.InitializeComponent();
         }
-
-
     }
 }

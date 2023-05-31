@@ -36,23 +36,15 @@ namespace ClassevivaPCTO.Views
 
             NoteViewModel.IsLoadingNote = true;
 
-            
-            await Task.Run(async () =>
-            {
-                await LoadData();
-            });
+
+            await Task.Run(async () => { await LoadData(); });
         }
 
         private async Task LoadData()
         {
-
             await CoreApplication.MainView.Dispatcher.RunAsync(
                 CoreDispatcherPriority.Normal,
-                async () =>
-                {
-                    NoteViewModel.IsLoadingNote = true;
-
-                }
+                async () => { NoteViewModel.IsLoadingNote = true; }
             );
 
             LoginResultComplete loginResult = ViewModelHolder.getViewModel().LoginResult;
@@ -65,7 +57,8 @@ namespace ClassevivaPCTO.Views
             );
 
 
-            List<Utils.Note> notesList = JsonConvert.DeserializeObject<List<Utils.Note>>(notesResult.Content, new NoteDeserializer());
+            List<Utils.Note> notesList =
+                JsonConvert.DeserializeObject<List<Utils.Note>>(notesResult.Content, new NoteDeserializer());
 
 
             //update UI on UI thread
@@ -82,10 +75,7 @@ namespace ClassevivaPCTO.Views
 
         private async void AggiornaCommand_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
-            await Task.Run(async () =>
-            {
-                await LoadData();
-            });
+            await Task.Run(async () => { await LoadData(); });
         }
     }
 }

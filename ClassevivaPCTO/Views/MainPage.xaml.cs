@@ -26,8 +26,8 @@ namespace ClassevivaPCTO.Views
             get
             {
                 return VariousUtils.ToTitleCase(AppViewModel.LoginResult.firstName)
-                    + " "
-                    + VariousUtils.ToTitleCase(AppViewModel.LoginResult.lastName);
+                       + " "
+                       + VariousUtils.ToTitleCase(AppViewModel.LoginResult.lastName);
             }
         }
 
@@ -105,7 +105,8 @@ namespace ClassevivaPCTO.Views
 
             if (loginCredential != null)
             {
-                loginCredential.RetrievePassword(); //dobbiamo per forza chiamare questo metodo per fare sì che la proprietà loginCredential.Password non sia vuota
+                loginCredential
+                    .RetrievePassword(); //dobbiamo per forza chiamare questo metodo per fare sì che la proprietà loginCredential.Password non sia vuota
 
                 var vault = new Windows.Security.Credentials.PasswordVault();
 

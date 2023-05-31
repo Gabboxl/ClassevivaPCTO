@@ -56,7 +56,8 @@ namespace ClassevivaPCTO.Views
             var packageId = package.Id;
             var version = packageId.Version;
 
-            VersionTextBlock.Text = $"{appName} - {version.Major}.{version.Minor}.{version.Build}"; //.{version.Revision}
+            VersionTextBlock.Text =
+                $"{appName} - {version.Major}.{version.Minor}.{version.Build}"; //.{version.Revision}
 
             var loginCredentials = new CredUtils().GetCredentialFromLocker();
 
@@ -65,15 +66,13 @@ namespace ClassevivaPCTO.Views
                 // There is a credential stored in the locker.
                 // Populate the Password property of the credential
                 // for automatic login.
-                loginCredentials.RetrievePassword(); //dobbiamo per forza chiamare questo metodo per fare sì che la proprietà loginCredential.Password non sia vuota
+                loginCredentials
+                    .RetrievePassword(); //dobbiamo per forza chiamare questo metodo per fare sì che la proprietà loginCredential.Password non sia vuota
 
                 edittext_username.Text = loginCredentials.UserName;
                 edittext_password.Password = loginCredentials.Password;
 
-                Task.Run(async () =>
-                {
-                    await DoLoginAsync();
-                });
+                Task.Run(async () => { await DoLoginAsync(); });
             }
 
             loginGrid.KeyDown += Grid_KeyDown;
@@ -85,10 +84,7 @@ namespace ClassevivaPCTO.Views
             {
                 case VirtualKey.Enter:
 
-                    await Task.Run(async () =>
-                    {
-                        await DoLoginAsync();
-                    });
+                    await Task.Run(async () => { await DoLoginAsync(); });
 
                     break;
             }
@@ -96,10 +92,7 @@ namespace ClassevivaPCTO.Views
 
         private async void Button_Click(object sender, RoutedEventArgs e)
         {
-            await Task.Run(async () =>
-            {
-                await DoLoginAsync();
-            });
+            await Task.Run(async () => { await DoLoginAsync(); });
         }
 
         private async Task DoLoginAsync()
@@ -153,7 +146,6 @@ namespace ClassevivaPCTO.Views
 
                 if (resLogin is LoginResultComplete loginResult)
                 {
-
                     //check if the first letter of loginResult.ident is not letters S, X and G
                     if (loginResult.ident[0] != 'S' && loginResult.ident[0] != 'X' && loginResult.ident[0] != 'G')
                     {
@@ -182,10 +174,8 @@ namespace ClassevivaPCTO.Views
                             });
 
 
-
                         return;
                     }
-
 
 
                     GetUserDataAndGoAhead(loginResult, measurement, checkboxCredenzialiChecked);
@@ -326,8 +316,6 @@ namespace ClassevivaPCTO.Views
         }
 
 
-
-
         private async Task<object> GetApiLoginData(LoginData loginData)
         {
             var res = await apiWrapper.LoginAsync(loginData);
@@ -385,7 +373,7 @@ namespace ClassevivaPCTO.Views
                     dialog.PrimaryButtonText = "Accedi";
                     dialog.CloseButtonText = "Annulla";
                     dialog.DefaultButton = ContentDialogButton.Primary;
-                    dialog.RequestedTheme = ((FrameworkElement) Window.Current.Content).RequestedTheme;
+                    dialog.RequestedTheme = ((FrameworkElement)Window.Current.Content).RequestedTheme;
                     dialog.Content = contentDialogContent;
 
                     result = await dialog.ShowAsync();

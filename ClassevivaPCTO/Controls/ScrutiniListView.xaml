@@ -72,14 +72,15 @@
                 <RelativePanel
                     Grid.Column="1">
 
-                    <AppBarButton x:Name="ButtonOpenScrutinio" RelativePanel.LeftOf="ButtonSaveScrutinio" Click="ButtonOpen_Click"
+                    <AppBarButton x:Name="ButtonOpenScrutinio" RelativePanel.LeftOf="ButtonSaveScrutinio"
+                                  Click="ButtonOpen_Click"
                                   Visibility="{x:Bind CurrentObject.checkStatus.available, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}"
                                   RelativePanel.AlignVerticalCenterWithPanel="True" Icon="OpenFile" Label="Apri" />
 
-                    <AppBarButton x:Name="ButtonSaveScrutinio" Click="ButtonSave_Click" RelativePanel.AlignRightWithPanel="True"
+                    <AppBarButton x:Name="ButtonSaveScrutinio" Click="ButtonSave_Click"
+                                  RelativePanel.AlignRightWithPanel="True"
                                   Visibility="{x:Bind CurrentObject.checkStatus.available, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}"
                                   RelativePanel.AlignVerticalCenterWithPanel="True" Icon="Save" Label="Salva" />
-
 
 
                 </RelativePanel>
@@ -87,7 +88,6 @@
             </Grid>
 
         </DataTemplate>
-
 
 
         <DataTemplate x:Key="SchoolReportListViewDataTemplate"
@@ -121,8 +121,6 @@
                                Margin="12,0,0,0" />
 
 
-
-
                 </RelativePanel>
 
                 <RelativePanel
@@ -146,25 +144,25 @@
 
     <StackPanel>
 
-    <ListView x:Name="listViewScrutini"
+        <ListView x:Name="listViewScrutini"
 
-              ScrollViewer.VerticalScrollMode="Enabled"
-              HorizontalAlignment="Stretch"
-              HorizontalContentAlignment="Stretch"
-              ItemTemplate="{StaticResource ScrutiniListViewDataTemplate}"
-              ItemContainerStyle="{StaticResource ListViewFullStretchStyle}">
+                  ScrollViewer.VerticalScrollMode="Enabled"
+                  HorizontalAlignment="Stretch"
+                  HorizontalContentAlignment="Stretch"
+                  ItemTemplate="{StaticResource ScrutiniListViewDataTemplate}"
+                  ItemContainerStyle="{StaticResource ListViewFullStretchStyle}">
 
-    </ListView>
+        </ListView>
 
-    <ListView x:Name="listViewSchoolReports"
+        <ListView x:Name="listViewSchoolReports"
 
-              ScrollViewer.VerticalScrollMode="Enabled"
-              HorizontalAlignment="Stretch"
-              HorizontalContentAlignment="Stretch"
-              ItemTemplate="{StaticResource SchoolReportListViewDataTemplate}"
-              ItemContainerStyle="{StaticResource ListViewFullStretchStyle}">
+                  ScrollViewer.VerticalScrollMode="Enabled"
+                  HorizontalAlignment="Stretch"
+                  HorizontalContentAlignment="Stretch"
+                  ItemTemplate="{StaticResource SchoolReportListViewDataTemplate}"
+                  ItemContainerStyle="{StaticResource ListViewFullStretchStyle}">
 
-    </ListView>
+        </ListView>
 
     </StackPanel>
 </UserControl>

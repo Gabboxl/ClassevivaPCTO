@@ -33,15 +33,12 @@ namespace ClassevivaPCTO.Views
 
             BachecaViewModel.IsLoadingBacheca = true;
 
-            this.NoticesListView.OnShouldUpdate += OnShouldUpdate; 
+            this.NoticesListView.OnShouldUpdate += OnShouldUpdate;
 
             CheckboxAttive.Checked += AggiornaCommand_Click;
             CheckboxAttive.Unchecked += AggiornaCommand_Click;
 
-            await Task.Run(async () =>
-            {
-                await LoadData();
-            });
+            await Task.Run(async () => { await LoadData(); });
         }
 
         private async void OnShouldUpdate(object sender, EventArgs args)
@@ -91,15 +88,11 @@ namespace ClassevivaPCTO.Views
                     BachecaViewModel.IsLoadingBacheca = false;
                 }
             );
-
         }
 
         private async void AggiornaCommand_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
-            await Task.Run(async () =>
-            {
-                await LoadData();
-            });
+            await Task.Run(async () => { await LoadData(); });
         }
     }
 }

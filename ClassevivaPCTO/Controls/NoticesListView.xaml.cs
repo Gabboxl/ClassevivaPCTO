@@ -20,7 +20,7 @@ namespace ClassevivaPCTO.Controls
 
         public EventHandler OnShouldUpdate
         {
-            get { return (EventHandler) GetValue(OnShouldUpdateProperty); }
+            get { return (EventHandler)GetValue(OnShouldUpdateProperty); }
             set { SetValue(OnShouldUpdateProperty, value); }
         }
 
@@ -33,7 +33,7 @@ namespace ClassevivaPCTO.Controls
 
         public List<Notice> ItemsSource
         {
-            get { return (List<Notice>) GetValue(ItemsSourceProperty); }
+            get { return (List<Notice>)GetValue(ItemsSourceProperty); }
             set { SetValue(ItemsSourceProperty, value); }
         }
 
@@ -49,7 +49,7 @@ namespace ClassevivaPCTO.Controls
             DependencyPropertyChangedEventArgs e
         )
         {
-            NoticesListView currentInstance = (NoticesListView) d;
+            NoticesListView currentInstance = (NoticesListView)d;
 
             var newValue = e.NewValue as List<Notice>;
 
@@ -67,14 +67,13 @@ namespace ClassevivaPCTO.Controls
 
             //restore the scroll position
             scrollViewer.ChangeView(horizontalOffset, verticalOffset, null);
-
         }
 
         public NoticesListView()
         {
             this.InitializeComponent();
 
-            App app = (App) App.Current;
+            App app = (App)App.Current;
             var apiClient = app.Container.GetService<IClassevivaAPI>();
 
             apiWrapper = PoliciesDispatchProxy<IClassevivaAPI>.CreateProxy(apiClient);
@@ -115,7 +114,7 @@ namespace ClassevivaPCTO.Controls
 
 
                 //make the flyoutPresenterStyle based on the default one
-                flyoutPresenterStyle.BasedOn = (Style) Application.Current.Resources["CautionFlyoutStyle"];
+                flyoutPresenterStyle.BasedOn = (Style)Application.Current.Resources["CautionFlyoutStyle"];
 
 
                 flyout.FlyoutPresenterStyle = flyoutPresenterStyle;
@@ -175,7 +174,7 @@ namespace ClassevivaPCTO.Controls
                 dialog.Title = currentNotice.cntTitle;
                 dialog.PrimaryButtonText = "Chiudi";
                 dialog.DefaultButton = ContentDialogButton.Primary;
-                dialog.RequestedTheme = ((FrameworkElement) Window.Current.Content).RequestedTheme;
+                dialog.RequestedTheme = ((FrameworkElement)Window.Current.Content).RequestedTheme;
                 dialog.Content = noticeDialogContent;
 
                 //dialog.FullSizeDesired = true;

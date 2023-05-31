@@ -9,13 +9,10 @@ namespace ClassevivaPCTO.Controls
 {
     public sealed partial class AgendaListView : UserControl
     {
-
         public List<AgendaEvent> ItemsSource
         {
             get { return (List<AgendaEvent>)GetValue(ItemsSourceProperty); }
-            set {
-                SetValue(ItemsSourceProperty, value); 
-            }
+            set { SetValue(ItemsSourceProperty, value); }
         }
 
         private static readonly DependencyProperty ItemsSourceProperty =
@@ -41,7 +38,5 @@ namespace ClassevivaPCTO.Controls
         {
             this.InitializeComponent();
         }
-
-
     }
 }

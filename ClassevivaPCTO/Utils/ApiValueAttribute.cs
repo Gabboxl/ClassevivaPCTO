@@ -18,7 +18,8 @@ namespace ClassevivaPCTO.Utils
 
     public static class EnumExtensions
     {
-        public static TValue GetAttributeValue<TAttribute, TValue>(this Enum enumValue, Func<TAttribute, TValue> valueSelector)
+        public static TValue GetAttributeValue<TAttribute, TValue>(this Enum enumValue,
+            Func<TAttribute, TValue> valueSelector)
             where TAttribute : Attribute
         {
             Type enumType = enumValue.GetType();
@@ -27,11 +28,13 @@ namespace ClassevivaPCTO.Utils
             {
                 throw new ArgumentException($"No member found for enum value {enumValue}");
             }
+
             TAttribute attribute = memberInfoArray[0].GetCustomAttribute<TAttribute>();
             if (attribute == null)
             {
                 throw new ArgumentException($"No attribute found for enum value {enumValue}");
             }
+
             return valueSelector(attribute);
         }
 
@@ -44,7 +47,5 @@ namespace ClassevivaPCTO.Utils
         {
             return enumValue.GetAttributeValue((ApiValueAttribute attr) => attr.LongName);
         }
-
     }
-
 }

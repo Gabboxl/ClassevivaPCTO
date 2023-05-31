@@ -6,7 +6,6 @@ namespace ClassevivaPCTO.Utils
 {
     internal class CredUtils
     {
-
         public PasswordCredential GetCredentialFromLocker()
         {
             PasswordCredential credential = null;
@@ -36,7 +35,6 @@ namespace ClassevivaPCTO.Utils
                     // retrieve the default username. If one doesn't
                     // exist, then display UI to have the user select
                     // a default username.
-
                 }
             }
 

@@ -62,8 +62,8 @@ namespace ClassevivaPCTO.Dialogs
             await Windows.System.Launcher.LaunchFileAsync(file);
         }
 
-        private async void ButtonSave_Click(object sender, RoutedEventArgs e) {
-           
+        private async void ButtonSave_Click(object sender, RoutedEventArgs e)
+        {
             var senderbutton = sender as AppBarButton;
             var currentAttachment = senderbutton.DataContext as NoticeAttachment;
 
@@ -101,7 +101,6 @@ namespace ClassevivaPCTO.Dialogs
             {
                 //we need to track the error
             }
-
         }
 
 

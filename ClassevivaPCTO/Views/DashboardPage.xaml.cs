@@ -61,10 +61,7 @@ namespace ClassevivaPCTO.Views
         {
             await CoreApplication.MainView.Dispatcher.RunAsync(
                 CoreDispatcherPriority.Normal,
-                async () =>
-                {
-                    DashboardPageViewModel.IsLoadingAgenda = true;
-                }
+                async () => { DashboardPageViewModel.IsLoadingAgenda = true; }
             );
 
             LoginResultComplete loginResult = ViewModelHolder.getViewModel().LoginResult;
@@ -101,10 +98,7 @@ namespace ClassevivaPCTO.Views
         {
             await CoreApplication.MainView.Dispatcher.RunAsync(
                 CoreDispatcherPriority.Normal,
-                async () =>
-                {
-                    DashboardPageViewModel.IsLoadingGrades = true;
-                }
+                async () => { DashboardPageViewModel.IsLoadingGrades = true; }
             );
 
             LoginResultComplete loginResult = ViewModelHolder.getViewModel().LoginResult;
@@ -131,10 +125,7 @@ namespace ClassevivaPCTO.Views
         {
             await CoreApplication.MainView.Dispatcher.RunAsync(
                 CoreDispatcherPriority.Normal,
-                async () =>
-                {
-                    DashboardPageViewModel.IsLoadingMedia = true;
-                }
+                async () => { DashboardPageViewModel.IsLoadingMedia = true; }
             );
 
             LoginResultComplete loginResult = ViewModelHolder.getViewModel().LoginResult;
@@ -168,10 +159,7 @@ namespace ClassevivaPCTO.Views
         {
             await CoreApplication.MainView.Dispatcher.RunAsync(
                 CoreDispatcherPriority.Normal,
-                async () =>
-                {
-                    DashboardPageViewModel.IsLoadingNotices = true;
-                }
+                async () => { DashboardPageViewModel.IsLoadingNotices = true; }
             );
 
             LoginResultComplete loginResult = ViewModelHolder.getViewModel().LoginResult;
@@ -201,25 +189,13 @@ namespace ClassevivaPCTO.Views
 
         private async Task LoadEverything()
         {
-            await Task.Run(async () =>
-            {
-                await LoadOverviewCard();
-            });
+            await Task.Run(async () => { await LoadOverviewCard(); });
 
-            await Task.Run(async () =>
-            {
-                await CaricaRecentGradesCard();
-            });
+            await Task.Run(async () => { await CaricaRecentGradesCard(); });
 
-            await Task.Run(async () =>
-            {
-                await CaricaMediaCard();
-            });
+            await Task.Run(async () => { await CaricaMediaCard(); });
 
-            await Task.Run(async () =>
-            {
-                await CaricaNoticesCard();
-            });
+            await Task.Run(async () => { await CaricaNoticesCard(); });
         }
 
         private void HyperlinkButton_Click(object sender, RoutedEventArgs e)

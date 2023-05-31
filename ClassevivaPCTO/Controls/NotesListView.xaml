@@ -46,7 +46,6 @@
                               FontFamily="{StaticResource FluentIcons}" Glyph="&#xe91c;" />
 
 
-
                     <TextBlock x:Name="titoloEvento" TextWrapping="WrapWholeWords"
                                RelativePanel.RightOf="NoteIcon"
 
@@ -65,14 +64,13 @@
                                Margin="16,6,0,0" />
 
 
-
                     <TextBlock x:Name="bodyText" RelativePanel.Below="titoloEvento" TextWrapping="Wrap"
-                                RelativePanel.RightOf="NoteIcon"
+                               RelativePanel.RightOf="NoteIcon"
                                MaxWidth="400"
                                Text="{x:Bind  CurrentObject.evtText}"
                                FontStyle="Italic"
                                Style="{ThemeResource CaptionTextBlockStyle}"
-                                IsTextSelectionEnabled="True"
+                               IsTextSelectionEnabled="True"
                                Margin="24,6,0,8" />
 
 

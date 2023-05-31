@@ -74,7 +74,6 @@
         </DataTemplate>
 
 
-
         <DataTemplate x:Key="LessonListViewExpressiveDataTemplate"
 
                       x:DataType="adapters:LessonAdapter">

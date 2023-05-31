@@ -1,33 +1,29 @@
 ﻿<Application
     x:Class="ClassevivaPCTO.App"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:ClassevivaPCTO"
-    xmlns:controls="using:Microsoft.UI.Xaml.Controls">
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <Application.Resources>
 
 
-
-        <ResourceDictionary >
-
+        <ResourceDictionary>
 
 
-
-            <FontFamily x:Key="FluentIcons" >/Assets/Fonts/SegoeFluentIcons.ttf#Segoe Fluent Icons</FontFamily>
+            <FontFamily x:Key="FluentIcons">/Assets/Fonts/SegoeFluentIcons.ttf#Segoe Fluent Icons</FontFamily>
 
             <x:Double x:Key="ContentDialogMaxWidth">2000</x:Double>
             <ResourceDictionary.MergedDictionaries>
 
                 <XamlControlsResources xmlns="using:Microsoft.UI.Xaml.Controls" />
-                <ResourceDictionary Source="Styles/Button.xaml"/>
-                <ResourceDictionary Source="Controls/NiceNavigationView/NavigationView.xaml"/>
-                <ResourceDictionary Source="Controls/NiceNavigationView/NavigationView.Themeresources.xaml"/>
+                <ResourceDictionary Source="Styles/Button.xaml" />
+                <ResourceDictionary Source="Controls/NiceNavigationView/NavigationView.xaml" />
+                <ResourceDictionary Source="Controls/NiceNavigationView/NavigationView.Themeresources.xaml" />
 
                 <ResourceDictionary>
-                    <Style x:Name="CautionFlyoutStyle" TargetType="FlyoutPresenter" BasedOn="{StaticResource DefaultFlyoutPresenterStyle}">
-                    <Setter Property="Background" Value="{ThemeResource SystemFillColorCautionBackgroundBrush}" />
-                </Style>
-            </ResourceDictionary>
+                    <Style x:Name="CautionFlyoutStyle" TargetType="FlyoutPresenter"
+                           BasedOn="{StaticResource DefaultFlyoutPresenterStyle}">
+                        <Setter Property="Background" Value="{ThemeResource SystemFillColorCautionBackgroundBrush}" />
+                    </Style>
+                </ResourceDictionary>
             </ResourceDictionary.MergedDictionaries>
 
         </ResourceDictionary>

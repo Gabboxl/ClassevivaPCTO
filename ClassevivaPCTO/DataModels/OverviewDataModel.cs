@@ -9,6 +9,5 @@ namespace ClassevivaPCTO.DataModels
         public OverviewResult OverviewData { get; set; }
 
         public DateTime FilterDate { get; set; }
-
     }
 }

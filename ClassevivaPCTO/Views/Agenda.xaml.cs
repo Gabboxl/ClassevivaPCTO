@@ -30,7 +30,7 @@ namespace ClassevivaPCTO.Views
         {
             this.InitializeComponent();
 
-            App app = (App) App.Current;
+            App app = (App)App.Current;
             var apiClient = app.Container.GetService<IClassevivaAPI>();
 
             apiWrapper = PoliciesDispatchProxy<IClassevivaAPI>.CreateProxy(apiClient);
@@ -156,7 +156,7 @@ namespace ClassevivaPCTO.Views
                 {
                     LezioniPopup.Height =
                         this.ActualHeight; //set the height of the popup to the height of the current PAGE (not the window because we do not need to take into account the appbar space)
-                    
+
                     LezioniPopupStackPanel.Children.Clear();
 
                     LezioniPopupProgressRing.IsActive = true;
@@ -170,7 +170,6 @@ namespace ClassevivaPCTO.Views
 
             if (_subjects == null)
             {
-
                 _subjects = await apiWrapper.GetSubjects(
                     cardResult.usrId.ToString(),
                     loginResult.token
@@ -179,7 +178,6 @@ namespace ClassevivaPCTO.Views
 
             if (_lessons == null)
             {
-
                 //var StartDate if i am on the first semester, then start date is 1st of september of the current year
                 //else start date is 1st of september of the next year
                 DateTime startDate = new DateTime(
@@ -222,12 +220,10 @@ namespace ClassevivaPCTO.Views
                         expander.HorizontalContentAlignment = HorizontalAlignment.Stretch;
 
 
-
                         var listviewlessons = new LessonsListView()
                         {
                             IsSingleSubjectList = true,
                             ItemsSource = subjectLessons,
-                            
                         };
 
                         listviewlessons.HorizontalAlignment = HorizontalAlignment.Stretch;
@@ -271,29 +267,28 @@ namespace ClassevivaPCTO.Views
             Card cardResult = ViewModelHolder.getViewModel().SingleCardResult;
 
 
-
-                //var StartDate if i am on the first semester, then start date is 1st of september of the current year
-                //else start date is 1st of september of the next year
-                DateTime startDate = new DateTime(
-                    DateTime.Now.Month >= 9 ? DateTime.Now.Year : DateTime.Now.Year - 1,
-                    9,
-                    1
-                );
-
-
-                //var EndDate is max +366 days from the start date (this is an api limitation)
-                DateTime endDate = startDate.AddDays(366);
+            //var StartDate if i am on the first semester, then start date is 1st of september of the current year
+            //else start date is 1st of september of the next year
+            DateTime startDate = new DateTime(
+                DateTime.Now.Month >= 9 ? DateTime.Now.Year : DateTime.Now.Year - 1,
+                9,
+                1
+            );
 
 
-                AgendaResult agendaEvents = await apiWrapper.GetAgendaEvents(
-                    cardResult.usrId.ToString(),
-                    VariousUtils.ToApiDateTime(startDate),
-                    VariousUtils.ToApiDateTime(endDate),
-                    loginResult.token
-                );
+            //var EndDate is max +366 days from the start date (this is an api limitation)
+            DateTime endDate = startDate.AddDays(366);
 
 
-                await CoreApplication.MainView.Dispatcher.RunAsync(
+            AgendaResult agendaEvents = await apiWrapper.GetAgendaEvents(
+                cardResult.usrId.ToString(),
+                VariousUtils.ToApiDateTime(startDate),
+                VariousUtils.ToApiDateTime(endDate),
+                loginResult.token
+            );
+
+
+            await CoreApplication.MainView.Dispatcher.RunAsync(
                 CoreDispatcherPriority.Normal,
                 async () =>
                 {
@@ -318,7 +313,5 @@ namespace ClassevivaPCTO.Views
                     AgendaPopupProgressRing.IsActive = false;
                 });
         }
-
-
     }
 }

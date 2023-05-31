@@ -20,7 +20,6 @@ namespace ClassevivaPCTO.Dialogs
 
             //select the first one
             ComboChoice.SelectedIndex = 0;
-
         }
     }
 }

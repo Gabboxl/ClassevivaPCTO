@@ -1,5 +1,4 @@
 ﻿using ClassevivaPCTO.Adapters;
-using ClassevivaPCTO.Dialogs;
 using ClassevivaPCTO.Utils;
 using ClassevivaPCTO.ViewModels;
 using Microsoft.Extensions.DependencyInjection;
@@ -22,7 +21,7 @@ namespace ClassevivaPCTO.Controls
 
         public ScrutiniDocumentsResult ItemsSource
         {
-            get { return (ScrutiniDocumentsResult) GetValue(ItemsSourceProperty); }
+            get { return (ScrutiniDocumentsResult)GetValue(ItemsSourceProperty); }
             set { SetValue(ItemsSourceProperty, value); }
         }
 
@@ -38,7 +37,7 @@ namespace ClassevivaPCTO.Controls
             DependencyPropertyChangedEventArgs e
         )
         {
-            ScrutiniListView currentInstance = (ScrutiniListView) d;
+            ScrutiniListView currentInstance = (ScrutiniListView)d;
 
             var newValue = e.NewValue as ScrutiniDocumentsResult;
 
@@ -56,7 +55,6 @@ namespace ClassevivaPCTO.Controls
             currentInstance.listViewSchoolReports.ItemsSource = schoolReportsAdapters;
 
 
-
             //restore the scroll position
             scrollViewer.ChangeView(horizontalOffset, verticalOffset, null);
         }
@@ -65,7 +63,7 @@ namespace ClassevivaPCTO.Controls
         {
             this.InitializeComponent();
 
-            App app = (App) App.Current;
+            App app = (App)App.Current;
             var apiClient = app.Container.GetService<IClassevivaAPI>();
 
             apiWrapper = PoliciesDispatchProxy<IClassevivaAPI>.CreateProxy(apiClient);
@@ -103,7 +101,7 @@ namespace ClassevivaPCTO.Controls
             savePicker.SuggestedStartLocation =
                 Windows.Storage.Pickers.PickerLocationId.DocumentsLibrary;
 
-            savePicker.FileTypeChoices.Add("Allegato", new List<string>() {"."});
+            savePicker.FileTypeChoices.Add("Allegato", new List<string>() { "." });
             savePicker.SuggestedFileName = getFileResult.Item2;
 
             Windows.Storage.StorageFile file = await savePicker.PickSaveFileAsync();
@@ -131,7 +129,6 @@ namespace ClassevivaPCTO.Controls
                 //we need to track the error
             }
         }
-
 
 
         private async Task<(byte[], string)> GetScrutinioFileAsBytes(ScrutiniDocument document)
@@ -166,7 +163,6 @@ namespace ClassevivaPCTO.Controls
 
             //open link in browser
             Windows.System.Launcher.LaunchUriAsync(new Uri(link));
-
         }
     }
 }

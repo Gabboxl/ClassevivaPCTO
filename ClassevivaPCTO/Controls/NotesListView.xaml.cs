@@ -28,7 +28,7 @@ namespace ClassevivaPCTO.Controls
 
         public EventHandler OnShouldUpdate
         {
-            get { return (EventHandler) GetValue(OnShouldUpdateProperty); }
+            get { return (EventHandler)GetValue(OnShouldUpdateProperty); }
             set { SetValue(OnShouldUpdateProperty, value); }
         }
 
@@ -46,7 +46,8 @@ namespace ClassevivaPCTO.Controls
         }
 
         public static readonly DependencyProperty ModeProperty =
-            DependencyProperty.Register(nameof(Mode), typeof(DisplayMode), typeof(NotesListView), new PropertyMetadata(DisplayMode.Default, OnModeChanged));
+            DependencyProperty.Register(nameof(Mode), typeof(DisplayMode), typeof(NotesListView),
+                new PropertyMetadata(DisplayMode.Default, OnModeChanged));
 
 
         private static void OnModeChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
@@ -64,10 +65,9 @@ namespace ClassevivaPCTO.Controls
         }
 
 
-
         public List<Note> ItemsSource
         {
-            get { return (List<Note>) GetValue(ItemsSourceProperty); }
+            get { return (List<Note>)GetValue(ItemsSourceProperty); }
             set { SetValue(ItemsSourceProperty, value); }
         }
 
@@ -83,7 +83,7 @@ namespace ClassevivaPCTO.Controls
             DependencyPropertyChangedEventArgs e
         )
         {
-            NotesListView currentInstance = (NotesListView) d;
+            NotesListView currentInstance = (NotesListView)d;
 
             var newValue = e.NewValue as List<Note>;
 
@@ -101,14 +101,13 @@ namespace ClassevivaPCTO.Controls
 
             //restore the scroll position
             scrollViewer.ChangeView(horizontalOffset, verticalOffset, null);
-
         }
 
         public NotesListView()
         {
             this.InitializeComponent();
 
-            App app = (App) App.Current;
+            App app = (App)App.Current;
             var apiClient = app.Container.GetService<IClassevivaAPI>();
 
             apiWrapper = PoliciesDispatchProxy<IClassevivaAPI>.CreateProxy(apiClient);
@@ -149,7 +148,7 @@ namespace ClassevivaPCTO.Controls
 
 
                 //make the flyoutPresenterStyle based on the default one
-                flyoutPresenterStyle.BasedOn = (Style) Application.Current.Resources["CautionFlyoutStyle"];
+                flyoutPresenterStyle.BasedOn = (Style)Application.Current.Resources["CautionFlyoutStyle"];
 
 
                 flyout.FlyoutPresenterStyle = flyoutPresenterStyle;
@@ -209,7 +208,7 @@ namespace ClassevivaPCTO.Controls
                 dialog.Title = currentNote.evtCode.GetLongName();
                 dialog.PrimaryButtonText = "Chiudi";
                 dialog.DefaultButton = ContentDialogButton.Primary;
-                dialog.RequestedTheme = ((FrameworkElement) Window.Current.Content).RequestedTheme;
+                dialog.RequestedTheme = ((FrameworkElement)Window.Current.Content).RequestedTheme;
                 dialog.Content = noteDialogContent;
 
                 //dialog.FullSizeDesired = true;

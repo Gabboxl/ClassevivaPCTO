@@ -108,6 +108,7 @@ namespace ClassevivaPCTO.Views
                         // This was a new review, thank user for reviewing and give some free in app tokens
                         //ThankUserForReviewAndGrantTokens(); // pseudo-code
                     }
+
                     // Keep track that we prompted user and don’t do it again for a while
                     //SetUserHasBeenPrompted(); // pseudo-code
                     break;

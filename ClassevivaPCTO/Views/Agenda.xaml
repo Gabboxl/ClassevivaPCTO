@@ -93,7 +93,7 @@
                         IsActive="True"
                         RelativePanel.RightOf="TitoloLezioniPopup"
                         RelativePanel.AlignVerticalCenterWith="TitoloLezioniPopup"
-                        Margin="32,16,0,0"/>
+                        Margin="32,16,0,0" />
 
 
                 </RelativePanel>
@@ -106,7 +106,6 @@
             </Grid>
 
         </Popup>
-
 
 
         <Popup
@@ -156,14 +155,14 @@
                         IsActive="True"
                         RelativePanel.RightOf="TitoloAgendaPopup"
                         RelativePanel.AlignVerticalCenterWith="TitoloAgendaPopup"
-                        Margin="32,16,0,0"/>
+                        Margin="32,16,0,0" />
                 </RelativePanel>
 
 
-                    <Grid Grid.Row="1"
-                                   HorizontalAlignment="Stretch"
-                                x:Name="AgendaPopupListviewContainer">
-                    </Grid>
+                <Grid Grid.Row="1"
+                      HorizontalAlignment="Stretch"
+                      x:Name="AgendaPopupListviewContainer">
+                </Grid>
 
             </Grid>
 

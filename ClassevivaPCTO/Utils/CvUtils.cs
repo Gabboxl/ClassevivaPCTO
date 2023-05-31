@@ -10,7 +10,6 @@ namespace ClassevivaPCTO.Utils
         public string GetCode(string userId)
         {
             return Regex.Replace(userId, @"[A-Za-z]+", "");
-
         }
 
 
@@ -41,5 +40,4 @@ namespace ClassevivaPCTO.Utils
             return brush;
         }
     }
-
 }

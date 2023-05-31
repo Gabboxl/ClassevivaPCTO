@@ -19,7 +19,6 @@ namespace ClassevivaPCTO.Converters
             if (valore == null)
             {
                 brush.Color = Colors.DarkSlateBlue;
-
             }
             else if (valore >= 6)
             {
@@ -33,6 +32,7 @@ namespace ClassevivaPCTO.Converters
             {
                 brush.Color = Colors.Red;
             }
+
             return brush;
         }
 
@@ -41,5 +41,4 @@ namespace ClassevivaPCTO.Converters
             return new NotImplementedException();
         }
     }
-
 }

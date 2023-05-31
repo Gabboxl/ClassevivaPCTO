@@ -62,7 +62,6 @@ namespace ClassevivaPCTO.Utils
                 }
                 else if (!grade.displayValue.ToLower().Equals("nv"))
                 {
-
                     switch (grade.displayValue)
                     {
                         case "o":
@@ -100,5 +99,4 @@ namespace ClassevivaPCTO.Utils
             return valoreFinale;
         }
     }
-
 }

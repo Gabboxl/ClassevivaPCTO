@@ -34,10 +34,7 @@ namespace ClassevivaPCTO
             serviceCollection
                 .AddRefitClient(typeof(IClassevivaAPI))
                 .ConfigureHttpClient(
-                    (sp, client) =>
-                    {
-                        client.BaseAddress = new Uri(Endpoint.CurrentEndpoint);
-                    }
+                    (sp, client) => { client.BaseAddress = new Uri(Endpoint.CurrentEndpoint); }
                 );
 
             return serviceCollection.BuildServiceProvider();
@@ -76,8 +73,6 @@ namespace ClassevivaPCTO
             _activationService = new Lazy<ActivationService>(CreateActivationService);
 
 
-
-
 /*
 
             CoreApplication.UnhandledErrorDetected += (sender, eventArgs) =>
@@ -94,9 +89,6 @@ namespace ClassevivaPCTO
                 }
             };
             */
-
-
-
         }
 
         /// <summary>
@@ -135,6 +127,7 @@ namespace ClassevivaPCTO
                     // navigazione
                     rootFrame.Navigate(typeof(Views.LoginPage), e.Arguments);
                 }
+
                 // Assicurarsi che la finestra corrente sia attiva
                 Window.Current.Activate();
             }
@@ -182,7 +175,6 @@ namespace ClassevivaPCTO
 
             try
             {
-
                 var dataLogin = ViewModelHolder.getViewModel().LoginResult;
 
                 var serializedLogin = Newtonsoft.Json.JsonConvert.SerializeObject(
@@ -199,7 +191,6 @@ namespace ClassevivaPCTO
             }
             catch (Exception ex)
             {
-
             }
 
             Debug.WriteLine("TESTEXCEPTION: " + exceptionThatDoesntGoAway.StackTrace);

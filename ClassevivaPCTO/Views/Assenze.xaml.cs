@@ -43,11 +43,8 @@ namespace ClassevivaPCTO.Views
 
             AssenzeViewModel.IsLoadingAssenze = true;
 
-            
-            await Task.Run(async () =>
-            {
-                await LoadData();
-            });
+
+            await Task.Run(async () => { await LoadData(); });
         }
 
 
@@ -55,10 +52,7 @@ namespace ClassevivaPCTO.Views
         {
             await CoreApplication.MainView.Dispatcher.RunAsync(
                 CoreDispatcherPriority.Normal,
-                async () =>
-                {
-                    AssenzeViewModel.IsLoadingAssenze = true;
-                }
+                async () => { AssenzeViewModel.IsLoadingAssenze = true; }
             );
 
             LoginResultComplete loginResult = ViewModelHolder.getViewModel().LoginResult;
@@ -86,18 +80,13 @@ namespace ClassevivaPCTO.Views
                 .ToList();
 
 
-
             //calendar thigs
             CalendarResult calendarResult = await apiWrapper.GetCalendar(
-                               cardResult.usrId.ToString(),
-                                              loginResult.token
-                                          );
+                cardResult.usrId.ToString(),
+                loginResult.token
+            );
 
             _apiCalendarResult = calendarResult;
-
-            
-
-
 
 
             //update UI on UI thread
@@ -112,23 +101,17 @@ namespace ClassevivaPCTO.Views
 
                     //select the current day of the calendar
                     TestCalendar.SetDisplayDate(DateTime.Now.Date);
-                    
+
 
                     AssenzeViewModel.IsLoadingAssenze = false;
                 }
             );
-
         }
-
-
 
 
         private async void AggiornaCommand_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
-            await Task.Run(async () =>
-            {
-                await LoadData();
-            });
+            await Task.Run(async () => { await LoadData(); });
         }
 
 
@@ -140,14 +123,13 @@ namespace ClassevivaPCTO.Views
 
             foreach (var displayedDay in displayedDays)
             {
-
-                    await ColorDay(displayedDay);
-
+                await ColorDay(displayedDay);
             }
         }
 
 
-        private async void MyCalendarView_CalendarViewDayItemChanging(CalendarView sender, CalendarViewDayItemChangingEventArgs args)
+        private async void MyCalendarView_CalendarViewDayItemChanging(CalendarView sender,
+            CalendarViewDayItemChangingEventArgs args)
         {
             /*// Check if the day item is being added to the calendar
             if (args.Phase == 0)
@@ -176,7 +158,9 @@ namespace ClassevivaPCTO.Views
         {
             foreach (var apiCalendarDay in _apiCalendarResult.CalendarDays)
             {
-                if (calendarViewDayItem.Date.Date == apiCalendarDay.dayDate.Date && calendarViewDayItem.Date.Date <= DateTime.Now.Date) //we make sure that the date is not in the future
+                if (calendarViewDayItem.Date.Date == apiCalendarDay.dayDate.Date &&
+                    calendarViewDayItem.Date.Date <=
+                    DateTime.Now.Date) //we make sure that the date is not in the future
                 {
                     Debug.WriteLine(calendarViewDayItem.Date.Date + ", " + apiCalendarDay.dayDate.Date);
 
@@ -184,9 +168,11 @@ namespace ClassevivaPCTO.Views
                     {
                         calendarViewDayItem.Background = new SolidColorBrush(Colors.Teal);
 
-                        foreach (var currentAbsenceEvent in _absencesResult.AbsenceEvents.Where(currentAbsenceEvent => currentAbsenceEvent.evtDate.Date.Equals(calendarViewDayItem.Date.Date)))
+                        foreach (var currentAbsenceEvent in _absencesResult.AbsenceEvents.Where(currentAbsenceEvent =>
+                                     currentAbsenceEvent.evtDate.Date.Equals(calendarViewDayItem.Date.Date)))
                         {
-                            calendarViewDayItem.Background = CvUtils.GetColorFromAbsenceCode(currentAbsenceEvent.evtCode);
+                            calendarViewDayItem.Background =
+                                CvUtils.GetColorFromAbsenceCode(currentAbsenceEvent.evtCode);
 
                             break;
                         }

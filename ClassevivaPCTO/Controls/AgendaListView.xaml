@@ -84,6 +84,6 @@
 
 
     <ListView x:Name="listView"
-              ItemTemplate="{StaticResource AgendaEventListViewDataTemplate}" >
+              ItemTemplate="{StaticResource AgendaEventListViewDataTemplate}">
     </ListView>
 </UserControl>
