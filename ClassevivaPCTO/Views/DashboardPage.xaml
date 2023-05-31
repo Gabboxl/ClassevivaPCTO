@@ -170,7 +170,7 @@
 
                     <TextBlock TextWrapping="Wrap"
                                x:Name="TitleMedia"
-                               TextAlignment="Center" Text="Media totale dei voti:" FontSize="18"
+                               TextAlignment="Center" Text="Media totale:" FontSize="18"
                                RelativePanel.LeftOf="TextBlockMedia"
                                RelativePanel.AlignVerticalCenterWith="TitleRecentGrades"
                                Margin="0,0,6,0"/>
