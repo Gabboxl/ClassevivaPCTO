@@ -50,7 +50,7 @@ namespace ClassevivaPCTO.Dialogs
         private async void ButtonOpen_Click(object sender, RoutedEventArgs e)
         {
             var senderbutton = sender as AppBarButton;
-            var currentAttachment = senderbutton.DataContext as NoticeAttachment;
+            var currentAttachment = (NoticeAttachment)senderbutton.DataContext;
 
             byte[] bytes = await GetAttachmentAsBytes(currentAttachment);
 
