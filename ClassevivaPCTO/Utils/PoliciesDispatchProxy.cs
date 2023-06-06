@@ -19,54 +19,32 @@ namespace ClassevivaPCTO.Utils
 
         protected override object Invoke(MethodInfo targetMethod, object[] args)
         {
+            int retryCount = 3;
+            int currentRetryAttempts = 0;
+
             var retryPolicy = Policy
                 .Handle<AggregateException>()
                 .RetryAsync(
-                    3,
+                    retryCount,
                     async (exception, retryCount, context) =>
                     {
+                        currentRetryAttempts = retryCount;
+
                         //we check whether the exception thrown is actually a Refit's ApiException
                         if (exception.InnerException is ApiException apiException)
                         {
                             if (
                                 apiException.StatusCode 
-                                != System.Net.HttpStatusCode.Unauthorized
+                                == System.Net.HttpStatusCode.NotFound || 
+                                 apiException.StatusCode == System.Net.HttpStatusCode.Unauthorized
                             )
                             {
                                 //TODO: refresh token
                                 //await apiClient.RefreshTokenAsync();
 
-
-
-                                TaskCompletionSource<bool> isSomethingLoading =
-                                    new TaskCompletionSource<bool>();
-
                                 Debug.WriteLine("Test retry n.{0} policy ok ", retryCount);
 
-                                //the dispatcher.runasync method does not return any value, so actually the "await" is redundant, so to know when the dialog is done showing, we use the Taskcompletionsource hack
-                                await CoreApplication.MainView.Dispatcher.RunAsync(
-                                    CoreDispatcherPriority.Normal,
-                                    async () =>
-                                    {
-                                        ContentDialog noWifiDialog = new ContentDialog
-                                        {
-                                            Title = "Errore chiamata API",
-                                            Content =
-                                                "Tentativo n."
-                                                + retryCount
-                                                + "\n"
-                                                + apiException.Message,
-                                            CloseButtonText = "Ok"
-                                        };
 
-                                        ContentDialogResult result =
-                                            await noWifiDialog.ShowAsync();
-
-                                        isSomethingLoading.SetResult(true);
-                                    }
-                                );
-
-                                await isSomethingLoading.Task;
                             }
                         }
                     }
@@ -82,6 +60,35 @@ namespace ClassevivaPCTO.Utils
                 },
             onFallbackAsync: async (delegateResult) =>
             {
+
+                TaskCompletionSource<bool> isSomethingLoading =
+                    new TaskCompletionSource<bool>();
+
+                //the dispatcher.runasync method does not return any value, so actually the "await" is redundant, so to know when the dialog is done showing, we use the Taskcompletionsource hack
+                await CoreApplication.MainView.Dispatcher.RunAsync(
+                    CoreDispatcherPriority.Normal,
+                    async () =>
+                    {
+                        ContentDialog noWifiDialog = new ContentDialog
+                        {
+                            Title = "Errore chiamata API",
+                            Content =
+                                "Tentativi effettuati: "
+                                + currentRetryAttempts
+                                + "\n"
+                                + delegateResult.Exception.Message,
+                            CloseButtonText = "Ok"
+                        };
+
+                        ContentDialogResult result =
+                            await noWifiDialog.ShowAsync();
+
+                        isSomethingLoading.SetResult(true);
+                    }
+                );
+
+                await isSomethingLoading.Task;
+
                 // Access the exception that triggered the fallback
                 Debug.WriteLine($"Fallback triggered by exception: {delegateResult.Exception.Message}");
             });
