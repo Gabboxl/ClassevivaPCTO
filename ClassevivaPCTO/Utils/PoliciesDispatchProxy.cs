@@ -38,7 +38,7 @@ namespace ClassevivaPCTO.Utils
                         if (exception.InnerException is ApiException apiException)
                         {
                             if (
-                                apiException.StatusCode is System.Net.HttpStatusCode.Unauthorized
+                                apiException.StatusCode == System.Net.HttpStatusCode.Unauthorized
                             )
                             {
                                 //TODO: refresh token
@@ -112,9 +112,6 @@ namespace ClassevivaPCTO.Utils
 
                                         //salvo il nuovo token
                                         ViewModelHolder.GetViewModel().LoginResult = loginResult;
-
-
-
                                     }
                                     catch (Exception e)
                                     {
