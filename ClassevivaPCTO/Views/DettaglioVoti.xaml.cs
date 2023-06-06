@@ -29,8 +29,8 @@ namespace ClassevivaPCTO.Views
         {
             base.OnNavigatedTo(e);
 
-            LoginResultComplete loginResult = ViewModelHolder.getViewModel().LoginResult;
-            Card cardResult = ViewModelHolder.getViewModel().SingleCardResult;
+            LoginResultComplete loginResult = ViewModelHolder.GetViewModel().LoginResult;
+            Card cardResult = ViewModelHolder.GetViewModel().SingleCardResult;
 
             _grades2Result = await apiWrapper.GetGrades(
                 cardResult.usrId.ToString(),

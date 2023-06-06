@@ -53,7 +53,7 @@ namespace ClassevivaPCTO.Views
             this.DataContext = this; //DataContext = ViewModel;
             Initialize();
 
-            this.AppViewModel = ViewModelHolder.getViewModel();
+            this.AppViewModel = ViewModelHolder.GetViewModel();
         }
 
         private void Initialize()
@@ -72,7 +72,7 @@ namespace ClassevivaPCTO.Views
 
             NavigationViewViewModel.Initialize(contentFrame, navigationView, KeyboardAccelerators);
 
-            LoginResultComplete loginResult = ViewModelHolder.getViewModel().LoginResult;
+            LoginResultComplete loginResult = ViewModelHolder.GetViewModel().LoginResult;
 
             PersonPictureDashboard.DisplayName =
                 VariousUtils.ToTitleCase(loginResult.firstName)

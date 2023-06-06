@@ -37,7 +37,7 @@ namespace ClassevivaPCTO.Views
         {
             base.OnNavigatedTo(e);
 
-            Card cardResult = ViewModelHolder.getViewModel().SingleCardResult;
+            Card cardResult = ViewModelHolder.GetViewModel().SingleCardResult;
 
             TextBenvenuto.Text = "Dashboard di " + VariousUtils.ToTitleCase(cardResult.firstName);
 
@@ -64,8 +64,8 @@ namespace ClassevivaPCTO.Views
                 async () => { DashboardPageViewModel.IsLoadingAgenda = true; }
             );
 
-            LoginResultComplete loginResult = ViewModelHolder.getViewModel().LoginResult;
-            Card cardResult = ViewModelHolder.getViewModel().SingleCardResult;
+            LoginResultComplete loginResult = ViewModelHolder.GetViewModel().LoginResult;
+            Card cardResult = ViewModelHolder.GetViewModel().SingleCardResult;
 
             string caldate = VariousUtils.ToApiDateTime(DateTime.Now);
             OverviewResult overviewResult = await apiWrapper.GetOverview(
@@ -101,8 +101,8 @@ namespace ClassevivaPCTO.Views
                 async () => { DashboardPageViewModel.IsLoadingGrades = true; }
             );
 
-            LoginResultComplete loginResult = ViewModelHolder.getViewModel().LoginResult;
-            Card cardResult = ViewModelHolder.getViewModel().SingleCardResult;
+            LoginResultComplete loginResult = ViewModelHolder.GetViewModel().LoginResult;
+            Card cardResult = ViewModelHolder.GetViewModel().SingleCardResult;
             var result1 = await apiWrapper
                 .GetGrades(cardResult.usrId.ToString(), loginResult.token)
                 .ConfigureAwait(false);
@@ -128,8 +128,8 @@ namespace ClassevivaPCTO.Views
                 async () => { DashboardPageViewModel.IsLoadingMedia = true; }
             );
 
-            LoginResultComplete loginResult = ViewModelHolder.getViewModel().LoginResult;
-            Card cardResult = ViewModelHolder.getViewModel().SingleCardResult;
+            LoginResultComplete loginResult = ViewModelHolder.GetViewModel().LoginResult;
+            Card cardResult = ViewModelHolder.GetViewModel().SingleCardResult;
 
             var result1 = await apiWrapper
                 .GetGrades(cardResult.usrId.ToString(), loginResult.token)
@@ -162,8 +162,8 @@ namespace ClassevivaPCTO.Views
                 async () => { DashboardPageViewModel.IsLoadingNotices = true; }
             );
 
-            LoginResultComplete loginResult = ViewModelHolder.getViewModel().LoginResult;
-            Card cardResult = ViewModelHolder.getViewModel().SingleCardResult;
+            LoginResultComplete loginResult = ViewModelHolder.GetViewModel().LoginResult;
+            Card cardResult = ViewModelHolder.GetViewModel().SingleCardResult;
 
             var resultNotices = await apiWrapper
                 .GetNotices(cardResult.usrId.ToString(), loginResult.token)

@@ -56,8 +56,8 @@ namespace ClassevivaPCTO.Views
                 }
             );
 
-            LoginResultComplete loginResult = ViewModelHolder.getViewModel().LoginResult;
-            Card cardResult = ViewModelHolder.getViewModel().SingleCardResult;
+            LoginResultComplete loginResult = ViewModelHolder.GetViewModel().LoginResult;
+            Card cardResult = ViewModelHolder.GetViewModel().SingleCardResult;
 
 
             ScrutiniDocumentsResult scrutiniDocumentsResult = await apiWrapper.GetScrutiniDocuments(

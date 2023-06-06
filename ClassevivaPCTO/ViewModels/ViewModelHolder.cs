@@ -2,16 +2,16 @@
 {
     public static class ViewModelHolder
     {
-        private static AppViewModel viewModel;
+        private static AppViewModel _viewModel;
 
-        public static AppViewModel getViewModel()
+        public static AppViewModel GetViewModel()
         {
-            if (viewModel == null)
+            if (_viewModel == null)
             {
-                viewModel = new AppViewModel();
+                _viewModel = new AppViewModel();
             }
 
-            return viewModel;
+            return _viewModel;
         }
     }
 }

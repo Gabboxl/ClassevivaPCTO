@@ -81,8 +81,8 @@ namespace ClassevivaPCTO.Views
                 async () => { AgendaViewModel.IsLoadingAgenda = true; }
             );
 
-            LoginResultComplete loginResult = ViewModelHolder.getViewModel().LoginResult;
-            Card cardResult = ViewModelHolder.getViewModel().SingleCardResult;
+            LoginResultComplete loginResult = ViewModelHolder.GetViewModel().LoginResult;
+            Card cardResult = ViewModelHolder.GetViewModel().SingleCardResult;
 
             string apiDate = VariousUtils.ToApiDateTime(dateToLoad);
 
@@ -164,8 +164,8 @@ namespace ClassevivaPCTO.Views
                     LezioniPopup.IsOpen = true;
                 });
 
-            LoginResultComplete loginResult = ViewModelHolder.getViewModel().LoginResult;
-            Card cardResult = ViewModelHolder.getViewModel().SingleCardResult;
+            LoginResultComplete loginResult = ViewModelHolder.GetViewModel().LoginResult;
+            Card cardResult = ViewModelHolder.GetViewModel().SingleCardResult;
 
 
             if (_subjects == null)
@@ -263,8 +263,8 @@ namespace ClassevivaPCTO.Views
                     AgendaPopup.IsOpen = true;
                 });
 
-            LoginResultComplete loginResult = ViewModelHolder.getViewModel().LoginResult;
-            Card cardResult = ViewModelHolder.getViewModel().SingleCardResult;
+            LoginResultComplete loginResult = ViewModelHolder.GetViewModel().LoginResult;
+            Card cardResult = ViewModelHolder.GetViewModel().SingleCardResult;
 
 
             //var StartDate if i am on the first semester, then start date is 1st of september of the current year

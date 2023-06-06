@@ -175,7 +175,7 @@ namespace ClassevivaPCTO
 
             try
             {
-                var dataLogin = ViewModelHolder.getViewModel().LoginResult;
+                var dataLogin = ViewModelHolder.GetViewModel().LoginResult;
 
                 var serializedLogin = Newtonsoft.Json.JsonConvert.SerializeObject(
                     dataLogin,

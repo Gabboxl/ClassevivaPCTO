@@ -274,7 +274,7 @@ namespace ClassevivaPCTO.Views
             LoginChoice loginChoice = null
         )
         {
-            ViewModelHolder.getViewModel().LoginResult = loginResultComplete;
+            ViewModelHolder.GetViewModel().LoginResult = loginResultComplete;
 
             string fixedId = new CvUtils().GetCode(loginResultComplete.ident);
 
@@ -287,8 +287,8 @@ namespace ClassevivaPCTO.Views
                 loginResultComplete.token);
 
 
-            ViewModelHolder.getViewModel().SingleCardResult = singleCardResult.Card;
-            ViewModelHolder.getViewModel().CardsResult = cardsResult;
+            ViewModelHolder.GetViewModel().SingleCardResult = singleCardResult.Card;
+            ViewModelHolder.GetViewModel().CardsResult = cardsResult;
 
             if (saveCredentials)
             {

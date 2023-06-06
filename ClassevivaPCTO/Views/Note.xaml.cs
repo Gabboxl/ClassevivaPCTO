@@ -47,8 +47,8 @@ namespace ClassevivaPCTO.Views
                 async () => { NoteViewModel.IsLoadingNote = true; }
             );
 
-            LoginResultComplete loginResult = ViewModelHolder.getViewModel().LoginResult;
-            Card cardResult = ViewModelHolder.getViewModel().SingleCardResult;
+            LoginResultComplete loginResult = ViewModelHolder.GetViewModel().LoginResult;
+            Card cardResult = ViewModelHolder.GetViewModel().SingleCardResult;
 
 
             ApiResponse<string> notesResult = await apiWrapper.GetAllNotes(

@@ -55,8 +55,8 @@ namespace ClassevivaPCTO.Views
                 async () => { AssenzeViewModel.IsLoadingAssenze = true; }
             );
 
-            LoginResultComplete loginResult = ViewModelHolder.getViewModel().LoginResult;
-            Card cardResult = ViewModelHolder.getViewModel().SingleCardResult;
+            LoginResultComplete loginResult = ViewModelHolder.GetViewModel().LoginResult;
+            Card cardResult = ViewModelHolder.GetViewModel().SingleCardResult;
 
 
             AbsencesResult absencesResult = await apiWrapper.GetAbsences(
