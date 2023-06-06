@@ -29,8 +29,8 @@ namespace ClassevivaPCTO.Utils
                         if (exception.InnerException is ApiException apiException)
                         {
                             if (
-                                apiException.StatusCode
-                                == System.Net.HttpStatusCode.Unauthorized
+                                apiException.StatusCode 
+                                != System.Net.HttpStatusCode.Unauthorized
                             )
                             {
                                 //TODO: refresh token
@@ -50,9 +50,9 @@ namespace ClassevivaPCTO.Utils
                                     {
                                         ContentDialog noWifiDialog = new ContentDialog
                                         {
-                                            Title = "Error during API call",
+                                            Title = "Errore chiamata API",
                                             Content =
-                                                "Retry n."
+                                                "Tentativo n."
                                                 + retryCount
                                                 + "\n"
                                                 + apiException.Message,
@@ -74,11 +74,17 @@ namespace ClassevivaPCTO.Utils
 
             var fallback = Policy<object>
                 .Handle<Exception>()
-                .FallbackAsync(async ct =>
-                {
+                .FallbackAsync(fallbackAction: async (ct) =>
+                    {
+                        
                     //if after the retries another exception occurs, then we let the call flow go ahead
                     return targetMethod.Invoke(Target, args);
-                });
+                },
+            onFallbackAsync: async (delegateResult) =>
+            {
+                // Access the exception that triggered the fallback
+                Debug.WriteLine($"Fallback triggered by exception: {delegateResult.Exception.Message}");
+            });
 
             AsyncPolicyWrap<object> combinedpolicy = fallback.WrapAsync(retryPolicy);
 
