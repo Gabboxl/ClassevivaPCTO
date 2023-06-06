@@ -4,10 +4,8 @@ using ClassevivaPCTO.Services;
 using ClassevivaPCTO.Utils;
 using ClassevivaPCTO.ViewModels;
 using Microsoft.Extensions.DependencyInjection;
-using Newtonsoft.Json;
 using Refit;
 using System;
-using System.Net.Http;
 using System.Threading.Tasks;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Core;
@@ -142,7 +140,7 @@ namespace ClassevivaPCTO.Views
                     Ident = null
                 };
 
-                var resLogin = await GetApiLoginData(measurement);
+                var resLogin = await CvUtils.GetApiLoginData(apiWrapper, measurement);
 
                 if (resLogin is LoginResultComplete loginResult)
                 {
@@ -214,7 +212,7 @@ namespace ClassevivaPCTO.Views
                         Ident = resLoginChoice.ident
                     };
 
-                    var resLoginFinal = await GetApiLoginData(loginData);
+                    var resLoginFinal = await CvUtils.GetApiLoginData(apiWrapper, loginData);
 
                     if (resLoginFinal is LoginResultComplete loginResultChoice)
                     {
@@ -315,42 +313,6 @@ namespace ClassevivaPCTO.Views
             );
         }
 
-
-        private async Task<object> GetApiLoginData(LoginData loginData)
-        {
-            var res = await apiWrapper.LoginAsync(loginData);
-
-            if (res.StatusCode == System.Net.HttpStatusCode.OK)
-            {
-                var responseContent = await res.Content.ReadAsStringAsync();
-
-                if (responseContent.Contains("choice"))
-                {
-                    LoginResultChoices loginResultchoices =
-                        JsonConvert.DeserializeObject<LoginResultChoices>(responseContent);
-                    return loginResultchoices;
-                }
-                else
-                {
-                    LoginResultComplete loginResult =
-                        JsonConvert.DeserializeObject<LoginResultComplete>(responseContent);
-                    return loginResult;
-                }
-            }
-            else
-            {
-                // Create RefitSettings object
-                RefitSettings refitSettings = new RefitSettings();
-
-                // Create ApiException with request and response details
-                throw await ApiException.Create(
-                    res.RequestMessage,
-                    HttpMethod.Get,
-                    res,
-                    refitSettings
-                );
-            }
-        }
 
         private async Task<(ContentDialogResult, ChoiceDialogContent)> ShowChoicesDialog(
             LoginResultChoices loginResultChoices

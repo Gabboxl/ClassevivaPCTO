@@ -11,6 +11,7 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using ClassevivaPCTO.Views;
 using Windows.UI.Xaml.Media.Animation;
+using ClassevivaPCTO.ViewModels;
 
 namespace ClassevivaPCTO.Utils
 {
@@ -70,7 +71,7 @@ namespace ClassevivaPCTO.Utils
                                                 await noWifiDialog.ShowAsync();
 
                                             //go to login page
-                                            Frame rootFrame = (Frame)Window.Current.Content;
+                                            Frame rootFrame = (Frame) Window.Current.Content;
                                             rootFrame.Navigate(
                                                 typeof(LoginPage),
                                                 null,
@@ -87,21 +88,60 @@ namespace ClassevivaPCTO.Utils
                                 else
                                 {
                                     //refresho il token
-                                    LoginResultComplete loginResult =
-                                        await apiWrapper.Login(loginCredentials.UserName,
-                                            loginCredentials.Password);
-                                    if (loginResult != null)
+
+                                    loginCredentials
+                                        .RetrievePassword(); //dobbiamo per forza chiamare questo metodo per fare sì che la proprietà loginCredential.Password non sia vuota
+
+                                    //get app viewmodel from holder
+                                    var appViewModel = ViewModelHolder.GetViewModel();
+
+                                    var refreshLoginData = new LoginData
                                     {
-                                        //salvo il token
-                                        loginCredentials.Token = loginResult.token;
-                                        new CredUtils().SaveCredentialToLocker(loginCredentials);
-                                        //ricarico la pagina
-                                        Frame rootFrame = (Frame)Window.Current.Content;
-                                        rootFrame.Navigate(
-                                            typeof(MainPage),
-                                            null,
-                                            new DrillInNavigationTransitionInfo()
+                                        Uid = loginCredentials.UserName,
+                                        Pass = loginCredentials.Password,
+                                        Ident = appViewModel.SingleCardResult.ident
+                                    };
+
+                                    try
+                                    {
+                                        LoginResultComplete loginResult =
+                                            (LoginResultComplete) await CvUtils.GetApiLoginData(
+                                                Target,
+                                                refreshLoginData
+                                            );
+
+                                        //salvo il nuovo token
+                                        ViewModelHolder.GetViewModel().LoginResult = loginResult;
+
+
+
+                                    }
+                                    catch (Exception e)
+                                    {
+                                        TaskCompletionSource<bool> isSomethingLoading =
+                                            new TaskCompletionSource<bool>();
+
+                                        //the dispatcher.runasync method does not return any value, so actually the "await" is redundant, so to know when the dialog is done showing, we use the Taskcompletionsource hack
+                                        await CoreApplication.MainView.Dispatcher.RunAsync(
+                                            CoreDispatcherPriority.Normal,
+                                            async () =>
+                                            {
+                                                ContentDialog noWifiDialog = new ContentDialog
+                                                {
+                                                    Title = "Errore login",
+                                                    Content =
+                                                        "Non è stato possibile effettuare il login. Riprova più tardi.",
+                                                    CloseButtonText = "Ok"
+                                                };
+
+                                                ContentDialogResult result =
+                                                    await noWifiDialog.ShowAsync();
+
+                                                isSomethingLoading.SetResult(true);
+                                            }
                                         );
+
+                                        await isSomethingLoading.Task;
                                     }
                                 }
                             }
