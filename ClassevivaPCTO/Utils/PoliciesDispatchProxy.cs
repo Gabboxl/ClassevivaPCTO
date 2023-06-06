@@ -34,9 +34,7 @@ namespace ClassevivaPCTO.Utils
                         if (exception.InnerException is ApiException apiException)
                         {
                             if (
-                                apiException.StatusCode 
-                                == System.Net.HttpStatusCode.NotFound || 
-                                 apiException.StatusCode == System.Net.HttpStatusCode.Unauthorized
+                                apiException.StatusCode is System.Net.HttpStatusCode.NotFound or System.Net.HttpStatusCode.Unauthorized
                             )
                             {
                                 //TODO: refresh token
