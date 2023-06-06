@@ -6,7 +6,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Force.DeepCloner;
 using Windows.UI.Xaml.Data;
 using CloneExtensions;
 

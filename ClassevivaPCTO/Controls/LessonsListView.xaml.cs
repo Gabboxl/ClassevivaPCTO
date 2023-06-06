@@ -1,13 +1,10 @@
 ﻿using ClassevivaPCTO.Adapters;
-using ClassevivaPCTO.DataModels;
 using ClassevivaPCTO.Utils;
 using System.Collections.Generic;
 using System.Linq;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using CloneExtensions;
-using Force.DeepCloner;
-using Microsoft.Toolkit.Uwp.UI;
 
 namespace ClassevivaPCTO.Controls
 {
