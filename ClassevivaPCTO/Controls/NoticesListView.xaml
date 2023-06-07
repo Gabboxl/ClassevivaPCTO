@@ -38,7 +38,7 @@
                 </Grid.ColumnDefinitions>
 
 
-                <RelativePanel ScrollViewer.HorizontalScrollMode="Disabled" Grid.Row="0" Grid.Column="0">
+                <RelativePanel ScrollViewer.HorizontalScrollMode="Disabled" Grid.Row="0" Grid.Column="0" Margin="0,6,0,6">
 
                     <!-- icon pin -->
                     <FontIcon x:Name="pinIcon" FontFamily="{StaticResource FluentIcons}" Glyph="&#xE840;"
@@ -50,7 +50,7 @@
 
                                Text="{x:Bind CurrentObject.cntTitle}"
                                Style="{ThemeResource BaseTextBlockStyle}"
-                               Margin="6,6,0,0" />
+                               Margin="6,0,0,0" />
 
                     <!-- data pubblicazione -->
                     <TextBlock RelativePanel.RightOf="titoloEvento" x:Name="dataPubblicazione" TextWrapping="NoWrap"
@@ -60,7 +60,7 @@
                                Text="{x:Bind  CurrentObject.pubDT, Converter={StaticResource DateTimeToNormalDateConverter}}"
                                Style="{ThemeResource BodyStrongTextBlockStyle}"
                                Foreground="{ThemeResource TextFillColorTertiaryBrush}"
-                               Margin="16,6,0,0" />
+                               Margin="16,0,0,0" />
 
 
                     <TextBlock RelativePanel.Below="titoloEvento" x:Name="categoriaEvento" TextWrapping="Wrap"
@@ -107,6 +107,7 @@
                         RelativePanel.AlignVerticalCenterWithPanel="True"
                         RelativePanel.AlignRightWithPanel="True"
                         x:Name="ReadButton"
+                        Padding="10"
                         Visibility="{x:Bind IsDeleted, Converter={StaticResource BetterBoolToVisibilityConverter}, ConverterParameter=False}"
                         Click="ReadButton_Click"
                         Style="{ThemeResource TextButtonStyle}"
@@ -118,6 +119,7 @@
                             </StackPanel>
                         </Button.Content>
                     </Button>
+
 
 
 
