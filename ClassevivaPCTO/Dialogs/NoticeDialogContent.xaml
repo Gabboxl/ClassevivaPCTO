@@ -70,19 +70,19 @@
             <TextBlock x:Name="noticeBodyText"
                        TextWrapping="Wrap"
                        Style="{ThemeResource BodyTextBlockStyle}"
-
+                       IsTextSelectionEnabled="True"
                        Text="{x:Bind CurrentReadResult.item.text}"
                        Margin="8,8,0,8" />
 
 
-            <TextBlock x:Name="titoloAttachments" RelativePanel.Below="noticeBodyText"
+            <TextBlock x:Name="TitoloAttachments" RelativePanel.Below="noticeBodyText"
                        TextWrapping="Wrap"
                        Style="{ThemeResource BodyStrongTextBlockStyle}"
                        MaxWidth="500"
                        Text="{x:Bind AllegatiText}"
                        Margin="8,8,0,8" />
 
-            <ListView RelativePanel.Below="titoloAttachments"
+            <ListView RelativePanel.Below="TitoloAttachments"
                       x:Name="AttachmentsListView"
                       ItemContainerStyle="{StaticResource ListViewFullStretchStyle}"
                       ItemTemplate="{StaticResource AttachmentListViewDataTemplate}">

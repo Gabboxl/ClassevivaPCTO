@@ -47,7 +47,7 @@
 
                     <TextBlock x:Name="titoloEvento" TextWrapping="WrapWholeWords"
                                RelativePanel.RightOf="pinIcon"
-
+                               IsTextSelectionEnabled="True"
                                Text="{x:Bind CurrentObject.cntTitle}"
                                Style="{ThemeResource BaseTextBlockStyle}"
                                Margin="6,0,0,0" />
