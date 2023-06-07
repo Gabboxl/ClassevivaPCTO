@@ -175,6 +175,7 @@ namespace ClassevivaPCTO.Controls
                 dialog.DefaultButton = ContentDialogButton.Primary;
                 dialog.RequestedTheme = ((FrameworkElement)Window.Current.Content).RequestedTheme;
                 dialog.Content = noticeDialogContent;
+                    
 
                 //dialog.FullSizeDesired = true;
                 dialog.Width = 1200;
