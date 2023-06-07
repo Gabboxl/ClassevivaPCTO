@@ -113,10 +113,10 @@ namespace ClassevivaPCTO.Controls
             apiWrapper = PoliciesDispatchProxy<IClassevivaAPI>.CreateProxy(apiClient);
         }
 
-        //appbarbutton onclick handler
+
         private async void ReadButton_Click(object sender, RoutedEventArgs e)
         {
-            var senderbutton = sender as AppBarButton;
+            var senderbutton = sender as Button;
             var currentNote = (senderbutton.DataContext as NoteAdapter).CurrentObject;
 
 

@@ -79,12 +79,20 @@
                 <RelativePanel
                     Grid.Column="1">
 
-                    <AppBarButton
+                    <Button
                         RelativePanel.AlignVerticalCenterWithPanel="True"
                         RelativePanel.AlignRightWithPanel="True"
                         x:Name="ReadButton"
-
-                        Click="ReadButton_Click" Icon="View" Label="Leggi" />
+                        Click="ReadButton_Click"
+                        Margin="0">
+                        <Button.Content>
+                            <StackPanel Orientation="Vertical">
+                                <FontIcon FontFamily="{StaticResource FluentIcons}" Glyph="&#xE890;" 
+                                          FontSize="16" />
+                                <TextBlock FontSize="12" Text="Leggi" Margin="0,0,0,0" />
+                            </StackPanel>
+                        </Button.Content>
+                    </Button>
 
 
                 </RelativePanel>
