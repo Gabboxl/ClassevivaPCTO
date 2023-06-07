@@ -52,38 +52,39 @@
                                Style="{ThemeResource BaseTextBlockStyle}"
                                Margin="6,0,0,0" />
 
+                    <TextBlock x:Name="categoriaEvento" TextWrapping="Wrap"
+                               RelativePanel.RightOf="titoloEvento"
+                               RelativePanel.AlignVerticalCenterWith="titoloEvento"
+                               MaxWidth="500"
+                               Text="{x:Bind Category}"
+                               Style="{ThemeResource BaseTextBlockStyle}"
+                               Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                               Margin="8,0,0,0" />
+
+
                     <!-- data pubblicazione -->
-                    <TextBlock RelativePanel.RightOf="titoloEvento" x:Name="dataPubblicazione" TextWrapping="NoWrap"
+                    <TextBlock RelativePanel.RightOf="categoriaEvento" x:Name="dataPubblicazione" TextWrapping="NoWrap"
                                TextTrimming="None"
-
-
                                Text="{x:Bind  CurrentObject.pubDT, Converter={StaticResource DateTimeToNormalDateConverter}}"
                                Style="{ThemeResource BodyStrongTextBlockStyle}"
                                Foreground="{ThemeResource TextFillColorTertiaryBrush}"
-                               Margin="16,0,0,0" />
-
-
-                    <TextBlock RelativePanel.Below="titoloEvento" x:Name="categoriaEvento" TextWrapping="Wrap"
-                               RelativePanel.RightOf="pinIcon"
-                               MaxWidth="500"
-                               Text="{x:Bind Category}"
-                               Style="{ThemeResource CaptionTextBlockStyle}"
-                               Margin="6,6,0,0" />
-
-
-                    <TextBlock x:Name="dataStart" RelativePanel.Below="titoloEvento" TextWrapping="Wrap"
-                               RelativePanel.RightOf="categoriaEvento"
-                               Text="{x:Bind  FromToValidDate}"
-                               FontStyle="Italic"
-                               Style="{ThemeResource CaptionTextBlockStyle}"
-                               Margin="6,6,0,0" />
+                               Margin="8,0,0,0" />
 
 
                     <TextBlock x:Name="StatusText" RelativePanel.RightOf="dataPubblicazione" TextWrapping="NoWrap"
+                               RelativePanel.AlignVerticalCenterWith="dataPubblicazione"
                                TextTrimming="None"
                                Text="{x:Bind  StatusText}"
                                FontStyle="Italic"
                                Foreground="{x:Bind StatusTextColor}"
+                               Style="{ThemeResource CaptionTextBlockStyle}"
+                               Margin="6,6,0,0" />
+
+
+                    <TextBlock x:Name="FromToDateText" RelativePanel.Below="titoloEvento" TextWrapping="Wrap"
+                               RelativePanel.AlignLeftWith="titoloEvento"
+                               Text="{x:Bind  FromToValidDate}"
+                               FontStyle="Italic"
                                Style="{ThemeResource CaptionTextBlockStyle}"
                                Margin="6,6,0,0" />
 

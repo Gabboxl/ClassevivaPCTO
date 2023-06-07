@@ -95,7 +95,7 @@ namespace ClassevivaPCTO.Adapters
         {
             get
             {
-                return "valida dal " + CurrentObject.cntValidFrom.ToString("dd/MM/yyyy") + " al " + CurrentObject.cntValidTo.ToString("dd/MM/yyyy");
+                return "Valida dal " + CurrentObject.cntValidFrom.ToString("dd/MM/yyyy") + " al " + CurrentObject.cntValidTo.ToString("dd/MM/yyyy");
             }
             
         }
@@ -110,7 +110,7 @@ namespace ClassevivaPCTO.Adapters
                 }
                 else
                 {
-                    return CurrentObject.cntCategory;
+                    return "[" + CurrentObject.cntCategory + "]";
                 }
             }
         }
