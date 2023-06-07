@@ -98,6 +98,7 @@
                               Glyph="{x:Bind ReadIcon}"
                               RelativePanel.AlignVerticalCenterWithPanel="True"
                               Foreground="{x:Bind ReadColor}"
+                              Visibility="{x:Bind IsDeleted, Converter={StaticResource BetterBoolToVisibilityConverter}, ConverterParameter=False}"
                               Margin="0,0,8,0" />
 
 
