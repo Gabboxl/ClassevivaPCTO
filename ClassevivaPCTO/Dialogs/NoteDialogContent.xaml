@@ -26,7 +26,7 @@
             <TextBlock x:Name="noteBodyText"
                        TextWrapping="Wrap"
                        Style="{ThemeResource BodyTextBlockStyle}"
-
+                       IsTextSelectionEnabled="True"
                        Text="{x:Bind CurrentReadResult.Note.evtText}"
                        Margin="8,8,0,8" />
 

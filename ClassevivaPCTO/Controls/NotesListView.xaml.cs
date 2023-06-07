@@ -205,7 +205,7 @@ namespace ClassevivaPCTO.Controls
                 var noteDialogContent = new NoteDialogContent(currentNote, readNoteResult);
 
                 ContentDialog dialog = new ContentDialog();
-                dialog.Title = currentNote.evtCode.GetLongName();
+                dialog.Title = currentNote.evtCode.GetLongName() + " del " + currentNote.evtDate.ToString("dd/MM/yyyy");
                 dialog.PrimaryButtonText = "Chiudi";
                 dialog.DefaultButton = ContentDialogButton.Primary;
                 dialog.RequestedTheme = ((FrameworkElement)Window.Current.Content).RequestedTheme;
