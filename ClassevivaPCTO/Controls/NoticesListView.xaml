@@ -102,13 +102,24 @@
                               Margin="0,0,8,0" />
 
 
-                    <AppBarButton
+                    <!-- the same ReadButton but is a Button with the icon on the left inside the button -->
+                    <Button
                         RelativePanel.AlignVerticalCenterWithPanel="True"
                         RelativePanel.AlignRightWithPanel="True"
                         x:Name="ReadButton"
                         Visibility="{x:Bind IsDeleted, Converter={StaticResource BetterBoolToVisibilityConverter}, ConverterParameter=False}"
+                        Click="ReadButton_Click"
+                        Style="{ThemeResource TextButtonStyle}"
+                        Margin="0,0,8,0">
+                        <Button.Content>
+                            <StackPanel Orientation="Horizontal">
+                                <FontIcon FontFamily="{StaticResource FluentIcons}" Glyph="&#xE890;" />
+                                <TextBlock Text="Leggi" Margin="6,0,0,0" />
+                            </StackPanel>
+                        </Button.Content>
+                    </Button>
 
-                        Click="ReadButton_Click" Icon="View" Label="Leggi" />
+
 
                     <AppBarButton RelativePanel.AlignVerticalCenterWithPanel="True"
                                   RelativePanel.AlignRightWithPanel="True"
