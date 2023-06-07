@@ -52,7 +52,7 @@
                                Style="{ThemeResource BaseTextBlockStyle}"
                                Margin="6,0,0,0" />
 
-                    <TextBlock x:Name="categoriaEvento" TextWrapping="Wrap"
+                    <TextBlock x:Name="categoriaEvento" TextWrapping="NoWrap"
                                RelativePanel.RightOf="titoloEvento"
                                RelativePanel.AlignVerticalCenterWith="titoloEvento"
                                MaxWidth="500"
