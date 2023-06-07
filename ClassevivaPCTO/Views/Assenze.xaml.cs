@@ -162,7 +162,6 @@ namespace ClassevivaPCTO.Views
                     calendarViewDayItem.Date.Date <=
                     DateTime.Now.Date) //we make sure that the date is not in the future
                 {
-                    Debug.WriteLine(calendarViewDayItem.Date.Date + ", " + apiCalendarDay.dayDate.Date);
 
                     if (apiCalendarDay.dayStatus == DayStatus.SD)
                     {
