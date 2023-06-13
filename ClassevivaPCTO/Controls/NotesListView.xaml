@@ -66,12 +66,17 @@
 
                     <TextBlock x:Name="bodyText" RelativePanel.Below="titoloEvento" TextWrapping="Wrap"
                                RelativePanel.RightOf="NoteIcon"
-                               MaxWidth="400"
+                               MaxWidth="300"
                                Text="{x:Bind  CurrentObject.evtText}"
                                FontStyle="Italic"
                                Style="{ThemeResource CaptionTextBlockStyle}"
                                IsTextSelectionEnabled="True"
-                               Margin="24,6,0,8" />
+                               TextTrimming="WordEllipsis"
+                               MaxLines="1"
+                               Margin="24,6,0,8" >
+                    </TextBlock>
+
+
 
 
                 </RelativePanel>
@@ -86,7 +91,7 @@
                         Click="ReadButton_Click"
                         Margin="0,0,16,0">
                         <Button.Content>
-                            <StackPanel Orientation="Vertical">
+                            <StackPanel Orientation="Vertical" Padding="6,0,6,0">
                                 <FontIcon FontFamily="{StaticResource FluentIcons}" Glyph="&#xE890;" 
                                           FontSize="16" />
                                 <TextBlock FontSize="12" Text="Leggi" Margin="0,0,0,0" />
