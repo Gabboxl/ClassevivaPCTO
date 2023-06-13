@@ -70,7 +70,8 @@
                 </RelativePanel>
 
                 <RelativePanel
-                    Grid.Column="1">
+                    Grid.Column="1"
+                    Padding="0,6,0,6">
 
                     <Button
                         x:Name="ButtonOpenScrutinio" RelativePanel.LeftOf="ButtonSaveScrutinio"
@@ -143,7 +144,8 @@
                 </RelativePanel>
 
                 <RelativePanel
-                    Grid.Column="1">
+                    Grid.Column="1"
+                    Padding="0,6,0,6">
 
                     <Button
                         x:Name="ButtonOpenReport" 
