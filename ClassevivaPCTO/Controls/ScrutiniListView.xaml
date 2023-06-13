@@ -72,16 +72,35 @@
                 <RelativePanel
                     Grid.Column="1">
 
-                    <AppBarButton x:Name="ButtonOpenScrutinio" RelativePanel.LeftOf="ButtonSaveScrutinio"
-                                  Click="ButtonOpen_Click"
-                                  Visibility="{x:Bind CurrentObject.checkStatus.available, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}"
-                                  RelativePanel.AlignVerticalCenterWithPanel="True" Icon="OpenFile" Label="Apri" />
+                    <Button
+                        x:Name="ButtonOpenScrutinio" RelativePanel.LeftOf="ButtonSaveScrutinio"
+                        Click="ButtonOpen_Click"
+                        Visibility="{x:Bind CurrentObject.checkStatus.available, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}"
+                        RelativePanel.AlignVerticalCenterWithPanel="True"
+                        Margin="0,0,16,0">
+                        <Button.Content>
+                            <StackPanel Orientation="Vertical" Padding="6,0,6,0">
+                                <FontIcon FontFamily="{StaticResource FluentIcons}" Glyph="&#xE8E5;" 
+                                          FontSize="16" />
+                                <TextBlock FontSize="12" Text="Apri" Margin="0,0,0,0" />
+                            </StackPanel>
+                        </Button.Content>
+                    </Button>
 
-                    <AppBarButton x:Name="ButtonSaveScrutinio" Click="ButtonSave_Click"
-                                  RelativePanel.AlignRightWithPanel="True"
-                                  Visibility="{x:Bind CurrentObject.checkStatus.available, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}"
-                                  RelativePanel.AlignVerticalCenterWithPanel="True" Icon="Save" Label="Salva" />
-
+                    <Button
+                        x:Name="ButtonSaveScrutinio" Click="ButtonSave_Click"
+                        RelativePanel.AlignRightWithPanel="True"
+                        Visibility="{x:Bind CurrentObject.checkStatus.available, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}"
+                        RelativePanel.AlignVerticalCenterWithPanel="True"
+                        Margin="0,0,16,0">
+                        <Button.Content>
+                            <StackPanel Orientation="Vertical" Padding="6,0,6,0">
+                                <FontIcon FontFamily="{StaticResource FluentIcons}" Glyph="&#xE74E;" 
+                                          FontSize="16" />
+                                <TextBlock FontSize="12" Text="Salva" Margin="0,0,0,0" />
+                            </StackPanel>
+                        </Button.Content>
+                    </Button>
 
                 </RelativePanel>
 
@@ -126,13 +145,20 @@
                 <RelativePanel
                     Grid.Column="1">
 
-                    <AppBarButton x:Name="ButtonOpenReport" Click="ButtonOpenReport_OnClick"
-                                  RelativePanel.AlignVerticalCenterWithPanel="True" Label="Apri">
-                        <!-- custom icon -->
-                        <AppBarButton.Icon>
-                            <FontIcon FontFamily="{StaticResource FluentIcons}" Glyph="&#xE71B;" />
-                        </AppBarButton.Icon>
-                    </AppBarButton>
+                    <Button
+                        x:Name="ButtonOpenReport" 
+                        Click="ButtonOpenReport_OnClick"
+                        RelativePanel.AlignVerticalCenterWithPanel="True"
+                        Margin="0,0,16,0">
+                        <Button.Content>
+                            <StackPanel Orientation="Vertical" Padding="6,0,6,0">
+                                <FontIcon FontFamily="{StaticResource FluentIcons}" Glyph="&#xE71B;" 
+                                          FontSize="16" />
+                                <TextBlock FontSize="12" Text="Apri" Margin="0,0,0,0" />
+                            </StackPanel>
+                        </Button.Content>
+                    </Button>
+
 
 
                 </RelativePanel>

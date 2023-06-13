@@ -71,7 +71,7 @@ namespace ClassevivaPCTO.Controls
 
         private async void ButtonOpen_Click(object sender, RoutedEventArgs e)
         {
-            var senderbutton = sender as AppBarButton;
+            var senderbutton = sender as Button;
             var currentScrutinio = (senderbutton.DataContext as ScrutinioAdapter).CurrentObject;
 
 
@@ -89,7 +89,7 @@ namespace ClassevivaPCTO.Controls
 
         private async void ButtonSave_Click(object sender, RoutedEventArgs e)
         {
-            var senderbutton = sender as AppBarButton;
+            var senderbutton = sender as Button;
             var currentScrutinio = (senderbutton.DataContext as ScrutinioAdapter).CurrentObject;
 
 
@@ -156,7 +156,7 @@ namespace ClassevivaPCTO.Controls
 
         private void ButtonOpenReport_OnClick(object sender, RoutedEventArgs e)
         {
-            var senderbutton = sender as AppBarButton;
+            var senderbutton = sender as Button;
             var currentSchoolReport = (senderbutton.DataContext as SchoolReportAdapter).CurrentObject;
 
             var link = currentSchoolReport.viewLink;
