@@ -70,6 +70,7 @@
             </controls2:AgendaListView>
 
             <TextBlock x:Name="NoEventText"
+                       Margin="0,24,0,0"
                        Text="Nessun evento" FontSize="42" VerticalAlignment="Center"
                        Visibility="{x:Bind OverviewViewModel.AreSourcesEmpty, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}"
                        HorizontalAlignment="Center" />
