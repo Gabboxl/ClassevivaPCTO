@@ -12,6 +12,7 @@ using Windows.UI.Xaml.Controls;
 using ClassevivaPCTO.Views;
 using Windows.UI.Xaml.Media.Animation;
 using ClassevivaPCTO.ViewModels;
+using System.Threading;
 
 namespace ClassevivaPCTO.Utils
 {
@@ -23,6 +24,9 @@ namespace ClassevivaPCTO.Utils
 
         protected override object Invoke(MethodInfo targetMethod, object[] args)
         {
+            // Create a CancellationTokenSource
+            CancellationTokenSource cancellationTokenSource = new CancellationTokenSource();
+
             int retryCount = 3;
             int currentRetryAttempts = 0;
 
@@ -83,6 +87,9 @@ namespace ClassevivaPCTO.Utils
                                         }
                                     );
 
+                                    //we discard the remaining retries
+                                    cancellationTokenSource.Cancel();
+
                                     await isSomethingLoading.Task;
                                 }
                                 else
@@ -134,14 +141,33 @@ namespace ClassevivaPCTO.Utils
                                                 ContentDialogResult result =
                                                     await noWifiDialog.ShowAsync();
 
+
+                                                //go to login page
+                                                Frame rootFrame = (Frame)Window.Current.Content;
+                                                rootFrame.Navigate(
+                                                    typeof(LoginPage),
+                                                    null,
+                                                    new DrillInNavigationTransitionInfo()
+                                                );
+
+
                                                 isSomethingLoading.SetResult(true);
                                             }
                                         );
 
+                                        //we discard the remaining retries
+                                        cancellationTokenSource.Cancel();
+
                                         await isSomethingLoading.Task;
                                     }
                                 }
+
+
+
                             }
+
+
+
                         }
                     }
                 );
@@ -190,7 +216,7 @@ namespace ClassevivaPCTO.Utils
             AsyncPolicyWrap<object> combinedpolicy = fallback.WrapAsync(retryPolicy);
 
             return combinedpolicy
-                .ExecuteAsync(async () =>
+                .ExecuteAsync(async (ct) =>
                 {
                     var result = (targetMethod.Invoke(Target, args));
 
@@ -200,7 +226,7 @@ namespace ClassevivaPCTO.Utils
                     }
 
                     return result; //if no exception occur then we return the result of the method call
-                })
+                }, cancellationTokenSource.Token)
                 .Result;
         }
 
