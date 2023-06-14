@@ -1,8 +1,10 @@
 ﻿using ClassevivaPCTO.Utils;
 using ClassevivaPCTO.ViewModels;
 using Microsoft.Extensions.DependencyInjection;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
@@ -32,27 +34,38 @@ namespace ClassevivaPCTO.Views
 
             Card cardResult = ViewModelHolder.GetViewModel().SingleCardResult;
 
-            _grades2Result = await apiWrapper.GetGrades(
-                cardResult.usrId.ToString()
-            );
 
-            var resultPeriods = await apiWrapper.GetPeriods(
-                cardResult.usrId.ToString()
-            );
-
-            MainTextBox.Text =
-                "Dettaglio voti di " + VariousUtils.ToTitleCase(cardResult.firstName);
-
-            //add to ComboPeriodi every period of resultPeriods
-            foreach (Period period in resultPeriods.Periods)
+            Task.Run(async () =>
             {
-                ComboPeriodi.Items.Add(VariousUtils.UppercaseFirst(period.periodDesc));
-            }
+                _grades2Result = await apiWrapper.GetGrades(
+                    cardResult.usrId.ToString()
+                );
 
-            //seleziono il primo elemento iniziale - questo chiamerà il metodo ComboPeriodi_SelectionChanged subito
-            ComboPeriodi.SelectedItem = ComboPeriodi.Items[0];
+                var resultPeriods = await apiWrapper.GetPeriods(
+                    cardResult.usrId.ToString()
+                );
 
-            ProgressRingVoti.Visibility = Visibility.Collapsed;
+
+                //run on UI thread
+                await Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
+                {
+
+                    MainTextBox.Text =
+                        "Dettaglio voti di " + VariousUtils.ToTitleCase(cardResult.firstName);
+
+                    //add to ComboPeriodi every period of resultPeriods
+                    foreach (Period period in resultPeriods.Periods)
+                    {
+                        ComboPeriodi.Items.Add(VariousUtils.UppercaseFirst(period.periodDesc));
+                    }
+
+                    //seleziono il primo elemento iniziale - questo chiamerà il metodo ComboPeriodi_SelectionChanged subito
+                    ComboPeriodi.SelectedItem = ComboPeriodi.Items[0];
+
+                    ProgressRingVoti.Visibility = Visibility.Collapsed;
+                });
+
+            });
         }
 
         private void ComboPeriodi_SelectionChanged(object sender, SelectionChangedEventArgs e)
