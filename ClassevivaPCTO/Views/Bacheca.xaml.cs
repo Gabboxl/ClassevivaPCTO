@@ -60,13 +60,11 @@ namespace ClassevivaPCTO.Views
                 }
             );
 
-            LoginResultComplete loginResult = ViewModelHolder.GetViewModel().LoginResult;
             Card cardResult = ViewModelHolder.GetViewModel().SingleCardResult;
 
 
             NoticeboardResult noticeboardResult = await apiWrapper.GetNotices(
-                cardResult.usrId.ToString(),
-                loginResult.token
+                cardResult.usrId.ToString()
             );
 
             var notices = noticeboardResult.Notices;

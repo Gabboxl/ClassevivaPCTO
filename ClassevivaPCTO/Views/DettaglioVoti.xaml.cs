@@ -29,21 +29,19 @@ namespace ClassevivaPCTO.Views
         {
             base.OnNavigatedTo(e);
 
-            LoginResultComplete loginResult = ViewModelHolder.GetViewModel().LoginResult;
+
             Card cardResult = ViewModelHolder.GetViewModel().SingleCardResult;
 
             _grades2Result = await apiWrapper.GetGrades(
-                cardResult.usrId.ToString(),
-                loginResult.token
+                cardResult.usrId.ToString()
             );
 
             var resultPeriods = await apiWrapper.GetPeriods(
-                cardResult.usrId.ToString(),
-                loginResult.token
+                cardResult.usrId.ToString()
             );
 
             MainTextBox.Text =
-                "Dettaglio voti di " + VariousUtils.ToTitleCase(loginResult.firstName);
+                "Dettaglio voti di " + VariousUtils.ToTitleCase(cardResult.firstName);
 
             //add to ComboPeriodi every period of resultPeriods
             foreach (Period period in resultPeriods.Periods)

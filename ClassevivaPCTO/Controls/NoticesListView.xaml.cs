@@ -154,15 +154,13 @@ namespace ClassevivaPCTO.Controls
 
         private async void ReadAndOpenNoticeDialog(Notice currentNotice)
         {
-            LoginResultComplete loginResult = ViewModelHolder.GetViewModel().LoginResult;
             Card cardResult = ViewModelHolder.GetViewModel().SingleCardResult;
 
 
             //we need to read the notice first
             NoticeReadResult noticeReadResult =
                 await apiWrapper.ReadNotice(cardResult.usrId.ToString(), currentNotice.pubId.ToString(),
-                    currentNotice.evtCode,
-                    loginResult.token);
+                    currentNotice.evtCode);
 
             //execute on main UI thread
             await Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, async () =>

@@ -81,7 +81,7 @@ namespace ClassevivaPCTO.Views
                 async () => { AgendaViewModel.IsLoadingAgenda = true; }
             );
 
-            LoginResultComplete loginResult = ViewModelHolder.GetViewModel().LoginResult;
+
             Card cardResult = ViewModelHolder.GetViewModel().SingleCardResult;
 
             string apiDate = VariousUtils.ToApiDateTime(dateToLoad);
@@ -89,8 +89,7 @@ namespace ClassevivaPCTO.Views
             OverviewResult overviewResult = await apiWrapper.GetOverview(
                 cardResult.usrId.ToString(),
                 apiDate,
-                apiDate,
-                loginResult.token
+                apiDate
             );
 
             //update UI on UI thread
@@ -171,8 +170,7 @@ namespace ClassevivaPCTO.Views
             if (_subjects == null)
             {
                 _subjects = await apiWrapper.GetSubjects(
-                    cardResult.usrId.ToString(),
-                    loginResult.token
+                    cardResult.usrId.ToString()
                 );
             }
 
@@ -196,8 +194,7 @@ namespace ClassevivaPCTO.Views
                 _lessons = await apiWrapper.GetLessons(
                     cardResult.usrId.ToString(),
                     VariousUtils.ToApiDateTime(startDate),
-                    VariousUtils.ToApiDateTime(endDate),
-                    loginResult.token
+                    VariousUtils.ToApiDateTime(endDate)
                 );
             }
 
@@ -283,8 +280,7 @@ namespace ClassevivaPCTO.Views
             AgendaResult agendaEvents = await apiWrapper.GetAgendaEvents(
                 cardResult.usrId.ToString(),
                 VariousUtils.ToApiDateTime(startDate),
-                VariousUtils.ToApiDateTime(endDate),
-                loginResult.token
+                VariousUtils.ToApiDateTime(endDate)
             );
 
 

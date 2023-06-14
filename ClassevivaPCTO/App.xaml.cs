@@ -8,6 +8,7 @@ using Refit;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Threading.Tasks;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
 using Windows.UI.Xaml;
@@ -25,17 +26,33 @@ namespace ClassevivaPCTO
             get { return _activationService.Value; }
         }
 
+        private async Task<string> GetTokenAsync()
+        {
+            LoginResultComplete loginResult = ViewModelHolder.GetViewModel().LoginResult;
+
+            return loginResult.token;
+        }
+
+
         public IServiceProvider Container { get; }
 
         public IServiceProvider ConfigureDependencyInjection()
         {
+
+            var getToken = new Func<Task<string>>(GetTokenAsync);
+
+
             var serviceCollection = new ServiceCollection();
 
             serviceCollection
                 .AddRefitClient(typeof(IClassevivaAPI))
                 .ConfigureHttpClient(
-                    (sp, client) => { client.BaseAddress = new Uri(Endpoint.CurrentEndpoint); }
-                );
+                    (sp, client) =>
+                    {
+                        client.BaseAddress = new Uri(Endpoint.CurrentEndpoint);
+                    }
+                )
+                .AddHttpMessageHandler(() => new AuthenticatedHttpClientHandler(getToken));
 
             return serviceCollection.BuildServiceProvider();
         }

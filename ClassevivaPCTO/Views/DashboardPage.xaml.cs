@@ -64,16 +64,13 @@ namespace ClassevivaPCTO.Views
                 async () => { DashboardPageViewModel.IsLoadingAgenda = true; }
             );
 
-            LoginResultComplete loginResult = ViewModelHolder.GetViewModel().LoginResult;
             Card cardResult = ViewModelHolder.GetViewModel().SingleCardResult;
 
             string caldate = VariousUtils.ToApiDateTime(DateTime.Now);
             OverviewResult overviewResult = await apiWrapper.GetOverview(
                 cardResult.usrId.ToString(),
                 caldate,
-                caldate,
-                loginResult.token
-            );
+                caldate);
 
 
             //update UI on UI thread
@@ -101,10 +98,10 @@ namespace ClassevivaPCTO.Views
                 async () => { DashboardPageViewModel.IsLoadingGrades = true; }
             );
 
-            LoginResultComplete loginResult = ViewModelHolder.GetViewModel().LoginResult;
             Card cardResult = ViewModelHolder.GetViewModel().SingleCardResult;
+
             var result1 = await apiWrapper
-                .GetGrades(cardResult.usrId.ToString(), loginResult.token)
+                .GetGrades(cardResult.usrId.ToString())
                 .ConfigureAwait(false);
 
             var fiveMostRecent = result1.Grades.OrderByDescending(x => x.evtDate).Take(5);
@@ -128,11 +125,10 @@ namespace ClassevivaPCTO.Views
                 async () => { DashboardPageViewModel.IsLoadingMedia = true; }
             );
 
-            LoginResultComplete loginResult = ViewModelHolder.GetViewModel().LoginResult;
             Card cardResult = ViewModelHolder.GetViewModel().SingleCardResult;
 
             var result1 = await apiWrapper
-                .GetGrades(cardResult.usrId.ToString(), loginResult.token)
+                .GetGrades(cardResult.usrId.ToString())
                 .ConfigureAwait(false);
 
             // Calcoliamo la media dei voti
@@ -162,11 +158,10 @@ namespace ClassevivaPCTO.Views
                 async () => { DashboardPageViewModel.IsLoadingNotices = true; }
             );
 
-            LoginResultComplete loginResult = ViewModelHolder.GetViewModel().LoginResult;
             Card cardResult = ViewModelHolder.GetViewModel().SingleCardResult;
 
             var resultNotices = await apiWrapper
-                .GetNotices(cardResult.usrId.ToString(), loginResult.token)
+                .GetNotices(cardResult.usrId.ToString())
                 .ConfigureAwait(false);
 
             //get only most recent 5 notices and filter by active status

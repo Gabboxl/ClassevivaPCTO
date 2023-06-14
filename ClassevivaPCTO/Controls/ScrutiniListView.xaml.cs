@@ -133,13 +133,11 @@ namespace ClassevivaPCTO.Controls
 
         private async Task<(byte[], string)> GetScrutinioFileAsBytes(ScrutiniDocument document)
         {
-            LoginResultComplete loginResult = ViewModelHolder.GetViewModel().LoginResult;
             Card cardResult = ViewModelHolder.GetViewModel().SingleCardResult;
 
             var attachmentBinary = await apiWrapper.GetScrutinioDocumentFile(
                 cardResult.usrId.ToString(),
-                document.hash,
-                loginResult.token
+                document.hash
             );
 
             //we get the filename from the content disposition header, as we don't know the extension of the file

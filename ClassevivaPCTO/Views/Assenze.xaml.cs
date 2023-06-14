@@ -55,13 +55,12 @@ namespace ClassevivaPCTO.Views
                 async () => { AssenzeViewModel.IsLoadingAssenze = true; }
             );
 
-            LoginResultComplete loginResult = ViewModelHolder.GetViewModel().LoginResult;
+
             Card cardResult = ViewModelHolder.GetViewModel().SingleCardResult;
 
 
             AbsencesResult absencesResult = await apiWrapper.GetAbsences(
-                cardResult.usrId.ToString(),
-                loginResult.token
+                cardResult.usrId.ToString()
             );
 
             _absencesResult = absencesResult;
@@ -82,8 +81,7 @@ namespace ClassevivaPCTO.Views
 
             //calendar thigs
             CalendarResult calendarResult = await apiWrapper.GetCalendar(
-                cardResult.usrId.ToString(),
-                loginResult.token
+                cardResult.usrId.ToString()
             );
 
             _apiCalendarResult = calendarResult;

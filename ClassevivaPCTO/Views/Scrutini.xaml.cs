@@ -56,23 +56,18 @@ namespace ClassevivaPCTO.Views
                 }
             );
 
-            LoginResultComplete loginResult = ViewModelHolder.GetViewModel().LoginResult;
             Card cardResult = ViewModelHolder.GetViewModel().SingleCardResult;
 
 
             ScrutiniDocumentsResult scrutiniDocumentsResult = await apiWrapper.GetScrutiniDocuments(
-                cardResult.usrId.ToString(),
-                loginResult.token
-            );
+                cardResult.usrId.ToString());
 
 
             foreach (ScrutiniDocument document in scrutiniDocumentsResult.Documents)
             {
                 ScrutiniCheckResult scrutiniCheckResult = await apiWrapper.CheckScrutinioDocument(
                     cardResult.usrId.ToString(),
-                    document.hash,
-                    loginResult.token
-                );
+                    document.hash);
 
                 document.checkStatus = scrutiniCheckResult.document;
             }

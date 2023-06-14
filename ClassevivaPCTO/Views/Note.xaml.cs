@@ -47,13 +47,11 @@ namespace ClassevivaPCTO.Views
                 async () => { NoteViewModel.IsLoadingNote = true; }
             );
 
-            LoginResultComplete loginResult = ViewModelHolder.GetViewModel().LoginResult;
             Card cardResult = ViewModelHolder.GetViewModel().SingleCardResult;
 
 
             ApiResponse<string> notesResult = await apiWrapper.GetAllNotes(
-                cardResult.usrId.ToString(),
-                loginResult.token
+                cardResult.usrId.ToString()
             );
 
 
