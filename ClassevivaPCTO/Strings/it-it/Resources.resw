@@ -178,11 +178,10 @@ Ricorda che quest'app è ancora in fase di sviluppo e alcune funzionalità posso
     <comment>What's new prompt message title</comment>
   </data>
   <data name="WhatsNew_Body.Text" xml:space="preserve">
-    <value>- Nuove sezioni "Tutti i Compiti" e "Tutte le Lezioni" in Agenda
-- Implementato calendario per le assenze
-- Nuovo layout adattivo della Dashboard
-- Nuovo layout della sezione Assenze e Ritardi
-- Aggiunte icone per i vari oggetti delle listview</value>
+    <value>- Miglioramenti ai layout delle Note e Bacheca
+- Migliorata gestione degli errori di rete (con riautenticazione)
+- Migliorata velocità di caricamento dei dati
+</value>
     <comment>What's new prompt message body</comment>
   </data>
 </root>
