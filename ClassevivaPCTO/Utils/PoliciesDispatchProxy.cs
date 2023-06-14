@@ -191,7 +191,7 @@ namespace ClassevivaPCTO.Utils
                             {
                                 ContentDialog noWifiDialog = new ContentDialog
                                 {
-                                    Title = "Errore chiamata API",
+                                    Title = "Errore chiamata API (riprova più tardi)",
                                     Content =
                                         "Tentativi effettuati: "
                                         + currentRetryAttempts
