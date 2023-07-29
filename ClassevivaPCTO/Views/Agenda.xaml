@@ -27,28 +27,15 @@
             <VisualStateGroup>
                 <VisualState x:Name="WideState">
                     <VisualState.StateTriggers>
-                        <AdaptiveTrigger MinWindowWidth="1230" />
-                    </VisualState.StateTriggers>
-                    <VisualState.Setters>
-                        <Setter Target="SuggestBoxRelativePanel.(Grid.Row)" Value="0" />
-                        <Setter Target="SuggestBoxRelativePanel.(Grid.Column)" Value="3" />
-                        <Setter Target="PopupButtonsRelativePanel.(Grid.Row)" Value="0" />
-                        <Setter Target="PopupButtonsRelativePanel.(Grid.Column)" Value="2" />
-
-                    </VisualState.Setters>
-                </VisualState>
-                <VisualState x:Name="NarrowState1">
-                    <VisualState.StateTriggers>
                         <AdaptiveTrigger MinWindowWidth="930" />
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
-                        <Setter Target="SuggestBoxRelativePanel.(Grid.Row)" Value="1" />
-                        <Setter Target="SuggestBoxRelativePanel.(Grid.Column)" Value="1" />
                         <Setter Target="PopupButtonsRelativePanel.(Grid.Row)" Value="0" />
                         <Setter Target="PopupButtonsRelativePanel.(Grid.Column)" Value="2" />
 
                     </VisualState.Setters>
                 </VisualState>
+
                 <VisualState x:Name="NarrowState2">
                     <VisualState.StateTriggers>
                         <AdaptiveTrigger MinWindowWidth="0" />
@@ -56,9 +43,6 @@
                     <VisualState.Setters>
                         <Setter Target="PopupButtonsRelativePanel.(Grid.Row)" Value="1" />
                         <Setter Target="PopupButtonsRelativePanel.(Grid.Column)" Value="1" />
-
-                        <Setter Target="SuggestBoxRelativePanel.(Grid.Row)" Value="2" />
-                        <Setter Target="SuggestBoxRelativePanel.(Grid.Column)" Value="1" />
 
                     </VisualState.Setters>
                 </VisualState>
