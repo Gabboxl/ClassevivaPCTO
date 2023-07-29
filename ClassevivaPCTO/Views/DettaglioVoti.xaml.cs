@@ -21,7 +21,7 @@ namespace ClassevivaPCTO.Views
         {
             this.InitializeComponent();
 
-            App app = (App)App.Current;
+            App app = (App) App.Current;
             var apiClient = app.Container.GetService<IClassevivaAPI>();
 
             apiWrapper = PoliciesDispatchProxy<IClassevivaAPI>.CreateProxy(apiClient);
@@ -33,6 +33,8 @@ namespace ClassevivaPCTO.Views
 
 
             Card cardResult = ViewModelHolder.GetViewModel().SingleCardResult;
+
+            MainTitleTextBox.Text += VariousUtils.ToTitleCase(cardResult.firstName);
 
 
             Task.Run(async () =>
@@ -49,9 +51,6 @@ namespace ClassevivaPCTO.Views
                 //run on UI thread
                 await Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
                 {
-
-                    MainTitleTextBox.Text += VariousUtils.ToTitleCase(cardResult.firstName);
-
                     //add to ComboPeriodi every period of resultPeriods
                     foreach (Period period in resultPeriods.Periods)
                     {
@@ -63,7 +62,6 @@ namespace ClassevivaPCTO.Views
 
                     ProgressRingVoti.Visibility = Visibility.Collapsed;
                 });
-
             });
         }
 
@@ -161,7 +159,7 @@ namespace ClassevivaPCTO.Views
 
         public void GoBack(object sender, RoutedEventArgs e)
         {
-            Frame rootFrame = (Frame)Window.Current.Content;
+            Frame rootFrame = (Frame) Window.Current.Content;
             if (rootFrame.CanGoBack)
             {
                 rootFrame.GoBack();

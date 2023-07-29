@@ -18,6 +18,13 @@
     <Page.Resources>
 
         <roba:VariousUtils x:Key="VariousUtils" />
+
+        <Style x:Key="ControlFullStretchStyle" TargetType="ListViewItem"
+               BasedOn="{StaticResource DefaultListViewItemStyle}">
+            <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+
+        </Style>
+
     </Page.Resources>
 
 
@@ -33,6 +40,7 @@
                 <RowDefinition Height="48" />
                 <RowDefinition />
             </Grid.RowDefinitions>
+
             <Grid x:Name="AppTitleBar" Background="Transparent">
                 <!-- Width of the padding columns is set in LayoutMetricsChanged handler. -->
                 <!-- Using padding columns instead of Margin ensures that the background
@@ -95,7 +103,57 @@
             </Grid>
 
 
-            <Button Style="{StaticResource ProfileButtonStyle}" HorizontalAlignment="Right" Margin="0,0,200,0">
+            
+            <Grid HorizontalAlignment="Stretch"
+                  Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition x:Name="LeftMarginColumn" Width="260" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="260" />
+                </Grid.ColumnDefinitions>
+
+            
+            <Grid Grid.Column="1" MaxWidth="500">
+
+                    <AutoSuggestBox
+                        x:Name="AutoSuggestBoxMain"
+                        HorizontalAlignment="Stretch"
+                        VerticalAlignment="Center"
+                        AutoMaximizeSuggestionArea="True"
+                        MaxSuggestionListHeight="700"
+                        PlaceholderText="Search a place..."
+
+                        Style="{ThemeResource DefaultAutoSuggestBoxStyle}"
+                        UpdateTextOnSelect="False"
+
+                        TextMemberPath="address"
+                        ItemContainerStyle="{StaticResource ControlFullStretchStyle}"
+                        AutomationProperties.Name="Basic AutoSuggestBox">
+
+                <!--        <AutoSuggestBox.ItemTemplate>
+                            <DataTemplate x:DataType="models:SearchedLocation">
+                                <RelativePanel Margin="2,0,0,0">
+
+
+                                    <FontIcon x:Name="icon"
+                                              FontSize="24"
+                                              RelativePanel.AlignVerticalCenterWithPanel="True"
+                                              FontFamily="{StaticResource FluentIcons}" Glyph="&#xE707;" />
+
+
+                                    <TextBlock x:Name="text1" Text="{x:Bind address}"
+                                               Margin="8,0,0,0"
+                                               RelativePanel.RightOf="icon" />
+                                </RelativePanel>
+                            </DataTemplate>
+                        </AutoSuggestBox.ItemTemplate> -->
+
+                    </AutoSuggestBox>
+                </Grid>
+            </Grid>
+
+
+            <Button Grid.Row="0" Style="{StaticResource ProfileButtonStyle}" HorizontalAlignment="Right" Margin="0,0,200,0">
                 <!--  <Button.ContextFlyout>
                     <MenuFlyout>
                         <MenuFlyoutItem Text="Esci"
@@ -113,7 +171,6 @@
                 </Button.ContextFlyout> -->
                 <Button.Flyout>
                     <MenuFlyout x:Name="ProfileFlyout">
-
 
                         <MenuFlyoutItem>
                             <MenuFlyoutItem.Template>

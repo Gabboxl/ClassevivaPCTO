@@ -221,10 +221,16 @@
 
                 <RelativePanel Grid.Row="0" Margin="0,16,0,0">
                     <TextBlock x:Name="TextTitolo" Text="Agenda" FontSize="42"
+
                                Margin="32,0,0,0" />
 
-                    <AppBarButton RelativePanel.RightOf="TextTitolo" x:Name="AggiornaCommand"
-                                  Margin="32,0,0,0" Icon="Refresh" Label="Aggiorna" Click="AggiornaCommand_Click" />
+                    <Button RelativePanel.RightOf="TextTitolo" x:Name="AggiornaCommand"
+                            RelativePanel.AlignVerticalCenterWith="TextTitolo"
+                            Width="48"
+                            Height="36"
+                            Margin="16,0,0,0" Click="AggiornaCommand_Click" >
+                        <FontIcon Glyph="&#xE72C;" HorizontalAlignment="Center" />
+                    </Button>
 
 
                 </RelativePanel>
@@ -291,24 +297,6 @@
                         Margin="8,0,0,0">
                     </Button>
 
-                </RelativePanel>
-
-                <RelativePanel x:Name="SuggestBoxRelativePanel" Grid.Row="0" Grid.Column="3"
-                               HorizontalAlignment="Stretch"
-                               Margin="0,16,0,0" VerticalAlignment="Center">
-                    <Rectangle x:Name="Separator3" RelativePanel.AlignLeftWithPanel="True"
-                               Fill="{ThemeResource ControlStrokeColorDefaultBrush}"
-                               Width="2" Height="48" Margin="16,0,0,0" />
-
-                    <AutoSuggestBox
-                        Margin="16,0,0,0"
-                        x:Name="AutoSuggestBox"
-                        RelativePanel.RightOf="Separator3"
-                        QueryIcon="Find"
-                        Style="{ThemeResource DefaultAutoSuggestBoxStyle}"
-                        PlaceholderText="Cerca" RelativePanel.AlignVerticalCenterWithPanel="True"
-                        HorizontalAlignment="Stretch"
-                        Width="260" Height="32" />
                 </RelativePanel>
 
             </Grid>

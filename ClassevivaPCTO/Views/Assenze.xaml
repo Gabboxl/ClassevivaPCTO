@@ -66,13 +66,18 @@
         </VisualStateManager.VisualStateGroups>
 
 
-        <RelativePanel Grid.Row="0">
+        <RelativePanel Grid.Row="0" Margin="0,16,0,0">
 
             <TextBlock x:Name="TextTitolo" Grid.Row="0" Text="Assenze e Ritardi" FontSize="42" VerticalAlignment="Top"
-                       Margin="32,16,0,0" />
+                       Margin="32,0,0,0" />
 
-            <AppBarButton RelativePanel.RightOf="TextTitolo" x:Name="AggiornaCommand" VerticalAlignment="Top"
-                          Margin="32,16,0,0" Icon="Refresh" Label="Aggiorna" Click="AggiornaCommand_Click" />
+            <Button RelativePanel.RightOf="TextTitolo" x:Name="AggiornaCommand"
+                    RelativePanel.AlignVerticalCenterWith="TextTitolo"
+                    Width="48"
+                    Height="36"
+                    Margin="16,0,0,0" Click="AggiornaCommand_Click" >
+                <FontIcon Glyph="&#xE72C;" HorizontalAlignment="Center" />
+            </Button>
 
             <muxc:ProgressRing IsActive="True" x:Name="ProgressRingBacheca"
                                RelativePanel.RightOf="AggiornaCommand"

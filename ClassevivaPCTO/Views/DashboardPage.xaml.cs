@@ -39,7 +39,7 @@ namespace ClassevivaPCTO.Views
 
             Card cardResult = ViewModelHolder.GetViewModel().SingleCardResult;
 
-            TextBenvenuto.Text = "Dashboard di " + VariousUtils.ToTitleCase(cardResult.firstName);
+            TextTitolo.Text += VariousUtils.ToTitleCase(cardResult.firstName);
 
             /*
 
