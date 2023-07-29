@@ -278,7 +278,7 @@
                         Content="Tutti i compiti"
                         RelativePanel.RightOf="Separator2"
                         Click="PopupAgendaButton_OnClick"
-                        Margin="8,0,0,0">
+                        Margin="16,0,0,0">
                     </Button>
 
                     <Button
@@ -288,7 +288,7 @@
                         Content="Tutte le lezioni"
                         Click="PopupLessonsButton_OnClick"
                         RelativePanel.RightOf="PopupAgendaButton"
-                        Margin="16,0,0,0">
+                        Margin="8,0,0,0">
                     </Button>
 
                 </RelativePanel>
