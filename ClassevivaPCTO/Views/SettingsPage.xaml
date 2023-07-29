@@ -130,7 +130,7 @@
                 <TextBlock Style="{StaticResource SettingsSectionHeaderTextBlockStyle}"
                            x:Uid="Settings_About" />
 
-                <labs:SettingsExpander Description="© 2023. All rights reserved."
+                <labs:SettingsExpander Description="© 2023. Tutti i diritti riservati."
                                        Header="{x:Bind AppName}">
                     <labs:SettingsExpander.HeaderIcon>
                         <BitmapIcon ShowAsMonochrome="False"
@@ -139,7 +139,7 @@
                     <TextBlock IsTextSelectionEnabled="True"
                                Foreground="{ThemeResource TextFillColorSecondaryBrush}"
                                Style="{StaticResource BodyTextBlockStyle}">
-                        <Run Text="Version " /><Run Text="{x:Bind Version}" />
+                        <Run Text="Versione " /><Run Text="{x:Bind Version}" />
                     </TextBlock>
                     <labs:SettingsExpander.Items>
                         <labs:SettingsCard HorizontalContentAlignment="Left"
