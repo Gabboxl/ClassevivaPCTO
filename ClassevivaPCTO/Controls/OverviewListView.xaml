@@ -21,9 +21,12 @@
     <Grid
         HorizontalAlignment="Stretch"
         VerticalAlignment="Stretch">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
 
 
-        <ScrollViewer>
+        <ScrollViewer Grid.Row="0">
 
             <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
 
@@ -78,17 +81,19 @@
         </ScrollViewer>
 
         <RelativePanel
+            VerticalAlignment="Center"
+            HorizontalAlignment="Center"
+            Grid.Row="0"
             Visibility="{x:Bind OverviewViewModel.AreSourcesEmpty, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}">
             <FontIcon x:Name="IconCalendar" FontFamily="{StaticResource FluentIcons}" Glyph="&#xE787;"
                       Foreground="{ThemeResource TextFillColorDisabledBrush}"
-                      RelativePanel.AlignVerticalCenterWithPanel="True"
                       RelativePanel.AlignHorizontalCenterWithPanel="True"
                       FontSize="142"
                       Margin="0,0,8,0" />
 
             <TextBlock x:Name="NoEventText"
-                       RelativePanel.AlignHorizontalCenterWithPanel="True"
                        RelativePanel.Below="IconCalendar"
+                       RelativePanel.AlignHorizontalCenterWithPanel="True"
                        Foreground="{ThemeResource TextFillColorDisabledBrush}"
                        Margin="0,24,0,0"
                        Text="Nessun evento" FontSize="42" VerticalAlignment="Center"
