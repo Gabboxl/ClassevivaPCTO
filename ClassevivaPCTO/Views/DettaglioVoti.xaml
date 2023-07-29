@@ -21,7 +21,7 @@
         </Grid.RowDefinitions>
 
 
-        <TextBlock x:Name="MainTextBox" Grid.Row="1" Text="test " FontSize="42" VerticalAlignment="Top"
+        <TextBlock x:Name="MainTitleTextBox" Grid.Row="1" Text="Dettaglio voti di " FontSize="42" VerticalAlignment="Top"
                    Margin="32,16,0,0" />
 
         <RelativePanel Grid.Row="2"

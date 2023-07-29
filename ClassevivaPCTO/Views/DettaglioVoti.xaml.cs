@@ -50,8 +50,7 @@ namespace ClassevivaPCTO.Views
                 await Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
                 {
 
-                    MainTextBox.Text =
-                        "Dettaglio voti di " + VariousUtils.ToTitleCase(cardResult.firstName);
+                    MainTitleTextBox.Text += VariousUtils.ToTitleCase(cardResult.firstName);
 
                     //add to ComboPeriodi every period of resultPeriods
                     foreach (Period period in resultPeriods.Periods)

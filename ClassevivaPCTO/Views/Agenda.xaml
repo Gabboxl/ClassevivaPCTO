@@ -305,6 +305,7 @@
                         x:Name="AutoSuggestBox"
                         RelativePanel.RightOf="Separator3"
                         QueryIcon="Find"
+                        Style="{ThemeResource DefaultAutoSuggestBoxStyle}"
                         PlaceholderText="Cerca" RelativePanel.AlignVerticalCenterWithPanel="True"
                         HorizontalAlignment="Stretch"
                         Width="260" Height="32" />
