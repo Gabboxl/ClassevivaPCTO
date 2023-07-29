@@ -18,63 +18,83 @@
         <converters:EmptyListToVisibilityConverter x:Key="EmptyListToVisibilityConverter" />
     </UserControl.Resources>
 
-
-    <ScrollViewer>
-
-        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-
-            <TextBlock x:Name="AbsencesTitle"
-                       Text="Assenze"
-                       Margin="16,6,0,6"
-                       Visibility="{x:Bind OverviewViewModel.FilteredOverviewResult.AbsenceEvents, Mode=OneWay, Converter={StaticResource EmptyListToVisibilityConverter}}"
-                       Style="{ThemeResource BodyStrongTextBlockStyle}" />
-
-            <controls2:AbsencesListView x:Name="AbsencesListView"
-                                        HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-
-            </controls2:AbsencesListView>
+    <Grid
+        HorizontalAlignment="Stretch"
+        VerticalAlignment="Stretch">
 
 
-            <TextBlock x:Name="GradesTitle"
-                       Text="Valutazioni"
-                       Margin="16,6,0,6"
-                       Visibility="{x:Bind OverviewViewModel.FilteredOverviewResult.Grades, Mode=OneWay, Converter={StaticResource EmptyListToVisibilityConverter}}"
-                       Style="{ThemeResource BodyStrongTextBlockStyle}" />
+        <ScrollViewer>
 
-            <controls2:GradesListView x:Name="GradesListView"
-                                      HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+            <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
 
-            </controls2:GradesListView>
+                <TextBlock x:Name="AbsencesTitle"
+                           Text="Assenze"
+                           Margin="16,6,0,6"
+                           Visibility="{x:Bind OverviewViewModel.FilteredOverviewResult.AbsenceEvents, Mode=OneWay, Converter={StaticResource EmptyListToVisibilityConverter}}"
+                           Style="{ThemeResource BodyStrongTextBlockStyle}" />
 
-            <TextBlock x:Name="LessonsTitle"
-                       Text="Lezioni"
-                       Margin="16,6,0,6"
-                       Visibility="{x:Bind OverviewViewModel.FilteredOverviewResult.Lessons, Mode=OneWay, Converter={StaticResource EmptyListToVisibilityConverter}}"
-                       Style="{ThemeResource BodyStrongTextBlockStyle}" />
+                <controls2:AbsencesListView x:Name="AbsencesListView"
+                                            HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
 
-            <controls2:LessonsListView x:Name="LessonsListView"
-                                       HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-
-            </controls2:LessonsListView>
-
-            <TextBlock x:Name="AgendaTitle"
-                       Text="Agenda"
-                       Margin="16,6,0,6"
-                       Visibility="{x:Bind OverviewViewModel.FilteredOverviewResult.AgendaEvents, Mode=OneWay, Converter={StaticResource EmptyListToVisibilityConverter}}"
-                       Style="{ThemeResource BodyStrongTextBlockStyle}" />
+                </controls2:AbsencesListView>
 
 
-            <controls2:AgendaListView x:Name="AgendaListView"
-                                      HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                <TextBlock x:Name="GradesTitle"
+                           Text="Valutazioni"
+                           Margin="16,6,0,6"
+                           Visibility="{x:Bind OverviewViewModel.FilteredOverviewResult.Grades, Mode=OneWay, Converter={StaticResource EmptyListToVisibilityConverter}}"
+                           Style="{ThemeResource BodyStrongTextBlockStyle}" />
 
-            </controls2:AgendaListView>
+                <controls2:GradesListView x:Name="GradesListView"
+                                          HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+
+                </controls2:GradesListView>
+
+                <TextBlock x:Name="LessonsTitle"
+                           Text="Lezioni"
+                           Margin="16,6,0,6"
+                           Visibility="{x:Bind OverviewViewModel.FilteredOverviewResult.Lessons, Mode=OneWay, Converter={StaticResource EmptyListToVisibilityConverter}}"
+                           Style="{ThemeResource BodyStrongTextBlockStyle}" />
+
+                <controls2:LessonsListView x:Name="LessonsListView"
+                                           HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+
+                </controls2:LessonsListView>
+
+                <TextBlock x:Name="AgendaTitle"
+                           Text="Agenda"
+                           Margin="16,6,0,6"
+                           Visibility="{x:Bind OverviewViewModel.FilteredOverviewResult.AgendaEvents, Mode=OneWay, Converter={StaticResource EmptyListToVisibilityConverter}}"
+                           Style="{ThemeResource BodyStrongTextBlockStyle}" />
+
+
+                <controls2:AgendaListView x:Name="AgendaListView"
+                                          HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+
+                </controls2:AgendaListView>
+
+            </StackPanel>
+
+        </ScrollViewer>
+
+        <RelativePanel
+            Visibility="{x:Bind OverviewViewModel.AreSourcesEmpty, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}">
+            <FontIcon x:Name="IconCalendar" FontFamily="{StaticResource FluentIcons}" Glyph="&#xE787;"
+                      Foreground="{ThemeResource TextFillColorDisabledBrush}"
+                      RelativePanel.AlignVerticalCenterWithPanel="True"
+                      RelativePanel.AlignHorizontalCenterWithPanel="True"
+                      FontSize="142"
+                      Margin="0,0,8,0" />
 
             <TextBlock x:Name="NoEventText"
+                       RelativePanel.AlignHorizontalCenterWithPanel="True"
+                       RelativePanel.Below="IconCalendar"
+                       Foreground="{ThemeResource TextFillColorDisabledBrush}"
                        Margin="0,24,0,0"
                        Text="Nessun evento" FontSize="42" VerticalAlignment="Center"
-                       Visibility="{x:Bind OverviewViewModel.AreSourcesEmpty, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}"
                        HorizontalAlignment="Center" />
-        </StackPanel>
+        </RelativePanel>
 
-    </ScrollViewer>
+
+    </Grid>
 </UserControl>
