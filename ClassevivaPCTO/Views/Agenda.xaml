@@ -240,7 +240,7 @@
                             RelativePanel.AlignVerticalCenterWithPanel="True"
                             RelativePanel.RightOf="Separator1"
                             Click="ButtonYesterday_Click">
-                        <FontIcon Glyph="&#xEC52;" HorizontalAlignment="Center" />
+                        <FontIcon Glyph="&#xE76B;" HorizontalAlignment="Center" />
                     </Button>
 
 
@@ -255,7 +255,7 @@
                             RelativePanel.RightOf="CalendarAgenda"
                             RelativePanel.AlignVerticalCenterWithPanel="True"
                             Click="ButtonTomorrow_Click">
-                        <FontIcon Glyph="&#xEBE7;" HorizontalAlignment="Center" />
+                        <FontIcon Glyph="&#xE76C;" HorizontalAlignment="Center" />
                     </Button>
 
                     <ToggleButton x:Name="ButtonToday" Content="Oggi" Margin="8,0,0,0"
