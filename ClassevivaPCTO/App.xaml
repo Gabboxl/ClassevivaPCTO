@@ -17,6 +17,7 @@
                 <ResourceDictionary Source="Styles/Button.xaml" />
                 <ResourceDictionary Source="Controls/NiceNavigationView/NavigationView.xaml" />
                 <ResourceDictionary Source="Controls/NiceNavigationView/NavigationView.Themeresources.xaml" />
+                <ResourceDictionary Source="Styles/AutoSuggestBox.xaml" />
 
                 <ResourceDictionary>
                     <Style x:Name="CautionFlyoutStyle" TargetType="FlyoutPresenter"

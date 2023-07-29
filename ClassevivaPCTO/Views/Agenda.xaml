@@ -27,19 +27,38 @@
             <VisualStateGroup>
                 <VisualState x:Name="WideState">
                     <VisualState.StateTriggers>
-                        <AdaptiveTrigger MinWindowWidth="850" />
+                        <AdaptiveTrigger MinWindowWidth="1230" />
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
-                        <Setter Target="AutoSuggestBox.(Grid.Row)" Value="0" />
+                        <Setter Target="SuggestBoxRelativePanel.(Grid.Row)" Value="0" />
+                        <Setter Target="SuggestBoxRelativePanel.(Grid.Column)" Value="3" />
+                        <Setter Target="PopupButtonsRelativePanel.(Grid.Row)" Value="0" />
+                        <Setter Target="PopupButtonsRelativePanel.(Grid.Column)" Value="2" />
 
                     </VisualState.Setters>
                 </VisualState>
-                <VisualState x:Name="NarrowState">
+                <VisualState x:Name="NarrowState1">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="930" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="SuggestBoxRelativePanel.(Grid.Row)" Value="1" />
+                        <Setter Target="SuggestBoxRelativePanel.(Grid.Column)" Value="1" />
+                        <Setter Target="PopupButtonsRelativePanel.(Grid.Row)" Value="0" />
+                        <Setter Target="PopupButtonsRelativePanel.(Grid.Column)" Value="2" />
+
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="NarrowState2">
                     <VisualState.StateTriggers>
                         <AdaptiveTrigger MinWindowWidth="0" />
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
-                        <Setter Target="AutoSuggestBox.(Grid.Row)" Value="1" />
+                        <Setter Target="PopupButtonsRelativePanel.(Grid.Row)" Value="1" />
+                        <Setter Target="PopupButtonsRelativePanel.(Grid.Column)" Value="1" />
+
+                        <Setter Target="SuggestBoxRelativePanel.(Grid.Row)" Value="2" />
+                        <Setter Target="SuggestBoxRelativePanel.(Grid.Column)" Value="1" />
 
                     </VisualState.Setters>
                 </VisualState>
@@ -185,23 +204,114 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
 
+            <Grid Rotation="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
 
-            <RelativePanel Grid.Row="0">
-                <TextBlock x:Name="TextTitolo" Grid.Row="0" Text="Agenda" FontSize="42" VerticalAlignment="Top"
-                           Margin="32,16,0,0" />
-
-                <AppBarButton RelativePanel.RightOf="TextTitolo" x:Name="AggiornaCommand" VerticalAlignment="Top"
-                              Margin="32,16,0,0" Icon="Refresh" Label="Aggiorna" Click="AggiornaCommand_Click" />
-            </RelativePanel>
+                </Grid.RowDefinitions>
 
 
-            <AutoSuggestBox
-                x:Name="AutoSuggestBox"
-                Grid.Row="0"
-                QueryIcon="Find"
-                PlaceholderText="Cerca" RelativePanel.AlignHorizontalCenterWithPanel="True"
-                HorizontalAlignment="Center"
-                Width="260" Height="32" />
+                <RelativePanel Grid.Row="0" Margin="0,16,0,0">
+                    <TextBlock x:Name="TextTitolo" Text="Agenda" FontSize="42"
+                               Margin="32,0,0,0" />
+
+                    <AppBarButton RelativePanel.RightOf="TextTitolo" x:Name="AggiornaCommand"
+                                  Margin="32,0,0,0" Icon="Refresh" Label="Aggiorna" Click="AggiornaCommand_Click" />
+
+
+                </RelativePanel>
+
+
+                <RelativePanel Grid.Row="0" Grid.Column="1" Margin="0,16,0,0" VerticalAlignment="Center">
+                    <!-- vertical separator -->
+                    <Rectangle x:Name="Separator1" RelativePanel.AlignLeftWithPanel="True"
+                               Fill="{ThemeResource ControlStrokeColorDefaultBrush}"
+                               Width="2" Height="48" Margin="16,0,0,0" />
+
+                    <Button x:Name="ButtonYesterday" Margin="16,0,0,0"
+                            RelativePanel.AlignVerticalCenterWithPanel="True"
+                            RelativePanel.RightOf="Separator1"
+                            Click="ButtonYesterday_Click">
+                        <FontIcon Glyph="&#xEC52;" HorizontalAlignment="Center" />
+                    </Button>
+
+
+                    <!-- should we set the firstdayofweek in code instead? -->
+                    <CalendarDatePicker x:Name="CalendarAgenda"
+                                        RelativePanel.RightOf="ButtonYesterday"
+                                        FirstDayOfWeek="Monday"
+                                        PlaceholderText="Scegli una data" Grid.Row="1" Margin="8,0,8,0"
+                                        RelativePanel.AlignVerticalCenterWithPanel="True" />
+
+                    <Button x:Name="ButtonTomorrow" Margin="0,0,0,0"
+                            RelativePanel.RightOf="CalendarAgenda"
+                            RelativePanel.AlignVerticalCenterWithPanel="True"
+                            Click="ButtonTomorrow_Click">
+                        <FontIcon Glyph="&#xEBE7;" HorizontalAlignment="Center" />
+                    </Button>
+
+                    <ToggleButton x:Name="ButtonToday" Content="Oggi" Margin="8,0,0,0"
+                                  RelativePanel.RightOf="ButtonTomorrow"
+                                  RelativePanel.AlignVerticalCenterWithPanel="True"
+                                  toolkit:FrameworkElementExtensions.Cursor="Hand"
+                                  Click="ButtonToday_Click" />
+                </RelativePanel>
+
+                <RelativePanel x:Name="PopupButtonsRelativePanel" Grid.Row="0" Grid.Column="2" Margin="0,16,0,0"
+                               VerticalAlignment="Center">
+                    <Rectangle x:Name="Separator2" RelativePanel.AlignLeftWithPanel="True"
+                               VerticalAlignment="Stretch"
+                               Fill="{ThemeResource ControlStrokeColorDefaultBrush}"
+                               Width="2" Height="48" Margin="16,0,0,0" />
+
+                    <Button
+                        RelativePanel.AlignVerticalCenterWithPanel="True"
+                        x:Name="PopupAgendaButton"
+                        Content="Tutti i compiti"
+                        RelativePanel.RightOf="Separator2"
+                        Click="PopupAgendaButton_OnClick"
+                        Margin="16,0,0,0">
+                    </Button>
+
+                    <Button
+                        RelativePanel.AlignVerticalCenterWithPanel="True"
+
+                        x:Name="PopupLessonsButton"
+                        Content="Tutte le lezioni"
+                        Click="PopupLessonsButton_OnClick"
+                        RelativePanel.RightOf="PopupAgendaButton"
+                        Margin="8,0,0,0">
+                    </Button>
+
+                </RelativePanel>
+
+                <RelativePanel x:Name="SuggestBoxRelativePanel" Grid.Row="0" Grid.Column="3"
+                               HorizontalAlignment="Stretch"
+                               Margin="0,16,0,0" VerticalAlignment="Center">
+                    <Rectangle x:Name="Separator3" RelativePanel.AlignLeftWithPanel="True"
+                               Fill="{ThemeResource ControlStrokeColorDefaultBrush}"
+                               Width="2" Height="48" Margin="16,0,0,0" />
+
+                    <AutoSuggestBox
+                        Margin="16,0,0,0"
+                        x:Name="AutoSuggestBox"
+                        RelativePanel.RightOf="Separator3"
+                        QueryIcon="Find"
+                        Style="{ThemeResource DefaultAutoSuggestBoxStyle}"
+                        PlaceholderText="Cerca" RelativePanel.AlignVerticalCenterWithPanel="True"
+                        HorizontalAlignment="Stretch"
+                        Width="260" Height="32" />
+                </RelativePanel>
+
+            </Grid>
 
             <RelativePanel Grid.Row="2"
                            Margin="18"
@@ -215,59 +325,19 @@
                            Background="{ThemeResource CardBackgroundFillColorDefaultBrush}">
 
 
-                <Button x:Name="ButtonYesterday" Margin="0,8,0,0"
-                        Click="ButtonYesterday_Click">
-                    <FontIcon Glyph="&#xEC52;" HorizontalAlignment="Center" />
-                </Button>
-
-
-                <!-- should we set the firstdayofweek in code instead? -->
-                <CalendarDatePicker x:Name="CalendarAgenda"
-                                    RelativePanel.RightOf="ButtonYesterday"
-                                    FirstDayOfWeek="Monday"
-                                    PlaceholderText="Scegli una data" Grid.Row="1" Margin="8,8,8,0" />
-
-                <Button x:Name="ButtonTomorrow" Margin="0,8,0,0"
-                        RelativePanel.RightOf="CalendarAgenda"
-                        Click="ButtonTomorrow_Click">
-                    <FontIcon Glyph="&#xEBE7;" HorizontalAlignment="Center" />
-                </Button>
-
-                <!-- button to return to today's date-->
-                <ToggleButton x:Name="ButtonToday" Content="Oggi" Margin="8,8,0,0"
-                              RelativePanel.RightOf="ButtonTomorrow"
-                              toolkit:FrameworkElementExtensions.Cursor="Hand"
-                              Click="ButtonToday_Click" />
-
-
                 <muxc:ProgressRing IsActive="True" x:Name="ProgressRingAgenda"
-                                   RelativePanel.RightOf="ButtonToday"
-
+                                   RelativePanel.AlignRightWithPanel="True"
                                    Margin="12,8,0,0"
                                    Visibility="{x:Bind AgendaViewModel.IsLoadingAgenda, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" />
 
 
-                <Button
-                    x:Name="PopupLessonsButton"
-                    Content="Tutte le lezioni"
-                    Click="PopupLessonsButton_OnClick"
+                <controls2:OverviewListView
+                    RelativePanel.AlignTopWithPanel="True"
+                    RelativePanel.AlignBottomWithPanel="True"
                     RelativePanel.AlignRightWithPanel="True"
-                    Margin="0,8,0,0">
-                </Button>
-
-                <Button
-                    x:Name="PopupAgendaButton"
-                    Content="Tutti i compiti"
-                    RelativePanel.LeftOf="PopupLessonsButton"
-                    Click="PopupAgendaButton_OnClick"
-                    Margin="0,8,6,0">
-                </Button>
-
-
-                <controls2:OverviewListView RelativePanel.Below="ButtonYesterday"
-                                            RelativePanel.AlignRightWithPanel="True"
-                                            RelativePanel.AlignLeftWithPanel="True"
-                                            Margin="0,8,0,0" x:Name="OverviewListView">
+                    RelativePanel.AlignLeftWithPanel="True"
+                    HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+                    Margin="0,8,0,0" x:Name="OverviewListView">
                 </controls2:OverviewListView>
 
 
