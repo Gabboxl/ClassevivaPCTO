@@ -103,7 +103,6 @@
             </Grid>
 
 
-            
             <Grid HorizontalAlignment="Stretch"
                   Grid.Row="0">
                 <Grid.ColumnDefinitions>
@@ -112,8 +111,8 @@
                     <ColumnDefinition Width="260" />
                 </Grid.ColumnDefinitions>
 
-            
-            <Grid Grid.Column="1" MaxWidth="500">
+
+                <Grid Grid.Column="1" MaxWidth="500">
 
                     <AutoSuggestBox
                         x:Name="AutoSuggestBoxMain"
@@ -121,7 +120,7 @@
                         VerticalAlignment="Center"
                         AutoMaximizeSuggestionArea="True"
                         MaxSuggestionListHeight="700"
-                        PlaceholderText="Search a place..."
+                        PlaceholderText="Cerca..."
 
                         Style="{ThemeResource DefaultAutoSuggestBoxStyle}"
                         UpdateTextOnSelect="False"
@@ -130,7 +129,7 @@
                         ItemContainerStyle="{StaticResource ControlFullStretchStyle}"
                         AutomationProperties.Name="Basic AutoSuggestBox">
 
-                <!--        <AutoSuggestBox.ItemTemplate>
+                        <!--        <AutoSuggestBox.ItemTemplate>
                             <DataTemplate x:DataType="models:SearchedLocation">
                                 <RelativePanel Margin="2,0,0,0">
 
@@ -153,7 +152,8 @@
             </Grid>
 
 
-            <Button Grid.Row="0" Style="{StaticResource ProfileButtonStyle}" HorizontalAlignment="Right" Margin="0,0,200,0">
+            <Button Grid.Row="0" Style="{StaticResource ProfileButtonStyle}" HorizontalAlignment="Right"
+                    Margin="0,0,200,0">
                 <!--  <Button.ContextFlyout>
                     <MenuFlyout>
                         <MenuFlyoutItem Text="Esci"
@@ -196,7 +196,6 @@
                         </MenuFlyoutItem>
 
                         <MenuFlyoutSeparator />
-
 
                         <MenuFlyoutItem Text="Esci"
                                         x:Name="LogoutButton2"
