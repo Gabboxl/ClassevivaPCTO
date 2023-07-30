@@ -21,7 +21,7 @@ namespace ClassevivaPCTO.Controls
 
         public ScrutiniDocumentsResult ItemsSource
         {
-            get { return (ScrutiniDocumentsResult)GetValue(ItemsSourceProperty); }
+            get { return (ScrutiniDocumentsResult) GetValue(ItemsSourceProperty); }
             set { SetValue(ItemsSourceProperty, value); }
         }
 
@@ -37,7 +37,7 @@ namespace ClassevivaPCTO.Controls
             DependencyPropertyChangedEventArgs e
         )
         {
-            ScrutiniListView currentInstance = (ScrutiniListView)d;
+            ScrutiniListView currentInstance = (ScrutiniListView) d;
 
             var newValue = e.NewValue as ScrutiniDocumentsResult;
 
@@ -63,7 +63,7 @@ namespace ClassevivaPCTO.Controls
         {
             this.InitializeComponent();
 
-            App app = (App)App.Current;
+            App app = (App) App.Current;
             var apiClient = app.Container.GetService<IClassevivaAPI>();
 
             apiWrapper = PoliciesDispatchProxy<IClassevivaAPI>.CreateProxy(apiClient);
@@ -74,17 +74,23 @@ namespace ClassevivaPCTO.Controls
             var senderbutton = sender as Button;
             var currentScrutinio = (senderbutton.DataContext as ScrutinioAdapter).CurrentObject;
 
+            await Task.Run(async () =>
+            {
+                var getFileResult = await GetScrutinioFileAsBytes(currentScrutinio);
 
-            var getFileResult = await GetScrutinioFileAsBytes(currentScrutinio);
+                byte[] bytes = getFileResult.Item1;
 
-            byte[] bytes = getFileResult.Item1;
-
-            var file = await Windows.Storage.ApplicationData.Current.LocalFolder.CreateFileAsync(
-                getFileResult.Item2,
-                Windows.Storage.CreationCollisionOption.ReplaceExisting
-            );
-            await Windows.Storage.FileIO.WriteBytesAsync(file, bytes);
-            await Windows.System.Launcher.LaunchFileAsync(file);
+                //run on ui thread
+                await Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, async () =>
+                {
+                    var file = await Windows.Storage.ApplicationData.Current.LocalFolder.CreateFileAsync(
+                        getFileResult.Item2,
+                        Windows.Storage.CreationCollisionOption.ReplaceExisting
+                    );
+                    await Windows.Storage.FileIO.WriteBytesAsync(file, bytes);
+                    await Windows.System.Launcher.LaunchFileAsync(file);
+                });
+            });
         }
 
         private async void ButtonSave_Click(object sender, RoutedEventArgs e)
@@ -92,42 +98,48 @@ namespace ClassevivaPCTO.Controls
             var senderbutton = sender as Button;
             var currentScrutinio = (senderbutton.DataContext as ScrutinioAdapter).CurrentObject;
 
-
-            var getFileResult = await GetScrutinioFileAsBytes(currentScrutinio);
-
-            byte[] bytes = getFileResult.Item1;
-
-            var savePicker = new Windows.Storage.Pickers.FileSavePicker();
-            savePicker.SuggestedStartLocation =
-                Windows.Storage.Pickers.PickerLocationId.DocumentsLibrary;
-
-            savePicker.FileTypeChoices.Add("Allegato", new List<string>() { "." });
-            savePicker.SuggestedFileName = getFileResult.Item2;
-
-            Windows.Storage.StorageFile file = await savePicker.PickSaveFileAsync();
-            if (file != null)
+            await Task.Run(async () =>
             {
-                // Prevent updates to the remote version of the file until we finish making changes and call CompleteUpdatesAsync.
-                Windows.Storage.CachedFileManager.DeferUpdates(file);
+                var getFileResult = await GetScrutinioFileAsBytes(currentScrutinio);
 
-                //scrivo il file
-                await Windows.Storage.FileIO.WriteBytesAsync(file, bytes);
+                byte[] bytes = getFileResult.Item1;
 
-                Windows.Storage.Provider.FileUpdateStatus status =
-                    await Windows.Storage.CachedFileManager.CompleteUpdatesAsync(file);
-                if (status == Windows.Storage.Provider.FileUpdateStatus.Complete)
+                //run on ui thread
+                await Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, async () =>
                 {
-                    //completato
-                }
-                else
-                {
-                    //trakkar errore?
-                }
-            }
-            else
-            {
-                //we need to track the error
-            }
+                    var savePicker = new Windows.Storage.Pickers.FileSavePicker();
+                    savePicker.SuggestedStartLocation =
+                        Windows.Storage.Pickers.PickerLocationId.DocumentsLibrary;
+
+                    savePicker.FileTypeChoices.Add("Allegato", new List<string>() {"."});
+                    savePicker.SuggestedFileName = getFileResult.Item2;
+
+                    Windows.Storage.StorageFile file = await savePicker.PickSaveFileAsync();
+                    if (file != null)
+                    {
+                        // Prevent updates to the remote version of the file until we finish making changes and call CompleteUpdatesAsync.
+                        Windows.Storage.CachedFileManager.DeferUpdates(file);
+
+                        //scrivo il file
+                        await Windows.Storage.FileIO.WriteBytesAsync(file, bytes);
+
+                        Windows.Storage.Provider.FileUpdateStatus status =
+                            await Windows.Storage.CachedFileManager.CompleteUpdatesAsync(file);
+                        if (status == Windows.Storage.Provider.FileUpdateStatus.Complete)
+                        {
+                            //completato
+                        }
+                        else
+                        {
+                            //trakkar errore?
+                        }
+                    }
+                    else
+                    {
+                        //we need to track the error
+                    }
+                });
+            });
         }
 
 
