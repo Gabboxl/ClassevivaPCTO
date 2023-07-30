@@ -41,7 +41,7 @@ namespace ClassevivaPCTO.Dialogs
 
             AttachmentsListView.ItemsSource = notice.attachments;
 
-            App app = (App)App.Current;
+            App app = (App) App.Current;
             var apiClient = app.Container.GetService<IClassevivaAPI>();
 
             apiWrapper = PoliciesDispatchProxy<IClassevivaAPI>.CreateProxy(apiClient);
@@ -50,16 +50,25 @@ namespace ClassevivaPCTO.Dialogs
         private async void ButtonOpen_Click(object sender, RoutedEventArgs e)
         {
             var senderbutton = sender as AppBarButton;
-            var currentAttachment = (NoticeAttachment)senderbutton.DataContext;
+            var currentAttachment = (NoticeAttachment) senderbutton.DataContext;
 
-            byte[] bytes = await GetAttachmentAsBytes(currentAttachment);
+            await Task.Run(async () =>
+            {
+                byte[] bytes = await GetAttachmentAsBytes(currentAttachment);
 
-            var file = await Windows.Storage.ApplicationData.Current.LocalFolder.CreateFileAsync(
-                currentAttachment.fileName,
-                Windows.Storage.CreationCollisionOption.ReplaceExisting
-            );
-            await Windows.Storage.FileIO.WriteBytesAsync(file, bytes);
-            await Windows.System.Launcher.LaunchFileAsync(file);
+
+                //run on ui thread
+                await Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, async () =>
+                {
+                    var file = await Windows.Storage.ApplicationData.Current.LocalFolder.CreateFileAsync(
+                        currentAttachment.fileName,
+                        Windows.Storage.CreationCollisionOption.ReplaceExisting
+                    );
+                    await Windows.Storage.FileIO.WriteBytesAsync(file, bytes);
+
+                    var success = await Windows.System.Launcher.LaunchFileAsync(file);
+                });
+            });
         }
 
         private async void ButtonSave_Click(object sender, RoutedEventArgs e)
@@ -68,39 +77,46 @@ namespace ClassevivaPCTO.Dialogs
             var currentAttachment = senderbutton.DataContext as NoticeAttachment;
 
 
-            byte[] bytes = await GetAttachmentAsBytes(currentAttachment);
-
-            var savePicker = new Windows.Storage.Pickers.FileSavePicker();
-            savePicker.SuggestedStartLocation =
-                Windows.Storage.Pickers.PickerLocationId.DocumentsLibrary;
-
-            savePicker.FileTypeChoices.Add("Allegato", new List<string>() { "." });
-            savePicker.SuggestedFileName = currentAttachment.fileName;
-
-            Windows.Storage.StorageFile file = await savePicker.PickSaveFileAsync();
-            if (file != null)
+            await Task.Run(async () =>
             {
-                // Prevent updates to the remote version of the file until we finish making changes and call CompleteUpdatesAsync.
-                Windows.Storage.CachedFileManager.DeferUpdates(file);
+                byte[] bytes = await GetAttachmentAsBytes(currentAttachment);
 
-                //scrivo il file
-                await Windows.Storage.FileIO.WriteBytesAsync(file, bytes);
+                //run on ui thread
+                await Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, async () =>
+                {
+                    var savePicker = new Windows.Storage.Pickers.FileSavePicker();
+                    savePicker.SuggestedStartLocation =
+                        Windows.Storage.Pickers.PickerLocationId.DocumentsLibrary;
 
-                Windows.Storage.Provider.FileUpdateStatus status =
-                    await Windows.Storage.CachedFileManager.CompleteUpdatesAsync(file);
-                if (status == Windows.Storage.Provider.FileUpdateStatus.Complete)
-                {
-                    //completato
-                }
-                else
-                {
-                    //trakkar errore?
-                }
-            }
-            else
-            {
-                //we need to track the error
-            }
+                    savePicker.FileTypeChoices.Add("Allegato", new List<string>() {"."});
+                    savePicker.SuggestedFileName = currentAttachment.fileName;
+
+                    Windows.Storage.StorageFile file = await savePicker.PickSaveFileAsync();
+                    if (file != null)
+                    {
+                        // Prevent updates to the remote version of the file until we finish making changes and call CompleteUpdatesAsync.
+                        Windows.Storage.CachedFileManager.DeferUpdates(file);
+
+                        //scrivo il file
+                        await Windows.Storage.FileIO.WriteBytesAsync(file, bytes);
+
+                        Windows.Storage.Provider.FileUpdateStatus status =
+                            await Windows.Storage.CachedFileManager.CompleteUpdatesAsync(file);
+                        if (status == Windows.Storage.Provider.FileUpdateStatus.Complete)
+                        {
+                            //completato
+                        }
+                        else
+                        {
+                            //trakkar errore?
+                        }
+                    }
+                    else
+                    {
+                        //we need to track the error
+                    }
+                });
+            });
         }
 
 
@@ -114,6 +130,7 @@ namespace ClassevivaPCTO.Dialogs
                 CurrentNotice.evtCode,
                 attachment.attachNum.ToString()
             );
+
             byte[] bytes = await attachmentBinary.Content.ReadAsByteArrayAsync();
 
             return bytes;
