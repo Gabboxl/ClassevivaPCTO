@@ -89,14 +89,15 @@
                       Foreground="{ThemeResource TextFillColorDisabledBrush}"
                       RelativePanel.AlignHorizontalCenterWithPanel="True"
                       FontSize="142"
-                      Margin="0,0,8,0" />
+                      Margin="0,0,0,0" />
 
             <TextBlock x:Name="NoEventText"
                        RelativePanel.Below="IconCalendar"
                        RelativePanel.AlignHorizontalCenterWithPanel="True"
                        Foreground="{ThemeResource TextFillColorDisabledBrush}"
-                       Margin="0,24,0,0"
-                       Text="Nessun evento" FontSize="42" VerticalAlignment="Center"
+                       Margin="0,0,0,0"
+                       FontWeight="SemiBold"
+                       Text="Nessun evento" FontSize="36" VerticalAlignment="Center"
                        HorizontalAlignment="Center" />
         </RelativePanel>
 

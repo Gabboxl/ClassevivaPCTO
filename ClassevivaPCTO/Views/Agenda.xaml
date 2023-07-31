@@ -191,8 +191,6 @@
             <Grid Rotation="0">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"></ColumnDefinition>
-                    <ColumnDefinition Width="Auto"></ColumnDefinition>
-                    <ColumnDefinition Width="Auto"></ColumnDefinition>
                     <ColumnDefinition Width="*"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
@@ -208,65 +206,79 @@
 
                                Margin="32,0,0,0" />
 
-                    <Button RelativePanel.RightOf="TextTitolo" x:Name="AggiornaCommand"
-                            RelativePanel.AlignVerticalCenterWith="TextTitolo"
-                            Width="48"
-                            Height="36"
-                            Margin="16,0,0,0" Click="AggiornaCommand_Click" >
-                        <FontIcon Glyph="&#xE72C;" HorizontalAlignment="Center" />
-                    </Button>
-
 
                 </RelativePanel>
 
+                <Grid Grid.Row="0" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Center">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                        <ColumnDefinition Width="Auto"></ColumnDefinition>
 
-                <RelativePanel Grid.Row="0" Grid.Column="1" Margin="0,16,0,0" VerticalAlignment="Center">
-                    <!-- vertical separator -->
-                    <Rectangle x:Name="Separator1" RelativePanel.AlignLeftWithPanel="True"
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                    </Grid.RowDefinitions>
+
+                    <RelativePanel Grid.Row="0" Grid.Column="0" Margin="0,16,0,0" VerticalAlignment="Center">
+                    
+                        <Button RelativePanel.LeftOf="Separator0" x:Name="AggiornaCommand"
+                                RelativePanel.AlignVerticalCenterWithPanel="True"
+                                Width="48"
+                                Height="36"
+                                Margin="16,0,0,0" Click="AggiornaCommand_Click" >
+                            <FontIcon FontSize="18" Glyph="&#xE72C;" HorizontalAlignment="Center" />
+                        </Button>
+                        
+                        <!-- vertical separator -->
+                    <Rectangle x:Name="Separator0" RelativePanel.LeftOf="ButtonYesterday"
                                Fill="{ThemeResource ControlStrokeColorDefaultBrush}"
                                Width="2" Height="48" Margin="16,0,0,0" />
 
                     <Button x:Name="ButtonYesterday" Margin="16,0,0,0"
                             RelativePanel.AlignVerticalCenterWithPanel="True"
-                            RelativePanel.RightOf="Separator1"
+                            RelativePanel.LeftOf="CalendarAgenda"
+                            Width="48"
+                            Height="33"
                             Click="ButtonYesterday_Click">
-                        <FontIcon Glyph="&#xE76B;" HorizontalAlignment="Center" />
+                        <FontIcon FontSize="14" Glyph="&#xE76B;" HorizontalAlignment="Center" />
                     </Button>
 
 
                     <!-- should we set the firstdayofweek in code instead? -->
                     <CalendarDatePicker x:Name="CalendarAgenda"
-                                        RelativePanel.RightOf="ButtonYesterday"
+                                        RelativePanel.LeftOf="ButtonTomorrow"
                                         FirstDayOfWeek="Monday"
                                         PlaceholderText="Scegli una data" Grid.Row="1" Margin="8,0,8,0"
                                         RelativePanel.AlignVerticalCenterWithPanel="True" />
 
                     <Button x:Name="ButtonTomorrow" Margin="0,0,0,0"
-                            RelativePanel.RightOf="CalendarAgenda"
+                            RelativePanel.LeftOf="ButtonToday"
+                            Width="48"
+                            Height="33"
                             RelativePanel.AlignVerticalCenterWithPanel="True"
                             Click="ButtonTomorrow_Click">
-                        <FontIcon Glyph="&#xE76C;" HorizontalAlignment="Center" />
+                        <FontIcon FontSize="14" Glyph="&#xE76C;" HorizontalAlignment="Center" />
                     </Button>
 
                     <ToggleButton x:Name="ButtonToday" Content="Oggi" Margin="8,0,0,0"
-                                  RelativePanel.RightOf="ButtonTomorrow"
+                                  RelativePanel.LeftOf="Separator1"
                                   RelativePanel.AlignVerticalCenterWithPanel="True"
                                   toolkit:FrameworkElementExtensions.Cursor="Hand"
                                   Click="ButtonToday_Click" />
-                </RelativePanel>
 
-                <RelativePanel x:Name="PopupButtonsRelativePanel" Grid.Row="0" Grid.Column="2" Margin="0,16,0,0"
-                               VerticalAlignment="Center">
-                    <Rectangle x:Name="Separator2" RelativePanel.AlignLeftWithPanel="True"
-                               VerticalAlignment="Stretch"
+                    <Rectangle x:Name="Separator1" RelativePanel.AlignRightWithPanel="True"
                                Fill="{ThemeResource ControlStrokeColorDefaultBrush}"
                                Width="2" Height="48" Margin="16,0,0,0" />
+                </RelativePanel>
+
+                <RelativePanel x:Name="PopupButtonsRelativePanel" Grid.Row="0" Grid.Column="1" Margin="0,16,0,0"
+                               VerticalAlignment="Center">
 
                     <Button
                         RelativePanel.AlignVerticalCenterWithPanel="True"
                         x:Name="PopupAgendaButton"
                         Content="Tutti i compiti"
-                        RelativePanel.RightOf="Separator2"
+                        RelativePanel.LeftOf="PopupLessonsButton"
                         Click="PopupAgendaButton_OnClick"
                         Margin="16,0,0,0">
                     </Button>
@@ -277,11 +289,18 @@
                         x:Name="PopupLessonsButton"
                         Content="Tutte le lezioni"
                         Click="PopupLessonsButton_OnClick"
-                        RelativePanel.RightOf="PopupAgendaButton"
-                        Margin="8,0,0,0">
+                        RelativePanel.AlignRightWithPanel="True"
+                        Margin="8,0,16,0">
                     </Button>
 
+                    <!--<Rectangle x:Name="Separator2" RelativePanel.AlignRightWithPanel="True"
+                               VerticalAlignment="Stretch"
+                               Fill="{ThemeResource ControlStrokeColorDefaultBrush}"
+                               Width="2" Height="48" Margin="16,0,0,0" />-->
+
                 </RelativePanel>
+
+                </Grid>
 
             </Grid>
 
