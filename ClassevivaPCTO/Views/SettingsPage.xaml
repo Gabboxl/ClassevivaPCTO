@@ -1,4 +1,4 @@
-﻿<Page
+<Page
     x:Class="ClassevivaPCTO.Views.SettingsPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -33,7 +33,7 @@
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
 
-            <TextBlock x:Name="TextTitolo" Grid.Row="0" Text="Impostazioni" FontSize="42" VerticalAlignment="Top"
+            <TextBlock x:Name="TextTitolo" Grid.Row="0" Text="Impostazioni" FontSize="35" FontWeight="SemiBold" VerticalAlignment="Top"
                        Margin="32,16,0,0" />
 
             <StackPanel Grid.Row="1"
@@ -149,25 +149,20 @@
 
                                 <HyperlinkButton Content="Progetto su GitHub"
                                                  NavigateUri="http://github.com/Gabboxl/ClassevivaPCTO" />
+                                <HyperlinkButton Margin="0,8,0,0"
+                                     x:Name="hyperlinkVote"
+                                     Click="HyperlinkVote_Click"
+                                     Content="Vota l'app nello Store"/>
+
+                                <HyperlinkButton Margin="0,8,0,0"
+                                     x:Name="hyperlinkIssue"
+                                     RelativePanel.RightOf="hyperlinkVote"
+                                     NavigateUri="http://github.com/Gabboxl/ClassevivaPCTO/issues"
+                                     Content="Segnala un problema"/>
                             </StackPanel>
                         </labs:SettingsCard>
                     </labs:SettingsExpander.Items>
                 </labs:SettingsExpander>
-
-
-                <RelativePanel>
-
-                    <HyperlinkButton Margin="0,8,0,0"
-                                     x:Name="hyperlinkVote"
-                                     Click="HyperlinkVote_Click"
-                                     Content="Vota l'app" />
-
-                    <HyperlinkButton Margin="0,8,0,0"
-                                     x:Name="hyperlinkIssue"
-                                     RelativePanel.RightOf="hyperlinkVote"
-                                     NavigateUri="http://github.com/Gabboxl/ClassevivaPCTO/issues"
-                                     Content="Segnala un problema" />
-                </RelativePanel>
 
 
             </StackPanel>
