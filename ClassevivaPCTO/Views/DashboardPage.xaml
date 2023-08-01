@@ -74,7 +74,7 @@
                     RelativePanel.AlignVerticalCenterWith="TextTitolo"
                     Width="48"
                     Height="36"
-                    Margin="710,4,0,0" Click="AggiornaButton_Click">
+                    Margin="711,4,0,0" Click="AggiornaButton_Click">
                 <FontIcon Glyph="&#xE72C;" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center" />
             </Button>
         </RelativePanel>
