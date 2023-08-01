@@ -120,7 +120,7 @@
                         VerticalAlignment="Center"
                         AutoMaximizeSuggestionArea="True"
                         MaxSuggestionListHeight="700"
-                        PlaceholderText="Cerca..."
+                        PlaceholderText="Cerca compiti, lezioni, comunicazioni e altro"
 
                         Style="{ThemeResource DefaultAutoSuggestBoxStyle}"
                         UpdateTextOnSelect="False"
