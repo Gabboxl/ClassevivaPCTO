@@ -33,7 +33,9 @@
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
 
-            <TextBlock x:Name="TextTitolo" Grid.Row="0" Text="Impostazioni" FontSize="36" FontWeight="SemiBold" VerticalAlignment="Top"
+            <TextBlock x:Name="TextTitolo" Grid.Row="0" Text="Impostazioni" 
+                       Style= "{StaticResource TitleLargeTextBlockStyle}"
+                       VerticalAlignment="Top"
                        Margin="32,16,0,0" />
 
             <StackPanel Grid.Row="1"

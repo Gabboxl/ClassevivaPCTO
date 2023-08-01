@@ -57,7 +57,9 @@
 
         <RelativePanel Grid.Row="0" Margin="0,18,0,0">
 
-            <TextBlock x:Name="TextTitolo" Grid.Row="0" Text="Bacheca" FontSize="36" FontWeight="SemiBold" VerticalAlignment="Top"
+            <TextBlock x:Name="TextTitolo" Grid.Row="0" Text="Bacheca" 
+                       Style= "{StaticResource TitleLargeTextBlockStyle}"
+                       VerticalAlignment="Top"
                        Margin="32,0,0,0" />
 
             <Button RelativePanel.RightOf="TextTitolo" x:Name="AggiornaCommand"
