@@ -46,6 +46,24 @@
                     <RepositionThemeTransition IsStaggeringEnabled="False" />
                 </StackPanel.ChildrenTransitions>
 
+                <TextBlock Style="{StaticResource SettingsSectionHeaderTextBlockStyle}"
+                           x:Uid="Settings_Account" />
+
+
+
+                    <RelativePanel Grid.Row="0" Margin="0,18,0,0">
+
+                     <TextBlock x:Name="NomeCognome" Text="Nome Cognome " FontSize="32" FontWeight="SemiBold"  VerticalAlignment="Top"
+                       Margin="100,0,0,0" />
+
+                     <TextBlock x:Name="CodiceStudente" Text="Codice studente: XXXXXXXXXXXX" FontSize="14" FontWeight="Medium" 
+                       Margin="100,55,0,0" Foreground="{ThemeResource TextFillColorTertiaryBrush}" />
+                    
+                     <TextBlock x:Name="Istituto" Text="Istituto: LOREM IPSUM DOLOR SIT AMET INDIRIZZO NOME COGNOME" FontSize="14" FontWeight="Medium" 
+                       Margin="100,80,0,0" Foreground="{ThemeResource TextFillColorTertiaryBrush}" />
+                    
+                     </RelativePanel>
+                  
 
                 <TextBlock Style="{StaticResource SettingsSectionHeaderTextBlockStyle}"
                            x:Uid="Settings_Personalization" />
@@ -123,8 +141,67 @@
                         </ComboBoxItem>
                     </ComboBox>
                 </labs:SettingsCard>
-                
                 -->
+                
+
+                
+                <TextBlock Style="{StaticResource SettingsSectionHeaderTextBlockStyle}"
+                           x:Uid="Settings_General"/>
+
+
+                <labs:SettingsCard Header="Lingua" 
+                                   Description="Scegli la lingua dell'app">
+
+                    <labs:SettingsCard.HeaderIcon>
+                        <FontIcon Glyph="&#xE8C1;" />
+                    </labs:SettingsCard.HeaderIcon>
+
+                    <ComboBox SelectedIndex="0" >
+
+                        <ComboBoxItem
+                            x:Uid="Settings_Language_It_IT"
+                            
+                            >
+                            
+                        </ComboBoxItem>
+                        
+                        <ComboBoxItem
+                            x:Uid="Settings_Language_En_US"
+                            
+                            >
+                            
+                        </ComboBoxItem>
+
+                    </ComboBox>
+
+
+                </labs:SettingsCard>
+                
+                <labs:SettingsCard Header="Novità in questa versione" 
+                                   Description="Visualizza le modifiche recenti">
+                    
+                    <labs:SettingsCard.HeaderIcon>
+                        <FontIcon Glyph="&#xE762;" />
+                    </labs:SettingsCard.HeaderIcon>
+
+                    <Button Content="Mostra novità"/>
+
+
+                </labs:SettingsCard>
+                
+               
+                <labs:SettingsCard Header="Tutorial" 
+                                   Description="Visualizza suggerimenti sul funzionamento dell'app">
+
+                    <labs:SettingsCard.HeaderIcon>
+                        <FontIcon Glyph="&#xEA80;" />
+                    </labs:SettingsCard.HeaderIcon>
+
+                    <Button Content="Avvia tutorial"/>
+
+                </labs:SettingsCard>
+
+
 
                 <!--  'About' section  -->
                 <TextBlock Style="{StaticResource SettingsSectionHeaderTextBlockStyle}"
