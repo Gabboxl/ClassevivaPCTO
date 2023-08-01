@@ -86,7 +86,7 @@
                 <RelativePanel
                     Grid.Row="0"
                     Margin="0,0,0,24">
-                    <TextBlock x:Name="TitoloLezioniPopup" Grid.Row="0" Text="Lezioni" FontSize="36" FontWeight="SemiBold"
+                    <TextBlock x:Name="TitoloLezioniPopup" Grid.Row="0" Text="Lezioni" FontSize="35" FontWeight="SemiBold"
                                VerticalAlignment="Top"
                                Margin="32,16,0,0" />
 
@@ -147,7 +147,7 @@
                 <RelativePanel
                     Grid.Row="0"
                     Margin="0,0,0,24">
-                    <TextBlock x:Name="TitoloAgendaPopup" Grid.Row="0" Text="Agenda" FontSize="36" FontWeight="SemiBold"
+                    <TextBlock x:Name="TitoloAgendaPopup" Grid.Row="0" Text="Agenda" FontSize="35" FontWeight="SemiBold"
                                VerticalAlignment="Top"
                                Margin="32,16,0,0" />
 

@@ -88,7 +88,7 @@
             <FontIcon x:Name="IconCalendar" FontFamily="{StaticResource FluentIcons}" Glyph="&#xE787;"
                       Foreground="{ThemeResource TextFillColorDisabledBrush}"
                       RelativePanel.AlignHorizontalCenterWithPanel="True"
-                      FontSize="142"
+                      FontSize="135"
                       Margin="0,0,0,0" />
 
             <TextBlock x:Name="NoEventText"
@@ -97,7 +97,7 @@
                        Foreground="{ThemeResource TextFillColorDisabledBrush}"
                        Margin="0,0,0,0"
                        FontWeight="SemiBold"
-                       Text="Nessun evento" FontSize="36" VerticalAlignment="Center"
+                       Text="Nessun evento" FontSize="35" VerticalAlignment="Center"
                        HorizontalAlignment="Center" />
         </RelativePanel>
 

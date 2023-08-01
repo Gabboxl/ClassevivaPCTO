@@ -184,4 +184,28 @@ Ricorda che quest'app è ancora in fase di sviluppo e alcune funzionalità posso
 </value>
     <comment>What's new prompt message body</comment>
   </data>
+  <data name="Settings_Account.Text" xml:space="preserve">
+    <value>Account</value>
+    <comment>Account text for Settings</comment>
+  </data>
+  <data name="Settings_AllRightsReserved.Text" xml:space="preserve">
+    <value>© 2023. Tutti i diritti riservati.</value>
+    <comment>All rights reserved text for Settings</comment>
+  </data>
+  <data name="Settings_General.Text" xml:space="preserve">
+    <value>Generali</value>
+    <comment>General text for Settings</comment>
+  </data>
+  <data name="Settings_Language_En_US.Content" xml:space="preserve">
+    <value>Inglese</value>
+    <comment>English language text</comment>
+  </data>
+  <data name="Settings_Language_It_IT.Content" xml:space="preserve">
+    <value>Italiano</value>
+    <comment>Italian language text</comment>
+  </data>
+  <data name="Settings_Version.Text" xml:space="preserve">
+    <value>Versione</value>
+    <comment>Version text for Settings</comment>
+  </data>
 </root>
