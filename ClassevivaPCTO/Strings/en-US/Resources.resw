@@ -134,7 +134,7 @@
     <comment>Choose theme text for Settings</comment>
   </data>
   <data name="Settings_Theme_Dark.Content" xml:space="preserve">
-    <value>Scuro</value>
+    <value>Dark</value>
     <comment>Dark theme text for Settings</comment>
   </data>
   <data name="Settings_Theme_Default.Content" xml:space="preserve">
@@ -142,7 +142,7 @@
     <comment>Windows default theme text for Settings</comment>
   </data>
   <data name="Settings_Theme_Light.Content" xml:space="preserve">
-    <value>Chiaro</value>
+    <value>Light</value>
     <comment>Light theme text for Settings</comment>
   </data>
   <data name="Settings_About.Text" xml:space="preserve">
