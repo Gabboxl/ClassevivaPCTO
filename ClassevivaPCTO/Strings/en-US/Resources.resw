@@ -246,4 +246,158 @@ Ricorda che quest'app è ancora in fase di sviluppo e alcune funzionalità posso
   <data name="SettingsCardWhatsNewButton.Content" xml:space="preserve">
     <value>Mostra novità</value>
   </data>
+  <data name="TitoloScrutini.Text" xml:space="preserve">
+    <value>Scrutini</value>
+  </data>
+  <data name="CheckboxEliminati.Content" xml:space="preserve">
+    <value>Mostra documenti eliminati</value>
+  </data>
+  <data name="TextFileScrutini.Text" xml:space="preserve">
+    <value>Documenti</value>
+  </data>
+  <data name="TitoloNote.Text" xml:space="preserve">
+    <value>Note</value>
+  </data>
+  <data name="TextBenvenutoLogin.Text" xml:space="preserve">
+    <value>Benvenuto</value>
+  </data>
+  <data name="EdittextUsername.Header" xml:space="preserve">
+    <value>Nome utente:</value>
+  </data>
+  <data name="EdittextPassword.Header" xml:space="preserve">
+    <value>Password:</value>
+  </data>
+  <data name="CheckboxCredenziali.Content" xml:space="preserve">
+    <value>Salva le credenziali (resta loggato)</value>
+  </data>
+  <data name="ComboMaterie.PlaceholderText" xml:space="preserve">
+    <value>Seleziona una materia</value>
+  </data>
+  <data name="TitleValutazioni.Text" xml:space="preserve">
+    <value>Valutazioni di </value>
+  </data>
+  <data name="TitoloDashboard.Text" xml:space="preserve">
+    <value>Dashboard di </value>
+  </data>
+  <data name="TextOggiAgenda.Text" xml:space="preserve">
+    <value>Eventi del giorno
+                                   </value>
+  </data>
+  <data name="HyperlinkButtonApriAgenda.Content" xml:space="preserve">
+    <value>Apri agenda</value>
+  </data>
+  <data name="TitleRecentGrades.Text" xml:space="preserve">
+    <value>Valutazioni recenti</value>
+  </data>
+  <data name="TitleMedia.Text" xml:space="preserve">
+    <value>Media totale:</value>
+  </data>
+  <data name="HyperlinkButtonApriValutazioni.Content" xml:space="preserve">
+    <value>Visualizza tutte le valutazioni</value>
+  </data>
+  <data name="TextBachecaRecenti.Text" xml:space="preserve">
+    <value>Comunicazioni recenti</value>
+  </data>
+  <data name="HyperlinkButtonApriBacheca.Content" xml:space="preserve">
+    <value>Apri bacheca</value>
+  </data>
+  <data name="TextBachecaComunicazioni.Text" xml:space="preserve">
+    <value>Comunicazioni</value>
+  </data>
+  <data name="TextTitoloAssenzeRitardi.Text" xml:space="preserve">
+    <value>Assenze e Ritardi</value>
+  </data>
+  <data name="TodayButton.Content" xml:space="preserve">
+    <value>Oggi</value>
+  </data>
+  <data name="TextBlockCalendarioEventi.Text" xml:space="preserve">
+    <value>Calendario eventi</value>
+  </data>
+  <data name="TitoloAgendaPopup.Text" xml:space="preserve">
+    <value>Agenda</value>
+  </data>
+  <data name="ButtonTodayAgenda.Content" xml:space="preserve">
+    <value>Oggi</value>
+  </data>
+  <data name="TuttiCompitiButton.Content" xml:space="preserve">
+    <value>Tutti i compiti</value>
+  </data>
+  <data name="PopupLessonsButton.Content" xml:space="preserve">
+    <value>Tutte le lezioni</value>
+  </data>
+  <data name="AccountNonSupportato" xml:space="preserve">
+    <value>Account insegnante non supportato</value>
+  </data>
+  <data name="AccountNonSupportatoBody" xml:space="preserve">
+    <value>In questa app sono solo supportati gli account studente. 
+
+Gli account studente hanno l'username che inizia con le lettere S, G o X.</value>
+  </data>
+  <data name="ErroreText" xml:space="preserve">
+    <value>Errore</value>
+  </data>
+  <data name="OKCapsText" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="ErrorDialogBody" xml:space="preserve">
+    <value>Errore durante il login. Controlla il nome utente e la password. 
+ Errore: </value>
+  </data>
+  <data name="ChooseProfileDialogTitle" xml:space="preserve">
+    <value>Scegli un profilo</value>
+  </data>
+  <data name="LoginDialogButton" xml:space="preserve">
+    <value>Accedi</value>
+  </data>
+  <data name="CancelDialogButton" xml:space="preserve">
+    <value>Annulla</value>
+  </data>
+  <data name="NoticeDialogAllegatiSubtitle" xml:space="preserve">
+    <value>Allegati</value>
+  </data>
+  <data name="NoticeDialogNessunAllegatiSubtitle" xml:space="preserve">
+    <value>Nessun allegato</value>
+  </data>
+  <data name="ComboChoiceSelectProfile.Header" xml:space="preserve">
+    <value>Seleziona un profilo:</value>
+  </data>
+  <data name="ProfileChoiceDialogInfoTextBlock.Text" xml:space="preserve">
+    <value>Più profili sono associati a questo account.</value>
+  </data>
+  <data name="DialogButtonSave.Text" xml:space="preserve">
+    <value>Salva</value>
+  </data>
+  <data name="ButtonOpen.Text" xml:space="preserve">
+    <value>Apri</value>
+  </data>
+  <data name="LessonsTitle.Text" xml:space="preserve">
+    <value>Lezioni</value>
+  </data>
+  <data name="GradesTitle.Text" xml:space="preserve">
+    <value>Valutazioni</value>
+  </data>
+  <data name="AbsencesTitle.Text" xml:space="preserve">
+    <value>Assenze</value>
+  </data>
+  <data name="AgendaTitle.Text" xml:space="preserve">
+    <value>Agenda</value>
+  </data>
+  <data name="NoEventText.Text" xml:space="preserve">
+    <value>Nessun evento</value>
+  </data>
+  <data name="ReadText.Text" xml:space="preserve">
+    <value>Leggi</value>
+  </data>
+  <data name="CloseDialogButtonText" xml:space="preserve">
+    <value>Chiudi</value>
+  </data>
+  <data name="ReadAndOpenFlyoutText" xml:space="preserve">
+    <value>Leggi e apri</value>
+  </data>
+  <data name="InfoNoticeFlyoutText" xml:space="preserve">
+    <value>La comunicazione verrà contrassegnata come letta sul server. Continuare?</value>
+  </data>
+  <data name="InfoNoteFlyoutText" xml:space="preserve">
+    <value>La nota verrà contrassegnata come letta sul server. Continuare?</value>
+  </data>
 </root>
