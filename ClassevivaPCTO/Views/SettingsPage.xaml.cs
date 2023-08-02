@@ -61,16 +61,6 @@ namespace ClassevivaPCTO.Views
             return $"{version.Major}.{version.Minor}.{version.Build}.{version.Revision}";
         }
 
-        private async void ThemeChanged_CheckedAsync(object sender, RoutedEventArgs e)
-        {
-            var param = (sender as RadioButton)?.CommandParameter;
-
-            if (param != null)
-            {
-                await ThemeSelectorService.SetThemeAsync((ElementTheme)param);
-            }
-        }
-
         public event PropertyChangedEventHandler PropertyChanged;
 
         private void Set<T>(ref T storage, T value, [CallerMemberName] string propertyName = null)
@@ -139,6 +129,15 @@ namespace ClassevivaPCTO.Views
         {
             var dialog = new WhatsNewDialog();
             await dialog.ShowAsync();
+        }
+
+        private async void ThemeSelector_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            ComboBox themeSelector = (ComboBox) sender;
+
+            //change theme based on selected index of the combobox sender
+            await ThemeSelectorService.SetThemeAsync((ElementTheme)themeSelector.SelectedIndex);
+
         }
     }
 }

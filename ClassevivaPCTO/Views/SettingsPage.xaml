@@ -26,7 +26,7 @@
         <helper:EnumToBooleanConverter x:Key="EnumToBooleanConverter" EnumType="ElementTheme" />
     </Page.Resources>
     <ScrollViewer>
-        <Grid>
+        <Grid Padding="0,0,0,128">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
@@ -73,78 +73,29 @@
                            x:Uid="Settings_Personalization" />
 
 
-                <labs:SettingsExpander x:Uid="SettingsExpanderTheme">
-                    <labs:SettingsExpander.HeaderIcon>
-                        <FontIcon Glyph="&#xE790;" />
-                    </labs:SettingsExpander.HeaderIcon>
-
-                    <labs:SettingsExpander.Items>
-                        <labs:SettingsCard Header="Scegli un tema:">
-                            <StackPanel>
-                                <RadioButton
-                                    x:Uid="Settings_Theme_Light"
-                                    Checked="ThemeChanged_CheckedAsync"
-                                    IsChecked="{x:Bind ElementTheme, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter=Light, Mode=OneWay}"
-                                    FontSize="15"
-                                    GroupName="AppTheme">
-                                    <RadioButton.CommandParameter>
-                                        <xaml:ElementTheme>Light</xaml:ElementTheme>
-                                    </RadioButton.CommandParameter>
-                                </RadioButton>
-                                <RadioButton
-                                    x:Uid="Settings_Theme_Dark"
-                                    Checked="ThemeChanged_CheckedAsync"
-                                    IsChecked="{x:Bind ElementTheme, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter=Dark, Mode=OneWay}"
-                                    FontSize="15"
-                                    GroupName="AppTheme">
-                                    <RadioButton.CommandParameter>
-                                        <xaml:ElementTheme>Dark</xaml:ElementTheme>
-                                    </RadioButton.CommandParameter>
-                                </RadioButton>
-                                <RadioButton
-                                    x:Uid="Settings_Theme_Default"
-                                    Checked="ThemeChanged_CheckedAsync"
-                                    IsChecked="{x:Bind ElementTheme, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter=Default, Mode=OneWay}"
-                                    FontSize="15"
-                                    GroupName="AppTheme">
-                                    <RadioButton.CommandParameter>
-                                        <xaml:ElementTheme>Default</xaml:ElementTheme>
-                                    </RadioButton.CommandParameter>
-                                </RadioButton>
-                            </StackPanel>
-                        </labs:SettingsCard>
-
-                    </labs:SettingsExpander.Items>
-                </labs:SettingsExpander>
-
-                <!--
-                <TextBlock Style="{StaticResource SettingsSectionHeaderTextBlockStyle}"
-                           Text="Sezione 2" />
-                <labs:SettingsCard Description="Another card to show grouping of cards"
-                                   Header="Another SettingsCard">
+                <labs:SettingsCard x:Uid="SettingsExpanderTheme">
                     <labs:SettingsCard.HeaderIcon>
-                        <FontIcon Glyph="&#xE799;" />
+                        <FontIcon Glyph="&#xE790;" />
                     </labs:SettingsCard.HeaderIcon>
-                    <ComboBox SelectedIndex="0" >
+
+                    <!-- the combobox selected index is bound to the current theme enum value -->
+
+                    <ComboBox SelectedIndex="{x:Bind ElementTheme.GetHashCode()}"
+                              SelectionChanged="ThemeSelector_OnSelectionChanged">
                         <ComboBoxItem
-                            x:Uid="Settings_Theme_Light"
-                            >
-                            
+                            x:Uid="Settings_Theme_Default">
+
                         </ComboBoxItem>
                         <ComboBoxItem
-                            x:Uid="Settings_Theme_Dark"
-                            >
-                            
+                            x:Uid="Settings_Theme_Light">
+
                         </ComboBoxItem>
                         <ComboBoxItem
-                            x:Uid="Settings_Theme_Default"
-                            
-                            >
-                            
+                            x:Uid="Settings_Theme_Dark">
+
                         </ComboBoxItem>
                     </ComboBox>
                 </labs:SettingsCard>
-                -->
 
 
                 <TextBlock Style="{StaticResource SettingsSectionHeaderTextBlockStyle}"
