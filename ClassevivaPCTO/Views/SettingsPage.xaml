@@ -180,7 +180,7 @@
                         <FontIcon Glyph="&#xE762;" />
                     </labs:SettingsCard.HeaderIcon>
 
-                    <Button x:Uid="SettingsCardWhatsNewButton" />
+                    <Button x:Uid="SettingsCardWhatsNewButton" Click="ButtonChangelog_OnClick" />
 
 
                 </labs:SettingsCard>

@@ -9,6 +9,7 @@ using Windows.Services.Store;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
+using ClassevivaPCTO.Dialogs;
 
 namespace ClassevivaPCTO.Views
 {
@@ -132,6 +133,12 @@ namespace ClassevivaPCTO.Views
                     //LogError(result.ExtendedError, result.ExtendedJsonData); // pseudo-code
                     break;
             }
+        }
+
+        private async void ButtonChangelog_OnClick(object sender, RoutedEventArgs e)
+        {
+            var dialog = new WhatsNewDialog();
+            await dialog.ShowAsync();
         }
     }
 }
