@@ -188,10 +188,6 @@ Ricorda che quest'app è ancora in fase di sviluppo e alcune funzionalità posso
     <value>Account</value>
     <comment>Account text for Settings</comment>
   </data>
-  <data name="Settings_AllRightsReserved.Text" xml:space="preserve">
-    <value>© 2023. Tutti i diritti riservati.</value>
-    <comment>All rights reserved text for Settings</comment>
-  </data>
   <data name="Settings_General.Text" xml:space="preserve">
     <value>Generali</value>
     <comment>General text for Settings</comment>
@@ -207,5 +203,47 @@ Ricorda che quest'app è ancora in fase di sviluppo e alcune funzionalità posso
   <data name="Settings_Version.Text" xml:space="preserve">
     <value>Versione</value>
     <comment>Version text for Settings</comment>
+  </data>
+  <data name="TextTitoloSettings.Text" xml:space="preserve">
+    <value>Impostazioni</value>
+  </data>
+  <data name="SettingsExpanderTheme.Description" xml:space="preserve">
+    <value>Scegli il tema dell'app</value>
+  </data>
+  <data name="SettingsExpanderTheme.Header" xml:space="preserve">
+    <value>Tema</value>
+  </data>
+  <data name="SettingsCardLanguage.Header" xml:space="preserve">
+    <value>Lingua</value>
+  </data>
+  <data name="SettingsCardLanguage.Description" xml:space="preserve">
+    <value>Scegli la lingua dell'app</value>
+  </data>
+  <data name="SettingsExpanderReservedRights.Description" xml:space="preserve">
+    <value>© 2023. Tutti i diritti riservati.</value>
+  </data>
+  <data name="hyperlinkVote.Content" xml:space="preserve">
+    <value>Vota l'app nello Store</value>
+  </data>
+  <data name="hyperlinkIssue.Content" xml:space="preserve">
+    <value>Segnala un problema</value>
+  </data>
+  <data name="SettingsCardTutorial.Header" xml:space="preserve">
+    <value>Tutorial</value>
+  </data>
+  <data name="SettingsCardTutorial.Description" xml:space="preserve">
+    <value>Visualizza suggerimenti sul funzionamento dell'app</value>
+  </data>
+  <data name="SettingsCardTutorialButton.Content" xml:space="preserve">
+    <value>Avvia tutorial</value>
+  </data>
+  <data name="SettingsCardWhatsNew.Header" xml:space="preserve">
+    <value>Novità in questa versione</value>
+  </data>
+  <data name="SettingsCardWhatsNew.Description" xml:space="preserve">
+    <value>Visualizza le modifiche recenti</value>
+  </data>
+  <data name="SettingsCardWhatsNewButton.Content" xml:space="preserve">
+    <value>Mostra novità</value>
   </data>
 </root>

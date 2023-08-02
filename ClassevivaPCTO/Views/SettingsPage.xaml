@@ -33,8 +33,8 @@
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
 
-            <TextBlock x:Name="TextTitolo" Grid.Row="0" Text="Impostazioni" 
-                       Style= "{StaticResource TitleLargeTextBlockStyle}"
+            <TextBlock x:Name="TextTitolo" Grid.Row="0" x:Uid="TextTitoloSettings"
+                       Style="{StaticResource TitleLargeTextBlockStyle}"
                        VerticalAlignment="Top"
                        Margin="32,16,0,0" />
 
@@ -52,27 +52,28 @@
                            x:Uid="Settings_Account" />
 
 
+                <RelativePanel Grid.Row="0" Margin="0,18,0,0">
 
-                    <RelativePanel Grid.Row="0" Margin="0,18,0,0">
+                    <TextBlock x:Name="NomeCognome" Text="Nome Cognome " FontSize="32" FontWeight="SemiBold"
+                               VerticalAlignment="Top"
+                               Margin="100,0,0,0" />
 
-                     <TextBlock x:Name="NomeCognome" Text="Nome Cognome " FontSize="32" FontWeight="SemiBold"  VerticalAlignment="Top"
-                       Margin="100,0,0,0" />
+                    <TextBlock x:Name="CodiceStudente" Text="Codice studente: XXXXXXXXXXXX" FontSize="14"
+                               FontWeight="Medium"
+                               Margin="100,55,0,0" Foreground="{ThemeResource TextFillColorTertiaryBrush}" />
 
-                     <TextBlock x:Name="CodiceStudente" Text="Codice studente: XXXXXXXXXXXX" FontSize="14" FontWeight="Medium" 
-                       Margin="100,55,0,0" Foreground="{ThemeResource TextFillColorTertiaryBrush}" />
-                    
-                     <TextBlock x:Name="Istituto" Text="Istituto: LOREM IPSUM DOLOR SIT AMET INDIRIZZO NOME COGNOME" FontSize="14" FontWeight="Medium" 
-                       Margin="100,80,0,0" Foreground="{ThemeResource TextFillColorTertiaryBrush}" />
-                    
-                     </RelativePanel>
-                  
+                    <TextBlock x:Name="Istituto" Text="Istituto: LOREM IPSUM DOLOR SIT AMET INDIRIZZO NOME COGNOME"
+                               FontSize="14" FontWeight="Medium"
+                               Margin="100,80,0,0" Foreground="{ThemeResource TextFillColorTertiaryBrush}" />
+
+                </RelativePanel>
+
 
                 <TextBlock Style="{StaticResource SettingsSectionHeaderTextBlockStyle}"
                            x:Uid="Settings_Personalization" />
 
 
-                <labs:SettingsExpander Description="Scegli il tema dell'app"
-                                       Header="Tema">
+                <labs:SettingsExpander x:Uid="SettingsExpanderTheme">
                     <labs:SettingsExpander.HeaderIcon>
                         <FontIcon Glyph="&#xE790;" />
                     </labs:SettingsExpander.HeaderIcon>
@@ -144,72 +145,63 @@
                     </ComboBox>
                 </labs:SettingsCard>
                 -->
-                
 
-                
+
                 <TextBlock Style="{StaticResource SettingsSectionHeaderTextBlockStyle}"
-                           x:Uid="Settings_General"/>
+                           x:Uid="Settings_General" />
 
 
-                <labs:SettingsCard Header="Lingua" 
-                                   Description="Scegli la lingua dell'app">
+                <labs:SettingsCard x:Uid="SettingsCardLanguage">
 
                     <labs:SettingsCard.HeaderIcon>
                         <FontIcon Glyph="&#xE8C1;" />
                     </labs:SettingsCard.HeaderIcon>
 
-                    <ComboBox SelectedIndex="0" >
+                    <ComboBox SelectedIndex="0">
 
                         <ComboBoxItem
-                            x:Uid="Settings_Language_It_IT"
-                            
-                            >
-                            
+                            x:Uid="Settings_Language_It_IT">
+
                         </ComboBoxItem>
-                        
+
                         <ComboBoxItem
-                            x:Uid="Settings_Language_En_US"
-                            
-                            >
-                            
+                            x:Uid="Settings_Language_En_US">
+
                         </ComboBoxItem>
 
                     </ComboBox>
 
 
                 </labs:SettingsCard>
-                
-                <labs:SettingsCard Header="Novità in questa versione" 
-                                   Description="Visualizza le modifiche recenti">
-                    
+
+                <labs:SettingsCard x:Uid="SettingsCardWhatsNew">
+
                     <labs:SettingsCard.HeaderIcon>
                         <FontIcon Glyph="&#xE762;" />
                     </labs:SettingsCard.HeaderIcon>
 
-                    <Button Content="Mostra novità"/>
+                    <Button x:Uid="SettingsCardWhatsNewButton" />
 
 
                 </labs:SettingsCard>
-                
-               
-                <labs:SettingsCard Header="Tutorial" 
-                                   Description="Visualizza suggerimenti sul funzionamento dell'app">
+
+
+                <labs:SettingsCard x:Uid="SettingsCardTutorial">
 
                     <labs:SettingsCard.HeaderIcon>
                         <FontIcon Glyph="&#xEA80;" />
                     </labs:SettingsCard.HeaderIcon>
 
-                    <Button Content="Avvia tutorial"/>
+                    <Button x:Uid="SettingsCardTutorialButton" />
 
                 </labs:SettingsCard>
-
 
 
                 <!--  'About' section  -->
                 <TextBlock Style="{StaticResource SettingsSectionHeaderTextBlockStyle}"
                            x:Uid="Settings_About" />
 
-                <labs:SettingsExpander Description="© 2023. Tutti i diritti riservati."
+                <labs:SettingsExpander x:Uid="SettingsExpanderReservedRights"
                                        Header="{x:Bind AppName}">
                     <labs:SettingsExpander.HeaderIcon>
                         <BitmapIcon ShowAsMonochrome="False"
@@ -229,15 +221,15 @@
                                 <HyperlinkButton Content="Progetto su GitHub"
                                                  NavigateUri="http://github.com/Gabboxl/ClassevivaPCTO" />
                                 <HyperlinkButton Margin="0,8,0,0"
-                                     x:Name="hyperlinkVote"
-                                     Click="HyperlinkVote_Click"
-                                     Content="Vota l'app nello Store"/>
+                                                 x:Name="hyperlinkVote"
+                                                 Click="HyperlinkVote_Click"
+                                                 x:Uid="hyperlinkVote" />
 
                                 <HyperlinkButton Margin="0,8,0,0"
-                                     x:Name="hyperlinkIssue"
-                                     RelativePanel.RightOf="hyperlinkVote"
-                                     NavigateUri="http://github.com/Gabboxl/ClassevivaPCTO/issues"
-                                     Content="Segnala un problema"/>
+                                                 x:Name="hyperlinkIssue"
+                                                 RelativePanel.RightOf="hyperlinkVote"
+                                                 NavigateUri="http://github.com/Gabboxl/ClassevivaPCTO/issues"
+                                                 x:Uid="hyperlinkIssue" />
                             </StackPanel>
                         </labs:SettingsCard>
                     </labs:SettingsExpander.Items>
