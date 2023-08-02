@@ -26,3 +26,6 @@ To compile this app you will need the following tools:
 - The .NET development workload for Visual Studio
 - The UWP development workload for Visual Studio
 
+## Translate the app
+
+Everyone is invited to help with the translation of the app! [Start translating here!](https://crowdin.com/project/classevivapcto/invite?h=2b7340ff29ea44873bdef53dc5f7b6871790557)
