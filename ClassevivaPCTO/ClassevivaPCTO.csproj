@@ -261,6 +261,8 @@
   <ItemGroup>
     <Content Include="Assets\Fonts\SegoeFluentIcons.ttf" />
     <None Include="ClassevivaPCTO_TemporaryKey.pfx" />
+    <Content Include="Assets\Icons\ic_fluent_bug_24_regular.svg" />
+    <Content Include="Assets\Icons\ic_fluent_star_24_regular.svg" />
     <Content Include="Assets\LargeTile.scale-100.png" />
     <Content Include="Assets\LargeTile.scale-125.png" />
     <Content Include="Assets\LargeTile.scale-150.png" />

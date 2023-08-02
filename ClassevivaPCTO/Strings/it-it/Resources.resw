@@ -222,10 +222,10 @@ Ricorda che quest'app è ancora in fase di sviluppo e alcune funzionalità posso
   <data name="SettingsExpanderReservedRights.Description" xml:space="preserve">
     <value>© 2023. Tutti i diritti riservati.</value>
   </data>
-  <data name="hyperlinkVote.Content" xml:space="preserve">
+  <data name="hyperlinkVote.Text" xml:space="preserve">
     <value>Vota l'app nello Store</value>
   </data>
-  <data name="hyperlinkIssue.Content" xml:space="preserve">
+  <data name="hyperlinkIssue.Text" xml:space="preserve">
     <value>Segnala un problema</value>
   </data>
   <data name="SettingsCardTutorial.Header" xml:space="preserve">
