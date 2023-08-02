@@ -67,8 +67,8 @@ namespace ClassevivaPCTO.Views
                 loginCredentials
                     .RetrievePassword(); //dobbiamo per forza chiamare questo metodo per fare sì che la proprietà loginCredential.Password non sia vuota
 
-                edittext_username.Text = loginCredentials.UserName;
-                edittext_password.Password = loginCredentials.Password;
+                EdittextUsername.Text = loginCredentials.UserName;
+                EdittextPassword.Password = loginCredentials.Password;
 
                 Task.Run(async () => { await DoLoginAsync(); });
             }
@@ -106,9 +106,9 @@ namespace ClassevivaPCTO.Views
                     buttonLogin.Visibility = Visibility.Collapsed;
                     progresslogin.Visibility = Visibility.Visible;
 
-                    edituid = edittext_username.Text;
-                    editpass = edittext_password.Password;
-                    checkboxCredenzialiChecked = (bool)checkboxCredenziali.IsChecked;
+                    edituid = EdittextUsername.Text;
+                    editpass = EdittextPassword.Password;
+                    checkboxCredenzialiChecked = (bool)CheckboxCredenziali.IsChecked;
                 }
             );
 
@@ -154,12 +154,11 @@ namespace ClassevivaPCTO.Views
                             async () =>
                             {
                                 ContentDialog dialog = new ContentDialog();
-                                dialog.Title = "Account insegnante non supportato";
-                                dialog.PrimaryButtonText = "OK";
+                                dialog.Title = Windows.ApplicationModel.Resources.Core.ResourceManager.Current.MainResourceMap.GetValue("Resources/AccountNonSupportato").ValueAsString;
+                                dialog.PrimaryButtonText = Windows.ApplicationModel.Resources.Core.ResourceManager.Current.MainResourceMap.GetValue("Resources/OKCapsText").ValueAsString;
                                 dialog.DefaultButton = ContentDialogButton.Primary;
                                 dialog.Content =
-                                    "In questa app sono solo supportati gli account studente. \n\n" +
-                                    "Gli account studente hanno l'username che inizia con le lettere S, G o X.";
+                                    Windows.ApplicationModel.Resources.Core.ResourceManager.Current.MainResourceMap.GetValue("Resources/AccountNonSupportatoBody").ValueAsString;
 
                                 try
                                 {
@@ -234,11 +233,11 @@ namespace ClassevivaPCTO.Views
                     async () =>
                     {
                         ContentDialog dialog = new ContentDialog();
-                        dialog.Title = "Errore";
-                        dialog.PrimaryButtonText = "OK";
+                        dialog.Title = Windows.ApplicationModel.Resources.Core.ResourceManager.Current.MainResourceMap.GetValue("Resources/ErroreText").ValueAsString;
+                        dialog.PrimaryButtonText = Windows.ApplicationModel.Resources.Core.ResourceManager.Current.MainResourceMap.GetValue("Resources/OKCapsText").ValueAsString;
                         dialog.DefaultButton = ContentDialogButton.Primary;
                         dialog.Content =
-                            "Errore durante il login. Controlla il nome utente e la password. \n Errore: "
+                            Windows.ApplicationModel.Resources.Core.ResourceManager.Current.MainResourceMap.GetValue("Resources/ErrorDialogBody").ValueAsString
                             + ex.Content;
 
                         try
@@ -327,9 +326,9 @@ namespace ClassevivaPCTO.Views
                     contentDialogContent = new ChoiceDialogContent(loginResultChoices.choices);
 
                     ContentDialog dialog = new ContentDialog();
-                    dialog.Title = "Scegli un profilo";
-                    dialog.PrimaryButtonText = "Accedi";
-                    dialog.CloseButtonText = "Annulla";
+                    dialog.Title = Windows.ApplicationModel.Resources.Core.ResourceManager.Current.MainResourceMap.GetValue("Resources/ChooseProfileDialogTitle").ValueAsString;
+                    dialog.PrimaryButtonText = Windows.ApplicationModel.Resources.Core.ResourceManager.Current.MainResourceMap.GetValue("Resources/LoginDialogButton").ValueAsString;
+                    dialog.CloseButtonText = Windows.ApplicationModel.Resources.Core.ResourceManager.Current.MainResourceMap.GetValue("Resources/CancelDialogButton").ValueAsString;
                     dialog.DefaultButton = ContentDialogButton.Primary;
                     dialog.RequestedTheme = ((FrameworkElement)Window.Current.Content).RequestedTheme;
                     dialog.Content = contentDialogContent;

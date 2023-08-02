@@ -23,11 +23,11 @@ namespace ClassevivaPCTO.Dialogs
             {
                 if (CurrentNotice.attachments.Count == 0)
                 {
-                    return "Nessun allegato";
+                    return Windows.ApplicationModel.Resources.Core.ResourceManager.Current.MainResourceMap.GetValue("Resources/NoticeDialogNessunAllegatiSubtitle").ValueAsString;
                 }
                 else
                 {
-                    return "Allegati";
+                    return Windows.ApplicationModel.Resources.Core.ResourceManager.Current.MainResourceMap.GetValue("Resources/NoticeDialogAllegatiSubtitle").ValueAsString;
                 }
             }
         }

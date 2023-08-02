@@ -67,7 +67,7 @@
 
         <RelativePanel Grid.Row="0" Margin="0,18,0,0">
 
-            <TextBlock x:Name="TextTitolo" Text="Dashboard di " Style= "{StaticResource TitleLargeTextBlockStyle}"  VerticalAlignment="Top"
+            <TextBlock x:Name="TextTitolo" x:Uid="TitoloDashboard" Style= "{StaticResource TitleLargeTextBlockStyle}"  VerticalAlignment="Top"
                        Margin="32,0,0,0" />
 
             <Button RelativePanel.RightOf="TextTitolo" x:Name="AggiornaCommand"
@@ -113,8 +113,8 @@
                     <RelativePanel Grid.Row="0">
 
 
-                        <TextBlock x:Name="TextOggiAgenda" Text="Eventi del giorno
-                                   " FontSize="20" VerticalAlignment="Top" FontWeight="Medium"
+                        <TextBlock x:Name="TextOggiAgenda" x:Uid="TextOggiAgenda"
+                                   FontSize="20" VerticalAlignment="Top" FontWeight="Medium"
                                    HorizontalAlignment="Left" Margin="8,4,0,18" />
 
                         <muxc:ProgressRing IsActive="True" x:Name="ProgressRingAgenda"
@@ -130,7 +130,7 @@
                     </controls2:OverviewListView>
 
 
-                    <HyperlinkButton Grid.Row="2" Content="Apri agenda"
+                    <HyperlinkButton Grid.Row="2" x:Uid="HyperlinkButtonApriAgenda"
                                      Click="HyperlinkButton_Click_1" VerticalAlignment="Bottom"
                                      HorizontalAlignment="Right" />
 
@@ -153,7 +153,7 @@
 
                     <RelativePanel Grid.Row="0">
 
-                        <TextBlock x:Name="TitleRecentGrades" Text="Valutazioni recenti" FontSize="20" VerticalAlignment="Top"
+                        <TextBlock x:Name="TitleRecentGrades" x:Uid="TitleRecentGrades" FontSize="20" VerticalAlignment="Top"
                                    HorizontalAlignment="Left" Margin="8,4,0,18" FontWeight="Medium"/> 
 
                         <muxc:ProgressRing IsActive="True" x:Name="ProgressRingRecentGrades"
@@ -164,7 +164,7 @@
 
                         <TextBlock TextWrapping="Wrap"
                                    x:Name="TitleMedia"
-                                   TextAlignment="Center" Text="Media totale:" FontSize="16" 
+                                   TextAlignment="Center" x:Uid="TitleMedia" FontSize="16" 
                                    RelativePanel.LeftOf="TextBlockMedia"
                                    RelativePanel.AlignVerticalCenterWith="TitleRecentGrades"
                                    Margin="0,0,6,0" />
@@ -200,7 +200,7 @@
 
                     </ScrollViewer>
 
-                    <HyperlinkButton Grid.Row="2" Content="Visualizza tutte le valutazioni"
+                    <HyperlinkButton Grid.Row="2" x:Uid="HyperlinkButtonApriValutazioni"
                                      Click="HyperlinkButton_Click" VerticalAlignment="Bottom"
                                      HorizontalAlignment="Right" />
 
@@ -226,7 +226,7 @@
 
                     <RelativePanel Grid.Row="0">
 
-                        <TextBlock x:Name="TextBachecaRecenti" Text="Comunicazioni recenti" FontSize="20" VerticalAlignment="Top"
+                        <TextBlock x:Name="TextBachecaRecenti" x:Uid="TextBachecaRecenti" FontSize="20" VerticalAlignment="Top"
                                    HorizontalAlignment="Left" Margin="8,4,0,18" FontWeight="Medium"/>
 
                         <muxc:ProgressRing IsActive="True" x:Name="ProgressRingRecentNotices"
@@ -254,7 +254,7 @@
 
                     </ScrollViewer>
 
-                    <HyperlinkButton Grid.Row="2" Content="Apri bacheca" x:Name="ButtonApriBacheca"
+                    <HyperlinkButton Grid.Row="2" x:Uid="HyperlinkButtonApriBacheca" x:Name="ButtonApriBacheca"
                                      Click="ButtonApriBacheca_Click" VerticalAlignment="Bottom"
                                      HorizontalAlignment="Right" />
 

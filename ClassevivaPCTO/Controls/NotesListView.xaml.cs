@@ -129,7 +129,7 @@ namespace ClassevivaPCTO.Controls
                 var flyout = new Flyout();
                 //create a textblock
                 var textBlock = new TextBlock();
-                textBlock.Text = "La nota verrà contrassegnata come letta sul server. Continuare?";
+                textBlock.Text = Windows.ApplicationModel.Resources.Core.ResourceManager.Current.MainResourceMap.GetValue("Resources/InfoNoteFlyoutText").ValueAsString;
                 textBlock.TextWrapping = TextWrapping.WrapWholeWords;
                 textBlock.Margin = new Thickness(0, 0, 0, 12);
 
@@ -156,7 +156,7 @@ namespace ClassevivaPCTO.Controls
 
                 //create a button
                 var button = new Button();
-                button.Content = "Leggi e apri";
+                button.Content = Windows.ApplicationModel.Resources.Core.ResourceManager.Current.MainResourceMap.GetValue("Resources/ReadAndOpenFlyoutText").ValueAsString;
                 button.Click += async delegate
                 {
                     //close the flyout
@@ -204,7 +204,7 @@ namespace ClassevivaPCTO.Controls
 
                 ContentDialog dialog = new ContentDialog();
                 dialog.Title = currentNote.evtCode.GetLongName() + " del " + currentNote.evtDate.ToString("dd/MM/yyyy");
-                dialog.PrimaryButtonText = "Chiudi";
+                dialog.PrimaryButtonText = Windows.ApplicationModel.Resources.Core.ResourceManager.Current.MainResourceMap.GetValue("Resources/CloseDialogButtonText").ValueAsString;
                 dialog.DefaultButton = ContentDialogButton.Primary;
                 dialog.RequestedTheme = ((FrameworkElement)Window.Current.Content).RequestedTheme;
                 dialog.Content = noteDialogContent;

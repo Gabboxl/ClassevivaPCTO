@@ -37,7 +37,6 @@
                     <TextBlock x:Name="nomeAllegato"
                                RelativePanel.RightOf="IconaAttachment"
                                RelativePanel.AlignVerticalCenterWithPanel="True"
-                               Grid.Column="0"
                                TextWrapping="Wrap"
                                MaxWidth="500"
                                Text="{x:Bind fileName}"
@@ -49,10 +48,12 @@
 
                 <RelativePanel Grid.Column="1" HorizontalAlignment="Right">
                     <AppBarButton x:Name="ButtonOpen" RelativePanel.LeftOf="ButtonSave" Click="ButtonOpen_Click"
-                                  RelativePanel.AlignVerticalCenterWithPanel="True" Icon="OpenFile" Label="Apri" />
+                                  RelativePanel.AlignVerticalCenterWithPanel="True" Icon="OpenFile"
+                                  Label="Apri" />
 
                     <AppBarButton x:Name="ButtonSave" Click="ButtonSave_Click" RelativePanel.AlignRightWithPanel="True"
-                                  RelativePanel.AlignVerticalCenterWithPanel="True" Icon="Save" Label="Salva" />
+                                  RelativePanel.AlignVerticalCenterWithPanel="True" Icon="Save"
+                                  Label="Salva" />
 
                 </RelativePanel>
 

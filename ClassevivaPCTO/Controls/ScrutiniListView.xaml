@@ -50,7 +50,6 @@
 
                     <TextBlock x:Name="titoloScrutinio" TextWrapping="WrapWholeWords"
                                RelativePanel.RightOf="FileIcon"
-
                                RelativePanel.AlignVerticalCenterWithPanel="True"
                                Text="{x:Bind CurrentObject.desc}"
                                Style="{ThemeResource BaseTextBlockStyle}"
@@ -83,7 +82,7 @@
                             <StackPanel Orientation="Vertical" Padding="6,0,6,0">
                                 <FontIcon FontFamily="{StaticResource FluentIcons}" Glyph="&#xE8E5;" 
                                           FontSize="16" />
-                                <TextBlock FontSize="12" Text="Apri" Margin="0,0,0,0" />
+                                <TextBlock FontSize="12" x:Uid="ButtonOpen" Margin="0,0,0,0" />
                             </StackPanel>
                         </Button.Content>
                     </Button>
@@ -98,7 +97,7 @@
                             <StackPanel Orientation="Vertical" Padding="6,0,6,0">
                                 <FontIcon FontFamily="{StaticResource FluentIcons}" Glyph="&#xE74E;" 
                                           FontSize="16" />
-                                <TextBlock FontSize="12" Text="Salva" Margin="0,0,0,0" />
+                                <TextBlock FontSize="12" x:Uid="DialogButtonSave" Margin="0,0,0,0" />
                             </StackPanel>
                         </Button.Content>
                     </Button>
@@ -156,7 +155,7 @@
                             <StackPanel Orientation="Vertical" Padding="6,0,6,0">
                                 <FontIcon FontFamily="{StaticResource FluentIcons}" Glyph="&#xE71B;" 
                                           FontSize="16" />
-                                <TextBlock FontSize="12" Text="Apri" Margin="0,0,0,0" />
+                                <TextBlock FontSize="12" x:Uid="ButtonOpen" Margin="0,0,0,0" />
                             </StackPanel>
                         </Button.Content>
                     </Button>

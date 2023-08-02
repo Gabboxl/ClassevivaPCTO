@@ -31,7 +31,8 @@
 
         <RelativePanel Grid.Row="0" Margin="0,16,0,0">
 
-            <TextBlock x:Name="TextTitolo" Grid.Row="0" Text="Scrutini" Style= "{StaticResource TitleLargeTextBlockStyle}"
+            <TextBlock x:Name="TextTitolo" Grid.Row="0" x:Uid="TitoloScrutini"
+                       Style= "{StaticResource TitleLargeTextBlockStyle}"
                        VerticalAlignment="Top"
                        Margin="32,0,0,0" />
 
@@ -56,13 +57,13 @@
                        Background="{ThemeResource CardBackgroundFillColorDefaultBrush}">
 
             <CheckBox x:Name="CheckboxEliminati"
-                      Content="Mostra documenti eliminati"
+                      x:Uid="CheckboxEliminati"
                       Margin="0,0,16,0"
                       RelativePanel.AlignRightWithPanel="True"
                       RelativePanel.AlignHorizontalCenterWithPanel="True" />
 
 
-            <TextBlock Text="Documenti" x:Name="TextFileScrutini"
+            <TextBlock x:Uid="TextFileScrutini" x:Name="TextFileScrutini"
                        Margin="8,6,0,0"
                        Foreground="{ThemeResource TextFillColorSecondaryBrush}"
                        Style="{ThemeResource BodyStrongTextBlockStyle}" />

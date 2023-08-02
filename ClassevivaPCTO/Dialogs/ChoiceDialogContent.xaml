@@ -5,10 +5,10 @@
 
     <StackPanel VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
         <!-- Content body -->
-        <TextBlock Text="Più profili sono associati a questo account." TextWrapping="Wrap" Margin="0,0,0,12" />
+        <TextBlock x:Uid="ProfileChoiceDialogInfoTextBlock" TextWrapping="Wrap" Margin="0,0,0,12" />
 
         <ComboBox x:Name="ComboChoice"
-                  Header="Seleziona un profilo:" Width="350" SelectedIndex="{x:Bind chosenIndex, Mode=TwoWay}" />
+                  x:Uid="ComboChoiceSelectProfile" Width="350" SelectedIndex="{x:Bind chosenIndex, Mode=TwoWay}" />
     </StackPanel>
 
 </Page>

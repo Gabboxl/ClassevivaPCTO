@@ -85,7 +85,7 @@
                        Background="{ThemeResource CardBackgroundFillColorDefaultBrush}">
 
 
-            <TextBlock Text="Comunicazioni" x:Name="TextComunicazioni"
+            <TextBlock x:Uid="TextBachecaComunicazioni" x:Name="TextComunicazioni"
                        Margin="8,6,0,0"
                        Foreground="{ThemeResource TextFillColorSecondaryBrush}"
                        Style="{ThemeResource BodyStrongTextBlockStyle}" />

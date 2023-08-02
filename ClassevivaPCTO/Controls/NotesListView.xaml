@@ -94,7 +94,7 @@
                             <StackPanel Orientation="Vertical" Padding="6,0,6,0">
                                 <FontIcon FontFamily="{StaticResource FluentIcons}" Glyph="&#xE890;" 
                                           FontSize="16" />
-                                <TextBlock FontSize="12" Text="Leggi" Margin="0,0,0,0" />
+                                <TextBlock FontSize="12" x:Uid="ReadText" Margin="0,0,0,0" />
                             </StackPanel>
                         </Button.Content>
                     </Button>

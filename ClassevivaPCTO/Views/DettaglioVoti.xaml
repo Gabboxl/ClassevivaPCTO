@@ -21,7 +21,7 @@
         </Grid.RowDefinitions>
 
 
-        <TextBlock x:Name="MainTitleTextBox" Grid.Row="1" Text="Valutazioni di " 
+        <TextBlock x:Name="MainTitleTextBox" Grid.Row="1" x:Uid="TitleValutazioni"
                    Style= "{StaticResource TitleLargeTextBlockStyle}"
                    VerticalAlignment="Top"
                    Margin="32,16,0,0" />
@@ -45,7 +45,7 @@
             </ComboBox>
 
             <ComboBox RelativePanel.RightOf="ComboPeriodi" x:Name="ComboMaterie" Header="Materia"
-                      PlaceholderText="Seleziona una materia" HorizontalAlignment="Left" Margin="25,0,0,0"
+                      x:Uid="ComboMaterie" HorizontalAlignment="Left" Margin="25,0,0,0"
                       SelectionChanged="ComboMaterie_SelectionChanged">
 
             </ComboBox>

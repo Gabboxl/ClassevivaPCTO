@@ -67,7 +67,8 @@
 
         <RelativePanel Grid.Row="0" Margin="0,16,0,16">
 
-            <TextBlock x:Name="TextTitolo" Text="Assenze e Ritardi" Style= "{StaticResource TitleLargeTextBlockStyle}" VerticalAlignment="Top"
+            <TextBlock x:Name="TextTitolo" x:Uid="TextTitoloAssenzeRitardi"
+                       Style= "{StaticResource TitleLargeTextBlockStyle}" VerticalAlignment="Top"
                        Margin="32,0,0,0" />
 
             <Button RelativePanel.RightOf="TextTitolo" x:Name="AggiornaCommand"
@@ -182,15 +183,15 @@
                     Background="{ThemeResource CardBackgroundFillColorDefaultBrush}">
 
 
-                    <TextBlock x:Name="TextBlock1"
+                    <TextBlock x:Name="TextBlockCalendarioEventi"
 
-                               Text="Calendario eventi"
+                               x:Uid="TextBlockCalendarioEventi"
                                Margin="8,4,0,0"
                                Style="{ThemeResource BodyStrongTextBlockStyle}" />
 
                     <Button
                         x:Name="TodayButton"
-                        Content="Oggi"
+                        x:Uid="TodayButton"
                         RelativePanel.AlignRightWithPanel="True"
                         Click="TodayButton_OnClick"
                         Margin="0,4,2,12" />

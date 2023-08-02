@@ -86,7 +86,7 @@
                 <RelativePanel
                     Grid.Row="0"
                     Margin="0,0,0,24">
-                    <TextBlock x:Name="TitoloLezioniPopup" Grid.Row="0" Text="Lezioni" FontSize="42"
+                    <TextBlock x:Name="TitoloLezioniPopup" x:Uid="LessonsTitle" FontSize="42"
                                VerticalAlignment="Top"
                                Margin="32,16,0,0" />
 
@@ -147,7 +147,7 @@
                 <RelativePanel
                     Grid.Row="0"
                     Margin="0,0,0,24">
-                    <TextBlock x:Name="TitoloAgendaPopup" Grid.Row="0" Text="Agenda" FontSize="42"
+                    <TextBlock x:Name="TitoloAgendaPopup" x:Uid="TitoloAgendaPopup" FontSize="42"
                                VerticalAlignment="Top"
                                Margin="32,16,0,0" />
 
@@ -202,7 +202,8 @@
 
 
                 <RelativePanel Grid.Row="0" Margin="0,16,0,0">
-                    <TextBlock x:Name="TextTitolo" Text="Agenda" Style= "{StaticResource TitleLargeTextBlockStyle}"
+                    <TextBlock x:Name="TextTitolo" x:Uid="TitoloAgendaPopup"
+                               Style= "{StaticResource TitleLargeTextBlockStyle}"
 
                                Margin="32,0,0,0" />
 
@@ -260,7 +261,7 @@
                         <FontIcon FontSize="14" Glyph="&#xE76C;" HorizontalAlignment="Center" />
                     </Button>
 
-                    <ToggleButton x:Name="ButtonToday" Content="Oggi" Margin="8,0,0,0"
+                    <ToggleButton x:Name="ButtonToday" x:Uid="ButtonTodayAgenda" Margin="8,0,0,0"
                                   RelativePanel.LeftOf="Separator1"
                                   RelativePanel.AlignVerticalCenterWithPanel="True"
                                   toolkit:FrameworkElementExtensions.Cursor="Hand"
@@ -276,8 +277,8 @@
 
                     <Button
                         RelativePanel.AlignVerticalCenterWithPanel="True"
-                        x:Name="PopupAgendaButton"
-                        Content="Tutti i compiti"
+                        x:Name="TuttiCompitiButton"
+                        x:Uid="TuttiCompitiButton"
                         RelativePanel.LeftOf="PopupLessonsButton"
                         Click="PopupAgendaButton_OnClick"
                         Margin="16,0,0,0">
@@ -287,7 +288,7 @@
                         RelativePanel.AlignVerticalCenterWithPanel="True"
 
                         x:Name="PopupLessonsButton"
-                        Content="Tutte le lezioni"
+                        x:Uid="PopupLessonsButton"
                         Click="PopupLessonsButton_OnClick"
                         RelativePanel.AlignRightWithPanel="True"
                         Margin="8,0,16,0">

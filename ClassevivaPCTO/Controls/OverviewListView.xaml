@@ -31,7 +31,7 @@
             <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
 
                 <TextBlock x:Name="AbsencesTitle"
-                           Text="Assenze"
+                           x:Uid="AbsencesTitle"
                            Margin="16,6,0,6"
                            Visibility="{x:Bind OverviewViewModel.FilteredOverviewResult.AbsenceEvents, Mode=OneWay, Converter={StaticResource EmptyListToVisibilityConverter}}"
                            Style="{ThemeResource BodyStrongTextBlockStyle}" />
@@ -43,7 +43,7 @@
 
 
                 <TextBlock x:Name="GradesTitle"
-                           Text="Valutazioni"
+                           x:Uid="GradesTitle"
                            Margin="16,6,0,6"
                            Visibility="{x:Bind OverviewViewModel.FilteredOverviewResult.Grades, Mode=OneWay, Converter={StaticResource EmptyListToVisibilityConverter}}"
                            Style="{ThemeResource BodyStrongTextBlockStyle}" />
@@ -54,7 +54,7 @@
                 </controls2:GradesListView>
 
                 <TextBlock x:Name="LessonsTitle"
-                           Text="Lezioni"
+                           x:Uid="LessonsTitle"
                            Margin="16,6,0,6"
                            Visibility="{x:Bind OverviewViewModel.FilteredOverviewResult.Lessons, Mode=OneWay, Converter={StaticResource EmptyListToVisibilityConverter}}"
                            Style="{ThemeResource BodyStrongTextBlockStyle}" />
@@ -65,7 +65,7 @@
                 </controls2:LessonsListView>
 
                 <TextBlock x:Name="AgendaTitle"
-                           Text="Agenda"
+                           x:Uid="AgendaTitle"
                            Margin="16,6,0,6"
                            Visibility="{x:Bind OverviewViewModel.FilteredOverviewResult.AgendaEvents, Mode=OneWay, Converter={StaticResource EmptyListToVisibilityConverter}}"
                            Style="{ThemeResource BodyStrongTextBlockStyle}" />
@@ -97,7 +97,7 @@
                        Foreground="{ThemeResource TextFillColorDisabledBrush}"
                        Margin="0,0,0,0"
                        FontWeight="SemiBold"
-                       Text="Nessun evento" FontSize="36" VerticalAlignment="Center"
+                       x:Uid="NoEventText" FontSize="36" VerticalAlignment="Center"
                        HorizontalAlignment="Center" />
         </RelativePanel>
 
