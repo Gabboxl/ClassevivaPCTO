@@ -1,0 +1,3 @@
+files:
+  - source: /ClassevivaPCTO/Strings/it-it/Resources.resw
+    translation: /ClassevivaPCTO/Strings/%locale%/%original_file_name%
