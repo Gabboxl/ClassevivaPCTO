@@ -319,10 +319,10 @@ Ricorda che quest'app è ancora in fase di sviluppo e alcune funzionalità posso
   <data name="ButtonTodayAgenda.Content" xml:space="preserve">
     <value>Oggi</value>
   </data>
-  <data name="TuttiCompitiButton.Content" xml:space="preserve">
+  <data name="TuttiCompitiButton.Text" xml:space="preserve">
     <value>Tutti i compiti</value>
   </data>
-  <data name="PopupLessonsButton.Content" xml:space="preserve">
+  <data name="PopupLessonsButton.Text" xml:space="preserve">
     <value>Tutte le lezioni</value>
   </data>
   <data name="AccountNonSupportato" xml:space="preserve">
@@ -405,5 +405,7 @@ Gli account studente hanno l'username che inizia con le lettere S, G o X.</value
   </data>
   <data name="SettingsAccountExit.Button" xml:space="preserve">
     <value>Esci</value>
+  <data name="NoNoticesText.Text" xml:space="preserve">
+    <value>Nessuna comunicazione</value>
   </data>
 </root>

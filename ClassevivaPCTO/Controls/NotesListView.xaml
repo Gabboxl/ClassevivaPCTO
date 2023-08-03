@@ -14,6 +14,7 @@
     <UserControl.Resources>
 
         <converters:DateTimeToNormalDateConverter x:Key="DateTimeToNormalDateConverter" />
+        <converters:BetterBoolToVisibilityConverter x:Key="BetterBoolToVisibilityConverter" />
 
 
         <!-- being "BasedOn" the DefaultListViewItemStyle style, it removes the highlight effect of windows 10  -->
@@ -73,10 +74,8 @@
                                IsTextSelectionEnabled="True"
                                TextTrimming="WordEllipsis"
                                MaxLines="1"
-                               Margin="24,6,0,8" >
+                               Margin="24,6,0,8">
                     </TextBlock>
-
-
 
 
                 </RelativePanel>
@@ -92,7 +91,7 @@
                         Margin="0,0,16,0">
                         <Button.Content>
                             <StackPanel Orientation="Vertical" Padding="6,0,6,0">
-                                <FontIcon FontFamily="{StaticResource FluentIcons}" Glyph="&#xE890;" 
+                                <FontIcon FontFamily="{StaticResource FluentIcons}" Glyph="&#xE890;"
                                           FontSize="16" />
                                 <TextBlock FontSize="12" x:Uid="ReadText" Margin="0,0,0,0" />
                             </StackPanel>
@@ -108,13 +107,43 @@
         </DataTemplate>
     </UserControl.Resources>
 
-    <ListView x:Name="listView"
+    <Grid
+        HorizontalAlignment="Stretch"
+        VerticalAlignment="Stretch">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
 
-              ScrollViewer.VerticalScrollMode="Enabled"
-              HorizontalAlignment="Stretch"
-              HorizontalContentAlignment="Stretch"
-              ItemTemplate="{StaticResource NotesListViewDataTemplate}"
-              ItemContainerStyle="{StaticResource ListViewFullStretchStyle}">
+        <ListView x:Name="listView"
 
-    </ListView>
+                  ScrollViewer.VerticalScrollMode="Enabled"
+                  HorizontalAlignment="Stretch"
+                  HorizontalContentAlignment="Stretch"
+                  ItemTemplate="{StaticResource NotesListViewDataTemplate}"
+                  ItemContainerStyle="{StaticResource ListViewFullStretchStyle}">
+
+        </ListView>
+        
+        <RelativePanel
+            VerticalAlignment="Center"
+            HorizontalAlignment="Center"
+            Grid.Row="0"
+            Visibility="{x:Bind AreSourcesEmpty, Mode=OneWay, Converter={StaticResource BetterBoolToVisibilityConverter}, ConverterParameter=True}">
+            <FontIcon x:Name="IconCalendar" FontFamily="{StaticResource FluentIcons}" Glyph="&#xe718;"
+                      Foreground="{ThemeResource TextFillColorDisabledBrush}"
+                      RelativePanel.AlignHorizontalCenterWithPanel="True"
+                      FontSize="124"
+                      Margin="0,0,0,0" />
+
+            <TextBlock x:Name="NoEventText"
+                       RelativePanel.Below="IconCalendar"
+                       RelativePanel.AlignHorizontalCenterWithPanel="True"
+                       Foreground="{ThemeResource TextFillColorDisabledBrush}"
+                       Margin="0,0,0,0"
+                       FontWeight="SemiBold"
+                       x:Uid="NoNoticesText" FontSize="36" VerticalAlignment="Center"
+                       HorizontalAlignment="Center" />
+        </RelativePanel>
+
+    </Grid>
 </UserControl>

@@ -38,7 +38,8 @@
                 </Grid.ColumnDefinitions>
 
 
-                <RelativePanel ScrollViewer.HorizontalScrollMode="Disabled" Grid.Row="0" Grid.Column="0" Margin="0,6,0,6">
+                <RelativePanel ScrollViewer.HorizontalScrollMode="Disabled" Grid.Row="0" Grid.Column="0"
+                               Margin="0,6,0,6">
 
                     <!-- icon pin -->
                     <FontIcon x:Name="pinIcon" FontFamily="{StaticResource FluentIcons}" Glyph="&#xE840;"
@@ -122,8 +123,6 @@
                     </Button>
 
 
-
-
                     <AppBarButton RelativePanel.AlignVerticalCenterWithPanel="True"
                                   RelativePanel.AlignRightWithPanel="True"
                                   x:Name="NotAvailableButton"
@@ -145,13 +144,44 @@
         </DataTemplate>
     </UserControl.Resources>
 
-    <ListView x:Name="listView"
+    <Grid
+        HorizontalAlignment="Stretch"
+        VerticalAlignment="Stretch">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
 
-              ScrollViewer.VerticalScrollMode="Enabled"
-              HorizontalAlignment="Stretch"
-              HorizontalContentAlignment="Stretch"
-              ItemTemplate="{StaticResource NoticeListViewDataTemplate}"
-              ItemContainerStyle="{StaticResource ListViewFullStretchStyle}">
+        <ListView x:Name="listView"
+                  Grid.Row="0"
+                  ScrollViewer.VerticalScrollMode="Enabled"
+                  HorizontalAlignment="Stretch"
+                  HorizontalContentAlignment="Stretch"
+                  ItemTemplate="{StaticResource NoticeListViewDataTemplate}"
+                  ItemContainerStyle="{StaticResource ListViewFullStretchStyle}">
 
-    </ListView>
+        </ListView>
+
+        <RelativePanel
+            VerticalAlignment="Center"
+            HorizontalAlignment="Center"
+            Grid.Row="0"
+            Visibility="{x:Bind AreSourcesEmpty, Mode=OneWay, Converter={StaticResource BetterBoolToVisibilityConverter}, ConverterParameter=True}">
+            <FontIcon x:Name="IconCalendar" FontFamily="{StaticResource FluentIcons}" Glyph="&#xe718;"
+                      Foreground="{ThemeResource TextFillColorDisabledBrush}"
+                      RelativePanel.AlignHorizontalCenterWithPanel="True"
+                      FontSize="124"
+                      Margin="0,0,0,0" />
+
+            <TextBlock x:Name="NoEventText"
+                       RelativePanel.Below="IconCalendar"
+                       RelativePanel.AlignHorizontalCenterWithPanel="True"
+                       Foreground="{ThemeResource TextFillColorDisabledBrush}"
+                       Margin="0,0,0,0"
+                       FontWeight="SemiBold"
+                       x:Uid="NoNoticesText" FontSize="36" VerticalAlignment="Center"
+                       HorizontalAlignment="Center" />
+        </RelativePanel>
+
+
+    </Grid>
 </UserControl>
