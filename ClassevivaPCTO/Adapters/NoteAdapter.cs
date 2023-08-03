@@ -1,6 +1,4 @@
 ﻿using ClassevivaPCTO.Utils;
-using Windows.UI;
-using Windows.UI.Xaml.Media;
 
 namespace ClassevivaPCTO.Adapters
 {

@@ -112,14 +112,14 @@
 
                     <RelativePanel Grid.Row="0">
 
-
                         <TextBlock x:Name="TextOggiAgenda" x:Uid="TextOggiAgenda"
                                    FontSize="20" VerticalAlignment="Top" FontWeight="Medium"
                                    HorizontalAlignment="Left" Margin="8,4,0,18" />
 
                         <muxc:ProgressRing IsActive="True" x:Name="ProgressRingAgenda"
                                            RelativePanel.RightOf="TextOggiAgenda"
-                                           RelativePanel.AlignVerticalCenterWith="TextOggiAgenda"
+                                           Margin="8,0,0,0"
+                                           
                                            Visibility="{x:Bind DashboardPageViewModel.IsLoadingAgenda, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" />
                     </RelativePanel>
 
@@ -158,7 +158,8 @@
 
                         <muxc:ProgressRing IsActive="True" x:Name="ProgressRingRecentGrades"
                                            RelativePanel.RightOf="TitleRecentGrades"
-                                           RelativePanel.AlignVerticalCenterWith="TitleRecentGrades"
+                                           Margin="8,0,0,0"
+
                                            Visibility="{x:Bind DashboardPageViewModel.IsLoadingGrades, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" />
 
 
@@ -166,19 +167,17 @@
                                    x:Name="TitleMedia"
                                    TextAlignment="Center" x:Uid="TitleMedia" FontSize="16" 
                                    RelativePanel.LeftOf="TextBlockMedia"
-                                   RelativePanel.AlignVerticalCenterWith="TitleRecentGrades"
                                    Margin="0,0,6,0" />
 
 
                         <muxc:ProgressRing IsActive="True" x:Name="ProgressRingMedia"
-                                           RelativePanel.AlignVerticalCenterWith="TitleRecentGrades"
+                                           Margin="8,0,0,0"
 
                                            RelativePanel.RightOf="TitleMedia"
                                            Visibility="{x:Bind DashboardPageViewModel.IsLoadingMedia, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" />
 
                         <TextBlock x:Name="TextBlockMedia" Text="test" Visibility="Collapsed"
                                    RelativePanel.AlignRightWithPanel="True"
-                                   RelativePanel.AlignVerticalCenterWith="TitleRecentGrades"
 
                                    FontSize="18" FontWeight="ExtraBold" />
 
@@ -231,7 +230,8 @@
 
                         <muxc:ProgressRing IsActive="True" x:Name="ProgressRingRecentNotices"
                                            RelativePanel.RightOf="TextBachecaRecenti"
-                                           RelativePanel.AlignVerticalCenterWith="TextBachecaRecenti"
+                                           Margin="8,0,0,0"
+
                                            Visibility="{x:Bind DashboardPageViewModel.IsLoadingNotices, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" />
                     </RelativePanel>
 
