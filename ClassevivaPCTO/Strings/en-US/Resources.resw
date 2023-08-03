@@ -400,4 +400,7 @@ Gli account studente hanno l'username che inizia con le lettere S, G o X.</value
   <data name="InfoNoteFlyoutText" xml:space="preserve">
     <value>La nota verrà contrassegnata come letta sul server. Continuare?</value>
   </data>
+  <data name="NoNoticesText.Text" xml:space="preserve">
+    <value>Nessuna comunicazione</value>
+  </data>
 </root>
