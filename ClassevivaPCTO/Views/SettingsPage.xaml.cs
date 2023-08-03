@@ -2,6 +2,7 @@
 using ClassevivaPCTO.Services;
 using System;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using Windows.ApplicationModel;
@@ -120,7 +121,7 @@ namespace ClassevivaPCTO.Views
                 case StoreRateAndReviewStatus.Error:
                 default:
                     // Log error, passing in ExtendedJsonData however it will be empty for now
-                    //LogError(result.ExtendedError, result.ExtendedJsonData); // pseudo-code
+                    Debug.WriteLine(result.ExtendedError, result.ExtendedJsonData);
                     break;
             }
         }
