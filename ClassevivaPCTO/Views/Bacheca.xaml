@@ -106,13 +106,17 @@
 
             <Grid RelativePanel.Below="TextComunicazioni"
                   RelativePanel.AlignRightWithPanel="True"
-                  RelativePanel.AlignLeftWithPanel="True">
+                  RelativePanel.AlignLeftWithPanel="True"
+                  RelativePanel.AlignBottomWithPanel="True"
+                  >
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
 
                 <controls:NoticesListView
                     x:Name="NoticesListView"
+
+                    HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
                     Margin="0,8,0,0">
 
                 </controls:NoticesListView>
