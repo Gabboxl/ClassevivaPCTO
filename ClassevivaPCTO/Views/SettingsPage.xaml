@@ -82,13 +82,13 @@
                             Width="128"
                             Height="128"
                             DisplayName="{Binding FirstName}"
-                            x:Name="PersonPictureDashboard" />
+                            x:Name="PersonPictureSettings" />
 
                         <RelativePanel Grid.Column="1" VerticalAlignment="Center">
 
                             <TextBlock x:Name="NomeCognome" Text="{Binding FirstName}" FontSize="32"
                                        FontWeight="SemiBold"
-                                       VerticalAlignment="Top"
+                                       RelativePanel.AlignTopWithPanel="True"
                                        Margin="0,0,0,0" />
 
                             <TextBlock x:Name="CodiceStudente"
