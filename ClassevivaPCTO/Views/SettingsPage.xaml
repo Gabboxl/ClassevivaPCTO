@@ -54,17 +54,27 @@
 
                 <RelativePanel Grid.Row="0" Margin="0,18,0,0">
 
-                    <TextBlock x:Name="NomeCognome" Text="Nome Cognome " FontSize="32" FontWeight="SemiBold"
+                    <TextBlock x:Name="NomeCognome" Text="{Binding FirstName}" FontSize="32" FontWeight="SemiBold"
                                VerticalAlignment="Top"
-                               Margin="100,0,0,0" />
+                               Margin="180,0,0,0" />
 
-                    <TextBlock x:Name="CodiceStudente" Text="Codice studente: XXXXXXXXXXXX" FontSize="14"
+                    <TextBlock x:Name="CodiceStudente"  
+                               FontSize="14"
                                FontWeight="Medium"
-                               Margin="100,55,0,0" Foreground="{ThemeResource TextFillColorTertiaryBrush}" />
+                               Margin="180,55,0,0" Foreground="{ThemeResource TextFillColorTertiaryBrush}">
+                              <Run Text="Codice studente: "/><Run Text="{Binding Codice}"/>
+                    </TextBlock>
 
-                    <TextBlock x:Name="Istituto" Text="Istituto: LOREM IPSUM DOLOR SIT AMET INDIRIZZO NOME COGNOME"
-                               FontSize="14" FontWeight="Medium"
-                               Margin="100,80,0,0" Foreground="{ThemeResource TextFillColorTertiaryBrush}" />
+                    <TextBlock x:Name="Scuola"  
+                               FontSize="14"
+                               FontWeight="Medium"
+                               Margin="180,85,0,0" Foreground="{ThemeResource TextFillColorTertiaryBrush}">
+                              <Run Text="Istituto: "/><Run Text="{Binding Scuola}"/>
+                    </TextBlock>
+
+
+                    <Button Content="Cambia foto" Margin="800,25,0,0" />
+                    <Button Content="Esci" Margin="800,75,0,0" />
 
                 </RelativePanel>
 
@@ -97,10 +107,151 @@
                     </ComboBox>
                 </labs:SettingsCard>
 
+                <labs:SettingsExpander x:Name="ColorSchemeExpander"
+                           Description="Personalizza lo schema dei colori utilizzato nell'app per indicare voti ed eventi"
+                           Header="Schema colori">
+                    
+                    <labs:SettingsExpander.HeaderIcon>
+                        <FontIcon Glyph="&#xE712;" />
+                    </labs:SettingsExpander.HeaderIcon>
+
+                    <TextBlock IsTextSelectionEnabled="False"
+                               Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                               Style="{StaticResource BodyTextBlockStyle}">
+                        <Run/><Run Text="Predefinito di Classeviva" />
+                    </TextBlock>
+
+                    <labs:SettingsExpander.Items>
+                        
+
+                        <labs:SettingsCard HorizontalContentAlignment="Left"
+                               ContentAlignment="Vertical"
+                               
+                               Header="Predefinito di Classeviva"
+                               IsClickEnabled="True" IsActionIconVisible="False">
+                            
+                            <GridView IsItemClickEnabled="False" SelectionMode="None">
+                             
+                                <GridViewItem>
+                                    <Border Width="32"
+                                Height="32"
+                                Background="#7EAE83"
+                                CornerRadius="32" 
+                                IsTapEnabled="False"/>
+                              
+                                    
+                                </GridViewItem>
+                             
+                                <GridViewItem>
+                                    <Border Width="32"
+                                Height="32"
+                                Background="#EE9B4C"
+                                CornerRadius="32" 
+                                IsTapEnabled="False"/>
+                                </GridViewItem>
+                              
+                                <GridViewItem>
+                                    <Border Width="32"
+                                Height="32"
+                                Background="#CF5955"
+                                CornerRadius="32" 
+                                IsTapEnabled="False"/>
+                             
+                                </GridViewItem>
+                                
+                            </GridView>
+
+                        </labs:SettingsCard>
+
+                        <labs:SettingsCard HorizontalContentAlignment="Left"
+                               ContentAlignment="Vertical"
+                               IsClickEnabled="True" IsActionIconVisible="False"
+                               Header="Semaforo giapponese">
+
+                            <GridView IsItemClickEnabled="False" SelectionMode="None">
+
+                                <GridViewItem>
+                                    <Border Width="32"
+                                Height="32"
+                                Background="#008080"
+                                CornerRadius="32" 
+                                IsTapEnabled="False"/>
+
+                                </GridViewItem>
+
+                                <GridViewItem>
+                                    <Border Width="32"
+                                Height="32"
+                                Background="#FF8C00"
+                                CornerRadius="32" 
+                                IsTapEnabled="False"/>
+                                </GridViewItem>
+
+                                <GridViewItem>
+                                    <Border Width="32"
+                                Height="32"
+                                Background="#DC143C"
+                                CornerRadius="32" 
+                                IsTapEnabled="False"/>
+
+                                </GridViewItem>
+
+                                
+                                
+                            </GridView>
+
+
+
+                        </labs:SettingsCard>
+
+                        <labs:SettingsCard HorizontalContentAlignment="Left"
+                               ContentAlignment="Vertical"
+                               IsClickEnabled="True" IsActionIconVisible="False"
+                               Header="Natura">
+
+                            <GridView IsItemClickEnabled="False" SelectionMode="None">
+
+                                <GridViewItem>
+                                    <Border Width="32"
+                                Height="32"
+                                Background="#78C141"
+                                CornerRadius="32" 
+                                IsTapEnabled="False"/>
+
+                                </GridViewItem>
+
+                                <GridViewItem>
+                                    <Border Width="32"
+                                Height="32"
+                                Background="#FC9553"
+                                CornerRadius="32" 
+                                IsTapEnabled="False"/>
+                                </GridViewItem>
+
+                                <GridViewItem>
+                                    <Border Width="32"
+                                Height="32"
+                                Background="#9A4D31"
+                                CornerRadius="32" 
+                                IsTapEnabled="False"/>
+
+                                </GridViewItem>
+
+
+
+                            </GridView>
+
+                        </labs:SettingsCard>
+
+                    </labs:SettingsExpander.Items>
+                </labs:SettingsExpander>
+
+
 
                 <TextBlock Style="{StaticResource SettingsSectionHeaderTextBlockStyle}"
                            x:Uid="Settings_General" />
 
+                
 
                 <labs:SettingsCard x:Uid="SettingsCardLanguage">
 
