@@ -278,20 +278,30 @@
                     <Button
                         RelativePanel.AlignVerticalCenterWithPanel="True"
                         x:Name="TuttiCompitiButton"
-                        x:Uid="TuttiCompitiButton"
+                        
                         RelativePanel.LeftOf="PopupLessonsButton"
                         Click="PopupAgendaButton_OnClick"
                         Margin="16,0,0,0">
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Spacing="8">
+                            
+                            <TextBlock x:Uid="TuttiCompitiButton"/>
+
+                            <TextBlock Text="&#xEA98;" VerticalAlignment="Center" FontFamily="{StaticResource FluentIcons}"/>
+                        </StackPanel>
                     </Button>
 
                     <Button
                         RelativePanel.AlignVerticalCenterWithPanel="True"
-
                         x:Name="PopupLessonsButton"
-                        x:Uid="PopupLessonsButton"
                         Click="PopupLessonsButton_OnClick"
                         RelativePanel.AlignRightWithPanel="True"
                         Margin="8,0,16,0">
+
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Spacing="8">
+                            
+                            <TextBlock x:Uid="PopupLessonsButton"/>
+                            <TextBlock Text="&#xe7be;" VerticalAlignment="Center" FontFamily="{StaticResource FluentIcons}"/>
+                        </StackPanel>
                     </Button>
 
                     <!--<Rectangle x:Name="Separator2" RelativePanel.AlignRightWithPanel="True"
