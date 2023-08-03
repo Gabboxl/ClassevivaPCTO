@@ -68,7 +68,7 @@ namespace ClassevivaPCTO.Controls
         }
 
 
-        private bool _areSourcesEmpty = true;
+        private bool _areSourcesEmpty = false;
         public bool AreSourcesEmpty
         {
             get { return _areSourcesEmpty; }

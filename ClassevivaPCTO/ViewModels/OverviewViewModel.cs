@@ -19,7 +19,7 @@ namespace ClassevivaPCTO.ViewModels
             set { SetProperty(ref _filteredOverviewResult, value); }
         }
 
-        private bool _areSourcesEmpty = true;
+        private bool _areSourcesEmpty = false;
         public bool AreSourcesEmpty
         {
             get { return _areSourcesEmpty; }
