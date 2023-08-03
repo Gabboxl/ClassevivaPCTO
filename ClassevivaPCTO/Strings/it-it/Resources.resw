@@ -405,6 +405,7 @@ Gli account studente hanno l'username che inizia con le lettere S, G o X.</value
   </data>
   <data name="SettingsAccountExit.Button" xml:space="preserve">
     <value>Esci</value>
+  </data>
   <data name="NoNoticesText.Text" xml:space="preserve">
     <value>Nessuna comunicazione</value>
   </data>
