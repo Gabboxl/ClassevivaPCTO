@@ -7,6 +7,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:labs="using:CommunityToolkit.Labs.WinUI"
     xmlns:xaml="using:Windows.UI.Xaml"
+    xmlns:controls="using:Microsoft.UI.Xaml.Controls"
     mc:Ignorable="d">
     <Page.Resources>
         <!--  These styles can be referenced to create a consistent SettingsPage layout  -->
@@ -52,31 +53,78 @@
                            x:Uid="Settings_Account" />
 
 
-                <RelativePanel Grid.Row="0" Margin="0,18,0,0">
+                <Grid Margin="0,18,0,0"
+                      CornerRadius="8"
+                      Padding="12"
+                      BorderThickness="1"
+                      BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
+                      Background="{ThemeResource CardBackgroundFillColorDefaultBrush}">
 
-                    <TextBlock x:Name="NomeCognome" Text="{Binding FirstName}" FontSize="32" FontWeight="SemiBold"
-                               VerticalAlignment="Top"
-                               Margin="180,0,0,0" />
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="Auto"></ColumnDefinition>
 
-                    <TextBlock x:Name="CodiceStudente"  
-                               FontSize="14"
-                               FontWeight="Medium"
-                               Margin="180,55,0,0" Foreground="{ThemeResource TextFillColorTertiaryBrush}">
-                              <Run Text="Codice studente: "/><Run Text="{Binding Codice}"/>
-                    </TextBlock>
-
-                    <TextBlock x:Name="Scuola"  
-                               FontSize="14"
-                               FontWeight="Medium"
-                               Margin="180,85,0,0" Foreground="{ThemeResource TextFillColorTertiaryBrush}">
-                              <Run Text="Istituto: "/><Run Text="{Binding Scuola}"/>
-                    </TextBlock>
+                        </Grid.ColumnDefinitions>
 
 
-                    <Button Content="Cambia foto" Margin="800,25,0,0" />
-                    <Button Content="Esci" Margin="800,75,0,0" />
+                        <!-- person picture UWP control -->
 
-                </RelativePanel>
+                        <controls:PersonPicture
+                            Grid.Column="0"
+                            Margin="16,0,28,0"
+                            RelativePanel.AlignLeftWithPanel="True"
+                            RelativePanel.AlignVerticalCenterWithPanel="True"
+                            Width="128"
+                            Height="128"
+                            DisplayName="{Binding FirstName}"
+                            x:Name="PersonPictureDashboard" />
+
+                        <RelativePanel Grid.Column="1" VerticalAlignment="Center">
+
+                            <TextBlock x:Name="NomeCognome" Text="{Binding FirstName}" FontSize="32"
+                                       FontWeight="SemiBold"
+                                       VerticalAlignment="Top"
+                                       Margin="0,0,0,0" />
+
+                            <TextBlock x:Name="CodiceStudente"
+                                       RelativePanel.Below="NomeCognome"
+                                       FontSize="14"
+                                       FontWeight="Medium"
+                                       Margin="0,10,0,0" Foreground="{ThemeResource TextFillColorTertiaryBrush}">
+                                <Run Text="Codice studente: " /><Run Text="{Binding Codice}" />
+                            </TextBlock>
+
+                            <TextBlock x:Name="Scuola"
+                                       RelativePanel.Below="CodiceStudente"
+                                       FontSize="14"
+                                       FontWeight="Medium"
+                                       Margin="0,8,0,0" Foreground="{ThemeResource TextFillColorTertiaryBrush}">
+                                <Run Text="Istituto: " /><Run Text="{Binding Scuola}" />
+                            </TextBlock>
+
+                        </RelativePanel>
+
+
+                        <StackPanel Grid.Column="2" VerticalAlignment="Center" Margin="0,0,8,0"
+                                    Width="164">
+                            <Button x:Name="ChangePhotoButton" Content="Cambia foto"
+                                    HorizontalAlignment="Stretch"
+                                    Margin="0,0,0,0" />
+                            <Button x:Name="ExitButton"
+                                    Style="{StaticResource AccentButtonStyle}"
+                                    HorizontalAlignment="Stretch"
+                                    RelativePanel.Below="ChangePhotoButton"
+                                    Content="Esci" Margin="0,24,0,0" />
+                        </StackPanel>
+
+                    </Grid>
+
+                </Grid>
 
 
                 <TextBlock Style="{StaticResource SettingsSectionHeaderTextBlockStyle}"
@@ -108,9 +156,9 @@
                 </labs:SettingsCard>
 
                 <labs:SettingsExpander x:Name="ColorSchemeExpander"
-                           Description="Personalizza lo schema dei colori utilizzato nell'app per indicare voti ed eventi"
-                           Header="Schema colori">
-                    
+                                       Description="Personalizza lo schema dei colori utilizzato nell'app per indicare voti ed eventi"
+                                       Header="Schema colori">
+
                     <labs:SettingsExpander.HeaderIcon>
                         <FontIcon Glyph="&#xE712;" />
                     </labs:SettingsExpander.HeaderIcon>
@@ -118,125 +166,122 @@
                     <TextBlock IsTextSelectionEnabled="False"
                                Foreground="{ThemeResource TextFillColorSecondaryBrush}"
                                Style="{StaticResource BodyTextBlockStyle}">
-                        <Run/><Run Text="Predefinito di Classeviva" />
+                        <Run /><Run Text="Predefinito di Classeviva" />
                     </TextBlock>
 
                     <labs:SettingsExpander.Items>
-                        
+
 
                         <labs:SettingsCard HorizontalContentAlignment="Left"
-                               ContentAlignment="Vertical"
-                               
-                               Header="Predefinito di Classeviva"
-                               IsClickEnabled="True" IsActionIconVisible="False">
-                            
+                                           ContentAlignment="Vertical"
+
+                                           Header="Predefinito di Classeviva"
+                                           IsClickEnabled="True" IsActionIconVisible="False">
+
                             <GridView IsItemClickEnabled="False" SelectionMode="None">
-                             
+
                                 <GridViewItem>
                                     <Border Width="32"
-                                Height="32"
-                                Background="#7EAE83"
-                                CornerRadius="32" 
-                                IsTapEnabled="False"/>
-                              
-                                    
+                                            Height="32"
+                                            Background="#7EAE83"
+                                            CornerRadius="32"
+                                            IsTapEnabled="False" />
+
+
                                 </GridViewItem>
-                             
+
                                 <GridViewItem>
                                     <Border Width="32"
-                                Height="32"
-                                Background="#EE9B4C"
-                                CornerRadius="32" 
-                                IsTapEnabled="False"/>
+                                            Height="32"
+                                            Background="#EE9B4C"
+                                            CornerRadius="32"
+                                            IsTapEnabled="False" />
                                 </GridViewItem>
-                              
+
                                 <GridViewItem>
                                     <Border Width="32"
-                                Height="32"
-                                Background="#CF5955"
-                                CornerRadius="32" 
-                                IsTapEnabled="False"/>
-                             
+                                            Height="32"
+                                            Background="#CF5955"
+                                            CornerRadius="32"
+                                            IsTapEnabled="False" />
+
                                 </GridViewItem>
-                                
+
                             </GridView>
 
                         </labs:SettingsCard>
 
                         <labs:SettingsCard HorizontalContentAlignment="Left"
-                               ContentAlignment="Vertical"
-                               IsClickEnabled="True" IsActionIconVisible="False"
-                               Header="Semaforo giapponese">
+                                           ContentAlignment="Vertical"
+                                           IsClickEnabled="True" IsActionIconVisible="False"
+                                           Header="Semaforo giapponese">
 
                             <GridView IsItemClickEnabled="False" SelectionMode="None">
 
                                 <GridViewItem>
                                     <Border Width="32"
-                                Height="32"
-                                Background="#008080"
-                                CornerRadius="32" 
-                                IsTapEnabled="False"/>
+                                            Height="32"
+                                            Background="#008080"
+                                            CornerRadius="32"
+                                            IsTapEnabled="False" />
 
                                 </GridViewItem>
 
                                 <GridViewItem>
                                     <Border Width="32"
-                                Height="32"
-                                Background="#FF8C00"
-                                CornerRadius="32" 
-                                IsTapEnabled="False"/>
+                                            Height="32"
+                                            Background="#FF8C00"
+                                            CornerRadius="32"
+                                            IsTapEnabled="False" />
                                 </GridViewItem>
 
                                 <GridViewItem>
                                     <Border Width="32"
-                                Height="32"
-                                Background="#DC143C"
-                                CornerRadius="32" 
-                                IsTapEnabled="False"/>
+                                            Height="32"
+                                            Background="#DC143C"
+                                            CornerRadius="32"
+                                            IsTapEnabled="False" />
 
                                 </GridViewItem>
 
-                                
-                                
+
                             </GridView>
-
 
 
                         </labs:SettingsCard>
 
                         <labs:SettingsCard HorizontalContentAlignment="Left"
-                               ContentAlignment="Vertical"
-                               IsClickEnabled="True" IsActionIconVisible="False"
-                               Header="Natura">
+                                           ContentAlignment="Vertical"
+                                           IsClickEnabled="True" IsActionIconVisible="False"
+                                           Header="Natura">
 
                             <GridView IsItemClickEnabled="False" SelectionMode="None">
 
                                 <GridViewItem>
                                     <Border Width="32"
-                                Height="32"
-                                Background="#78C141"
-                                CornerRadius="32" 
-                                IsTapEnabled="False"/>
+                                            Height="32"
+                                            Background="#78C141"
+                                            CornerRadius="32"
+                                            IsTapEnabled="False" />
 
                                 </GridViewItem>
 
                                 <GridViewItem>
                                     <Border Width="32"
-                                Height="32"
-                                Background="#FC9553"
-                                CornerRadius="32" 
-                                IsTapEnabled="False"/>
+                                            Height="32"
+                                            Background="#FC9553"
+                                            CornerRadius="32"
+                                            IsTapEnabled="False" />
                                 </GridViewItem>
 
                                 <GridViewItem>
                                     <Border Width="32"
-                                Height="32"
-                                Background="#9A4D31"
-                                CornerRadius="32" 
-                                IsTapEnabled="False"/>
+                                            Height="32"
+                                            Background="#9A4D31"
+                                            CornerRadius="32"
+                                            IsTapEnabled="False" />
 
                                 </GridViewItem>
-
 
 
                             </GridView>
@@ -247,11 +292,9 @@
                 </labs:SettingsExpander>
 
 
-
                 <TextBlock Style="{StaticResource SettingsSectionHeaderTextBlockStyle}"
                            x:Uid="Settings_General" />
 
-                
 
                 <labs:SettingsCard x:Uid="SettingsCardLanguage">
 
