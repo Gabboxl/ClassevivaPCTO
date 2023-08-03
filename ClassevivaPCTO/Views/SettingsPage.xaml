@@ -178,36 +178,27 @@
                                            Header="Predefinito di Classeviva"
                                            IsClickEnabled="True" IsActionIconVisible="False">
 
-                            <GridView IsItemClickEnabled="False" SelectionMode="None">
+                            <StackPanel Orientation="Horizontal" Spacing="8" Margin="8">
 
-                                <GridViewItem>
                                     <Border Width="32"
                                             Height="32"
                                             Background="#7EAE83"
                                             CornerRadius="32"
                                             IsTapEnabled="False" />
 
-
-                                </GridViewItem>
-
-                                <GridViewItem>
                                     <Border Width="32"
                                             Height="32"
                                             Background="#EE9B4C"
                                             CornerRadius="32"
                                             IsTapEnabled="False" />
-                                </GridViewItem>
 
-                                <GridViewItem>
                                     <Border Width="32"
                                             Height="32"
                                             Background="#CF5955"
                                             CornerRadius="32"
                                             IsTapEnabled="False" />
 
-                                </GridViewItem>
-
-                            </GridView>
+                            </StackPanel>
 
                         </labs:SettingsCard>
 
@@ -216,36 +207,27 @@
                                            IsClickEnabled="True" IsActionIconVisible="False"
                                            Header="Semaforo giapponese">
 
-                            <GridView IsItemClickEnabled="False" SelectionMode="None">
+                            <StackPanel Orientation="Horizontal" Spacing="8" Margin="8">
 
-                                <GridViewItem>
                                     <Border Width="32"
                                             Height="32"
                                             Background="#008080"
                                             CornerRadius="32"
                                             IsTapEnabled="False" />
 
-                                </GridViewItem>
-
-                                <GridViewItem>
                                     <Border Width="32"
                                             Height="32"
                                             Background="#FF8C00"
                                             CornerRadius="32"
                                             IsTapEnabled="False" />
-                                </GridViewItem>
 
-                                <GridViewItem>
                                     <Border Width="32"
                                             Height="32"
                                             Background="#DC143C"
                                             CornerRadius="32"
                                             IsTapEnabled="False" />
 
-                                </GridViewItem>
-
-
-                            </GridView>
+                            </StackPanel>
 
 
                         </labs:SettingsCard>
@@ -255,36 +237,28 @@
                                            IsClickEnabled="True" IsActionIconVisible="False"
                                            Header="Natura">
 
-                            <GridView IsItemClickEnabled="False" SelectionMode="None">
+                            <StackPanel Orientation="Horizontal" Spacing="8" Margin="8">
 
-                                <GridViewItem>
                                     <Border Width="32"
                                             Height="32"
                                             Background="#78C141"
                                             CornerRadius="32"
                                             IsTapEnabled="False" />
 
-                                </GridViewItem>
 
-                                <GridViewItem>
                                     <Border Width="32"
                                             Height="32"
                                             Background="#FC9553"
                                             CornerRadius="32"
                                             IsTapEnabled="False" />
-                                </GridViewItem>
 
-                                <GridViewItem>
                                     <Border Width="32"
                                             Height="32"
                                             Background="#9A4D31"
                                             CornerRadius="32"
                                             IsTapEnabled="False" />
 
-                                </GridViewItem>
-
-
-                            </GridView>
+                            </StackPanel>
 
                         </labs:SettingsCard>
 
