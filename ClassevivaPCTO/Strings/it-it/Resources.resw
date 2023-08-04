@@ -409,4 +409,7 @@ Gli account studente hanno l'username che inizia con le lettere S, G o X.</value
   <data name="NoNoticesText.Text" xml:space="preserve">
     <value>Nessuna comunicazione</value>
   </data>
+  <data name="NoNotesText.Text" xml:space="preserve">
+    <value>Nessuna nota</value>
+  </data>
 </root>
