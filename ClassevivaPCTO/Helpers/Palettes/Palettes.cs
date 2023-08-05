@@ -4,7 +4,7 @@ using ColorHelper = Microsoft.Toolkit.Uwp.Helpers.ColorHelper;
 
 namespace ClassevivaPCTO.Helpers.Palettes
 {
-    internal class Palettes
+    internal abstract class Palettes
     {
         public class PaletteCv : IPalette
         {
