@@ -12,6 +12,7 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using ClassevivaPCTO.Services;
 using Microsoft.Toolkit.Uwp.UI;
 
 namespace ClassevivaPCTO.Views
@@ -163,7 +164,7 @@ namespace ClassevivaPCTO.Views
 
                     if (apiCalendarDay.dayStatus == DayStatus.SD)
                     {
-                        calendarViewDayItem.Background = new SolidColorBrush(Colors.Teal);
+                        calendarViewDayItem.Background = new SolidColorBrush(PaletteSelectorService.PaletteClass.ColorGreen);
 
                         foreach (var currentAbsenceEvent in _absencesResult.AbsenceEvents.Where(currentAbsenceEvent =>
                                      currentAbsenceEvent.evtDate.Date.Equals(calendarViewDayItem.Date.Date)))
