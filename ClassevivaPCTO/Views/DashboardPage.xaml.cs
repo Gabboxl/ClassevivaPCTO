@@ -31,9 +31,6 @@ namespace ClassevivaPCTO.Views
             var apiClient = app.Container.GetService<IClassevivaAPI>();
 
             apiWrapper = PoliciesDispatchProxy<IClassevivaAPI>.CreateProxy(apiClient);
-
-            //get palette factory from DI container
-            var paletteFactory = app.Container.GetService<Helpers.Palettes.PaletteFactory>();
         }
 
         protected override async void OnNavigatedTo(NavigationEventArgs e)

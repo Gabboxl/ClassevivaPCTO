@@ -182,7 +182,6 @@
     <Compile Include="Helpers\EnumToBooleanConverter.cs" />
     <Compile Include="Helpers\NavHelper.cs" />
     <Compile Include="Helpers\Palettes\IPalette.cs" />
-    <Compile Include="Helpers\Palettes\PaletteFactory.cs" />
     <Compile Include="Helpers\Palettes\Palettes.cs" />
     <Compile Include="Helpers\ResourceExtensions.cs" />
     <Compile Include="Helpers\SettingsStorageExtensions.cs" />

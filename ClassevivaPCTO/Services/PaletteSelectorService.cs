@@ -51,7 +51,7 @@ namespace ClassevivaPCTO.Services
             throw new ArgumentException("Invalid ClassType value.");
         }
 
-        public static async Task<PaletteType> GetCurrentPaletteEnum()
+        private static async Task<PaletteType> GetCurrentPaletteEnum()
         {
             PaletteType cacheTheme = PaletteType.PALETTE_CV; //default palette
             string themeName = await ApplicationData.Current.LocalSettings.ReadAsync<string>(SettingsKey);
@@ -64,10 +64,11 @@ namespace ClassevivaPCTO.Services
             return cacheTheme;
         }
 
-
+        /*
         public static async Task<IPalette> GetCurrentPaletteClass()
         {
             return GetPaletteClass(await GetCurrentPaletteEnum());
         }
+        */
     }
 }
