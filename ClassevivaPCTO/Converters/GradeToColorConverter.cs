@@ -1,4 +1,6 @@
-﻿using ClassevivaPCTO.Utils;
+﻿using ClassevivaPCTO.Helpers.Palettes;
+using ClassevivaPCTO.Services;
+using ClassevivaPCTO.Utils;
 using System;
 using Windows.UI;
 using Windows.UI.Xaml.Data;
@@ -14,6 +16,8 @@ namespace ClassevivaPCTO.Converters
 
             float? valore = null;
 
+            IPalette CurrentPalette = PaletteSelectorService.PaletteClass;
+
             valore = VariousUtils.GradeToFloat(value);
 
             if (valore == null)
@@ -22,15 +26,15 @@ namespace ClassevivaPCTO.Converters
             }
             else if (valore >= 6)
             {
-                brush.Color = Colors.Teal;
+                brush.Color = CurrentPalette.ColorGreen;
             }
             else if (valore >= 5)
             {
-                brush.Color = Colors.Orange;
+                brush.Color = CurrentPalette.ColorOrange;
             }
             else
             {
-                brush.Color = Colors.Red;
+                brush.Color = CurrentPalette.ColorRed;
             }
 
             return brush;

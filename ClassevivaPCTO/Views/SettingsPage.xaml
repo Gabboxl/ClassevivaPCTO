@@ -7,6 +7,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:labs="using:CommunityToolkit.Labs.WinUI"
     xmlns:xaml="using:Windows.UI.Xaml"
+    xmlns:palette="using:ClassevivaPCTO.Helpers.Palettes"
     xmlns:controls="using:Microsoft.UI.Xaml.Controls"
     mc:Ignorable="d">
     <Page.Resources>
@@ -24,7 +25,7 @@
             </Style.Setters>
         </Style>
 
-        <helper:EnumToBooleanConverter x:Key="EnumToBooleanConverter" EnumType="ElementTheme" />
+        <helper:EnumToBooleanConverter x:Key="EnumToBooleanConverter" EnumType="palette:PaletteType" />
     </Page.Resources>
     <ScrollViewer>
         <Grid Padding="0,0,0,128">
@@ -180,11 +181,21 @@
 
                             <StackPanel Orientation="Horizontal" Spacing="8" Margin="8">
 
-                                    <Border Width="32"
-                                            Height="32"
-                                            Background="#7EAE83"
-                                            CornerRadius="32"
-                                            IsTapEnabled="False" />
+                                <RadioButton
+                                    Checked="PaletteChanged_CheckedAsync"
+                                    IsChecked="{x:Bind PaletteType, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter=PALETTE_CV, Mode=OneWay}"
+                                    FontSize="15"
+                                    GroupName="AppPalette">
+                                    <RadioButton.CommandParameter>
+                                        <palette:PaletteType>PALETTE_CV</palette:PaletteType>
+                                    </RadioButton.CommandParameter>
+                                </RadioButton>
+
+                                <Border Width="32"
+                                        Height="32"
+                                        Background="#7EAE83"
+                                        CornerRadius="32"
+                                        IsTapEnabled="False" />
 
                                     <Border Width="32"
                                             Height="32"
@@ -209,11 +220,21 @@
 
                             <StackPanel Orientation="Horizontal" Spacing="8" Margin="8">
 
-                                    <Border Width="32"
-                                            Height="32"
-                                            Background="#008080"
-                                            CornerRadius="32"
-                                            IsTapEnabled="False" />
+                                <RadioButton
+                                    Checked="PaletteChanged_CheckedAsync"
+                                    IsChecked="{x:Bind PaletteType, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter=PALETTE_JAP, Mode=OneWay}"
+                                    FontSize="15"
+                                    GroupName="AppPalette">
+                                    <RadioButton.CommandParameter>
+                                        <palette:PaletteType>PALETTE_JAP</palette:PaletteType>
+                                    </RadioButton.CommandParameter>
+                                </RadioButton>
+
+                                <Border Width="32"
+                                        Height="32"
+                                        Background="#008080"
+                                        CornerRadius="32"
+                                        IsTapEnabled="False" />
 
                                     <Border Width="32"
                                             Height="32"
@@ -239,11 +260,21 @@
 
                             <StackPanel Orientation="Horizontal" Spacing="8" Margin="8">
 
-                                    <Border Width="32"
-                                            Height="32"
-                                            Background="#78C141"
-                                            CornerRadius="32"
-                                            IsTapEnabled="False" />
+                                <RadioButton
+                                    Checked="PaletteChanged_CheckedAsync"
+                                    IsChecked="{x:Bind PaletteType, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter=PALETTE_NAT, Mode=OneWay}"
+                                    FontSize="15"
+                                    GroupName="AppPalette">
+                                    <RadioButton.CommandParameter>
+                                        <palette:PaletteType>PALETTE_NAT</palette:PaletteType>
+                                    </RadioButton.CommandParameter>
+                                </RadioButton>
+
+                                <Border Width="32"
+                                        Height="32"
+                                        Background="#78C141"
+                                        CornerRadius="32"
+                                        IsTapEnabled="False" />
 
 
                                     <Border Width="32"

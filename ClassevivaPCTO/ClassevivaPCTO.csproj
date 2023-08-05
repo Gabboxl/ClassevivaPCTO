@@ -181,12 +181,16 @@
     </Compile>
     <Compile Include="Helpers\EnumToBooleanConverter.cs" />
     <Compile Include="Helpers\NavHelper.cs" />
+    <Compile Include="Helpers\Palettes\IPalette.cs" />
+    <Compile Include="Helpers\Palettes\PaletteFactory.cs" />
+    <Compile Include="Helpers\Palettes\Palettes.cs" />
     <Compile Include="Helpers\ResourceExtensions.cs" />
     <Compile Include="Helpers\SettingsStorageExtensions.cs" />
     <Compile Include="Services\ActivationService.cs" />
     <Compile Include="Services\FirstRunDisplayService.cs" />
     <Compile Include="Services\NavigationService.cs" />
     <Compile Include="Services\ChoiceSaverService.cs" />
+    <Compile Include="Services\PaletteSelectorService.cs" />
     <Compile Include="Services\ThemeSelectorService.cs" />
     <Compile Include="Adapters\AgendaEventAdapter.cs" />
     <Compile Include="Services\WhatsNewDisplayService.cs" />
