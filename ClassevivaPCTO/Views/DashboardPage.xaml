@@ -114,7 +114,7 @@
 
                         <TextBlock x:Name="TextOggiAgenda" x:Uid="TextOggiAgenda"
                                    FontSize="20" VerticalAlignment="Top" FontWeight="Medium"
-                                   HorizontalAlignment="Left" Margin="8,4,0,18" />
+                                   HorizontalAlignment="Left" Margin="8,4,0,0" />
 
                         <muxc:ProgressRing IsActive="True" x:Name="ProgressRingAgenda"
                                            RelativePanel.RightOf="TextOggiAgenda"
