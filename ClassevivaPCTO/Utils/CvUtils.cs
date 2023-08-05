@@ -1,11 +1,11 @@
 ﻿using System.Net.Http;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 using Refit;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
-using Windows.UI;
 using Windows.UI.Xaml.Media;
+using ClassevivaPCTO.Helpers.Palettes;
+using ClassevivaPCTO.Services;
 
 namespace ClassevivaPCTO.Utils
 {
@@ -59,23 +59,24 @@ namespace ClassevivaPCTO.Utils
         {
             SolidColorBrush brush = new SolidColorBrush();
 
+            IPalette CurrentPalette = PaletteSelectorService.PaletteClass;
 
             switch (valore)
             {
                 case AbsenceEventCode.ABA0:
-                    brush.Color = Colors.Crimson;
+                    brush.Color = CurrentPalette.ColorRed;
                     break;
 
                 case AbsenceEventCode.ABR0:
-                    brush.Color = Colors.DarkOrange;
+                    brush.Color = CurrentPalette.ColorOrange;
                     break;
 
                 case AbsenceEventCode.ABR1:
-                    brush.Color = Colors.DarkOrange;
+                    brush.Color = CurrentPalette.ColorOrange;
                     break;
 
                 case AbsenceEventCode.ABU0:
-                    brush.Color = Colors.Goldenrod;
+                    brush.Color = CurrentPalette.ColorYellow;
                     break;
             }
 
