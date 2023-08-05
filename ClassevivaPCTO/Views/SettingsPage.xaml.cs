@@ -28,7 +28,7 @@ namespace ClassevivaPCTO.Views
 
         
 
-        private PaletteType _paletteType;
+        private PaletteType _paletteType = PaletteSelectorService.PaletteEnum;
 
         public PaletteType PaletteType
         {
@@ -62,9 +62,6 @@ namespace ClassevivaPCTO.Views
         private async Task InitializeAsync()
         {
             Version = GetVersionDescription();
-
-            App app = (App)App.Current;
-            _paletteType = await app.Container.GetService<Helpers.Palettes.PaletteFactory>().GetCurrentPaletteEnum();
 
             await Task.CompletedTask;
         }
@@ -163,8 +160,7 @@ namespace ClassevivaPCTO.Views
 
             if (param != null)
             {
-                App app = (App)App.Current;
-                await app.Container.GetService<Helpers.Palettes.PaletteFactory>().SetCurrentPalette((PaletteType)param);
+                await PaletteSelectorService.SetCurrentPalette((PaletteType)param);
             }
 
         }

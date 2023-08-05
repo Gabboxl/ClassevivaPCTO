@@ -5,7 +5,7 @@ using static ClassevivaPCTO.Helpers.Palettes.Palettes;
 
 namespace ClassevivaPCTO.Helpers.Palettes
 {
-    internal interface IPalette
+    public interface IPalette
     {
         Color ColorRed { get; }
         Color ColorOrange { get; }

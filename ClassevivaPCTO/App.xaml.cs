@@ -54,9 +54,6 @@ namespace ClassevivaPCTO
                 )
                 .AddHttpMessageHandler(() => new AuthenticatedHttpClientHandler(getToken));
 
-            //add PaletteFactory as singleton
-            serviceCollection.AddSingleton<Helpers.Palettes.PaletteFactory>();
-
             return serviceCollection.BuildServiceProvider();
         }
 
