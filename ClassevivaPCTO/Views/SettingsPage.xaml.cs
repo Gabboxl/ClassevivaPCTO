@@ -11,6 +11,8 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
 using ClassevivaPCTO.Dialogs;
+using ClassevivaPCTO.Helpers.Palettes;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace ClassevivaPCTO.Views
 {
@@ -22,6 +24,16 @@ namespace ClassevivaPCTO.Views
         {
             get { return _elementTheme; }
             set { Set(ref _elementTheme, value); }
+        }
+
+        
+
+        private PaletteType _paletteType;
+
+        public PaletteType PaletteType
+        {
+            get { return _paletteType; }
+            set { Set(ref _paletteType, value); }
         }
 
         public string AppName
@@ -50,6 +62,10 @@ namespace ClassevivaPCTO.Views
         private async Task InitializeAsync()
         {
             Version = GetVersionDescription();
+
+            App app = (App)App.Current;
+            _paletteType = await app.Container.GetService<Helpers.Palettes.PaletteFactory>().GetCurrentPaletteEnum();
+
             await Task.CompletedTask;
         }
 
@@ -138,6 +154,18 @@ namespace ClassevivaPCTO.Views
 
             //change theme based on selected index of the combobox sender
             await ThemeSelectorService.SetThemeAsync((ElementTheme)themeSelector.SelectedIndex);
+
+        }
+
+        private async void PaletteChanged_CheckedAsync(object sender, RoutedEventArgs e)
+        {
+            var param = (sender as RadioButton)?.CommandParameter;
+
+            if (param != null)
+            {
+                App app = (App)App.Current;
+                await app.Container.GetService<Helpers.Palettes.PaletteFactory>().SetCurrentPalette((PaletteType)param);
+            }
 
         }
     }
