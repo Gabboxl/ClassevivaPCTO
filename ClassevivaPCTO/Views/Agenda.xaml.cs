@@ -187,7 +187,7 @@ namespace ClassevivaPCTO.Views
 
                 //var EndDate of next year + june 30th
                 DateTime endDate = new DateTime(
-                    DateTime.Now.Month <= 7 ? DateTime.Now.Year : DateTime.Now.Year + 1,
+                    DateTime.Now.Month <= 8 ? DateTime.Now.Year : DateTime.Now.Year + 1,
                     6, 30);
 
 
