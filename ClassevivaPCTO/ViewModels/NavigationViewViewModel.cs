@@ -57,6 +57,7 @@ namespace ClassevivaPCTO.ViewModels
             NavigationService.Navigated += Frame_Navigated;
             _navigationView.BackRequested += OnBackRequested;
             _navigationView.ItemInvoked += OnItemInvoked;
+            //_navigationView.SelectionChanged += OnSelectionChanged;
         }
 
         private async void OnLoaded()
