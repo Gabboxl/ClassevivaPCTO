@@ -115,8 +115,8 @@
 
                 <controls:NoticesListView
                     x:Name="NoticesListView"
-
-                    HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Stretch"
                     Margin="0,8,0,0">
 
                 </controls:NoticesListView>

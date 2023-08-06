@@ -74,10 +74,10 @@ namespace ClassevivaPCTO.Views
 
             LoginResultComplete loginResult = ViewModelHolder.GetViewModel().LoginResult;
 
-            PersonPictureDashboard.DisplayName =
+           /* PersonPictureDashboard.DisplayName =
                 VariousUtils.ToTitleCase(loginResult.firstName)
                 + " "
-                + VariousUtils.ToTitleCase(loginResult.lastName);
+                + VariousUtils.ToTitleCase(loginResult.lastName); */
 
             //pagina di default
             NavigationService.Navigate(typeof(Views.DashboardPage));

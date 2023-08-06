@@ -11,6 +11,7 @@
     xmlns:roba="using:ClassevivaPCTO.Utils"
     xmlns:helpers="using:ClassevivaPCTO.Helpers"
     xmlns:views="using:ClassevivaPCTO.Views"
+    xmlns:custnav="using:ClassevivaPCTO.Controls.NiceNavigationView"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
     muxc:BackdropMaterial.ApplyToRootOrPageBackground="True">
@@ -151,24 +152,9 @@
                 </Grid>
             </Grid>
 
-
+            <!--
             <Button Grid.Row="0" Style="{StaticResource ProfileButtonStyle}" HorizontalAlignment="Right"
                     Margin="0,0,200,0">
-                <!--  <Button.ContextFlyout>
-                    <MenuFlyout>
-                        <MenuFlyoutItem Text="Esci"
-                        x:Name="LogoutButton"
-                                    Height="32" Width="177"
-                                    RenderTransformOrigin="2.13,0.797" HorizontalAlignment="Center"
-                                    Click="ButtonLogout_Click" VerticalAlignment="Top" >
-
-                            <MenuFlyoutItem.Icon>
-                                <FontIcon FontFamily="{StaticResource SymbolThemeFontFamily}" Glyph="&#xE10B;" />
-                            </MenuFlyoutItem.Icon>
-                        </MenuFlyoutItem>
-                        
-                    </MenuFlyout>
-                </Button.ContextFlyout> -->
                 <Button.Flyout>
                     <MenuFlyout x:Name="ProfileFlyout">
 
@@ -205,7 +191,6 @@
 
                             <MenuFlyoutItem.Icon>
                                 <FontIcon FontFamily="{StaticResource SymbolThemeFontFamily}" Glyph="&#xf3b1;" />
-                                <!-- or e966 -->
                             </MenuFlyoutItem.Icon>
                         </MenuFlyoutItem>
                     </MenuFlyout>
@@ -215,7 +200,8 @@
                     Height="42"
                     DisplayName="asdddd b"
                     x:Name="PersonPictureDashboard" />
-            </Button>
+
+            </Button> -->
 
 
         </Grid>
@@ -229,48 +215,80 @@
                              x:Name="navigationView"
                              PaneDisplayMode="LeftCompact"
                              IsPaneToggleButtonVisible="False">
+
             <muxc:NavigationView.MenuItems>
-                <muxc:NavigationViewItem Content="Dashboard" helpers:NavHelper.NavigateTo="views:DashboardPage">
-                    <muxc:NavigationViewItem.Icon>
+
+                <custnav:CustomNavigationViewItem Content="Dashboard" helpers:NavHelper.NavigateTo="views:DashboardPage">
+                    <custnav:CustomNavigationViewItem.IconOutline>
                         <FontIcon Glyph="&#xe80f;" FontFamily="{StaticResource FluentIcons}" />
-                    </muxc:NavigationViewItem.Icon>
-                </muxc:NavigationViewItem>
+                    </custnav:CustomNavigationViewItem.IconOutline>
 
-                <muxc:NavigationViewItem Content="Agenda" helpers:NavHelper.NavigateTo="views:Agenda">
-                    <muxc:NavigationViewItem.Icon>
+                    <custnav:CustomNavigationViewItem.IconFilled>
+                        <FontIcon Glyph="&#xea8a;" FontFamily="{StaticResource FluentIcons}" />
+                    </custnav:CustomNavigationViewItem.IconFilled>
+                </custnav:CustomNavigationViewItem>
+
+                <custnav:CustomNavigationViewItem Content="Agenda" helpers:NavHelper.NavigateTo="views:Agenda">
+                    <custnav:CustomNavigationViewItem.IconOutline>
                         <FontIcon Glyph="&#xe787;" FontFamily="{StaticResource FluentIcons}" />
-                    </muxc:NavigationViewItem.Icon>
-                </muxc:NavigationViewItem>
+                    </custnav:CustomNavigationViewItem.IconOutline>
 
-                <muxc:NavigationViewItem Content="Valutazioni" helpers:NavHelper.NavigateTo="views:DettaglioVoti">
-                    <muxc:NavigationViewItem.Icon>
+                    <custnav:CustomNavigationViewItem.IconFilled>
+                        <FontIcon Glyph="&#xea89;" FontFamily="{StaticResource FluentIcons}" />
+                    </custnav:CustomNavigationViewItem.IconFilled>
+
+                </custnav:CustomNavigationViewItem>
+
+                <custnav:CustomNavigationViewItem Content="Valutazioni" helpers:NavHelper.NavigateTo="views:DettaglioVoti">
+                    <custnav:CustomNavigationViewItem.IconOutline>
                         <FontIcon Glyph="&#xe9f9;" FontFamily="{StaticResource FluentIcons}" />
-                    </muxc:NavigationViewItem.Icon>
-                </muxc:NavigationViewItem>
+                    </custnav:CustomNavigationViewItem.IconOutline>
 
-                <muxc:NavigationViewItem Content="Assenze e ritardi" helpers:NavHelper.NavigateTo="views:Assenze">
-                    <muxc:NavigationViewItem.Icon>
+                    <custnav:CustomNavigationViewItem.IconFilled>
+                        <FontIcon Glyph="&#xea8a;" FontFamily="{StaticResource FluentIcons}" />
+                    </custnav:CustomNavigationViewItem.IconFilled>
+                </custnav:CustomNavigationViewItem>
+
+                <custnav:CustomNavigationViewItem Content="Assenze e ritardi" helpers:NavHelper.NavigateTo="views:Assenze">
+                    <custnav:CustomNavigationViewItem.IconOutline>
                         <FontIcon Glyph="&#xe7c1;" FontFamily="{StaticResource FluentIcons}" />
-                    </muxc:NavigationViewItem.Icon>
-                </muxc:NavigationViewItem>
+                    </custnav:CustomNavigationViewItem.IconOutline>
 
-                <muxc:NavigationViewItem Content="Note" helpers:NavHelper.NavigateTo="views:Note">
-                    <muxc:NavigationViewItem.Icon>
+                    <custnav:CustomNavigationViewItem.IconFilled>
+                        <FontIcon Glyph="&#xeb4b;" FontFamily="{StaticResource FluentIcons}" />
+                    </custnav:CustomNavigationViewItem.IconFilled>
+                </custnav:CustomNavigationViewItem>
+
+                <custnav:CustomNavigationViewItem Content="Note" helpers:NavHelper.NavigateTo="views:Note">
+                    <custnav:CustomNavigationViewItem.IconOutline>
                         <FontIcon Glyph="&#xe91c;" FontFamily="{StaticResource FluentIcons}" />
-                    </muxc:NavigationViewItem.Icon>
-                </muxc:NavigationViewItem>
+                    </custnav:CustomNavigationViewItem.IconOutline>
 
-                <muxc:NavigationViewItem Content="Scrutini" helpers:NavHelper.NavigateTo="views:Scrutini">
-                    <muxc:NavigationViewItem.Icon>
+                    <custnav:CustomNavigationViewItem.IconFilled>
+                        <FontIcon Glyph="&#xea8a;" FontFamily="{StaticResource FluentIcons}" />
+                    </custnav:CustomNavigationViewItem.IconFilled>
+                </custnav:CustomNavigationViewItem>
+
+                <custnav:CustomNavigationViewItem Content="Scrutini" helpers:NavHelper.NavigateTo="views:Scrutini">
+                    <custnav:CustomNavigationViewItem.IconOutline>
                         <FontIcon Glyph="&#xf180;" FontFamily="{StaticResource FluentIcons}" />
-                    </muxc:NavigationViewItem.Icon>
-                </muxc:NavigationViewItem>
+                    </custnav:CustomNavigationViewItem.IconOutline>
 
-                <muxc:NavigationViewItem Content="Bacheca" helpers:NavHelper.NavigateTo="views:Bacheca">
-                    <muxc:NavigationViewItem.Icon>
+                    <custnav:CustomNavigationViewItem.IconFilled>
+                        <FontIcon Glyph="&#xea8a;" FontFamily="{StaticResource FluentIcons}" />
+                    </custnav:CustomNavigationViewItem.IconFilled>
+                </custnav:CustomNavigationViewItem>
+
+                <custnav:CustomNavigationViewItem Content="Bacheca" helpers:NavHelper.NavigateTo="views:Bacheca">
+                    <custnav:CustomNavigationViewItem.IconOutline>
                         <FontIcon Glyph="&#xe718;" FontFamily="{StaticResource FluentIcons}" />
-                    </muxc:NavigationViewItem.Icon>
-                </muxc:NavigationViewItem>
+                    </custnav:CustomNavigationViewItem.IconOutline>
+
+                    <custnav:CustomNavigationViewItem.IconFilled>
+                        <FontIcon Glyph="&#xe841;" FontFamily="{StaticResource FluentIcons}" />
+                    </custnav:CustomNavigationViewItem.IconFilled>
+                </custnav:CustomNavigationViewItem>
+
             </muxc:NavigationView.MenuItems>
 
             <Frame x:Name="contentFrame" IsTabStop="True" />

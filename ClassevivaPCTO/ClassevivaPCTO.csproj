@@ -143,6 +143,7 @@
     <Compile Include="Controls\AgendaMultipleDaysListView.xaml.cs">
       <DependentUpon>AgendaMultipleDaysListView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\NiceNavigationView\CustomNavigationViewItem.cs" />
     <Compile Include="Controls\NotesListView.xaml.cs">
       <DependentUpon>NotesListView.xaml</DependentUpon>
     </Compile>
