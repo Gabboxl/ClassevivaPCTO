@@ -412,4 +412,7 @@ Gli account studente hanno l'username che inizia con le lettere S, G o X.</value
   <data name="NoNotesText.Text" xml:space="preserve">
     <value>Nessuna nota</value>
   </data>
+  <data name="TranslateAppText.Text" xml:space="preserve">
+    <value>Traduci l'app su Crowdin</value>
+  </data>
 </root>
