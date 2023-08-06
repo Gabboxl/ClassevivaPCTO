@@ -245,7 +245,7 @@
                     </custnav:CustomNavigationViewItem.IconOutline>
 
                     <custnav:CustomNavigationViewItem.IconFilled>
-                        <FontIcon Glyph="&#xea8a;" FontFamily="{StaticResource FluentIcons}" />
+                        <FontIcon Glyph="&#xf8b7;" FontFamily="{StaticResource FluentIcons}" />
                     </custnav:CustomNavigationViewItem.IconFilled>
                 </custnav:CustomNavigationViewItem>
 
@@ -265,7 +265,7 @@
                     </custnav:CustomNavigationViewItem.IconOutline>
 
                     <custnav:CustomNavigationViewItem.IconFilled>
-                        <FontIcon Glyph="&#xea8a;" FontFamily="{StaticResource FluentIcons}" />
+                        <FontIcon Glyph="&#xf8b4;" FontFamily="{StaticResource FluentIcons}" />
                     </custnav:CustomNavigationViewItem.IconFilled>
                 </custnav:CustomNavigationViewItem>
 
@@ -285,7 +285,7 @@
                     </custnav:CustomNavigationViewItem.IconOutline>
 
                     <custnav:CustomNavigationViewItem.IconFilled>
-                        <FontIcon Glyph="&#xe841;" FontFamily="{StaticResource FluentIcons}" />
+                        <FontIcon Glyph="&#xf8b5;" FontFamily="{StaticResource FluentIcons}" />
                     </custnav:CustomNavigationViewItem.IconFilled>
                 </custnav:CustomNavigationViewItem>
 
