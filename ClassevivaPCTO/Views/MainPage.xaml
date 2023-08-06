@@ -152,24 +152,9 @@
                 </Grid>
             </Grid>
 
-
+            <!--
             <Button Grid.Row="0" Style="{StaticResource ProfileButtonStyle}" HorizontalAlignment="Right"
                     Margin="0,0,200,0">
-                <!--  <Button.ContextFlyout>
-                    <MenuFlyout>
-                        <MenuFlyoutItem Text="Esci"
-                        x:Name="LogoutButton"
-                                    Height="32" Width="177"
-                                    RenderTransformOrigin="2.13,0.797" HorizontalAlignment="Center"
-                                    Click="ButtonLogout_Click" VerticalAlignment="Top" >
-
-                            <MenuFlyoutItem.Icon>
-                                <FontIcon FontFamily="{StaticResource SymbolThemeFontFamily}" Glyph="&#xE10B;" />
-                            </MenuFlyoutItem.Icon>
-                        </MenuFlyoutItem>
-                        
-                    </MenuFlyout>
-                </Button.ContextFlyout> -->
                 <Button.Flyout>
                     <MenuFlyout x:Name="ProfileFlyout">
 
@@ -206,7 +191,6 @@
 
                             <MenuFlyoutItem.Icon>
                                 <FontIcon FontFamily="{StaticResource SymbolThemeFontFamily}" Glyph="&#xf3b1;" />
-                                <!-- or e966 -->
                             </MenuFlyoutItem.Icon>
                         </MenuFlyoutItem>
                     </MenuFlyout>
@@ -216,7 +200,8 @@
                     Height="42"
                     DisplayName="asdddd b"
                     x:Name="PersonPictureDashboard" />
-            </Button>
+
+            </Button> -->
 
 
         </Grid>
