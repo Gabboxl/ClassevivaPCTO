@@ -31,7 +31,7 @@
 
         <RelativePanel Grid.Row="0" Margin="0,16,0,0">
 
-            <TextBlock x:Name="TextTitolo" Grid.Row="0" x:Uid="TitoloNote"
+            <TextBlock x:Name="TextTitolo" x:Uid="TitoloNote"
                        Style= "{StaticResource TitleLargeTextBlockStyle}"
                        VerticalAlignment="Top"
                        Margin="32,0,0,0" />
@@ -69,6 +69,8 @@
 
             -->
             <Grid
+                RelativePanel.AlignTopWithPanel="True"
+                RelativePanel.AlignBottomWithPanel="True"
                 RelativePanel.AlignRightWithPanel="True"
                 RelativePanel.AlignLeftWithPanel="True">
                 <Grid.RowDefinitions>
@@ -76,6 +78,8 @@
                 </Grid.RowDefinitions>
 
                 <controls:NotesListView
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Stretch"
                     x:Name="NotesListView"
                     Margin="0,8,0,0">
 
