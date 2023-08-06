@@ -275,7 +275,7 @@
                     </custnav:CustomNavigationViewItem.IconOutline>
 
                     <custnav:CustomNavigationViewItem.IconFilled>
-                        <FontIcon Glyph="&#xea8a;" FontFamily="{StaticResource FluentIcons}" />
+                        <FontIcon Glyph="&#xf8b6;" FontFamily="{StaticResource FluentIcons}" />
                     </custnav:CustomNavigationViewItem.IconFilled>
                 </custnav:CustomNavigationViewItem>
 
