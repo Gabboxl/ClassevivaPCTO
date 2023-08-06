@@ -110,7 +110,7 @@
 
 
                 <RelativePanel
-                    Margin="18,0,16,0"
+                    Margin="16,0,16,0"
                     Grid.Column="0"
                     VerticalAlignment="Stretch" HorizontalAlignment="Stretch"
                     x:Name="CardPanel"
@@ -170,7 +170,7 @@
 
                 <RelativePanel
                     Grid.Row="0"
-                    Margin="8"
+                    Margin="8,0,0,0"
                     Grid.Column="1"
                     x:Name="CalendarPanel"
                     CornerRadius="8"

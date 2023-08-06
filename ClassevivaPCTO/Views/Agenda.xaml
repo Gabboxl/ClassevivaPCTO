@@ -246,9 +246,9 @@
                             RelativePanel.AlignVerticalCenterWithPanel="True"
                             RelativePanel.LeftOf="CalendarAgenda"
                             Width="48"
-                            Height="33"
+                            Height="32"
                             Click="ButtonYesterday_Click">
-                        <FontIcon FontSize="14" Glyph="&#xE76B;" HorizontalAlignment="Center" />
+                        <FontIcon FontSize="16" Glyph="&#xE76B;" HorizontalAlignment="Center" VerticalAlignment="Center" />
                     </Button>
 
 
@@ -262,13 +262,13 @@
                     <Button x:Name="ButtonTomorrow" Margin="0,0,0,0"
                             RelativePanel.LeftOf="ButtonToday"
                             Width="48"
-                            Height="33"
+                            Height="32"
                             RelativePanel.AlignVerticalCenterWithPanel="True"
                             Click="ButtonTomorrow_Click">
-                        <FontIcon FontSize="14" Glyph="&#xE76C;" HorizontalAlignment="Center" />
+                        <FontIcon FontSize="16" Glyph="&#xE76C;" HorizontalAlignment="Center" VerticalAlignment="Center" />
                     </Button>
 
-                    <ToggleButton x:Name="ButtonToday" x:Uid="ButtonTodayAgenda" Margin="8,0,0,0"
+                    <ToggleButton x:Name="ButtonToday" HorizontalAlignment="Center" VerticalAlignment="Center" x:Uid="ButtonTodayAgenda" Margin="8,0,0,0"
                                   RelativePanel.LeftOf="Separator1"
                                   RelativePanel.AlignVerticalCenterWithPanel="True"
                                   toolkit:FrameworkElementExtensions.Cursor="Hand"
@@ -276,7 +276,7 @@
 
                     <Rectangle x:Name="Separator1" RelativePanel.AlignRightWithPanel="True"
                                Fill="{ThemeResource ControlStrokeColorDefaultBrush}"
-                               Width="2" Height="48" Margin="16,0,0,0" />
+                               Width="2" Height="48" Margin="16,0,0,0"  />
                 </RelativePanel>
 
                 <RelativePanel x:Name="PopupButtonsRelativePanel" Grid.Row="0" Grid.Column="1" Margin="0,16,0,0"
@@ -291,9 +291,10 @@
                         Margin="16,0,0,0">
                         <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Spacing="8">
                             
+                            <TextBlock Text="&#xEA98;" VerticalAlignment="Center" FontFamily="{StaticResource FluentIcons}"/>
+
                             <TextBlock x:Uid="TuttiCompitiButton"/>
 
-                            <TextBlock Text="&#xEA98;" VerticalAlignment="Center" FontFamily="{StaticResource FluentIcons}"/>
                         </StackPanel>
                     </Button>
 
@@ -302,12 +303,12 @@
                         x:Name="PopupLessonsButton"
                         Click="PopupLessonsButton_OnClick"
                         RelativePanel.AlignRightWithPanel="True"
-                        Margin="8,0,16,0">
+                        Margin="8,0,20,0">
 
                         <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Spacing="8">
-                            
-                            <TextBlock x:Uid="PopupLessonsButton"/>
                             <TextBlock Text="&#xe7be;" VerticalAlignment="Center" FontFamily="{StaticResource FluentIcons}"/>
+                            <TextBlock x:Uid="PopupLessonsButton"/>
+
                         </StackPanel>
                     </Button>
 

@@ -54,7 +54,7 @@
                            x:Uid="Settings_Account" />
 
 
-                <Grid Margin="0,18,0,0"
+                <Grid Margin="0,0,0,0"
                       CornerRadius="8"
                       Padding="12"
                       BorderThickness="1"
@@ -117,7 +117,6 @@
                                     HorizontalAlignment="Stretch"
                                     Margin="0,0,0,0" />
                             <Button x:Name="ExitButton"
-                                    Style="{StaticResource AccentButtonStyle}"
                                     HorizontalAlignment="Stretch"
                                     RelativePanel.Below="ChangePhotoButton"
                                     Content="Esci" Margin="0,24,0,0" />
@@ -351,7 +350,7 @@
                 <TextBlock Style="{StaticResource SettingsSectionHeaderTextBlockStyle}"
                            x:Uid="Settings_About" />
 
-                <labs:SettingsExpander x:Uid="SettingsExpanderReservedRights"
+                <labs:SettingsExpander x:Uid="SettingsExpanderReservedRights" IsExpanded="True"
                                        Header="{x:Bind AppName}">
                     <labs:SettingsExpander.HeaderIcon>
                         <BitmapIcon ShowAsMonochrome="False"
