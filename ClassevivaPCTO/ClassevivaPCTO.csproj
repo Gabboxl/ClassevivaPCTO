@@ -130,6 +130,7 @@
   <ItemGroup>
     <Compile Include="Activation\ActivationHandler.cs" />
     <Compile Include="Activation\DefaultActivationHandler.cs" />
+    <Compile Include="Adapters\ComboPaletteAdapter.cs" />
     <Compile Include="Adapters\AbsenceEventAdapter.cs" />
     <Compile Include="Adapters\GradeAdapter.cs" />
     <Compile Include="Adapters\SchoolReportAdapter.cs" />
@@ -170,6 +171,7 @@
     <Compile Include="Converters\AbsenceTypeToColorConverter.cs" />
     <Compile Include="Converters\BetterBoolToVisibilityConverter.cs" />
     <Compile Include="Converters\EmptyListToVisibilityConverter.cs" />
+    <Compile Include="Converters\ColorToBrushConverter.cs" />
     <Compile Include="Deserializers\NoteDeserializer.cs" />
     <Compile Include="Dialogs\NoteDialogContent.xaml.cs">
       <DependentUpon>NoteDialogContent.xaml</DependentUpon>

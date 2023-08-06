@@ -1,6 +1,7 @@
 ﻿using ClassevivaPCTO.Helpers;
 using ClassevivaPCTO.Services;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Runtime.CompilerServices;
@@ -10,9 +11,9 @@ using Windows.Services.Store;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
+using ClassevivaPCTO.Adapters;
 using ClassevivaPCTO.Dialogs;
 using ClassevivaPCTO.Helpers.Palettes;
-using Microsoft.Extensions.DependencyInjection;
 
 namespace ClassevivaPCTO.Views
 {
@@ -26,7 +27,6 @@ namespace ClassevivaPCTO.Views
             set { Set(ref _elementTheme, value); }
         }
 
-        
 
         private PaletteType _paletteType = PaletteSelectorService.PaletteEnum;
 
@@ -34,6 +34,14 @@ namespace ClassevivaPCTO.Views
         {
             get { return _paletteType; }
             set { Set(ref _paletteType, value); }
+        }
+
+        private List<ComboPaletteAdapter> _comboPalettes;
+
+        public List<ComboPaletteAdapter> ComboPalettes
+        {
+            get { return _comboPalettes; }
+            set { Set(ref _comboPalettes, value); }
         }
 
         public string AppName
@@ -62,6 +70,14 @@ namespace ClassevivaPCTO.Views
         private async Task InitializeAsync()
         {
             Version = GetVersionDescription();
+
+            //create combo palette adapters for each palette of the enum PaletteType
+            ComboPalettes = new List<ComboPaletteAdapter>();
+            foreach (PaletteType paletteType in Enum.GetValues(typeof(PaletteType)))
+            {
+                ComboPalettes.Add(new ComboPaletteAdapter(PaletteSelectorService.GetPaletteClass(paletteType), paletteType));
+            }
+
 
             await Task.CompletedTask;
         }
@@ -154,7 +170,7 @@ namespace ClassevivaPCTO.Views
 
         }
 
-        private async void PaletteChanged_CheckedAsync(object sender, RoutedEventArgs e)
+        /*private async void PaletteChanged_CheckedAsync(object sender, RoutedEventArgs e)
         {
             var param = (sender as RadioButton)?.CommandParameter;
 
@@ -163,6 +179,15 @@ namespace ClassevivaPCTO.Views
                 await PaletteSelectorService.SetCurrentPalette((PaletteType)param);
             }
 
+        }*/
+
+        private async void PaletteComboBox_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            ComboBox paletteSelector = (ComboBox) sender;
+
+            //change theme based on selected index of the combobox sender
+            PaletteType = (PaletteType)paletteSelector.SelectedIndex;
+            await PaletteSelectorService.SetCurrentPalette(PaletteType);
         }
     }
 }
