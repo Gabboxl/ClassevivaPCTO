@@ -37,7 +37,7 @@ namespace ClassevivaPCTO.Services
         }
 
 
-        private static IPalette GetPaletteClass(PaletteType classType)
+        public static IPalette GetPaletteClass(PaletteType classType)
         {
             var fieldInfo = typeof(PaletteType).GetField(classType.ToString());
             var classMappingAttribute = fieldInfo.GetCustomAttribute<ClassMappingAttribute>();
