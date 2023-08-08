@@ -10,7 +10,7 @@ namespace ClassevivaPCTO.Helpers.Palettes
         {
             public Color ColorRed => ColorHelper.ToColor("#CF5955");
             public Color ColorOrange => ColorHelper.ToColor("#EE9B4C");
-            public Color ColorYellow => ColorHelper.ToColor("#EE9B4C");
+            public Color ColorYellow => ColorHelper.ToColor("#5E97B2");
             public Color ColorGreen => ColorHelper.ToColor("#7EAE83");
         }
 
@@ -18,7 +18,7 @@ namespace ClassevivaPCTO.Helpers.Palettes
         {
             public Color ColorRed => Colors.Crimson;
             public Color ColorOrange => Colors.DarkOrange;
-            public Color ColorYellow => Colors.Goldenrod;
+            public Color ColorYellow => ColorHelper.ToColor("#483D8B");
             public Color ColorGreen => Colors.Teal;
         }
 
@@ -26,7 +26,7 @@ namespace ClassevivaPCTO.Helpers.Palettes
         {
             public Color ColorRed => ColorHelper.ToColor("#9A4D31");
             public Color ColorOrange => ColorHelper.ToColor("#FC9553");
-            public Color ColorYellow => ColorHelper.ToColor("#FC9553");
+            public Color ColorYellow => ColorHelper.ToColor("#42AACD");
             public Color ColorGreen => ColorHelper.ToColor("#78C141");
         }
     }

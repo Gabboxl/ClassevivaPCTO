@@ -42,16 +42,16 @@
 
         </Grid>
 
-        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Height="380" Width="349"
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Height="350" Width="375"
                     CornerRadius="8"
                     Padding="12"
                     BorderThickness="1"
                     BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
                     Background="{ThemeResource CardBackgroundFillColorDefaultBrush}">
 
-            <TextBlock x:Uid="TextBenvenutoLogin" FontSize="24" TextAlignment="Center" Height="60" />
+            <TextBlock x:Uid="TextBenvenutoLogin" FontSize="30" TextAlignment="Center" FontWeight="SemiBold" Height="60" />
 
-            <TextBox x:Name="EdittextUsername" x:Uid="EdittextUsername" PlaceholderText="Username"
+            <TextBox x:Name="EdittextUsername" x:Uid="EdittextUsername" PlaceholderText="Nome utente"
                      Margin="0,0,0,30" />
             <PasswordBox x:Name="EdittextPassword" x:Uid="EdittextPassword" PlaceholderText="Password"
                          Margin="0,0,0,20" />
@@ -59,14 +59,14 @@
                       Margin="0,0,0,20" />
 
             <Button x:Name="buttonLogin" Style="{StaticResource AccentButtonStyle}" Content="Accedi" Height="32"
-                    Width="81" RenderTransformOrigin="2.13,0.797" HorizontalAlignment="Center" Margin="0,0,0,30"
+                    Width="100" RenderTransformOrigin="2.13,0.797" HorizontalAlignment="Center" Margin="0,0,0,15"
                     Click="Button_Click" />
             <muxc:ProgressRing x:Name="progresslogin" IsActive="True" Visibility="Collapsed" />
         </StackPanel>
 
         <TextBlock x:Name="VersionTextBlock" Style="{ThemeResource BodyStrongTextBlockStyle}"
                    Foreground="{ThemeResource TextFillColorTertiaryBrush}" VerticalAlignment="Bottom"
-                   HorizontalAlignment="Left" Margin="16" />
+                   HorizontalAlignment="Left" Margin="18" />
 
         <!--<Button Style="{StaticResource AccentButtonStyle}" Content="Usa account demo" Margin="16" VerticalAlignment="Bottom" HorizontalAlignment="Left"/>-->
     </Grid>

@@ -117,13 +117,38 @@
 
                         <StackPanel Grid.Column="2" VerticalAlignment="Center" Margin="0,0,8,0"
                                     Width="164">
-                            <Button x:Name="ChangePhotoButton" Content="Cambia foto"
-                                    HorizontalAlignment="Stretch"
-                                    Margin="0,0,0,0" />
-                            <Button x:Name="ExitButton"
+                    <Button
+                        RelativePanel.AlignVerticalCenterWithPanel="True"
+                        x:Name="ChangePhotoButton"
+                        Width="162"
+                        Margin="0,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Spacing="8">
+
+                            <TextBlock Text="&#xE722;" VerticalAlignment="Center" FontFamily="{StaticResource FluentIcons}"/>
+
+                            <TextBlock Text="Cambia foto"/>
+
+                        </StackPanel>
+
+                    
+                    </Button>
+
+                            <Button x:Name="ExitButton" Click="ButtonLogout_Click"
+                                    Width="162"
                                     HorizontalAlignment="Stretch"
                                     RelativePanel.Below="ChangePhotoButton"
-                                    Content="Esci" Margin="0,24,0,0" />
+                                    Margin="0,24,0,0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+
+                                <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Spacing="8">
+                                    <TextBlock Text="&#xF3B1;" VerticalAlignment="Center" FontFamily="{StaticResource FluentIcons}"/>
+                                    <TextBlock Text="Esci"/>
+
+                                </StackPanel>
+                           
+                            </Button>
+
+
                         </StackPanel>
 
                     </Grid>
@@ -137,13 +162,13 @@
 
                 <labs:SettingsCard x:Uid="SettingsExpanderTheme">
                     <labs:SettingsCard.HeaderIcon>
-                        <FontIcon Glyph="&#xE790;" />
+                        <FontIcon Glyph="&#xE793;" />
                     </labs:SettingsCard.HeaderIcon>
 
                     <!-- the combobox selected index is bound to the current theme enum value -->
 
                     <ComboBox SelectedIndex="{x:Bind ElementTheme.GetHashCode()}"
-                              SelectionChanged="ThemeSelector_OnSelectionChanged">
+                              SelectionChanged="ThemeSelector_OnSelectionChanged" Width="200">
                         <ComboBoxItem
                             x:Uid="Settings_Theme_Default">
 
@@ -164,36 +189,44 @@
                                    Header="Schema colori">
 
                     <labs:SettingsCard.HeaderIcon>
-                        <FontIcon Glyph="&#xE712;" />
+                        <FontIcon Glyph="&#xE790;" />
                     </labs:SettingsCard.HeaderIcon>
 
                     <ComboBox SelectedIndex="{x:Bind PaletteType.GetHashCode()}"
-                              x:Name="PaletteComboBox"
+                              x:Name="PaletteComboBox" Width="200"
                               ItemsSource="{x:Bind ComboPalettes}"
                               SelectionChanged="PaletteComboBox_OnSelectionChanged">
                         <ComboBox.ItemTemplate>
                             <DataTemplate x:DataType="adapters:ComboPaletteAdapter">
-                                <StackPanel Orientation="Vertical">
-                                    <TextBlock Text="{x:Bind PaletteNameTranslatedResource}" Margin="0,0,0,0" />
-                                    <StackPanel Orientation="Horizontal" Spacing="8" Margin="6,8,0,0">
+                                <StackPanel Orientation="Horizontal">
+                                    
+                                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Spacing="8" Margin="0,4,0,0">
 
-                                        <Border Width="32"
-                                                Height="32"
+                                        <Border Width="24"
+                                                Height="24"
                                                 Background="{x:Bind CurrentPalette.ColorGreen, Converter={StaticResource ColorToBrushConverter}, Mode=OneWay}"
-                                                CornerRadius="32"
-                                                IsTapEnabled="False" />
+                                                CornerRadius="26" 
+                                                IsTapEnabled="False" ToolTipService.ToolTip="Sufficienza, presenza"/>
 
-                                        <Border Width="32"
-                                                Height="32"
+                                        <Border Width="24"
+                                                Height="24"
                                                 Background="{x:Bind CurrentPalette.ColorOrange, Converter={StaticResource ColorToBrushConverter}, Mode=OneWay}"
-                                                CornerRadius="32"
-                                                IsTapEnabled="False" />
+                                                CornerRadius="26" 
+                                                IsTapEnabled="False" ToolTipService.ToolTip="Insufficienza lieve, ritardo"/>
 
-                                        <Border Width="32"
-                                                Height="32"
+                                        <Border Width="24"
+                                                Height="24"
                                                 Background="{x:Bind CurrentPalette.ColorRed, Converter={StaticResource ColorToBrushConverter}, Mode=OneWay}"
-                                                CornerRadius="32"
-                                                IsTapEnabled="False" />
+                                                CornerRadius="26" 
+                                                IsTapEnabled="False" ToolTipService.ToolTip="Insufficienza grave, assenza" />
+
+                                        <Border Width="24"
+                                                Height="24"
+                                                Background="{x:Bind CurrentPalette.ColorYellow, Converter={StaticResource ColorToBrushConverter}, Mode=OneWay}"
+                                                CornerRadius="26" 
+                                                IsTapEnabled="False" ToolTipService.ToolTip="Non fa media, uscita" />
+
+
                                     </StackPanel>
 
                                 </StackPanel>
@@ -227,7 +260,7 @@
                         <FontIcon Glyph="&#xE8C1;" />
                     </labs:SettingsCard.HeaderIcon>
 
-                    <ComboBox SelectedIndex="0">
+                    <ComboBox SelectedIndex="0" Width="130">
 
                         <ComboBoxItem
                             x:Uid="Settings_Language_It_IT">
@@ -250,7 +283,7 @@
                         <FontIcon Glyph="&#xE762;" />
                     </labs:SettingsCard.HeaderIcon>
 
-                    <Button x:Uid="SettingsCardWhatsNewButton" Click="ButtonChangelog_OnClick" />
+                    <Button x:Uid="SettingsCardWhatsNewButton" Width="130" Click="ButtonChangelog_OnClick" />
 
 
                 </labs:SettingsCard>
@@ -262,7 +295,7 @@
                         <FontIcon Glyph="&#xEA80;" />
                     </labs:SettingsCard.HeaderIcon>
 
-                    <Button x:Uid="SettingsCardTutorialButton" />
+                    <Button x:Uid="SettingsCardTutorialButton" Width="130" />
 
                 </labs:SettingsCard>
 
@@ -291,7 +324,7 @@
                                         Spacing="8">
 
                                 <HyperlinkButton NavigateUri="http://github.com/Gabboxl/ClassevivaPCTO">
-                                    <StackPanel Orientation="Horizontal" Spacing="6">
+                                    <StackPanel Orientation="Horizontal" Spacing="10">
                                         <Grid Width="18" Height="18">
                                             <Path
                                                 Data="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"
@@ -307,7 +340,7 @@
                                 <HyperlinkButton x:Name="hyperlinkVote"
                                                  Click="HyperlinkVote_Click">
 
-                                    <StackPanel Orientation="Horizontal" Spacing="6">
+                                    <StackPanel Orientation="Horizontal" Spacing="10">
                                         <Grid Width="18" Height="18">
                                             <Path
                                                 Data="M10.788 3.103c.495-1.004 1.926-1.004 2.421 0l2.358 4.777 5.273.766c1.107.161 1.549 1.522.748 2.303l-3.816 3.72.901 5.25c.19 1.103-.968 1.944-1.959 1.424l-4.716-2.48-4.715 2.48c-.99.52-2.148-.32-1.96-1.424l.901-5.25-3.815-3.72c-.801-.78-.359-2.142.748-2.303L8.43 7.88l2.358-4.777Zm1.21.936L9.74 8.615a1.35 1.35 0 0 1-1.016.738l-5.05.734 3.654 3.562c.318.31.463.757.388 1.195l-.862 5.03 4.516-2.375a1.35 1.35 0 0 1 1.257 0l4.516 2.374-.862-5.029a1.35 1.35 0 0 1 .388-1.195l3.654-3.562-5.05-.734a1.35 1.35 0 0 1-1.016-.738l-2.259-4.576Z"
@@ -319,11 +352,27 @@
                                     </StackPanel>
                                 </HyperlinkButton>
 
+                                <HyperlinkButton x:Name="hyperlinkTranslate"
+                                                 RelativePanel.RightOf="hyperlinkVote"
+                                                 NavigateUri="https://crowdin.com/project/classevivapcto/invite?h=2b7340ff29ea44873bdef53dc5f7b6871790557">
+
+                                    <StackPanel Orientation="Horizontal" Spacing="10">
+                                        <Grid Width="18" Height="18">
+                                            <Path
+                                                Data="M16.961 5.987a.75.75 0 0 0-1.423-.473 21.42 21.42 0 0 0-.42 1.512c-.736.026-1.446.018-2.067-.024a.75.75 0 1 0-.102 1.496c.563.039 1.19.05 1.844.038-.144.765-.241 1.449-.3 2.064-1.215.642-2.061 1.504-2.539 2.412-.613 1.166-.66 2.556.206 3.443.571.584 1.408.64 2.129.485a4.665 4.665 0 0 0 1.24-.474l.018.046a.75.75 0 0 0 1.405-.524 9.628 9.628 0 0 0-.17-.424 7.63 7.63 0 0 0 2.285-4.047c.638.312 1.07.836 1.278 1.4a2.48 2.48 0 0 1-.097 1.952c-.308.636-.933 1.265-2.015 1.681a.75.75 0 1 0 .538 1.4c1.387-.533 2.33-1.402 2.827-2.427a3.98 3.98 0 0 0 .154-3.127 4.036 4.036 0 0 0-2.505-2.424c.002-.073.003-.147.003-.222a.75.75 0 0 0-1.5-.026 5.939 5.939 0 0 0-1.672.237c.064-.455.148-.953.257-1.5 1.185-.089 2.364-.252 3.337-.48a.75.75 0 0 0-.344-1.46c-.767.18-1.69.317-2.637.405.085-.33.18-.67.27-.94Zm-3.68 7.723c.227-.43.6-.886 1.147-1.3.017.492.065.926.137 1.317.094.52.236.974.386 1.373-.306.171-.632.3-.977.374-.485.104-.687-.012-.742-.068-.24-.245-.394-.853.05-1.696Zm4.315-2.487a6.648 6.648 0 0 1-1.414 2.848 6.24 6.24 0 0 1-.142-.612 8.618 8.618 0 0 1-.111-1.866c.11-.042.222-.082.339-.12a4.718 4.718 0 0 1 1.328-.25ZM7.96 6.53a6.067 6.067 0 0 0-4.575.467.75.75 0 1 0 .725 1.313 4.57 4.57 0 0 1 3.431-.34c.773.227 1.098.64 1.264 1.056.133.332.175.691.188 1.042-.27-.075-.581-.15-.923-.21-1.132-.202-2.682-.263-4.122.427-1.586.76-2.13 2.316-1.902 3.697.224 1.356 1.216 2.666 2.8 2.951 1.43.258 2.805-.256 3.757-.761A9.34 9.34 0 0 0 9 15.95v.3a.75.75 0 0 0 1.5 0v-5.79c0-.454 0-1.236-.3-1.99-.331-.829-1.005-1.578-2.237-1.94h-.001Zm-.152 4.804c.483.086.898.206 1.19.305v2.506a8.296 8.296 0 0 1-1.099.702c-.84.447-1.849.779-2.787.61-.845-.152-1.445-.866-1.586-1.72-.138-.83.179-1.673 1.07-2.1 1.037-.496 2.226-.478 3.212-.303Z"
+                                                Stretch="Uniform"
+                                                Fill="{ThemeResource AccentTextFillColorPrimaryBrush}" />
+                                        </Grid>
+
+                                        <TextBlock x:Uid="TranslateAppText" />
+                                    </StackPanel>
+                                </HyperlinkButton>
+
                                 <HyperlinkButton x:Name="hyperlinkIssue"
                                                  RelativePanel.RightOf="hyperlinkVote"
                                                  NavigateUri="http://github.com/Gabboxl/ClassevivaPCTO/issues">
 
-                                    <StackPanel Orientation="Horizontal" Spacing="6">
+                                    <StackPanel Orientation="Horizontal" Spacing="10">
                                         <Grid Width="18" Height="18">
                                             <Path
                                                 Data="M10.5 2.751a.75.75 0 0 0-1.5 0v.752c0 .633.196 1.22.53 1.703A3.753 3.753 0 0 0 7.01 8.49h-.257a2.25 2.25 0 0 1-2.24-2.26l.006-1.485a.75.75 0 1 0-1.5-.006l-.007 1.485A3.75 3.75 0 0 0 6.747 9.99H7v1.51H2.75a.75.75 0 0 0 0 1.5H7v1.992h-.253a3.75 3.75 0 0 0-3.735 3.765l.007 1.486a.75.75 0 0 0 1.5-.006l-.007-1.486a2.25 2.25 0 0 1 2.241-2.259H7.226a5.002 5.002 0 0 0 9.548 0H17.247a2.25 2.25 0 0 1 2.24 2.26l-.006 1.485a.75.75 0 0 0 1.5.006l.006-1.486a3.75 3.75 0 0 0-3.734-3.765H17V13h4.251a.75.75 0 0 0 0-1.5H17V9.99h.253a3.75 3.75 0 0 0 3.735-3.766L20.98 4.74a.75.75 0 0 0-1.5.006l.006 1.486a2.25 2.25 0 0 1-2.24 2.259h-.256a3.753 3.753 0 0 0-2.52-3.284c.333-.484.529-1.07.529-1.703v-.752a.75.75 0 0 0-1.5 0v.752a1.5 1.5 0 0 1-3 0v-.752Zm-2 6.002a2.25 2.25 0 0 1 2.25-2.25h2.5a2.25 2.25 0 0 1 2.25 2.25V15a3.5 3.5 0 1 1-7 0V8.753Z"
@@ -335,21 +384,7 @@
                                     </StackPanel>
                                 </HyperlinkButton>
 
-                                <HyperlinkButton x:Name="hyperlinkTranslate"
-                                                 RelativePanel.RightOf="hyperlinkVote"
-                                                 NavigateUri="https://crowdin.com/project/classevivapcto/invite?h=2b7340ff29ea44873bdef53dc5f7b6871790557">
 
-                                    <StackPanel Orientation="Horizontal" Spacing="6">
-                                        <Grid Width="18" Height="18">
-                                            <Path
-                                                Data="M16.961 5.987a.75.75 0 0 0-1.423-.473 21.42 21.42 0 0 0-.42 1.512c-.736.026-1.446.018-2.067-.024a.75.75 0 1 0-.102 1.496c.563.039 1.19.05 1.844.038-.144.765-.241 1.449-.3 2.064-1.215.642-2.061 1.504-2.539 2.412-.613 1.166-.66 2.556.206 3.443.571.584 1.408.64 2.129.485a4.665 4.665 0 0 0 1.24-.474l.018.046a.75.75 0 0 0 1.405-.524 9.628 9.628 0 0 0-.17-.424 7.63 7.63 0 0 0 2.285-4.047c.638.312 1.07.836 1.278 1.4a2.48 2.48 0 0 1-.097 1.952c-.308.636-.933 1.265-2.015 1.681a.75.75 0 1 0 .538 1.4c1.387-.533 2.33-1.402 2.827-2.427a3.98 3.98 0 0 0 .154-3.127 4.036 4.036 0 0 0-2.505-2.424c.002-.073.003-.147.003-.222a.75.75 0 0 0-1.5-.026 5.939 5.939 0 0 0-1.672.237c.064-.455.148-.953.257-1.5 1.185-.089 2.364-.252 3.337-.48a.75.75 0 0 0-.344-1.46c-.767.18-1.69.317-2.637.405.085-.33.18-.67.27-.94Zm-3.68 7.723c.227-.43.6-.886 1.147-1.3.017.492.065.926.137 1.317.094.52.236.974.386 1.373-.306.171-.632.3-.977.374-.485.104-.687-.012-.742-.068-.24-.245-.394-.853.05-1.696Zm4.315-2.487a6.648 6.648 0 0 1-1.414 2.848 6.24 6.24 0 0 1-.142-.612 8.618 8.618 0 0 1-.111-1.866c.11-.042.222-.082.339-.12a4.718 4.718 0 0 1 1.328-.25ZM7.96 6.53a6.067 6.067 0 0 0-4.575.467.75.75 0 1 0 .725 1.313 4.57 4.57 0 0 1 3.431-.34c.773.227 1.098.64 1.264 1.056.133.332.175.691.188 1.042-.27-.075-.581-.15-.923-.21-1.132-.202-2.682-.263-4.122.427-1.586.76-2.13 2.316-1.902 3.697.224 1.356 1.216 2.666 2.8 2.951 1.43.258 2.805-.256 3.757-.761A9.34 9.34 0 0 0 9 15.95v.3a.75.75 0 0 0 1.5 0v-5.79c0-.454 0-1.236-.3-1.99-.331-.829-1.005-1.578-2.237-1.94h-.001Zm-.152 4.804c.483.086.898.206 1.19.305v2.506a8.296 8.296 0 0 1-1.099.702c-.84.447-1.849.779-2.787.61-.845-.152-1.445-.866-1.586-1.72-.138-.83.179-1.673 1.07-2.1 1.037-.496 2.226-.478 3.212-.303Z"
-                                                Stretch="Uniform"
-                                                Fill="{ThemeResource AccentTextFillColorPrimaryBrush}" />
-                                        </Grid>
-
-                                        <TextBlock x:Uid="TranslateAppText" />
-                                    </StackPanel>
-                                </HyperlinkButton>
                             </StackPanel>
                         </labs:SettingsCard>
                     </labs:SettingsExpander.Items>

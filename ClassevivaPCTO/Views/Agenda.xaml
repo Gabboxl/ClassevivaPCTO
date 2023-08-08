@@ -232,9 +232,9 @@
                         <Button RelativePanel.LeftOf="Separator0" x:Name="AggiornaCommand"
                                 RelativePanel.AlignVerticalCenterWithPanel="True"
                                 Width="48"
-                                Height="36"
+                                Height="32"
                                 Margin="16,0,0,0" Click="AggiornaCommand_Click" >
-                            <FontIcon FontSize="18" Glyph="&#xE72C;" HorizontalAlignment="Center" />
+                            <FontIcon FontSize="16" Glyph="&#xE72C;" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                         </Button>
                         
                         <!-- vertical separator -->

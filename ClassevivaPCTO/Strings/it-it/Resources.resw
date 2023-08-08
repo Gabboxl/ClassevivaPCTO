@@ -424,4 +424,7 @@ Gli account studente hanno l'username che inizia con le lettere S, G o X.</value
   <data name="PALETTE_NAT" xml:space="preserve">
     <value>Natura</value>
   </data>
+  <data name="ChangePhotoButton" xml:space="preserve">
+    <value>Cambia foto</value>
+  </data>
 </root>
