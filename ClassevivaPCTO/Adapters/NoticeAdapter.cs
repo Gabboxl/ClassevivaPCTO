@@ -24,7 +24,7 @@ namespace ClassevivaPCTO.Adapters
 
                 if (CurrentObject.cntStatus == "deleted")
                 {
-                    brush.Color = Colors.Crimson;
+                    brush.Color = Colors.IndianRed;
                 }
                 else if (!CurrentObject.cntValidInRange)
                 {
@@ -45,10 +45,10 @@ namespace ClassevivaPCTO.Adapters
             {
                 if (CurrentObject.cntStatus == "deleted")
                 {
-                    return "Comunicazione eliminata";
+                    return "Eliminata";
                 } else if (!CurrentObject.cntValidInRange)
                 {
-                    return "Comunicazione scaduta";
+                    return "Scaduta";
                 }
 
                 return "";
@@ -79,12 +79,12 @@ namespace ClassevivaPCTO.Adapters
 
                 if (CurrentObject.readStatus)
                 {
-                    brush.Color = Colors.Green;
+                    brush.Color = Colors.LightGreen;
 
                 }
                 else
                 {
-                    brush.Color = Colors.Red;
+                    brush.Color = Colors.IndianRed;
                 }
 
                 return brush;

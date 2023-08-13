@@ -21,10 +21,29 @@
         </Grid.RowDefinitions>
 
 
-        <TextBlock x:Name="MainTitleTextBox" Grid.Row="1" x:Uid="TitleValutazioni"
-                   Style= "{StaticResource TitleLargeTextBlockStyle}"
-                   VerticalAlignment="Top"
-                   Margin="32,16,0,0" />
+        <RelativePanel Grid.Row="0" Margin="0,16,0,0">
+
+            <TextBlock x:Name="MainTitleTextBox" x:Uid="TitleValutazioni"
+                       Style= "{StaticResource TitleLargeTextBlockStyle}"
+                       VerticalAlignment="Top"
+                       Margin="32,0,0,0" />
+
+            <muxc:ProgressRing IsActive="False" x:Name="ProgressRingVoti"
+                                       RelativePanel.AlignVerticalCenterWith="MainTitleTextBox"
+                                       RelativePanel.RightOf="MainTitleTextBox"
+                                       Margin="16,0,0,0" Width="28" Height="28"
+                                       />
+
+            <Button x:Name="AggiornaCommand"
+                    HorizontalAlignment="Right"
+                    Width="48"
+                    Height="32"
+                    Margin="26,0,20,0"  RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignVerticalCenterWith="MainTitleTextBox" ToolTipService.ToolTip="Aggiorna">
+                <FontIcon Glyph="&#xE72C;" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16"/>
+            </Button>
+
+
+        </RelativePanel>
 
         <RelativePanel Grid.Row="2"
                        Margin="18"
@@ -35,10 +54,6 @@
                        BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
                        Background="{ThemeResource CardBackgroundFillColorDefaultBrush}">
 
-            <muxc:ProgressRing IsActive="True" x:Name="ProgressRingVoti"
-                               RelativePanel.AlignVerticalCenterWithPanel="True"
-
-                               RelativePanel.AlignHorizontalCenterWithPanel="True" />
             <ComboBox x:Name="ComboPeriodi" Header="Periodo didattico" PlaceholderText="Seleziona un periodo"
                       Width="200" SelectionChanged="ComboPeriodi_SelectionChanged">
 

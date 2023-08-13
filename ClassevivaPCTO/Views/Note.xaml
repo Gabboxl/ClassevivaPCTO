@@ -36,13 +36,20 @@
                        VerticalAlignment="Top"
                        Margin="32,0,0,0" />
 
-            <Button RelativePanel.RightOf="TextTitolo" x:Name="AggiornaCommand"
-                    RelativePanel.AlignVerticalCenterWith="TextTitolo"
+            <muxc:ProgressRing IsActive="False" x:Name="ProgressRingNote"
+                                       RelativePanel.AlignVerticalCenterWith="TextTitolo"
+                                       RelativePanel.RightOf="TextTitolo"
+                                       Margin="16,0,0,0" Width="28" Height="28"/>
+
+            <Button x:Name="AggiornaCommand"
+                    HorizontalAlignment="Right"
                     Width="48"
-                    Height="36"
-                    Margin="16,0,0,0" Click="AggiornaCommand_Click">
-                <FontIcon Glyph="&#xE72C;" HorizontalAlignment="Center" />
+                    Height="32"
+                    Margin="26,0,20,0" Click="AggiornaCommand_Click" RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignVerticalCenterWith="TextTitolo" ToolTipService.ToolTip="Aggiorna">
+                <FontIcon Glyph="&#xE72C;" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16"/>
             </Button>
+
+
         </RelativePanel>
 
 

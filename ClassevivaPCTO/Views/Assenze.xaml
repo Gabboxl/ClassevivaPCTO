@@ -71,24 +71,24 @@
                        Style= "{StaticResource TitleLargeTextBlockStyle}" VerticalAlignment="Top"
                        Margin="32,0,0,0" />
 
-            <Button RelativePanel.RightOf="TextTitolo" x:Name="AggiornaCommand"
-                    RelativePanel.AlignVerticalCenterWith="TextTitolo"
-                    Width="48"
-                    Height="36"
-                    Margin="16,0,0,0" Click="AggiornaCommand_Click">
-                <FontIcon Glyph="&#xE72C;" HorizontalAlignment="Center" />
-            </Button>
+
 
             <muxc:ProgressRing IsActive="True" x:Name="ProgressRingBacheca"
-                               RelativePanel.RightOf="AggiornaCommand"
-                               RelativePanel.AlignVerticalCenterWith="AggiornaCommand"
-                               Margin="32,16,0,0"
+                               RelativePanel.RightOf="TextTitolo"
+                               RelativePanel.AlignVerticalCenterWith="TextTitolo"
+                               Margin="16,0,0,0" Width="28" Height="28"
                                Visibility="{x:Bind AssenzeViewModel.IsLoadingAssenze, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" />
 
 
+            <Button x:Name="AggiornaCommand"  Click="AggiornaCommand_Click" RelativePanel.AlignVerticalCenterWith="TextTitolo" RelativePanel.AlignRightWithPanel="True" Margin="0,0,20,0"                              
+                Height="32" Width="48" ToolTipService.ToolTip="Aggiorna">
+                <FontIcon Glyph="&#xE72C;" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16"/>
+            </Button>
         </RelativePanel>
 
-        
+
+
+
         <ScrollViewer
             x:Name="MainScrollViewer"
             Grid.Row="2">

@@ -20,7 +20,7 @@ namespace ClassevivaPCTO.Adapters
                 }
                 else
                 {
-                    brush.Color = Colors.Crimson;
+                    brush.Color = Colors.IndianRed;
                 }
 
                 return brush;
@@ -33,7 +33,7 @@ namespace ClassevivaPCTO.Adapters
             {
                 if (CurrentObject.checkStatus.available)
                 {
-                    return "Disponibile";
+                    return " ";
                 }
                 else
                 {

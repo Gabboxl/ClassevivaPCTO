@@ -21,7 +21,7 @@ namespace ClassevivaPCTO.Views
         {
             this.InitializeComponent();
 
-            App app = (App) App.Current;
+            App app = (App)App.Current;
             var apiClient = app.Container.GetService<IClassevivaAPI>();
 
             apiWrapper = PoliciesDispatchProxy<IClassevivaAPI>.CreateProxy(apiClient);
@@ -159,7 +159,7 @@ namespace ClassevivaPCTO.Views
 
         public void GoBack(object sender, RoutedEventArgs e)
         {
-            Frame rootFrame = (Frame) Window.Current.Content;
+            Frame rootFrame = (Frame)Window.Current.Content;
             if (rootFrame.CanGoBack)
             {
                 rootFrame.GoBack();

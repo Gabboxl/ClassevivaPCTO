@@ -209,9 +209,9 @@
 
                     
                     <muxc:ProgressRing IsActive="True" x:Name="ProgressRingAgenda"
-                                       RelativePanel.AlignVerticalCenterWithPanel="True"
+                                       RelativePanel.AlignVerticalCenterWith="TextTitolo"
                                        RelativePanel.RightOf="TextTitolo"
-                                       Margin="12,0,0,0"
+                                       Margin="16,0,0,0" Width="28" Height="28"
                                        Visibility="{x:Bind AgendaViewModel.IsLoadingAgenda, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" />
 
 
@@ -233,7 +233,7 @@
                                 RelativePanel.AlignVerticalCenterWithPanel="True"
                                 Width="48"
                                 Height="32"
-                                Margin="16,0,0,0" Click="AggiornaCommand_Click" >
+                                Margin="16,0,0,0" Click="AggiornaCommand_Click" ToolTipService.ToolTip="Aggiorna" >
                             <FontIcon FontSize="16" Glyph="&#xE72C;" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                         </Button>
                         
@@ -247,7 +247,7 @@
                             RelativePanel.LeftOf="CalendarAgenda"
                             Width="48"
                             Height="32"
-                            Click="ButtonYesterday_Click">
+                            Click="ButtonYesterday_Click" ToolTipService.ToolTip="Giorno precedente">
                         <FontIcon FontSize="16" Glyph="&#xE76B;" HorizontalAlignment="Center" VerticalAlignment="Center" />
                     </Button>
 
@@ -264,7 +264,7 @@
                             Width="48"
                             Height="32"
                             RelativePanel.AlignVerticalCenterWithPanel="True"
-                            Click="ButtonTomorrow_Click">
+                            Click="ButtonTomorrow_Click" ToolTipService.ToolTip="Giorno successivo">
                         <FontIcon FontSize="16" Glyph="&#xE76C;" HorizontalAlignment="Center" VerticalAlignment="Center" />
                     </Button>
 
@@ -272,7 +272,7 @@
                                   RelativePanel.LeftOf="Separator1"
                                   RelativePanel.AlignVerticalCenterWithPanel="True"
                                   toolkit:FrameworkElementExtensions.Cursor="Hand"
-                                  Click="ButtonToday_Click" />
+                                  Click="ButtonToday_Click" ToolTipService.ToolTip="Vai agli eventi di oggi" />
 
                     <Rectangle x:Name="Separator1" RelativePanel.AlignRightWithPanel="True"
                                Fill="{ThemeResource ControlStrokeColorDefaultBrush}"

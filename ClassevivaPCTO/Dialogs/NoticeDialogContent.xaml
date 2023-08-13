@@ -18,7 +18,7 @@
         <DataTemplate x:Key="AttachmentListViewDataTemplate"
                       x:DataType="utils:NoticeAttachment">
 
-            <Grid HorizontalAlignment="Stretch">
+            <Grid HorizontalAlignment="Stretch" >
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
@@ -29,7 +29,7 @@
 
                 <RelativePanel Grid.Column="0">
                     <FontIcon Glyph="&#xe7c3;"
-
+                              Foreground="{ThemeResource TextFillColorTertiaryBrush}"
                               RelativePanel.AlignVerticalCenterWithPanel="True"
                               x:Name="IconaAttachment" />
 
@@ -38,10 +38,11 @@
                                RelativePanel.RightOf="IconaAttachment"
                                RelativePanel.AlignVerticalCenterWithPanel="True"
                                TextWrapping="Wrap"
-                               MaxWidth="500"
+                               MaxWidth="800"
                                Text="{x:Bind fileName}"
+                               Foreground="{ThemeResource TextFillColorSecondaryBrush}"
                                Style="{ThemeResource BaseTextBlockStyle}"
-                               Margin="6,0,0,0" />
+                               Margin="16,0,0,0" />
 
                 </RelativePanel>
 
@@ -72,16 +73,19 @@
                        TextWrapping="Wrap"
                        Style="{ThemeResource BodyTextBlockStyle}"
                        IsTextSelectionEnabled="True"
+                       Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                       FontWeight="SemiBold"
+                       MaxWidth="800"
                        Text="{x:Bind CurrentReadResult.item.text}"
-                       Margin="8,8,0,8" />
+                       Margin="0,12,0,8" />
 
 
             <TextBlock x:Name="TitoloAttachments" RelativePanel.Below="noticeBodyText"
                        TextWrapping="Wrap"
+                       FontWeight="SemiBold"
                        Style="{ThemeResource BodyStrongTextBlockStyle}"
-                       MaxWidth="500"
                        Text="{x:Bind AllegatiText}"
-                       Margin="8,8,0,8" />
+                       Margin="8,16,0,8" />
 
             <ListView RelativePanel.Below="TitoloAttachments"
                       x:Name="AttachmentsListView"

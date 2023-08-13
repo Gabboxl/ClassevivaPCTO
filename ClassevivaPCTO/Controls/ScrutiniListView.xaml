@@ -45,7 +45,7 @@
                     <FontIcon x:Name="FileIcon"
                               FontSize="24"
                               RelativePanel.AlignVerticalCenterWithPanel="True"
-                              FontFamily="{StaticResource FluentIcons}" Glyph="&#xE7C3;" />
+                              FontFamily="{StaticResource FluentIcons}" Glyph="&#xE7C3;" Margin="6" Foreground="{ThemeResource TextFillColorTertiaryBrush}"/>
 
 
                     <TextBlock x:Name="titoloScrutinio" TextWrapping="WrapWholeWords"
@@ -61,9 +61,10 @@
                                TextTrimming="None"
                                Text="{x:Bind  StatusText}"
                                FontStyle="Italic"
+                               FontWeight="Medium"
                                Foreground="{x:Bind StatusTextColor}"
                                Style="{ThemeResource CaptionTextBlockStyle}"
-                               Margin="6,0,0,6" />
+                               Margin="10,8,0,6" />
 
 
                 </RelativePanel>
@@ -74,10 +75,10 @@
 
                     <Button
                         x:Name="ButtonOpenScrutinio" RelativePanel.LeftOf="ButtonSaveScrutinio"
-                        Click="ButtonOpen_Click"
+                        Click="ButtonOpen_Click" Width="70"
                         Visibility="{x:Bind CurrentObject.checkStatus.available, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}"
                         RelativePanel.AlignVerticalCenterWithPanel="True"
-                        Margin="0,0,16,0">
+                        Margin="0,0,14,0">
                         <Button.Content>
                             <StackPanel Orientation="Vertical" Padding="6,0,6,0">
                                 <FontIcon FontFamily="{StaticResource FluentIcons}" Glyph="&#xE8E5;" 
@@ -89,10 +90,10 @@
 
                     <Button
                         x:Name="ButtonSaveScrutinio" Click="ButtonSave_Click"
-                        RelativePanel.AlignRightWithPanel="True"
+                        RelativePanel.AlignRightWithPanel="True" Width="70"
                         Visibility="{x:Bind CurrentObject.checkStatus.available, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}"
                         RelativePanel.AlignVerticalCenterWithPanel="True"
-                        Margin="0,0,16,0">
+                        Margin="0,0,10,0" >
                         <Button.Content>
                             <StackPanel Orientation="Vertical" Padding="6,0,6,0">
                                 <FontIcon FontFamily="{StaticResource FluentIcons}" Glyph="&#xE74E;" 
@@ -112,6 +113,8 @@
         <DataTemplate x:Key="SchoolReportListViewDataTemplate"
                       x:DataType="adapters:SchoolReportAdapter">
 
+            
+            
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"></RowDefinition>
@@ -129,7 +132,7 @@
                     <FontIcon x:Name="testIcon"
                               FontSize="24"
                               RelativePanel.AlignVerticalCenterWithPanel="True"
-                              FontFamily="{StaticResource FluentIcons}" Glyph="&#xE774;" />
+                              FontFamily="{StaticResource FluentIcons}" Glyph="&#xE774;" Margin="6" Foreground="{ThemeResource TextFillColorTertiaryBrush}"/>
 
 
                     <TextBlock x:Name="titoloReport" RelativePanel.RightOf="testIcon"
@@ -150,7 +153,8 @@
                         x:Name="ButtonOpenReport" 
                         Click="ButtonOpenReport_OnClick"
                         RelativePanel.AlignVerticalCenterWithPanel="True"
-                        Margin="0,0,16,0">
+                        Margin="0,0,10,0"
+                        Width="70">
                         <Button.Content>
                             <StackPanel Orientation="Vertical" Padding="6,0,6,0">
                                 <FontIcon FontFamily="{StaticResource FluentIcons}" Glyph="&#xE71B;" 

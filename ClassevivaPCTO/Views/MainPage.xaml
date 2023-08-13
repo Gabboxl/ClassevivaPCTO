@@ -259,6 +259,16 @@
                     </custnav:CustomNavigationViewItem.IconFilled>
                 </custnav:CustomNavigationViewItem>
 
+                <custnav:CustomNavigationViewItem Content="Bacheca" helpers:NavHelper.NavigateTo="views:Bacheca">
+                    <custnav:CustomNavigationViewItem.IconOutline>
+                        <FontIcon Glyph="&#xe718;" FontFamily="{StaticResource FluentIcons}" />
+                    </custnav:CustomNavigationViewItem.IconOutline>
+
+                    <custnav:CustomNavigationViewItem.IconFilled>
+                        <FontIcon Glyph="&#xf8b5;" FontFamily="{StaticResource FluentIcons}" />
+                    </custnav:CustomNavigationViewItem.IconFilled>
+                </custnav:CustomNavigationViewItem>
+
                 <custnav:CustomNavigationViewItem Content="Note" helpers:NavHelper.NavigateTo="views:Note">
                     <custnav:CustomNavigationViewItem.IconOutline>
                         <FontIcon Glyph="&#xe91c;" FontFamily="{StaticResource FluentIcons}" />
@@ -279,15 +289,6 @@
                     </custnav:CustomNavigationViewItem.IconFilled>
                 </custnav:CustomNavigationViewItem>
 
-                <custnav:CustomNavigationViewItem Content="Bacheca" helpers:NavHelper.NavigateTo="views:Bacheca">
-                    <custnav:CustomNavigationViewItem.IconOutline>
-                        <FontIcon Glyph="&#xe718;" FontFamily="{StaticResource FluentIcons}" />
-                    </custnav:CustomNavigationViewItem.IconOutline>
-
-                    <custnav:CustomNavigationViewItem.IconFilled>
-                        <FontIcon Glyph="&#xf8b5;" FontFamily="{StaticResource FluentIcons}" />
-                    </custnav:CustomNavigationViewItem.IconFilled>
-                </custnav:CustomNavigationViewItem>
 
             </muxc:NavigationView.MenuItems>
 

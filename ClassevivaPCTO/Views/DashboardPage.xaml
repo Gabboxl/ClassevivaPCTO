@@ -70,13 +70,40 @@
             <TextBlock x:Name="TextTitolo" x:Uid="TitoloDashboard" Style= "{StaticResource TitleLargeTextBlockStyle}"  VerticalAlignment="Top"
                        Margin="32,0,0,0" />
 
-            <Button RelativePanel.RightOf="TextTitolo" x:Name="AggiornaCommand"
-                    RelativePanel.AlignVerticalCenterWith="TextTitolo"
+            <Button RelativePanel.LeftOf="SeparatorDashboard" Name="AggiornaCommand"
+                    RelativePanel.AlignVerticalCenterWithPanel="True"
                     Width="48"
-                    Height="36"
-                    Margin="16,0,0,0" Click="AggiornaButton_Click">
-                <FontIcon Glyph="&#xE72C;" HorizontalAlignment="Center" />
+                    Height="32"
+                    Margin="16,0,20,0" Click="AggiornaButton_Click" ToolTipService.ToolTip="Aggiorna">
+                <FontIcon Glyph="&#xE72C;" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16"/>
             </Button>
+
+
+            <Rectangle x:Name="SeparatorDashboard" RelativePanel.LeftOf="EditWidgetsButton" RelativePanel.AlignVerticalCenterWithPanel="True"
+                               Fill="{ThemeResource ControlStrokeColorDefaultBrush}"
+                               Width="2" Height="48" Margin="0,0,20,0" />
+
+            <Button
+                        RelativePanel.AlignVerticalCenterWithPanel="True"
+                        x:Name="EditWidgetsButton"
+                        
+                        RelativePanel.AlignRightWithPanel="True"
+                        Margin="0,0,20,0">
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Spacing="8">
+
+                    <TextBlock Text="&#xE70F;" VerticalAlignment="Center" FontFamily="{StaticResource FluentIcons}"/>
+
+                    <TextBlock Text="Personalizza widget"/>
+
+                </StackPanel>
+            </Button>
+
+
+
+
+
+
+
         </RelativePanel>
 
 
@@ -90,11 +117,12 @@
                 ColumnSpacing="36" RowSpacing="36"
                 MinRowHeight="250"
 
-                Margin="24,24,24,24">
+                Margin="18,16,19,18">
 
 
                 <Grid
                     Grid.RowSpan="2"
+                    Margin="0,0,-8,0"
                     CornerRadius="8"
                     Padding="12"
                     BorderThickness="1"
@@ -118,7 +146,7 @@
 
                         <muxc:ProgressRing IsActive="True" x:Name="ProgressRingAgenda"
                                            RelativePanel.RightOf="TextOggiAgenda"
-                                           Margin="8,0,0,0"
+                                           Margin="12,0,0,16" Width="18" Height="18" RelativePanel.AlignVerticalCenterWithPanel="True"
                                            
                                            Visibility="{x:Bind DashboardPageViewModel.IsLoadingAgenda, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" />
                     </RelativePanel>
@@ -130,14 +158,29 @@
                     </controls2:OverviewListView>
 
 
-                    <HyperlinkButton Grid.Row="2" x:Uid="HyperlinkButtonApriAgenda"
-                                     Click="HyperlinkButton_Click_1" VerticalAlignment="Bottom"
-                                     HorizontalAlignment="Right" />
+                    <HyperlinkButton Grid.Row="2" 
+                                     VerticalAlignment="Bottom"
+                                     HorizontalAlignment="Right"
+                                     Click="HyperlinkButton_Click_1">
+
+                        <StackPanel Orientation="Horizontal" Spacing="4">
+                            <TextBlock Text="Apri Agenda" />
+                            <Grid Width="12" Height="12">
+                                <Path
+                                                Data="M320,864C320,855.333 323.167,847.833 329.5,841.5L658.5,512L329.5,182.5C323.167,176.167 320,168.667 320,160C320,151.333 323.167,143.833 329.5,137.5C335.833,131.167 343.333,128 352,128C360.667,128 368.167,131.167 374.5,137.5L726.5,489.5C732.833,495.833 736,503.333 736,512C736,520.667 732.833,528.167 726.5,534.5L374.5,886.5C368.167,892.833 360.667,896 352,896C343.333,896 335.833,892.833 329.5,886.5C323.167,880.167 320,872.667 320,864Z"
+                                                Stretch="Uniform"
+                                                Fill="{ThemeResource AccentTextFillColorPrimaryBrush}" />
+                            </Grid>
+
+
+                        </StackPanel>
+                    </HyperlinkButton>
 
                 </Grid>
 
                 <Grid CornerRadius="8"
                       Padding="12"
+                      Margin="-8,0,0,0"
                       BorderThickness="1"
                       BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
                       Background="{ThemeResource CardBackgroundFillColorDefaultBrush}">
@@ -154,11 +197,11 @@
                     <RelativePanel Grid.Row="0">
 
                         <TextBlock x:Name="TitleRecentGrades" x:Uid="TitleRecentGrades" FontSize="20" VerticalAlignment="Top"
-                                   HorizontalAlignment="Left" Margin="8,4,0,18" FontWeight="Medium"/> 
+                                   HorizontalAlignment="Left" Margin="8,4,0,8" FontWeight="Medium"/> 
 
                         <muxc:ProgressRing IsActive="True" x:Name="ProgressRingRecentGrades"
-                                           RelativePanel.RightOf="TitleRecentGrades"
-                                           Margin="8,0,0,0"
+                                           RelativePanel.RightOf="TitleRecentGrades" 
+                                           Margin="12,0,0,0" Width="18" Height="18" RelativePanel.AlignVerticalCenterWith="TitleRecentGrades"
 
                                            Visibility="{x:Bind DashboardPageViewModel.IsLoadingGrades, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" />
 
@@ -166,18 +209,18 @@
                         <TextBlock TextWrapping="Wrap"
                                    x:Name="TitleMedia"
                                    TextAlignment="Center" x:Uid="TitleMedia" FontSize="16" 
-                                   RelativePanel.LeftOf="TextBlockMedia"
-                                   Margin="0,0,6,0" />
+                                   RelativePanel.LeftOf="TextBlockMedia" Foreground="{ThemeResource TextFillColorTertiaryBrush}"
+                                   Margin="0,9,6,0" />
 
 
-                        <muxc:ProgressRing IsActive="True" x:Name="ProgressRingMedia"
-                                           Margin="8,0,0,0"
+                        <muxc:ProgressRing IsActive="False" x:Name="ProgressRingMedia"
+                                           Margin="8,0,0,0" 
 
                                            RelativePanel.RightOf="TitleMedia"
                                            Visibility="{x:Bind DashboardPageViewModel.IsLoadingMedia, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" />
 
                         <TextBlock x:Name="TextBlockMedia" Text="test" Visibility="Collapsed"
-                                   RelativePanel.AlignRightWithPanel="True"
+                                   RelativePanel.AlignRightWithPanel="True" Margin="0,9,4,0"
 
                                    FontSize="18" FontWeight="ExtraBold" />
 
@@ -188,7 +231,7 @@
                     <ScrollViewer Grid.Row="2" ZoomMode="Disabled"
                                   IsTabStop="False" IsVerticalScrollChainingEnabled="False"
 
-                                  HorizontalScrollMode="Enabled" HorizontalScrollBarVisibility="Auto"
+                                  HorizontalScrollMode="Disabled" HorizontalScrollBarVisibility="Hidden"
                                   VerticalScrollMode="Enabled" VerticalScrollBarVisibility="Auto">
 
                         <controls2:GradesListView x:Name="ListRecentGrades"
@@ -199,9 +242,24 @@
 
                     </ScrollViewer>
 
-                    <HyperlinkButton Grid.Row="2" x:Uid="HyperlinkButtonApriValutazioni"
+                    <HyperlinkButton Grid.Row="2"
                                      Click="HyperlinkButton_Click" VerticalAlignment="Bottom"
-                                     HorizontalAlignment="Right" />
+                                     HorizontalAlignment="Right">
+
+
+                        <StackPanel Orientation="Horizontal" Spacing="4">
+                            <TextBlock Text="Visualizza tutte le valutazioni" />
+                            <Grid Width="12" Height="12">
+                                <Path
+                                                Data="M320,864C320,855.333 323.167,847.833 329.5,841.5L658.5,512L329.5,182.5C323.167,176.167 320,168.667 320,160C320,151.333 323.167,143.833 329.5,137.5C335.833,131.167 343.333,128 352,128C360.667,128 368.167,131.167 374.5,137.5L726.5,489.5C732.833,495.833 736,503.333 736,512C736,520.667 732.833,528.167 726.5,534.5L374.5,886.5C368.167,892.833 360.667,896 352,896C343.333,896 335.833,892.833 329.5,886.5C323.167,880.167 320,872.667 320,864Z"
+                                                Stretch="Uniform"
+                                                Fill="{ThemeResource AccentTextFillColorPrimaryBrush}" />
+                            </Grid>
+
+
+                        </StackPanel>
+
+                    </HyperlinkButton>
 
                 </Grid>
 
@@ -209,6 +267,7 @@
                 <Grid
                     VerticalAlignment="Stretch" HorizontalAlignment="Stretch"
                     CornerRadius="8"
+                    Margin="-8,-16,0,0"
                     Padding="12"
                     BorderThickness="1"
                     BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
@@ -226,11 +285,11 @@
                     <RelativePanel Grid.Row="0">
 
                         <TextBlock x:Name="TextBachecaRecenti" x:Uid="TextBachecaRecenti" FontSize="20" VerticalAlignment="Top"
-                                   HorizontalAlignment="Left" Margin="8,4,0,18" FontWeight="Medium"/>
+                                   HorizontalAlignment="Left" Margin="8,4,0,8" FontWeight="Medium"/>
 
                         <muxc:ProgressRing IsActive="True" x:Name="ProgressRingRecentNotices"
                                            RelativePanel.RightOf="TextBachecaRecenti"
-                                           Margin="8,0,0,0"
+                                           Margin="12,0,0,0" Width="18" Height="18" RelativePanel.AlignVerticalCenterWith="TextBachecaRecenti"
 
                                            Visibility="{x:Bind DashboardPageViewModel.IsLoadingNotices, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" />
                     </RelativePanel>
@@ -254,9 +313,23 @@
 
                     </ScrollViewer>
 
-                    <HyperlinkButton Grid.Row="2" x:Uid="HyperlinkButtonApriBacheca" x:Name="ButtonApriBacheca"
+                    <HyperlinkButton Grid.Row="2" x:Name="ButtonApriBacheca"
                                      Click="ButtonApriBacheca_Click" VerticalAlignment="Bottom"
-                                     HorizontalAlignment="Right" />
+                                     HorizontalAlignment="Right">
+
+                        <StackPanel Orientation="Horizontal" Spacing="4">
+                            <TextBlock Text="Apri Bacheca" />
+                            <Grid Width="12" Height="12">
+                                <Path
+                                                Data="M320,864C320,855.333 323.167,847.833 329.5,841.5L658.5,512L329.5,182.5C323.167,176.167 320,168.667 320,160C320,151.333 323.167,143.833 329.5,137.5C335.833,131.167 343.333,128 352,128C360.667,128 368.167,131.167 374.5,137.5L726.5,489.5C732.833,495.833 736,503.333 736,512C736,520.667 732.833,528.167 726.5,534.5L374.5,886.5C368.167,892.833 360.667,896 352,896C343.333,896 335.833,892.833 329.5,886.5C323.167,880.167 320,872.667 320,864Z"
+                                                Stretch="Uniform"
+                                                Fill="{ThemeResource AccentTextFillColorPrimaryBrush}" />
+                            </Grid>
+
+
+                        </StackPanel>
+
+                    </HyperlinkButton>
 
 
                 </Grid>
