@@ -38,11 +38,11 @@
                            Margin="6,12,0,0" />
 
 
-                <TextBlock RelativePanel.RightOf="dataEnd" x:Name="tipoEvento" TextWrapping="Wrap"
+                <TextBlock RelativePanel.RightOf="dataEnd" x:Name="tipoEvento" TextWrapping="Wrap"  RelativePanel.AlignVerticalCenterWith="titoloEvento"
                            MaxWidth="500"
                            Text="{x:Bind EventType}"
                            Style="{ThemeResource BaseTextBlockStyle}"
-                           Margin="6,6,0,0" />
+                           Margin="6,8,0,0" />
 
 
                 <TextBlock RelativePanel.RightOf="titoloEvento"  RelativePanel.AlignVerticalCenterWith="titoloEvento" x:Name="dataStart"
@@ -74,10 +74,10 @@
                            TextWrapping="Wrap"
                            Text="{x:Bind  CurrentObject.notes}"
                            Style="{ThemeResource BodyTextBlockStyle}"
-                           Foreground="{ThemeResource TextFillColorTertiaryBrush}"
+                           Foreground="{ThemeResource TextFillColorSecondaryBrush}"
                            FontWeight="SemiBold"
                            IsTextSelectionEnabled="True"
-                           Margin="6,6,0,12" />
+                           Margin="6,4,0,12" />
 
 
             </RelativePanel>

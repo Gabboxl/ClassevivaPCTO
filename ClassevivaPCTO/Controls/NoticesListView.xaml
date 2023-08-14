@@ -92,7 +92,7 @@
                                FontWeight="Medium"
                                Foreground="{ThemeResource TextFillColorTertiaryBrush}"
                                Style="{ThemeResource CaptionTextBlockStyle}"
-                               Margin="5,6,0,0" />
+                               Margin="6,6,0,0" />
 
 
                 </RelativePanel>
