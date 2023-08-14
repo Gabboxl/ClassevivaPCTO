@@ -75,12 +75,12 @@
 
                     <Button
                         x:Name="ButtonOpenScrutinio" RelativePanel.LeftOf="ButtonSaveScrutinio"
-                        Click="ButtonOpen_Click" Width="70"
+                        Click="ButtonOpen_Click"
                         Visibility="{x:Bind CurrentObject.checkStatus.available, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}"
                         RelativePanel.AlignVerticalCenterWithPanel="True"
                         Margin="0,0,14,0">
                         <Button.Content>
-                            <StackPanel Orientation="Vertical" Padding="6,0,6,0">
+                            <StackPanel Orientation="Vertical" Padding="6,0,6,0" VerticalAlignment="Center">
                                 <FontIcon FontFamily="{StaticResource FluentIcons}" Glyph="&#xE8E5;" 
                                           FontSize="16" />
                                 <TextBlock FontSize="12" x:Uid="ButtonOpen" Margin="0,0,0,0" />
@@ -90,7 +90,7 @@
 
                     <Button
                         x:Name="ButtonSaveScrutinio" Click="ButtonSave_Click"
-                        RelativePanel.AlignRightWithPanel="True" Width="70"
+                        RelativePanel.AlignRightWithPanel="True"
                         Visibility="{x:Bind CurrentObject.checkStatus.available, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}"
                         RelativePanel.AlignVerticalCenterWithPanel="True"
                         Margin="0,0,10,0" >
@@ -153,8 +153,7 @@
                         x:Name="ButtonOpenReport" 
                         Click="ButtonOpenReport_OnClick"
                         RelativePanel.AlignVerticalCenterWithPanel="True"
-                        Margin="0,0,10,0"
-                        Width="70">
+                        Margin="0,0,10,0">
                         <Button.Content>
                             <StackPanel Orientation="Vertical" Padding="6,0,6,0">
                                 <FontIcon FontFamily="{StaticResource FluentIcons}" Glyph="&#xE71B;" 

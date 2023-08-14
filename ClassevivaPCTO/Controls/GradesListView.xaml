@@ -41,6 +41,7 @@
                 <RelativePanel RelativePanel.AlignVerticalCenterWithPanel="True" RelativePanel.RightOf="gridVoto">
                     <TextBlock x:Name="textMateria" TextWrapping="Wrap"
                                MaxWidth="500"
+                               IsTextSelectionEnabled="True"
                                Text="{x:Bind CurrentObject.subjectDesc}"
                                Style="{ThemeResource BaseTextBlockStyle}"
                                Margin="12,6,0,0" />
@@ -59,6 +60,7 @@
                                Text="{x:Bind CurrentObject.evtDate, Converter={StaticResource DateTimeToNormalDateConverter}}"
                                Style="{ThemeResource CaptionTextBlockStyle}"
                                Margin="12,6,0,0"
+                               IsTextSelectionEnabled="True"
                                Foreground="{ThemeResource TextFillColorSecondaryBrush}" FontWeight="SemiBold"/>
 
                     <TextBlock RelativePanel.RightOf="dataVoto"

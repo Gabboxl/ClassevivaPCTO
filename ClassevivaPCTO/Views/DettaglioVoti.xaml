@@ -28,7 +28,7 @@
                        VerticalAlignment="Top"
                        Margin="32,0,0,0" />
 
-            <muxc:ProgressRing IsActive="False" x:Name="ProgressRingVoti"
+            <muxc:ProgressRing IsActive="True" x:Name="ProgressRingVoti"
                                        RelativePanel.AlignVerticalCenterWith="MainTitleTextBox"
                                        RelativePanel.RightOf="MainTitleTextBox"
                                        Margin="16,0,0,0" Width="28" Height="28"

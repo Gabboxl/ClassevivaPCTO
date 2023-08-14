@@ -38,7 +38,7 @@
                                RelativePanel.RightOf="IconaAttachment"
                                RelativePanel.AlignVerticalCenterWithPanel="True"
                                TextWrapping="Wrap"
-                               MaxWidth="800"
+                               MaxWidth="600"
                                Text="{x:Bind fileName}"
                                Foreground="{ThemeResource TextFillColorSecondaryBrush}"
                                Style="{ThemeResource BaseTextBlockStyle}"
@@ -75,7 +75,6 @@
                        IsTextSelectionEnabled="True"
                        Foreground="{ThemeResource TextFillColorSecondaryBrush}"
                        FontWeight="SemiBold"
-                       MaxWidth="800"
                        Text="{x:Bind CurrentReadResult.item.text}"
                        Margin="0,12,0,8" />
 
