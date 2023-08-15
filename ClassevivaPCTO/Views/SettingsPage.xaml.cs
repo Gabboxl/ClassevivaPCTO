@@ -76,7 +76,8 @@ namespace ClassevivaPCTO.Views
             ComboPalettes = new List<ComboPaletteAdapter>();
             foreach (PaletteType paletteType in Enum.GetValues(typeof(PaletteType)))
             {
-                ComboPalettes.Add(new ComboPaletteAdapter(PaletteSelectorService.GetPaletteClass(paletteType), paletteType));
+                ComboPalettes.Add(new ComboPaletteAdapter(PaletteSelectorService.GetPaletteClass(paletteType),
+                    paletteType));
             }
 
 
@@ -167,8 +168,7 @@ namespace ClassevivaPCTO.Views
             ComboBox themeSelector = (ComboBox) sender;
 
             //change theme based on selected index of the combobox sender
-            await ThemeSelectorService.SetThemeAsync((ElementTheme)themeSelector.SelectedIndex);
-
+            await ThemeSelectorService.SetThemeAsync((ElementTheme) themeSelector.SelectedIndex);
         }
 
         /*private async void PaletteChanged_CheckedAsync(object sender, RoutedEventArgs e)
@@ -187,7 +187,7 @@ namespace ClassevivaPCTO.Views
             ComboBox paletteSelector = (ComboBox) sender;
 
             //change theme based on selected index of the combobox sender
-            PaletteType = (PaletteType)paletteSelector.SelectedIndex;
+            PaletteType = (PaletteType) paletteSelector.SelectedIndex;
             await PaletteSelectorService.SetCurrentPalette(PaletteType);
         }
 

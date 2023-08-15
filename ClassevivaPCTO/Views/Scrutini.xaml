@@ -11,7 +11,7 @@
     xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
     muxc:BackdropMaterial.ApplyToRootOrPageBackground="True">
-    
+
     <Page.Resources>
         <ResourceDictionary>
             <microconverters:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" />
@@ -31,12 +31,13 @@
 
         <RelativePanel Grid.Row="0" Margin="0,16,0,0">
             <TextBlock x:Name="TextTitolo" Grid.Row="0" x:Uid="TitoloScrutini"
-                       Style= "{StaticResource TitleLargeTextBlockStyle}"
+                       Style="{StaticResource TitleLargeTextBlockStyle}"
                        VerticalAlignment="Top"
-                       Margin="32,0,0,0"/>
+                       Margin="32,0,0,0" />
 
 
-            <muxc:ProgressRing IsActive="True" x:Name="ProgressRingScrutini" RelativePanel.AlignVerticalCenterWith="TextTitolo"
+            <muxc:ProgressRing IsActive="True" x:Name="ProgressRingScrutini"
+                               RelativePanel.AlignVerticalCenterWith="TextTitolo"
                                RelativePanel.RightOf="TextTitolo"
                                Margin="16,0,0,0" Width="28" Height="28"
                                Visibility="{x:Bind ScrutiniViewModel.IsLoadingScrutini, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" />
@@ -45,26 +46,23 @@
         </RelativePanel>
 
 
-
-
-
         <RelativePanel Grid.Row="0" Margin="0,16,0,0" HorizontalAlignment="Right" Width="1500">
 
 
-
-            <Button  x:Name="AggiornaCommand" RelativePanel.LeftOf="Separatore0"
+            <Button x:Name="AggiornaCommand" RelativePanel.LeftOf="Separatore0"
                     RelativePanel.AlignVerticalCenterWithPanel="True"
                     Width="48"
                     Height="32"
-                    Margin="0,0,2,0" Click="AggiornaCommand_Click" ToolTipService.ToolTip="Aggiorna" >
-                <FontIcon Glyph="&#xE72C;" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16"/>
-                
+                    Margin="0,0,2,0" Click="AggiornaCommand_Click" ToolTipService.ToolTip="Aggiorna">
+                <FontIcon Glyph="&#xE72C;" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" />
+
 
             </Button>
 
-            <Rectangle x:Name="Separatore0" RelativePanel.LeftOf="CheckboxEliminati" RelativePanel.AlignVerticalCenterWithPanel="True" 
-                               Fill="{ThemeResource ControlStrokeColorDefaultBrush}"
-                               Width="2" Height="48" Margin="20,0,20,0"  />
+            <Rectangle x:Name="Separatore0" RelativePanel.LeftOf="CheckboxEliminati"
+                       RelativePanel.AlignVerticalCenterWithPanel="True"
+                       Fill="{ThemeResource ControlStrokeColorDefaultBrush}"
+                       Width="2" Height="48" Margin="20,0,20,0" />
 
             <CheckBox x:Name="CheckboxEliminati"
                       x:Uid="CheckboxEliminati"
@@ -85,15 +83,11 @@
                        Background="{ThemeResource CardBackgroundFillColorDefaultBrush}">
 
 
-
-
             <TextBlock x:Uid="TextFileScrutini" x:Name="TextFileScrutini"
                        Margin="16,6,0,6"
                        FontSize="18"
                        FontWeight="SemiBold"
                        Style="{ThemeResource BodyStrongTextBlockStyle}" />
-
-
 
 
             <Grid

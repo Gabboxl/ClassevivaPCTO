@@ -61,13 +61,13 @@
                                Style="{ThemeResource CaptionTextBlockStyle}"
                                Margin="12,6,0,0"
                                IsTextSelectionEnabled="True"
-                               Foreground="{ThemeResource TextFillColorSecondaryBrush}" FontWeight="SemiBold"/>
+                               Foreground="{ThemeResource TextFillColorSecondaryBrush}" FontWeight="SemiBold" />
 
                     <TextBlock RelativePanel.RightOf="dataVoto"
                                Text="{x:Bind CurrentObject.componentDesc}"
                                Style="{ThemeResource CaptionTextBlockStyle}"
                                Margin="12,6,0,0"
-                               Foreground="{ThemeResource TextFillColorSecondaryBrush}" FontWeight="SemiBold"/>
+                               Foreground="{ThemeResource TextFillColorSecondaryBrush}" FontWeight="SemiBold" />
 
                 </RelativePanel>
             </RelativePanel>

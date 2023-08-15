@@ -57,7 +57,7 @@
                            x:Uid="LessonsTitle"
                            Margin="14,12,0,8"
                            Visibility="{x:Bind OverviewViewModel.FilteredOverviewResult.Lessons, Mode=OneWay, Converter={StaticResource EmptyListToVisibilityConverter}}"
-                           Style="{ThemeResource BodyStrongTextBlockStyle}" FontSize="18" FontWeight="SemiBold"/>
+                           Style="{ThemeResource BodyStrongTextBlockStyle}" FontSize="18" FontWeight="SemiBold" />
 
                 <controls2:LessonsListView x:Name="LessonsListView"
                                            HorizontalAlignment="Stretch" VerticalAlignment="Stretch">

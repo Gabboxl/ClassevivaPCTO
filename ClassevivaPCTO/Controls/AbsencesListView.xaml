@@ -58,7 +58,7 @@
                                    Style="{ThemeResource BaseTextBlockStyle}"
                                    Foreground="{ThemeResource TextFillColorTertiaryBrush}"
                                    FontStyle="Italic"
-                                   
+
                                    Margin="10,0,0,8" />
 
 

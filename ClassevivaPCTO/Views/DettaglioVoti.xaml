@@ -24,22 +24,22 @@
         <RelativePanel Grid.Row="0" Margin="0,16,0,0">
 
             <TextBlock x:Name="MainTitleTextBox" x:Uid="TitleValutazioni"
-                       Style= "{StaticResource TitleLargeTextBlockStyle}"
+                       Style="{StaticResource TitleLargeTextBlockStyle}"
                        VerticalAlignment="Top"
                        Margin="32,0,0,0" />
 
             <muxc:ProgressRing IsActive="True" x:Name="ProgressRingVoti"
-                                       RelativePanel.AlignVerticalCenterWith="MainTitleTextBox"
-                                       RelativePanel.RightOf="MainTitleTextBox"
-                                       Margin="16,0,0,0" Width="28" Height="28"
-                                       />
+                               RelativePanel.AlignVerticalCenterWith="MainTitleTextBox"
+                               RelativePanel.RightOf="MainTitleTextBox"
+                               Margin="16,0,0,0" Width="28" Height="28" />
 
             <Button x:Name="AggiornaCommand"
                     HorizontalAlignment="Right"
                     Width="48"
                     Height="32"
-                    Margin="26,0,20,0"  RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignVerticalCenterWith="MainTitleTextBox" ToolTipService.ToolTip="Aggiorna">
-                <FontIcon Glyph="&#xE72C;" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16"/>
+                    Margin="26,0,20,0" RelativePanel.AlignRightWithPanel="True"
+                    RelativePanel.AlignVerticalCenterWith="MainTitleTextBox" ToolTipService.ToolTip="Aggiorna">
+                <FontIcon Glyph="&#xE72C;" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" />
             </Button>
 
 

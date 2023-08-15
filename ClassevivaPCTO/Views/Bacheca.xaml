@@ -56,8 +56,8 @@
 
 
         <RelativePanel Grid.Row="0" Margin="0,16,0,0">
-            <TextBlock x:Name="TextTitolo" Grid.Row="0" Text="Bacheca" 
-                       Style= "{StaticResource TitleLargeTextBlockStyle}"
+            <TextBlock x:Name="TextTitolo" Grid.Row="0" Text="Bacheca"
+                       Style="{StaticResource TitleLargeTextBlockStyle}"
                        VerticalAlignment="Top"
                        Margin="32,0,0,0" />
 
@@ -78,15 +78,16 @@
                     Width="48"
                     Height="32"
                     Margin="16,0,2,0" Click="AggiornaCommand_Click" ToolTipService.ToolTip="Aggiorna">
-                <FontIcon Glyph="&#xE72C;" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16"/>
-                
-                
+                <FontIcon Glyph="&#xE72C;" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" />
+
+
             </Button>
 
 
-            <Rectangle x:Name="Separatore_Bacheca" RelativePanel.LeftOf="CheckboxAttive" RelativePanel.AlignVerticalCenterWithPanel="True" 
-                               Fill="{ThemeResource ControlStrokeColorDefaultBrush}"
-                               Width="2" Height="48" Margin="20,0,20,0"  />
+            <Rectangle x:Name="Separatore_Bacheca" RelativePanel.LeftOf="CheckboxAttive"
+                       RelativePanel.AlignVerticalCenterWithPanel="True"
+                       Fill="{ThemeResource ControlStrokeColorDefaultBrush}"
+                       Width="2" Height="48" Margin="20,0,20,0" />
 
             <CheckBox x:Name="CheckboxAttive"
                       Content="Mostra comunicazioni inattive"
@@ -117,15 +118,10 @@
                        Style="{ThemeResource BodyStrongTextBlockStyle}" />
 
 
-
-
-
-
             <Grid RelativePanel.Below="TextComunicazioni"
                   RelativePanel.AlignRightWithPanel="True"
                   RelativePanel.AlignLeftWithPanel="True"
-                  RelativePanel.AlignBottomWithPanel="True"
-                  >
+                  RelativePanel.AlignBottomWithPanel="True">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*" />
                 </Grid.RowDefinitions>

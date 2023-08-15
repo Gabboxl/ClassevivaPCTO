@@ -67,7 +67,8 @@
 
         <RelativePanel Grid.Row="0" Margin="0,18,0,0">
 
-            <TextBlock x:Name="TextTitolo" x:Uid="TitoloDashboard" Style= "{StaticResource TitleLargeTextBlockStyle}"  VerticalAlignment="Top"
+            <TextBlock x:Name="TextTitolo" x:Uid="TitoloDashboard" Style="{StaticResource TitleLargeTextBlockStyle}"
+                       VerticalAlignment="Top"
                        Margin="32,0,0,0" />
 
             <Button RelativePanel.LeftOf="SeparatorDashboard" Name="AggiornaCommand"
@@ -75,33 +76,29 @@
                     Width="48"
                     Height="32"
                     Margin="16,0,20,0" Click="AggiornaButton_Click" ToolTipService.ToolTip="Aggiorna">
-                <FontIcon Glyph="&#xE72C;" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16"/>
+                <FontIcon Glyph="&#xE72C;" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" />
             </Button>
 
 
-            <Rectangle x:Name="SeparatorDashboard" RelativePanel.LeftOf="EditWidgetsButton" RelativePanel.AlignVerticalCenterWithPanel="True"
-                               Fill="{ThemeResource ControlStrokeColorDefaultBrush}"
-                               Width="2" Height="48" Margin="0,0,20,0" />
+            <Rectangle x:Name="SeparatorDashboard" RelativePanel.LeftOf="EditWidgetsButton"
+                       RelativePanel.AlignVerticalCenterWithPanel="True"
+                       Fill="{ThemeResource ControlStrokeColorDefaultBrush}"
+                       Width="2" Height="48" Margin="0,0,20,0" />
 
             <Button
-                        RelativePanel.AlignVerticalCenterWithPanel="True"
-                        x:Name="EditWidgetsButton"
-                        
-                        RelativePanel.AlignRightWithPanel="True"
-                        Margin="0,0,20,0">
+                RelativePanel.AlignVerticalCenterWithPanel="True"
+                x:Name="EditWidgetsButton"
+
+                RelativePanel.AlignRightWithPanel="True"
+                Margin="0,0,20,0">
                 <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Spacing="8">
 
-                    <TextBlock Text="&#xE70F;" VerticalAlignment="Center" FontFamily="{StaticResource FluentIcons}"/>
+                    <TextBlock Text="&#xE70F;" VerticalAlignment="Center" FontFamily="{StaticResource FluentIcons}" />
 
-                    <TextBlock Text="Personalizza widget"/>
+                    <TextBlock Text="Personalizza widget" />
 
                 </StackPanel>
             </Button>
-
-
-
-
-
 
 
         </RelativePanel>
@@ -145,8 +142,9 @@
 
                         <muxc:ProgressRing IsActive="True" x:Name="ProgressRingAgenda"
                                            RelativePanel.RightOf="TextOggiAgenda"
-                                           Margin="12,0,0,16" Width="18" Height="18" RelativePanel.AlignVerticalCenterWithPanel="True"
-                                           
+                                           Margin="12,0,0,16" Width="18" Height="18"
+                                           RelativePanel.AlignVerticalCenterWithPanel="True"
+
                                            Visibility="{x:Bind DashboardPageViewModel.IsLoadingAgenda, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" />
                     </RelativePanel>
 
@@ -157,7 +155,7 @@
                     </controls2:OverviewListView>
 
 
-                    <HyperlinkButton Grid.Row="2" 
+                    <HyperlinkButton Grid.Row="2"
                                      VerticalAlignment="Bottom"
                                      HorizontalAlignment="Right"
                                      Click="HyperlinkButton_Click_1">
@@ -187,25 +185,28 @@
 
                     <RelativePanel Grid.Row="0">
 
-                        <TextBlock x:Name="TitleRecentGrades" x:Uid="TitleRecentGrades" FontSize="20" VerticalAlignment="Top"
-                                   HorizontalAlignment="Left" Margin="8,4,0,8" FontWeight="Medium"/> 
+                        <TextBlock x:Name="TitleRecentGrades" x:Uid="TitleRecentGrades" FontSize="20"
+                                   VerticalAlignment="Top"
+                                   HorizontalAlignment="Left" Margin="8,4,0,8" FontWeight="Medium" />
 
                         <muxc:ProgressRing IsActive="True" x:Name="ProgressRingRecentGrades"
-                                           RelativePanel.RightOf="TitleRecentGrades" 
-                                           Margin="12,0,0,0" Width="18" Height="18" RelativePanel.AlignVerticalCenterWith="TitleRecentGrades"
+                                           RelativePanel.RightOf="TitleRecentGrades"
+                                           Margin="12,0,0,0" Width="18" Height="18"
+                                           RelativePanel.AlignVerticalCenterWith="TitleRecentGrades"
 
                                            Visibility="{x:Bind DashboardPageViewModel.IsLoadingGrades, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" />
 
 
                         <TextBlock TextWrapping="Wrap"
                                    x:Name="TitleMedia"
-                                   TextAlignment="Center" x:Uid="TitleMedia" FontSize="16" 
-                                   RelativePanel.LeftOf="TextBlockMedia" Foreground="{ThemeResource TextFillColorTertiaryBrush}"
+                                   TextAlignment="Center" x:Uid="TitleMedia" FontSize="16"
+                                   RelativePanel.LeftOf="TextBlockMedia"
+                                   Foreground="{ThemeResource TextFillColorTertiaryBrush}"
                                    Margin="0,9,6,0" />
 
 
                         <muxc:ProgressRing IsActive="False" x:Name="ProgressRingMedia"
-                                           Margin="8,0,0,0" 
+                                           Margin="8,0,0,0"
 
                                            RelativePanel.RightOf="TitleMedia"
                                            Visibility="{x:Bind DashboardPageViewModel.IsLoadingMedia, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" />
@@ -267,12 +268,14 @@
 
                     <RelativePanel Grid.Row="0">
 
-                        <TextBlock x:Name="TextBachecaRecenti" x:Uid="TextBachecaRecenti" FontSize="20" VerticalAlignment="Top"
-                                   HorizontalAlignment="Left" Margin="8,4,0,8" FontWeight="Medium"/>
+                        <TextBlock x:Name="TextBachecaRecenti" x:Uid="TextBachecaRecenti" FontSize="20"
+                                   VerticalAlignment="Top"
+                                   HorizontalAlignment="Left" Margin="8,4,0,8" FontWeight="Medium" />
 
                         <muxc:ProgressRing IsActive="True" x:Name="ProgressRingRecentNotices"
                                            RelativePanel.RightOf="TextBachecaRecenti"
-                                           Margin="12,0,0,0" Width="18" Height="18" RelativePanel.AlignVerticalCenterWith="TextBachecaRecenti"
+                                           Margin="12,0,0,0" Width="18" Height="18"
+                                           RelativePanel.AlignVerticalCenterWith="TextBachecaRecenti"
 
                                            Visibility="{x:Bind DashboardPageViewModel.IsLoadingNotices, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" />
                     </RelativePanel>

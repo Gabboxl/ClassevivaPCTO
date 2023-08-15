@@ -218,7 +218,8 @@
 
             <muxc:NavigationView.MenuItems>
 
-                <custnav:CustomNavigationViewItem Content="Dashboard" helpers:NavHelper.NavigateTo="views:DashboardPage">
+                <custnav:CustomNavigationViewItem Content="Dashboard"
+                                                  helpers:NavHelper.NavigateTo="views:DashboardPage">
                     <custnav:CustomNavigationViewItem.IconOutline>
                         <FontIcon Glyph="&#xe80f;" FontFamily="{StaticResource FluentIcons}" />
                     </custnav:CustomNavigationViewItem.IconOutline>
@@ -239,7 +240,8 @@
 
                 </custnav:CustomNavigationViewItem>
 
-                <custnav:CustomNavigationViewItem Content="Valutazioni" helpers:NavHelper.NavigateTo="views:DettaglioVoti">
+                <custnav:CustomNavigationViewItem Content="Valutazioni"
+                                                  helpers:NavHelper.NavigateTo="views:DettaglioVoti">
                     <custnav:CustomNavigationViewItem.IconOutline>
                         <FontIcon Glyph="&#xe9f9;" FontFamily="{StaticResource FluentIcons}" />
                     </custnav:CustomNavigationViewItem.IconOutline>
@@ -249,7 +251,8 @@
                     </custnav:CustomNavigationViewItem.IconFilled>
                 </custnav:CustomNavigationViewItem>
 
-                <custnav:CustomNavigationViewItem Content="Assenze e ritardi" helpers:NavHelper.NavigateTo="views:Assenze">
+                <custnav:CustomNavigationViewItem Content="Assenze e ritardi"
+                                                  helpers:NavHelper.NavigateTo="views:Assenze">
                     <custnav:CustomNavigationViewItem.IconOutline>
                         <FontIcon Glyph="&#xe7c1;" FontFamily="{StaticResource FluentIcons}" />
                     </custnav:CustomNavigationViewItem.IconOutline>

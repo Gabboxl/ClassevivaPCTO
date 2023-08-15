@@ -43,7 +43,8 @@
 
                     <!-- icon pin -->
                     <FontIcon x:Name="pinIcon" FontFamily="{StaticResource FluentIcons}" Glyph="&#xE840;"
-                              RelativePanel.AlignVerticalCenterWithPanel="True" Foreground="{ThemeResource TextFillColorTertiaryBrush}"
+                              RelativePanel.AlignVerticalCenterWithPanel="True"
+                              Foreground="{ThemeResource TextFillColorTertiaryBrush}"
                               Margin="8,0,8,0" />
 
                     <TextBlock x:Name="titoloEvento" TextWrapping="WrapWholeWords"
@@ -126,7 +127,6 @@
                             </StackPanel>
                         </Button.Content>
                     </Button>
-
 
 
                     <AppBarButton RelativePanel.AlignVerticalCenterWithPanel="True"

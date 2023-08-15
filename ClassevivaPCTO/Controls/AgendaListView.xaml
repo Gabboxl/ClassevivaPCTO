@@ -38,22 +38,24 @@
                            Margin="6,12,0,0" />
 
 
-                <TextBlock RelativePanel.RightOf="dataEnd" x:Name="tipoEvento" TextWrapping="Wrap"  RelativePanel.AlignVerticalCenterWith="titoloEvento"
+                <TextBlock RelativePanel.RightOf="dataEnd" x:Name="tipoEvento" TextWrapping="Wrap"
+                           RelativePanel.AlignVerticalCenterWith="titoloEvento"
                            MaxWidth="500"
                            Text="{x:Bind EventType}"
                            Style="{ThemeResource BaseTextBlockStyle}"
                            Margin="6,8,0,0" />
 
 
-                <TextBlock RelativePanel.RightOf="titoloEvento"  RelativePanel.AlignVerticalCenterWith="titoloEvento" x:Name="dataStart"
-                           
+                <TextBlock RelativePanel.RightOf="titoloEvento" RelativePanel.AlignVerticalCenterWith="titoloEvento"
+                           x:Name="dataStart"
+
                            Text="{x:Bind  CurrentObject.evtDatetimeBegin, Converter={StaticResource DateTimeToHourConverter}}"
                            FontStyle="Italic" FontWeight="Medium"
                            Style="{ThemeResource BodyTextBlockStyle}"
                            Foreground="{ThemeResource TextFillColorTertiaryBrush}"
                            Margin="10,12,0,0" />
                 <!-- trattino -->
-                <TextBlock RelativePanel.RightOf="dataStart"  RelativePanel.AlignVerticalCenterWith="titoloEvento"
+                <TextBlock RelativePanel.RightOf="dataStart" RelativePanel.AlignVerticalCenterWith="titoloEvento"
                            x:Name="placeholderData"
                            Text="-"
                            FontStyle="Italic" FontWeight="Medium"
@@ -62,7 +64,8 @@
                            Margin="6,12,6,0" />
 
 
-                <TextBlock RelativePanel.RightOf="placeholderData" RelativePanel.AlignVerticalCenterWith="titoloEvento" x:Name="dataEnd" 
+                <TextBlock RelativePanel.RightOf="placeholderData" RelativePanel.AlignVerticalCenterWith="titoloEvento"
+                           x:Name="dataEnd"
                            Text="{x:Bind  CurrentObject.evtDatetimeEnd, Converter={StaticResource DateTimeToHourConverter}}"
                            FontStyle="Italic" FontWeight="Medium"
                            Style="{ThemeResource BodyTextBlockStyle}"

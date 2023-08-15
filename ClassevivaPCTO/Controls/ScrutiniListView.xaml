@@ -45,7 +45,8 @@
                     <FontIcon x:Name="FileIcon"
                               FontSize="24"
                               RelativePanel.AlignVerticalCenterWithPanel="True"
-                              FontFamily="{StaticResource FluentIcons}" Glyph="&#xE7C3;" Margin="6" Foreground="{ThemeResource TextFillColorTertiaryBrush}"/>
+                              FontFamily="{StaticResource FluentIcons}" Glyph="&#xE7C3;" Margin="6"
+                              Foreground="{ThemeResource TextFillColorTertiaryBrush}" />
 
 
                     <TextBlock x:Name="titoloScrutinio" TextWrapping="WrapWholeWords"
@@ -81,7 +82,7 @@
                         Margin="0,0,14,0">
                         <Button.Content>
                             <StackPanel Orientation="Vertical" Padding="6,0,6,0" VerticalAlignment="Center">
-                                <FontIcon FontFamily="{StaticResource FluentIcons}" Glyph="&#xE8E5;" 
+                                <FontIcon FontFamily="{StaticResource FluentIcons}" Glyph="&#xE8E5;"
                                           FontSize="16" />
                                 <TextBlock FontSize="12" x:Uid="ButtonOpen" Margin="0,0,0,0" />
                             </StackPanel>
@@ -93,10 +94,10 @@
                         RelativePanel.AlignRightWithPanel="True"
                         Visibility="{x:Bind CurrentObject.checkStatus.available, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}"
                         RelativePanel.AlignVerticalCenterWithPanel="True"
-                        Margin="0,0,12,0" >
+                        Margin="0,0,12,0">
                         <Button.Content>
                             <StackPanel Orientation="Vertical" Padding="6,0,6,0">
-                                <FontIcon FontFamily="{StaticResource FluentIcons}" Glyph="&#xE74E;" 
+                                <FontIcon FontFamily="{StaticResource FluentIcons}" Glyph="&#xE74E;"
                                           FontSize="16" />
                                 <TextBlock FontSize="12" x:Uid="DialogButtonSave" Margin="0,0,0,0" />
                             </StackPanel>
@@ -113,8 +114,7 @@
         <DataTemplate x:Key="SchoolReportListViewDataTemplate"
                       x:DataType="adapters:SchoolReportAdapter">
 
-            
-            
+
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"></RowDefinition>
@@ -132,7 +132,8 @@
                     <FontIcon x:Name="testIcon"
                               FontSize="24"
                               RelativePanel.AlignVerticalCenterWithPanel="True"
-                              FontFamily="{StaticResource FluentIcons}" Glyph="&#xE774;" Margin="6" Foreground="{ThemeResource TextFillColorTertiaryBrush}"/>
+                              FontFamily="{StaticResource FluentIcons}" Glyph="&#xE774;" Margin="6"
+                              Foreground="{ThemeResource TextFillColorTertiaryBrush}" />
 
 
                     <TextBlock x:Name="titoloReport" RelativePanel.RightOf="testIcon"
@@ -150,19 +151,18 @@
                     Padding="0,6,0,6">
 
                     <Button
-                        x:Name="ButtonOpenReport" 
+                        x:Name="ButtonOpenReport"
                         Click="ButtonOpenReport_OnClick"
                         RelativePanel.AlignVerticalCenterWithPanel="True"
                         Margin="0,0,12,0">
                         <Button.Content>
                             <StackPanel Orientation="Vertical" Padding="6,0,6,0">
-                                <FontIcon FontFamily="{StaticResource FluentIcons}" Glyph="&#xE71B;" 
+                                <FontIcon FontFamily="{StaticResource FluentIcons}" Glyph="&#xE71B;"
                                           FontSize="16" />
                                 <TextBlock FontSize="12" x:Uid="ButtonOpen" Margin="0,0,0,0" />
                             </StackPanel>
                         </Button.Content>
                     </Button>
-
 
 
                 </RelativePanel>

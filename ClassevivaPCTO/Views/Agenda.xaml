@@ -203,11 +203,11 @@
 
                 <RelativePanel Grid.Row="0" Margin="0,16,0,0">
                     <TextBlock x:Name="TextTitolo" x:Uid="TitoloAgendaPopup"
-                               Style= "{StaticResource TitleLargeTextBlockStyle}"
+                               Style="{StaticResource TitleLargeTextBlockStyle}"
 
                                Margin="32,0,0,0" />
 
-                    
+
                     <muxc:ProgressRing IsActive="True" x:Name="ProgressRingAgenda"
                                        RelativePanel.AlignVerticalCenterWith="TextTitolo"
                                        RelativePanel.RightOf="TextTitolo"
@@ -217,7 +217,8 @@
 
                 </RelativePanel>
 
-                <Grid Grid.Row="0" Margin="20,0,0,0" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Center">
+                <Grid Grid.Row="0" Margin="20,0,0,0" Grid.Column="1" HorizontalAlignment="Right"
+                      VerticalAlignment="Center">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto"></ColumnDefinition>
                         <ColumnDefinition Width="Auto"></ColumnDefinition>
@@ -228,96 +229,102 @@
                     </Grid.RowDefinitions>
 
                     <RelativePanel Grid.Row="0" Grid.Column="0" Margin="0,16,0,0" VerticalAlignment="Center">
-                    
+
                         <Button RelativePanel.LeftOf="Separator0" x:Name="AggiornaCommand"
                                 RelativePanel.AlignVerticalCenterWithPanel="True"
                                 Width="48"
                                 Height="32"
-                                Margin="16,0,0,0" Click="AggiornaCommand_Click" ToolTipService.ToolTip="Aggiorna" >
-                            <FontIcon FontSize="16" Glyph="&#xE72C;" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                Margin="16,0,0,0" Click="AggiornaCommand_Click" ToolTipService.ToolTip="Aggiorna">
+                            <FontIcon FontSize="16" Glyph="&#xE72C;" HorizontalAlignment="Center"
+                                      VerticalAlignment="Center" />
                         </Button>
-                        
+
                         <!-- vertical separator -->
-                    <Rectangle x:Name="Separator0" RelativePanel.LeftOf="ButtonYesterday"
-                               Fill="{ThemeResource ControlStrokeColorDefaultBrush}"
-                               Width="2" Height="48" Margin="16,0,0,0" />
+                        <Rectangle x:Name="Separator0" RelativePanel.LeftOf="ButtonYesterday"
+                                   Fill="{ThemeResource ControlStrokeColorDefaultBrush}"
+                                   Width="2" Height="48" Margin="16,0,0,0" />
 
-                    <Button x:Name="ButtonYesterday" Margin="16,0,0,0"
+                        <Button x:Name="ButtonYesterday" Margin="16,0,0,0"
+                                RelativePanel.AlignVerticalCenterWithPanel="True"
+                                RelativePanel.LeftOf="CalendarAgenda"
+                                Width="48"
+                                Height="32"
+                                Click="ButtonYesterday_Click" ToolTipService.ToolTip="Giorno precedente">
+                            <FontIcon FontSize="16" Glyph="&#xE76B;" HorizontalAlignment="Center"
+                                      VerticalAlignment="Center" />
+                        </Button>
+
+
+                        <!-- should we set the firstdayofweek in code instead? -->
+                        <CalendarDatePicker x:Name="CalendarAgenda"
+                                            RelativePanel.LeftOf="ButtonTomorrow"
+                                            FirstDayOfWeek="Monday"
+                                            PlaceholderText="Scegli una data" Grid.Row="1" Margin="8,0,8,0"
+                                            RelativePanel.AlignVerticalCenterWithPanel="True" />
+
+                        <Button x:Name="ButtonTomorrow" Margin="0,0,0,0"
+                                RelativePanel.LeftOf="ButtonToday"
+                                Width="48"
+                                Height="32"
+                                RelativePanel.AlignVerticalCenterWithPanel="True"
+                                Click="ButtonTomorrow_Click" ToolTipService.ToolTip="Giorno successivo">
+                            <FontIcon FontSize="16" Glyph="&#xE76C;" HorizontalAlignment="Center"
+                                      VerticalAlignment="Center" />
+                        </Button>
+
+                        <ToggleButton x:Name="ButtonToday" HorizontalAlignment="Center" VerticalAlignment="Center"
+                                      x:Uid="ButtonTodayAgenda" Margin="8,0,0,0"
+                                      RelativePanel.LeftOf="Separator1"
+                                      RelativePanel.AlignVerticalCenterWithPanel="True"
+                                      toolkit:FrameworkElementExtensions.Cursor="Hand"
+                                      Click="ButtonToday_Click" ToolTipService.ToolTip="Vai agli eventi di oggi" />
+
+                        <Rectangle x:Name="Separator1" RelativePanel.AlignRightWithPanel="True"
+                                   Fill="{ThemeResource ControlStrokeColorDefaultBrush}"
+                                   Width="2" Height="48" Margin="16,0,0,0" />
+                    </RelativePanel>
+
+                    <RelativePanel x:Name="PopupButtonsRelativePanel" Grid.Row="0" Grid.Column="1" Margin="0,16,0,0"
+                                   VerticalAlignment="Center">
+
+                        <Button
                             RelativePanel.AlignVerticalCenterWithPanel="True"
-                            RelativePanel.LeftOf="CalendarAgenda"
-                            Width="48"
-                            Height="32"
-                            Click="ButtonYesterday_Click" ToolTipService.ToolTip="Giorno precedente">
-                        <FontIcon FontSize="16" Glyph="&#xE76B;" HorizontalAlignment="Center" VerticalAlignment="Center" />
-                    </Button>
+                            x:Name="TuttiCompitiButton"
 
+                            RelativePanel.LeftOf="PopupLessonsButton"
+                            Click="PopupAgendaButton_OnClick"
+                            Margin="16,0,0,0">
+                            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Spacing="8">
 
-                    <!-- should we set the firstdayofweek in code instead? -->
-                    <CalendarDatePicker x:Name="CalendarAgenda"
-                                        RelativePanel.LeftOf="ButtonTomorrow"
-                                        FirstDayOfWeek="Monday"
-                                        PlaceholderText="Scegli una data" Grid.Row="1" Margin="8,0,8,0"
-                                        RelativePanel.AlignVerticalCenterWithPanel="True" />
+                                <TextBlock Text="&#xEA98;" VerticalAlignment="Center"
+                                           FontFamily="{StaticResource FluentIcons}" />
 
-                    <Button x:Name="ButtonTomorrow" Margin="0,0,0,0"
-                            RelativePanel.LeftOf="ButtonToday"
-                            Width="48"
-                            Height="32"
+                                <TextBlock x:Uid="TuttiCompitiButton" />
+
+                            </StackPanel>
+                        </Button>
+
+                        <Button
                             RelativePanel.AlignVerticalCenterWithPanel="True"
-                            Click="ButtonTomorrow_Click" ToolTipService.ToolTip="Giorno successivo">
-                        <FontIcon FontSize="16" Glyph="&#xE76C;" HorizontalAlignment="Center" VerticalAlignment="Center" />
-                    </Button>
+                            x:Name="PopupLessonsButton"
+                            Click="PopupLessonsButton_OnClick"
+                            RelativePanel.AlignRightWithPanel="True"
+                            Margin="8,0,20,0">
 
-                    <ToggleButton x:Name="ButtonToday" HorizontalAlignment="Center" VerticalAlignment="Center" x:Uid="ButtonTodayAgenda" Margin="8,0,0,0"
-                                  RelativePanel.LeftOf="Separator1"
-                                  RelativePanel.AlignVerticalCenterWithPanel="True"
-                                  toolkit:FrameworkElementExtensions.Cursor="Hand"
-                                  Click="ButtonToday_Click" ToolTipService.ToolTip="Vai agli eventi di oggi" />
+                            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Spacing="8">
+                                <TextBlock Text="&#xe7be;" VerticalAlignment="Center"
+                                           FontFamily="{StaticResource FluentIcons}" />
+                                <TextBlock x:Uid="PopupLessonsButton" />
 
-                    <Rectangle x:Name="Separator1" RelativePanel.AlignRightWithPanel="True"
-                               Fill="{ThemeResource ControlStrokeColorDefaultBrush}"
-                               Width="2" Height="48" Margin="16,0,0,0"  />
-                </RelativePanel>
+                            </StackPanel>
+                        </Button>
 
-                <RelativePanel x:Name="PopupButtonsRelativePanel" Grid.Row="0" Grid.Column="1" Margin="0,16,0,0"
-                               VerticalAlignment="Center">
-
-                    <Button
-                        RelativePanel.AlignVerticalCenterWithPanel="True"
-                        x:Name="TuttiCompitiButton"
-                        
-                        RelativePanel.LeftOf="PopupLessonsButton"
-                        Click="PopupAgendaButton_OnClick"
-                        Margin="16,0,0,0">
-                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Spacing="8">
-                            
-                            <TextBlock Text="&#xEA98;" VerticalAlignment="Center" FontFamily="{StaticResource FluentIcons}"/>
-
-                            <TextBlock x:Uid="TuttiCompitiButton"/>
-
-                        </StackPanel>
-                    </Button>
-
-                    <Button
-                        RelativePanel.AlignVerticalCenterWithPanel="True"
-                        x:Name="PopupLessonsButton"
-                        Click="PopupLessonsButton_OnClick"
-                        RelativePanel.AlignRightWithPanel="True"
-                        Margin="8,0,20,0">
-
-                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Spacing="8">
-                            <TextBlock Text="&#xe7be;" VerticalAlignment="Center" FontFamily="{StaticResource FluentIcons}"/>
-                            <TextBlock x:Uid="PopupLessonsButton"/>
-
-                        </StackPanel>
-                    </Button>
-
-                    <!--<Rectangle x:Name="Separator2" RelativePanel.AlignRightWithPanel="True"
+                        <!--<Rectangle x:Name="Separator2" RelativePanel.AlignRightWithPanel="True"
                                VerticalAlignment="Stretch"
                                Fill="{ThemeResource ControlStrokeColorDefaultBrush}"
                                Width="2" Height="48" Margin="16,0,0,0" />-->
 
-                </RelativePanel>
+                    </RelativePanel>
 
                 </Grid>
 
