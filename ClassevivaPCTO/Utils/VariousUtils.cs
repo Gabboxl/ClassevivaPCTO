@@ -1,11 +1,48 @@
-﻿using System;
+﻿using ClassevivaPCTO.Services;
+using System;
 using System.Collections.Generic;
 using System.Globalization;
+using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml;
 
 namespace ClassevivaPCTO.Utils
 {
     internal class VariousUtils
     {
+        public static async void DoLogout()
+        {
+            var loginCredential = new CredUtils().GetCredentialFromLocker();
+
+            if (loginCredential != null)
+            {
+                loginCredential
+                    .RetrievePassword(); //dobbiamo per forza chiamare questo metodo per fare sì che la proprietà loginCredential.Password non sia vuota
+
+                var vault = new Windows.Security.Credentials.PasswordVault();
+
+                vault.Remove(
+                    new Windows.Security.Credentials.PasswordCredential(
+                        "classevivapcto",
+                        loginCredential.UserName,
+                        loginCredential.Password
+                    )
+                );
+
+                //delete localsettings data in case of multiple account chosen
+                if (await ChoiceSaverService.LoadChoiceIdentAsync() != null)
+                {
+                    ChoiceSaverService.RemoveSavedChoiceIdent();
+                }
+            }
+
+            Frame rootFrame = (Frame)Window.Current.Content;
+            if (rootFrame.CanGoBack)
+            {
+                rootFrame.GoBack(); //ritorniamo alla pagina di login
+            }
+        }
+
+
         public static float CalcolaMedia(List<Grade> voti)
         {
             float somma = 0;

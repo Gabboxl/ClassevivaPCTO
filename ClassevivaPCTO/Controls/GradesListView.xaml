@@ -25,7 +25,7 @@
                              Grid.RowSpan="2"
                              Width="42"
                              Height="42"
-                             Margin="2"
+                             Margin="6"
 
                              Fill="{x:Bind CurrentObject,Converter={StaticResource GradeToColorConverter}}"
 
@@ -34,15 +34,15 @@
                         <!-- ="{ThemeResource SystemControlBackgroundBaseMediumBrush}" -->
                     </Ellipse>
                     <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center"
-                               Text="{x:Bind CurrentObject.displayValue}" FontSize="14" Foreground="#FFFFFF" />
+                               Text="{x:Bind CurrentObject.displayValue}" FontSize="16" Foreground="#FFFFFF" />
 
                 </Grid>
 
                 <RelativePanel RelativePanel.AlignVerticalCenterWithPanel="True" RelativePanel.RightOf="gridVoto">
                     <TextBlock x:Name="textMateria" TextWrapping="Wrap"
                                MaxWidth="500"
-                               Text="{x:Bind CurrentObject.subjectDesc}"
                                IsTextSelectionEnabled="True"
+                               Text="{x:Bind CurrentObject.subjectDesc}"
                                Style="{ThemeResource BaseTextBlockStyle}"
                                Margin="12,6,0,0" />
 
@@ -52,19 +52,22 @@
                                Text="{x:Bind CurrentObject.notesForFamily}"
                                IsTextSelectionEnabled="True"
                                Style="{ThemeResource BodyTextBlockStyle}"
+                               Foreground="{ThemeResource TextFillColorTertiaryBrush}"
+                               FontWeight="SemiBold"
                                Margin="12,0,0,6" />
 
                     <TextBlock RelativePanel.RightOf="textMateria" x:Name="dataVoto"
                                Text="{x:Bind CurrentObject.evtDate, Converter={StaticResource DateTimeToNormalDateConverter}}"
-                               IsTextSelectionEnabled="True"
                                Style="{ThemeResource CaptionTextBlockStyle}"
-                               Margin="12,6,0,0" />
+                               Margin="12,6,0,0"
+                               IsTextSelectionEnabled="True"
+                               Foreground="{ThemeResource TextFillColorSecondaryBrush}" FontWeight="SemiBold" />
 
                     <TextBlock RelativePanel.RightOf="dataVoto"
                                Text="{x:Bind CurrentObject.componentDesc}"
                                Style="{ThemeResource CaptionTextBlockStyle}"
-                               IsTextSelectionEnabled="True"
-                               Margin="12,6,0,0" />
+                               Margin="12,6,0,0"
+                               Foreground="{ThemeResource TextFillColorSecondaryBrush}" FontWeight="SemiBold" />
 
                 </RelativePanel>
             </RelativePanel>

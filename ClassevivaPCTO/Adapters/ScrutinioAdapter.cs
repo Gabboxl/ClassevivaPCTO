@@ -1,12 +1,16 @@
 ﻿using ClassevivaPCTO.Utils;
 using Windows.UI;
 using Windows.UI.Xaml.Media;
+using ClassevivaPCTO.Helpers.Palettes;
+using ClassevivaPCTO.Services;
 
 namespace ClassevivaPCTO.Adapters
 {
     public class ScrutinioAdapter
     {
         public readonly ScrutiniDocument CurrentObject;
+
+        private IPalette _currentPalette = PaletteSelectorService.PaletteClass;
 
         public SolidColorBrush StatusTextColor
         {
@@ -16,11 +20,11 @@ namespace ClassevivaPCTO.Adapters
 
                 if (CurrentObject.checkStatus.available)
                 {
-                    brush.Color = Colors.Green;
+                    brush.Color = _currentPalette.ColorGreen;
                 }
                 else
                 {
-                    brush.Color = Colors.Crimson;
+                    brush.Color = _currentPalette.ColorRed;
                 }
 
                 return brush;
@@ -33,12 +37,10 @@ namespace ClassevivaPCTO.Adapters
             {
                 if (CurrentObject.checkStatus.available)
                 {
-                    return "Disponibile";
+                    return " ";
                 }
-                else
-                {
-                    return "Non disponibile";
-                }
+
+                return "Non disponibile";
             }
         }
 

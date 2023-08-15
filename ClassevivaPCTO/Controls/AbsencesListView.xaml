@@ -28,7 +28,7 @@
                              Grid.RowSpan="2"
                              Width="42"
                              Height="42"
-                             Margin="2"
+                             Margin="6"
 
                              Fill="{x:Bind CurrentObject.evtCode,Converter={StaticResource AbsenceTypeToColorConverter}}"
 
@@ -37,7 +37,7 @@
                         <!-- ="{ThemeResource SystemControlBackgroundBaseMediumBrush}" -->
                     </Ellipse>
                     <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center"
-                               Text="{x:Bind ShortEventName}" FontSize="14" Foreground="#FFFFFF" />
+                               Text="{x:Bind ShortEventName}" FontSize="16" Foreground="#FFFFFF" />
 
                 </Grid>
 
@@ -49,16 +49,17 @@
                                    MaxWidth="500"
                                    Text="{x:Bind EventTitle}"
                                    Style="{ThemeResource BaseTextBlockStyle}"
-                                   Margin="6,8,0,0" />
+                                   Margin="10,8,0,0" />
 
 
                         <TextBlock RelativePanel.Below="titoloEvento" x:Name="justifiedText" TextWrapping="Wrap"
                                    MaxWidth="500"
                                    Text="{x:Bind JustifiedText}"
                                    Style="{ThemeResource BaseTextBlockStyle}"
-                                   Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                                   Foreground="{ThemeResource TextFillColorTertiaryBrush}"
                                    FontStyle="Italic"
-                                   Margin="6,0,0,8" />
+
+                                   Margin="10,0,0,8" />
 
 
                     </RelativePanel>

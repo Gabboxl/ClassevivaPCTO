@@ -51,7 +51,7 @@
 
             <TextBlock x:Uid="TextBenvenutoLogin" FontSize="24" TextAlignment="Center" Height="60" />
 
-            <TextBox x:Name="EdittextUsername" x:Uid="EdittextUsername" PlaceholderText="Username"
+            <TextBox x:Name="EdittextUsername" x:Uid="EdittextUsername" PlaceholderText="Nome utente"
                      Margin="0,0,0,30" />
             <PasswordBox x:Name="EdittextPassword" x:Uid="EdittextPassword" PlaceholderText="Password"
                          Margin="0,0,0,20" />

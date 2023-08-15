@@ -32,9 +32,9 @@
 
                 <TextBlock x:Name="AbsencesTitle"
                            x:Uid="AbsencesTitle"
-                           Margin="16,6,0,6"
+                           Margin="14,12,0,8"
                            Visibility="{x:Bind OverviewViewModel.FilteredOverviewResult.AbsenceEvents, Mode=OneWay, Converter={StaticResource EmptyListToVisibilityConverter}}"
-                           Style="{ThemeResource BodyStrongTextBlockStyle}" />
+                           Style="{ThemeResource BodyStrongTextBlockStyle}" FontSize="18" FontWeight="SemiBold" />
 
                 <controls2:AbsencesListView x:Name="AbsencesListView"
                                             HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
@@ -44,9 +44,9 @@
 
                 <TextBlock x:Name="GradesTitle"
                            x:Uid="GradesTitle"
-                           Margin="16,6,0,6"
+                           Margin="14,12,0,8"
                            Visibility="{x:Bind OverviewViewModel.FilteredOverviewResult.Grades, Mode=OneWay, Converter={StaticResource EmptyListToVisibilityConverter}}"
-                           Style="{ThemeResource BodyStrongTextBlockStyle}" />
+                           Style="{ThemeResource BodyStrongTextBlockStyle}" FontSize="18" FontWeight="SemiBold" />
 
                 <controls2:GradesListView x:Name="GradesListView"
                                           HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
@@ -55,9 +55,9 @@
 
                 <TextBlock x:Name="LessonsTitle"
                            x:Uid="LessonsTitle"
-                           Margin="16,6,0,6"
+                           Margin="14,12,0,8"
                            Visibility="{x:Bind OverviewViewModel.FilteredOverviewResult.Lessons, Mode=OneWay, Converter={StaticResource EmptyListToVisibilityConverter}}"
-                           Style="{ThemeResource BodyStrongTextBlockStyle}" />
+                           Style="{ThemeResource BodyStrongTextBlockStyle}" FontSize="18" FontWeight="SemiBold" />
 
                 <controls2:LessonsListView x:Name="LessonsListView"
                                            HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
@@ -66,9 +66,9 @@
 
                 <TextBlock x:Name="AgendaTitle"
                            x:Uid="AgendaTitle"
-                           Margin="16,6,0,6"
+                           Margin="14,12,0,8"
                            Visibility="{x:Bind OverviewViewModel.FilteredOverviewResult.AgendaEvents, Mode=OneWay, Converter={StaticResource EmptyListToVisibilityConverter}}"
-                           Style="{ThemeResource BodyStrongTextBlockStyle}" />
+                           Style="{ThemeResource BodyStrongTextBlockStyle}" FontSize="18" FontWeight="SemiBold" />
 
 
                 <controls2:AgendaListView x:Name="AgendaListView"

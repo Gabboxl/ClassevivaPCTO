@@ -74,10 +74,10 @@ namespace ClassevivaPCTO.Views
 
             LoginResultComplete loginResult = ViewModelHolder.GetViewModel().LoginResult;
 
-           /* PersonPictureDashboard.DisplayName =
-                VariousUtils.ToTitleCase(loginResult.firstName)
-                + " "
-                + VariousUtils.ToTitleCase(loginResult.lastName); */
+            /* PersonPictureDashboard.DisplayName =
+                 VariousUtils.ToTitleCase(loginResult.firstName)
+                 + " "
+                 + VariousUtils.ToTitleCase(loginResult.lastName); */
 
             //pagina di default
             NavigationService.Navigate(typeof(Views.DashboardPage));
@@ -101,35 +101,7 @@ namespace ClassevivaPCTO.Views
 
         private async void ButtonLogout_Click(object sender, RoutedEventArgs e)
         {
-            var loginCredential = new CredUtils().GetCredentialFromLocker();
-
-            if (loginCredential != null)
-            {
-                loginCredential
-                    .RetrievePassword(); //dobbiamo per forza chiamare questo metodo per fare sì che la proprietà loginCredential.Password non sia vuota
-
-                var vault = new Windows.Security.Credentials.PasswordVault();
-
-                vault.Remove(
-                    new Windows.Security.Credentials.PasswordCredential(
-                        "classevivapcto",
-                        loginCredential.UserName,
-                        loginCredential.Password
-                    )
-                );
-
-                //delete localsettings data in case of multiple account chosen
-                if (await ChoiceSaverService.LoadChoiceIdentAsync() != null)
-                {
-                    ChoiceSaverService.RemoveSavedChoiceIdent();
-                }
-            }
-
-            Frame rootFrame = (Frame)Window.Current.Content;
-            if (rootFrame.CanGoBack)
-            {
-                rootFrame.GoBack(); //ritorniamo alla pagina di login
-            }
+            VariousUtils.DoLogout();
         }
     }
 }

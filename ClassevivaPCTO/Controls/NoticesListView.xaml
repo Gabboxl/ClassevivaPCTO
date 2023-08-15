@@ -44,7 +44,8 @@
                     <!-- icon pin -->
                     <FontIcon x:Name="pinIcon" FontFamily="{StaticResource FluentIcons}" Glyph="&#xE840;"
                               RelativePanel.AlignVerticalCenterWithPanel="True"
-                              Margin="0,0,8,0" />
+                              Foreground="{ThemeResource TextFillColorTertiaryBrush}"
+                              Margin="8,0,8,0" />
 
                     <TextBlock x:Name="titoloEvento" TextWrapping="WrapWholeWords"
                                RelativePanel.RightOf="pinIcon"
@@ -58,18 +59,20 @@
                                RelativePanel.AlignVerticalCenterWith="titoloEvento"
                                MaxWidth="500"
                                Text="{x:Bind Category}"
+                               FontWeight="SemiBold"
                                Style="{ThemeResource BaseTextBlockStyle}"
-                               Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                               Foreground="{ThemeResource TextFillColorTertiaryBrush}"
                                Margin="8,0,0,0" />
 
 
                     <!-- data pubblicazione -->
                     <TextBlock RelativePanel.RightOf="categoriaEvento" x:Name="dataPubblicazione" TextWrapping="NoWrap"
                                TextTrimming="None"
+                               FontWeight="SemiBold"
                                Text="{x:Bind  CurrentObject.pubDT, Converter={StaticResource DateTimeToNormalDateConverter}}"
                                Style="{ThemeResource BodyStrongTextBlockStyle}"
                                Foreground="{ThemeResource TextFillColorTertiaryBrush}"
-                               Margin="8,0,0,0" />
+                               Margin="4,0,0,0" />
 
 
                     <TextBlock x:Name="StatusText" RelativePanel.RightOf="dataPubblicazione" TextWrapping="NoWrap"
@@ -77,15 +80,18 @@
                                TextTrimming="None"
                                Text="{x:Bind  StatusText}"
                                FontStyle="Italic"
+                               FontWeight="Medium"
                                Foreground="{x:Bind StatusTextColor}"
                                Style="{ThemeResource CaptionTextBlockStyle}"
-                               Margin="6,6,0,0" />
+                               Margin="10,0,0,0" />
 
 
                     <TextBlock x:Name="FromToDateText" RelativePanel.Below="titoloEvento" TextWrapping="Wrap"
                                RelativePanel.AlignLeftWith="titoloEvento"
                                Text="{x:Bind  FromToValidDate}"
                                FontStyle="Italic"
+                               FontWeight="Medium"
+                               Foreground="{ThemeResource TextFillColorTertiaryBrush}"
                                Style="{ThemeResource CaptionTextBlockStyle}"
                                Margin="6,6,0,0" />
 
@@ -101,7 +107,7 @@
                               RelativePanel.AlignVerticalCenterWithPanel="True"
                               Foreground="{x:Bind ReadColor}"
                               Visibility="{x:Bind IsDeleted, Converter={StaticResource BetterBoolToVisibilityConverter}, ConverterParameter=False}"
-                              Margin="0,0,8,0" />
+                              Margin="0,0,12,0" />
 
 
                     <!-- the same ReadButton but is a Button with the icon on the left inside the button -->

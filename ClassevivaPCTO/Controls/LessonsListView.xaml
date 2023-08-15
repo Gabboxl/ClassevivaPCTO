@@ -14,7 +14,6 @@
     <UserControl.Resources>
 
         <converters:DateTimeToNormalDateConverter x:Key="DateTimeToNormalDateConverter" />
-        <converters:GradeToColorConverter x:Key="GradeToColorConverter" />
 
 
         <DataTemplate x:Key="LessonListViewDataTemplate"
@@ -33,20 +32,22 @@
                     <TextBlock x:Name="textMateria" TextWrapping="WrapWholeWords"
                                MaxWidth="500"
                                Text="{x:Bind CurrentObject.subjectDesc}"
-                               Style="{ThemeResource BaseTextBlockStyle}"
                                IsTextSelectionEnabled="True"
+                               Style="{ThemeResource BaseTextBlockStyle}"
                                Margin="12,6,0,0" />
 
                     <TextBlock x:Name="durationHours" TextWrapping="NoWrap" RelativePanel.RightOf="textMateria"
                                MaxWidth="500"
                                Style="{ThemeResource BaseTextBlockStyle}"
-                               Margin="12,6,0,0">
+                               Foreground="{ThemeResource TextFillColorTertiaryBrush}"
+                               Margin="6,6,0,0">
                         <Run Text="(" /><Run Text="{x:Bind Durata}" /><Run Text=")" />
                     </TextBlock>
 
                     <TextBlock RelativePanel.Below="textMateria" x:Name="nomeAutore"
                                Text="{x:Bind CurrentObject.authorName}"
-                               FontStyle="Italic"
+                               Foreground="{ThemeResource TextFillColorTertiaryBrush}"
+                               FontStyle="Italic" FontWeight="Medium"
                                IsTextSelectionEnabled="True"
                                Style="{ThemeResource BodyTextBlockStyle}"
                                Margin="12,0,0,0" />
@@ -56,13 +57,14 @@
                                Style="{ThemeResource BodyTextBlockStyle}"
                                FontStyle="Italic"
                                Foreground="{x:Bind ColorBrush}"
-                               IsTextSelectionEnabled="True"
                                Margin="12,0,0,0" />
 
                     <TextBlock RelativePanel.Below="nomeAutore" RelativePanel.RightOf="tipoLezione"
                                TextWrapping="WrapWholeWords"
                                Text="{x:Bind CurrentObject.lessonArg}"
                                Style="{ThemeResource BodyTextBlockStyle}"
+                               Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                               FontWeight="SemiBold"
                                IsTextSelectionEnabled="True"
                                Margin="12,0,0,6" />
 

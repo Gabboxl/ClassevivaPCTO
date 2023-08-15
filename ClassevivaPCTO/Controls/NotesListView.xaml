@@ -44,7 +44,8 @@
                     <FontIcon x:Name="NoteIcon"
                               FontSize="24"
                               RelativePanel.AlignVerticalCenterWithPanel="True"
-                              FontFamily="{StaticResource FluentIcons}" Glyph="&#xe91c;" />
+                              FontFamily="{StaticResource FluentIcons}" Glyph="&#xe91c;"
+                              Foreground="{ThemeResource TextFillColorTertiaryBrush}" />
 
 
                     <TextBlock x:Name="titoloEvento" TextWrapping="WrapWholeWords"
@@ -123,7 +124,7 @@
                   ItemContainerStyle="{StaticResource ListViewFullStretchStyle}">
 
         </ListView>
-        
+
         <RelativePanel
             VerticalAlignment="Center"
             HorizontalAlignment="Center"

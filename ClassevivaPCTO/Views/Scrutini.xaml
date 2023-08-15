@@ -30,19 +30,45 @@
 
 
         <RelativePanel Grid.Row="0" Margin="0,16,0,0">
-
             <TextBlock x:Name="TextTitolo" Grid.Row="0" x:Uid="TitoloScrutini"
-                       Style= "{StaticResource TitleLargeTextBlockStyle}"
+                       Style="{StaticResource TitleLargeTextBlockStyle}"
                        VerticalAlignment="Top"
                        Margin="32,0,0,0" />
 
-            <Button RelativePanel.RightOf="TextTitolo" x:Name="AggiornaCommand"
-                    RelativePanel.AlignVerticalCenterWith="TextTitolo"
+
+            <muxc:ProgressRing IsActive="True" x:Name="ProgressRingScrutini"
+                               RelativePanel.AlignVerticalCenterWith="TextTitolo"
+                               RelativePanel.RightOf="TextTitolo"
+                               Margin="16,0,0,0" Width="28" Height="28"
+                               Visibility="{x:Bind ScrutiniViewModel.IsLoadingScrutini, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" />
+
+
+        </RelativePanel>
+
+
+        <RelativePanel Grid.Row="0" Margin="0,16,0,0" HorizontalAlignment="Right" Width="1500">
+
+
+            <Button x:Name="AggiornaCommand" RelativePanel.LeftOf="Separatore0"
+                    RelativePanel.AlignVerticalCenterWithPanel="True"
                     Width="48"
-                    Height="36"
-                    Margin="16,0,0,0" Click="AggiornaCommand_Click" >
-                <FontIcon Glyph="&#xE72C;" HorizontalAlignment="Center" />
+                    Height="32"
+                    Margin="0,0,2,0" Click="AggiornaCommand_Click" ToolTipService.ToolTip="Aggiorna">
+                <FontIcon Glyph="&#xE72C;" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" />
+
+
             </Button>
+
+            <Rectangle x:Name="Separatore0" RelativePanel.LeftOf="CheckboxEliminati"
+                       RelativePanel.AlignVerticalCenterWithPanel="True"
+                       Fill="{ThemeResource ControlStrokeColorDefaultBrush}"
+                       Width="2" Height="48" Margin="20,0,20,0" />
+
+            <CheckBox x:Name="CheckboxEliminati"
+                      x:Uid="CheckboxEliminati"
+                      Margin="0,0,24,0"
+                      RelativePanel.AlignRightWithPanel="True"
+                      RelativePanel.AlignVerticalCenterWithPanel="True" />
         </RelativePanel>
 
 
@@ -56,22 +82,12 @@
                        BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
                        Background="{ThemeResource CardBackgroundFillColorDefaultBrush}">
 
-            <CheckBox x:Name="CheckboxEliminati"
-                      x:Uid="CheckboxEliminati"
-                      Margin="0,0,16,0"
-                      RelativePanel.AlignRightWithPanel="True"
-                      RelativePanel.AlignHorizontalCenterWithPanel="True" />
-
 
             <TextBlock x:Uid="TextFileScrutini" x:Name="TextFileScrutini"
-                       Margin="8,6,0,0"
-                       Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                       Margin="16,6,0,6"
+                       FontSize="18"
+                       FontWeight="SemiBold"
                        Style="{ThemeResource BodyStrongTextBlockStyle}" />
-
-            <muxc:ProgressRing IsActive="True" x:Name="ProgressRingScrutini"
-                               RelativePanel.RightOf="TextFileScrutini"
-                               Margin="12,0,0,0"
-                               Visibility="{x:Bind ScrutiniViewModel.IsLoadingScrutini, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" />
 
 
             <Grid

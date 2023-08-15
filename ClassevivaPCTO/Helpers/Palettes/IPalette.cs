@@ -11,6 +11,7 @@ namespace ClassevivaPCTO.Helpers.Palettes
         Color ColorOrange { get; }
         Color ColorYellow { get; }
         Color ColorGreen { get; }
+        Color ColorBlue { get; }
 
     }
 

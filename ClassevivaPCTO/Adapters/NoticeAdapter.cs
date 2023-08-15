@@ -1,4 +1,6 @@
-﻿using ClassevivaPCTO.Utils;
+﻿using ClassevivaPCTO.Helpers.Palettes;
+using ClassevivaPCTO.Services;
+using ClassevivaPCTO.Utils;
 using Windows.UI;
 using Windows.UI.Xaml.Media;
 
@@ -7,6 +9,8 @@ namespace ClassevivaPCTO.Adapters
     public class NoticeAdapter
     {
         public readonly Notice CurrentObject;
+
+        private IPalette _currentPalette = PaletteSelectorService.PaletteClass;
 
         public bool IsDeleted
         {
@@ -24,15 +28,15 @@ namespace ClassevivaPCTO.Adapters
 
                 if (CurrentObject.cntStatus == "deleted")
                 {
-                    brush.Color = Colors.Crimson;
+                    brush.Color = _currentPalette.ColorRed;
                 }
                 else if (!CurrentObject.cntValidInRange)
                 {
-                    brush.Color = Colors.DarkOrange;
+                    brush.Color = _currentPalette.ColorOrange;
                 }
                 else
                 {
-                    brush.Color = Colors.Green;
+                    brush.Color = _currentPalette.ColorGreen;
                 }
 
                 return brush;
@@ -45,10 +49,10 @@ namespace ClassevivaPCTO.Adapters
             {
                 if (CurrentObject.cntStatus == "deleted")
                 {
-                    return "Comunicazione eliminata";
+                    return "Eliminata";
                 } else if (!CurrentObject.cntValidInRange)
                 {
-                    return "Comunicazione scaduta";
+                    return "Scaduta";
                 }
 
                 return "";
@@ -79,12 +83,12 @@ namespace ClassevivaPCTO.Adapters
 
                 if (CurrentObject.readStatus)
                 {
-                    brush.Color = Colors.Green;
+                    brush.Color = _currentPalette.ColorGreen;
 
                 }
                 else
                 {
-                    brush.Color = Colors.Red;
+                    brush.Color = _currentPalette.ColorRed;
                 }
 
                 return brush;
