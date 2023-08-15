@@ -165,7 +165,7 @@
                     <!-- the combobox selected index is bound to the current theme enum value -->
 
                     <ComboBox SelectedIndex="{x:Bind ElementTheme.GetHashCode()}"
-                              SelectionChanged="ThemeSelector_OnSelectionChanged" Width="200">
+                              SelectionChanged="ThemeSelector_OnSelectionChanged" MinWidth="200">
                         <ComboBoxItem
                             x:Uid="Settings_Theme_Default">
 
@@ -190,7 +190,7 @@
                     </labs:SettingsCard.HeaderIcon>
 
                     <ComboBox SelectedIndex="{x:Bind PaletteType.GetHashCode()}"
-                              x:Name="PaletteComboBox" Width="200"
+                              x:Name="PaletteComboBox" MinWidth="200"
                               ItemsSource="{x:Bind ComboPalettes}"
                               SelectionChanged="PaletteComboBox_OnSelectionChanged">
                         <ComboBox.ItemTemplate>
@@ -257,7 +257,7 @@
                         <FontIcon Glyph="&#xE8C1;" />
                     </labs:SettingsCard.HeaderIcon>
 
-                    <ComboBox SelectedIndex="0" Width="130">
+                    <ComboBox SelectedIndex="0" MinWidth="130">
 
                         <ComboBoxItem
                             x:Uid="Settings_Language_It_IT">
@@ -280,7 +280,7 @@
                         <FontIcon Glyph="&#xE762;" />
                     </labs:SettingsCard.HeaderIcon>
 
-                    <Button x:Uid="SettingsCardWhatsNewButton" Click="ButtonChangelog_OnClick" />
+                    <Button x:Uid="SettingsCardWhatsNewButton" Click="ButtonChangelog_OnClick" MinWidth="130" />
 
 
                 </labs:SettingsCard>
@@ -292,7 +292,7 @@
                         <FontIcon Glyph="&#xEA80;" />
                     </labs:SettingsCard.HeaderIcon>
 
-                    <Button x:Uid="SettingsCardTutorialButton" />
+                    <Button x:Uid="SettingsCardTutorialButton"  MinWidth="130" />
 
                 </labs:SettingsCard>
 

@@ -114,15 +114,14 @@
 
             <controls2:UniformGridEx
                 x:Name="MyUniformGrid"
-                ColumnSpacing="36" RowSpacing="36"
+                ColumnSpacing="28" RowSpacing="36"
                 MinRowHeight="250"
 
-                Margin="18,16,19,18">
+                Margin="18,16,18,18">
 
 
                 <Grid
                     Grid.RowSpan="2"
-                    Margin="0,0,-8,0"
                     CornerRadius="8"
                     Padding="12"
                     BorderThickness="1"
@@ -165,12 +164,7 @@
 
                         <StackPanel Orientation="Horizontal" Spacing="4">
                             <TextBlock Text="Apri Agenda" />
-                            <Grid Width="12" Height="12">
-                                <Path
-                                                Data="M320,864C320,855.333 323.167,847.833 329.5,841.5L658.5,512L329.5,182.5C323.167,176.167 320,168.667 320,160C320,151.333 323.167,143.833 329.5,137.5C335.833,131.167 343.333,128 352,128C360.667,128 368.167,131.167 374.5,137.5L726.5,489.5C732.833,495.833 736,503.333 736,512C736,520.667 732.833,528.167 726.5,534.5L374.5,886.5C368.167,892.833 360.667,896 352,896C343.333,896 335.833,892.833 329.5,886.5C323.167,880.167 320,872.667 320,864Z"
-                                                Stretch="Uniform"
-                                                Fill="{ThemeResource AccentTextFillColorPrimaryBrush}" />
-                            </Grid>
+                            <FontIcon FontSize="12" Margin="0,4,0,0" Glyph="&#xE76C;" VerticalAlignment="Center" />
 
 
                         </StackPanel>
@@ -189,9 +183,6 @@
                         <RowDefinition Height="Auto" />
                         <RowDefinition Height="*" />
                     </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition />
-                    </Grid.ColumnDefinitions>
 
 
                     <RelativePanel Grid.Row="0">
@@ -249,12 +240,7 @@
 
                         <StackPanel Orientation="Horizontal" Spacing="4">
                             <TextBlock Text="Visualizza tutte le valutazioni" />
-                            <Grid Width="12" Height="12">
-                                <Path
-                                                Data="M320,864C320,855.333 323.167,847.833 329.5,841.5L658.5,512L329.5,182.5C323.167,176.167 320,168.667 320,160C320,151.333 323.167,143.833 329.5,137.5C335.833,131.167 343.333,128 352,128C360.667,128 368.167,131.167 374.5,137.5L726.5,489.5C732.833,495.833 736,503.333 736,512C736,520.667 732.833,528.167 726.5,534.5L374.5,886.5C368.167,892.833 360.667,896 352,896C343.333,896 335.833,892.833 329.5,886.5C323.167,880.167 320,872.667 320,864Z"
-                                                Stretch="Uniform"
-                                                Fill="{ThemeResource AccentTextFillColorPrimaryBrush}" />
-                            </Grid>
+                            <FontIcon FontSize="12" Margin="0,4,0,0" Glyph="&#xE76C;" VerticalAlignment="Center" />
 
 
                         </StackPanel>
@@ -278,9 +264,6 @@
                         <RowDefinition Height="Auto" />
                         <RowDefinition Height="*" />
                     </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition />
-                    </Grid.ColumnDefinitions>
 
                     <RelativePanel Grid.Row="0">
 
@@ -319,12 +302,7 @@
 
                         <StackPanel Orientation="Horizontal" Spacing="4">
                             <TextBlock Text="Apri Bacheca" />
-                            <Grid Width="12" Height="12">
-                                <Path
-                                                Data="M320,864C320,855.333 323.167,847.833 329.5,841.5L658.5,512L329.5,182.5C323.167,176.167 320,168.667 320,160C320,151.333 323.167,143.833 329.5,137.5C335.833,131.167 343.333,128 352,128C360.667,128 368.167,131.167 374.5,137.5L726.5,489.5C732.833,495.833 736,503.333 736,512C736,520.667 732.833,528.167 726.5,534.5L374.5,886.5C368.167,892.833 360.667,896 352,896C343.333,896 335.833,892.833 329.5,886.5C323.167,880.167 320,872.667 320,864Z"
-                                                Stretch="Uniform"
-                                                Fill="{ThemeResource AccentTextFillColorPrimaryBrush}" />
-                            </Grid>
+                            <FontIcon FontSize="12" Margin="0,4,0,0" Glyph="&#xE76C;" VerticalAlignment="Center" />
 
 
                         </StackPanel>
