@@ -11,7 +11,7 @@
     xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
     muxc:BackdropMaterial.ApplyToRootOrPageBackground="True">
-
+    
     <Page.Resources>
         <ResourceDictionary>
             <microconverters:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" />

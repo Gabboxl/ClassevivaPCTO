@@ -53,11 +53,11 @@ namespace ClassevivaPCTO.Adapters
             {
                 if (CurrentObject.evtDuration == 1)
                 {
-                    return "1 ora";
+                    return "1 h";
                 }
                 else
                 {
-                    return CurrentObject.evtDuration + " ore";
+                    return CurrentObject.evtDuration + " hh";
                 }
             }
         }

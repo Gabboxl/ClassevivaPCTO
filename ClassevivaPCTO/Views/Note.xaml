@@ -36,10 +36,11 @@
                        VerticalAlignment="Top"
                        Margin="32,0,0,0" />
 
-            <muxc:ProgressRing IsActive="False" x:Name="ProgressRingNote"
+            <muxc:ProgressRing IsActive="True" x:Name="ProgressRingNote"
                                        RelativePanel.AlignVerticalCenterWith="TextTitolo"
                                        RelativePanel.RightOf="TextTitolo"
-                                       Margin="16,0,0,0" Width="28" Height="28"/>
+                                       Margin="16,0,0,0" Width="28" Height="28"
+                                       Visibility="{x:Bind NoteViewModel.IsLoadingNote, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}"/>
 
             <Button x:Name="AggiornaCommand"
                     HorizontalAlignment="Right"

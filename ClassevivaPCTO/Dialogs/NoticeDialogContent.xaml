@@ -29,12 +29,14 @@
 
                 <RelativePanel Grid.Column="0">
                     <FontIcon Glyph="&#xe7c3;"
+                              FontFamily="{StaticResource FluentIcons}"
                               Foreground="{ThemeResource TextFillColorTertiaryBrush}"
                               RelativePanel.AlignVerticalCenterWithPanel="True"
                               x:Name="IconaAttachment" />
 
 
                     <TextBlock x:Name="nomeAllegato"
+                               IsTextSelectionEnabled="True"
                                RelativePanel.RightOf="IconaAttachment"
                                RelativePanel.AlignVerticalCenterWithPanel="True"
                                TextWrapping="Wrap"

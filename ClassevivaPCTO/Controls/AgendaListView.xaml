@@ -69,7 +69,7 @@
                            Foreground="{ThemeResource TextFillColorTertiaryBrush}"
                            Margin="0,12,0,0" />
 
-                <TextBlock RelativePanel.Below="dataStart" x:Name="descriptionEvent"
+                <TextBlock RelativePanel.Below="titoloEvento" x:Name="descriptionEvent"
                            RelativePanel.RightOf="IconCalendar"
                            TextWrapping="Wrap"
                            Text="{x:Bind  CurrentObject.notes}"
