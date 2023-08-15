@@ -117,32 +117,34 @@
 
                         <StackPanel Grid.Column="2" VerticalAlignment="Center" Margin="0,0,8,0"
                                     Width="164">
-                    <Button
-                        x:Name="ChangePhotoButton"
-                        Margin="0,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center">
-                        
-                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Spacing="8">
+                            <Button
+                                x:Name="ChangePhotoButton"
+                                Margin="0,0,0,0" HorizontalAlignment="Stretch">
 
-                            <TextBlock Text="&#xE722;" VerticalAlignment="Center" FontFamily="{StaticResource FluentIcons}"/>
+                                <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Spacing="8">
 
-                            <TextBlock Text="Cambia foto"/>
+                                    <TextBlock Text="&#xE722;" VerticalAlignment="Center"
+                                               FontFamily="{StaticResource FluentIcons}" />
 
-                        </StackPanel>
+                                    <TextBlock Text="Cambia foto" />
 
-                    
-                    </Button>
+                                </StackPanel>
+
+
+                            </Button>
 
                             <Button x:Name="ExitButton" Click="ButtonLogout_Click"
                                     HorizontalAlignment="Stretch"
-                                    RelativePanel.Below="ChangePhotoButton"
-                                    Margin="0,24,0,0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+                                    Margin="0,24,0,0" HorizontalContentAlignment="Center"
+                                    VerticalContentAlignment="Center">
 
                                 <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Spacing="8">
-                                    <TextBlock Text="&#xF3B1;" VerticalAlignment="Center" FontFamily="{StaticResource FluentIcons}"/>
-                                    <TextBlock Text="Esci"/>
+                                    <TextBlock Text="&#xF3B1;" VerticalAlignment="Center"
+                                               FontFamily="{StaticResource FluentIcons}" />
+                                    <TextBlock Text="Esci" />
 
                                 </StackPanel>
-                           
+
                             </Button>
 
 
@@ -196,31 +198,34 @@
                         <ComboBox.ItemTemplate>
                             <DataTemplate x:DataType="adapters:ComboPaletteAdapter">
                                 <StackPanel Orientation="Horizontal">
-                                    
-                                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Spacing="8" Margin="0,4,0,0">
+
+                                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Spacing="8"
+                                                Margin="0,4,0,0">
 
                                         <Border Width="24"
                                                 Height="24"
                                                 Background="{x:Bind CurrentPalette.ColorGreen, Converter={StaticResource ColorToBrushConverter}, Mode=OneWay}"
-                                                CornerRadius="26" 
-                                                IsTapEnabled="False" ToolTipService.ToolTip="Sufficienza, presenza"/>
+                                                CornerRadius="26"
+                                                IsTapEnabled="False" ToolTipService.ToolTip="Sufficienza, presenza" />
 
                                         <Border Width="24"
                                                 Height="24"
                                                 Background="{x:Bind CurrentPalette.ColorOrange, Converter={StaticResource ColorToBrushConverter}, Mode=OneWay}"
-                                                CornerRadius="26" 
-                                                IsTapEnabled="False" ToolTipService.ToolTip="Insufficienza lieve, ritardo"/>
+                                                CornerRadius="26"
+                                                IsTapEnabled="False"
+                                                ToolTipService.ToolTip="Insufficienza lieve, ritardo" />
 
                                         <Border Width="24"
                                                 Height="24"
                                                 Background="{x:Bind CurrentPalette.ColorRed, Converter={StaticResource ColorToBrushConverter}, Mode=OneWay}"
-                                                CornerRadius="26" 
-                                                IsTapEnabled="False" ToolTipService.ToolTip="Insufficienza grave, assenza" />
+                                                CornerRadius="26"
+                                                IsTapEnabled="False"
+                                                ToolTipService.ToolTip="Insufficienza grave, assenza" />
 
                                         <Border Width="24"
                                                 Height="24"
                                                 Background="{x:Bind CurrentPalette.ColorYellow, Converter={StaticResource ColorToBrushConverter}, Mode=OneWay}"
-                                                CornerRadius="26" 
+                                                CornerRadius="26"
                                                 IsTapEnabled="False" ToolTipService.ToolTip="Non fa media, uscita" />
 
 
@@ -292,7 +297,7 @@
                         <FontIcon Glyph="&#xEA80;" />
                     </labs:SettingsCard.HeaderIcon>
 
-                    <Button x:Uid="SettingsCardTutorialButton"  MinWidth="130" />
+                    <Button x:Uid="SettingsCardTutorialButton" MinWidth="130" />
 
                 </labs:SettingsCard>
 
