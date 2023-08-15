@@ -415,9 +415,6 @@ Gli account studente hanno l'username che inizia con le lettere S, G o X.</value
   <data name="InfoNoteFlyoutText" xml:space="preserve">
     <value>La nota verrà contrassegnata come letta sul server. Continuare?</value>
   </data>
-  <data name="SettingsAccountChangePfp.Button" xml:space="preserve">
-    <value>Cambia foto</value>
-  </data>
   <data name="SettingsAccountExit.Button" xml:space="preserve">
     <value>Esci</value>
   </data>
@@ -439,9 +436,6 @@ Gli account studente hanno l'username che inizia con le lettere S, G o X.</value
   <data name="PALETTE_NAT" xml:space="preserve">
     <value>Natura</value>
   </data>
-  <data name="ChangePhotoButton" xml:space="preserve">
-    <value>Cambia foto</value>
-  </data>
   <data name="WhatsNew_Body_3.Text" xml:space="preserve">
     <value>•  Rinnovato il layout</value>
     <comment>What's new prompt message body for third section (Agenda)</comment>
@@ -456,37 +450,7 @@ Gli account studente hanno l'username che inizia con le lettere S, G o X.</value
     <value>•  Rinnovato il layout</value>
     <comment>What's new prompt message body for fifth section (Assenze)</comment>
   </data>
-  <data name="AgendaListView_Duration1Hour" xml:space="preserve">
-    <value>1 ora</value>
-  </data>
-  <data name="AgendaListView_DurationMultipleHours" xml:space="preserve">
-    <value> ore</value>
-  </data>
-  <data name="AgendaTodayButton.Tooltip" xml:space="preserve">
-    <value>Vai agli eventi di oggi</value>
-  </data>
-  <data name="AgendaTomorrowButton.Tooltip" xml:space="preserve">
-    <value>Giorno successivo</value>
-  </data>
-  <data name="AgendaYesterdayButton.Tooltip" xml:space="preserve">
-    <value>Giorno precendente</value>
-  </data>
-  <data name="PaletteColorBlue.Tooltip" xml:space="preserve">
-    <value>Non fa media, uscita</value>
-  </data>
-  <data name="PaletteColorGreen.Tooltip" xml:space="preserve">
-    <value>Sufficienza, presenza</value>
-  </data>
-  <data name="PaletteColorOrange.Tooltip" xml:space="preserve">
-    <value>Insufficienza lieve, ritardo</value>
-  </data>
-  <data name="PaletteColorRed.Tooltip" xml:space="preserve">
-    <value>Insufficienza grave, assenza</value>
-  </data>
-  <data name="RefreshButton.Tooltip" xml:space="preserve">
-    <value>Aggiorna</value>
-  </data>
-  <data name="EditWidgetsButton" xml:space="preserve">
-    <value>Personalizza widget</value>
+  <data name="SettingsChangeProfilePicButton.Text" xml:space="preserve">
+    <value>Cambia foto</value>
   </data>
 </root>

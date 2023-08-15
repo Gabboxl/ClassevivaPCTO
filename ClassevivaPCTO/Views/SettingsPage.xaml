@@ -126,7 +126,7 @@
                                     <TextBlock Text="&#xE722;" VerticalAlignment="Center"
                                                FontFamily="{StaticResource FluentIcons}" />
 
-                                    <TextBlock Text="Cambia foto" />
+                                    <TextBlock x:Uid="SettingsChangeProfilePicButton" />
 
                                 </StackPanel>
 
