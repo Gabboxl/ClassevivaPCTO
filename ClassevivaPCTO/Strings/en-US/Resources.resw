@@ -170,19 +170,34 @@ Ricorda che quest'app è ancora in fase di sviluppo e alcune funzionalità posso
     <comment>First use prompt message primary button text</comment>
   </data>
   <data name="WhatsNewDialog.PrimaryButtonText" xml:space="preserve">
-    <value>Ok</value>
+    <value>Chiudi</value>
     <comment>What's new prompt message primary button text</comment>
   </data>
   <data name="WhatsNewDialog.Title" xml:space="preserve">
     <value>Novità in questa versione</value>
     <comment>What's new prompt message title</comment>
   </data>
-  <data name="WhatsNew_Body.Text" xml:space="preserve">
-    <value>- Miglioramenti ai layout delle Note e Bacheca
-- Migliorata gestione degli errori di rete (con riautenticazione)
-- Migliorata velocità di caricamento dei dati
+  <data name="WhatsNew_Body_Main.Text" xml:space="preserve">
+    <value>•  Migliorata l'interfaccia di tutte le pagine
+•  Aggiunta la funzione di cambiare lo schema dei colori utilizzato per voti ed eventi
+•  Aggiunta la possibilità di cambiare la lingua dell'interfaccia (attualmente è disponibile solo la lingua Inglese - puoi contribuire alle traduzioni dal progetto Crowdin (vedi Informazioni app)
 </value>
-    <comment>What's new prompt message body</comment>
+    <comment>What's new prompt message body for highlights section</comment>
+  </data>
+  <data name="WhatsNew_Body_1.Text" xml:space="preserve">
+    <value>•  La sezione account è adesso integrata nelle Impostazioni
+•  Aggiunta la possibilità di cambiare la foto profilo dell'utente (in locale)
+•  Aggiunta una barra di ricerca che indicizza i contenuti a seconda della pagina corrente
+•  Aggiunta la possibilità di visualizzare le modifiche recenti apportate all'app
+•  Aggiornata l'esperienza iniziale (tutorial) con nuovi suggerimenti, che da ora possono essere visualizzati anche dalle Impostazioni
+•  Aggiunta una splash screen - chi ha già fatto il login tramite credenziali all'apertura della app adesso visualizzerà una nuova splash screen che indica il caricamento dei dati dell'utente e dell'applicazione
+</value>
+    <comment>What's new prompt message body for first section (General)</comment>
+  </data>
+  <data name="WhatsNew_Body_2.Text" xml:space="preserve">
+    <value>•  Aggiunta la possibilità di cambiare e spostare i widget visualizzati nella dashboard
+•  Nuovo widget: Collegamenti rapidi - permette di salvare fino a 5 collegamenti Internet da poter aprire rapidamente dall'app, come il sito della tua scuola, Classroom o la tua posta elettronica d'istituto</value>
+    <comment>What's new prompt message body for second section (Dashboard)</comment>
   </data>
   <data name="Settings_Account.Text" xml:space="preserve">
     <value>Account</value>
@@ -400,9 +415,6 @@ Gli account studente hanno l'username che inizia con le lettere S, G o X.</value
   <data name="InfoNoteFlyoutText" xml:space="preserve">
     <value>La nota verrà contrassegnata come letta sul server. Continuare?</value>
   </data>
-  <data name="SettingsAccountChangePfp.Button" xml:space="preserve">
-    <value>Cambia foto</value>
-  </data>
   <data name="SettingsAccountExit.Button" xml:space="preserve">
     <value>Esci</value>
   </data>
@@ -413,7 +425,7 @@ Gli account studente hanno l'username che inizia con le lettere S, G o X.</value
     <value>Nessuna nota</value>
   </data>
   <data name="TranslateAppText.Text" xml:space="preserve">
-    <value>Traduci l'app su Crowdin</value>
+    <value>Traduci su Crowdin</value>
   </data>
   <data name="PALETTE_CV" xml:space="preserve">
     <value>Predefinito di Classeviva</value>
@@ -423,5 +435,22 @@ Gli account studente hanno l'username che inizia con le lettere S, G o X.</value
   </data>
   <data name="PALETTE_NAT" xml:space="preserve">
     <value>Natura</value>
+  </data>
+  <data name="WhatsNew_Body_3.Text" xml:space="preserve">
+    <value>•  Rinnovato il layout</value>
+    <comment>What's new prompt message body for third section (Agenda)</comment>
+  </data>
+  <data name="WhatsNew_Body_4.Text" xml:space="preserve">
+    <value>•  La pagina è stata rinnovata completamente in termini di Layout e interfaccia - da adesso di default verrà visualizzata la lista di tutti i voti in ordine dal più recente al meno recente, senza distinzioni di materia o tipo
+•  Aggiunta la possibilità di visualizzare tutti i voti per trimestre/pentamestre o quadrimestre - le visualizzazioni adesso includono la lista di tutte le materie e la relativa media per ognuna di esse. Cliccando su una materia vengono visualizzati i voti di quella materia per quello specifico periodo didattico
+•  Aggiunta la possibilità di vedere la media di ogni periodo didattico e la media generale dell'anno scolastico</value>
+    <comment>What's new prompt message body for fourth section (Valutazioni)</comment>
+  </data>
+  <data name="WhatsNew_Body_5.Text" xml:space="preserve">
+    <value>•  Rinnovato il layout</value>
+    <comment>What's new prompt message body for fifth section (Assenze)</comment>
+  </data>
+  <data name="SettingsChangeProfilePicButton.Text" xml:space="preserve">
+    <value>Cambia foto</value>
   </data>
 </root>
