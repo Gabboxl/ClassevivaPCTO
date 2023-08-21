@@ -79,11 +79,11 @@
                         Click="ButtonOpen_Click"
                         Visibility="{x:Bind CurrentObject.checkStatus.available, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}"
                         RelativePanel.AlignVerticalCenterWithPanel="True"
-                        Margin="0,0,14,0">
+                        Margin="0,0,14,0" Width="70">
                         <Button.Content>
                             <StackPanel Orientation="Vertical" Padding="6,0,6,0" VerticalAlignment="Center">
                                 <FontIcon FontFamily="{StaticResource FluentIcons}" Glyph="&#xE8E5;"
-                                          FontSize="16" />
+                                          FontSize="16"/>
                                 <TextBlock FontSize="12" x:Uid="ButtonOpen" Margin="0,0,0,0" />
                             </StackPanel>
                         </Button.Content>
@@ -94,7 +94,7 @@
                         RelativePanel.AlignRightWithPanel="True"
                         Visibility="{x:Bind CurrentObject.checkStatus.available, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}"
                         RelativePanel.AlignVerticalCenterWithPanel="True"
-                        Margin="0,0,12,0">
+                        Margin="0,0,12,0" Width="70">
                         <Button.Content>
                             <StackPanel Orientation="Vertical" Padding="6,0,6,0">
                                 <FontIcon FontFamily="{StaticResource FluentIcons}" Glyph="&#xE74E;"
@@ -111,6 +111,7 @@
         </DataTemplate>
 
 
+        
         <DataTemplate x:Key="SchoolReportListViewDataTemplate"
                       x:DataType="adapters:SchoolReportAdapter">
 
@@ -123,6 +124,7 @@
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="Auto" />
                 </Grid.ColumnDefinitions>
+
 
 
                 <RelativePanel ScrollViewer.HorizontalScrollMode="Disabled" Grid.Row="0" Grid.Column="0">
@@ -154,7 +156,7 @@
                         x:Name="ButtonOpenReport"
                         Click="ButtonOpenReport_OnClick"
                         RelativePanel.AlignVerticalCenterWithPanel="True"
-                        Margin="0,0,12,0">
+                        Margin="0,0,12,0" Width="70">
                         <Button.Content>
                             <StackPanel Orientation="Vertical" Padding="6,0,6,0">
                                 <FontIcon FontFamily="{StaticResource FluentIcons}" Glyph="&#xE71B;"

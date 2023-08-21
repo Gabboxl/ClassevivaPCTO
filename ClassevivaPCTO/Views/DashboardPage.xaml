@@ -162,7 +162,7 @@
 
                         <StackPanel Orientation="Horizontal" Spacing="4">
                             <TextBlock Text="Apri Agenda" />
-                            <FontIcon FontSize="12" Margin="0,4,0,0" Glyph="&#xE76C;" VerticalAlignment="Center" />
+                            <FontIcon FontSize="12" Glyph="&#xE76C;" VerticalAlignment="Center" />
 
 
                         </StackPanel>
@@ -241,7 +241,7 @@
 
                         <StackPanel Orientation="Horizontal" Spacing="4">
                             <TextBlock Text="Visualizza tutte le valutazioni" />
-                            <FontIcon FontSize="12" Margin="0,4,0,0" Glyph="&#xE76C;" VerticalAlignment="Center" />
+                            <FontIcon FontSize="12" Glyph="&#xE76C;" VerticalAlignment="Center" />
 
 
                         </StackPanel>
@@ -305,7 +305,7 @@
 
                         <StackPanel Orientation="Horizontal" Spacing="4">
                             <TextBlock Text="Apri Bacheca" />
-                            <FontIcon FontSize="12" Margin="0,4,0,0" Glyph="&#xE76C;" VerticalAlignment="Center" />
+                            <FontIcon FontSize="12" Glyph="&#xE76C;" VerticalAlignment="Center" />
 
 
                         </StackPanel>
