@@ -18,14 +18,14 @@
                     Source="ms-appx:///Assets/StoreLogo.png" />
                 <TextBlock
                     Margin="16"
-                    VerticalAlignment="Center"
+                    VerticalAlignment="Center" 
                     Text="{x:Bind}" />
             </StackPanel>
         </DataTemplate>
     </ContentDialog.TitleTemplate>
     <ScrollViewer>
         <StackPanel>
-            <TextBlock x:Uid="FirstRun_Body" TextWrapping="WrapWholeWords" />
+            <TextBlock x:Uid="FirstRun_Body" TextWrapping="WrapWholeWords" MaxWidth="800"/>
         </StackPanel>
     </ScrollViewer>
 </ContentDialog>

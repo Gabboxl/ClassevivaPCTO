@@ -41,9 +41,11 @@
                 <TextBlock RelativePanel.RightOf="dataEnd" x:Name="tipoEvento" TextWrapping="Wrap"
                            RelativePanel.AlignVerticalCenterWith="titoloEvento"
                            MaxWidth="500"
+                           Foreground="{ThemeResource TextFillColorTertiaryBrush}"
                            Text="{x:Bind EventType}"
+                           FontStyle="Italic"
                            Style="{ThemeResource BaseTextBlockStyle}"
-                           Margin="6,8,0,0" />
+                           Margin="12,10,0,0" />
 
 
                 <TextBlock RelativePanel.RightOf="titoloEvento" RelativePanel.AlignVerticalCenterWith="titoloEvento"

@@ -249,6 +249,7 @@
                                 RelativePanel.LeftOf="CalendarAgenda"
                                 Width="48"
                                 Height="32"
+                                toolkit:FrameworkElementExtensions.Cursor="Hand"
                                 Click="ButtonYesterday_Click" ToolTipService.ToolTip="Giorno precedente">
                             <FontIcon FontSize="16" Glyph="&#xE76B;" HorizontalAlignment="Center"
                                       VerticalAlignment="Center" />
@@ -267,6 +268,7 @@
                                 Width="48"
                                 Height="32"
                                 RelativePanel.AlignVerticalCenterWithPanel="True"
+                                toolkit:FrameworkElementExtensions.Cursor="Hand"
                                 Click="ButtonTomorrow_Click" ToolTipService.ToolTip="Giorno successivo">
                             <FontIcon FontSize="16" Glyph="&#xE76C;" HorizontalAlignment="Center"
                                       VerticalAlignment="Center" />

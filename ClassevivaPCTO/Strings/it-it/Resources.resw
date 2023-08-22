@@ -428,7 +428,7 @@ Gli account studente hanno l'username che inizia con le lettere S, G o X.</value
     <value>Traduci su Crowdin</value>
   </data>
   <data name="PALETTE_CV" xml:space="preserve">
-    <value>Predefinito di Classeviva</value>
+    <value>Classeviva</value>
   </data>
   <data name="PALETTE_JAP" xml:space="preserve">
     <value>Semaforo giapponese</value>

@@ -163,6 +163,12 @@ namespace ClassevivaPCTO.Views
             await dialog.ShowAsync();
         }
 
+        private async void ButtonTutorial_OnClick(object sender, RoutedEventArgs e)
+        {
+            var dialog = new FirstRunDialog();
+            await dialog.ShowAsync();
+        }
+
         private async void ThemeSelector_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             ComboBox themeSelector = (ComboBox) sender;

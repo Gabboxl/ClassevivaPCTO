@@ -31,7 +31,7 @@
 
             <Grid>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition MinHeight="60"></RowDefinition>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
@@ -79,7 +79,7 @@
                         Click="ButtonOpen_Click"
                         Visibility="{x:Bind CurrentObject.checkStatus.available, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}"
                         RelativePanel.AlignVerticalCenterWithPanel="True"
-                        Margin="0,0,14,0" Width="70">
+                        Margin="0,0,14,0" MinWidth="70">
                         <Button.Content>
                             <StackPanel Orientation="Vertical" Padding="6,0,6,0" VerticalAlignment="Center">
                                 <FontIcon FontFamily="{StaticResource FluentIcons}" Glyph="&#xE8E5;"
@@ -94,7 +94,7 @@
                         RelativePanel.AlignRightWithPanel="True"
                         Visibility="{x:Bind CurrentObject.checkStatus.available, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}"
                         RelativePanel.AlignVerticalCenterWithPanel="True"
-                        Margin="0,0,12,0" Width="70">
+                        Margin="0,0,12,0" MinWidth="70">
                         <Button.Content>
                             <StackPanel Orientation="Vertical" Padding="6,0,6,0">
                                 <FontIcon FontFamily="{StaticResource FluentIcons}" Glyph="&#xE74E;"
@@ -118,7 +118,7 @@
 
             <Grid>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition MinHeight="60"></RowDefinition>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
@@ -156,7 +156,7 @@
                         x:Name="ButtonOpenReport"
                         Click="ButtonOpenReport_OnClick"
                         RelativePanel.AlignVerticalCenterWithPanel="True"
-                        Margin="0,0,12,0" Width="70">
+                        Margin="0,0,12,0" MinWidth="70">
                         <Button.Content>
                             <StackPanel Orientation="Vertical" Padding="6,0,6,0">
                                 <FontIcon FontFamily="{StaticResource FluentIcons}" Glyph="&#xE71B;"

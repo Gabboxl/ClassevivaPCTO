@@ -44,7 +44,7 @@
                                IsTextSelectionEnabled="True"
                                Text="{x:Bind CurrentObject.subjectDesc}"
                                Style="{ThemeResource BaseTextBlockStyle}"
-                               Margin="12,6,0,0" />
+                               Margin="12,10,0,2" />
 
                     <TextBlock RelativePanel.Below="textMateria"
                                TextWrapping="Wrap"
@@ -54,19 +54,19 @@
                                Style="{ThemeResource BodyTextBlockStyle}"
                                Foreground="{ThemeResource TextFillColorTertiaryBrush}"
                                FontWeight="SemiBold"
-                               Margin="12,0,0,6" />
+                               Margin="12,0,0,10" />
 
                     <TextBlock RelativePanel.RightOf="textMateria" x:Name="dataVoto"
                                Text="{x:Bind CurrentObject.evtDate, Converter={StaticResource DateTimeToNormalDateConverter}}"
                                Style="{ThemeResource CaptionTextBlockStyle}"
-                               Margin="12,6,0,0"
+                               Margin="12,10,0,0"
                                IsTextSelectionEnabled="True"
                                Foreground="{ThemeResource TextFillColorSecondaryBrush}" FontWeight="SemiBold" />
 
                     <TextBlock RelativePanel.RightOf="dataVoto"
                                Text="{x:Bind CurrentObject.componentDesc}"
                                Style="{ThemeResource CaptionTextBlockStyle}"
-                               Margin="12,6,0,0"
+                               Margin="12,10,0,0"
                                Foreground="{ThemeResource TextFillColorSecondaryBrush}" FontWeight="SemiBold" />
 
                 </RelativePanel>

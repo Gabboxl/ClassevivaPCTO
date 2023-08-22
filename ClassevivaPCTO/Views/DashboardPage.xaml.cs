@@ -104,7 +104,7 @@ namespace ClassevivaPCTO.Views
                 .GetGrades(cardResult.usrId.ToString())
                 .ConfigureAwait(false);
 
-            var fiveMostRecent = result1.Grades.OrderByDescending(x => x.evtDate).Take(5);
+            var fiveMostRecent = result1.Grades.OrderByDescending(x => x.evtDate).Take(4);
 
             //update UI on UI thread
             await CoreApplication.MainView.Dispatcher.RunAsync(
@@ -168,7 +168,7 @@ namespace ClassevivaPCTO.Views
             var fiveMostRecent = resultNotices.Notices
                 .Where(x => x.cntValidInRange)
                 .OrderByDescending(x => x.cntValidFrom)
-                .Take(5);
+                .Take(4);
 
             //update UI on UI thread
             await CoreApplication.MainView.Dispatcher.RunAsync(
