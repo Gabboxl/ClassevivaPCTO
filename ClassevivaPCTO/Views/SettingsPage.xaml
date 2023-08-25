@@ -280,8 +280,7 @@
                     <ComboBox
                         x:Name="LanguageComboBox"
                         ItemsSource="{x:Bind ComboLanguages}"
-                        SelectedItem="{x:Bind CurrentLanguage}"
-                        SelectionChanged="LanguageComboBox_OnSelectionChanged"
+                        SelectedItem="{x:Bind CurrentLanguage, Mode=TwoWay}"
                         MinWidth="130">
 
                     </ComboBox>

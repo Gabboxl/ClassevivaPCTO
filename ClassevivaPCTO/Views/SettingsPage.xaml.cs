@@ -8,6 +8,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using Windows.ApplicationModel;
+using Windows.ApplicationModel.Core;
 using Windows.Services.Store;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -55,7 +56,13 @@ namespace ClassevivaPCTO.Views
         public string CurrentLanguage
         {
             get { return ApplicationLanguages.PrimaryLanguageOverride; }
+            set
+            {
+                ChangeLanguage(value);
+
+            }
         }
+
 
         public string AppName
         {
@@ -214,13 +221,34 @@ namespace ClassevivaPCTO.Views
             VariousUtils.DoLogout();
         }
 
-        private void LanguageComboBox_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
+        private async void ChangeLanguage(string value)
         {
-            ComboBox languageSelector = (ComboBox) sender;
+            ApplicationLanguages.PrimaryLanguageOverride = value;
 
-            string language = (string) languageSelector.SelectedItem;
+            /*    ContentDialog dialog = new ContentDialog
+                {
+                    Title = "LanguageChangeRestartTitle".GetLocalized(),
+                    Content = "LanguageChangeRestartContent".GetLocalized(),
+                    CloseButtonText = "Ok".GetLocalized()
+                };*/
 
-            ApplicationLanguages.PrimaryLanguageOverride = language;
+            ContentDialog dialog = new ContentDialog
+            {
+                Title = "Riavvio richiesto",
+                Content = "Riavvio richiesto",
+                PrimaryButtonText = "Riavvia",
+                CloseButtonText = "Annulla",
+                RequestedTheme = ((FrameworkElement)Window.Current.Content).RequestedTheme,
+                DefaultButton = ContentDialogButton.Primary
+            };
+
+            ContentDialogResult result = await dialog.ShowAsync();
+
+            if (result == ContentDialogResult.Primary)
+            {
+                CoreApplication.RequestRestartAsync("LanguageChangeRestart");
+            }
+            
         }
     }
 }
