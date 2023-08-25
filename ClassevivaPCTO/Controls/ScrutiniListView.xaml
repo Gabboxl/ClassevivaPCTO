@@ -6,6 +6,7 @@
     xmlns:adapters="using:ClassevivaPCTO.Adapters"
     xmlns:converters="using:ClassevivaPCTO.Converters"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:toolkit="using:Microsoft.Toolkit.Uwp.UI"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:microconverters="using:Microsoft.Toolkit.Uwp.UI.Converters"
     mc:Ignorable="d"
@@ -31,7 +32,7 @@
 
             <Grid>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition MinHeight="60"></RowDefinition>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
@@ -79,11 +80,11 @@
                         Click="ButtonOpen_Click"
                         Visibility="{x:Bind CurrentObject.checkStatus.available, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}"
                         RelativePanel.AlignVerticalCenterWithPanel="True"
-                        Margin="0,0,14,0">
+                        Margin="0,0,14,0" MinWidth="70">
                         <Button.Content>
                             <StackPanel Orientation="Vertical" Padding="6,0,6,0" VerticalAlignment="Center">
                                 <FontIcon FontFamily="{StaticResource FluentIcons}" Glyph="&#xE8E5;"
-                                          FontSize="16" />
+                                          FontSize="16"/>
                                 <TextBlock FontSize="12" x:Uid="ButtonOpen" Margin="0,0,0,0" />
                             </StackPanel>
                         </Button.Content>
@@ -94,7 +95,7 @@
                         RelativePanel.AlignRightWithPanel="True"
                         Visibility="{x:Bind CurrentObject.checkStatus.available, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}"
                         RelativePanel.AlignVerticalCenterWithPanel="True"
-                        Margin="0,0,12,0">
+                        Margin="0,0,12,0" MinWidth="70">
                         <Button.Content>
                             <StackPanel Orientation="Vertical" Padding="6,0,6,0">
                                 <FontIcon FontFamily="{StaticResource FluentIcons}" Glyph="&#xE74E;"
@@ -111,18 +112,20 @@
         </DataTemplate>
 
 
+        
         <DataTemplate x:Key="SchoolReportListViewDataTemplate"
                       x:DataType="adapters:SchoolReportAdapter">
 
 
             <Grid>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition MinHeight="60"></RowDefinition>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="Auto" />
                 </Grid.ColumnDefinitions>
+
 
 
                 <RelativePanel ScrollViewer.HorizontalScrollMode="Disabled" Grid.Row="0" Grid.Column="0">
@@ -150,15 +153,15 @@
                     Grid.Column="1"
                     Padding="0,6,0,6">
 
-                    <Button
+                    <Button toolkit:FrameworkElementExtensions.Cursor="Hand"
                         x:Name="ButtonOpenReport"
                         Click="ButtonOpenReport_OnClick"
                         RelativePanel.AlignVerticalCenterWithPanel="True"
-                        Margin="0,0,12,0">
+                        Margin="0,0,12,0" MinWidth="70">
                         <Button.Content>
                             <StackPanel Orientation="Vertical" Padding="6,0,6,0">
                                 <FontIcon FontFamily="{StaticResource FluentIcons}" Glyph="&#xE71B;"
-                                          FontSize="16" />
+                                          FontSize="16" Foreground="{ThemeResource AccentTextFillColorPrimaryBrush}"/>
                                 <TextBlock FontSize="12" x:Uid="ButtonOpen" Margin="0,0,0,0" />
                             </StackPanel>
                         </Button.Content>

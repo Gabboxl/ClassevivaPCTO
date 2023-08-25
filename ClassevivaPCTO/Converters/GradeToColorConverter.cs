@@ -22,7 +22,7 @@ namespace ClassevivaPCTO.Converters
 
             if (valore == null)
             {
-                brush.Color = Colors.DarkSlateBlue;
+                brush.Color = CurrentPalette.ColorBlue;
             }
             else if (valore >= 6)
             {

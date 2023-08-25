@@ -5,6 +5,7 @@
     xmlns:local="using:ClassevivaPCTO.Controls"
     xmlns:adapters="using:ClassevivaPCTO.Adapters"
     xmlns:converters="using:ClassevivaPCTO.Converters"
+    xmlns:toolkit="using:Microsoft.Toolkit.Uwp.UI"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
@@ -39,13 +40,13 @@
 
 
                 <RelativePanel ScrollViewer.HorizontalScrollMode="Disabled" Grid.Row="0" Grid.Column="0"
-                               Margin="0,6,0,6">
+                               Margin="0,8,0,8">
 
                     <!-- icon pin -->
                     <FontIcon x:Name="pinIcon" FontFamily="{StaticResource FluentIcons}" Glyph="&#xE840;"
                               RelativePanel.AlignVerticalCenterWithPanel="True"
                               Foreground="{ThemeResource TextFillColorTertiaryBrush}"
-                              Margin="8,0,8,0" />
+                              Margin="8,0,10,0" />
 
                     <TextBlock x:Name="titoloEvento" TextWrapping="WrapWholeWords"
                                RelativePanel.RightOf="pinIcon"
@@ -62,7 +63,7 @@
                                FontWeight="SemiBold"
                                Style="{ThemeResource BaseTextBlockStyle}"
                                Foreground="{ThemeResource TextFillColorTertiaryBrush}"
-                               Margin="8,0,0,0" />
+                               Margin="8,0,4,0" />
 
 
                     <!-- data pubblicazione -->
@@ -72,7 +73,7 @@
                                Text="{x:Bind  CurrentObject.pubDT, Converter={StaticResource DateTimeToNormalDateConverter}}"
                                Style="{ThemeResource BodyStrongTextBlockStyle}"
                                Foreground="{ThemeResource TextFillColorTertiaryBrush}"
-                               Margin="4,0,0,0" />
+                               Margin="0,0,0,0" />
 
 
                     <TextBlock x:Name="StatusText" RelativePanel.RightOf="dataPubblicazione" TextWrapping="NoWrap"
@@ -83,7 +84,7 @@
                                FontWeight="Medium"
                                Foreground="{x:Bind StatusTextColor}"
                                Style="{ThemeResource CaptionTextBlockStyle}"
-                               Margin="10,0,0,0" />
+                               Margin="8,0,0,0" />
 
 
                     <TextBlock x:Name="FromToDateText" RelativePanel.Below="titoloEvento" TextWrapping="Wrap"
@@ -93,7 +94,7 @@
                                FontWeight="Medium"
                                Foreground="{ThemeResource TextFillColorTertiaryBrush}"
                                Style="{ThemeResource CaptionTextBlockStyle}"
-                               Margin="6,6,0,0" />
+                               Margin="4,6,0,0" />
 
 
                 </RelativePanel>
@@ -119,7 +120,7 @@
                         Visibility="{x:Bind IsDeleted, Converter={StaticResource BetterBoolToVisibilityConverter}, ConverterParameter=False}"
                         Click="ReadButton_Click"
                         Style="{ThemeResource TextButtonStyle}"
-                        Margin="0,0,8,0">
+                        Margin="0,0,8,0" toolkit:FrameworkElementExtensions.Cursor="Hand">
                         <Button.Content>
                             <StackPanel Orientation="Horizontal">
                                 <FontIcon FontFamily="{StaticResource FluentIcons}" Glyph="&#xE890;" />

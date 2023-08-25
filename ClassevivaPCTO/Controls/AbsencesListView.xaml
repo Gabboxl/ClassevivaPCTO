@@ -37,7 +37,7 @@
                         <!-- ="{ThemeResource SystemControlBackgroundBaseMediumBrush}" -->
                     </Ellipse>
                     <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center"
-                               Text="{x:Bind ShortEventName}" FontSize="16" Foreground="#FFFFFF" />
+                               Text="{x:Bind ShortEventName}" FontSize="16" Foreground="#FFFFFF" FontWeight="Medium"/>
 
                 </Grid>
 

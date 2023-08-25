@@ -9,9 +9,9 @@ namespace ClassevivaPCTO.Helpers.Palettes
     {
         Color ColorRed { get; }
         Color ColorOrange { get; }
-        Color ColorYellow { get; }
         Color ColorGreen { get; }
         Color ColorBlue { get; }
+        Color ColorYellow { get; }
 
     }
 
@@ -22,7 +22,12 @@ namespace ClassevivaPCTO.Helpers.Palettes
         [ClassMapping(typeof(PaletteJap))]
         PALETTE_JAP,
         [ClassMapping(typeof(PaletteNat))]
-        PALETTE_NAT
+        PALETTE_NAT,
+        [ClassMapping(typeof(Palette4))]
+        PALETTE_4,
+        [ClassMapping(typeof(Palette5))]
+        PALETTE_5,
+
     }
 
     [AttributeUsage(AttributeTargets.Field)]

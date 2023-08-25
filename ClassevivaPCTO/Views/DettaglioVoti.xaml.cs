@@ -9,6 +9,7 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
 
+
 namespace ClassevivaPCTO.Views
 {
     public sealed partial class DettaglioVoti : Page
@@ -74,6 +75,7 @@ namespace ClassevivaPCTO.Views
         {
             AggiornaListViewVoti();
         }
+
 
         private void AggiornaComboMaterie()
         {
@@ -167,3 +169,4 @@ namespace ClassevivaPCTO.Views
         }
     }
 }
+
