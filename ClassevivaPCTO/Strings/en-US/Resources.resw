@@ -130,7 +130,7 @@
     <comment>Navigation view item name for Main</comment>
   </data>
   <data name="Settings_Theme.Text" xml:space="preserve">
-    <value>Scegli il tema</value>
+    <value>Choose your theme</value>
     <comment>Choose theme text for Settings</comment>
   </data>
   <data name="Settings_Theme_Dark.Content" xml:space="preserve">
@@ -138,7 +138,7 @@
     <comment>Dark theme text for Settings</comment>
   </data>
   <data name="Settings_Theme_Default.Content" xml:space="preserve">
-    <value>Predefinito di Sistema</value>
+    <value>System Default</value>
     <comment>Windows default theme text for Settings</comment>
   </data>
   <data name="Settings_Theme_Light.Content" xml:space="preserve">
@@ -146,11 +146,11 @@
     <comment>Light theme text for Settings</comment>
   </data>
   <data name="Settings_About.Text" xml:space="preserve">
-    <value>Informazioni app</value>
+    <value>About</value>
     <comment>About this application title for Settings</comment>
   </data>
   <data name="Settings_Personalization.Text" xml:space="preserve">
-    <value>Aspetto</value>
+    <value>Appearance</value>
     <comment>Personalization text for Settings</comment>
   </data>
   <data name="FirstRun_Body.Text" xml:space="preserve">
@@ -162,7 +162,7 @@ Ricorda che quest'app è ancora in fase di sviluppo e alcune funzionalità posso
     <comment>First use prompt message body</comment>
   </data>
   <data name="FirstRunDialog.Title" xml:space="preserve">
-    <value>Benvenuto in ClassevivaPCTO</value>
+    <value>Welcome in ClassevivaPCTO</value>
     <comment>First use prompt message title</comment>
   </data>
   <data name="FirstRunDialog.PrimaryButtonText" xml:space="preserve">
@@ -170,11 +170,11 @@ Ricorda che quest'app è ancora in fase di sviluppo e alcune funzionalità posso
     <comment>First use prompt message primary button text</comment>
   </data>
   <data name="WhatsNewDialog.PrimaryButtonText" xml:space="preserve">
-    <value>Chiudi</value>
+    <value>Close</value>
     <comment>What's new prompt message primary button text</comment>
   </data>
   <data name="WhatsNewDialog.Title" xml:space="preserve">
-    <value>Novità in questa versione</value>
+    <value>What’s new in this version</value>
     <comment>What's new prompt message title</comment>
   </data>
   <data name="WhatsNew_Body_Main.Text" xml:space="preserve">
@@ -204,44 +204,44 @@ Ricorda che quest'app è ancora in fase di sviluppo e alcune funzionalità posso
     <comment>Account text for Settings</comment>
   </data>
   <data name="Settings_General.Text" xml:space="preserve">
-    <value>Generali</value>
+    <value>General</value>
     <comment>General text for Settings</comment>
   </data>
   <data name="Settings_Language_En_US.Content" xml:space="preserve">
-    <value>Inglese</value>
+    <value>English</value>
     <comment>English language text</comment>
   </data>
   <data name="Settings_Language_It_IT.Content" xml:space="preserve">
-    <value>Italiano</value>
+    <value>Italian</value>
     <comment>Italian language text</comment>
   </data>
   <data name="Settings_Version.Text" xml:space="preserve">
-    <value>Versione</value>
+    <value>Version</value>
     <comment>Version text for Settings</comment>
   </data>
   <data name="TextTitoloSettings.Text" xml:space="preserve">
-    <value>Impostazioni</value>
+    <value>Settings</value>
   </data>
   <data name="SettingsExpanderTheme.Description" xml:space="preserve">
-    <value>Scegli il tema dell'app</value>
+    <value>Choose app theme</value>
   </data>
   <data name="SettingsExpanderTheme.Header" xml:space="preserve">
-    <value>Tema</value>
+    <value>Theme</value>
   </data>
   <data name="SettingsCardLanguage.Header" xml:space="preserve">
-    <value>Lingua</value>
+    <value>Language</value>
   </data>
   <data name="SettingsCardLanguage.Description" xml:space="preserve">
-    <value>Scegli la lingua dell'app</value>
+    <value>Choose the displayed app language</value>
   </data>
   <data name="SettingsExpanderReservedRights.Description" xml:space="preserve">
-    <value>© 2023. Tutti i diritti riservati.</value>
+    <value>© 2023. All rights reserved.</value>
   </data>
   <data name="hyperlinkVote.Text" xml:space="preserve">
-    <value>Vota l'app nello Store</value>
+    <value>Rate app on the Store</value>
   </data>
   <data name="hyperlinkIssue.Text" xml:space="preserve">
-    <value>Segnala un problema</value>
+    <value>Report an issue</value>
   </data>
   <data name="SettingsCardTutorial.Header" xml:space="preserve">
     <value>Tutorial</value>
@@ -250,7 +250,7 @@ Ricorda che quest'app è ancora in fase di sviluppo e alcune funzionalità posso
     <value>Visualizza suggerimenti sul funzionamento dell'app</value>
   </data>
   <data name="SettingsCardTutorialButton.Content" xml:space="preserve">
-    <value>Avvia tutorial</value>
+    <value>Start tutorial</value>
   </data>
   <data name="SettingsCardWhatsNew.Header" xml:space="preserve">
     <value>Novità in questa versione</value>
@@ -268,28 +268,28 @@ Ricorda che quest'app è ancora in fase di sviluppo e alcune funzionalità posso
     <value>Mostra documenti eliminati</value>
   </data>
   <data name="TextFileScrutini.Text" xml:space="preserve">
-    <value>Documenti</value>
+    <value>Documents</value>
   </data>
   <data name="TitoloNote.Text" xml:space="preserve">
     <value>Note</value>
   </data>
   <data name="TextBenvenutoLogin.Text" xml:space="preserve">
-    <value>Benvenuto</value>
+    <value>Welcome</value>
   </data>
   <data name="EdittextUsername.Header" xml:space="preserve">
-    <value>Nome utente:</value>
+    <value>Username:</value>
   </data>
   <data name="EdittextPassword.Header" xml:space="preserve">
     <value>Password:</value>
   </data>
   <data name="CheckboxCredenziali.Content" xml:space="preserve">
-    <value>Salva le credenziali (resta loggato)</value>
+    <value>Keep me logged in</value>
   </data>
   <data name="ComboMaterie.PlaceholderText" xml:space="preserve">
-    <value>Seleziona una materia</value>
+    <value>Select a subject</value>
   </data>
   <data name="TitleValutazioni.Text" xml:space="preserve">
-    <value>Valutazioni di </value>
+    <value>Grades of </value>
   </data>
   <data name="TitoloDashboard.Text" xml:space="preserve">
     <value>Dashboard di </value>
@@ -323,7 +323,7 @@ Ricorda che quest'app è ancora in fase di sviluppo e alcune funzionalità posso
     <value>Assenze e Ritardi</value>
   </data>
   <data name="TodayButton.Content" xml:space="preserve">
-    <value>Oggi</value>
+    <value>Today</value>
   </data>
   <data name="TextBlockCalendarioEventi.Text" xml:space="preserve">
     <value>Calendario eventi</value>
@@ -332,7 +332,7 @@ Ricorda che quest'app è ancora in fase di sviluppo e alcune funzionalità posso
     <value>Agenda</value>
   </data>
   <data name="ButtonTodayAgenda.Content" xml:space="preserve">
-    <value>Oggi</value>
+    <value>Today</value>
   </data>
   <data name="TuttiCompitiButton.Text" xml:space="preserve">
     <value>Tutti i compiti</value>
@@ -362,16 +362,16 @@ Gli account studente hanno l'username che inizia con le lettere S, G o X.</value
     <value>Scegli un profilo</value>
   </data>
   <data name="LoginDialogButton" xml:space="preserve">
-    <value>Accedi</value>
+    <value>Login</value>
   </data>
   <data name="CancelDialogButton" xml:space="preserve">
-    <value>Annulla</value>
+    <value>Cancel</value>
   </data>
   <data name="NoticeDialogAllegatiSubtitle" xml:space="preserve">
-    <value>Allegati</value>
+    <value>Attachments</value>
   </data>
   <data name="NoticeDialogNessunAllegatiSubtitle" xml:space="preserve">
-    <value>Nessun allegato</value>
+    <value>No attachments</value>
   </data>
   <data name="ComboChoiceSelectProfile.Header" xml:space="preserve">
     <value>Seleziona un profilo:</value>
@@ -380,31 +380,31 @@ Gli account studente hanno l'username che inizia con le lettere S, G o X.</value
     <value>Più profili sono associati a questo account.</value>
   </data>
   <data name="DialogButtonSave.Text" xml:space="preserve">
-    <value>Salva</value>
+    <value>Save</value>
   </data>
   <data name="ButtonOpen.Text" xml:space="preserve">
-    <value>Apri</value>
+    <value>Open</value>
   </data>
   <data name="LessonsTitle.Text" xml:space="preserve">
     <value>Lezioni</value>
   </data>
   <data name="GradesTitle.Text" xml:space="preserve">
-    <value>Valutazioni</value>
+    <value>Grades</value>
   </data>
   <data name="AbsencesTitle.Text" xml:space="preserve">
-    <value>Assenze</value>
+    <value>Absences</value>
   </data>
   <data name="AgendaTitle.Text" xml:space="preserve">
     <value>Agenda</value>
   </data>
   <data name="NoEventText.Text" xml:space="preserve">
-    <value>Nessun evento</value>
+    <value>No events</value>
   </data>
   <data name="ReadText.Text" xml:space="preserve">
-    <value>Leggi</value>
+    <value>Read</value>
   </data>
   <data name="CloseDialogButtonText" xml:space="preserve">
-    <value>Chiudi</value>
+    <value>Close</value>
   </data>
   <data name="ReadAndOpenFlyoutText" xml:space="preserve">
     <value>Leggi e apri</value>
@@ -416,25 +416,25 @@ Gli account studente hanno l'username che inizia con le lettere S, G o X.</value
     <value>La nota verrà contrassegnata come letta sul server. Continuare?</value>
   </data>
   <data name="SettingsAccountExit.Button" xml:space="preserve">
-    <value>Esci</value>
+    <value>Logout</value>
   </data>
   <data name="NoNoticesText.Text" xml:space="preserve">
-    <value>Nessuna comunicazione</value>
+    <value>No notices</value>
   </data>
   <data name="NoNotesText.Text" xml:space="preserve">
-    <value>Nessuna nota</value>
+    <value>No notes</value>
   </data>
   <data name="TranslateAppText.Text" xml:space="preserve">
     <value>Traduci su Crowdin</value>
   </data>
   <data name="PALETTE_CV" xml:space="preserve">
-    <value>Predefinito di Classeviva</value>
+    <value>Classeviva</value>
   </data>
   <data name="PALETTE_JAP" xml:space="preserve">
     <value>Semaforo giapponese</value>
   </data>
   <data name="PALETTE_NAT" xml:space="preserve">
-    <value>Natura</value>
+    <value>Nature</value>
   </data>
   <data name="WhatsNew_Body_3.Text" xml:space="preserve">
     <value>•  Rinnovato il layout</value>
@@ -451,6 +451,6 @@ Gli account studente hanno l'username che inizia con le lettere S, G o X.</value
     <comment>What's new prompt message body for fifth section (Assenze)</comment>
   </data>
   <data name="SettingsChangeProfilePicButton.Text" xml:space="preserve">
-    <value>Cambia foto</value>
+    <value>Change photo</value>
   </data>
 </root>
