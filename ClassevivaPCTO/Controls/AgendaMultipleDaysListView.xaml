@@ -25,55 +25,61 @@
                 <!-- icon calendar -->
                 <FontIcon x:Name="IconCalendar" FontFamily="{StaticResource FluentIcons}" Glyph="&#xE787;"
                           RelativePanel.AlignVerticalCenterWithPanel="True"
-                          Margin="0,0,8,0" />
-
+                          Foreground="{ThemeResource TextFillColorTertiaryBrush}"
+                          Margin="4,0,8,0" />
 
                 <TextBlock x:Name="titoloEvento" TextWrapping="Wrap"
                            RelativePanel.RightOf="IconCalendar"
                            MaxWidth="500"
+                           IsTextSelectionEnabled="True"
                            Text="{x:Bind Title}"
-                           IsTextSelectionEnabled="True"
                            Style="{ThemeResource BaseTextBlockStyle}"
-                           Margin="6,6,0,0" />
+                           Margin="6,12,0,0" />
 
-
-                <TextBlock RelativePanel.RightOf="titoloEvento" x:Name="tipoEvento" TextWrapping="Wrap"
+                <TextBlock RelativePanel.RightOf="dataEnd" x:Name="tipoEvento" TextWrapping="Wrap"
+                           RelativePanel.AlignVerticalCenterWith="titoloEvento"
                            MaxWidth="500"
+                           Foreground="{ThemeResource TextFillColorTertiaryBrush}"
                            Text="{x:Bind EventType}"
+                           FontWeight="Medium"
                            Style="{ThemeResource BaseTextBlockStyle}"
-                           Margin="6,6,0,0" />
+                           Margin="10,10,0,0" />
 
+                <TextBlock RelativePanel.RightOf="titoloEvento" RelativePanel.AlignVerticalCenterWith="titoloEvento"
+                           x:Name="dataStart"
 
-                <TextBlock RelativePanel.Below="titoloEvento" x:Name="dataStart"
-                           RelativePanel.RightOf="IconCalendar"
                            Text="{x:Bind  CurrentObject.evtDatetimeBegin, Converter={StaticResource DateTimeToHourConverter}}"
-                           FontStyle="Italic"
+                           FontWeight="Medium"
                            Style="{ThemeResource BodyTextBlockStyle}"
-                           IsTextSelectionEnabled="True"
-                           Margin="6,0,0,0" />
-
-                <TextBlock RelativePanel.RightOf="dataStart" RelativePanel.Below="titoloEvento"
+                           Foreground="{ThemeResource TextFillColorTertiaryBrush}"
+                           Margin="12,12,0,0" />
+                <!-- trattino -->
+                <TextBlock RelativePanel.RightOf="dataStart" RelativePanel.AlignVerticalCenterWith="titoloEvento"
                            x:Name="placeholderData"
                            Text="-"
-                           FontStyle="Italic"
+                           FontWeight="Medium"
                            Style="{ThemeResource BodyTextBlockStyle}"
-                           Margin="6,0,6,0" />
+                           Foreground="{ThemeResource TextFillColorTertiaryBrush}"
+                           Margin="6,12,6,0" />
 
 
-                <TextBlock RelativePanel.RightOf="placeholderData" RelativePanel.Below="titoloEvento" x:Name="dataEnd"
+                <TextBlock RelativePanel.RightOf="placeholderData" RelativePanel.AlignVerticalCenterWith="titoloEvento"
+                           x:Name="dataEnd"
                            Text="{x:Bind  CurrentObject.evtDatetimeEnd, Converter={StaticResource DateTimeToHourConverter}}"
-                           FontStyle="Italic"
+                           FontWeight="Medium"
                            Style="{ThemeResource BodyTextBlockStyle}"
-                           IsTextSelectionEnabled="True"
-                           Margin="0,0,0,0" />
+                           Foreground="{ThemeResource TextFillColorTertiaryBrush}"
+                           Margin="0,12,0,0" />
 
-                <TextBlock RelativePanel.Below="dataStart" x:Name="descriptionEvent"
+                <TextBlock RelativePanel.Below="titoloEvento" x:Name="descriptionEvent"
                            RelativePanel.RightOf="IconCalendar"
                            TextWrapping="Wrap"
                            Text="{x:Bind  CurrentObject.notes}"
                            Style="{ThemeResource BodyTextBlockStyle}"
+                           Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                           FontWeight="SemiBold"
                            IsTextSelectionEnabled="True"
-                           Margin="6,6,0,6" />
+                           Margin="6,4,0,12" />
 
 
             </RelativePanel>
@@ -88,63 +94,70 @@
                 <!-- icon calendar -->
                 <FontIcon x:Name="IconCalendar" FontFamily="{StaticResource FluentIcons}" Glyph="&#xE787;"
                           RelativePanel.AlignVerticalCenterWithPanel="True"
-                          Margin="0,0,8,0" />
+                          Foreground="{ThemeResource TextFillColorTertiaryBrush}"
+                          Margin="4,0,8,0" />
 
 
                 <TextBlock x:Name="titoloEvento" TextWrapping="Wrap"
                            RelativePanel.RightOf="IconCalendar"
                            MaxWidth="500"
-                           Text="{x:Bind Title}"
                            IsTextSelectionEnabled="True"
+                           Text="{x:Bind Title}"
                            Style="{ThemeResource BaseTextBlockStyle}"
-                           Margin="6,6,0,0" />
+                           Margin="6,12,0,0" />
 
 
-                <TextBlock RelativePanel.RightOf="titoloEvento" x:Name="tipoEvento" TextWrapping="Wrap"
+                <TextBlock RelativePanel.RightOf="dataEnd" x:Name="tipoEvento" TextWrapping="Wrap"
+                           RelativePanel.AlignVerticalCenterWith="titoloEvento"
                            MaxWidth="500"
+                           Foreground="{ThemeResource TextFillColorTertiaryBrush}"
                            Text="{x:Bind EventType}"
+                           FontWeight="Medium"
                            Style="{ThemeResource BaseTextBlockStyle}"
-                           Margin="6,6,0,0" />
+                           Margin="10,10,0,0" />
 
                 <!-- date of the lesson -->
                 <TextBlock RelativePanel.RightOf="tipoEvento" x:Name="date"
                            Text="{x:Bind CurrentObject.evtDatetimeBegin, Converter={StaticResource DateTimeToNormalDateConverter}}"
                            Style="{ThemeResource BodyTextBlockStyle}"
-                           Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                           Foreground="Transparent"
                            IsTextSelectionEnabled="True"
                            Margin="12,6,0,0" />
 
+                <TextBlock RelativePanel.RightOf="titoloEvento" RelativePanel.AlignVerticalCenterWith="titoloEvento"
+                           x:Name="dataStart"
 
-                <TextBlock RelativePanel.Below="titoloEvento" x:Name="dataStart"
-                           RelativePanel.RightOf="IconCalendar"
                            Text="{x:Bind  CurrentObject.evtDatetimeBegin, Converter={StaticResource DateTimeToHourConverter}}"
-                           FontStyle="Italic"
+                           FontWeight="Medium"
                            Style="{ThemeResource BodyTextBlockStyle}"
-                           IsTextSelectionEnabled="True"
-                           Margin="6,0,0,0" />
-
-                <TextBlock RelativePanel.RightOf="dataStart" RelativePanel.Below="titoloEvento"
+                           Foreground="{ThemeResource TextFillColorTertiaryBrush}"
+                           Margin="12,12,0,0" />
+                <!-- trattino -->
+                <TextBlock RelativePanel.RightOf="dataStart" RelativePanel.AlignVerticalCenterWith="titoloEvento"
                            x:Name="placeholderData"
                            Text="-"
-                           FontStyle="Italic"
+                           FontWeight="Medium"
                            Style="{ThemeResource BodyTextBlockStyle}"
-                           Margin="6,0,6,0" />
+                           Foreground="{ThemeResource TextFillColorTertiaryBrush}"
+                           Margin="6,12,6,0" />
 
-
-                <TextBlock RelativePanel.RightOf="placeholderData" RelativePanel.Below="titoloEvento" x:Name="dataEnd"
+                <TextBlock RelativePanel.RightOf="placeholderData" RelativePanel.AlignVerticalCenterWith="titoloEvento"
+                           x:Name="dataEnd"
                            Text="{x:Bind  CurrentObject.evtDatetimeEnd, Converter={StaticResource DateTimeToHourConverter}}"
-                           FontStyle="Italic"
+                           FontWeight="Medium"
                            Style="{ThemeResource BodyTextBlockStyle}"
-                           IsTextSelectionEnabled="True"
-                           Margin="0,0,0,0" />
+                           Foreground="{ThemeResource TextFillColorTertiaryBrush}"
+                           Margin="0,12,0,0" />
 
-                <TextBlock RelativePanel.Below="dataStart" x:Name="descriptionEvent"
+                <TextBlock RelativePanel.Below="titoloEvento" x:Name="descriptionEvent"
                            RelativePanel.RightOf="IconCalendar"
                            TextWrapping="Wrap"
                            Text="{x:Bind  CurrentObject.notes}"
                            Style="{ThemeResource BodyTextBlockStyle}"
+                           Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                           FontWeight="SemiBold"
                            IsTextSelectionEnabled="True"
-                           Margin="6,6,0,6" />
+                           Margin="6,4,0,12" />
 
 
             </RelativePanel>

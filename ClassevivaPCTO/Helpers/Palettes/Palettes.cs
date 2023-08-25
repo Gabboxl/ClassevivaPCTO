@@ -28,7 +28,7 @@ namespace ClassevivaPCTO.Helpers.Palettes
 
         public class PaletteNat : IPalette
         {
-            public Color ColorRed => ColorHelper.ToColor("#9A4D31");
+            public Color ColorRed => ColorHelper.ToColor("#A25E50");
             public Color ColorOrange => ColorHelper.ToColor("#FC9553");
             public Color ColorGreen => ColorHelper.ToColor("#78C141");
             public Color ColorBlue => ColorHelper.ToColor("#42AACD");
@@ -37,10 +37,10 @@ namespace ClassevivaPCTO.Helpers.Palettes
 
         public class Palette4 : IPalette
         {
-            public Color ColorRed => ColorHelper.ToColor("#9A4D31");
-            public Color ColorOrange => ColorHelper.ToColor("#FC9553");
-            public Color ColorGreen => ColorHelper.ToColor("#78C141");
-            public Color ColorBlue => ColorHelper.ToColor("#42AACD");
+            public Color ColorRed => ColorHelper.ToColor("#FF0000");
+            public Color ColorOrange => ColorHelper.ToColor("#FF7D00");
+            public Color ColorGreen => ColorHelper.ToColor("#00FF00");
+            public Color ColorBlue => ColorHelper.ToColor("#0000FF");
             public Color ColorYellow => Colors.Goldenrod;
 
         }

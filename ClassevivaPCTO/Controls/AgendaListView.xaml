@@ -43,16 +43,16 @@
                            MaxWidth="500"
                            Foreground="{ThemeResource TextFillColorTertiaryBrush}"
                            Text="{x:Bind EventType}"
-                           FontStyle="Italic"
+                           FontWeight="Medium"
                            Style="{ThemeResource BaseTextBlockStyle}"
-                           Margin="12,10,0,0" />
+                           Margin="10,10,0,0" />
 
 
                 <TextBlock RelativePanel.RightOf="titoloEvento" RelativePanel.AlignVerticalCenterWith="titoloEvento"
                            x:Name="dataStart"
 
                            Text="{x:Bind  CurrentObject.evtDatetimeBegin, Converter={StaticResource DateTimeToHourConverter}}"
-                           FontStyle="Italic" FontWeight="Medium"
+                           FontWeight="Medium"
                            Style="{ThemeResource BodyTextBlockStyle}"
                            Foreground="{ThemeResource TextFillColorTertiaryBrush}"
                            Margin="10,12,0,0" />
@@ -60,7 +60,7 @@
                 <TextBlock RelativePanel.RightOf="dataStart" RelativePanel.AlignVerticalCenterWith="titoloEvento"
                            x:Name="placeholderData"
                            Text="-"
-                           FontStyle="Italic" FontWeight="Medium"
+                           FontWeight="Medium"
                            Style="{ThemeResource BodyTextBlockStyle}"
                            Foreground="{ThemeResource TextFillColorTertiaryBrush}"
                            Margin="6,12,6,0" />
@@ -69,7 +69,7 @@
                 <TextBlock RelativePanel.RightOf="placeholderData" RelativePanel.AlignVerticalCenterWith="titoloEvento"
                            x:Name="dataEnd"
                            Text="{x:Bind  CurrentObject.evtDatetimeEnd, Converter={StaticResource DateTimeToHourConverter}}"
-                           FontStyle="Italic" FontWeight="Medium"
+                           FontWeight="Medium"
                            Style="{ThemeResource BodyTextBlockStyle}"
                            Foreground="{ThemeResource TextFillColorTertiaryBrush}"
                            Margin="0,12,0,0" />

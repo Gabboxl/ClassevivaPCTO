@@ -23,9 +23,9 @@ namespace ClassevivaPCTO.Helpers.Palettes
         PALETTE_JAP,
         [ClassMapping(typeof(PaletteNat))]
         PALETTE_NAT,
-        [ClassMapping(typeof(PaletteNat))]
+        [ClassMapping(typeof(Palette4))]
         PALETTE_4,
-        [ClassMapping(typeof(PaletteNat))]
+        [ClassMapping(typeof(Palette5))]
         PALETTE_5,
 
     }

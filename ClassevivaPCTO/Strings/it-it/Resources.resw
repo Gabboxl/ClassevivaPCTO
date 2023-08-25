@@ -453,4 +453,13 @@ Gli account studente hanno l'username che inizia con le lettere S, G o X.</value
   <data name="SettingsChangeProfilePicButton.Text" xml:space="preserve">
     <value>Cambia foto</value>
   </data>
+  <data name="Settings_Language_De_DE.Content" xml:space="preserve">
+    <value>Tedesco</value>
+  </data>
+  <data name="Settings_Language_Es_ES.Content" xml:space="preserve">
+    <value>Spagnolo</value>
+  </data>
+  <data name="Settings_Language_Fr_FR.Content" xml:space="preserve">
+    <value>Francese</value>
+  </data>
 </root>

@@ -86,7 +86,7 @@
                 <RelativePanel
                     Grid.Row="0"
                     Margin="0,0,0,24">
-                    <TextBlock x:Name="TitoloLezioniPopup" x:Uid="LessonsTitle" FontSize="42"
+                    <TextBlock x:Name="TitoloLezioniPopup" x:Uid="LessonsTitle" Style="{StaticResource TitleLargeTextBlockStyle}"
                                VerticalAlignment="Top"
                                Margin="32,16,0,0" />
 
@@ -96,7 +96,7 @@
                         IsActive="True"
                         RelativePanel.RightOf="TitoloLezioniPopup"
                         RelativePanel.AlignVerticalCenterWith="TitoloLezioniPopup"
-                        Margin="32,16,0,0" />
+                        Margin="16,16,0,0" Width="28" Height="28" />
 
 
                 </RelativePanel>
@@ -147,7 +147,7 @@
                 <RelativePanel
                     Grid.Row="0"
                     Margin="0,0,0,24">
-                    <TextBlock x:Name="TitoloAgendaPopup" x:Uid="TitoloAgendaPopup" FontSize="42"
+                    <TextBlock x:Name="TitoloAgendaPopup" x:Uid="TitoloAgendaPopup" Style="{StaticResource TitleLargeTextBlockStyle}"
                                VerticalAlignment="Top"
                                Margin="32,16,0,0" />
 
@@ -158,7 +158,7 @@
                         IsActive="True"
                         RelativePanel.RightOf="TitoloAgendaPopup"
                         RelativePanel.AlignVerticalCenterWith="TitoloAgendaPopup"
-                        Margin="32,16,0,0" />
+                        Margin="16,16,0,0" Width="28" Height="28" />
                 </RelativePanel>
 
 
@@ -260,6 +260,7 @@
                         <CalendarDatePicker x:Name="CalendarAgenda"
                                             RelativePanel.LeftOf="ButtonTomorrow"
                                             FirstDayOfWeek="Monday"
+                                            toolkit:FrameworkElementExtensions.Cursor="Hand"
                                             PlaceholderText="Scegli una data" Grid.Row="1" Margin="8,0,8,0"
                                             RelativePanel.AlignVerticalCenterWithPanel="True" />
 

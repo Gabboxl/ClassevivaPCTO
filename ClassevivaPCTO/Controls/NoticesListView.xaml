@@ -5,6 +5,7 @@
     xmlns:local="using:ClassevivaPCTO.Controls"
     xmlns:adapters="using:ClassevivaPCTO.Adapters"
     xmlns:converters="using:ClassevivaPCTO.Converters"
+    xmlns:toolkit="using:Microsoft.Toolkit.Uwp.UI"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
@@ -119,7 +120,7 @@
                         Visibility="{x:Bind IsDeleted, Converter={StaticResource BetterBoolToVisibilityConverter}, ConverterParameter=False}"
                         Click="ReadButton_Click"
                         Style="{ThemeResource TextButtonStyle}"
-                        Margin="0,0,8,0">
+                        Margin="0,0,8,0" toolkit:FrameworkElementExtensions.Cursor="Hand">
                         <Button.Content>
                             <StackPanel Orientation="Horizontal">
                                 <FontIcon FontFamily="{StaticResource FluentIcons}" Glyph="&#xE890;" />

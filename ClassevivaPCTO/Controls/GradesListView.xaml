@@ -34,7 +34,7 @@
                         <!-- ="{ThemeResource SystemControlBackgroundBaseMediumBrush}" -->
                     </Ellipse>
                     <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center"
-                               Text="{x:Bind CurrentObject.displayValue}" FontSize="16" Foreground="#FFFFFF" />
+                               Text="{x:Bind CurrentObject.displayValue}" FontSize="16" Foreground="#FFFFFF" FontWeight="Medium"/>
 
                 </Grid>
 

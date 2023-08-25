@@ -10,6 +10,7 @@
     xmlns:palette="using:ClassevivaPCTO.Helpers.Palettes"
     xmlns:controls="using:Microsoft.UI.Xaml.Controls"
     xmlns:adapters="using:ClassevivaPCTO.Adapters"
+    xmlns:toolkit="using:Microsoft.Toolkit.Uwp.UI"
     xmlns:converters="using:ClassevivaPCTO.Converters"
     mc:Ignorable="d">
     <Page.Resources>
@@ -256,6 +257,33 @@
                            x:Uid="Settings_General" />
 
 
+                <labs:SettingsCard Header="Vai all'anno precedente">
+                    
+
+                    <labs:SettingsCard.HeaderIcon>
+                        <FontIcon Glyph="&#xE97A;" />
+                    </labs:SettingsCard.HeaderIcon>
+
+                    <labs:SettingsCard.Description>
+                        <TextBlock Text="Consulta i dati dell'A.S. 2022/23 sul sito web di Classeviva" />
+                    </labs:SettingsCard.Description>
+
+                    <Button MinWidth="130" toolkit:FrameworkElementExtensions.Cursor="Hand">
+
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Spacing="8">
+
+                            <TextBlock Text="A.S. 2022/23" />
+
+                            <TextBlock Text="&#xE8A7;" VerticalAlignment="Center"
+                                       FontFamily="{StaticResource FluentIcons}" Foreground="{ThemeResource AccentTextFillColorPrimaryBrush}"/>
+
+                        </StackPanel>
+
+
+                    </Button>
+
+                </labs:SettingsCard>
+
                 <labs:SettingsCard x:Uid="SettingsCardLanguage">
 
                     <labs:SettingsCard.HeaderIcon>
@@ -273,6 +301,22 @@
                             x:Uid="Settings_Language_En_US">
 
                         </ComboBoxItem>
+
+                        <ComboBoxItem
+                            x:Uid="Settings_Language_Es_ES">
+
+                        </ComboBoxItem>
+
+                        <ComboBoxItem
+                            x:Uid="Settings_Language_Fr_FR">
+
+                        </ComboBoxItem>
+
+                        <ComboBoxItem
+                            x:Uid="Settings_Language_De_DE">
+
+                        </ComboBoxItem>
+
 
                     </ComboBox>
 

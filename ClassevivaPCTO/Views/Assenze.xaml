@@ -110,7 +110,7 @@
 
 
                 <RelativePanel
-                    Margin="18,0,16,0"
+                    Margin="18,0,8,20"
                     Grid.Column="0"
                     VerticalAlignment="Stretch" HorizontalAlignment="Stretch"
                     x:Name="CardPanel"
@@ -122,9 +122,8 @@
 
                     BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
                     Background="{ThemeResource CardBackgroundFillColorDefaultBrush}">
-
-
-                    <Grid
+                      
+                        <Grid
                         x:Name="Grid1"
                         HorizontalAlignment="Stretch"
 

@@ -8,6 +8,7 @@
     mc:Ignorable="d"
     xmlns:controls2="using:ClassevivaPCTO.Controls"
     xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    xmlns:labs="using:CommunityToolkit.Labs.WinUI"
     xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
     xmlns:animatedvisuals="using:Microsoft.UI.Xaml.Controls.AnimatedVisuals"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
