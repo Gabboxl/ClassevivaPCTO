@@ -218,7 +218,23 @@ namespace ClassevivaPCTO.Views
 
         private async void ButtonLogout_Click(object sender, RoutedEventArgs e)
         {
-            VariousUtils.DoLogout();
+            ContentDialog dialog = new ContentDialog
+            {
+                Title = "Sei sicuro?",
+                Content = "Sei sicuro di voler uscire?",
+                PrimaryButtonText = "Esci",
+                CloseButtonText = "Annulla",
+                RequestedTheme = ((FrameworkElement)Window.Current.Content).RequestedTheme,
+                DefaultButton = ContentDialogButton.Primary
+            };
+
+            ContentDialogResult result = await dialog.ShowAsync();
+
+            if (result == ContentDialogResult.Primary)
+            {
+                VariousUtils.DoLogout();
+            }
+
         }
 
         private async void ChangeLanguage(string value)
