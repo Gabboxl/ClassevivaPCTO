@@ -236,19 +236,6 @@
                             </DataTemplate>
                         </ComboBox.ItemTemplate>
 
-                        <!--<ComboBoxItem
-                            Content=""
-                            x:Uid="">
-
-                        </ComboBoxItem>
-                        <ComboBoxItem
-                            x:Uid="Settings_Theme_Light">
-
-                        </ComboBoxItem>
-                        <ComboBoxItem
-                            x:Uid="Settings_Theme_Dark">
-
-                        </ComboBoxItem>-->
                     </ComboBox>
                 </labs:SettingsCard>
 
@@ -290,33 +277,12 @@
                         <FontIcon Glyph="&#xE8C1;" />
                     </labs:SettingsCard.HeaderIcon>
 
-                    <ComboBox SelectedIndex="0" MinWidth="130">
-
-                        <ComboBoxItem
-                            x:Uid="Settings_Language_It_IT">
-
-                        </ComboBoxItem>
-
-                        <ComboBoxItem
-                            x:Uid="Settings_Language_En_US">
-
-                        </ComboBoxItem>
-
-                        <ComboBoxItem
-                            x:Uid="Settings_Language_Es_ES">
-
-                        </ComboBoxItem>
-
-                        <ComboBoxItem
-                            x:Uid="Settings_Language_Fr_FR">
-
-                        </ComboBoxItem>
-
-                        <ComboBoxItem
-                            x:Uid="Settings_Language_De_DE">
-
-                        </ComboBoxItem>
-
+                    <ComboBox
+                        x:Name="LanguageComboBox"
+                        ItemsSource="{x:Bind ComboLanguages}"
+                        SelectedItem="{x:Bind CurrentLanguage}"
+                        SelectionChanged="LanguageComboBox_OnSelectionChanged"
+                        MinWidth="130">
 
                     </ComboBox>
 

@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
+using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using Windows.ApplicationModel;
@@ -15,6 +16,7 @@ using ClassevivaPCTO.Adapters;
 using ClassevivaPCTO.Dialogs;
 using ClassevivaPCTO.Helpers.Palettes;
 using ClassevivaPCTO.Utils;
+using Windows.Globalization;
 
 namespace ClassevivaPCTO.Views
 {
@@ -43,6 +45,16 @@ namespace ClassevivaPCTO.Views
         {
             get { return _comboPalettes; }
             set { Set(ref _comboPalettes, value); }
+        }
+
+        public List<string> ComboLanguages
+        {
+            get { return ApplicationLanguages.ManifestLanguages.ToList(); }
+        }
+
+        public string CurrentLanguage
+        {
+            get { return ApplicationLanguages.PrimaryLanguageOverride; }
         }
 
         public string AppName
@@ -200,6 +212,15 @@ namespace ClassevivaPCTO.Views
         private async void ButtonLogout_Click(object sender, RoutedEventArgs e)
         {
             VariousUtils.DoLogout();
+        }
+
+        private void LanguageComboBox_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            ComboBox languageSelector = (ComboBox) sender;
+
+            string language = (string) languageSelector.SelectedItem;
+
+            ApplicationLanguages.PrimaryLanguageOverride = language;
         }
     }
 }
