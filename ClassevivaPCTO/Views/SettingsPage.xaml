@@ -186,7 +186,7 @@
 
                 <labs:SettingsCard x:Name="ColorSchemeExpander"
                                    Description="Personalizza lo schema dei colori utilizzato nell'app per indicare voti ed eventi"
-                                   Header="Schema colori" MinHeight="80" MaxHeight="80">
+                                   Header="Schema colori" MinHeight="80">
 
                     <labs:SettingsCard.HeaderIcon>
                         <FontIcon Glyph="&#xE790;" />

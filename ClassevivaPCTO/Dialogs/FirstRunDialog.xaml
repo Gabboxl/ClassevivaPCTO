@@ -1,5 +1,4 @@
 ﻿<ContentDialog
-
     x:Class="ClassevivaPCTO.Dialogs.FirstRunDialog"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -23,9 +22,10 @@
             </StackPanel>
         </DataTemplate>
     </ContentDialog.TitleTemplate>
-    <ScrollViewer>
+
+    <ScrollViewer MaxWidth="800">
         <StackPanel>
-            <TextBlock x:Uid="FirstRun_Body" TextWrapping="WrapWholeWords" MaxWidth="800"/>
+            <TextBlock x:Uid="FirstRun_Body" TextWrapping="WrapWholeWords"/>
         </StackPanel>
     </ScrollViewer>
 </ContentDialog>

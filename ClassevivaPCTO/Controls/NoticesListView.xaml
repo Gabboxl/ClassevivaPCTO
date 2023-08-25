@@ -40,7 +40,7 @@
 
 
                 <RelativePanel ScrollViewer.HorizontalScrollMode="Disabled" Grid.Row="0" Grid.Column="0"
-                               Margin="0,6,0,6">
+                               Margin="0,8,0,8">
 
                     <!-- icon pin -->
                     <FontIcon x:Name="pinIcon" FontFamily="{StaticResource FluentIcons}" Glyph="&#xE840;"
@@ -53,7 +53,7 @@
                                IsTextSelectionEnabled="True"
                                Text="{x:Bind CurrentObject.cntTitle}"
                                Style="{ThemeResource BaseTextBlockStyle}"
-                               Margin="6,2,0,0" />
+                               Margin="6,0,0,0" />
 
                     <TextBlock x:Name="categoriaEvento" TextWrapping="NoWrap"
                                RelativePanel.RightOf="titoloEvento"
@@ -63,7 +63,7 @@
                                FontWeight="SemiBold"
                                Style="{ThemeResource BaseTextBlockStyle}"
                                Foreground="{ThemeResource TextFillColorTertiaryBrush}"
-                               Margin="8,2,4,0" />
+                               Margin="8,0,4,0" />
 
 
                     <!-- data pubblicazione -->
@@ -73,7 +73,7 @@
                                Text="{x:Bind  CurrentObject.pubDT, Converter={StaticResource DateTimeToNormalDateConverter}}"
                                Style="{ThemeResource BodyStrongTextBlockStyle}"
                                Foreground="{ThemeResource TextFillColorTertiaryBrush}"
-                               Margin="0,2,0,0" />
+                               Margin="0,0,0,0" />
 
 
                     <TextBlock x:Name="StatusText" RelativePanel.RightOf="dataPubblicazione" TextWrapping="NoWrap"
@@ -94,7 +94,7 @@
                                FontWeight="Medium"
                                Foreground="{ThemeResource TextFillColorTertiaryBrush}"
                                Style="{ThemeResource CaptionTextBlockStyle}"
-                               Margin="4,6,0,2" />
+                               Margin="4,6,0,0" />
 
 
                 </RelativePanel>

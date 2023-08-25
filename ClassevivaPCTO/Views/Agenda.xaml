@@ -86,7 +86,7 @@
                 <RelativePanel
                     Grid.Row="0"
                     Margin="0,0,0,24">
-                    <TextBlock x:Name="TitoloLezioniPopup" x:Uid="LessonsTitle" Style="{StaticResource TitleLargeTextBlockStyle}"
+                    <TextBlock x:Name="TitoloLezioniPopup" x:Uid="LessonsTitle" FontSize="42"
                                VerticalAlignment="Top"
                                Margin="32,16,0,0" />
 
@@ -147,7 +147,7 @@
                 <RelativePanel
                     Grid.Row="0"
                     Margin="0,0,0,24">
-                    <TextBlock x:Name="TitoloAgendaPopup" x:Uid="TitoloAgendaPopup" Style="{StaticResource TitleLargeTextBlockStyle}"
+                    <TextBlock x:Name="TitoloAgendaPopup" x:Uid="TitoloAgendaPopup" FontSize="42"
                                VerticalAlignment="Top"
                                Margin="32,16,0,0" />
 
