@@ -1,0 +1,465 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" id="root">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace"/>
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0"/>
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string"/>
+              <xsd:attribute name="type" type="xsd:string"/>
+              <xsd:attribute name="mimetype" type="xsd:string"/>
+              <xsd:attribute ref="xml:space"/>
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string"/>
+              <xsd:attribute name="name" type="xsd:string"/>
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2"/>
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1"/>
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3"/>
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4"/>
+              <xsd:attribute ref="xml:space"/>
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required"/>
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AppDisplayName" xml:space="preserve">
+    <value>ClassevivaPCTO</value>
+    <comment>Application display name</comment>
+  </data>
+  <data name="AppDescription" xml:space="preserve">
+    <value>ClassevivaPCTO</value>
+    <comment>Application description</comment>
+  </data>
+  <data name="Shell_Main.Content" xml:space="preserve">
+    <value>Main</value>
+    <comment>Navigation view item name for Main</comment>
+  </data>
+  <data name="Settings_Theme.Text" xml:space="preserve">
+    <value>Choose your theme</value>
+    <comment>Choose theme text for Settings</comment>
+  </data>
+  <data name="Settings_Theme_Dark.Content" xml:space="preserve">
+    <value>Dark</value>
+    <comment>Dark theme text for Settings</comment>
+  </data>
+  <data name="Settings_Theme_Default.Content" xml:space="preserve">
+    <value>System Default</value>
+    <comment>Windows default theme text for Settings</comment>
+  </data>
+  <data name="Settings_Theme_Light.Content" xml:space="preserve">
+    <value>Light</value>
+    <comment>Light theme text for Settings</comment>
+  </data>
+  <data name="Settings_About.Text" xml:space="preserve">
+    <value>About</value>
+    <comment>About this application title for Settings</comment>
+  </data>
+  <data name="Settings_Personalization.Text" xml:space="preserve">
+    <value>Appearance</value>
+    <comment>Personalization text for Settings</comment>
+  </data>
+  <data name="FirstRun_Body.Text" xml:space="preserve">
+    <value>Con quest'app potrai gestire i tuoi dati del registro elettronico Classeviva in maniera intuitiva.
+
+Quest'app è rivolta soltanto agli account studente.
+
+Ricorda che quest'app è ancora in fase di sviluppo e alcune funzionalità possono non essere disponibili al momento. Se hai idee apri un issue al seguente link! https://github.com/Gabboxl/ClassevivaPCTO/issues</value>
+    <comment>First use prompt message body</comment>
+  </data>
+  <data name="FirstRunDialog.Title" xml:space="preserve">
+    <value>Welcome in ClassevivaPCTO</value>
+    <comment>First use prompt message title</comment>
+  </data>
+  <data name="FirstRunDialog.PrimaryButtonText" xml:space="preserve">
+    <value>Ok</value>
+    <comment>First use prompt message primary button text</comment>
+  </data>
+  <data name="WhatsNewDialog.PrimaryButtonText" xml:space="preserve">
+    <value>Close</value>
+    <comment>What's new prompt message primary button text</comment>
+  </data>
+  <data name="WhatsNewDialog.Title" xml:space="preserve">
+    <value>What’s new in this version</value>
+    <comment>What's new prompt message title</comment>
+  </data>
+  <data name="WhatsNew_Body_Main.Text" xml:space="preserve">
+    <value>•  Migliorata l'interfaccia di tutte le pagine
+•  Aggiunta la funzione di cambiare lo schema dei colori utilizzato per voti ed eventi
+•  Aggiunta la possibilità di cambiare la lingua dell'interfaccia (attualmente è disponibile solo la lingua Inglese - puoi contribuire alle traduzioni dal progetto Crowdin (vedi Informazioni app)
+</value>
+    <comment>What's new prompt message body for highlights section</comment>
+  </data>
+  <data name="WhatsNew_Body_1.Text" xml:space="preserve">
+    <value>•  La sezione account è adesso integrata nelle Impostazioni
+•  Aggiunta la possibilità di cambiare la foto profilo dell'utente (in locale)
+•  Aggiunta una barra di ricerca che indicizza i contenuti a seconda della pagina corrente
+•  Aggiunta la possibilità di visualizzare le modifiche recenti apportate all'app
+•  Aggiornata l'esperienza iniziale (tutorial) con nuovi suggerimenti, che da ora possono essere visualizzati anche dalle Impostazioni
+•  Aggiunta una splash screen - chi ha già fatto il login tramite credenziali all'apertura della app adesso visualizzerà una nuova splash screen che indica il caricamento dei dati dell'utente e dell'applicazione
+</value>
+    <comment>What's new prompt message body for first section (General)</comment>
+  </data>
+  <data name="WhatsNew_Body_2.Text" xml:space="preserve">
+    <value>•  Aggiunta la possibilità di cambiare e spostare i widget visualizzati nella dashboard
+•  Nuovo widget: Collegamenti rapidi - permette di salvare fino a 5 collegamenti Internet da poter aprire rapidamente dall'app, come il sito della tua scuola, Classroom o la tua posta elettronica d'istituto</value>
+    <comment>What's new prompt message body for second section (Dashboard)</comment>
+  </data>
+  <data name="Settings_Account.Text" xml:space="preserve">
+    <value>Account</value>
+    <comment>Account text for Settings</comment>
+  </data>
+  <data name="Settings_General.Text" xml:space="preserve">
+    <value>General</value>
+    <comment>General text for Settings</comment>
+  </data>
+  <data name="Settings_Language_En_US.Content" xml:space="preserve">
+    <value>English</value>
+    <comment>English language text</comment>
+  </data>
+  <data name="Settings_Language_It_IT.Content" xml:space="preserve">
+    <value>Italian</value>
+    <comment>Italian language text</comment>
+  </data>
+  <data name="Settings_Version.Text" xml:space="preserve">
+    <value>Version</value>
+    <comment>Version text for Settings</comment>
+  </data>
+  <data name="TextTitoloSettings.Text" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="SettingsExpanderTheme.Description" xml:space="preserve">
+    <value>Choose app theme</value>
+  </data>
+  <data name="SettingsExpanderTheme.Header" xml:space="preserve">
+    <value>Theme</value>
+  </data>
+  <data name="SettingsCardLanguage.Header" xml:space="preserve">
+    <value>Language</value>
+  </data>
+  <data name="SettingsCardLanguage.Description" xml:space="preserve">
+    <value>Choose the displayed app language</value>
+  </data>
+  <data name="SettingsExpanderReservedRights.Description" xml:space="preserve">
+    <value>© 2023. All rights reserved.</value>
+  </data>
+  <data name="hyperlinkVote.Text" xml:space="preserve">
+    <value>Rate app on the Store</value>
+  </data>
+  <data name="hyperlinkIssue.Text" xml:space="preserve">
+    <value>Report an issue</value>
+  </data>
+  <data name="SettingsCardTutorial.Header" xml:space="preserve">
+    <value>Tutorial</value>
+  </data>
+  <data name="SettingsCardTutorial.Description" xml:space="preserve">
+    <value>Visualizza suggerimenti sul funzionamento dell'app</value>
+  </data>
+  <data name="SettingsCardTutorialButton.Content" xml:space="preserve">
+    <value>Start tutorial</value>
+  </data>
+  <data name="SettingsCardWhatsNew.Header" xml:space="preserve">
+    <value>What’s new in this version</value>
+  </data>
+  <data name="SettingsCardWhatsNew.Description" xml:space="preserve">
+    <value>See recent changes</value>
+  </data>
+  <data name="SettingsCardWhatsNewButton.Content" xml:space="preserve">
+    <value>See changelog</value>
+  </data>
+  <data name="TitoloScrutini.Text" xml:space="preserve">
+    <value>Scrutini</value>
+  </data>
+  <data name="CheckboxEliminati.Content" xml:space="preserve">
+    <value>Show deleted documents</value>
+  </data>
+  <data name="TextFileScrutini.Text" xml:space="preserve">
+    <value>Documents</value>
+  </data>
+  <data name="TitoloNote.Text" xml:space="preserve">
+    <value>Notes</value>
+  </data>
+  <data name="TextBenvenutoLogin.Text" xml:space="preserve">
+    <value>Welcome</value>
+  </data>
+  <data name="EdittextUsername.Header" xml:space="preserve">
+    <value>Username:</value>
+  </data>
+  <data name="EdittextPassword.Header" xml:space="preserve">
+    <value>Password:</value>
+  </data>
+  <data name="CheckboxCredenziali.Content" xml:space="preserve">
+    <value>Keep me logged in</value>
+  </data>
+  <data name="ComboMaterie.PlaceholderText" xml:space="preserve">
+    <value>Select a subject</value>
+  </data>
+  <data name="TitleValutazioni.Text" xml:space="preserve">
+    <value>Grades of </value>
+  </data>
+  <data name="TitoloDashboard.Text" xml:space="preserve">
+    <value>Dashboard di </value>
+  </data>
+  <data name="TextOggiAgenda.Text" xml:space="preserve">
+    <value>Eventi del giorno
+                                   </value>
+  </data>
+  <data name="HyperlinkButtonApriAgenda.Content" xml:space="preserve">
+    <value>Apri agenda</value>
+  </data>
+  <data name="TitleRecentGrades.Text" xml:space="preserve">
+    <value>Valutazioni recenti</value>
+  </data>
+  <data name="TitleMedia.Text" xml:space="preserve">
+    <value>Media totale:</value>
+  </data>
+  <data name="HyperlinkButtonApriValutazioni.Content" xml:space="preserve">
+    <value>Visualizza tutte le valutazioni</value>
+  </data>
+  <data name="TextBachecaRecenti.Text" xml:space="preserve">
+    <value>Comunicazioni recenti</value>
+  </data>
+  <data name="HyperlinkButtonApriBacheca.Content" xml:space="preserve">
+    <value>Apri bacheca</value>
+  </data>
+  <data name="TextBachecaComunicazioni.Text" xml:space="preserve">
+    <value>Notices</value>
+  </data>
+  <data name="TextTitoloAssenzeRitardi.Text" xml:space="preserve">
+    <value>Assenze e Ritardi</value>
+  </data>
+  <data name="TodayButton.Content" xml:space="preserve">
+    <value>Today</value>
+  </data>
+  <data name="TextBlockCalendarioEventi.Text" xml:space="preserve">
+    <value>Calendario eventi</value>
+  </data>
+  <data name="TitoloAgendaPopup.Text" xml:space="preserve">
+    <value>Agenda</value>
+  </data>
+  <data name="ButtonTodayAgenda.Content" xml:space="preserve">
+    <value>Today</value>
+  </data>
+  <data name="TuttiCompitiButton.Text" xml:space="preserve">
+    <value>All tasks</value>
+  </data>
+  <data name="PopupLessonsButton.Text" xml:space="preserve">
+    <value>All lessons</value>
+  </data>
+  <data name="AccountNonSupportato" xml:space="preserve">
+    <value>Account insegnante non supportato</value>
+  </data>
+  <data name="AccountNonSupportatoBody" xml:space="preserve">
+    <value>In questa app sono solo supportati gli account studente. 
+
+Gli account studente hanno l'username che inizia con le lettere S, G o X.</value>
+  </data>
+  <data name="ErroreText" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="OKCapsText" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="ErrorDialogBody" xml:space="preserve">
+    <value>Errore durante il login. Controlla il nome utente e la password. 
+ Errore: </value>
+  </data>
+  <data name="ChooseProfileDialogTitle" xml:space="preserve">
+    <value>Choose a profile</value>
+  </data>
+  <data name="LoginDialogButton" xml:space="preserve">
+    <value>Login</value>
+  </data>
+  <data name="CancelDialogButton" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="NoticeDialogAllegatiSubtitle" xml:space="preserve">
+    <value>Attachments</value>
+  </data>
+  <data name="NoticeDialogNessunAllegatiSubtitle" xml:space="preserve">
+    <value>No attachments</value>
+  </data>
+  <data name="ComboChoiceSelectProfile.Header" xml:space="preserve">
+    <value>Select a profile:</value>
+  </data>
+  <data name="ProfileChoiceDialogInfoTextBlock.Text" xml:space="preserve">
+    <value>Più profili sono associati a questo account.</value>
+  </data>
+  <data name="DialogButtonSave.Text" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="ButtonOpen.Text" xml:space="preserve">
+    <value>Open</value>
+  </data>
+  <data name="LessonsTitle.Text" xml:space="preserve">
+    <value>Lessons</value>
+  </data>
+  <data name="GradesTitle.Text" xml:space="preserve">
+    <value>Grades</value>
+  </data>
+  <data name="AbsencesTitle.Text" xml:space="preserve">
+    <value>Absences</value>
+  </data>
+  <data name="AgendaTitle.Text" xml:space="preserve">
+    <value>Agenda</value>
+  </data>
+  <data name="NoEventText.Text" xml:space="preserve">
+    <value>No events</value>
+  </data>
+  <data name="ReadText.Text" xml:space="preserve">
+    <value>Read</value>
+  </data>
+  <data name="CloseDialogButtonText" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="ReadAndOpenFlyoutText" xml:space="preserve">
+    <value>Leggi e apri</value>
+  </data>
+  <data name="InfoNoticeFlyoutText" xml:space="preserve">
+    <value>La comunicazione verrà contrassegnata come letta sul server. Continuare?</value>
+  </data>
+  <data name="InfoNoteFlyoutText" xml:space="preserve">
+    <value>La nota verrà contrassegnata come letta sul server. Continuare?</value>
+  </data>
+  <data name="SettingsAccountExit.Button" xml:space="preserve">
+    <value>Logout</value>
+  </data>
+  <data name="NoNoticesText.Text" xml:space="preserve">
+    <value>No notices</value>
+  </data>
+  <data name="NoNotesText.Text" xml:space="preserve">
+    <value>No notes</value>
+  </data>
+  <data name="TranslateAppText.Text" xml:space="preserve">
+    <value>Translate on Crowdin</value>
+  </data>
+  <data name="PALETTE_CV" xml:space="preserve">
+    <value>Classeviva</value>
+  </data>
+  <data name="PALETTE_JAP" xml:space="preserve">
+    <value>Semaforo giapponese</value>
+  </data>
+  <data name="PALETTE_NAT" xml:space="preserve">
+    <value>Nature</value>
+  </data>
+  <data name="WhatsNew_Body_3.Text" xml:space="preserve">
+    <value>•  Rinnovato il layout</value>
+    <comment>What's new prompt message body for third section (Agenda)</comment>
+  </data>
+  <data name="WhatsNew_Body_4.Text" xml:space="preserve">
+    <value>•  La pagina è stata rinnovata completamente in termini di Layout e interfaccia - da adesso di default verrà visualizzata la lista di tutti i voti in ordine dal più recente al meno recente, senza distinzioni di materia o tipo
+•  Aggiunta la possibilità di visualizzare tutti i voti per trimestre/pentamestre o quadrimestre - le visualizzazioni adesso includono la lista di tutte le materie e la relativa media per ognuna di esse. Cliccando su una materia vengono visualizzati i voti di quella materia per quello specifico periodo didattico
+•  Aggiunta la possibilità di vedere la media di ogni periodo didattico e la media generale dell'anno scolastico</value>
+    <comment>What's new prompt message body for fourth section (Valutazioni)</comment>
+  </data>
+  <data name="WhatsNew_Body_5.Text" xml:space="preserve">
+    <value>•  Rinnovato il layout</value>
+    <comment>What's new prompt message body for fifth section (Assenze)</comment>
+  </data>
+  <data name="SettingsChangeProfilePicButton.Text" xml:space="preserve">
+    <value>Change photo</value>
+  </data>
+  <data name="Settings_Language_De_DE.Content" xml:space="preserve">
+    <value>Tedesco</value>
+  </data>
+  <data name="Settings_Language_Es_ES.Content" xml:space="preserve">
+    <value>Spagnolo</value>
+  </data>
+  <data name="Settings_Language_Fr_FR.Content" xml:space="preserve">
+    <value>Francese</value>
+  </data>
+</root>
