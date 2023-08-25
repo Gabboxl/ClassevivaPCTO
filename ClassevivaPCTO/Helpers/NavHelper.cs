@@ -15,7 +15,7 @@ namespace ClassevivaPCTO.Helpers
         // NavHelper.SetNavigateTo(navigationViewItem, typeof(MainPage));
         public static Type GetNavigateTo(NavigationViewItem item)
         {
-            return (Type)item.GetValue(NavigateToProperty);
+            return (Type) item.GetValue(NavigateToProperty);
         }
 
         public static void SetNavigateTo(NavigationViewItem item, Type value)
@@ -24,6 +24,7 @@ namespace ClassevivaPCTO.Helpers
         }
 
         public static readonly DependencyProperty NavigateToProperty =
-            DependencyProperty.RegisterAttached("NavigateTo", typeof(Type), typeof(NavHelper), new PropertyMetadata(null));
+            DependencyProperty.RegisterAttached("NavigateTo", typeof(Type), typeof(NavHelper),
+                new PropertyMetadata(null));
     }
 }

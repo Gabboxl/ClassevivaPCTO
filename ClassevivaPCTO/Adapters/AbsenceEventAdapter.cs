@@ -8,27 +8,21 @@ namespace ClassevivaPCTO.Adapters
 
         public string ShortEventName
         {
-            get
-            {
-                return CurrentObject.evtCode.GetShortName();
-            }
+            get { return CurrentObject.evtCode.GetShortName(); }
         }
 
         public string EventTitle
         {
-            get
-            {
-                return CurrentObject.evtCode.GetLongName() + " del " + CurrentObject.evtDate.ToString("dd/MM/yyyy");
-            }
+            get { return CurrentObject.evtCode.GetLongName() + " del " + CurrentObject.evtDate.ToString("dd/MM/yyyy"); }
         }
 
         public string JustifiedText
         {
             get
             {
-                if ((bool)CurrentObject.isJustified)
+                if ((bool) CurrentObject.isJustified)
                 {
-                    return CurrentObject.justifReasonDesc + " (" + CurrentObject.justifReasonCode +")";
+                    return CurrentObject.justifReasonDesc + " (" + CurrentObject.justifReasonCode + ")";
                 }
                 else
                 {

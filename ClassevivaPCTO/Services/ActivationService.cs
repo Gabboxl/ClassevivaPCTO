@@ -67,7 +67,7 @@ namespace ClassevivaPCTO.Services
         private async Task HandleActivationAsync(object activationArgs)
         {
             var activationHandler = GetActivationHandlers()
-                                                .FirstOrDefault(h => h.CanHandle(activationArgs));
+                .FirstOrDefault(h => h.CanHandle(activationArgs));
 
             if (activationHandler != null)
             {

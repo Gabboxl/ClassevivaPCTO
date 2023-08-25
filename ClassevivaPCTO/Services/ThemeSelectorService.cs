@@ -43,14 +43,15 @@ namespace ClassevivaPCTO.Services
                         bool IsHighContrast = new AccessibilitySettings().HighContrast;
 
                         Color ForegroundColor = IsDark || IsHighContrast ? Colors.White : Colors.Black;
-                        Color BackgroundColor = IsHighContrast ? Color.FromArgb(255, 0, 0, 0) : IsDark ? Color.FromArgb(255, 32, 32, 32) : Color.FromArgb(255, 243, 243, 243);
+                        Color BackgroundColor = IsHighContrast ? Color.FromArgb(255, 0, 0, 0) :
+                            IsDark ? Color.FromArgb(255, 32, 32, 32) : Color.FromArgb(255, 243, 243, 243);
 
                         bool ExtendViewIntoTitleBar = CoreApplication.GetCurrentView().TitleBar.ExtendViewIntoTitleBar;
                         ApplicationViewTitleBar TitleBar = ApplicationView.GetForCurrentView().TitleBar;
                         TitleBar.ForegroundColor = TitleBar.ButtonForegroundColor = ForegroundColor;
                         TitleBar.BackgroundColor = TitleBar.InactiveBackgroundColor = BackgroundColor;
-                        TitleBar.ButtonBackgroundColor = TitleBar.ButtonInactiveBackgroundColor = ExtendViewIntoTitleBar ? Colors.Transparent : BackgroundColor;
-
+                        TitleBar.ButtonBackgroundColor = TitleBar.ButtonInactiveBackgroundColor =
+                            ExtendViewIntoTitleBar ? Colors.Transparent : BackgroundColor;
                     }
                 });
             }

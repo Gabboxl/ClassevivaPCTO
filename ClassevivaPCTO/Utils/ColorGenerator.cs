@@ -30,7 +30,7 @@ namespace ClassevivaPCTO.Utils
         {
             if (saturation == 0)
             {
-                int gray = (int)Math.Round(lightness * 255);
+                int gray = (int) Math.Round(lightness * 255);
                 return Color.FromArgb(gray, gray, gray);
             }
 
@@ -41,7 +41,7 @@ namespace ClassevivaPCTO.Utils
             double g = HueToRgb(p, q, hue);
             double b = HueToRgb(p, q, hue - 1.0 / 3.0);
 
-            return Color.FromArgb((int)Math.Round(r * 255), (int)Math.Round(g * 255), (int)Math.Round(b * 255));
+            return Color.FromArgb((int) Math.Round(r * 255), (int) Math.Round(g * 255), (int) Math.Round(b * 255));
         }
 
         private static double HueToRgb(double p, double q, double t)

@@ -18,7 +18,7 @@
         <DataTemplate x:Key="AttachmentListViewDataTemplate"
                       x:DataType="utils:NoticeAttachment">
 
-            <Grid HorizontalAlignment="Stretch" >
+            <Grid HorizontalAlignment="Stretch">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>

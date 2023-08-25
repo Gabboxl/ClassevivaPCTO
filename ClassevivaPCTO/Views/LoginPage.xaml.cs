@@ -108,7 +108,7 @@ namespace ClassevivaPCTO.Views
 
                     edituid = EdittextUsername.Text;
                     editpass = EdittextPassword.Password;
-                    checkboxCredenzialiChecked = (bool)CheckboxCredenziali.IsChecked;
+                    checkboxCredenzialiChecked = (bool) CheckboxCredenziali.IsChecked;
                 }
             );
 
@@ -126,7 +126,7 @@ namespace ClassevivaPCTO.Views
             }
 
             //get the refit api client from the service provider only after having set the endpoint
-            App app = (App)App.Current;
+            App app = (App) App.Current;
             var apiClient = app.Container.GetService<IClassevivaAPI>();
 
             apiWrapper = PoliciesDispatchProxy<IClassevivaAPI>.CreateProxy(apiClient);
@@ -154,11 +154,14 @@ namespace ClassevivaPCTO.Views
                             async () =>
                             {
                                 ContentDialog dialog = new ContentDialog();
-                                dialog.Title = Windows.ApplicationModel.Resources.Core.ResourceManager.Current.MainResourceMap.GetValue("Resources/AccountNonSupportato").ValueAsString;
-                                dialog.PrimaryButtonText = Windows.ApplicationModel.Resources.Core.ResourceManager.Current.MainResourceMap.GetValue("Resources/OKCapsText").ValueAsString;
+                                dialog.Title = Windows.ApplicationModel.Resources.Core.ResourceManager.Current
+                                    .MainResourceMap.GetValue("Resources/AccountNonSupportato").ValueAsString;
+                                dialog.PrimaryButtonText = Windows.ApplicationModel.Resources.Core.ResourceManager
+                                    .Current.MainResourceMap.GetValue("Resources/OKCapsText").ValueAsString;
                                 dialog.DefaultButton = ContentDialogButton.Primary;
                                 dialog.Content =
-                                    Windows.ApplicationModel.Resources.Core.ResourceManager.Current.MainResourceMap.GetValue("Resources/AccountNonSupportatoBody").ValueAsString;
+                                    Windows.ApplicationModel.Resources.Core.ResourceManager.Current.MainResourceMap
+                                        .GetValue("Resources/AccountNonSupportatoBody").ValueAsString;
 
                                 try
                                 {
@@ -233,11 +236,14 @@ namespace ClassevivaPCTO.Views
                     async () =>
                     {
                         ContentDialog dialog = new ContentDialog();
-                        dialog.Title = Windows.ApplicationModel.Resources.Core.ResourceManager.Current.MainResourceMap.GetValue("Resources/ErroreText").ValueAsString;
-                        dialog.PrimaryButtonText = Windows.ApplicationModel.Resources.Core.ResourceManager.Current.MainResourceMap.GetValue("Resources/OKCapsText").ValueAsString;
+                        dialog.Title = Windows.ApplicationModel.Resources.Core.ResourceManager.Current.MainResourceMap
+                            .GetValue("Resources/ErroreText").ValueAsString;
+                        dialog.PrimaryButtonText = Windows.ApplicationModel.Resources.Core.ResourceManager.Current
+                            .MainResourceMap.GetValue("Resources/OKCapsText").ValueAsString;
                         dialog.DefaultButton = ContentDialogButton.Primary;
                         dialog.Content =
-                            Windows.ApplicationModel.Resources.Core.ResourceManager.Current.MainResourceMap.GetValue("Resources/ErrorDialogBody").ValueAsString
+                            Windows.ApplicationModel.Resources.Core.ResourceManager.Current.MainResourceMap
+                                .GetValue("Resources/ErrorDialogBody").ValueAsString
                             + ex.Content;
 
                         try
@@ -298,7 +304,7 @@ namespace ClassevivaPCTO.Views
                 CoreDispatcherPriority.Normal,
                 async () =>
                 {
-                    Frame rootFrame = (Frame)Window.Current.Content;
+                    Frame rootFrame = (Frame) Window.Current.Content;
                     rootFrame.Navigate(
                         typeof(MainPage),
                         null,
@@ -326,11 +332,14 @@ namespace ClassevivaPCTO.Views
                     contentDialogContent = new ChoiceDialogContent(loginResultChoices.choices);
 
                     ContentDialog dialog = new ContentDialog();
-                    dialog.Title = Windows.ApplicationModel.Resources.Core.ResourceManager.Current.MainResourceMap.GetValue("Resources/ChooseProfileDialogTitle").ValueAsString;
-                    dialog.PrimaryButtonText = Windows.ApplicationModel.Resources.Core.ResourceManager.Current.MainResourceMap.GetValue("Resources/LoginDialogButton").ValueAsString;
-                    dialog.CloseButtonText = Windows.ApplicationModel.Resources.Core.ResourceManager.Current.MainResourceMap.GetValue("Resources/CancelDialogButton").ValueAsString;
+                    dialog.Title = Windows.ApplicationModel.Resources.Core.ResourceManager.Current.MainResourceMap
+                        .GetValue("Resources/ChooseProfileDialogTitle").ValueAsString;
+                    dialog.PrimaryButtonText = Windows.ApplicationModel.Resources.Core.ResourceManager.Current
+                        .MainResourceMap.GetValue("Resources/LoginDialogButton").ValueAsString;
+                    dialog.CloseButtonText = Windows.ApplicationModel.Resources.Core.ResourceManager.Current
+                        .MainResourceMap.GetValue("Resources/CancelDialogButton").ValueAsString;
                     dialog.DefaultButton = ContentDialogButton.Primary;
-                    dialog.RequestedTheme = ((FrameworkElement)Window.Current.Content).RequestedTheme;
+                    dialog.RequestedTheme = ((FrameworkElement) Window.Current.Content).RequestedTheme;
                     dialog.Content = contentDialogContent;
 
                     result = await dialog.ShowAsync();
@@ -341,7 +350,7 @@ namespace ClassevivaPCTO.Views
 
             await isSomethingLoading.Task;
 
-            return ((ContentDialogResult)result, contentDialogContent);
+            return ((ContentDialogResult) result, contentDialogContent);
         }
     }
 }

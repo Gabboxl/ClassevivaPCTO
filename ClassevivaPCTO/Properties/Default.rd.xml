@@ -22,13 +22,13 @@
       nel pacchetto dell'applicazione. Gli asterischi non sono caratteri jolly.
     -->
     <Assembly Name="*Application*" Dynamic="Required All" />
-    
-    
+
+
     <!-- Aggiungere qui le direttive di runtime specifiche dell'applicazione. -->
 
     <!-- fixed thanks to https://github.com/dotnet/runtime/issues/44697 -->
-    <Assembly Dynamic="Required All" Name="Microsoft.Extensions.Options"/>
-    <Assembly Dynamic="Required All" Name="Microsoft.Extensions.Logging"/>
-    <Assembly Dynamic="Required All" Name="Microsoft.Extensions.Http"/>
+    <Assembly Dynamic="Required All" Name="Microsoft.Extensions.Options" />
+    <Assembly Dynamic="Required All" Name="Microsoft.Extensions.Logging" />
+    <Assembly Dynamic="Required All" Name="Microsoft.Extensions.Http" />
   </Application>
 </Directives>

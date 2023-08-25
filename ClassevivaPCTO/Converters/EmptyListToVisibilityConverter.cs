@@ -9,7 +9,7 @@ namespace ClassevivaPCTO.Converters
     {
         public object Convert(object value, Type targetType, object parameter, string language)
         {
-            IList list = (IList)value;
+            IList list = (IList) value;
 
             return (list != null && list.Count != 0) ? Visibility.Visible : Visibility.Collapsed;
         }

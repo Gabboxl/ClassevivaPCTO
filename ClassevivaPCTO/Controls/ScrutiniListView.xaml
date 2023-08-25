@@ -84,7 +84,7 @@
                         <Button.Content>
                             <StackPanel Orientation="Vertical" Padding="6,0,6,0" VerticalAlignment="Center">
                                 <FontIcon FontFamily="{StaticResource FluentIcons}" Glyph="&#xE8E5;"
-                                          FontSize="16"/>
+                                          FontSize="16" />
                                 <TextBlock FontSize="12" x:Uid="ButtonOpen" Margin="0,0,0,0" />
                             </StackPanel>
                         </Button.Content>
@@ -112,7 +112,6 @@
         </DataTemplate>
 
 
-        
         <DataTemplate x:Key="SchoolReportListViewDataTemplate"
                       x:DataType="adapters:SchoolReportAdapter">
 
@@ -125,7 +124,6 @@
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="Auto" />
                 </Grid.ColumnDefinitions>
-
 
 
                 <RelativePanel ScrollViewer.HorizontalScrollMode="Disabled" Grid.Row="0" Grid.Column="0">
@@ -154,14 +152,14 @@
                     Padding="0,6,0,6">
 
                     <Button toolkit:FrameworkElementExtensions.Cursor="Hand"
-                        x:Name="ButtonOpenReport"
-                        Click="ButtonOpenReport_OnClick"
-                        RelativePanel.AlignVerticalCenterWithPanel="True"
-                        Margin="0,0,12,0" MinWidth="70">
+                            x:Name="ButtonOpenReport"
+                            Click="ButtonOpenReport_OnClick"
+                            RelativePanel.AlignVerticalCenterWithPanel="True"
+                            Margin="0,0,12,0" MinWidth="70">
                         <Button.Content>
                             <StackPanel Orientation="Vertical" Padding="6,0,6,0">
                                 <FontIcon FontFamily="{StaticResource FluentIcons}" Glyph="&#xE71B;"
-                                          FontSize="16" Foreground="{ThemeResource AccentTextFillColorPrimaryBrush}"/>
+                                          FontSize="16" Foreground="{ThemeResource AccentTextFillColorPrimaryBrush}" />
                                 <TextBlock FontSize="12" x:Uid="ButtonOpen" Margin="0,0,0,0" />
                             </StackPanel>
                         </Button.Content>

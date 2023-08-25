@@ -35,7 +35,7 @@ namespace ClassevivaPCTO.Utils
                 }
             }
 
-            Frame rootFrame = (Frame)Window.Current.Content;
+            Frame rootFrame = (Frame) Window.Current.Content;
             if (rootFrame.CanGoBack)
             {
                 rootFrame.GoBack(); //ritorniamo alla pagina di login
@@ -54,7 +54,7 @@ namespace ClassevivaPCTO.Utils
 
                 if (valoreDaSommare != null)
                 {
-                    somma += (float)valoreDaSommare;
+                    somma += (float) valoreDaSommare;
 
                     numVoti++;
                 }
@@ -129,7 +129,7 @@ namespace ClassevivaPCTO.Utils
             }
             else
             {
-                valoreFinale = (float)value;
+                valoreFinale = (float) value;
             }
 
 

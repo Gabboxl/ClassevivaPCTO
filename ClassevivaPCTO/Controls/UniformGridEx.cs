@@ -15,7 +15,7 @@ namespace ClassevivaPCTO.Controls
 
         public double MinRowHeight
         {
-            get { return (double)GetValue(MinRowHeightProperty); }
+            get { return (double) GetValue(MinRowHeightProperty); }
             set { SetValue(MinRowHeightProperty, value); }
         }
 
@@ -27,6 +27,7 @@ namespace ClassevivaPCTO.Controls
             {
                 calculatedSize = new Size(calculatedSize.Width, Math.Max(calculatedSize.Height, _rows * MinRowHeight));
             }
+
             return calculatedSize;
         }
 
@@ -66,11 +67,12 @@ namespace ClassevivaPCTO.Controls
                     }
                     else
                     {
-                        _rows = (int)Math.Sqrt(nonCollapsedCount);
+                        _rows = (int) Math.Sqrt(nonCollapsedCount);
                         if ((_rows * _rows) < nonCollapsedCount)
                         {
                             _rows++;
                         }
+
                         _columns = _rows;
                     }
                 }

@@ -14,9 +14,12 @@ namespace ClassevivaPCTO.Adapters
                 SolidColorBrush brush = new SolidColorBrush();
                 ColorGenerator generator = new ColorGenerator(0.5, 0.8, 0.6);
 
-                System.Drawing.Color colorTest = generator.GetColor((int)CurrentObject.subjectId); // generates a unique color for number
+                System.Drawing.Color
+                    colorTest = generator.GetColor((int) CurrentObject
+                        .subjectId); // generates a unique color for number
 
-                Windows.UI.Color uwpColor = Windows.UI.Color.FromArgb(colorTest.A, colorTest.B, colorTest.G, colorTest.R);
+                Windows.UI.Color uwpColor =
+                    Windows.UI.Color.FromArgb(colorTest.A, colorTest.B, colorTest.G, colorTest.R);
 
                 brush.Color = uwpColor;
 
@@ -41,10 +44,7 @@ namespace ClassevivaPCTO.Adapters
 
         public string EventType
         {
-            get
-            {
-                return "[" + CurrentObject.evtCode + "]";
-            }
+            get { return "[" + CurrentObject.evtCode + "]"; }
         }
 
         public string Durata

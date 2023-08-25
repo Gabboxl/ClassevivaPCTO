@@ -11,7 +11,6 @@ namespace ClassevivaPCTO.Utils
 {
     public class CvUtils
     {
-
         public static async Task<object> GetApiLoginData(IClassevivaAPI apiClient, LoginData loginData)
         {
             var res = await apiClient.LoginAsync(loginData);

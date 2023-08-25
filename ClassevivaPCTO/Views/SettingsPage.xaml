@@ -102,7 +102,7 @@
                                        FontSize="14"
                                        FontWeight="Medium"
                                        Margin="0,10,0,0" Foreground="{ThemeResource TextFillColorTertiaryBrush}">
-                                <Run Text="Codice studente: " /><Run Text="{Binding Codice}"/>
+                                <Run Text="Codice studente: " /><Run Text="{Binding Codice}" />
                             </TextBlock>
 
                             <TextBlock x:Name="Scuola"
@@ -200,23 +200,25 @@
                             <DataTemplate x:DataType="adapters:ComboPaletteAdapter">
                                 <StackPanel Orientation="Horizontal">
 
-                                    
+
                                     <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Spacing="8"
                                                 Margin="0,4,0,0">
 
-                                   <!-- <TextBlock Text="{x:Bind PaletteNameTranslatedResource}" Margin="0,0,0,0" /> -->
+                                        <!-- <TextBlock Text="{x:Bind PaletteNameTranslatedResource}" Margin="0,0,0,0" /> -->
 
                                         <Border Width="24"
                                                 Height="24"
                                                 Background="{x:Bind CurrentPalette.ColorRed, Converter={StaticResource ColorToBrushConverter}, Mode=OneWay}"
                                                 CornerRadius="26"
-                                                IsTapEnabled="False" ToolTipService.ToolTip="Insufficienza grave, assenza" />
+                                                IsTapEnabled="False"
+                                                ToolTipService.ToolTip="Insufficienza grave, assenza" />
 
                                         <Border Width="24"
                                                 Height="24"
                                                 Background="{x:Bind CurrentPalette.ColorOrange, Converter={StaticResource ColorToBrushConverter}, Mode=OneWay}"
                                                 CornerRadius="26"
-                                                IsTapEnabled="False" ToolTipService.ToolTip="Insufficienza lieve, ritardo" />
+                                                IsTapEnabled="False"
+                                                ToolTipService.ToolTip="Insufficienza lieve, ritardo" />
 
                                         <Border Width="24"
                                                 Height="24"
@@ -245,7 +247,7 @@
 
 
                 <labs:SettingsCard Header="Vai all'anno precedente">
-                    
+
 
                     <labs:SettingsCard.HeaderIcon>
                         <FontIcon Glyph="&#xE97A;" />
@@ -262,7 +264,8 @@
                             <TextBlock Text="A.S. 2022/23" />
 
                             <TextBlock Text="&#xE8A7;" VerticalAlignment="Center"
-                                       FontFamily="{StaticResource FluentIcons}" Foreground="{ThemeResource AccentTextFillColorPrimaryBrush}"/>
+                                       FontFamily="{StaticResource FluentIcons}"
+                                       Foreground="{ThemeResource AccentTextFillColorPrimaryBrush}" />
 
                         </StackPanel>
 

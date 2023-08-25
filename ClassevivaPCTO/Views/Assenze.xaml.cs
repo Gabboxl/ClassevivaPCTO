@@ -31,7 +31,7 @@ namespace ClassevivaPCTO.Views
         {
             this.InitializeComponent();
 
-            App app = (App)App.Current;
+            App app = (App) App.Current;
             var apiClient = app.Container.GetService<IClassevivaAPI>();
 
             apiWrapper = PoliciesDispatchProxy<IClassevivaAPI>.CreateProxy(apiClient);
@@ -161,10 +161,10 @@ namespace ClassevivaPCTO.Views
                     calendarViewDayItem.Date.Date <=
                     DateTime.Now.Date) //we make sure that the date is not in the future
                 {
-
                     if (apiCalendarDay.dayStatus == DayStatus.SD)
                     {
-                        calendarViewDayItem.Background = new SolidColorBrush(PaletteSelectorService.PaletteClass.ColorGreen);
+                        calendarViewDayItem.Background =
+                            new SolidColorBrush(PaletteSelectorService.PaletteClass.ColorGreen);
 
                         foreach (var currentAbsenceEvent in _absencesResult.AbsenceEvents.Where(currentAbsenceEvent =>
                                      currentAbsenceEvent.evtDate.Date.Equals(calendarViewDayItem.Date.Date)))

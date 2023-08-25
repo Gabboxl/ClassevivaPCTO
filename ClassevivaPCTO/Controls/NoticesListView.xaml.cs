@@ -19,6 +19,7 @@ namespace ClassevivaPCTO.Controls
     public sealed partial class NoticesListView : UserControl, INotifyPropertyChanged
     {
         private bool _areSourcesEmpty = false;
+
         public bool AreSourcesEmpty
         {
             get { return _areSourcesEmpty; }
@@ -29,7 +30,7 @@ namespace ClassevivaPCTO.Controls
 
         public EventHandler OnShouldUpdate
         {
-            get { return (EventHandler)GetValue(OnShouldUpdateProperty); }
+            get { return (EventHandler) GetValue(OnShouldUpdateProperty); }
             set { SetValue(OnShouldUpdateProperty, value); }
         }
 
@@ -42,7 +43,7 @@ namespace ClassevivaPCTO.Controls
 
         public List<Notice> ItemsSource
         {
-            get { return (List<Notice>)GetValue(ItemsSourceProperty); }
+            get { return (List<Notice>) GetValue(ItemsSourceProperty); }
             set { SetValue(ItemsSourceProperty, value); }
         }
 
@@ -58,7 +59,7 @@ namespace ClassevivaPCTO.Controls
             DependencyPropertyChangedEventArgs e
         )
         {
-            NoticesListView currentInstance = (NoticesListView)d;
+            NoticesListView currentInstance = (NoticesListView) d;
 
             var newValue = e.NewValue as List<Notice>;
 
@@ -85,7 +86,7 @@ namespace ClassevivaPCTO.Controls
         {
             this.InitializeComponent();
 
-            App app = (App)App.Current;
+            App app = (App) App.Current;
             var apiClient = app.Container.GetService<IClassevivaAPI>();
 
             apiWrapper = PoliciesDispatchProxy<IClassevivaAPI>.CreateProxy(apiClient);
@@ -106,7 +107,8 @@ namespace ClassevivaPCTO.Controls
                 var flyout = new Flyout();
                 //create a textblock
                 var textBlock = new TextBlock();
-                textBlock.Text = Windows.ApplicationModel.Resources.Core.ResourceManager.Current.MainResourceMap.GetValue("Resources/InfoNoticeFlyoutText").ValueAsString;
+                textBlock.Text = Windows.ApplicationModel.Resources.Core.ResourceManager.Current.MainResourceMap
+                    .GetValue("Resources/InfoNoticeFlyoutText").ValueAsString;
                 textBlock.TextWrapping = TextWrapping.WrapWholeWords;
                 textBlock.Margin = new Thickness(0, 0, 0, 12);
 
@@ -125,7 +127,7 @@ namespace ClassevivaPCTO.Controls
 
 
                 //make the flyoutPresenterStyle based on the default one
-                flyoutPresenterStyle.BasedOn = (Style)Application.Current.Resources["CautionFlyoutStyle"];
+                flyoutPresenterStyle.BasedOn = (Style) Application.Current.Resources["CautionFlyoutStyle"];
 
 
                 flyout.FlyoutPresenterStyle = flyoutPresenterStyle;
@@ -133,7 +135,8 @@ namespace ClassevivaPCTO.Controls
 
                 //create a button
                 var button = new Button();
-                button.Content = Windows.ApplicationModel.Resources.Core.ResourceManager.Current.MainResourceMap.GetValue("Resources/ReadAndOpenFlyoutText").ValueAsString;
+                button.Content = Windows.ApplicationModel.Resources.Core.ResourceManager.Current.MainResourceMap
+                    .GetValue("Resources/ReadAndOpenFlyoutText").ValueAsString;
                 button.Click += async delegate
                 {
                     //close the flyout
@@ -181,11 +184,12 @@ namespace ClassevivaPCTO.Controls
 
                 ContentDialog dialog = new ContentDialog();
                 dialog.Title = currentNotice.cntTitle;
-                dialog.PrimaryButtonText = Windows.ApplicationModel.Resources.Core.ResourceManager.Current.MainResourceMap.GetValue("Resources/CloseDialogButtonText").ValueAsString;
+                dialog.PrimaryButtonText = Windows.ApplicationModel.Resources.Core.ResourceManager.Current
+                    .MainResourceMap.GetValue("Resources/CloseDialogButtonText").ValueAsString;
                 dialog.DefaultButton = ContentDialogButton.Primary;
-                dialog.RequestedTheme = ((FrameworkElement)Window.Current.Content).RequestedTheme;
+                dialog.RequestedTheme = ((FrameworkElement) Window.Current.Content).RequestedTheme;
                 dialog.Content = noticeDialogContent;
-                    
+
 
                 //dialog.FullSizeDesired = true;
                 dialog.Width = 1200;

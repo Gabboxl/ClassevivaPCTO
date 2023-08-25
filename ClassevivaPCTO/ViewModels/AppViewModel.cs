@@ -6,6 +6,7 @@ namespace ClassevivaPCTO.ViewModels
     public class AppViewModel : ObservableObject
     {
         private LoginResultComplete _loginResult;
+
         public LoginResultComplete LoginResult
         {
             get => _loginResult;
@@ -13,6 +14,7 @@ namespace ClassevivaPCTO.ViewModels
         }
 
         private Card _singleCardsResult;
+
         public Card SingleCardResult
         {
             get => _singleCardsResult;
@@ -20,11 +22,11 @@ namespace ClassevivaPCTO.ViewModels
         }
 
         private CardsResult _cardsResult;
+
         public CardsResult CardsResult
         {
             get => _cardsResult;
             set => SetProperty(ref _cardsResult, value);
         }
-
     }
 }

@@ -18,7 +18,9 @@ namespace ClassevivaPCTO.ViewModels
 {
     public class NavigationViewViewModel : ObservableObject
     {
-        private readonly KeyboardAccelerator _altLeftKeyboardAccelerator = BuildKeyboardAccelerator(VirtualKey.Left, VirtualKeyModifiers.Menu);
+        private readonly KeyboardAccelerator _altLeftKeyboardAccelerator =
+            BuildKeyboardAccelerator(VirtualKey.Left, VirtualKeyModifiers.Menu);
+
         private readonly KeyboardAccelerator _backKeyboardAccelerator = BuildKeyboardAccelerator(VirtualKey.GoBack);
 
         private bool _isBackEnabled;
@@ -48,7 +50,8 @@ namespace ClassevivaPCTO.ViewModels
         {
         }
 
-        public void Initialize(Frame frame, WinUI.NavigationView navigationView, IList<KeyboardAccelerator> keyboardAccelerators)
+        public void Initialize(Frame frame, WinUI.NavigationView navigationView,
+            IList<KeyboardAccelerator> keyboardAccelerators)
         {
             _navigationView = navigationView;
             _keyboardAccelerators = keyboardAccelerators;
@@ -139,9 +142,10 @@ namespace ClassevivaPCTO.ViewModels
             return pageType == sourcePageType;
         }
 
-        private static KeyboardAccelerator BuildKeyboardAccelerator(VirtualKey key, VirtualKeyModifiers? modifiers = null)
+        private static KeyboardAccelerator BuildKeyboardAccelerator(VirtualKey key,
+            VirtualKeyModifiers? modifiers = null)
         {
-            var keyboardAccelerator = new KeyboardAccelerator() { Key = key };
+            var keyboardAccelerator = new KeyboardAccelerator() {Key = key};
             if (modifiers.HasValue)
             {
                 keyboardAccelerator.Modifiers = modifiers.Value;
@@ -151,7 +155,8 @@ namespace ClassevivaPCTO.ViewModels
             return keyboardAccelerator;
         }
 
-        private static void OnKeyboardAcceleratorInvoked(KeyboardAccelerator sender, KeyboardAcceleratorInvokedEventArgs args)
+        private static void OnKeyboardAcceleratorInvoked(KeyboardAccelerator sender,
+            KeyboardAcceleratorInvokedEventArgs args)
         {
             var result = NavigationService.GoBack();
             args.Handled = result;

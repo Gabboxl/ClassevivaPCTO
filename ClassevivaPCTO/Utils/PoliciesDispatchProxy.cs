@@ -143,7 +143,7 @@ namespace ClassevivaPCTO.Utils
 
 
                                                 //go to login page
-                                                Frame rootFrame = (Frame)Window.Current.Content;
+                                                Frame rootFrame = (Frame) Window.Current.Content;
                                                 rootFrame.Navigate(
                                                     typeof(LoginPage),
                                                     null,
@@ -161,13 +161,7 @@ namespace ClassevivaPCTO.Utils
                                         await isSomethingLoading.Task;
                                     }
                                 }
-
-
-
                             }
-
-
-
                         }
                     }
                 );

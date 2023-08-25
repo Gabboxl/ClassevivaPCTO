@@ -19,7 +19,7 @@ namespace ClassevivaPCTO.Dialogs
             CurrentNote = note;
             CurrentReadResult = readNoteResult;
 
-            App app = (App)App.Current;
+            App app = (App) App.Current;
             var apiClient = app.Container.GetService<IClassevivaAPI>();
 
             apiWrapper = PoliciesDispatchProxy<IClassevivaAPI>.CreateProxy(apiClient);

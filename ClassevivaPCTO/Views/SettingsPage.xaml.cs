@@ -56,11 +56,7 @@ namespace ClassevivaPCTO.Views
         public string CurrentLanguage
         {
             get { return ApplicationLanguages.PrimaryLanguageOverride; }
-            set
-            {
-                ChangeLanguage(value);
-
-            }
+            set { ChangeLanguage(value); }
         }
 
 
@@ -224,7 +220,7 @@ namespace ClassevivaPCTO.Views
                 Content = "Sei sicuro di voler uscire?",
                 PrimaryButtonText = "Esci",
                 CloseButtonText = "Annulla",
-                RequestedTheme = ((FrameworkElement)Window.Current.Content).RequestedTheme,
+                RequestedTheme = ((FrameworkElement) Window.Current.Content).RequestedTheme,
                 DefaultButton = ContentDialogButton.Primary
             };
 
@@ -234,7 +230,6 @@ namespace ClassevivaPCTO.Views
             {
                 VariousUtils.DoLogout();
             }
-
         }
 
         private async void ChangeLanguage(string value)
@@ -254,7 +249,7 @@ namespace ClassevivaPCTO.Views
                 Content = "Riavvio richiesto",
                 PrimaryButtonText = "Riavvia",
                 CloseButtonText = "Annulla",
-                RequestedTheme = ((FrameworkElement)Window.Current.Content).RequestedTheme,
+                RequestedTheme = ((FrameworkElement) Window.Current.Content).RequestedTheme,
                 DefaultButton = ContentDialogButton.Primary
             };
 
@@ -264,7 +259,6 @@ namespace ClassevivaPCTO.Views
             {
                 CoreApplication.RequestRestartAsync("LanguageChangeRestart");
             }
-            
         }
     }
 }

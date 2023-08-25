@@ -5,6 +5,7 @@ namespace ClassevivaPCTO.ViewModels
     public class AgendaViewModel : ObservableObject
     {
         private bool _isLoadingAgenda = true;
+
         public bool IsLoadingAgenda
         {
             get { return _isLoadingAgenda; }
@@ -12,6 +13,8 @@ namespace ClassevivaPCTO.ViewModels
         }
 
 
-        public AgendaViewModel() { }
+        public AgendaViewModel()
+        {
+        }
     }
 }

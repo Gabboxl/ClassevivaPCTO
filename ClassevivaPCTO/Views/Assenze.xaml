@@ -122,8 +122,8 @@
 
                     BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
                     Background="{ThemeResource CardBackgroundFillColorDefaultBrush}">
-                      
-                        <Grid
+
+                    <Grid
                         x:Name="Grid1"
                         HorizontalAlignment="Stretch"
 

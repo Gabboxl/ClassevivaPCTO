@@ -31,7 +31,7 @@ namespace ClassevivaPCTO.Controls
 
         public EventHandler OnShouldUpdate
         {
-            get { return (EventHandler)GetValue(OnShouldUpdateProperty); }
+            get { return (EventHandler) GetValue(OnShouldUpdateProperty); }
             set { SetValue(OnShouldUpdateProperty, value); }
         }
 
@@ -44,7 +44,7 @@ namespace ClassevivaPCTO.Controls
 
         public DisplayMode Mode
         {
-            get { return (DisplayMode)GetValue(ModeProperty); }
+            get { return (DisplayMode) GetValue(ModeProperty); }
             set { SetValue(ModeProperty, value); }
         }
 
@@ -55,8 +55,8 @@ namespace ClassevivaPCTO.Controls
 
         private static void OnModeChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            NotesListView currentInstance = (NotesListView)d;
-            DisplayMode newMode = (DisplayMode)e.NewValue;
+            NotesListView currentInstance = (NotesListView) d;
+            DisplayMode newMode = (DisplayMode) e.NewValue;
 
             // Handle the mode change, e.g., update the UI
             currentInstance.UpdateMode(newMode);
@@ -69,6 +69,7 @@ namespace ClassevivaPCTO.Controls
 
 
         private bool _areSourcesEmpty = false;
+
         public bool AreSourcesEmpty
         {
             get { return _areSourcesEmpty; }
@@ -78,7 +79,7 @@ namespace ClassevivaPCTO.Controls
 
         public List<Note> ItemsSource
         {
-            get { return (List<Note>)GetValue(ItemsSourceProperty); }
+            get { return (List<Note>) GetValue(ItemsSourceProperty); }
             set { SetValue(ItemsSourceProperty, value); }
         }
 
@@ -94,7 +95,7 @@ namespace ClassevivaPCTO.Controls
             DependencyPropertyChangedEventArgs e
         )
         {
-            NotesListView currentInstance = (NotesListView)d;
+            NotesListView currentInstance = (NotesListView) d;
 
             var newValue = e.NewValue as List<Note>;
 
@@ -121,7 +122,7 @@ namespace ClassevivaPCTO.Controls
         {
             this.InitializeComponent();
 
-            App app = (App)App.Current;
+            App app = (App) App.Current;
             var apiClient = app.Container.GetService<IClassevivaAPI>();
 
             apiWrapper = PoliciesDispatchProxy<IClassevivaAPI>.CreateProxy(apiClient);
@@ -143,7 +144,8 @@ namespace ClassevivaPCTO.Controls
                 var flyout = new Flyout();
                 //create a textblock
                 var textBlock = new TextBlock();
-                textBlock.Text = Windows.ApplicationModel.Resources.Core.ResourceManager.Current.MainResourceMap.GetValue("Resources/InfoNoteFlyoutText").ValueAsString;
+                textBlock.Text = Windows.ApplicationModel.Resources.Core.ResourceManager.Current.MainResourceMap
+                    .GetValue("Resources/InfoNoteFlyoutText").ValueAsString;
                 textBlock.TextWrapping = TextWrapping.WrapWholeWords;
                 textBlock.Margin = new Thickness(0, 0, 0, 12);
 
@@ -162,7 +164,7 @@ namespace ClassevivaPCTO.Controls
 
 
                 //make the flyoutPresenterStyle based on the default one
-                flyoutPresenterStyle.BasedOn = (Style)Application.Current.Resources["CautionFlyoutStyle"];
+                flyoutPresenterStyle.BasedOn = (Style) Application.Current.Resources["CautionFlyoutStyle"];
 
 
                 flyout.FlyoutPresenterStyle = flyoutPresenterStyle;
@@ -170,7 +172,8 @@ namespace ClassevivaPCTO.Controls
 
                 //create a button
                 var button = new Button();
-                button.Content = Windows.ApplicationModel.Resources.Core.ResourceManager.Current.MainResourceMap.GetValue("Resources/ReadAndOpenFlyoutText").ValueAsString;
+                button.Content = Windows.ApplicationModel.Resources.Core.ResourceManager.Current.MainResourceMap
+                    .GetValue("Resources/ReadAndOpenFlyoutText").ValueAsString;
                 button.Click += async delegate
                 {
                     //close the flyout
@@ -204,7 +207,7 @@ namespace ClassevivaPCTO.Controls
         private async void ReadAndOpenNoteDialog(Note currentNote)
         {
             Card cardResult = ViewModelHolder.GetViewModel().SingleCardResult;
-            
+
 
             //we need to read the notice first
             ReadNoteResult readNoteResult =
@@ -218,9 +221,10 @@ namespace ClassevivaPCTO.Controls
 
                 ContentDialog dialog = new ContentDialog();
                 dialog.Title = currentNote.evtCode.GetLongName() + " del " + currentNote.evtDate.ToString("dd/MM/yyyy");
-                dialog.PrimaryButtonText = Windows.ApplicationModel.Resources.Core.ResourceManager.Current.MainResourceMap.GetValue("Resources/CloseDialogButtonText").ValueAsString;
+                dialog.PrimaryButtonText = Windows.ApplicationModel.Resources.Core.ResourceManager.Current
+                    .MainResourceMap.GetValue("Resources/CloseDialogButtonText").ValueAsString;
                 dialog.DefaultButton = ContentDialogButton.Primary;
-                dialog.RequestedTheme = ((FrameworkElement)Window.Current.Content).RequestedTheme;
+                dialog.RequestedTheme = ((FrameworkElement) Window.Current.Content).RequestedTheme;
                 dialog.Content = noteDialogContent;
 
                 //dialog.FullSizeDesired = true;

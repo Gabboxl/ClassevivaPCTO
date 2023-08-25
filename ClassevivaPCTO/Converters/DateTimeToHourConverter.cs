@@ -7,7 +7,7 @@ namespace ClassevivaPCTO.Converters
     {
         public object Convert(object value, Type targetType, object parameter, string language)
         {
-            DateTime date = (DateTime)value;
+            DateTime date = (DateTime) value;
 
             return date.ToString("HH:mm");
         }

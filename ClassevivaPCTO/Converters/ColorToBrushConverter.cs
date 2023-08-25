@@ -15,7 +15,7 @@ namespace ClassevivaPCTO.Converters
             SolidColorBrush brush = new SolidColorBrush();
 
             //convert color to brush
-            brush.Color = (Color)value;
+            brush.Color = (Color) value;
 
             return brush;
         }

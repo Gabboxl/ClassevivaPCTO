@@ -11,7 +11,7 @@ namespace ClassevivaPCTO.Controls
     {
         public List<AbsenceEvent> ItemsSource
         {
-            get { return (List<AbsenceEvent>)GetValue(ItemsSourceProperty); }
+            get { return (List<AbsenceEvent>) GetValue(ItemsSourceProperty); }
             set { SetValue(ItemsSourceProperty, value); }
         }
 
@@ -24,7 +24,7 @@ namespace ClassevivaPCTO.Controls
 
         private static void OnItemsSourceChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            var currentInstance = (AbsencesListView)d;
+            var currentInstance = (AbsencesListView) d;
 
             var newValue = e.NewValue as List<AbsenceEvent>;
 

@@ -16,7 +16,7 @@ namespace ClassevivaPCTO.Deserializers
 
             foreach (KeyValuePair<string, JToken> entry in jsonObject)
             {
-                JArray jsonArray = (JArray)entry.Value;
+                JArray jsonArray = (JArray) entry.Value;
                 foreach (JToken jsonElement in jsonArray)
                 {
                     Note note = jsonElement.ToObject<Note>(serializer);

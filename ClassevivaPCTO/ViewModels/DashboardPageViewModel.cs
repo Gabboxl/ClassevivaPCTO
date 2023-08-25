@@ -5,6 +5,7 @@ namespace ClassevivaPCTO.ViewModels
     public class DashboardPageViewModel : ObservableObject
     {
         private bool _isLoadingGrades = true;
+
         public bool IsLoadingGrades
         {
             get { return _isLoadingGrades; }
@@ -12,6 +13,7 @@ namespace ClassevivaPCTO.ViewModels
         }
 
         private bool _isLoadingAgenda = true;
+
         public bool IsLoadingAgenda
         {
             get { return _isLoadingAgenda; }
@@ -19,6 +21,7 @@ namespace ClassevivaPCTO.ViewModels
         }
 
         private bool _isLoadingMedia = true;
+
         public bool IsLoadingMedia
         {
             get { return _isLoadingMedia; }
@@ -26,12 +29,15 @@ namespace ClassevivaPCTO.ViewModels
         }
 
         private bool _isLoadingNotices = true;
+
         public bool IsLoadingNotices
         {
             get { return _isLoadingNotices; }
             set { SetProperty(ref _isLoadingNotices, value); }
         }
 
-        public DashboardPageViewModel() { }
+        public DashboardPageViewModel()
+        {
+        }
     }
 }

@@ -11,7 +11,7 @@ namespace ClassevivaPCTO.Controls
     {
         public List<AgendaEvent> ItemsSource
         {
-            get { return (List<AgendaEvent>)GetValue(ItemsSourceProperty); }
+            get { return (List<AgendaEvent>) GetValue(ItemsSourceProperty); }
             set { SetValue(ItemsSourceProperty, value); }
         }
 
@@ -24,7 +24,7 @@ namespace ClassevivaPCTO.Controls
 
         private static void OnItemsSourceChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            var currentInstance = (AgendaListView)d;
+            var currentInstance = (AgendaListView) d;
 
             var newValue = e.NewValue as List<AgendaEvent>;
 

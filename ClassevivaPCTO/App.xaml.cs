@@ -38,7 +38,6 @@ namespace ClassevivaPCTO
 
         public IServiceProvider ConfigureDependencyInjection()
         {
-
             var getToken = new Func<Task<string>>(GetTokenAsync);
 
 
@@ -47,10 +46,7 @@ namespace ClassevivaPCTO
             serviceCollection
                 .AddRefitClient(typeof(IClassevivaAPI))
                 .ConfigureHttpClient(
-                    (sp, client) =>
-                    {
-                        client.BaseAddress = new Uri(Endpoint.CurrentEndpoint);
-                    }
+                    (sp, client) => { client.BaseAddress = new Uri(Endpoint.CurrentEndpoint); }
                 )
                 .AddHttpMessageHandler(() => new AuthenticatedHttpClientHandler(getToken));
 

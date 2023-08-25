@@ -18,9 +18,9 @@ namespace ClassevivaPCTO.Utils
             _getToken = getToken;
         }
 
-        protected override async Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+        protected override async Task<HttpResponseMessage> SendAsync(HttpRequestMessage request,
+            CancellationToken cancellationToken)
         {
-
             // Check if the request's endpoint requires authentication
             if (RequiresAuthentication(request.RequestUri))
             {
@@ -37,8 +37,7 @@ namespace ClassevivaPCTO.Utils
             // Add logic to determine if the request's endpoint requires authentication
 
             //array of string that the request uri should not contain
-            string[] notAuth = { "/rest/v1/auth/login" };
-
+            string[] notAuth = {"/rest/v1/auth/login"};
 
 
             //check if the absolute path contains a string of the array

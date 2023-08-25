@@ -17,7 +17,7 @@
                     Source="ms-appx:///Assets/StoreLogo.png" />
                 <TextBlock
                     Margin="16"
-                    VerticalAlignment="Center" 
+                    VerticalAlignment="Center"
                     Text="{x:Bind}" />
             </StackPanel>
         </DataTemplate>
@@ -25,7 +25,7 @@
 
     <ScrollViewer MaxWidth="800">
         <StackPanel>
-            <TextBlock x:Uid="FirstRun_Body" TextWrapping="WrapWholeWords"/>
+            <TextBlock x:Uid="FirstRun_Body" TextWrapping="WrapWholeWords" />
         </StackPanel>
     </ScrollViewer>
 </ContentDialog>

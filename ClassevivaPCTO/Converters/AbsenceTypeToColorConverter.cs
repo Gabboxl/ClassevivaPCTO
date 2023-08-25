@@ -10,7 +10,7 @@ namespace ClassevivaPCTO.Converters
     {
         public object Convert(object value, Type targetType, object parameter, string language)
         {
-            return CvUtils.GetColorFromAbsenceCode((AbsenceEventCode)value);
+            return CvUtils.GetColorFromAbsenceCode((AbsenceEventCode) value);
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, string language)

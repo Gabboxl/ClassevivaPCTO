@@ -23,11 +23,7 @@ namespace ClassevivaPCTO.Adapters
 
         public string EventType
         {
-            get
-            {
-
-                return "[" + CurrentObject.evtCode + "]";
-            }
+            get { return "[" + CurrentObject.evtCode + "]"; }
         }
 
         public string Notes => CurrentObject.notes;

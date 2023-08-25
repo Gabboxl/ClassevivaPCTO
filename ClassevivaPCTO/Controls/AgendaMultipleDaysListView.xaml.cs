@@ -72,7 +72,8 @@ namespace ClassevivaPCTO.Controls
                 {
                     if (currentEvt.evtDatetimeEnd.Date > currentEvt.evtDatetimeBegin.Date.AddDays(1))
                     {
-                        int days = (int) (currentEvt.evtDatetimeEnd.Date - currentEvt.evtDatetimeBegin.Date).TotalDays + 1;
+                        int days = (int) (currentEvt.evtDatetimeEnd.Date - currentEvt.evtDatetimeBegin.Date).TotalDays +
+                                   1;
 
                         for (int i = 0; i < days; i++)
                         {

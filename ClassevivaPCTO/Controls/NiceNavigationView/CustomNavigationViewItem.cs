@@ -7,20 +7,22 @@ namespace ClassevivaPCTO.Controls.NiceNavigationView
     public class CustomNavigationViewItem : NavigationViewItem
     {
         public static readonly DependencyProperty IconOutlineProperty =
-            DependencyProperty.Register("IconOutline", typeof(IconElement), typeof(CustomNavigationViewItem), new PropertyMetadata(null));
+            DependencyProperty.Register("IconOutline", typeof(IconElement), typeof(CustomNavigationViewItem),
+                new PropertyMetadata(null));
 
         public IconElement IconOutline
         {
-            get { return (IconElement)GetValue(IconOutlineProperty); }
+            get { return (IconElement) GetValue(IconOutlineProperty); }
             set { SetValue(IconOutlineProperty, value); }
         }
 
         public static readonly DependencyProperty IconFilledProperty =
-            DependencyProperty.Register("IconFilled", typeof(IconElement), typeof(CustomNavigationViewItem), new PropertyMetadata(null));
+            DependencyProperty.Register("IconFilled", typeof(IconElement), typeof(CustomNavigationViewItem),
+                new PropertyMetadata(null));
 
         public IconElement IconFilled
         {
-            get { return (IconElement)GetValue(IconFilledProperty); }
+            get { return (IconElement) GetValue(IconFilledProperty); }
             set { SetValue(IconFilledProperty, value); }
         }
 
@@ -35,7 +37,7 @@ namespace ClassevivaPCTO.Controls.NiceNavigationView
 
         private void OnIsSelectedChanged(DependencyObject sender, DependencyProperty dp)
         {
-            if ((bool)GetValue(IsSelectedProperty))
+            if ((bool) GetValue(IsSelectedProperty))
             {
                 SetValue(IconProperty, IconFilled);
             }

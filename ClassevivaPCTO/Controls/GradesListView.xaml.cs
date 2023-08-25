@@ -11,7 +11,7 @@ namespace ClassevivaPCTO.Controls
     {
         public List<Grade> ItemsSource
         {
-            get { return (List<Grade>)GetValue(ItemsSourceProperty); }
+            get { return (List<Grade>) GetValue(ItemsSourceProperty); }
             set { SetValue(ItemsSourceProperty, value); }
         }
 
@@ -24,7 +24,7 @@ namespace ClassevivaPCTO.Controls
 
         private static void OnItemsSourceChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            var currentInstance = (GradesListView)d;
+            var currentInstance = (GradesListView) d;
 
             var newValue = e.NewValue as List<Grade>;
 

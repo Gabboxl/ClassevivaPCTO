@@ -1,5 +1,4 @@
 ﻿using System;
-
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media.Animation;
@@ -54,11 +53,13 @@ namespace ClassevivaPCTO.Services
 
         public static void GoForward() => Frame.GoForward();
 
-        public static bool Navigate(Type pageType, object parameter = null, NavigationTransitionInfo infoOverride = null)
+        public static bool Navigate(Type pageType, object parameter = null,
+            NavigationTransitionInfo infoOverride = null)
         {
             if (pageType == null || !pageType.IsSubclassOf(typeof(Page)))
             {
-                throw new ArgumentException($"Invalid pageType '{pageType}', please provide a valid pageType.", nameof(pageType));
+                throw new ArgumentException($"Invalid pageType '{pageType}', please provide a valid pageType.",
+                    nameof(pageType));
             }
 
             // Don't open the same page multiple times
@@ -100,7 +101,8 @@ namespace ClassevivaPCTO.Services
             }
         }
 
-        private static void Frame_NavigationFailed(object sender, NavigationFailedEventArgs e) => NavigationFailed?.Invoke(sender, e);
+        private static void Frame_NavigationFailed(object sender, NavigationFailedEventArgs e) =>
+            NavigationFailed?.Invoke(sender, e);
 
         private static void Frame_Navigated(object sender, NavigationEventArgs e) => Navigated?.Invoke(sender, e);
     }

@@ -20,7 +20,7 @@ namespace ClassevivaPCTO.Converters
             if (parameter != null)
                 param = System.Convert.ToBoolean(parameter);
 
-            bool state = (bool)value;
+            bool state = (bool) value;
 
             Visibility visibility = Visibility.Visible;
 

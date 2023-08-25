@@ -12,7 +12,7 @@ namespace ClassevivaPCTO.Controls
     {
         public bool IsSingleSubjectList
         {
-            get { return (bool)GetValue(IsSingleSubjectListProperty); }
+            get { return (bool) GetValue(IsSingleSubjectListProperty); }
             set { SetValue(IsSingleSubjectListProperty, value); }
         }
 
@@ -26,7 +26,7 @@ namespace ClassevivaPCTO.Controls
 
         public List<Lesson> ItemsSource
         {
-            get { return (List<Lesson>)GetValue(ItemsSourceProperty); }
+            get { return (List<Lesson>) GetValue(ItemsSourceProperty); }
             set { SetValue(ItemsSourceProperty, value); }
         }
 
@@ -39,7 +39,7 @@ namespace ClassevivaPCTO.Controls
 
         private static void OnItemsSourceChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            var currentInstance = (LessonsListView)d;
+            var currentInstance = (LessonsListView) d;
 
             var newValue = e.NewValue as List<Lesson>;
 

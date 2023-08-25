@@ -13,7 +13,7 @@ namespace ClassevivaPCTO.Controls
 
         public OverviewDataModel ItemsSource
         {
-            get { return (OverviewDataModel)GetValue(ItemsSourceProperty); }
+            get { return (OverviewDataModel) GetValue(ItemsSourceProperty); }
             set { SetValue(ItemsSourceProperty, value); }
         }
 
@@ -26,9 +26,9 @@ namespace ClassevivaPCTO.Controls
 
         private static void OnItemsSourceChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            var currentInstance = (OverviewListView)d;
+            var currentInstance = (OverviewListView) d;
 
-            var newValue = (OverviewDataModel)e.NewValue;
+            var newValue = (OverviewDataModel) e.NewValue;
 
             currentInstance.OverviewViewModel.CurrentOverviewData = newValue;
 

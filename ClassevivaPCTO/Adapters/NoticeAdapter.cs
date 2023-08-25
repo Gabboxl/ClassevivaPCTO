@@ -14,10 +14,7 @@ namespace ClassevivaPCTO.Adapters
 
         public bool IsDeleted
         {
-            get
-            {
-                return CurrentObject.cntStatus == "deleted";
-            }
+            get { return CurrentObject.cntStatus == "deleted"; }
         }
 
         public SolidColorBrush StatusTextColor
@@ -50,7 +47,8 @@ namespace ClassevivaPCTO.Adapters
                 if (CurrentObject.cntStatus == "deleted")
                 {
                     return "Eliminata";
-                } else if (!CurrentObject.cntValidInRange)
+                }
+                else if (!CurrentObject.cntValidInRange)
                 {
                     return "Scaduta";
                 }
@@ -66,7 +64,6 @@ namespace ClassevivaPCTO.Adapters
                 if (CurrentObject.readStatus)
                 {
                     return "\ue8c3"; //open mail
-
                 }
                 else
                 {
@@ -84,7 +81,6 @@ namespace ClassevivaPCTO.Adapters
                 if (CurrentObject.readStatus)
                 {
                     brush.Color = _currentPalette.ColorGreen;
-
                 }
                 else
                 {
@@ -99,9 +95,9 @@ namespace ClassevivaPCTO.Adapters
         {
             get
             {
-                return "Valida dal " + CurrentObject.cntValidFrom.ToString("dd/MM/yyyy") + " al " + CurrentObject.cntValidTo.ToString("dd/MM/yyyy");
+                return "Valida dal " + CurrentObject.cntValidFrom.ToString("dd/MM/yyyy") + " al " +
+                       CurrentObject.cntValidTo.ToString("dd/MM/yyyy");
             }
-            
         }
 
         public string Category
