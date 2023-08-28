@@ -299,7 +299,7 @@ Ricorda che quest'app è ancora in fase di sviluppo e alcune funzionalità posso
                                    </value>
   </data>
   <data name="DashboardButtonApriAgenda.Text" xml:space="preserve">
-    <value>Apri agenda</value>
+    <value>Open agenda</value>
   </data>
   <data name="TitleRecentGrades.Text" xml:space="preserve">
     <value>Recent grades</value>
@@ -308,13 +308,13 @@ Ricorda che quest'app è ancora in fase di sviluppo e alcune funzionalità posso
     <value>Global average:</value>
   </data>
   <data name="DashboardButtonApriValutazioni.Text" xml:space="preserve">
-    <value>Visualizza tutte le valutazioni</value>
+    <value>View all grades</value>
   </data>
   <data name="TextBachecaRecenti.Text" xml:space="preserve">
     <value>Recent notices</value>
   </data>
   <data name="DashboardButtonApriBacheca.Text" xml:space="preserve">
-    <value>Apri bacheca</value>
+    <value>Open notice board</value>
   </data>
   <data name="TextBachecaComunicazioni.Text" xml:space="preserve">
     <value>Notices</value>
@@ -416,7 +416,7 @@ Gli account studente hanno l'username che inizia con le lettere S, G o X.</value
     <value>The note is going to be marked as read on the server. Continue?</value>
   </data>
   <data name="SettingsAccountExitButton.Text" xml:space="preserve">
-    <value>Esci</value>
+    <value>Logout</value>
   </data>
   <data name="NoNoticesText.Text" xml:space="preserve">
     <value>No notices</value>
@@ -463,7 +463,7 @@ Gli account studente hanno l'username che inizia con le lettere S, G o X.</value
     <value>French</value>
   </data>
   <data name="AutoSuggestBoxSearch.PlaceholderText" xml:space="preserve">
-    <value>Cerca...</value>
+    <value>Search...</value>
   </data>
   <data name="hyperlinkGithub.Text" xml:space="preserve">
     <value>Progetto su GitHub</value>
@@ -523,40 +523,40 @@ Gli account studente hanno l'username che inizia con le lettere S, G o X.</value
     <value>Vai agli eventi di oggi</value>
   </data>
   <data name="CheckboxInattive.Content" xml:space="preserve">
-    <value>Mostra comunicazioni inattive</value>
+    <value>Show inactive notices</value>
   </data>
   <data name="DashboardEditWidgetsButton.Text" xml:space="preserve">
-    <value>Personalizza widget</value>
+    <value>Edit widgets</value>
   </data>
   <data name="EdittextPassword.PlaceholderText" xml:space="preserve">
     <value>Password</value>
   </data>
   <data name="EdittextUsername.PlaceholderText" xml:space="preserve">
-    <value>Nome utente</value>
+    <value>Username</value>
   </data>
   <data name="NavigationViewAgenda.Content" xml:space="preserve">
     <value>Agenda</value>
   </data>
   <data name="NavigationViewAssenze.Content" xml:space="preserve">
-    <value>Assenze</value>
+    <value>Absences</value>
   </data>
   <data name="NavigationViewBacheca.Content" xml:space="preserve">
-    <value>Bacheca</value>
+    <value>Notice board</value>
   </data>
   <data name="NavigationViewDashboard.Content" xml:space="preserve">
     <value>Dashboard</value>
   </data>
   <data name="NavigationViewGrades.Content" xml:space="preserve">
-    <value>Valutazioni</value>
+    <value>Grades</value>
   </data>
   <data name="NavigationViewNote.Content" xml:space="preserve">
-    <value>Note</value>
+    <value>Notes</value>
   </data>
   <data name="NavigationViewScrutini.Content" xml:space="preserve">
     <value>Scrutini</value>
   </data>
   <data name="RefreshButtonTT.ToolTipService.ToolTip" xml:space="preserve">
-    <value>Aggiorna</value>
+    <value>Refresh</value>
   </data>
   <data name="SettingsPaletteColorBlueTT.ToolTipService.ToolTip" xml:space="preserve">
     <value>Uscita anticipata, non fa media</value>
