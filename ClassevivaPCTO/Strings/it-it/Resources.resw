@@ -298,7 +298,7 @@ Ricorda che quest'app è ancora in fase di sviluppo e alcune funzionalità posso
     <value>Eventi del giorno
                                    </value>
   </data>
-  <data name="HyperlinkButtonApriAgenda.Content" xml:space="preserve">
+  <data name="DashboardButtonApriAgenda.Text" xml:space="preserve">
     <value>Apri agenda</value>
   </data>
   <data name="TitleRecentGrades.Text" xml:space="preserve">
@@ -307,13 +307,13 @@ Ricorda che quest'app è ancora in fase di sviluppo e alcune funzionalità posso
   <data name="TitleMedia.Text" xml:space="preserve">
     <value>Media totale:</value>
   </data>
-  <data name="HyperlinkButtonApriValutazioni.Content" xml:space="preserve">
+  <data name="DashboardButtonApriValutazioni.Text" xml:space="preserve">
     <value>Visualizza tutte le valutazioni</value>
   </data>
   <data name="TextBachecaRecenti.Text" xml:space="preserve">
     <value>Comunicazioni recenti</value>
   </data>
-  <data name="HyperlinkButtonApriBacheca.Content" xml:space="preserve">
+  <data name="DashboardButtonApriBacheca.Text" xml:space="preserve">
     <value>Apri bacheca</value>
   </data>
   <data name="TextBachecaComunicazioni.Text" xml:space="preserve">
@@ -462,7 +462,7 @@ Gli account studente hanno l'username che inizia con le lettere S, G o X.</value
   <data name="Settings_Language_Fr_FR.Content" xml:space="preserve">
     <value>Francese</value>
   </data>
-  <data name="AutoSuggestBoxSearchPlaceholder" xml:space="preserve">
+  <data name="AutoSuggestBoxSearch.PlaceholderText" xml:space="preserve">
     <value>Cerca...</value>
   </data>
   <data name="hyperlinkGithub.Text" xml:space="preserve">
@@ -506,5 +506,68 @@ Gli account studente hanno l'username che inizia con le lettere S, G o X.</value
   </data>
   <data name="SettingsChangelogVersion.Text" xml:space="preserve">
     <value>Versione 1.0.0</value>
+  </data>
+  <data name="AgendaButtonTomorrowTT.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Giorno successivo</value>
+  </data>
+  <data name="AgendaButtonYesterdayTT.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Giorno precedente</value>
+  </data>
+  <data name="AssenzeJustified.Text" xml:space="preserve">
+    <value>Giustificate</value>
+  </data>
+  <data name="AssenzeToBeJustified.Text" xml:space="preserve">
+    <value>Da giustificare</value>
+  </data>
+  <data name="ButtonTodayAgenda.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Vai agli eventi di oggi</value>
+  </data>
+  <data name="CheckboxInattive.Content" xml:space="preserve">
+    <value>Mostra comunicazioni inattive</value>
+  </data>
+  <data name="DashboardEditWidgetsButton.Text" xml:space="preserve">
+    <value>Personalizza widget</value>
+  </data>
+  <data name="EdittextPassword.PlaceholderText" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="EdittextUsername.PlaceholderText" xml:space="preserve">
+    <value>Nome utente</value>
+  </data>
+  <data name="NavigationViewAgenda.Content" xml:space="preserve">
+    <value>Agenda</value>
+  </data>
+  <data name="NavigationViewAssenze.Content" xml:space="preserve">
+    <value>Assenze</value>
+  </data>
+  <data name="NavigationViewBacheca.Content" xml:space="preserve">
+    <value>Bacheca</value>
+  </data>
+  <data name="NavigationViewDashboard.Content" xml:space="preserve">
+    <value>Dashboard</value>
+  </data>
+  <data name="NavigationViewGrades.Content" xml:space="preserve">
+    <value>Valutazioni</value>
+  </data>
+  <data name="NavigationViewNote.Content" xml:space="preserve">
+    <value>Note</value>
+  </data>
+  <data name="NavigationViewScrutini.Content" xml:space="preserve">
+    <value>Scrutini</value>
+  </data>
+  <data name="RefreshButtonTT.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Aggiorna</value>
+  </data>
+  <data name="SettingsPaletteColorBlueTT.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Uscita anticipata, non fa media</value>
+  </data>
+  <data name="SettingsPaletteColorGreenTT.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Presenza, sufficienza</value>
+  </data>
+  <data name="SettingsPaletteColorOrangeTT.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Insufficienza lieve, ritardo</value>
+  </data>
+  <data name="SettingsPaletteColorRedTT.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Insufficienza grave, assenza</value>
   </data>
 </root>

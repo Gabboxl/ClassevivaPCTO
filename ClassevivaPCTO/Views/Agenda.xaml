@@ -234,7 +234,7 @@
                                 RelativePanel.AlignVerticalCenterWithPanel="True"
                                 Width="48"
                                 Height="32"
-                                Margin="16,0,0,0" Click="AggiornaCommand_Click" ToolTipService.ToolTip="Aggiorna">
+                                Margin="16,0,0,0" Click="AggiornaCommand_Click" x:Uid="RefreshButtonTT">
                             <FontIcon FontSize="16" Glyph="&#xE72C;" HorizontalAlignment="Center"
                                       VerticalAlignment="Center" />
                         </Button>
@@ -250,7 +250,7 @@
                                 Width="48"
                                 Height="32"
                                 toolkit:FrameworkElementExtensions.Cursor="Hand"
-                                Click="ButtonYesterday_Click" ToolTipService.ToolTip="Giorno precedente">
+                                Click="ButtonYesterday_Click" x:Uid="AgendaButtonYesterdayTT">
                             <FontIcon FontSize="16" Glyph="&#xE76B;" HorizontalAlignment="Center"
                                       VerticalAlignment="Center" />
                         </Button>
@@ -270,7 +270,7 @@
                                 Height="32"
                                 RelativePanel.AlignVerticalCenterWithPanel="True"
                                 toolkit:FrameworkElementExtensions.Cursor="Hand"
-                                Click="ButtonTomorrow_Click" ToolTipService.ToolTip="Giorno successivo">
+                                Click="ButtonTomorrow_Click" x:Uid="AgendaButtonTomorrowTT">
                             <FontIcon FontSize="16" Glyph="&#xE76C;" HorizontalAlignment="Center"
                                       VerticalAlignment="Center" />
                         </Button>
@@ -280,7 +280,7 @@
                                       RelativePanel.LeftOf="Separator1"
                                       RelativePanel.AlignVerticalCenterWithPanel="True"
                                       toolkit:FrameworkElementExtensions.Cursor="Hand"
-                                      Click="ButtonToday_Click" ToolTipService.ToolTip="Vai agli eventi di oggi" />
+                                      Click="ButtonToday_Click" />
 
                         <Rectangle x:Name="Separator1" RelativePanel.AlignRightWithPanel="True"
                                    Fill="{ThemeResource ControlStrokeColorDefaultBrush}"

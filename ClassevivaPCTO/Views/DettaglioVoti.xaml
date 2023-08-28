@@ -35,7 +35,7 @@
                     Width="48"
                     Height="32"
                     Margin="26,0,20,0" RelativePanel.AlignRightWithPanel="True"
-                    RelativePanel.AlignVerticalCenterWith="MainTitleTextBox" ToolTipService.ToolTip="Aggiorna">
+                    RelativePanel.AlignVerticalCenterWith="MainTitleTextBox" x:Uid="RefreshButtonTT">
                 <FontIcon Glyph="&#xE72C;" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" />
             </Button>
 
