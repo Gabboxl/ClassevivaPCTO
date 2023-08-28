@@ -75,7 +75,7 @@
                     RelativePanel.AlignVerticalCenterWithPanel="True"
                     Width="48"
                     Height="32"
-                    Margin="16,0,20,0" Click="AggiornaButton_Click" ToolTipService.ToolTip="Aggiorna">
+                    Margin="16,0,20,0" Click="AggiornaButton_Click" x:Uid="RefreshButtonTT">
                 <FontIcon Glyph="&#xE72C;" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" />
             </Button>
 
@@ -95,7 +95,7 @@
 
                     <TextBlock Text="&#xE70F;" VerticalAlignment="Center" FontFamily="{StaticResource FluentIcons}" />
 
-                    <TextBlock Text="Personalizza widget" />
+                    <TextBlock x:Uid="DashboardEditWidgetsButton" />
 
                 </StackPanel>
             </Button>
@@ -161,7 +161,7 @@
                                      Click="HyperlinkButton_Click_1">
 
                         <StackPanel Orientation="Horizontal" Spacing="4">
-                            <TextBlock Text="Apri Agenda" />
+                            <TextBlock x:Uid="DashboardButtonApriAgenda" />
                             <FontIcon FontSize="12" Glyph="&#xE76C;" VerticalAlignment="Center" />
 
 
@@ -240,7 +240,7 @@
 
 
                         <StackPanel Orientation="Horizontal" Spacing="4">
-                            <TextBlock Text="Visualizza tutte le valutazioni" />
+                            <TextBlock x:Uid="DashboardButtonApriValutazioni" />
                             <FontIcon FontSize="12" Glyph="&#xE76C;" VerticalAlignment="Center" />
 
 
@@ -304,7 +304,7 @@
                                      HorizontalAlignment="Right">
 
                         <StackPanel Orientation="Horizontal" Spacing="4">
-                            <TextBlock Text="Apri Bacheca" />
+                            <TextBlock x:Uid="DashboardButtonApriBacheca" />
                             <FontIcon FontSize="12" Glyph="&#xE76C;" VerticalAlignment="Center" />
 
 

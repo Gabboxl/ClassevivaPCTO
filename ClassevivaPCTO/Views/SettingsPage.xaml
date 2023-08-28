@@ -102,7 +102,7 @@
                                        FontSize="14"
                                        FontWeight="Medium"
                                        Margin="0,10,0,0" Foreground="{ThemeResource TextFillColorTertiaryBrush}">
-                                <Run Text="Codice studente: " /><Run Text="{Binding Codice}" />
+                                <Run x:Uid="SettingsAccountStudentCode" /><Run Text="{Binding Codice}" />
                             </TextBlock>
 
                             <TextBlock x:Name="Scuola"
@@ -110,7 +110,7 @@
                                        FontSize="14"
                                        FontWeight="Medium"
                                        Margin="0,8,0,0" Foreground="{ThemeResource TextFillColorTertiaryBrush}">
-                                <Run Text="Istituto: " /><Run Text="{Binding Scuola}" />
+                                <Run x:Uid="SettingsAccountSchool"/> <Run Text="{Binding Scuola}" />
                             </TextBlock>
 
                         </RelativePanel>
@@ -142,7 +142,7 @@
                                 <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Spacing="8">
                                     <TextBlock Text="&#xF3B1;" VerticalAlignment="Center"
                                                FontFamily="{StaticResource FluentIcons}" />
-                                    <TextBlock Text="Esci" />
+                                    <TextBlock x:Uid="SettingsAccountExitButton" />
 
                                 </StackPanel>
 
@@ -185,8 +185,7 @@
                 </labs:SettingsCard>
 
                 <labs:SettingsCard x:Name="ColorSchemeExpander"
-                                   Description="Personalizza lo schema dei colori utilizzato nell'app per indicare voti ed eventi"
-                                   Header="Schema colori" MinHeight="80">
+                                   x:Uid="SettingsCardPalette" MinHeight="80">
 
                     <labs:SettingsCard.HeaderIcon>
                         <FontIcon Glyph="&#xE790;" />
@@ -211,26 +210,28 @@
                                                 Background="{x:Bind CurrentPalette.ColorRed, Converter={StaticResource ColorToBrushConverter}, Mode=OneWay}"
                                                 CornerRadius="26"
                                                 IsTapEnabled="False"
-                                                ToolTipService.ToolTip="Insufficienza grave, assenza" />
+                                                x:Uid="SettingsPaletteColorRedTT" />
 
                                         <Border Width="24"
                                                 Height="24"
                                                 Background="{x:Bind CurrentPalette.ColorOrange, Converter={StaticResource ColorToBrushConverter}, Mode=OneWay}"
                                                 CornerRadius="26"
                                                 IsTapEnabled="False"
-                                                ToolTipService.ToolTip="Insufficienza lieve, ritardo" />
+                                                x:Uid="SettingsPaletteColorOrangeTT" />
 
                                         <Border Width="24"
                                                 Height="24"
                                                 Background="{x:Bind CurrentPalette.ColorGreen, Converter={StaticResource ColorToBrushConverter}, Mode=OneWay}"
                                                 CornerRadius="26"
-                                                IsTapEnabled="False" ToolTipService.ToolTip="Sufficienza, presenza" />
+                                                IsTapEnabled="False"
+                                                x:Uid="SettingsPaletteColorGreenTT" />
 
                                         <Border Width="24"
                                                 Height="24"
                                                 Background="{x:Bind CurrentPalette.ColorBlue, Converter={StaticResource ColorToBrushConverter}, Mode=OneWay}"
                                                 CornerRadius="26"
-                                                IsTapEnabled="False" ToolTipService.ToolTip="Non fa media, uscita" />
+                                                IsTapEnabled="False"
+                                                x:Uid="SettingsPaletteColorBlueTT" />
 
                                     </StackPanel>
 
@@ -246,16 +247,11 @@
                            x:Uid="Settings_General" />
 
 
-                <labs:SettingsCard Header="Vai all'anno precedente">
-
+                <labs:SettingsCard x:Uid="SettingsCardSchoolYear">
 
                     <labs:SettingsCard.HeaderIcon>
                         <FontIcon Glyph="&#xE97A;" />
                     </labs:SettingsCard.HeaderIcon>
-
-                    <labs:SettingsCard.Description>
-                        <TextBlock Text="Consulta i dati dell'A.S. 2022/23 sul sito web di Classeviva" />
-                    </labs:SettingsCard.Description>
 
                     <Button MinWidth="130" toolkit:FrameworkElementExtensions.Cursor="Hand">
 
@@ -327,7 +323,7 @@
                     <TextBlock IsTextSelectionEnabled="True"
                                Foreground="{ThemeResource TextFillColorSecondaryBrush}"
                                Style="{StaticResource BodyTextBlockStyle}">
-                        <Run Text="Versione " /><Run Text="{x:Bind Version}" />
+                        <Run x:Uid="SettingsAboutExpanderVersion" /><Run Text="{x:Bind Version}" />
                     </TextBlock>
                     <labs:SettingsExpander.Items>
                         <labs:SettingsCard HorizontalContentAlignment="Left"
@@ -346,7 +342,7 @@
                                                 Fill="{ThemeResource AccentTextFillColorPrimaryBrush}" />
                                         </Grid>
 
-                                        <TextBlock Text="Progetto su GitHub" />
+                                        <TextBlock x:Uid="hyperlinkGithub" />
                                     </StackPanel>
                                 </HyperlinkButton>
 

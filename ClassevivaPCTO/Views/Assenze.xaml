@@ -82,7 +82,7 @@
             <Button x:Name="AggiornaCommand" Click="AggiornaCommand_Click"
                     RelativePanel.AlignVerticalCenterWith="TextTitolo" RelativePanel.AlignRightWithPanel="True"
                     Margin="0,0,20,0"
-                    Height="32" Width="48" ToolTipService.ToolTip="Aggiorna">
+                    Height="32" Width="48" x:Uid="RefreshButtonTT">
                 <FontIcon Glyph="&#xE72C;" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" />
             </Button>
         </RelativePanel>
@@ -137,7 +137,7 @@
                             <StackPanel>
 
                                 <TextBlock x:Name="ToJustifyText"
-                                           Text="Da giustificare"
+                                           x:Uid="AssenzeToBeJustified"
                                            Margin="8,4,0,6"
                                            Style="{ThemeResource BodyStrongTextBlockStyle}" />
 
@@ -148,7 +148,7 @@
                                 </controls:AbsencesListView>
 
                                 <TextBlock x:Name="JustifiedText"
-                                           Text="Giustificate"
+                                           x:Uid="AssenzeJustified"
                                            Margin="8,4,0,6"
                                            Style="{ThemeResource BodyStrongTextBlockStyle}" />
 
