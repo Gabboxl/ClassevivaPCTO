@@ -159,13 +159,6 @@ namespace ClassevivaPCTO.Views
             }
         }
 
-        public void GoBack(object sender, RoutedEventArgs e)
-        {
-            Frame rootFrame = (Frame) Window.Current.Content;
-            if (rootFrame.CanGoBack)
-            {
-                rootFrame.GoBack();
-            }
-        }
+
     }
 }

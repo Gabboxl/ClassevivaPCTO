@@ -51,16 +51,6 @@
                        BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
                        Background="{ThemeResource CardBackgroundFillColorDefaultBrush}">
 
-            <ComboBox x:Name="ComboPeriodi" Header="Periodo didattico" PlaceholderText="Seleziona un periodo"
-                      Width="200" SelectionChanged="ComboPeriodi_SelectionChanged">
-
-            </ComboBox>
-
-            <ComboBox RelativePanel.RightOf="ComboPeriodi" x:Name="ComboMaterie" Header="Materia"
-                      x:Uid="ComboMaterie" HorizontalAlignment="Left" Margin="25,0,0,0"
-                      SelectionChanged="ComboMaterie_SelectionChanged">
-
-            </ComboBox>
 
             <controls2:GradesListView x:Name="ListViewVoti"
 

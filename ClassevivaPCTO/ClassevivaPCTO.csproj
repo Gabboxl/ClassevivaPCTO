@@ -238,8 +238,8 @@
     <Compile Include="Views\DashboardPage.xaml.cs">
       <DependentUpon>DashboardPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\DettaglioVoti.xaml.cs">
-      <DependentUpon>DettaglioVoti.xaml</DependentUpon>
+    <Compile Include="Views\Valutazioni.xaml.cs">
+      <DependentUpon>Valutazioni.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\LoginPage.xaml.cs">
       <DependentUpon>LoginPage.xaml</DependentUpon>
@@ -428,7 +428,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\DettaglioVoti.xaml">
+    <Page Include="Views\Valutazioni.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
