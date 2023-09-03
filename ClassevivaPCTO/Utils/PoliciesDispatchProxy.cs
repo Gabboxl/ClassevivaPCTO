@@ -41,6 +41,12 @@ namespace ClassevivaPCTO.Utils
                         //we check whether the exception thrown is actually a Refit's ApiException
                         if (exception.InnerException is ApiException apiException)
                         {
+                            //503 cancel token
+                            if (apiException.StatusCode == System.Net.HttpStatusCode.ServiceUnavailable)
+                            {
+                                cancellationTokenSource.Cancel();
+                            }
+
                             if (
                                 apiException.StatusCode == System.Net.HttpStatusCode.Unauthorized
                             )
@@ -171,7 +177,14 @@ namespace ClassevivaPCTO.Utils
                 .FallbackAsync(fallbackAction: async (ct) =>
                     {
                         //if after the retries another exception occurs, then we let the call flow go ahead
-                        return targetMethod.Invoke(Target, args);
+                        var result = targetMethod.Invoke(Target, args);
+
+                        if (result is Task task)
+                        {
+                            task.Wait(); 
+                        }
+
+                        return result;
                     },
                     onFallbackAsync: async (delegateResult) =>
                     {
@@ -209,19 +222,41 @@ namespace ClassevivaPCTO.Utils
 
             AsyncPolicyWrap<object> combinedpolicy = fallback.WrapAsync(retryPolicy);
 
-            return combinedpolicy
-                .ExecuteAsync(async (ct) =>
-                {
-                    var result = (targetMethod.Invoke(Target, args));
-
-                    if (result is Task task)
+            var task= Task.Run(async () =>
+            {
+                return await combinedpolicy
+                    .ExecuteAndCaptureAsync(async (ct) =>
                     {
-                        task.Wait(); //we wait for the result of the task, so we catch the exceptions if there are any
-                    }
+                        var result = targetMethod.Invoke(Target, args);
 
-                    return result; //if no exception occur then we return the result of the method call
-                }, cancellationTokenSource.Token)
-                .Result;
+                        if (result is Task task)
+                        {
+                            //await task.ConfigureAwait(false);
+                            task.Wait(); //we wait for the result of the task, so we catch the exceptions if there are any
+                        }
+
+                        return result; //if no exception occur then we return the result of the method call
+                    }, cancellationTokenSource.Token);
+
+
+            });
+
+
+
+
+            var result = task.Result;
+
+            if (result.Outcome == OutcomeType.Failure)
+            {
+                // If the policy has stopped because of the cancellation token, return the custom result
+                if (result.FinalException is OperationCanceledException)
+                {
+                    return null;
+                }
+
+            }
+
+            return result.Result; // On success, return the result of the action
         }
 
         public static T CreateProxy(T target)
