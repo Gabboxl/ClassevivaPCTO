@@ -466,6 +466,9 @@
     <PackageReference Include="CommunityToolkit.Mvvm">
       <Version>8.2.1</Version>
     </PackageReference>
+    <PackageReference Include="CommunityToolkit.Uwp.Controls.Segmented">
+      <Version>8.0.230828-rc</Version>
+    </PackageReference>
     <PackageReference Include="Microsoft.AppCenter.Analytics">
       <Version>5.0.2</Version>
     </PackageReference>
