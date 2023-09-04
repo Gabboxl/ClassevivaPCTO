@@ -18,7 +18,7 @@ namespace ClassevivaPCTO.Controls
 {
     public sealed partial class NoticesListView : UserControl, INotifyPropertyChanged
     {
-        private bool _areSourcesEmpty = false;
+        private bool _areSourcesEmpty = true;
 
         public bool AreSourcesEmpty
         {

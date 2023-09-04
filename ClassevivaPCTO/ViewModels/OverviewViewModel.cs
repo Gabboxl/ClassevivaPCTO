@@ -22,7 +22,7 @@ namespace ClassevivaPCTO.ViewModels
             set { SetProperty(ref _filteredOverviewResult, value); }
         }
 
-        private bool _areSourcesEmpty = false;
+        private bool _areSourcesEmpty = true;
 
         public bool AreSourcesEmpty
         {
