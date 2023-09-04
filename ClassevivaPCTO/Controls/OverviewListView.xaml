@@ -33,7 +33,7 @@
                 <TextBlock x:Name="AbsencesTitle"
                            x:Uid="AbsencesTitle"
                            Margin="14,12,0,8"
-                           Visibility="{x:Bind OverviewViewModel.FilteredOverviewResult.AbsenceEvents, Mode=OneWay, Converter={StaticResource EmptyListToVisibilityConverter}}"
+                           Visibility="{x:Bind OverviewControlViewModel.FilteredOverviewResult.AbsenceEvents, Mode=OneWay, Converter={StaticResource EmptyListToVisibilityConverter}}"
                            Style="{ThemeResource BodyStrongTextBlockStyle}" FontSize="18" FontWeight="SemiBold" />
 
                 <controls2:AbsencesListView x:Name="AbsencesListView"
@@ -45,7 +45,7 @@
                 <TextBlock x:Name="GradesTitle"
                            x:Uid="GradesTitle"
                            Margin="14,12,0,8"
-                           Visibility="{x:Bind OverviewViewModel.FilteredOverviewResult.Grades, Mode=OneWay, Converter={StaticResource EmptyListToVisibilityConverter}}"
+                           Visibility="{x:Bind OverviewControlViewModel.FilteredOverviewResult.Grades, Mode=OneWay, Converter={StaticResource EmptyListToVisibilityConverter}}"
                            Style="{ThemeResource BodyStrongTextBlockStyle}" FontSize="18" FontWeight="SemiBold" />
 
                 <controls2:GradesListView x:Name="GradesListView"
@@ -56,7 +56,7 @@
                 <TextBlock x:Name="LessonsTitle"
                            x:Uid="LessonsTitle"
                            Margin="14,12,0,8"
-                           Visibility="{x:Bind OverviewViewModel.FilteredOverviewResult.Lessons, Mode=OneWay, Converter={StaticResource EmptyListToVisibilityConverter}}"
+                           Visibility="{x:Bind OverviewControlViewModel.FilteredOverviewResult.Lessons, Mode=OneWay, Converter={StaticResource EmptyListToVisibilityConverter}}"
                            Style="{ThemeResource BodyStrongTextBlockStyle}" FontSize="18" FontWeight="SemiBold" />
 
                 <controls2:LessonsListView x:Name="LessonsListView"
@@ -67,7 +67,7 @@
                 <TextBlock x:Name="AgendaTitle"
                            x:Uid="AgendaTitle"
                            Margin="14,12,0,8"
-                           Visibility="{x:Bind OverviewViewModel.FilteredOverviewResult.AgendaEvents, Mode=OneWay, Converter={StaticResource EmptyListToVisibilityConverter}}"
+                           Visibility="{x:Bind OverviewControlViewModel.FilteredOverviewResult.AgendaEvents, Mode=OneWay, Converter={StaticResource EmptyListToVisibilityConverter}}"
                            Style="{ThemeResource BodyStrongTextBlockStyle}" FontSize="18" FontWeight="SemiBold" />
 
 
@@ -84,7 +84,7 @@
             VerticalAlignment="Center"
             HorizontalAlignment="Center"
             Grid.Row="0"
-            Visibility="{x:Bind OverviewViewModel.AreSourcesEmpty, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}">
+            Visibility="{x:Bind OverviewControlViewModel.AreSourcesEmpty, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}">
             <FontIcon x:Name="IconCalendar" FontFamily="{StaticResource FluentIcons}" Glyph="&#xE787;"
                       Foreground="{ThemeResource TextFillColorDisabledBrush}"
                       RelativePanel.AlignHorizontalCenterWithPanel="True"

@@ -213,7 +213,7 @@
     <Compile Include="ViewModels\AssenzeViewModel.cs" />
     <Compile Include="ViewModels\NoteViewModel.cs" />
     <Compile Include="ViewModels\ScrutiniViewModel.cs" />
-    <Compile Include="ViewModels\OverviewViewModel.cs" />
+    <Compile Include="ViewModels\OverviewControlViewModel.cs" />
     <Compile Include="ViewModels\BachecaViewModel.cs" />
     <Compile Include="ViewModels\AgendaViewModel.cs" />
     <Compile Include="ViewModels\DashboardPageViewModel.cs" />
