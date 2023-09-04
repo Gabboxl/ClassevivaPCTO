@@ -281,7 +281,7 @@ namespace ClassevivaPCTO.Views
 
             string fixedId = new CvUtils().GetCode(loginResultComplete.ident);
 
-            CardsResult? cardsResult = await apiWrapper.GetCards(fixedId);
+            CardsResult cardsResult = await apiWrapper.GetCards(fixedId);
 
             SingleCardResult singleCardResult = await apiWrapper.GetCardSingle(fixedId);
 

@@ -187,8 +187,12 @@ namespace ClassevivaPCTO.Utils
                 //var lol = result.FinalException.InnerException.GetType();
                 //var targetReturnType = targetMethod.ReturnType;
 
-
-                if (policyResult.FinalException.InnerException is ApiException apiException)
+                //if policy was cancellation requested
+                if (policyResult.FinalException is OperationCanceledException)
+                {
+                    Debug.WriteLine("Test retry policy cancelled");
+                }
+                else if (policyResult.FinalException.InnerException is ApiException apiException)
                 {
                     //if (apiException.StatusCode == System.Net.HttpStatusCode.ServiceUnavailable)
 
