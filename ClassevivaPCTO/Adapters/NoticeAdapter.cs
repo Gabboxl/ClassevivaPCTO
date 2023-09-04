@@ -3,6 +3,7 @@ using ClassevivaPCTO.Services;
 using ClassevivaPCTO.Utils;
 using Windows.UI;
 using Windows.UI.Xaml.Media;
+using ClassevivaPCTO.Helpers;
 
 namespace ClassevivaPCTO.Adapters
 {
@@ -46,11 +47,11 @@ namespace ClassevivaPCTO.Adapters
             {
                 if (CurrentObject.cntStatus == "deleted")
                 {
-                    return "Eliminata";
+                    return "NoticeAdapter_StatusText_Eliminata".GetLocalized();
                 }
                 else if (!CurrentObject.cntValidInRange)
                 {
-                    return "Scaduta";
+                    return "NoticeAdapter_StatusText_Scaduta".GetLocalized();
                 }
 
                 return "";
@@ -95,8 +96,8 @@ namespace ClassevivaPCTO.Adapters
         {
             get
             {
-                return "Valida dal " + CurrentObject.cntValidFrom.ToString("dd/MM/yyyy") + " al " +
-                       CurrentObject.cntValidTo.ToString("dd/MM/yyyy");
+                return string.Format("NoticeAdapter_FromToValidDate".GetLocalized(),
+                                     CurrentObject.cntValidFrom.ToString("dd/MM/yyyy"),CurrentObject.cntValidTo.ToString("dd/MM/yyyy"));
             }
         }
 

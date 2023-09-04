@@ -1,6 +1,7 @@
 ﻿using ClassevivaPCTO.Utils;
 using Windows.UI;
 using Windows.UI.Xaml.Media;
+using ClassevivaPCTO.Helpers;
 using ClassevivaPCTO.Helpers.Palettes;
 using ClassevivaPCTO.Services;
 
@@ -40,7 +41,7 @@ namespace ClassevivaPCTO.Adapters
                     return " ";
                 }
 
-                return "Non disponibile";
+                return "StatusText_NotAvailable".GetLocalized();
             }
         }
 

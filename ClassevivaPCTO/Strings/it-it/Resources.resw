@@ -570,4 +570,16 @@ Gli account studente hanno l'username che inizia con le lettere S, G o X.</value
   <data name="SettingsPaletteColorRedTT.ToolTipService.ToolTip" xml:space="preserve">
     <value>Insufficienza grave, assenza</value>
   </data>
+  <data name="NoticeAdapter_FromToValidDate" xml:space="preserve">
+    <value>Valida dal {0} al {1}</value>
+  </data>
+  <data name="NoticeAdapter_StatusText_Eliminata" xml:space="preserve">
+    <value>Eliminata</value>
+  </data>
+  <data name="NoticeAdapter_StatusText_Scaduta" xml:space="preserve">
+    <value>Scaduta</value>
+  </data>
+  <data name="StatusText_NotAvailable" xml:space="preserve">
+    <value>Non disponibile</value>
+  </data>
 </root>
