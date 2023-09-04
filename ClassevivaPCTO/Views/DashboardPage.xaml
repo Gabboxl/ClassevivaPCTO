@@ -158,7 +158,7 @@
                     <HyperlinkButton Grid.Row="2"
                                      VerticalAlignment="Bottom"
                                      HorizontalAlignment="Right"
-                                     Click="HyperlinkButton_Click_1">
+                                     Click="HyperlinkButton_Click_Agenda">
 
                         <StackPanel Orientation="Horizontal" Spacing="4">
                             <TextBlock x:Uid="DashboardButtonApriAgenda" />
@@ -235,7 +235,7 @@
                     </ScrollViewer>
 
                     <HyperlinkButton Grid.Row="2"
-                                     Click="HyperlinkButton_Click" VerticalAlignment="Bottom"
+                                     Click="HyperlinkButton_Click_Valutazioni" VerticalAlignment="Bottom"
                                      HorizontalAlignment="Right">
 
 
