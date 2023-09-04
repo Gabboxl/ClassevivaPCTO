@@ -5,25 +5,25 @@ namespace ClassevivaPCTO.ViewModels
 {
     public class AppViewModel : ObservableObject
     {
-        private LoginResultComplete _loginResult;
+        private LoginResultComplete? _loginResult;
 
-        public LoginResultComplete LoginResult
+        public LoginResultComplete? LoginResult
         {
             get => _loginResult;
             set => SetProperty(ref _loginResult, value);
         }
 
-        private Card _singleCardsResult;
+        private Card? _singleCardsResult;
 
-        public Card SingleCardResult
+        public Card? SingleCardResult
         {
             get => _singleCardsResult;
             set => SetProperty(ref _singleCardsResult, value);
         }
 
-        private CardsResult _cardsResult;
+        private CardsResult? _cardsResult;
 
-        public CardsResult CardsResult
+        public CardsResult? CardsResult
         {
             get => _cardsResult;
             set => SetProperty(ref _cardsResult, value);

@@ -9,7 +9,7 @@ namespace ClassevivaPCTO.Controls
 {
     public sealed partial class OverviewListView : UserControl
     {
-        public OverviewViewModel OverviewViewModel { get; } = new OverviewViewModel();
+        public OverviewControlViewModel OverviewControlViewModel { get; } = new OverviewControlViewModel();
 
         public OverviewDataModel ItemsSource
         {
@@ -30,10 +30,10 @@ namespace ClassevivaPCTO.Controls
 
             var newValue = (OverviewDataModel) e.NewValue;
 
-            currentInstance.OverviewViewModel.CurrentOverviewData = newValue;
+            currentInstance.OverviewControlViewModel.CurrentOverviewData = newValue;
 
             //OverviewResult overviewResult = newValue.OverviewData;
-            OverviewResult overviewResult = currentInstance.OverviewViewModel.CurrentOverviewData.OverviewData;
+            OverviewResult overviewResult = currentInstance.OverviewControlViewModel.CurrentOverviewData.OverviewData;
 
             OverviewResult filteredOverviewResults = overviewResult;
 
@@ -71,9 +71,9 @@ namespace ClassevivaPCTO.Controls
             //listview note da mettere
 
 
-            currentInstance.OverviewViewModel.FilteredOverviewResult = filteredOverviewResults;
+            currentInstance.OverviewControlViewModel.FilteredOverviewResult = filteredOverviewResults;
 
-            currentInstance.OverviewViewModel.AreSourcesEmpty = filteredOverviewResults.AbsenceEvents.Count == 0 &&
+            currentInstance.OverviewControlViewModel.AreSourcesEmpty = filteredOverviewResults.AbsenceEvents.Count == 0 &&
                                                                 filteredOverviewResults.AgendaEvents.Count == 0 &&
                                                                 filteredOverviewResults.Grades.Count == 0 &&
                                                                 filteredOverviewResults.Lessons.Count == 0;

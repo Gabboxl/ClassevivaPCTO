@@ -45,6 +45,11 @@ namespace ClassevivaPCTO.Utils
 
         public static float CalcolaMedia(List<Grade> voti)
         {
+            if (voti == null || voti.Count == 0)
+            {
+                return Single.NaN;
+            }
+
             float somma = 0;
             float numVoti = 0;
 

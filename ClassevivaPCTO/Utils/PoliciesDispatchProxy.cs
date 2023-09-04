@@ -111,7 +111,7 @@ namespace ClassevivaPCTO.Utils
 
                                     try
                                     {
-                                        LoginResultComplete loginResult =
+                                        LoginResultComplete? loginResult =
                                             (LoginResultComplete) await CvUtils.GetApiLoginData(
                                                 Target,
                                                 refreshLoginData
@@ -166,62 +166,79 @@ namespace ClassevivaPCTO.Utils
                     }
                 );
 
-            var fallback = Policy<object>
-                .Handle<Exception>()
-                .FallbackAsync(fallbackAction: async (ct) =>
-                    {
-                        //if after the retries another exception occurs, then we let the call flow go ahead
-                        return targetMethod.Invoke(Target, args);
-                    },
-                    onFallbackAsync: async (delegateResult) =>
-                    {
-                        TaskCompletionSource<bool> isSomethingLoading =
-                            new TaskCompletionSource<bool>();
 
-                        //the dispatcher.runasync method does not return any value, so actually the "await" is redundant, so to know when the dialog is done showing, we use the Taskcompletionsource hack
-                        await CoreApplication.MainView.Dispatcher.RunAsync(
-                            CoreDispatcherPriority.Normal,
-                            async () =>
-                            {
-                                ContentDialog noWifiDialog = new ContentDialog
-                                {
-                                    Title = "Errore chiamata API (riprova più tardi)",
-                                    Content =
-                                        "Tentativi effettuati: "
-                                        + currentRetryAttempts
-                                        + "\n"
-                                        + delegateResult.Exception.Message,
-                                    CloseButtonText = "Ok"
-                                };
-
-                                ContentDialogResult result =
-                                    await noWifiDialog.ShowAsync();
-
-                                isSomethingLoading.SetResult(true);
-                            }
-                        );
-
-                        await isSomethingLoading.Task;
-
-                        // Access the exception that triggered the fallback
-                        Debug.WriteLine($"Fallback triggered by exception: {delegateResult.Exception.Message}");
-                    });
-
-            AsyncPolicyWrap<object> combinedpolicy = fallback.WrapAsync(retryPolicy);
-
-            return combinedpolicy
-                .ExecuteAsync(async (ct) =>
+            var policyResult = retryPolicy
+                .ExecuteAndCaptureAsync(async (ct) =>
                 {
-                    var result = (targetMethod.Invoke(Target, args));
+                    var result = targetMethod.Invoke(Target, args);
 
                     if (result is Task task)
                     {
+                        //await task.ConfigureAwait(false);
                         task.Wait(); //we wait for the result of the task, so we catch the exceptions if there are any
                     }
 
                     return result; //if no exception occur then we return the result of the method call
-                }, cancellationTokenSource.Token)
-                .Result;
+                }, cancellationTokenSource.Token).Result;
+
+
+            if (policyResult.Outcome == OutcomeType.Failure)
+            {
+                //var lol = result.FinalException.InnerException.GetType();
+                //var targetReturnType = targetMethod.ReturnType;
+
+                //if policy was cancellation requested
+                if (policyResult.FinalException is OperationCanceledException)
+                {
+                    Debug.WriteLine("Test retry policy cancelled");
+                }
+                else if (policyResult.FinalException.InnerException is ApiException apiException)
+                {
+                    //if (apiException.StatusCode == System.Net.HttpStatusCode.ServiceUnavailable)
+
+                    TaskCompletionSource<bool> isSomethingLoading =
+                        new TaskCompletionSource<bool>();
+
+
+                    CoreApplication.MainView.Dispatcher.RunAsync(
+                        CoreDispatcherPriority.Normal,
+                        async () =>
+                        {
+                            ContentDialog noWifiDialog = new ContentDialog
+                            {
+                                Title = "Errore chiamata API (riprova più tardi)",
+                                Content =
+                                    "Tentativi effettuati: "
+                                    + currentRetryAttempts
+                                    + "\n"
+                                    + apiException.Message,
+                                CloseButtonText = "Ok"
+                            };
+
+                            try
+                            {
+                                ContentDialogResult result =
+                                    await noWifiDialog.ShowAsync();
+                            }
+                            catch (Exception e)
+                            {
+                                Debug.WriteLine("Exception in dispatcher: " + e.Message);
+                            }
+
+                            isSomethingLoading.SetResult(true);
+                        }
+                    );
+
+                    var task = isSomethingLoading.Task;
+
+
+                    var result = targetMethod.Invoke(Target, args);
+
+                    return result;
+                }
+            }
+
+            return policyResult.Result; // On success, return the result of the action
         }
 
         public static T CreateProxy(T target)

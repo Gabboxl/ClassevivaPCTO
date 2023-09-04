@@ -28,7 +28,7 @@ namespace ClassevivaPCTO
 
         private async Task<string> GetTokenAsync()
         {
-            LoginResultComplete loginResult = ViewModelHolder.GetViewModel().LoginResult;
+            LoginResultComplete? loginResult = ViewModelHolder.GetViewModel().LoginResult;
 
             return loginResult.token;
         }

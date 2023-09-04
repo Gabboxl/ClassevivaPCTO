@@ -9,7 +9,7 @@ namespace ClassevivaPCTO.Dialogs
     {
         public int chosenIndex { get; set; }
 
-        public ChoiceDialogContent(List<LoginChoice> loginChoices)
+        public ChoiceDialogContent(List<LoginChoice?> loginChoices)
         {
             this.InitializeComponent();
 

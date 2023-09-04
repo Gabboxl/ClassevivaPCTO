@@ -41,7 +41,7 @@ namespace ClassevivaPCTO.Views
         {
             get
             {
-                Card card = AppViewModel.SingleCardResult;
+                Card? card = AppViewModel.SingleCardResult;
 
                 return card.schName + " " + card.schDedication + " [" + card.schCode + "]";
             }
@@ -73,7 +73,7 @@ namespace ClassevivaPCTO.Views
 
             NavigationViewViewModel.Initialize(contentFrame, navigationView, KeyboardAccelerators);
 
-            LoginResultComplete loginResult = ViewModelHolder.GetViewModel().LoginResult;
+            LoginResultComplete? loginResult = ViewModelHolder.GetViewModel().LoginResult;
 
             /* PersonPictureDashboard.DisplayName =
                  VariousUtils.ToTitleCase(loginResult.firstName)
