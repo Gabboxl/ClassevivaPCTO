@@ -48,44 +48,54 @@ namespace ClassevivaPCTO.Views
 
         private async Task LoadData()
         {
-            bool showInactiveNotices = false;
-
-            await CoreApplication.MainView.Dispatcher.RunAsync(
-                CoreDispatcherPriority.Normal,
-                async () =>
-                {
-                    BachecaViewModel.IsLoadingBacheca = true;
-
-                    if (CheckboxAttive.IsChecked != null) showInactiveNotices = CheckboxAttive.IsChecked.Value;
-                }
-            );
-
-            Card? cardResult = ViewModelHolder.GetViewModel().SingleCardResult;
-
-
-            NoticeboardResult noticeboardResult = await apiWrapper.GetNotices(
-                cardResult.usrId.ToString()
-            );
-
-            var notices = noticeboardResult.Notices;
-
-            if (!showInactiveNotices)
+            try
             {
-                //filter notices that are valid from the cntValidInRange property
-                notices = notices.Where(n => n.cntValidInRange).ToList();
-            }
+                bool showInactiveNotices = false;
+
+                await CoreApplication.MainView.Dispatcher.RunAsync(
+                    CoreDispatcherPriority.Normal,
+                    async () =>
+                    {
+                        BachecaViewModel.IsLoadingBacheca = true;
+
+                        if (CheckboxAttive.IsChecked != null) showInactiveNotices = CheckboxAttive.IsChecked.Value;
+                    }
+                );
+
+                Card? cardResult = ViewModelHolder.GetViewModel().SingleCardResult;
 
 
-            //update UI on UI thread
-            await CoreApplication.MainView.Dispatcher.RunAsync(
-                CoreDispatcherPriority.Normal,
-                async () =>
+                NoticeboardResult noticeboardResult = await apiWrapper.GetNotices(
+                    cardResult.usrId.ToString()
+                );
+
+                var notices = noticeboardResult.Notices;
+
+                if (!showInactiveNotices)
                 {
-                    NoticesListView.ItemsSource = notices;
-
-                    BachecaViewModel.IsLoadingBacheca = false;
+                    //filter notices that are valid from the cntValidInRange property
+                    notices = notices.Where(n => n.cntValidInRange).ToList();
                 }
-            );
+
+
+                //update UI on UI thread
+                await CoreApplication.MainView.Dispatcher.RunAsync(
+                    CoreDispatcherPriority.Normal,
+                    async () =>
+                    {
+                        NoticesListView.ItemsSource = notices;
+                    }
+                );
+            }
+            finally
+            {
+                {
+                    await CoreApplication.MainView.Dispatcher.RunAsync(
+                        CoreDispatcherPriority.Normal,
+                        async () => { BachecaViewModel.IsLoadingBacheca = false; }
+                    );
+                }
+            }
         }
 
         private async void AggiornaCommand_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)

@@ -76,39 +76,47 @@ namespace ClassevivaPCTO.Views
 
         private async Task LoadData(DateTime dateToLoad)
         {
-            await CoreApplication.MainView.Dispatcher.RunAsync(
-                CoreDispatcherPriority.Normal,
-                async () => { AgendaViewModel.IsLoadingAgenda = true; }
-            );
+            try
+            {
+                await CoreApplication.MainView.Dispatcher.RunAsync(
+                    CoreDispatcherPriority.Normal,
+                    async () => { AgendaViewModel.IsLoadingAgenda = true; }
+                );
 
 
-            Card? cardResult = ViewModelHolder.GetViewModel().SingleCardResult;
+                Card? cardResult = ViewModelHolder.GetViewModel().SingleCardResult;
 
-            string apiDate = VariousUtils.ToApiDateTime(dateToLoad);
+                string apiDate = VariousUtils.ToApiDateTime(dateToLoad);
 
-            OverviewResult overviewResult = await apiWrapper.GetOverview(
-                cardResult.usrId.ToString(),
-                apiDate,
-                apiDate
-            );
+                OverviewResult overviewResult = await apiWrapper.GetOverview(
+                    cardResult.usrId.ToString(),
+                    apiDate,
+                    apiDate
+                );
 
-            //update UI on UI thread
-            await CoreApplication.MainView.Dispatcher.RunAsync(
-                CoreDispatcherPriority.Normal,
-                async () =>
-                {
-                    //create new OverviewDataModel instance and set the data var inside
-                    var overviewData = new OverviewDataModel
+                //update UI on UI thread
+                await CoreApplication.MainView.Dispatcher.RunAsync(
+                    CoreDispatcherPriority.Normal,
+                    async () =>
                     {
-                        OverviewData = overviewResult,
-                        FilterDate = dateToLoad
-                    };
+                        //create new OverviewDataModel instance and set the data var inside
+                        var overviewData = new OverviewDataModel
+                        {
+                            OverviewData = overviewResult,
+                            FilterDate = dateToLoad
+                        };
 
-                    OverviewListView.ItemsSource = overviewData;
-
-                    AgendaViewModel.IsLoadingAgenda = false;
-                }
-            );
+                        OverviewListView.ItemsSource = overviewData;
+                    }
+                );
+            }
+            finally
+            {
+                await CoreApplication.MainView.Dispatcher.RunAsync(
+                    CoreDispatcherPriority.Normal,
+                    async () => { AgendaViewModel.IsLoadingAgenda = false; }
+                );
+            }
         }
 
         private void ButtonToday_Click(object sender, RoutedEventArgs e)

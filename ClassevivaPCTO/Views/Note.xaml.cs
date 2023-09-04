@@ -42,33 +42,37 @@ namespace ClassevivaPCTO.Views
 
         private async Task LoadData()
         {
-            await CoreApplication.MainView.Dispatcher.RunAsync(
-                CoreDispatcherPriority.Normal,
-                async () => { NoteViewModel.IsLoadingNote = true; }
-            );
+            try
+            {
+                await CoreApplication.MainView.Dispatcher.RunAsync(
+                    CoreDispatcherPriority.Normal,
+                    async () => { NoteViewModel.IsLoadingNote = true; }
+                );
 
-            Card? cardResult = ViewModelHolder.GetViewModel().SingleCardResult;
-
-
-            ApiResponse<string> notesResult = await apiWrapper.GetAllNotes(
-                cardResult.usrId.ToString()
-            );
+                Card? cardResult = ViewModelHolder.GetViewModel().SingleCardResult;
 
 
-            List<Utils.Note> notesList =
-                JsonConvert.DeserializeObject<List<Utils.Note>>(notesResult.Content, new NoteDeserializer());
+                ApiResponse<string> notesResult = await apiWrapper.GetAllNotes(
+                    cardResult.usrId.ToString()
+                );
+
+                List<Utils.Note> notesList =
+                    JsonConvert.DeserializeObject<List<Utils.Note>>(notesResult.Content, new NoteDeserializer());
 
 
-            //update UI on UI thread
-            await CoreApplication.MainView.Dispatcher.RunAsync(
-                CoreDispatcherPriority.Normal,
-                async () =>
-                {
-                    NotesListView.ItemsSource = notesList;
-
-                    NoteViewModel.IsLoadingNote = false;
-                }
-            );
+                //update UI on UI thread
+                await CoreApplication.MainView.Dispatcher.RunAsync(
+                    CoreDispatcherPriority.Normal,
+                    async () => { NotesListView.ItemsSource = notesList; }
+                );
+            }
+            finally
+            {
+                await CoreApplication.MainView.Dispatcher.RunAsync(
+                    CoreDispatcherPriority.Normal,
+                    async () => { NoteViewModel.IsLoadingNote = false; }
+                );
+            }
         }
 
         private async void AggiornaCommand_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
