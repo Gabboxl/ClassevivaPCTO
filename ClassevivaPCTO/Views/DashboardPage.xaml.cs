@@ -229,7 +229,19 @@ namespace ClassevivaPCTO.Views
             var task4 = Task.Run(async () => { await CaricaNoticesCard(); });
 
             //wait for all tasks to complete (also useful to get and rethrow exceptions that happened inside the tasks)
-            await Task.WhenAll(task1, task2, task3, task4);
+            Task taskall = Task.WhenAll(task1, task2, task3, task4);
+
+            try
+            {
+                await taskall;
+            }
+            catch (Exception)
+            {
+                if (taskall.Exception != null)
+                {
+                    throw taskall.Exception;
+                }
+            }
         }
 
         private void HyperlinkButton_Click(object sender, RoutedEventArgs e)
