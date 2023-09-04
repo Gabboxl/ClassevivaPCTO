@@ -15,7 +15,7 @@ namespace ClassevivaPCTO.Services
             return ident;
         }
 
-        public static async Task SaveChoiceIdentAsync(string ident)
+        public static async Task SaveChoiceIdentAsync(string? ident)
         {
             await ApplicationData.Current.LocalSettings.SaveAsync(SettingsKey, ident.ToString());
         }

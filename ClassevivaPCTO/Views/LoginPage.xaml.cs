@@ -108,7 +108,7 @@ namespace ClassevivaPCTO.Views
 
                     edituid = EdittextUsername.Text;
                     editpass = EdittextPassword.Password;
-                    checkboxCredenzialiChecked = (bool) CheckboxCredenziali.IsChecked;
+                    checkboxCredenzialiChecked = (bool) CheckboxCredenziali.IsChecked!;
                 }
             );
 

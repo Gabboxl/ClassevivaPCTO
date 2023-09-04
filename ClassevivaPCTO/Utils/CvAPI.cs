@@ -32,7 +32,7 @@ namespace ClassevivaPCTO.Utils
         public string Pass { get; init; }
 
         [AliasAs("ident")]
-        public string Ident { get; init; }
+        public string? Ident { get; init; }
 
     }
 
