@@ -37,7 +37,7 @@ namespace ClassevivaPCTO.Views
         {
             base.OnNavigatedTo(e);
 
-            Card cardResult = ViewModelHolder.GetViewModel().SingleCardResult;
+            Card? cardResult = ViewModelHolder.GetViewModel().SingleCardResult;
 
             TextTitolo.Text += VariousUtils.ToTitleCase(cardResult.firstName);
 
@@ -64,7 +64,7 @@ namespace ClassevivaPCTO.Views
                 async () => { DashboardPageViewModel.IsLoadingAgenda = true; }
             );
 
-            Card cardResult = ViewModelHolder.GetViewModel().SingleCardResult;
+            Card? cardResult = ViewModelHolder.GetViewModel().SingleCardResult;
 
             string caldate = VariousUtils.ToApiDateTime(DateTime.Now);
             OverviewResult overviewResult = await apiWrapper.GetOverview(
@@ -98,7 +98,7 @@ namespace ClassevivaPCTO.Views
                 async () => { DashboardPageViewModel.IsLoadingGrades = true; }
             );
 
-            Card cardResult = ViewModelHolder.GetViewModel().SingleCardResult;
+            Card? cardResult = ViewModelHolder.GetViewModel().SingleCardResult;
 
             var result1 = await apiWrapper
                 .GetGrades(cardResult.usrId.ToString())
@@ -111,7 +111,7 @@ namespace ClassevivaPCTO.Views
                 CoreDispatcherPriority.Normal,
                 async () =>
                 {
-                    ListRecentGrades.ItemsSource = fiveMostRecent.ToList();
+                    ListRecentGrades.ItemsSource = fiveMostRecent?.ToList();
 
                     DashboardPageViewModel.IsLoadingGrades = false;
                 }
@@ -125,14 +125,14 @@ namespace ClassevivaPCTO.Views
                 async () => { DashboardPageViewModel.IsLoadingMedia = true; }
             );
 
-            Card cardResult = ViewModelHolder.GetViewModel().SingleCardResult;
+            Card? cardResult = ViewModelHolder.GetViewModel().SingleCardResult;
 
-            var result1 = await apiWrapper
+            Grades2Result? result1 = await apiWrapper
                 .GetGrades(cardResult.usrId.ToString())
                 .ConfigureAwait(false);
 
             // Calcoliamo la media dei voti
-            float media = VariousUtils.CalcolaMedia(result1.Grades);
+            float media = VariousUtils.CalcolaMedia(result1?.Grades);
 
             //update UI on UI thread
             await CoreApplication.MainView.Dispatcher.RunAsync(
@@ -158,7 +158,7 @@ namespace ClassevivaPCTO.Views
                 async () => { DashboardPageViewModel.IsLoadingNotices = true; }
             );
 
-            Card cardResult = ViewModelHolder.GetViewModel().SingleCardResult;
+            Card? cardResult = ViewModelHolder.GetViewModel().SingleCardResult;
 
             var resultNotices = await apiWrapper
                 .GetNotices(cardResult.usrId.ToString())

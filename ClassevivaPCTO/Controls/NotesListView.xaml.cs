@@ -206,7 +206,7 @@ namespace ClassevivaPCTO.Controls
 
         private async void ReadAndOpenNoteDialog(Note currentNote)
         {
-            Card cardResult = ViewModelHolder.GetViewModel().SingleCardResult;
+            Card? cardResult = ViewModelHolder.GetViewModel().SingleCardResult;
 
 
             //we need to read the notice first

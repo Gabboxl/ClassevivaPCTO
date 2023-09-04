@@ -3,6 +3,7 @@ using ClassevivaPCTO.ViewModels;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Diagnostics;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Threading.Tasks;
 using Windows.ApplicationModel.Core;
@@ -25,7 +26,7 @@ namespace ClassevivaPCTO.Views
 
         private CalendarResult _apiCalendarResult;
 
-        private AbsencesResult _absencesResult;
+        private AbsencesResult? _absencesResult;
 
         public Assenze()
         {
@@ -57,10 +58,10 @@ namespace ClassevivaPCTO.Views
             );
 
 
-            Card cardResult = ViewModelHolder.GetViewModel().SingleCardResult;
+            Card? cardResult = ViewModelHolder.GetViewModel().SingleCardResult;
 
 
-            AbsencesResult absencesResult = await apiWrapper.GetAbsences(
+            AbsencesResult? absencesResult = await apiWrapper.GetAbsences(
                 cardResult.usrId.ToString()
             );
 
@@ -68,13 +69,15 @@ namespace ClassevivaPCTO.Views
 
 
             //create list based on isjustified bool value
-            var justifiedAbsences = absencesResult.AbsenceEvents
+            var justifiedAbsences = absencesResult?.AbsenceEvents
                 .OrderByDescending(n => n.evtDate)
                 .Where(n => n.isJustified)
                 .ToList();
 
+            
+
             //not justified absences
-            var notJustifiedAbsences = absencesResult.AbsenceEvents
+            var notJustifiedAbsences = absencesResult?.AbsenceEvents
                 .OrderByDescending(n => n.evtDate)
                 .Where(n => !n.isJustified)
                 .ToList();

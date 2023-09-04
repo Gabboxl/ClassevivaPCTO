@@ -169,7 +169,7 @@ namespace ClassevivaPCTO.Controls
 
         private async void ReadAndOpenNoticeDialog(Notice currentNotice)
         {
-            Card cardResult = ViewModelHolder.GetViewModel().SingleCardResult;
+            Card? cardResult = ViewModelHolder.GetViewModel().SingleCardResult;
 
 
             //we need to read the notice first

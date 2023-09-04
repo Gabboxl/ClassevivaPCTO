@@ -182,7 +182,7 @@ namespace ClassevivaPCTO.Views
                 }
                 else if (resLogin is LoginResultChoices loginResultChoices)
                 {
-                    LoginChoice resLoginChoice = null;
+                    LoginChoice? resLoginChoice = null;
 
                     if (ChoiceSaverService.LoadChoiceIdentAsync().Result != null)
                     {
@@ -274,19 +274,19 @@ namespace ClassevivaPCTO.Views
             LoginResultComplete loginResultComplete,
             LoginData loginData,
             bool saveCredentials,
-            LoginChoice loginChoice = null
+            LoginChoice? loginChoice = null
         )
         {
             ViewModelHolder.GetViewModel().LoginResult = loginResultComplete;
 
             string fixedId = new CvUtils().GetCode(loginResultComplete.ident);
 
-            CardsResult cardsResult = await apiWrapper.GetCards(fixedId);
+            CardsResult? cardsResult = await apiWrapper.GetCards(fixedId);
 
-            SingleCardResult singleCardResult = await apiWrapper.GetCardSingle(fixedId);
+            SingleCardResult? singleCardResult = await apiWrapper.GetCardSingle(fixedId);
 
 
-            ViewModelHolder.GetViewModel().SingleCardResult = singleCardResult.Card;
+            ViewModelHolder.GetViewModel().SingleCardResult = singleCardResult?.Card;
             ViewModelHolder.GetViewModel().CardsResult = cardsResult;
 
             if (saveCredentials)

@@ -41,7 +41,7 @@ namespace ClassevivaPCTO.Views
         {
             get
             {
-                Card card = AppViewModel.SingleCardResult;
+                Card? card = AppViewModel.SingleCardResult;
 
                 return card.schName + " " + card.schDedication + " [" + card.schCode + "]";
             }

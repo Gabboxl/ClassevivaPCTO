@@ -33,7 +33,7 @@ namespace ClassevivaPCTO.Views
             base.OnNavigatedTo(e);
 
 
-            Card cardResult = ViewModelHolder.GetViewModel().SingleCardResult;
+            Card? cardResult = ViewModelHolder.GetViewModel().SingleCardResult;
 
             MainTitleTextBox.Text += VariousUtils.ToTitleCase(cardResult.firstName);
 

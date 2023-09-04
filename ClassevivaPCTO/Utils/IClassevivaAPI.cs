@@ -19,64 +19,64 @@ namespace ClassevivaPCTO.Utils
         Task<HttpResponseMessage> LoginAsync([Body(BodySerializationMethod.Serialized)] LoginData logdata);
 
         [Get("/students/{userId}/absences/details")]
-        Task<AbsencesResult> GetAbsences(string userId);
+        Task<AbsencesResult?> GetAbsences(string userId);
 
         [Get("/students/{userId}/absences/details/{startDate}/{endDate}")]
-        Task<AbsencesResult> GetAbsencesBetweenDates(string userId, string startDate, string endDate);
+        Task<AbsencesResult?> GetAbsencesBetweenDates(string userId, string startDate, string endDate);
 
         [Get("/students/{userId}/grades2")]
-        Task<Grades2Result> GetGrades(string userId);
+        Task<Grades2Result?> GetGrades(string userId);
 
         [Get("/students/{userId}/overview/all/{startDate}/{endDate}")]
-        Task<OverviewResult> GetOverview(string userId, string startDate, string endDate);
+        Task<OverviewResult?> GetOverview(string userId, string startDate, string endDate);
 
         [Get("/students/{userId}/cards")]
-        Task<CardsResult> GetCards(string userId);
+        Task<CardsResult?> GetCards(string userId);
 
         [Get("/students/{userId}/card")]
-        Task<SingleCardResult> GetCardSingle(string userId);
+        Task<SingleCardResult?> GetCardSingle(string userId);
 
         [Get("/students/{userId}/periods")]
-        Task<PeriodsResult> GetPeriods(string userId);
+        Task<PeriodsResult?> GetPeriods(string userId);
 
         [Get("/students/{userId}/subjects")]
-        Task<SubjectsResult> GetSubjects(string userId);
+        Task<SubjectsResult?> GetSubjects(string userId);
 
         [Get("/students/{userId}/notes/all")]
         Task<ApiResponse<string>> GetAllNotes(string userId);
 
         [Post("/students/{userId}/notes/{evtCode}/read/{evtId}")]
-        Task<ReadNoteResult> ReadNote(string userId, string evtCode, string evtId);
+        Task<ReadNoteResult?> ReadNote(string userId, string evtCode, string evtId);
 
         [Get("/students/{userId}/lessons/{startDate}/{endDate}")]
-        Task<LessonsResult> GetLessons(string userId, string startDate, string endDate);
+        Task<LessonsResult?> GetLessons(string userId, string startDate, string endDate);
 
         [Get("/students/{userId}/lessons/today")]
-        Task<LessonsResult> GetTodayLessons(string userId, string dayDate);
+        Task<LessonsResult?> GetTodayLessons(string userId, string dayDate);
 
         [Get("/students/{userId}/noticeboard")]
-        Task<NoticeboardResult> GetNotices(string userId);
+        Task<NoticeboardResult?> GetNotices(string userId);
 
         [Get("/students/{userId}/agenda/all/{startDate}/{endDate}")]
-        Task<AgendaResult> GetAgendaEvents(string userId, string startDate, string endDate);
+        Task<AgendaResult?> GetAgendaEvents(string userId, string startDate, string endDate);
 
         [Get("/students/{userId}/noticeboard/attach/{noticeEvtCode}/{noticePubId}/{attachmentNumber}")]
         Task<HttpResponseMessage> GetNoticeAttachment(string userId, string noticePubId, string noticeEvtCode, string attachmentNumber);
 
         [Post("/students/{userId}/noticeboard/read/{noticeEvtCode}/{noticePubId}/101")]
-        Task<NoticeReadResult> ReadNotice(string userId, string noticePubId, string noticeEvtCode);
+        Task<NoticeReadResult?> ReadNotice(string userId, string noticePubId, string noticeEvtCode);
 
         [Post("/students/{userId}/documents")]
-        Task<ScrutiniDocumentsResult> GetScrutiniDocuments(string userId);
+        Task<ScrutiniDocumentsResult?> GetScrutiniDocuments(string userId);
 
         [Post("/students/{userId}/documents/check/{documentHash}")]
-        Task<ScrutiniCheckResult> CheckScrutinioDocument(string userId, string documentHash);
+        Task<ScrutiniCheckResult?> CheckScrutinioDocument(string userId, string documentHash);
 
         [Post("/students/{userId}/documents/read/{documentHash}")]
         Task<HttpResponseMessage> GetScrutinioDocumentFile(string userId, string documentHash);
 
         [Get("/students/{userId}/calendar/all")]
-        Task<CalendarResult> GetCalendar(string userId);
+        Task<CalendarResult?> GetCalendar(string userId);
     }
 
 }
