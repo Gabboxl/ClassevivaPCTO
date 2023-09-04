@@ -12,13 +12,13 @@ using Windows.UI.Xaml.Navigation;
 
 namespace ClassevivaPCTO.Views
 {
-    public sealed partial class DettaglioVoti : Page
+    public sealed partial class Valutazioni : Page
     {
         private Grades2Result _grades2Result;
 
         private readonly IClassevivaAPI apiWrapper;
 
-        public DettaglioVoti()
+        public Valutazioni()
         {
             this.InitializeComponent();
 

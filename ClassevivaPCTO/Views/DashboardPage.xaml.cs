@@ -247,7 +247,7 @@ namespace ClassevivaPCTO.Views
         private void HyperlinkButton_Click(object sender, RoutedEventArgs e)
         {
             //NavigationService.Navigate(typeof(Views.DettaglioVoti), null);
-            NavigationService.Navigate(typeof(Views.DettaglioVoti));
+            NavigationService.Navigate(typeof(Views.Valutazioni));
         }
 
         private async void HyperlinkButton_Click_1(object sender, RoutedEventArgs e)

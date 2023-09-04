@@ -242,7 +242,7 @@
                 </custnav:CustomNavigationViewItem>
 
                 <custnav:CustomNavigationViewItem x:Uid="NavigationViewGrades"
-                                                  helpers:NavHelper.NavigateTo="views:DettaglioVoti">
+                                                  helpers:NavHelper.NavigateTo="views:Valutazioni">
                     <custnav:CustomNavigationViewItem.IconOutline>
                         <FontIcon Glyph="&#xe9f9;" FontFamily="{StaticResource FluentIcons}" />
                     </custnav:CustomNavigationViewItem.IconOutline>
