@@ -67,7 +67,7 @@
 
         <RelativePanel Grid.Row="0" Margin="0,18,0,0">
 
-            <TextBlock x:Name="TextTitolo" x:Uid="TitoloDashboard" Style="{StaticResource TitleLargeTextBlockStyle}"
+            <TextBlock x:Name="TextTitolo" Style="{StaticResource TitleLargeTextBlockStyle}"
                        VerticalAlignment="Top"
                        Margin="32,0,0,0" />
 

@@ -13,6 +13,7 @@ using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using ClassevivaPCTO.DataModels;
+using ClassevivaPCTO.Helpers;
 
 namespace ClassevivaPCTO.Views
 {
@@ -39,7 +40,7 @@ namespace ClassevivaPCTO.Views
 
             Card? cardResult = ViewModelHolder.GetViewModel().SingleCardResult;
 
-            TextTitolo.Text += VariousUtils.ToTitleCase(cardResult.firstName);
+            TextTitolo.Text = string.Format("TitoloDashboardText".GetLocalized(), VariousUtils.ToTitleCase(cardResult.firstName));
 
             /*
 
