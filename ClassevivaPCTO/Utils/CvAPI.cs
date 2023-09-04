@@ -51,7 +51,7 @@ namespace ClassevivaPCTO.Utils
         ABU0 //uscita anticipata
     }
 
-    public class AbsenceEvent
+    public abstract class AbsenceEvent
     {
         public long? evtId { get; set; }
         public AbsenceEventCode evtCode { get; set; }
@@ -74,7 +74,7 @@ namespace ClassevivaPCTO.Utils
 
 
 
-    public class Grade
+    public abstract class Grade
     {
         public long? subjectId { get; set; }
         public string subjectCode { get; set; }
@@ -146,7 +146,7 @@ namespace ClassevivaPCTO.Utils
     }
 
 
-    public class Lesson
+    public abstract class Lesson
     {
         public long? evtId { get; set; }
         public DateTime evtDate { get; set; }
@@ -163,7 +163,7 @@ namespace ClassevivaPCTO.Utils
 
     }
 
-    public class AgendaEvent
+    public abstract class AgendaEvent
     {
         public int evtId { get; set; }
         public string evtCode { get; set; }
@@ -212,7 +212,7 @@ namespace ClassevivaPCTO.Utils
     }
 
 
-    public class Card
+    public abstract class Card
     {
         public string ident { get; set; }
         public string usrType { get; set; }
@@ -240,7 +240,7 @@ namespace ClassevivaPCTO.Utils
 
 
 
-    public class Period
+    public abstract class Period
     {
         public string periodCode { get; set; }
         public long? periodPos { get; set; }
@@ -251,13 +251,13 @@ namespace ClassevivaPCTO.Utils
         public string miurDivisionCode { get; set; }
     }
 
-    public class Teacher
+    public abstract class Teacher
     {
         public string teacherId { get; set; }
         public string teacherName { get; set; }
     }
 
-    public class Subject
+    public abstract class Subject
     {
         public long id { get; set; }
         public string description { get; set; }
@@ -271,7 +271,7 @@ namespace ClassevivaPCTO.Utils
         public int attachNum { get; set; }
     }
 
-    public class Notice
+    public abstract class Notice
     {
         public int pubId { get; set; }
         public DateTime pubDT { get; set; }
@@ -295,21 +295,21 @@ namespace ClassevivaPCTO.Utils
         public List<NoticeAttachment> attachments { get; set; }
     }
 
-    public partial class NoticeReadResult
+    public class NoticeReadResult
     {
         public NoticeReadItem item { get; set; }
 
         public NoticeReadReply reply { get; set; }
     }
 
-    public partial class NoticeReadItem
+    public class NoticeReadItem
     {
         public string title { get; set; }
 
         public string text { get; set; }
     }
 
-    public partial class NoticeReadReply
+    public abstract class NoticeReadReply
     {
         public bool replJoin { get; set; }
 
@@ -400,14 +400,14 @@ namespace ClassevivaPCTO.Utils
 
     //scrutini
 
-    public class ScrutiniSchoolReport
+    public abstract class ScrutiniSchoolReport
     {
         public string desc { get; set; }
         public string confirmLink { get; set; }
         public string viewLink { get; set; }
     }
 
-    public class ScrutiniDocument
+    public abstract class ScrutiniDocument
     {
         public string hash { get; set; }
         public string desc { get; set; }
@@ -425,12 +425,12 @@ namespace ClassevivaPCTO.Utils
         public List<ScrutiniSchoolReport> SchoolReports { get; set; }
     }
 
-    public class ScrutiniDocumentCheckStatus
+    public abstract class ScrutiniDocumentCheckStatus
     {
         public bool available { get; set; }
     }
 
-    public class ScrutiniCheckResult
+    public abstract class ScrutiniCheckResult
     {
         public ScrutiniDocumentCheckStatus document { get; set; }
     }
@@ -451,7 +451,7 @@ namespace ClassevivaPCTO.Utils
         US //unknown status
     }
 
-    public class CalendarDay
+    public abstract class CalendarDay
     {
         public DateTime dayDate { get; set; }
         public int dayOfWeek { get; set; }
