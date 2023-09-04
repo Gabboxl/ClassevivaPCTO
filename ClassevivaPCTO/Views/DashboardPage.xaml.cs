@@ -115,7 +115,7 @@ namespace ClassevivaPCTO.Views
                 var result1 = await apiWrapper
                     .GetGrades(cardResult.usrId.ToString())
                     .ConfigureAwait(false);
-
+                
                 var fiveMostRecent = result1.Grades.OrderByDescending(x => x.evtDate).Take(4);
 
                 //update UI on UI thread
