@@ -7,6 +7,7 @@
     mc:Ignorable="d"
     xmlns:controls2="using:ClassevivaPCTO.Controls"
     xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
+    xmlns:controls="using:CommunityToolkit.WinUI.Controls"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
     muxc:BackdropMaterial.ApplyToRootOrPageBackground="True">
 
@@ -51,11 +52,25 @@
                        BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
                        Background="{ThemeResource CardBackgroundFillColorDefaultBrush}">
 
+            <controls:Segmented 
+                HorizontalAlignment="Stretch">
+
+                <controls:SegmentedItem Content="Tutte le valutazioni" />
+            </controls:Segmented>
+
+            <muxc:ProgressRing BorderThickness="30"
+                               
+                               FocusVisualPrimaryThickness="30"
+                               Foreground="Aquamarine"
+                          IsActive="True" Value="64"
+                          Background="LightGray"
+                          Width="100"
+                          Height="100"></muxc:ProgressRing>
+
 
             <controls2:GradesListView x:Name="ListViewVoti"
 
                                       Margin="16,24,0,0"
-                                      RelativePanel.Below="ComboPeriodi"
                                       HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
 
                                       ScrollViewer.VerticalScrollMode="Auto"

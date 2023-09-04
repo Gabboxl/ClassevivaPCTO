@@ -38,7 +38,7 @@ namespace ClassevivaPCTO.Views
             MainTitleTextBox.Text += VariousUtils.ToTitleCase(cardResult.firstName);
 
 
-            Task.Run(async () =>
+            await Task.Run(async () =>
             {
                 _grades2Result = await apiWrapper.GetGrades(
                     cardResult.usrId.ToString()
@@ -52,112 +52,14 @@ namespace ClassevivaPCTO.Views
                 //run on UI thread
                 await Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
                 {
-                    //add to ComboPeriodi every period of resultPeriods
-                    foreach (Period period in resultPeriods.Periods)
-                    {
-                        ComboPeriodi.Items.Add(VariousUtils.UppercaseFirst(period.periodDesc));
-                    }
-
-                    //seleziono il primo elemento iniziale - questo chiamerà il metodo ComboPeriodi_SelectionChanged subito
-                    ComboPeriodi.SelectedItem = ComboPeriodi.Items[0];
 
                     ProgressRingVoti.Visibility = Visibility.Collapsed;
                 });
             });
         }
 
-        private void ComboPeriodi_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            AggiornaComboMaterie();
-        }
 
-        private void ComboMaterie_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            AggiornaListViewVoti();
-        }
-
-
-        private void AggiornaComboMaterie()
-        {
-            //pulisco il ComboMaterie
-            ComboMaterie.Items.Clear();
-
-            var gradesGroupedByPeriodoDesc = _grades2Result.Grades
-                .OrderBy(x => x.evtDate)
-                .GroupBy(x => x.periodDesc)
-                .Select(grp => grp.ToList())
-                .ToList();
-
-            int c = 0;
-
-            foreach (var periodWithGrades in gradesGroupedByPeriodoDesc)
-            {
-                //if (periodWithGrades[0].periodDesc.Equals(ComboPeriodi.SelectedValue))
-
-                if (c == ComboPeriodi.SelectedIndex)
-                {
-                    var gradesGroupedByMaterie = periodWithGrades
-                        .OrderByDescending(x => x.evtDate)
-                        .GroupBy(x => x.subjectDesc)
-                        .Select(grp => grp.ToList()) //creo una lista di liste delle materie con i voti
-                        .ToList();
-
-                    foreach (List<Grade> materiaWithGrades in gradesGroupedByMaterie)
-                    {
-                        ComboMaterie.Items.Add(
-                            VariousUtils.UppercaseFirst(materiaWithGrades[0].subjectDesc)
-                        );
-                    }
-
-                    ComboMaterie.SelectedItem = ComboMaterie.Items[0];
-
-                    return;
-                }
-
-                c++;
-            }
-        }
-
-        private void AggiornaListViewVoti()
-        {
-            var gradesGroupedByPeriodoDesc = _grades2Result.Grades
-                .OrderBy(x => x.evtDate)
-                .GroupBy(x => x.periodDesc)
-                .Select(grp => grp.ToList()) //metto ogni gruppo di periodo in una lista a parte
-                .ToList();
-
-            int c = 0;
-
-            foreach (var periodWithGrades in gradesGroupedByPeriodoDesc)
-            {
-                //if (periodWithGrades[0].periodDesc.Equals(ComboPeriodi.SelectedValue))
-
-                if (c == ComboPeriodi.SelectedIndex)
-                {
-                    var gradesGroupedByMaterie = periodWithGrades
-                        .OrderByDescending(x => x.evtDate)
-                        .GroupBy(x => x.subjectDesc)
-                        .Select(grp => grp.ToList())
-                        .ToList();
-
-                    int y = 0;
-
-                    foreach (List<Grade> materiaWithGrades in gradesGroupedByMaterie)
-                    {
-                        if (y == ComboMaterie.SelectedIndex)
-                        {
-                            ListViewVoti.ItemsSource = materiaWithGrades;
-                        }
-
-                        y++;
-                    }
-
-                    return;
-                }
-
-                c++;
-            }
-        }
+        
 
 
     }
