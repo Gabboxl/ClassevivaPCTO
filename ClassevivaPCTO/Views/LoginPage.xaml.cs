@@ -283,10 +283,10 @@ namespace ClassevivaPCTO.Views
 
             CardsResult? cardsResult = await apiWrapper.GetCards(fixedId);
 
-            SingleCardResult? singleCardResult = await apiWrapper.GetCardSingle(fixedId);
+            SingleCardResult singleCardResult = await apiWrapper.GetCardSingle(fixedId);
 
 
-            ViewModelHolder.GetViewModel().SingleCardResult = singleCardResult?.Card;
+            ViewModelHolder.GetViewModel().SingleCardResult = singleCardResult.Card;
             ViewModelHolder.GetViewModel().CardsResult = cardsResult;
 
             if (saveCredentials)

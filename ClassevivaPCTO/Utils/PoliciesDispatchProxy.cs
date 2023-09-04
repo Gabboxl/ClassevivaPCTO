@@ -111,7 +111,7 @@ namespace ClassevivaPCTO.Utils
 
                                     try
                                     {
-                                        LoginResultComplete loginResult =
+                                        LoginResultComplete? loginResult =
                                             (LoginResultComplete) await CvUtils.GetApiLoginData(
                                                 Target,
                                                 refreshLoginData

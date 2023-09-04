@@ -163,7 +163,7 @@ namespace ClassevivaPCTO.Views
                     LezioniPopup.IsOpen = true;
                 });
 
-            LoginResultComplete loginResult = ViewModelHolder.GetViewModel().LoginResult;
+            LoginResultComplete? loginResult = ViewModelHolder.GetViewModel().LoginResult;
             Card? cardResult = ViewModelHolder.GetViewModel().SingleCardResult;
 
 
@@ -260,7 +260,7 @@ namespace ClassevivaPCTO.Views
                     AgendaPopup.IsOpen = true;
                 });
 
-            LoginResultComplete loginResult = ViewModelHolder.GetViewModel().LoginResult;
+            LoginResultComplete? loginResult = ViewModelHolder.GetViewModel().LoginResult;
             Card? cardResult = ViewModelHolder.GetViewModel().SingleCardResult;
 
 
