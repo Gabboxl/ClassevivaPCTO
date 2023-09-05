@@ -291,8 +291,8 @@ Ricorda che quest'app è ancora in fase di sviluppo e alcune funzionalità posso
   <data name="TitleValutazioni.Text" xml:space="preserve">
     <value>Grades of </value>
   </data>
-  <data name="TitoloDashboard.Text" xml:space="preserve">
-    <value>Dashboard di </value>
+  <data name="TitoloDashboardText" xml:space="preserve">
+    <value>Dashboard di {0}</value>
   </data>
   <data name="TextOggiAgenda.Text" xml:space="preserve">
     <value>Today's events
@@ -569,5 +569,17 @@ Gli account studente hanno l'username che inizia con le lettere S, G o X.</value
   </data>
   <data name="SettingsPaletteColorRedTT.ToolTipService.ToolTip" xml:space="preserve">
     <value>Insufficient grade, absence</value>
+  </data>
+  <data name="NoticeAdapter_FromToValidDate" xml:space="preserve">
+    <value>Valida dal {0} al {1}</value>
+  </data>
+  <data name="NoticeAdapter_StatusText_Eliminata" xml:space="preserve">
+    <value>Eliminata</value>
+  </data>
+  <data name="NoticeAdapter_StatusText_Scaduta" xml:space="preserve">
+    <value>Scaduta</value>
+  </data>
+  <data name="StatusText_NotAvailable" xml:space="preserve">
+    <value>Non disponibile</value>
   </data>
 </root>
