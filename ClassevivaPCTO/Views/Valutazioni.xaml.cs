@@ -173,7 +173,7 @@ namespace ClassevivaPCTO.Views
 
         private async void ReloadButton_OnClick(object sender, RoutedEventArgs e)
         {
-            await LoadData();
+            await Task.Run(async () => { await LoadData(); });
         }
     }
 }
