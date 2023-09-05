@@ -4,7 +4,7 @@ using CommunityToolkit.Mvvm.ComponentModel;
 
 namespace ClassevivaPCTO.ViewModels
 {
-    public class OverviewViewModel : ObservableObject
+    public class OverviewControlViewModel : ObservableObject
     {
         private OverviewDataModel _currentOverviewData;
 
@@ -22,7 +22,7 @@ namespace ClassevivaPCTO.ViewModels
             set { SetProperty(ref _filteredOverviewResult, value); }
         }
 
-        private bool _areSourcesEmpty = false;
+        private bool _areSourcesEmpty = true;
 
         public bool AreSourcesEmpty
         {
@@ -30,7 +30,7 @@ namespace ClassevivaPCTO.ViewModels
             set { SetProperty(ref _areSourcesEmpty, value); }
         }
 
-        public OverviewViewModel()
+        public OverviewControlViewModel()
         {
         }
     }

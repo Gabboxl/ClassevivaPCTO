@@ -44,53 +44,66 @@ namespace ClassevivaPCTO.Views
 
         private async Task LoadData()
         {
-            bool showDeletedDocuments = false;
-
-            await CoreApplication.MainView.Dispatcher.RunAsync(
-                CoreDispatcherPriority.Normal,
-                async () =>
-                {
-                    ScrutiniViewModel.IsLoadingScrutini = true;
-
-                    if (CheckboxEliminati.IsChecked != null) showDeletedDocuments = CheckboxEliminati.IsChecked.Value;
-                }
-            );
-
-            Card cardResult = ViewModelHolder.GetViewModel().SingleCardResult;
-
-
-            ScrutiniDocumentsResult scrutiniDocumentsResult = await apiWrapper.GetScrutiniDocuments(
-                cardResult.usrId.ToString());
-
-
-            foreach (ScrutiniDocument document in scrutiniDocumentsResult.Documents)
+            try
             {
-                ScrutiniCheckResult scrutiniCheckResult = await apiWrapper.CheckScrutinioDocument(
-                    cardResult.usrId.ToString(),
-                    document.hash);
+                bool showDeletedDocuments = false;
 
-                document.checkStatus = scrutiniCheckResult.document;
-            }
+                await CoreApplication.MainView.Dispatcher.RunAsync(
+                    CoreDispatcherPriority.Normal,
+                    async () =>
+                    {
+                        ScrutiniViewModel.IsLoadingScrutini = true;
+
+                        if (CheckboxEliminati.IsChecked != null)
+                            showDeletedDocuments = CheckboxEliminati.IsChecked.Value;
+                    }
+                );
+
+                Card? cardResult = ViewModelHolder.GetViewModel().SingleCardResult;
 
 
-            //we take only available documents if the checkbox isnt checked, after we have checked them via the API
-            if (!showDeletedDocuments)
-            {
-                scrutiniDocumentsResult.Documents =
-                    scrutiniDocumentsResult.Documents.Where(d => d.checkStatus.available).ToList();
-            }
+                ScrutiniDocumentsResult scrutiniDocumentsResult = await apiWrapper.GetScrutiniDocuments(
+                    cardResult.usrId.ToString());
 
 
-            //update UI on UI thread
-            await CoreApplication.MainView.Dispatcher.RunAsync(
-                CoreDispatcherPriority.Normal,
-                async () =>
+                foreach (ScrutiniDocument document in scrutiniDocumentsResult.Documents)
                 {
-                    ScrutiniListView.ItemsSource = scrutiniDocumentsResult;
+                    ScrutiniCheckResult scrutiniCheckResult = await apiWrapper.CheckScrutinioDocument(
+                        cardResult.usrId.ToString(),
+                        document.hash);
 
-                    ScrutiniViewModel.IsLoadingScrutini = false;
+                    document.checkStatus = scrutiniCheckResult.document;
                 }
-            );
+
+
+                //we take only available documents if the checkbox isnt checked, after we have checked them via the API
+                if (!showDeletedDocuments)
+                {
+                    scrutiniDocumentsResult.Documents =
+                        scrutiniDocumentsResult.Documents.Where(d => d.checkStatus.available).ToList();
+                }
+
+
+                //update UI on UI thread
+                await CoreApplication.MainView.Dispatcher.RunAsync(
+                    CoreDispatcherPriority.Normal,
+                    async () =>
+                    {
+                        ScrutiniListView.ItemsSource = scrutiniDocumentsResult;
+                    }
+                );
+            }
+            finally
+            {
+                {
+                    {
+                        await CoreApplication.MainView.Dispatcher.RunAsync(
+                            CoreDispatcherPriority.Normal,
+                            async () => { ScrutiniViewModel.IsLoadingScrutini = false; }
+                        );
+                    }
+                }
+            }
         }
 
 

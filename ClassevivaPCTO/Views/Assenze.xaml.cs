@@ -3,6 +3,7 @@ using ClassevivaPCTO.ViewModels;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Diagnostics;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Threading.Tasks;
 using Windows.ApplicationModel.Core;
@@ -25,7 +26,7 @@ namespace ClassevivaPCTO.Views
 
         private CalendarResult _apiCalendarResult;
 
-        private AbsencesResult _absencesResult;
+        private AbsencesResult? _absencesResult;
 
         public Assenze()
         {
@@ -51,60 +52,72 @@ namespace ClassevivaPCTO.Views
 
         private async Task LoadData()
         {
-            await CoreApplication.MainView.Dispatcher.RunAsync(
-                CoreDispatcherPriority.Normal,
-                async () => { AssenzeViewModel.IsLoadingAssenze = true; }
-            );
+            try
+
+            {
+                await CoreApplication.MainView.Dispatcher.RunAsync(
+                    CoreDispatcherPriority.Normal,
+                    async () => { AssenzeViewModel.IsLoadingAssenze = true; }
+                );
 
 
-            Card cardResult = ViewModelHolder.GetViewModel().SingleCardResult;
+                Card? cardResult = ViewModelHolder.GetViewModel().SingleCardResult;
 
 
-            AbsencesResult absencesResult = await apiWrapper.GetAbsences(
-                cardResult.usrId.ToString()
-            );
+                AbsencesResult? absencesResult = await apiWrapper.GetAbsences(
+                    cardResult.usrId.ToString()
+                );
 
-            _absencesResult = absencesResult;
-
-
-            //create list based on isjustified bool value
-            var justifiedAbsences = absencesResult.AbsenceEvents
-                .OrderByDescending(n => n.evtDate)
-                .Where(n => n.isJustified)
-                .ToList();
-
-            //not justified absences
-            var notJustifiedAbsences = absencesResult.AbsenceEvents
-                .OrderByDescending(n => n.evtDate)
-                .Where(n => !n.isJustified)
-                .ToList();
+                _absencesResult = absencesResult;
 
 
-            //calendar thigs
-            CalendarResult calendarResult = await apiWrapper.GetCalendar(
-                cardResult.usrId.ToString()
-            );
+                //create list based on isjustified bool value
+                var justifiedAbsences = absencesResult?.AbsenceEvents
+                    .OrderByDescending(n => n.evtDate)
+                    .Where(n => n.isJustified)
+                    .ToList();
 
-            _apiCalendarResult = calendarResult;
+
+                //not justified absences
+                var notJustifiedAbsences = absencesResult?.AbsenceEvents
+                    .OrderByDescending(n => n.evtDate)
+                    .Where(n => !n.isJustified)
+                    .ToList();
 
 
-            //update UI on UI thread
-            await CoreApplication.MainView.Dispatcher.RunAsync(
-                CoreDispatcherPriority.Normal,
-                async () =>
+                //calendar thigs
+                CalendarResult calendarResult = await apiWrapper.GetCalendar(
+                    cardResult.usrId.ToString()
+                );
+
+                _apiCalendarResult = calendarResult;
+
+
+                //update UI on UI thread
+                await CoreApplication.MainView.Dispatcher.RunAsync(
+                    CoreDispatcherPriority.Normal,
+                    async () =>
+                    {
+                        AbsencesToJustifyListView.ItemsSource = notJustifiedAbsences;
+                        AbsencesJustifiedListView.ItemsSource = justifiedAbsences;
+
+                        await UpdateCalendar();
+
+                        //select the current day of the calendar
+                        TestCalendar.SetDisplayDate(DateTime.Now.Date);
+
+                    }
+                );
+            }
+            finally
+            {
                 {
-                    AbsencesToJustifyListView.ItemsSource = notJustifiedAbsences;
-                    AbsencesJustifiedListView.ItemsSource = justifiedAbsences;
-
-                    await UpdateCalendar();
-
-                    //select the current day of the calendar
-                    TestCalendar.SetDisplayDate(DateTime.Now.Date);
-
-
-                    AssenzeViewModel.IsLoadingAssenze = false;
+                    await CoreApplication.MainView.Dispatcher.RunAsync(
+                        CoreDispatcherPriority.Normal,
+                        async () => { AssenzeViewModel.IsLoadingAssenze = false; }
+                    );
                 }
-            );
+            }
         }
 
 

@@ -26,13 +26,13 @@ namespace ClassevivaPCTO.Utils
     public class LoginData
     {
         [AliasAs("uid")]
-        public string Uid { get; set; }
+        public string Uid { get; init; }
 
         [AliasAs("pass")]
-        public string Pass { get; set; }
+        public string Pass { get; init; }
 
         [AliasAs("ident")]
-        public string Ident { get; set; }
+        public string? Ident { get; init; }
 
     }
 

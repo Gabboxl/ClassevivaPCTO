@@ -124,7 +124,7 @@ namespace ClassevivaPCTO.Dialogs
 
         private async Task<byte[]> GetAttachmentAsBytes(NoticeAttachment attachment)
         {
-            Card cardResult = ViewModelHolder.GetViewModel().SingleCardResult;
+            Card? cardResult = ViewModelHolder.GetViewModel().SingleCardResult;
 
             var attachmentBinary = await apiWrapper.GetNoticeAttachment(
                 cardResult.usrId.ToString(),

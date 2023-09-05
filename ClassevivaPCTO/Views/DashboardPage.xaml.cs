@@ -13,6 +13,7 @@ using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using ClassevivaPCTO.DataModels;
+using ClassevivaPCTO.Helpers;
 
 namespace ClassevivaPCTO.Views
 {
@@ -37,9 +38,9 @@ namespace ClassevivaPCTO.Views
         {
             base.OnNavigatedTo(e);
 
-            Card cardResult = ViewModelHolder.GetViewModel().SingleCardResult;
+            Card? cardResult = ViewModelHolder.GetViewModel().SingleCardResult;
 
-            TextTitolo.Text += VariousUtils.ToTitleCase(cardResult.firstName);
+            TextTitolo.Text = string.Format("TitoloDashboardText".GetLocalized(), VariousUtils.ToTitleCase(cardResult.firstName));
 
             /*
 
@@ -59,147 +60,198 @@ namespace ClassevivaPCTO.Views
 
         private async Task LoadOverviewCard()
         {
-            await CoreApplication.MainView.Dispatcher.RunAsync(
-                CoreDispatcherPriority.Normal,
-                async () => { DashboardPageViewModel.IsLoadingAgenda = true; }
-            );
+            try
+            {
+                await CoreApplication.MainView.Dispatcher.RunAsync(
+                    CoreDispatcherPriority.Normal,
+                    async () => { DashboardPageViewModel.IsLoadingAgenda = true; }
+                );
 
-            Card cardResult = ViewModelHolder.GetViewModel().SingleCardResult;
+                Card? cardResult = ViewModelHolder.GetViewModel().SingleCardResult;
 
-            string caldate = VariousUtils.ToApiDateTime(DateTime.Now);
-            OverviewResult overviewResult = await apiWrapper.GetOverview(
-                cardResult.usrId.ToString(),
-                caldate,
-                caldate);
+                string caldate = VariousUtils.ToApiDateTime(DateTime.Now);
+                OverviewResult overviewResult = await apiWrapper.GetOverview(
+                    cardResult.usrId.ToString(),
+                    caldate,
+                    caldate);
 
 
-            //update UI on UI thread
-            await CoreApplication.MainView.Dispatcher.RunAsync(
-                CoreDispatcherPriority.Normal,
-                async () =>
-                {
-                    var overviewData = new OverviewDataModel
+                //update UI on UI thread
+                await CoreApplication.MainView.Dispatcher.RunAsync(
+                    CoreDispatcherPriority.Normal,
+                    async () =>
                     {
-                        OverviewData = overviewResult,
-                        FilterDate = DateTime.Now
-                    };
+                        var overviewData = new OverviewDataModel
+                        {
+                            OverviewData = overviewResult,
+                            FilterDate = DateTime.Now
+                        };
 
-                    OverviewListView.ItemsSource = overviewData;
+                        OverviewListView.ItemsSource = overviewData;
 
-                    DashboardPageViewModel.IsLoadingAgenda = false;
-                }
-            );
+                        DashboardPageViewModel.IsLoadingAgenda = false;
+                    }
+                );
+            }
+            finally
+            {
+                await CoreApplication.MainView.Dispatcher.RunAsync(
+                    CoreDispatcherPriority.Normal,
+                    async () => { DashboardPageViewModel.IsLoadingAgenda = false; }
+                );
+            }
         }
 
         private async Task CaricaRecentGradesCard()
         {
-            await CoreApplication.MainView.Dispatcher.RunAsync(
-                CoreDispatcherPriority.Normal,
-                async () => { DashboardPageViewModel.IsLoadingGrades = true; }
-            );
+            try
+            {
+                await CoreApplication.MainView.Dispatcher.RunAsync(
+                    CoreDispatcherPriority.Normal,
+                    async () => { DashboardPageViewModel.IsLoadingGrades = true; }
+                );
 
-            Card cardResult = ViewModelHolder.GetViewModel().SingleCardResult;
+                Card? cardResult = ViewModelHolder.GetViewModel().SingleCardResult;
 
-            var result1 = await apiWrapper
-                .GetGrades(cardResult.usrId.ToString())
-                .ConfigureAwait(false);
+                var result1 = await apiWrapper
+                    .GetGrades(cardResult.usrId.ToString())
+                    .ConfigureAwait(false);
+                
+                var fiveMostRecent = result1.Grades.OrderByDescending(x => x.evtDate).Take(4);
 
-            var fiveMostRecent = result1.Grades.OrderByDescending(x => x.evtDate).Take(4);
-
-            //update UI on UI thread
-            await CoreApplication.MainView.Dispatcher.RunAsync(
-                CoreDispatcherPriority.Normal,
-                async () =>
-                {
-                    ListRecentGrades.ItemsSource = fiveMostRecent.ToList();
-
-                    DashboardPageViewModel.IsLoadingGrades = false;
-                }
-            );
+                //update UI on UI thread
+                await CoreApplication.MainView.Dispatcher.RunAsync(
+                    CoreDispatcherPriority.Normal,
+                    async () => { ListRecentGrades.ItemsSource = fiveMostRecent?.ToList(); }
+                );
+            }
+            finally
+            {
+                await CoreApplication.MainView.Dispatcher.RunAsync(
+                    CoreDispatcherPriority.Normal,
+                    async () => { DashboardPageViewModel.IsLoadingGrades = false; }
+                );
+            }
         }
 
         private async Task CaricaMediaCard()
         {
-            await CoreApplication.MainView.Dispatcher.RunAsync(
-                CoreDispatcherPriority.Normal,
-                async () => { DashboardPageViewModel.IsLoadingMedia = true; }
-            );
+            try
+            {
+                await CoreApplication.MainView.Dispatcher.RunAsync(
+                    CoreDispatcherPriority.Normal,
+                    async () => { DashboardPageViewModel.IsLoadingMedia = true; }
+                );
 
-            Card cardResult = ViewModelHolder.GetViewModel().SingleCardResult;
+                Card? cardResult = ViewModelHolder.GetViewModel().SingleCardResult;
 
-            var result1 = await apiWrapper
-                .GetGrades(cardResult.usrId.ToString())
-                .ConfigureAwait(false);
+                Grades2Result? result1 = await apiWrapper
+                    .GetGrades(cardResult.usrId.ToString())
+                    .ConfigureAwait(false);
 
-            // Calcoliamo la media dei voti
-            float media = VariousUtils.CalcolaMedia(result1.Grades);
+                // Calcoliamo la media dei voti
+                float media = VariousUtils.CalcolaMedia(result1?.Grades);
 
-            //update UI on UI thread
-            await CoreApplication.MainView.Dispatcher.RunAsync(
-                CoreDispatcherPriority.Normal,
-                async () =>
-                {
-                    TextBlockMedia.Foreground = (Brush)
-                        new GradeToColorConverter().Convert(media, null, null, null);
+                //update UI on UI thread
+                await CoreApplication.MainView.Dispatcher.RunAsync(
+                    CoreDispatcherPriority.Normal,
+                    async () =>
+                    {
+                        TextBlockMedia.Foreground = (Brush)
+                            new GradeToColorConverter().Convert(media, null, null, null);
 
-                    // Stampiamo la media dei voti
-                    TextBlockMedia.Text = media.ToString("0.00");
-                    TextBlockMedia.Visibility = Visibility.Visible;
+                        // Stampiamo la media dei voti
+                        TextBlockMedia.Text = media.ToString("0.00");
+                        TextBlockMedia.Visibility = Visibility.Visible;
 
-                    DashboardPageViewModel.IsLoadingMedia = false;
-                }
-            );
+                        DashboardPageViewModel.IsLoadingMedia = false;
+                    }
+                );
+            }
+            finally
+            {
+                await CoreApplication.MainView.Dispatcher.RunAsync(
+                    CoreDispatcherPriority.Normal,
+                    async () => { DashboardPageViewModel.IsLoadingMedia = false; }
+                );
+            }
         }
 
         private async Task CaricaNoticesCard()
         {
-            await CoreApplication.MainView.Dispatcher.RunAsync(
-                CoreDispatcherPriority.Normal,
-                async () => { DashboardPageViewModel.IsLoadingNotices = true; }
-            );
+            try
+            {
+                await CoreApplication.MainView.Dispatcher.RunAsync(
+                    CoreDispatcherPriority.Normal,
+                    async () => { DashboardPageViewModel.IsLoadingNotices = true; }
+                );
 
-            Card cardResult = ViewModelHolder.GetViewModel().SingleCardResult;
+                Card? cardResult = ViewModelHolder.GetViewModel().SingleCardResult;
 
-            var resultNotices = await apiWrapper
-                .GetNotices(cardResult.usrId.ToString())
-                .ConfigureAwait(false);
+                var resultNotices = await apiWrapper
+                    .GetNotices(cardResult.usrId.ToString())
+                    .ConfigureAwait(false);
 
-            //get only most recent 5 notices and filter by active status
-            var fiveMostRecent = resultNotices.Notices
-                .Where(x => x.cntValidInRange)
-                .OrderByDescending(x => x.cntValidFrom)
-                .Take(4);
+                //get only most recent 5 notices and filter by active status
+                var fiveMostRecent = resultNotices.Notices
+                    .Where(x => x.cntValidInRange)
+                    .OrderByDescending(x => x.cntValidFrom)
+                    .Take(4);
 
-            //update UI on UI thread
-            await CoreApplication.MainView.Dispatcher.RunAsync(
-                CoreDispatcherPriority.Normal,
-                async () =>
-                {
-                    ListRecentNotices.ItemsSource = fiveMostRecent.ToList();
+                //update UI on UI thread
+                await CoreApplication.MainView.Dispatcher.RunAsync(
+                    CoreDispatcherPriority.Normal,
+                    async () =>
+                    {
+                        ListRecentNotices.ItemsSource = fiveMostRecent.ToList();
 
-                    DashboardPageViewModel.IsLoadingNotices = false;
-                }
-            );
+                        DashboardPageViewModel.IsLoadingNotices = false;
+                    }
+                );
+            }
+            finally
+            {
+                await CoreApplication.MainView.Dispatcher.RunAsync(
+                    CoreDispatcherPriority.Normal,
+                    async () => { DashboardPageViewModel.IsLoadingNotices = false; }
+                );
+            }
         }
 
         private async Task LoadEverything()
         {
-            await Task.Run(async () => { await LoadOverviewCard(); });
+            //execute everything in parallel
+            var task1 = Task.Run(async () => { await LoadOverviewCard(); });
 
-            await Task.Run(async () => { await CaricaRecentGradesCard(); });
+            var task2 = Task.Run(async () => { await CaricaRecentGradesCard(); });
 
-            await Task.Run(async () => { await CaricaMediaCard(); });
+            var task3 = Task.Run(async () => { await CaricaMediaCard(); });
 
-            await Task.Run(async () => { await CaricaNoticesCard(); });
+            var task4 = Task.Run(async () => { await CaricaNoticesCard(); });
+
+            //wait for all tasks to complete (also useful to get and rethrow exceptions that happened inside the tasks)
+            Task taskall = Task.WhenAll(task1, task2, task3, task4);
+
+            try
+            {
+                await taskall;
+            }
+            catch (Exception)
+            {
+                if (taskall.Exception != null)
+                {
+                    throw taskall.Exception;
+                }
+            }
         }
 
-        private void HyperlinkButton_Click(object sender, RoutedEventArgs e)
+        private void HyperlinkButton_Click_Valutazioni(object sender, RoutedEventArgs e)
         {
             //NavigationService.Navigate(typeof(Views.DettaglioVoti), null);
-            NavigationService.Navigate(typeof(Views.DettaglioVoti));
+            NavigationService.Navigate(typeof(Views.Valutazioni));
         }
 
-        private async void HyperlinkButton_Click_1(object sender, RoutedEventArgs e)
+        private async void HyperlinkButton_Click_Agenda(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(typeof(Views.Agenda));
         }

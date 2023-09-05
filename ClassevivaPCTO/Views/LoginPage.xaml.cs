@@ -108,7 +108,7 @@ namespace ClassevivaPCTO.Views
 
                     edituid = EdittextUsername.Text;
                     editpass = EdittextPassword.Password;
-                    checkboxCredenzialiChecked = (bool) CheckboxCredenziali.IsChecked;
+                    checkboxCredenzialiChecked = (bool) CheckboxCredenziali.IsChecked!;
                 }
             );
 
@@ -182,7 +182,7 @@ namespace ClassevivaPCTO.Views
                 }
                 else if (resLogin is LoginResultChoices loginResultChoices)
                 {
-                    LoginChoice resLoginChoice = null;
+                    LoginChoice? resLoginChoice = null;
 
                     if (ChoiceSaverService.LoadChoiceIdentAsync().Result != null)
                     {
@@ -274,7 +274,7 @@ namespace ClassevivaPCTO.Views
             LoginResultComplete loginResultComplete,
             LoginData loginData,
             bool saveCredentials,
-            LoginChoice loginChoice = null
+            LoginChoice? loginChoice = null
         )
         {
             ViewModelHolder.GetViewModel().LoginResult = loginResultComplete;

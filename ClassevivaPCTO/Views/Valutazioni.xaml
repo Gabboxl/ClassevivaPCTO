@@ -1,5 +1,5 @@
 <Page
-    x:Class="ClassevivaPCTO.Views.DettaglioVoti"
+    x:Class="ClassevivaPCTO.Views.Valutazioni"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -7,6 +7,7 @@
     mc:Ignorable="d"
     xmlns:controls2="using:ClassevivaPCTO.Controls"
     xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
+    xmlns:controls="using:CommunityToolkit.WinUI.Controls"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
     muxc:BackdropMaterial.ApplyToRootOrPageBackground="True">
 
@@ -51,21 +52,25 @@
                        BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
                        Background="{ThemeResource CardBackgroundFillColorDefaultBrush}">
 
-            <ComboBox x:Name="ComboPeriodi" Header="Periodo didattico" PlaceholderText="Seleziona un periodo"
-                      Width="200" SelectionChanged="ComboPeriodi_SelectionChanged">
+            <controls:Segmented 
+                HorizontalAlignment="Stretch">
 
-            </ComboBox>
+                <controls:SegmentedItem Content="Tutte le valutazioni" />
+            </controls:Segmented>
 
-            <ComboBox RelativePanel.RightOf="ComboPeriodi" x:Name="ComboMaterie" Header="Materia"
-                      x:Uid="ComboMaterie" HorizontalAlignment="Left" Margin="25,0,0,0"
-                      SelectionChanged="ComboMaterie_SelectionChanged">
+            <muxc:ProgressRing BorderThickness="30"
+                               
+                               FocusVisualPrimaryThickness="30"
+                               Foreground="Aquamarine"
+                          IsActive="True" Value="64"
+                          Background="LightGray"
+                          Width="100"
+                          Height="100"></muxc:ProgressRing>
 
-            </ComboBox>
 
             <controls2:GradesListView x:Name="ListViewVoti"
 
                                       Margin="16,24,0,0"
-                                      RelativePanel.Below="ComboPeriodi"
                                       HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
 
                                       ScrollViewer.VerticalScrollMode="Auto"
