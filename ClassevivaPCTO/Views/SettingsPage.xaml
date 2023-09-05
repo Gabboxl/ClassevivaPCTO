@@ -253,12 +253,6 @@
 
                                         <Border Width="24"
                                                 Height="24"
-                                                Background="{x:Bind CurrentPalette.ColorYellow, Converter={StaticResource ColorToBrushConverter}, Mode=OneWay}"
-                                                CornerRadius="26"
-                                                IsTapEnabled="False"/>
-
-                                        <Border Width="24"
-                                                Height="24"
                                                 Background="{x:Bind CurrentPalette.ColorBlue, Converter={StaticResource ColorToBrushConverter}, Mode=OneWay}"
                                                 CornerRadius="26"
                                                 IsTapEnabled="False"
