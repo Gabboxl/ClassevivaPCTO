@@ -256,7 +256,7 @@ namespace ClassevivaPCTO.Utils
         public string teacherId { get; set; }
         public string teacherName { get; set; }
     }
-
+    
     public class Subject
     {
         public long id { get; set; }
@@ -295,21 +295,21 @@ namespace ClassevivaPCTO.Utils
         public List<NoticeAttachment> attachments { get; set; }
     }
 
-    public partial class NoticeReadResult
+    public class NoticeReadResult
     {
         public NoticeReadItem item { get; set; }
 
         public NoticeReadReply reply { get; set; }
     }
 
-    public partial class NoticeReadItem
+    public class NoticeReadItem
     {
         public string title { get; set; }
 
         public string text { get; set; }
     }
 
-    public partial class NoticeReadReply
+    public class NoticeReadReply
     {
         public bool replJoin { get; set; }
 
