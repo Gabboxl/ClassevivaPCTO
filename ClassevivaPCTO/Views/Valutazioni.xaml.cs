@@ -5,10 +5,13 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Windows.ApplicationModel.Core;
+using Windows.UI.Core;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
 using ClassevivaPCTO.Adapters;
+using ClassevivaPCTO.Controls;
 
 
 namespace ClassevivaPCTO.Views
@@ -31,6 +34,8 @@ namespace ClassevivaPCTO.Views
 
         private List<PeriodList> _periodList;
 
+        private ValutazioniViewModel ValutazioniViewModel { get; } = new();
+
         public Valutazioni()
         {
             this.InitializeComponent();
@@ -45,13 +50,28 @@ namespace ClassevivaPCTO.Views
         {
             base.OnNavigatedTo(e);
 
+            await Task.Run(async () => { await LoadData(); });
+
 
             Card? cardResult = ViewModelHolder.GetViewModel().SingleCardResult;
 
             MainTitleTextBox.Text += VariousUtils.ToTitleCase(cardResult.firstName);
 
-            await Task.Run(async () =>
+        }
+
+
+        private async Task LoadData()
+        {
+            try
             {
+                await CoreApplication.MainView.Dispatcher.RunAsync(
+                    CoreDispatcherPriority.Normal,
+                    async () => { ValutazioniViewModel.IsLoadingValutazioni = true; }
+                );
+
+                Card? cardResult = ViewModelHolder.GetViewModel().SingleCardResult;
+
+
                 Grades2Result grades2Result = await _apiWrapper.GetGrades(
                     cardResult.usrId.ToString()
                 );
@@ -68,19 +88,6 @@ namespace ClassevivaPCTO.Views
                 var periods = resultPeriods.Periods;
                 var subjects = resultSubjects.Subjects;
 
-                /*
-                var groupedData = from g in grades
-                    join p in periods on g.periodPos equals p.periodPos
-                    join s in subjects on g.subjectId equals s.id
-                    group g by new {p.periodDesc, s.description}
-                    into g
-                    select new
-                    {
-                        Period = g.Key.periodDesc,
-                        Subject = g.Key.description,
-                        Grades = g.ToList()
-                    };
-                    */
 
                 // Select unique Periods from Grade list
                 _periodList = grades
@@ -97,30 +104,36 @@ namespace ClassevivaPCTO.Views
                     }).ToList();
 
 
-                //run on UI thread
-                await Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
-                {
-                    //add to ComboPeriodi every period of resultPeriods
-                    foreach (var period in _periodList)
-                    {
-                        SegmentedVoti.Items.Add(VariousUtils.UppercaseFirst(period.Period.periodDesc));
-                    }
-
-
-                    SegmentedVoti.SelectedIndex = 0;
-
-
-                    ProgressRingVoti.Visibility = Visibility.Collapsed;
-                });
-            });
+                //update UI on UI thread
+                await CoreApplication.MainView.Dispatcher.RunAsync(
+                    CoreDispatcherPriority.Normal,
+                    async () => { UpdateUi(); }
+                );
+            }
+            finally
+            {
+                await CoreApplication.MainView.Dispatcher.RunAsync(
+                    CoreDispatcherPriority.Normal,
+                    async () => { ValutazioniViewModel.IsLoadingValutazioni = false; }
+                );
+            }
         }
 
-
-        private void SegmentedVoti_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void UpdateUi()
         {
             var periodIndex = SegmentedVoti.SelectedIndex;
 
-            if (periodIndex == 0)
+            if (periodIndex == -1)
+            {
+                foreach (var period in _periodList)
+                {
+                    SegmentedVoti.Items.Add(VariousUtils.UppercaseFirst(period.Period.periodDesc));
+                }
+
+                SegmentedVoti.SelectedIndex = 0;
+
+                SegmentedVoti.IsEnabled = true;
+            } else if (periodIndex == 0)
             {
                 //create a list of SubjectAdapter from periodGrades by merging periods together and count subjects as one distinct subject
                 var mergetdPeriodsSubjects = _periodList
@@ -150,9 +163,12 @@ namespace ClassevivaPCTO.Views
 
                 MainListView.ItemsSource = subjectAdapters;
             }
+        }
 
 
-            //MainListView.ItemsSource = subjectAdapters;
+        private void SegmentedVoti_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            UpdateUi();
         }
     }
 }

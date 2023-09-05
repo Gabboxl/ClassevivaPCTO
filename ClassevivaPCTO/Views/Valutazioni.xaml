@@ -10,10 +10,14 @@
     xmlns:controls="using:CommunityToolkit.WinUI.Controls"
     xmlns:adapters="using:ClassevivaPCTO.Adapters"
     xmlns:winUi="using:CommunityToolkit.Labs.WinUI"
+    xmlns:converters="using:Microsoft.Toolkit.Uwp.UI.Converters"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
     muxc:BackdropMaterial.ApplyToRootOrPageBackground="True">
 
     <Page.Resources>
+
+        <converters:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" />
+
 
         <Style x:Key="ListViewFullStretchStyle" TargetType="ListViewItem"
                BasedOn="{StaticResource DefaultListViewItemStyle}">
@@ -87,7 +91,8 @@
             <muxc:ProgressRing IsActive="True" x:Name="ProgressRingVoti"
                                RelativePanel.AlignVerticalCenterWith="MainTitleTextBox"
                                RelativePanel.RightOf="MainTitleTextBox"
-                               Margin="16,0,0,0" Width="28" Height="28" />
+                               Margin="16,0,0,0" Width="28" Height="28"
+                               Visibility="{x:Bind ValutazioniViewModel.IsLoadingValutazioni, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" />
 
             <Button x:Name="AggiornaCommand"
                     HorizontalAlignment="Right"
@@ -111,6 +116,7 @@
                        Background="{ThemeResource CardBackgroundFillColorDefaultBrush}">
 
             <controls:Segmented
+                IsEnabled="False"
                 x:Name="SegmentedVoti"
                 SelectionChanged="SegmentedVoti_OnSelectionChanged"
                 HorizontalAlignment="Stretch">
