@@ -154,14 +154,10 @@ namespace ClassevivaPCTO.Views
                             async () =>
                             {
                                 ContentDialog dialog = new ContentDialog();
-                                dialog.Title = Windows.ApplicationModel.Resources.Core.ResourceManager.Current
-                                    .MainResourceMap.GetValue("Resources/AccountNonSupportato").ValueAsString;
-                                dialog.PrimaryButtonText = Windows.ApplicationModel.Resources.Core.ResourceManager
-                                    .Current.MainResourceMap.GetValue("Resources/OKCapsText").ValueAsString;
+                                dialog.Title = "AccountNonSupportato".GetLocalized();
+                                dialog.PrimaryButtonText = "OKCapsText".GetLocalized();
                                 dialog.DefaultButton = ContentDialogButton.Primary;
-                                dialog.Content =
-                                    Windows.ApplicationModel.Resources.Core.ResourceManager.Current.MainResourceMap
-                                        .GetValue("Resources/AccountNonSupportatoBody").ValueAsString;
+                                dialog.Content = "AccountNonSupportatoBody".GetLocalized();
 
                                 try
                                 {
@@ -236,14 +232,11 @@ namespace ClassevivaPCTO.Views
                     async () =>
                     {
                         ContentDialog dialog = new ContentDialog();
-                        dialog.Title = Windows.ApplicationModel.Resources.Core.ResourceManager.Current.MainResourceMap
-                            .GetValue("Resources/ErroreText").ValueAsString;
-                        dialog.PrimaryButtonText = Windows.ApplicationModel.Resources.Core.ResourceManager.Current
-                            .MainResourceMap.GetValue("Resources/OKCapsText").ValueAsString;
+                        dialog.Title = "ErroreText".GetLocalized();
+                        dialog.PrimaryButtonText = "OKCapsText".GetLocalized();
                         dialog.DefaultButton = ContentDialogButton.Primary;
                         dialog.Content =
-                            Windows.ApplicationModel.Resources.Core.ResourceManager.Current.MainResourceMap
-                                .GetValue("Resources/ErrorDialogBody").ValueAsString
+                            "ErrorDialogBody".GetLocalized()
                             + ex.Content;
 
                         try
@@ -332,12 +325,9 @@ namespace ClassevivaPCTO.Views
                     contentDialogContent = new ChoiceDialogContent(loginResultChoices.choices);
 
                     ContentDialog dialog = new ContentDialog();
-                    dialog.Title = Windows.ApplicationModel.Resources.Core.ResourceManager.Current.MainResourceMap
-                        .GetValue("Resources/ChooseProfileDialogTitle").ValueAsString;
-                    dialog.PrimaryButtonText = Windows.ApplicationModel.Resources.Core.ResourceManager.Current
-                        .MainResourceMap.GetValue("Resources/LoginDialogButton").ValueAsString;
-                    dialog.CloseButtonText = Windows.ApplicationModel.Resources.Core.ResourceManager.Current
-                        .MainResourceMap.GetValue("Resources/CancelDialogButton").ValueAsString;
+                    dialog.Title = "ChooseProfileDialogTitle".GetLocalized();
+                    dialog.PrimaryButtonText = "LoginDialogButton".GetLocalized();
+                    dialog.CloseButtonText = "CancelDialogButton".GetLocalized();
                     dialog.DefaultButton = ContentDialogButton.Primary;
                     dialog.RequestedTheme = ((FrameworkElement) Window.Current.Content).RequestedTheme;
                     dialog.Content = contentDialogContent;

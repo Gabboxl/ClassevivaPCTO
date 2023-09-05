@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using ClassevivaPCTO.Helpers;
 
 namespace ClassevivaPCTO.Dialogs
 {
@@ -23,13 +24,11 @@ namespace ClassevivaPCTO.Dialogs
             {
                 if (CurrentNotice.attachments.Count == 0)
                 {
-                    return Windows.ApplicationModel.Resources.Core.ResourceManager.Current.MainResourceMap
-                        .GetValue("Resources/NoticeDialogNessunAllegatiSubtitle").ValueAsString;
+                    return "NoticeDialogNessunAllegatiSubtitle".GetLocalized();
                 }
                 else
                 {
-                    return Windows.ApplicationModel.Resources.Core.ResourceManager.Current.MainResourceMap
-                        .GetValue("Resources/NoticeDialogAllegatiSubtitle").ValueAsString;
+                    return "NoticeDialogAllegatiSubtitle".GetLocalized();
                 }
             }
         }

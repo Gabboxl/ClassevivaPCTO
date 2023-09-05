@@ -11,6 +11,7 @@ using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using ClassevivaPCTO.Helpers;
 using Microsoft.Toolkit.Uwp.UI;
 
 
@@ -107,8 +108,7 @@ namespace ClassevivaPCTO.Controls
                 var flyout = new Flyout();
                 //create a textblock
                 var textBlock = new TextBlock();
-                textBlock.Text = Windows.ApplicationModel.Resources.Core.ResourceManager.Current.MainResourceMap
-                    .GetValue("Resources/InfoNoticeFlyoutText").ValueAsString;
+                textBlock.Text = "InfoNoticeFlyoutText".GetLocalized();
                 textBlock.TextWrapping = TextWrapping.WrapWholeWords;
                 textBlock.Margin = new Thickness(0, 0, 0, 12);
 
@@ -135,8 +135,7 @@ namespace ClassevivaPCTO.Controls
 
                 //create a button
                 var button = new Button();
-                button.Content = Windows.ApplicationModel.Resources.Core.ResourceManager.Current.MainResourceMap
-                    .GetValue("Resources/ReadAndOpenFlyoutText").ValueAsString;
+                button.Content = "ReadAndOpenFlyoutText".GetLocalized();
                 button.Click += async delegate
                 {
                     //close the flyout
@@ -184,8 +183,7 @@ namespace ClassevivaPCTO.Controls
 
                 ContentDialog dialog = new ContentDialog();
                 dialog.Title = currentNotice.cntTitle;
-                dialog.PrimaryButtonText = Windows.ApplicationModel.Resources.Core.ResourceManager.Current
-                    .MainResourceMap.GetValue("Resources/CloseDialogButtonText").ValueAsString;
+                dialog.PrimaryButtonText = "CloseDialogButtonText".GetLocalized();
                 dialog.DefaultButton = ContentDialogButton.Primary;
                 dialog.RequestedTheme = ((FrameworkElement) Window.Current.Content).RequestedTheme;
                 dialog.Content = noticeDialogContent;
