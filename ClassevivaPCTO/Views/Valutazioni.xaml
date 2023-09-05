@@ -15,13 +15,25 @@
 
     <Page.Resources>
 
+        <Style x:Key="ListViewFullStretchStyle" TargetType="ListViewItem"
+               BasedOn="{StaticResource DefaultListViewItemStyle}">
+            <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+            <Setter Property="VerticalContentAlignment" Value="Stretch" />
+        </Style>
 
         <DataTemplate x:Key="VotiListViewDataTemplateStandard"
                       x:DataType="adapters:SubjectAdapter">
-            <RelativePanel>
-
+            <Grid Margin="0,0,0,16">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
 
                 <winUi:SettingsExpander x:Name="MateriaExpander" IsExpanded="False"
+                                        HorizontalAlignment="Stretch"
+                                        HorizontalContentAlignment="Stretch"
                                         Header="{x:Bind Subject.description}"
                                         Description="bella">
                     <TextBlock IsTextSelectionEnabled="True"
@@ -36,7 +48,7 @@
                             <controls2:GradesListView x:Name="ListViewVoti"
                                                       ItemsSource="{x:Bind SubjectGrades}"
 
-                                                      Margin="16,24,0,0"
+                                                      Margin="0,0,0,0"
                                                       HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
 
                                                       ScrollViewer.VerticalScrollMode="Auto"
@@ -47,7 +59,8 @@
                     </winUi:SettingsExpander.Items>
                 </winUi:SettingsExpander>
 
-            </RelativePanel>
+
+            </Grid>
         </DataTemplate>
 
 
@@ -59,6 +72,9 @@
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
 
 
         <RelativePanel Grid.Row="0" Margin="0,16,0,0">
@@ -96,35 +112,30 @@
 
             <controls:Segmented
                 x:Name="SegmentedVoti"
+                SelectionChanged="SegmentedVoti_OnSelectionChanged"
                 HorizontalAlignment="Stretch">
 
                 <controls:SegmentedItem Content="Tutte le valutazioni" />
             </controls:Segmented>
 
-            <muxc:ProgressRing BorderThickness="30"
+            <ListView
+                Margin="0,32,0,0"
+                RelativePanel.Below="SegmentedVoti"
+                RelativePanel.AlignLeftWithPanel="True"
+                RelativePanel.AlignRightWithPanel="True"
+                RelativePanel.AlignBottomWithPanel="True"
+                x:Name="MainListView"
+                Grid.Row="1"
+                SelectionMode="None"
+                ScrollViewer.VerticalScrollMode="Enabled"
+                HorizontalAlignment="Stretch"
+                HorizontalContentAlignment="Stretch"
+                ItemTemplate="{StaticResource VotiListViewDataTemplateStandard}"
+                ItemContainerStyle="{StaticResource ListViewFullStretchStyle}" />
 
-                               FocusVisualPrimaryThickness="30"
-                               Foreground="Aquamarine"
-                               IsActive="True" Value="64"
-                               Background="LightGray"
-                               Width="100"
-                               Height="100">
-            </muxc:ProgressRing>
-
-            <ListView x:Name="MainListView" ItemTemplate="{StaticResource VotiListViewDataTemplateStandard}" />
-
-
-            <!-- <controls2:GradesListView x:Name="ListViewVoti"
-
-                                      Margin="16,24,0,0"
-                                      HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
-
-                                      ScrollViewer.VerticalScrollMode="Auto"
-                                      ScrollViewer.VerticalScrollBarVisibility="Auto">
-
-            </controls2:GradesListView> -->
 
         </RelativePanel>
+
 
     </Grid>
 </Page>

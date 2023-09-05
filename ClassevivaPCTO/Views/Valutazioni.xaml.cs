@@ -2,6 +2,7 @@
 using ClassevivaPCTO.ViewModels;
 using Microsoft.Extensions.DependencyInjection;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Windows.UI.Xaml;
@@ -12,9 +13,23 @@ using ClassevivaPCTO.Adapters;
 
 namespace ClassevivaPCTO.Views
 {
+    public class PeriodList
+    {
+        public Period Period { get; set; }
+        public List<SubjectWithGrades> Subjects { get; set; }
+    }
+
+    public class SubjectWithGrades
+    {
+        public Subject Subject { get; set; }
+        public List<Grade> Grades { get; set; }
+    }
+
     public sealed partial class Valutazioni : Page
     {
         private readonly IClassevivaAPI _apiWrapper;
+
+        private List<PeriodList> _periodList;
 
         public Valutazioni()
         {
@@ -68,13 +83,13 @@ namespace ClassevivaPCTO.Views
                     */
 
                 // Select unique Periods from Grade list
-                var periodList = grades
+                _periodList = grades
                     .GroupBy(g => g.periodPos)
-                    .Select(g => new
+                    .Select(g => new PeriodList
                     {
                         Period = periods.Single(p => p.periodPos == g.Key),
                         Subjects = g.GroupBy(s => s.subjectId)
-                            .Select(sub => new
+                            .Select(sub => new SubjectWithGrades
                             {
                                 Subject = subjects.Single(s => s.id == sub.Key),
                                 Grades = sub.Select(gr => gr).ToList()
@@ -86,27 +101,58 @@ namespace ClassevivaPCTO.Views
                 await Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
                 {
                     //add to ComboPeriodi every period of resultPeriods
-                    foreach (var period in periodList)
+                    foreach (var period in _periodList)
                     {
                         SegmentedVoti.Items.Add(VariousUtils.UppercaseFirst(period.Period.periodDesc));
-
-
                     }
 
-                    var periodGrades = periodList[0].Subjects;
 
-                    //create a list of SubjectAdapter for every subject in periodGrades
-                    var subjectAdapters = periodGrades.Select(subject =>
-                        new SubjectAdapter(subject.Subject, subject.Grades)
-                    ).ToList();
-
-                    MainListView.ItemsSource = subjectAdapters;
-
+                    SegmentedVoti.SelectedIndex = 0;
 
 
                     ProgressRingVoti.Visibility = Visibility.Collapsed;
                 });
             });
+        }
+
+
+        private void SegmentedVoti_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var periodIndex = SegmentedVoti.SelectedIndex;
+
+            if (periodIndex == 0)
+            {
+                //create a list of SubjectAdapter from periodGrades by merging periods together and count subjects as one distinct subject
+                var mergetdPeriodsSubjects = _periodList
+                    .SelectMany(p => p.Subjects)
+                    .GroupBy(s => s.Subject.id)
+                    .Select(g => new SubjectWithGrades
+                    {
+                        Subject = g.First().Subject,
+                        Grades = g.SelectMany(s => s.Grades).ToList()
+                    })
+                    .ToList();
+
+                var subjectAdapters = mergetdPeriodsSubjects.Select(subject =>
+                    new SubjectAdapter(subject.Subject, subject.Grades)
+                ).ToList();
+
+                MainListView.ItemsSource = subjectAdapters;
+            }
+            else
+            {
+                var periodGrades = _periodList[periodIndex - 1].Subjects;
+
+                //create a list of SubjectAdapter for every subject in periodGrades
+                var subjectAdapters = periodGrades.Select(subject =>
+                    new SubjectAdapter(subject.Subject, subject.Grades)
+                ).ToList();
+
+                MainListView.ItemsSource = subjectAdapters;
+            }
+
+
+            //MainListView.ItemsSource = subjectAdapters;
         }
     }
 }
