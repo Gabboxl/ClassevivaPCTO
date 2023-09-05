@@ -170,5 +170,10 @@ namespace ClassevivaPCTO.Views
         {
             UpdateUi();
         }
+
+        private async void ReloadButton_OnClick(object sender, RoutedEventArgs e)
+        {
+            await LoadData();
+        }
     }
 }

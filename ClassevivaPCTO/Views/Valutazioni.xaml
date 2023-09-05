@@ -94,7 +94,8 @@
                                Margin="16,0,0,0" Width="28" Height="28"
                                Visibility="{x:Bind ValutazioniViewModel.IsLoadingValutazioni, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" />
 
-            <Button x:Name="AggiornaCommand"
+            <Button x:Name="ReloadButton"
+                    Click="ReloadButton_OnClick"
                     HorizontalAlignment="Right"
                     Width="48"
                     Height="32"
