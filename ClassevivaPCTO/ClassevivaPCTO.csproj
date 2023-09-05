@@ -141,6 +141,7 @@
     <Compile Include="Adapters\ComboPaletteAdapter.cs" />
     <Compile Include="Adapters\AbsenceEventAdapter.cs" />
     <Compile Include="Adapters\GradeAdapter.cs" />
+    <Compile Include="Adapters\SubjectAdapter.cs" />
     <Compile Include="Adapters\SchoolReportAdapter.cs" />
     <Compile Include="Adapters\NoteAdapter.cs" />
     <Compile Include="Adapters\ScrutinioAdapter.cs" />

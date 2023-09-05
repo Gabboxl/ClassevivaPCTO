@@ -8,8 +8,50 @@
     xmlns:controls2="using:ClassevivaPCTO.Controls"
     xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
     xmlns:controls="using:CommunityToolkit.WinUI.Controls"
+    xmlns:adapters="using:ClassevivaPCTO.Adapters"
+    xmlns:winUi="using:CommunityToolkit.Labs.WinUI"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
     muxc:BackdropMaterial.ApplyToRootOrPageBackground="True">
+
+    <Page.Resources>
+
+
+        <DataTemplate x:Key="VotiListViewDataTemplateStandard"
+                      x:DataType="adapters:SubjectAdapter">
+            <RelativePanel>
+
+
+                <winUi:SettingsExpander x:Name="MateriaExpander" IsExpanded="False"
+                                        Header="{x:Bind Subject.description}"
+                                        Description="bella">
+                    <TextBlock IsTextSelectionEnabled="True"
+                               Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                               Style="{StaticResource BodyTextBlockStyle}">
+                        <Run Text="lol" />
+                    </TextBlock>
+                    <winUi:SettingsExpander.Items>
+                        <winUi:SettingsCard HorizontalContentAlignment="Stretch"
+                                            ContentAlignment="Left">
+
+                            <controls2:GradesListView x:Name="ListViewVoti"
+                                                      ItemsSource="{x:Bind SubjectGrades}"
+
+                                                      Margin="16,24,0,0"
+                                                      HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+
+                                                      ScrollViewer.VerticalScrollMode="Auto"
+                                                      ScrollViewer.VerticalScrollBarVisibility="Auto">
+
+                            </controls2:GradesListView>
+                        </winUi:SettingsCard>
+                    </winUi:SettingsExpander.Items>
+                </winUi:SettingsExpander>
+
+            </RelativePanel>
+        </DataTemplate>
+
+
+    </Page.Resources>
 
     <Grid>
         <Grid.RowDefinitions>
@@ -52,23 +94,27 @@
                        BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
                        Background="{ThemeResource CardBackgroundFillColorDefaultBrush}">
 
-            <controls:Segmented 
+            <controls:Segmented
+                x:Name="SegmentedVoti"
                 HorizontalAlignment="Stretch">
 
                 <controls:SegmentedItem Content="Tutte le valutazioni" />
             </controls:Segmented>
 
             <muxc:ProgressRing BorderThickness="30"
-                               
+
                                FocusVisualPrimaryThickness="30"
                                Foreground="Aquamarine"
-                          IsActive="True" Value="64"
-                          Background="LightGray"
-                          Width="100"
-                          Height="100"></muxc:ProgressRing>
+                               IsActive="True" Value="64"
+                               Background="LightGray"
+                               Width="100"
+                               Height="100">
+            </muxc:ProgressRing>
+
+            <ListView x:Name="MainListView" ItemTemplate="{StaticResource VotiListViewDataTemplateStandard}" />
 
 
-            <controls2:GradesListView x:Name="ListViewVoti"
+            <!-- <controls2:GradesListView x:Name="ListViewVoti"
 
                                       Margin="16,24,0,0"
                                       HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
@@ -76,7 +122,7 @@
                                       ScrollViewer.VerticalScrollMode="Auto"
                                       ScrollViewer.VerticalScrollBarVisibility="Auto">
 
-            </controls2:GradesListView>
+            </controls2:GradesListView> -->
 
         </RelativePanel>
 
