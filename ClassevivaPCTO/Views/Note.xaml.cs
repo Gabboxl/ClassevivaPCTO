@@ -34,9 +34,6 @@ namespace ClassevivaPCTO.Views
         {
             base.OnNavigatedTo(e);
 
-            NoteViewModel.IsLoadingNote = true;
-
-
             await Task.Run(async () => { await LoadData(); });
         }
 

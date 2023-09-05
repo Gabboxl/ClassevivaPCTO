@@ -28,6 +28,13 @@
             </Style.Setters>
         </Style>
 
+        
+        <Style x:Key="ControlFullStretchStyle" TargetType="ListViewItem"
+               BasedOn="{StaticResource DefaultListViewItemStyle}">
+            <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+
+        </Style>
+
         <helper:EnumToBooleanConverter x:Key="EnumToBooleanConverter" EnumType="palette:PaletteType" />
 
         <converters:ColorToBrushConverter x:Key="ColorToBrushConverter" />
@@ -193,17 +200,35 @@
 
                     <ComboBox SelectedIndex="{x:Bind PaletteType.GetHashCode()}"
                               x:Name="PaletteComboBox" MinWidth="200"
+                              ItemContainerStyle="{StaticResource ControlFullStretchStyle}"
                               ItemsSource="{x:Bind ComboPalettes}"
                               SelectionChanged="PaletteComboBox_OnSelectionChanged">
                         <ComboBox.ItemTemplate>
                             <DataTemplate x:DataType="adapters:ComboPaletteAdapter">
-                                <StackPanel Orientation="Horizontal">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
 
+                                
+                                <!-- full width rectangle -->
 
-                                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Spacing="8"
+                                <Rectangle HorizontalAlignment="Stretch" Height="20"
+                                           Fill="{x:Bind CurrentPalette.ColorYellow, Converter={StaticResource ColorToBrushConverter}, Mode=OneWay}" />
+                                
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch">
+
+                                    <TextBlock Text="{x:Bind PaletteNameTranslatedResource}"
+                                               HorizontalAlignment="Left"
+                                               VerticalAlignment="Center"
+                                               Margin="0,0,0,0" />
+
+                                    <StackPanel Orientation="Horizontal"
+                                                HorizontalAlignment="Right"
+                                                VerticalAlignment="Center" Spacing="8"
                                                 Margin="0,4,0,0">
 
-                                        <!-- <TextBlock Text="{x:Bind PaletteNameTranslatedResource}" Margin="0,0,0,0" /> -->
+                                        
 
                                         <Border Width="24"
                                                 Height="24"
@@ -236,6 +261,7 @@
                                     </StackPanel>
 
                                 </StackPanel>
+                                </Grid>
                             </DataTemplate>
                         </ComboBox.ItemTemplate>
 

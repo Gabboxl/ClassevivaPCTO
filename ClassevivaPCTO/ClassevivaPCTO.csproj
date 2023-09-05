@@ -141,6 +141,7 @@
     <Compile Include="Adapters\ComboPaletteAdapter.cs" />
     <Compile Include="Adapters\AbsenceEventAdapter.cs" />
     <Compile Include="Adapters\GradeAdapter.cs" />
+    <Compile Include="Adapters\SubjectAdapter.cs" />
     <Compile Include="Adapters\SchoolReportAdapter.cs" />
     <Compile Include="Adapters\NoteAdapter.cs" />
     <Compile Include="Adapters\ScrutinioAdapter.cs" />
@@ -211,6 +212,7 @@
     <Compile Include="Utils\IClassevivaAPI.cs" />
     <Compile Include="DataModels\OverviewDataModel.cs" />
     <Compile Include="ViewModels\AssenzeViewModel.cs" />
+    <Compile Include="ViewModels\ValutazioniViewModel.cs" />
     <Compile Include="ViewModels\NoteViewModel.cs" />
     <Compile Include="ViewModels\ScrutiniViewModel.cs" />
     <Compile Include="ViewModels\OverviewControlViewModel.cs" />

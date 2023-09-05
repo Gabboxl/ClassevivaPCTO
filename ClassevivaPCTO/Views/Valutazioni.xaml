@@ -8,8 +8,67 @@
     xmlns:controls2="using:ClassevivaPCTO.Controls"
     xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
     xmlns:controls="using:CommunityToolkit.WinUI.Controls"
+    xmlns:adapters="using:ClassevivaPCTO.Adapters"
+    xmlns:winUi="using:CommunityToolkit.Labs.WinUI"
+    xmlns:converters="using:Microsoft.Toolkit.Uwp.UI.Converters"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
     muxc:BackdropMaterial.ApplyToRootOrPageBackground="True">
+
+    <Page.Resources>
+
+        <converters:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" />
+
+
+        <Style x:Key="ListViewFullStretchStyle" TargetType="ListViewItem"
+               BasedOn="{StaticResource DefaultListViewItemStyle}">
+            <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+            <Setter Property="VerticalContentAlignment" Value="Stretch" />
+        </Style>
+
+        <DataTemplate x:Key="VotiListViewDataTemplateStandard"
+                      x:DataType="adapters:SubjectAdapter">
+            <Grid Margin="0,0,0,16">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <winUi:SettingsExpander x:Name="MateriaExpander" IsExpanded="False"
+                                        HorizontalAlignment="Stretch"
+                                        HorizontalContentAlignment="Stretch"
+                                        Header="{x:Bind Subject.description}"
+                                        Description="bella">
+                    <TextBlock IsTextSelectionEnabled="True"
+                               Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                               Style="{StaticResource BodyTextBlockStyle}">
+                        <Run Text="lol" />
+                    </TextBlock>
+                    <winUi:SettingsExpander.Items>
+                        <winUi:SettingsCard HorizontalContentAlignment="Stretch"
+                                            ContentAlignment="Left">
+
+                            <controls2:GradesListView x:Name="ListViewVoti"
+                                                      ItemsSource="{x:Bind SubjectGrades}"
+
+                                                      Margin="0,0,0,0"
+                                                      HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+
+                                                      ScrollViewer.VerticalScrollMode="Auto"
+                                                      ScrollViewer.VerticalScrollBarVisibility="Auto">
+
+                            </controls2:GradesListView>
+                        </winUi:SettingsCard>
+                    </winUi:SettingsExpander.Items>
+                </winUi:SettingsExpander>
+
+
+            </Grid>
+        </DataTemplate>
+
+
+    </Page.Resources>
 
     <Grid>
         <Grid.RowDefinitions>
@@ -17,6 +76,9 @@
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
 
 
         <RelativePanel Grid.Row="0" Margin="0,16,0,0">
@@ -29,9 +91,11 @@
             <muxc:ProgressRing IsActive="True" x:Name="ProgressRingVoti"
                                RelativePanel.AlignVerticalCenterWith="MainTitleTextBox"
                                RelativePanel.RightOf="MainTitleTextBox"
-                               Margin="16,0,0,0" Width="28" Height="28" />
+                               Margin="16,0,0,0" Width="28" Height="28"
+                               Visibility="{x:Bind ValutazioniViewModel.IsLoadingValutazioni, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" />
 
-            <Button x:Name="AggiornaCommand"
+            <Button x:Name="ReloadButton"
+                    Click="ReloadButton_OnClick"
                     HorizontalAlignment="Right"
                     Width="48"
                     Height="32"
@@ -52,33 +116,33 @@
                        BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
                        Background="{ThemeResource CardBackgroundFillColorDefaultBrush}">
 
-            <controls:Segmented 
+            <controls:Segmented
+                IsEnabled="False"
+                x:Name="SegmentedVoti"
+                SelectionChanged="SegmentedVoti_OnSelectionChanged"
                 HorizontalAlignment="Stretch">
 
                 <controls:SegmentedItem Content="Tutte le valutazioni" />
             </controls:Segmented>
 
-            <muxc:ProgressRing BorderThickness="30"
-                               
-                               FocusVisualPrimaryThickness="30"
-                               Foreground="Aquamarine"
-                          IsActive="True" Value="64"
-                          Background="LightGray"
-                          Width="100"
-                          Height="100"></muxc:ProgressRing>
+            <ListView
+                Margin="0,32,0,0"
+                RelativePanel.Below="SegmentedVoti"
+                RelativePanel.AlignLeftWithPanel="True"
+                RelativePanel.AlignRightWithPanel="True"
+                RelativePanel.AlignBottomWithPanel="True"
+                x:Name="MainListView"
+                Grid.Row="1"
+                SelectionMode="None"
+                ScrollViewer.VerticalScrollMode="Enabled"
+                HorizontalAlignment="Stretch"
+                HorizontalContentAlignment="Stretch"
+                ItemTemplate="{StaticResource VotiListViewDataTemplateStandard}"
+                ItemContainerStyle="{StaticResource ListViewFullStretchStyle}" />
 
-
-            <controls2:GradesListView x:Name="ListViewVoti"
-
-                                      Margin="16,24,0,0"
-                                      HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
-
-                                      ScrollViewer.VerticalScrollMode="Auto"
-                                      ScrollViewer.VerticalScrollBarVisibility="Auto">
-
-            </controls2:GradesListView>
 
         </RelativePanel>
+
 
     </Grid>
 </Page>

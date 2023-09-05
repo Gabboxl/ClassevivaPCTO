@@ -18,8 +18,6 @@
 
     <Page.Resources>
 
-        <roba:VariousUtils x:Key="VariousUtils" />
-
         <Style x:Key="ControlFullStretchStyle" TargetType="ListViewItem"
                BasedOn="{StaticResource DefaultListViewItemStyle}">
             <Setter Property="HorizontalContentAlignment" Value="Stretch" />
