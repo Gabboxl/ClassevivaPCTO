@@ -16,25 +16,25 @@ namespace ClassevivaPCTO.Converters
 
             float? valore = null;
 
-            IPalette CurrentPalette = PaletteSelectorService.PaletteClass;
+            IPalette currentPalette = PaletteSelectorService.PaletteClass;
 
             valore = VariousUtils.GradeToFloat(value);
 
             if (valore == null)
             {
-                brush.Color = CurrentPalette.ColorBlue;
+                brush.Color = currentPalette.ColorBlue;
             }
             else if (valore >= 6)
             {
-                brush.Color = CurrentPalette.ColorGreen;
+                brush.Color = currentPalette.ColorGreen;
             }
             else if (valore >= 5)
             {
-                brush.Color = CurrentPalette.ColorOrange;
+                brush.Color = currentPalette.ColorOrange;
             }
             else
             {
-                brush.Color = CurrentPalette.ColorRed;
+                brush.Color = currentPalette.ColorRed;
             }
 
             return brush;

@@ -19,6 +19,22 @@ namespace ClassevivaPCTO.Adapters
             }
         }
 
+        public float? Average
+        {
+            get
+            {
+                return VariousUtils.CalcolaMedia(SubjectGrades);
+            }
+        }
+
+        public int Progress
+        {
+            get
+            {
+                return (int) (Average * 10 ?? 0);
+            }
+        }
+
 
         public SubjectAdapter(Subject subject, List<Grade> subjectSubjectGrades)
         {
