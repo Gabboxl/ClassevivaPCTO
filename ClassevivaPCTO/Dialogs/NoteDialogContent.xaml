@@ -9,10 +9,6 @@
     mc:Ignorable="d">
 
     <Page.Resources>
-        <Style x:Key="ListViewFullStretchStyle" TargetType="ListViewItem">
-            <Setter Property="HorizontalContentAlignment" Value="Stretch" />
-            <Setter Property="VerticalContentAlignment" Value="Stretch" />
-        </Style>
 
     </Page.Resources>
 
