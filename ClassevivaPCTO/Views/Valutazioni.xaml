@@ -182,7 +182,7 @@
                         HorizontalAlignment="Center"
                         VerticalAlignment="Center"
                         x:Name="ProgressMediaTot"
-                        Value="54"
+                        Value="0"
                         Foreground="{x:Bind ValutazioniViewModel.AverageTot, Mode=OneWay, Converter={StaticResource GradeToColorConverter}}"
                         Thickness="12"
                         Minimum="0"
@@ -193,7 +193,7 @@
 
                     <TextBlock
                         x:Name="MediaTotText"
-                        Text="7"
+                        Text="-"
                         Style="{StaticResource TitleTextBlockStyle}"
                         Foreground="{x:Bind ValutazioniViewModel.AverageTot, Mode=OneWay, Converter={StaticResource GradeToColorConverter}}"
                         HorizontalAlignment="Center"
@@ -210,7 +210,7 @@
                         HorizontalAlignment="Center"
                         VerticalAlignment="Center"
                         x:Name="ProgressMediaPrimoPeriodo"
-                        Value="54"
+                        Value="0"
                         Foreground="{x:Bind ValutazioniViewModel.AverageFirstPeriodo, Mode=OneWay, Converter={StaticResource GradeToColorConverter}}"
                         Thickness="12"
                         Minimum="0"
@@ -221,7 +221,7 @@
 
                     <TextBlock
                         x:Name="MediaPrimoPeriodoText"
-                        Text="7"
+                        Text="-"
                         Style="{StaticResource TitleTextBlockStyle}"
                         Foreground="{x:Bind ValutazioniViewModel.AverageFirstPeriodo, Mode=OneWay, Converter={StaticResource GradeToColorConverter}}"
                         HorizontalAlignment="Center"
@@ -237,7 +237,7 @@
                         HorizontalAlignment="Center"
                         VerticalAlignment="Center"
                         x:Name="ProgressMediaSecondoPeriodo"
-                        Value="54"
+                        Value="0"
                         Foreground="{x:Bind ValutazioniViewModel.AverageSecondPeriodo, Mode=OneWay, Converter={StaticResource GradeToColorConverter}}"
                         Thickness="12"
                         Minimum="0"
@@ -248,7 +248,7 @@
 
                     <TextBlock
                         x:Name="MediaSecondoPeriodoText"
-                        Text="7"
+                        Text="-"
                         Style="{StaticResource TitleTextBlockStyle}"
                         Foreground="{x:Bind ValutazioniViewModel.AverageSecondPeriodo, Mode=OneWay, Converter={StaticResource GradeToColorConverter}}"
                         HorizontalAlignment="Center"
