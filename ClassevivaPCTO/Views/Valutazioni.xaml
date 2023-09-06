@@ -11,12 +11,16 @@
     xmlns:adapters="using:ClassevivaPCTO.Adapters"
     xmlns:winUi="using:CommunityToolkit.Labs.WinUI"
     xmlns:converters="using:Microsoft.Toolkit.Uwp.UI.Converters"
+    xmlns:controls1="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    xmlns:converters1="using:ClassevivaPCTO.Converters"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
     muxc:BackdropMaterial.ApplyToRootOrPageBackground="True">
 
     <Page.Resources>
 
         <converters:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" />
+
+        <converters1:ColorToBrushConverter x:Key="ColorToBrushConverter" />
 
 
         <Style x:Key="ListViewFullStretchStyle" TargetType="ListViewItem"
@@ -39,7 +43,7 @@
                                         HorizontalAlignment="Stretch"
                                         HorizontalContentAlignment="Stretch"
                                         Header="{x:Bind Subject.description}"
-                                        Description="bella">
+                                        Description="{x:Bind Teachers}">
                     <TextBlock IsTextSelectionEnabled="True"
                                Foreground="{ThemeResource TextFillColorSecondaryBrush}"
                                Style="{StaticResource BodyTextBlockStyle}">
@@ -116,7 +120,110 @@
                        BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
                        Background="{ThemeResource CardBackgroundFillColorDefaultBrush}">
 
+            <Grid
+                x:Name="GridMedie"
+                RelativePanel.AlignTopWithPanel="True"
+                RelativePanel.AlignLeftWithPanel="True"
+                RelativePanel.AlignRightWithPanel="True"
+                CornerRadius="8"
+                Padding="12"
+                BorderThickness="1"
+                BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
+                Background="{ThemeResource CardBackgroundFillColorDefaultBrush}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+
+                </Grid.ColumnDefinitions>
+
+                
+                <Grid Grid.Column="0"
+                      HorizontalAlignment="Left">
+                    <controls1:RadialProgressBar
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        x:Name="ProgressMediaTot"
+                        Value="54"
+                        Foreground="DarkKhaki"
+                        Thickness="12"
+                        Minimum="0"
+                        Maximum="100"
+                        Width="100"
+                        Height="100"
+                        Outline="DimGray" />
+
+                    <TextBlock
+                        x:Name="MediaTotText"
+                        Text="7"
+                        Style="{StaticResource TitleTextBlockStyle}"
+                        Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Margin="0,0,0,0" />
+                </Grid>
+
+
+
+
+                <Grid Grid.Column="1"
+                      HorizontalAlignment="Left">
+                    <controls1:RadialProgressBar
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        x:Name="ProgressMediaPrimoPeriodo"
+                        Value="54"
+                        Foreground="DarkKhaki"
+                        Thickness="12"
+                        Minimum="0"
+                        Maximum="100"
+                        Width="100"
+                        Height="100"
+                        Outline="DimGray" />
+
+                    <TextBlock
+                        x:Name="MediaPrimoPeriodoText"
+                        Text="7"
+                        Style="{StaticResource TitleTextBlockStyle}"
+                        Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Margin="0,0,0,0" />
+                </Grid>
+
+
+                <Grid Grid.Column="2"
+                      HorizontalAlignment="Left">
+                    <controls1:RadialProgressBar
+
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        x:Name="ProgressMediaSecondoPeriodo"
+                        Value="54"
+                        Foreground="DarkKhaki"
+                        Thickness="12"
+                        Minimum="0"
+                        Maximum="100"
+                        Width="100"
+                        Height="100"
+                        Outline="DimGray" />
+
+                    <TextBlock
+                        x:Name="MediaSecondoPeriodoText"
+                        Text="7"
+                        Style="{StaticResource TitleTextBlockStyle}"
+                        Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Margin="0,0,0,0" />
+
+                </Grid>
+            </Grid>
+
+
             <controls:Segmented
+                Margin="0,16,0,0"
+                RelativePanel.Below="GridMedie"
                 IsEnabled="False"
                 x:Name="SegmentedVoti"
                 SelectionChanged="SegmentedVoti_OnSelectionChanged"
