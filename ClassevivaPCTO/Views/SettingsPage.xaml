@@ -28,13 +28,6 @@
             </Style.Setters>
         </Style>
 
-        
-        <Style x:Key="ControlFullStretchStyle" TargetType="ListViewItem"
-               BasedOn="{StaticResource DefaultListViewItemStyle}">
-            <Setter Property="HorizontalContentAlignment" Value="Stretch" />
-
-        </Style>
-
         <helper:EnumToBooleanConverter x:Key="EnumToBooleanConverter" EnumType="palette:PaletteType" />
 
         <converters:ColorToBrushConverter x:Key="ColorToBrushConverter" />
@@ -200,7 +193,6 @@
 
                     <ComboBox SelectedIndex="{x:Bind PaletteType.GetHashCode()}"
                               x:Name="PaletteComboBox" MinWidth="200"
-                              ItemContainerStyle="{StaticResource ControlFullStretchStyle}"
                               ItemsSource="{x:Bind ComboPalettes}"
                               SelectionChanged="PaletteComboBox_OnSelectionChanged">
                         <ComboBox.ItemTemplate>
@@ -210,12 +202,7 @@
                                         <ColumnDefinition Width="Auto"></ColumnDefinition>
                                     </Grid.ColumnDefinitions>
 
-                                
-                                <!-- full width rectangle -->
 
-                                <Rectangle HorizontalAlignment="Stretch" Height="20"
-                                           Fill="{x:Bind CurrentPalette.ColorYellow, Converter={StaticResource ColorToBrushConverter}, Mode=OneWay}" />
-                                
                                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch">
 
                                     <TextBlock Text="{x:Bind PaletteNameTranslatedResource}"
