@@ -129,7 +129,7 @@
                     RelativePanel.AlignVerticalCenterWithPanel="True"
                     Width="48"
                     Height="32"
-                    Margin="26,0,20,0" RelativePanel.AlignRightWithPanel="True"
+                    Margin="26,0,20,0"
                     x:Uid="RefreshButtonTT">
                 <FontIcon Glyph="&#xE72C;" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" />
             </Button>
@@ -183,7 +183,7 @@
                         VerticalAlignment="Center"
                         x:Name="ProgressMediaTot"
                         Value="54"
-                        Foreground="DarkKhaki"
+                        Foreground="{x:Bind ValutazioniViewModel.AverageTot, Mode=OneWay, Converter={StaticResource GradeToColorConverter}}"
                         Thickness="12"
                         Minimum="0"
                         Maximum="100"
@@ -195,7 +195,7 @@
                         x:Name="MediaTotText"
                         Text="7"
                         Style="{StaticResource TitleTextBlockStyle}"
-                        Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                        Foreground="{x:Bind ValutazioniViewModel.AverageTot, Mode=OneWay, Converter={StaticResource GradeToColorConverter}}"
                         HorizontalAlignment="Center"
                         VerticalAlignment="Center"
                         Margin="0,0,0,0" />
@@ -211,7 +211,7 @@
                         VerticalAlignment="Center"
                         x:Name="ProgressMediaPrimoPeriodo"
                         Value="54"
-                        Foreground="DarkKhaki"
+                        Foreground="{x:Bind ValutazioniViewModel.AverageFirstPeriodo, Mode=OneWay, Converter={StaticResource GradeToColorConverter}}"
                         Thickness="12"
                         Minimum="0"
                         Maximum="100"
@@ -223,7 +223,7 @@
                         x:Name="MediaPrimoPeriodoText"
                         Text="7"
                         Style="{StaticResource TitleTextBlockStyle}"
-                        Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                        Foreground="{x:Bind ValutazioniViewModel.AverageFirstPeriodo, Mode=OneWay, Converter={StaticResource GradeToColorConverter}}"
                         HorizontalAlignment="Center"
                         VerticalAlignment="Center"
                         Margin="0,0,0,0" />
@@ -238,7 +238,7 @@
                         VerticalAlignment="Center"
                         x:Name="ProgressMediaSecondoPeriodo"
                         Value="54"
-                        Foreground="DarkKhaki"
+                        Foreground="{x:Bind ValutazioniViewModel.AverageSecondPeriodo, Mode=OneWay, Converter={StaticResource GradeToColorConverter}}"
                         Thickness="12"
                         Minimum="0"
                         Maximum="100"
@@ -250,7 +250,7 @@
                         x:Name="MediaSecondoPeriodoText"
                         Text="7"
                         Style="{StaticResource TitleTextBlockStyle}"
-                        Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                        Foreground="{x:Bind ValutazioniViewModel.AverageSecondPeriodo, Mode=OneWay, Converter={StaticResource GradeToColorConverter}}"
                         HorizontalAlignment="Center"
                         VerticalAlignment="Center"
                         Margin="0,0,0,0" />
@@ -267,7 +267,7 @@
                 SelectionChanged="SegmentedVoti_OnSelectionChanged"
                 HorizontalAlignment="Stretch">
 
-                <controls:SegmentedItem Content="Tutte le valutazioni" />
+                <controls:SegmentedItem Content="Tutti i periodi" />
             </controls:Segmented>
 
             <ListView
@@ -277,7 +277,6 @@
                 RelativePanel.AlignRightWithPanel="True"
                 RelativePanel.AlignBottomWithPanel="True"
                 x:Name="MainListView"
-                Grid.Row="1"
                 SelectionMode="None"
                 ScrollViewer.VerticalScrollMode="Enabled"
                 HorizontalAlignment="Stretch"

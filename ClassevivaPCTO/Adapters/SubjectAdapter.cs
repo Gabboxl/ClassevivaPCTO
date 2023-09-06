@@ -19,7 +19,7 @@ namespace ClassevivaPCTO.Adapters
             }
         }
 
-        public float? Average
+        public float Average
         {
             get
             {
@@ -27,11 +27,20 @@ namespace ClassevivaPCTO.Adapters
             }
         }
 
+        public string AverageString
+        {
+            get
+            {
+                
+                return Average.ToString("0.0");
+            }
+        }
+
         public int Progress
         {
             get
             {
-                return (int) (Average * 10 ?? 0);
+                return (int) (Average * 10);
             }
         }
 

@@ -12,6 +12,33 @@ namespace ClassevivaPCTO.ViewModels
             set { SetProperty(ref _isLoadingValutazioni, value); }
         }
 
+
+        private float _averageTot;
+
+        public float AverageTot
+        {
+            get { return _averageTot; }
+            set { SetProperty(ref _averageTot, value); }
+        }
+
+
+        private float _averageFirstPeriodo;
+
+        public float AverageFirstPeriodo
+        {
+            get { return _averageFirstPeriodo; }
+            set { SetProperty(ref _averageFirstPeriodo, value); }
+        }
+
+
+        private float _averageSecondPeriodo;
+
+        public float AverageSecondPeriodo
+        {
+            get { return _averageSecondPeriodo; }
+            set { SetProperty(ref _averageSecondPeriodo, value); }
+        }
+
         public ValutazioniViewModel()
         {
         }
