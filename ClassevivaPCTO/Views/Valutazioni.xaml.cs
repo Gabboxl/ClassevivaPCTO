@@ -200,6 +200,11 @@ namespace ClassevivaPCTO.Views
             MediaTotText.Text = allGradesAverage.ToString("0.0");
             MediaPrimoPeriodoText .Text = firstPeriodGradesAverage.ToString("0.0");
             MediaSecondoPeriodoText.Text = secondPeriodGradesAverage.ToString("0.0");
+
+            //set progressrings value
+            ProgressMediaTot.Value = allGradesAverage * 10;
+            ProgressMediaPrimoPeriodo.Value = firstPeriodGradesAverage * 10;
+            ProgressMediaSecondoPeriodo.Value = secondPeriodGradesAverage * 10;
         }
 
 

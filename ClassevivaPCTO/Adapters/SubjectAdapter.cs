@@ -36,11 +36,11 @@ namespace ClassevivaPCTO.Adapters
             }
         }
 
-        public int Progress
+        public float Progress
         {
             get
             {
-                return (int) (Average * 10);
+                return (Average * 10);
             }
         }
 
