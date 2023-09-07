@@ -62,7 +62,7 @@ namespace ClassevivaPCTO.Views
                 Card? cardResult = ViewModelHolder.GetViewModel().SingleCardResult;
 
 
-                AbsencesResult? absencesResult = await apiWrapper.GetAbsences(
+                AbsencesResult absencesResult = await apiWrapper.GetAbsences(
                     cardResult.usrId.ToString()
                 );
 
@@ -70,14 +70,14 @@ namespace ClassevivaPCTO.Views
 
 
                 //create list based on isjustified bool value
-                var justifiedAbsences = absencesResult?.AbsenceEvents
+                var justifiedAbsences = absencesResult.AbsenceEvents
                     .OrderByDescending(n => n.evtDate)
                     .Where(n => n.isJustified)
                     .ToList();
 
 
                 //not justified absences
-                var notJustifiedAbsences = absencesResult?.AbsenceEvents
+                var notJustifiedAbsences = absencesResult.AbsenceEvents
                     .OrderByDescending(n => n.evtDate)
                     .Where(n => !n.isJustified)
                     .ToList();
