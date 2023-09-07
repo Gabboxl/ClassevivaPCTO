@@ -26,7 +26,7 @@ namespace ClassevivaPCTO.Controls
         public CollectionViewSource GroupedItems { get; set; }
 
 
-        public static async Task<ObservableCollection<GroupInfoList>> GetContactsGroupedAsync(
+        private static async Task<ObservableCollection<GroupInfoList>> GetEventsGroupedAsync(
             List<AgendaEventAdapter> agendaEvents)
         {
             var query = from item in agendaEvents
@@ -56,7 +56,7 @@ namespace ClassevivaPCTO.Controls
                 typeof(AgendaMultipleDaysListView),
                 new PropertyMetadata(null, new PropertyChangedCallback(OnItemsSourceChanged)));
 
-        private static void OnItemsSourceChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        private static async void OnItemsSourceChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             var currentInstance = (AgendaMultipleDaysListView) d;
 
@@ -101,12 +101,12 @@ namespace ClassevivaPCTO.Controls
 
             var eventAdapters = orderedAgendaEvents?.Select(evt => new AgendaEventAdapter(evt)).ToList();
 
-            var asd = GetContactsGroupedAsync(eventAdapters);
+            var groupedAgendaEvents = await GetEventsGroupedAsync(eventAdapters);
 
             currentInstance.GroupedItems = new CollectionViewSource
             {
                 IsSourceGrouped = true,
-                Source = asd.Result
+                Source = groupedAgendaEvents
             };
 
 
