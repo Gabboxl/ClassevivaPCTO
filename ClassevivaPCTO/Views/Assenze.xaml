@@ -28,11 +28,11 @@
             <VisualStateGroup>
                 <VisualState x:Name="WideState">
                     <VisualState.StateTriggers>
-                        <AdaptiveTrigger MinWindowWidth="950" />
+                        <AdaptiveTrigger MinWindowWidth="850" />
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
                         <Setter Target="MyUniformGrid.Columns" Value="2" />
-                        <!--<Setter Target="MyUniformGrid.Rows" Value="2" />-->
+
                     </VisualState.Setters>
                 </VisualState>
                 <VisualState x:Name="NarrowState">
@@ -41,9 +41,6 @@
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
                         <Setter Target="MyUniformGrid.Columns" Value="1" />
-                        <!--
-                        <Setter Target="MyUniformGrid.Rows" Value="3" />
-                        -->
 
                     </VisualState.Setters>
                 </VisualState>
@@ -79,6 +76,7 @@
 
 
             <controls:UniformGridEx
+                x:Name="MyUniformGrid"
                 ColumnSpacing="28" RowSpacing="36"
                 MinRowHeight="250">
 
