@@ -582,4 +582,22 @@ Gli account studente hanno l'username che inizia con le lettere S, G o X.</value
   <data name="StatusText_NotAvailable" xml:space="preserve">
     <value>Non disponibile</value>
   </data>
+  <data name="AreYouSure" xml:space="preserve">
+    <value>Sei sicuro?</value>
+  </data>
+  <data name="AreYouSureToExit" xml:space="preserve">
+    <value>Sei sicuro di voler uscire?</value>
+  </data>
+  <data name="Exit" xml:space="preserve">
+    <value>Esci</value>
+  </data>
+  <data name="RestartRequired" xml:space="preserve">
+    <value>Riavvio richiesto</value>
+  </data>
+  <data name="RestartRequiredLanguageChange" xml:space="preserve">
+    <value>Per applicare la nuova lingua è necessario riavviare l'app.</value>
+  </data>
+  <data name="Restart" xml:space="preserve">
+    <value>Riavvia</value>
+  </data>
 </root>

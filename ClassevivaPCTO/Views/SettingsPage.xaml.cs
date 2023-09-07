@@ -216,10 +216,10 @@ namespace ClassevivaPCTO.Views
         {
             ContentDialog dialog = new ContentDialog
             {
-                Title = "Sei sicuro?",
-                Content = "Sei sicuro di voler uscire?",
-                PrimaryButtonText = "Esci",
-                CloseButtonText = "Annulla",
+                Title = "AreYouSure".GetLocalized(),
+                Content = "AreYouSureToExit".GetLocalized(),
+                PrimaryButtonText = "Exit".GetLocalized(),
+                CloseButtonText = "CancelDialogButton".GetLocalized(),
                 RequestedTheme = ((FrameworkElement) Window.Current.Content).RequestedTheme,
                 DefaultButton = ContentDialogButton.Primary
             };
@@ -245,10 +245,10 @@ namespace ClassevivaPCTO.Views
 
             ContentDialog dialog = new ContentDialog
             {
-                Title = "Riavvio richiesto",
-                Content = "Riavvio richiesto",
-                PrimaryButtonText = "Riavvia",
-                CloseButtonText = "Annulla",
+                Title = "RestartRequired".GetLocalized(),
+                Content = "RestartRequiredLanguageChange".GetLocalized(),
+                PrimaryButtonText = "Restart".GetLocalized(),
+                CloseButtonText = "CancelDialogButton".GetLocalized(),
                 RequestedTheme = ((FrameworkElement) Window.Current.Content).RequestedTheme,
                 DefaultButton = ContentDialogButton.Primary
             };
