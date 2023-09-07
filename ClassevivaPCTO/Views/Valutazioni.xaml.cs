@@ -49,10 +49,6 @@ namespace ClassevivaPCTO.Views
         {
             base.OnNavigatedTo(e);
 
-            Card? cardResult = ViewModelHolder.GetViewModel().SingleCardResult;
-
-            MainTitleTextBox.Text += VariousUtils.ToTitleCase(cardResult.firstName);
-
             await Task.Run(async () => { await LoadData(); });
 
         }

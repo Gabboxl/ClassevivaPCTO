@@ -289,7 +289,7 @@ Ricorda che quest'app è ancora in fase di sviluppo e alcune funzionalità posso
     <value>Seleziona una materia</value>
   </data>
   <data name="TitleValutazioni.Text" xml:space="preserve">
-    <value>Valutazioni di </value>
+    <value>Valutazioni</value>
   </data>
   <data name="TitoloDashboardText" xml:space="preserve">
     <value>Dashboard di {0}</value>
