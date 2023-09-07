@@ -128,6 +128,9 @@ namespace ClassevivaPCTO.Views
                     SegmentedVoti.Items.Add(VariousUtils.UppercaseFirst(period.Period.periodDesc));
                 }
 
+                TitleFirstPerVal.Text = VariousUtils.UppercaseFirst(_periodList[0].Period.periodDesc);
+                TitleSecondPerVal.Text = VariousUtils.UppercaseFirst(_periodList[1].Period.periodDesc);
+
                 SegmentedVoti.SelectedIndex = 0;
 
                 SegmentedVoti.IsEnabled = true;
@@ -205,6 +208,12 @@ namespace ClassevivaPCTO.Views
             ProgressMediaTot.Value = allGradesAverage * 10;
             ProgressMediaPrimoPeriodo.Value = firstPeriodGradesAverage * 10;
             ProgressMediaSecondoPeriodo.Value = secondPeriodGradesAverage * 10;
+
+            //set grades count
+            NumTotVal.Text = string.Format("{0} valutazioni", allGradesCount.ToString());
+            NumFirstPerVal.Text = string.Format("{0} valutazioni", firstPeriodGradesCount.ToString());
+            NumSecondPerVal.Text = string.Format("{0} valutazioni", secondPeriodGradesCount.ToString());
+
         }
 
 
