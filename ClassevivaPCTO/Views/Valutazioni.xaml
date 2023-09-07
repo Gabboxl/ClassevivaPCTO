@@ -11,12 +11,17 @@
     xmlns:adapters="using:ClassevivaPCTO.Adapters"
     xmlns:winUi="using:CommunityToolkit.Labs.WinUI"
     xmlns:converters="using:Microsoft.Toolkit.Uwp.UI.Converters"
+    xmlns:controls1="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    xmlns:converters1="using:ClassevivaPCTO.Converters"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
     muxc:BackdropMaterial.ApplyToRootOrPageBackground="True">
 
     <Page.Resources>
 
         <converters:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" />
+
+        <converters1:ColorToBrushConverter x:Key="ColorToBrushConverter" />
+        <converters1:GradeToColorConverter x:Key="GradeToColorConverter" />
 
 
         <Style x:Key="ListViewFullStretchStyle" TargetType="ListViewItem"
@@ -29,7 +34,7 @@
                       x:DataType="adapters:SubjectAdapter">
             <Grid Margin="0,0,0,16">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"></ColumnDefinition>
@@ -39,12 +44,28 @@
                                         HorizontalAlignment="Stretch"
                                         HorizontalContentAlignment="Stretch"
                                         Header="{x:Bind Subject.description}"
-                                        Description="bella">
-                    <TextBlock IsTextSelectionEnabled="True"
-                               Foreground="{ThemeResource TextFillColorSecondaryBrush}"
-                               Style="{StaticResource BodyTextBlockStyle}">
-                        <Run Text="lol" />
-                    </TextBlock>
+                                        Description="{x:Bind Teachers}">
+                    <Grid>
+                        <controls1:RadialProgressBar
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Value="{x:Bind Progress}"
+                            Foreground="{x:Bind Average, Converter={StaticResource GradeToColorConverter}}"
+                            Thickness="5"
+                            Minimum="0"
+                            Maximum="100"
+                            Width="45"
+                            Height="45"
+                            Outline="DimGray" />
+
+                        <TextBlock
+                            Text="{x:Bind Average}"
+                            Style="{StaticResource BodyStrongTextBlockStyle}"
+                            Foreground="{x:Bind Average, Converter={StaticResource GradeToColorConverter}}"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Margin="0,0,0,0" />
+                    </Grid>
                     <winUi:SettingsExpander.Items>
                         <winUi:SettingsCard HorizontalContentAlignment="Stretch"
                                             ContentAlignment="Left">
@@ -94,17 +115,34 @@
                                Margin="16,0,0,0" Width="28" Height="28"
                                Visibility="{x:Bind ValutazioniViewModel.IsLoadingValutazioni, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" />
 
+
+        </RelativePanel>
+
+        <RelativePanel Grid.Row="0" Margin="0,18,0,0">
+
+
             <Button x:Name="ReloadButton"
                     Click="ReloadButton_OnClick"
-                    HorizontalAlignment="Right"
+                    RelativePanel.LeftOf="Separatore_Bacheca"
+                    RelativePanel.AlignVerticalCenterWithPanel="True"
                     Width="48"
                     Height="32"
-                    Margin="26,0,20,0" RelativePanel.AlignRightWithPanel="True"
-                    RelativePanel.AlignVerticalCenterWith="MainTitleTextBox" x:Uid="RefreshButtonTT">
+                    Margin="16,0,0,0"
+                    x:Uid="RefreshButtonTT">
                 <FontIcon Glyph="&#xE72C;" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" />
             </Button>
 
 
+            <Rectangle x:Name="Separatore_Bacheca" RelativePanel.LeftOf="CheckboxAttive"
+                       RelativePanel.AlignVerticalCenterWithPanel="True"
+                       Fill="{ThemeResource ControlStrokeColorDefaultBrush}"
+                       Width="2" Height="48" Margin="20,0,20,0" />
+
+            <CheckBox x:Name="CheckboxAttive"
+                      x:Uid="CheckboxInattive"
+                      Margin="0,0,24,0"
+                      RelativePanel.AlignRightWithPanel="True"
+                      RelativePanel.AlignVerticalCenterWithPanel="True" />
         </RelativePanel>
 
         <RelativePanel Grid.Row="2"
@@ -116,13 +154,211 @@
                        BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
                        Background="{ThemeResource CardBackgroundFillColorDefaultBrush}">
 
+            <Grid
+                x:Name="GridMedie"
+                RelativePanel.AlignTopWithPanel="True"
+                RelativePanel.AlignLeftWithPanel="True"
+                RelativePanel.AlignRightWithPanel="True"
+                CornerRadius="8"
+                Padding="12"
+                BorderThickness="1"
+                BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
+                Background="{ThemeResource CardBackgroundFillColorDefaultBrush}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+
+                </Grid.ColumnDefinitions>
+
+                <Grid
+                    Grid.Column="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+
+                    </Grid.ColumnDefinitions>
+
+                    <Grid
+                        HorizontalAlignment="Left">
+                        <controls1:RadialProgressBar
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            x:Name="ProgressMediaTot"
+                            Value="0"
+                            Foreground="{x:Bind ValutazioniViewModel.AverageTot, Mode=OneWay, Converter={StaticResource GradeToColorConverter}}"
+                            Thickness="12"
+                            Minimum="0"
+                            Maximum="100"
+                            Width="100"
+                            Height="100"
+                            Outline="DimGray" />
+
+                        <TextBlock
+                            x:Name="MediaTotText"
+                            Text="-"
+                            Style="{StaticResource TitleTextBlockStyle}"
+                            Foreground="{x:Bind ValutazioniViewModel.AverageTot, Mode=OneWay, Converter={StaticResource GradeToColorConverter}}"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Margin="0,0,0,0" />
+                    </Grid>
+
+                    <Grid Grid.Column="1">
+                        <RelativePanel
+                            Margin="32,0,0,0"
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Left">
+                            <TextBlock
+                                x:Name="TitleTotVal"
+                                Text="Media totale"
+                                Style="{StaticResource TitleTextBlockStyle}"
+                                HorizontalAlignment="Center"
+                                Margin="0,0,0,0" />
+                            <TextBlock
+                                x:Name="NumTotVal"
+                                RelativePanel.Below="TitleTotVal"
+                                Text="-"
+                                Style="{StaticResource SubtitleTextBlockStyle}"
+                                Foreground="{ThemeResource TextFillColorTertiaryBrush}"
+                                HorizontalAlignment="Center"
+                                Margin="0,0,0,0" />
+                        </RelativePanel>
+                    </Grid>
+
+                </Grid>
+
+
+                <Grid
+                    Grid.Column="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+
+                    </Grid.ColumnDefinitions>
+
+                    <Grid
+                        Grid.Column="0"
+                        HorizontalAlignment="Left">
+                        <controls1:RadialProgressBar
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            x:Name="ProgressMediaPrimoPeriodo"
+                            Value="0"
+                            Foreground="{x:Bind ValutazioniViewModel.AverageFirstPeriodo, Mode=OneWay, Converter={StaticResource GradeToColorConverter}}"
+                            Thickness="12"
+                            Minimum="0"
+                            Maximum="100"
+                            Width="100"
+                            Height="100"
+                            Outline="DimGray" />
+
+                        <TextBlock
+                            x:Name="MediaPrimoPeriodoText"
+                            Text="-"
+                            Style="{StaticResource TitleTextBlockStyle}"
+                            Foreground="{x:Bind ValutazioniViewModel.AverageFirstPeriodo, Mode=OneWay, Converter={StaticResource GradeToColorConverter}}"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Margin="0,0,0,0" />
+                    </Grid>
+
+                    <Grid Grid.Column="1">
+                        <RelativePanel
+                            Margin="32,0,0,0"
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Left">
+                            <TextBlock
+                                x:Name="TitleFirstPerVal"
+                                Text="-"
+                                Style="{StaticResource TitleTextBlockStyle}"
+                                HorizontalAlignment="Center"
+                                Margin="0,0,0,0" />
+                            <TextBlock
+                                x:Name="NumFirstPerVal"
+                                RelativePanel.Below="TitleFirstPerVal"
+                                Text="-"
+                                Style="{StaticResource SubtitleTextBlockStyle}"
+                                Foreground="{ThemeResource TextFillColorTertiaryBrush}"
+                                HorizontalAlignment="Center"
+                                Margin="0,0,0,0" />
+                        </RelativePanel>
+                    </Grid>
+
+                </Grid>
+
+                <Grid
+                    Grid.Column="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+
+                    </Grid.ColumnDefinitions>
+
+                    <Grid
+                        HorizontalAlignment="Left">
+                        <controls1:RadialProgressBar
+
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            x:Name="ProgressMediaSecondoPeriodo"
+                            Value="0"
+                            Foreground="{x:Bind ValutazioniViewModel.AverageSecondPeriodo, Mode=OneWay, Converter={StaticResource GradeToColorConverter}}"
+                            Thickness="12"
+                            Minimum="0"
+                            Maximum="100"
+                            Width="100"
+                            Height="100"
+                            Outline="DimGray" />
+
+                        <TextBlock
+                            x:Name="MediaSecondoPeriodoText"
+                            Text="-"
+                            Style="{StaticResource TitleTextBlockStyle}"
+                            Foreground="{x:Bind ValutazioniViewModel.AverageSecondPeriodo, Mode=OneWay, Converter={StaticResource GradeToColorConverter}}"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Margin="0,0,0,0" />
+
+                    </Grid>
+
+
+                    <Grid Grid.Column="1">
+                        <RelativePanel
+                            Margin="32,0,0,0"
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Left">
+                            <TextBlock
+                                x:Name="TitleSecondPerVal"
+                                Text="-"
+                                Style="{StaticResource TitleTextBlockStyle}"
+                                HorizontalAlignment="Center"
+                                Margin="0,0,0,0" />
+                            <TextBlock
+                                x:Name="NumSecondPerVal"
+                                RelativePanel.Below="TitleSecondPerVal"
+                                Text="-"
+                                Style="{StaticResource SubtitleTextBlockStyle}"
+                                Foreground="{ThemeResource TextFillColorTertiaryBrush}"
+                                HorizontalAlignment="Center"
+                                Margin="0,0,0,0" />
+                        </RelativePanel>
+                    </Grid>
+
+
+                </Grid>
+            </Grid>
+
+
             <controls:Segmented
+                Margin="0,16,0,0"
+                RelativePanel.Below="GridMedie"
                 IsEnabled="False"
                 x:Name="SegmentedVoti"
                 SelectionChanged="SegmentedVoti_OnSelectionChanged"
                 HorizontalAlignment="Stretch">
 
-                <controls:SegmentedItem Content="Tutte le valutazioni" />
+                <controls:SegmentedItem Content="Tutti i periodi" />
             </controls:Segmented>
 
             <ListView
@@ -132,7 +368,6 @@
                 RelativePanel.AlignRightWithPanel="True"
                 RelativePanel.AlignBottomWithPanel="True"
                 x:Name="MainListView"
-                Grid.Row="1"
                 SelectionMode="None"
                 ScrollViewer.VerticalScrollMode="Enabled"
                 HorizontalAlignment="Stretch"

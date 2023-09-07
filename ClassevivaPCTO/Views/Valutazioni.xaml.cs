@@ -11,7 +11,6 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
 using ClassevivaPCTO.Adapters;
-using ClassevivaPCTO.Controls;
 
 
 namespace ClassevivaPCTO.Views
@@ -51,11 +50,6 @@ namespace ClassevivaPCTO.Views
             base.OnNavigatedTo(e);
 
             await Task.Run(async () => { await LoadData(); });
-
-
-            Card? cardResult = ViewModelHolder.GetViewModel().SingleCardResult;
-
-            MainTitleTextBox.Text += VariousUtils.ToTitleCase(cardResult.firstName);
 
         }
 
@@ -107,7 +101,7 @@ namespace ClassevivaPCTO.Views
                 //update UI on UI thread
                 await CoreApplication.MainView.Dispatcher.RunAsync(
                     CoreDispatcherPriority.Normal,
-                    async () => { UpdateUi(); }
+                    async () => { UpdateUi(grades, periods, subjects); }
                 );
             }
             finally
@@ -130,10 +124,14 @@ namespace ClassevivaPCTO.Views
                     SegmentedVoti.Items.Add(VariousUtils.UppercaseFirst(period.Period.periodDesc));
                 }
 
+                TitleFirstPerVal.Text = VariousUtils.UppercaseFirst(_periodList[0].Period.periodDesc);
+                TitleSecondPerVal.Text = VariousUtils.UppercaseFirst(_periodList[1].Period.periodDesc);
+
                 SegmentedVoti.SelectedIndex = 0;
 
                 SegmentedVoti.IsEnabled = true;
-            } else if (periodIndex == 0)
+            }
+            else if (periodIndex == 0)
             {
                 //create a list of SubjectAdapter from periodGrades by merging periods together and count subjects as one distinct subject
                 var mergetdPeriodsSubjects = _periodList
@@ -163,6 +161,55 @@ namespace ClassevivaPCTO.Views
 
                 MainListView.ItemsSource = subjectAdapters;
             }
+
+        }
+
+        private void UpdateUi(List<Grade> grades, List<Period> periods, List<Subject> subjects)
+        {
+            //update main UI
+            UpdateUi();
+
+
+            //update statistics
+
+            var firstPeriodGrades = _periodList[0].Subjects.SelectMany(s => s.Grades).ToList();
+            var secondPeriodGrades = _periodList[1].Subjects.SelectMany(s => s.Grades).ToList();
+
+            //count all grades
+            var allGradesCount = grades.Count;
+            var firstPeriodGradesCount = firstPeriodGrades.Count();
+            var secondPeriodGradesCount = secondPeriodGrades.Count();
+
+            //average of all grades
+            var allGradesAverage = VariousUtils.CalcolaMedia(grades);
+
+            var firstPeriodGradesAverage = VariousUtils.CalcolaMedia(
+                firstPeriodGrades.ToList()
+            );
+
+            var secondPeriodGradesAverage = VariousUtils.CalcolaMedia(
+                secondPeriodGrades.ToList());
+
+            //update viewmodel
+            ValutazioniViewModel.AverageTot = allGradesAverage;
+            ValutazioniViewModel.AverageFirstPeriodo = firstPeriodGradesAverage;
+            ValutazioniViewModel.AverageSecondPeriodo = secondPeriodGradesAverage;
+
+            //update ui
+            MediaTotText.Text = allGradesAverage.ToString("0.0");
+            MediaPrimoPeriodoText .Text = firstPeriodGradesAverage.ToString("0.0");
+            MediaSecondoPeriodoText.Text = secondPeriodGradesAverage.ToString("0.0");
+
+            //set progressrings value
+            ProgressMediaTot.Value = allGradesAverage * 10;
+            ProgressMediaPrimoPeriodo.Value = firstPeriodGradesAverage * 10;
+            ProgressMediaSecondoPeriodo.Value = secondPeriodGradesAverage * 10;
+
+            //set grades count
+            NumTotVal.Text = string.Format("{0} valutazioni", allGradesCount.ToString());
+            NumFirstPerVal.Text = string.Format("{0} valutazioni", firstPeriodGradesCount.ToString());
+            NumSecondPerVal.Text = string.Format("{0} valutazioni", secondPeriodGradesCount.ToString());
+
         }
 
 

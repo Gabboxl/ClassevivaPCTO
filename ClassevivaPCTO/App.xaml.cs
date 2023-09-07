@@ -153,7 +153,7 @@ namespace ClassevivaPCTO
 
         void OnNavigationFailed(object sender, NavigationFailedEventArgs e)
         {
-            throw new System.Exception("Failed to load Page " + e.SourcePageType.FullName);
+            throw new Exception("Failed to load Page " + e.SourcePageType.FullName);
         }
 
         /// <summary>

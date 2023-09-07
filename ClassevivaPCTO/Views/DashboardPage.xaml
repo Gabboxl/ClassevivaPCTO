@@ -6,16 +6,10 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
     xmlns:controls2="using:ClassevivaPCTO.Controls"
     xmlns:microconverters="using:Microsoft.Toolkit.Uwp.UI.Converters"
     xmlns:toolkit="using:Microsoft.Toolkit.Uwp.UI"
-    xmlns:controlscust="using:ClassevivaPCTO.Controls"
     xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
-    xmlns:animatedvisuals="using:Microsoft.UI.Xaml.Controls.AnimatedVisuals"
-    xmlns:converters="using:ClassevivaPCTO.Converters"
-    xmlns:contract7Present="http://schemas.microsoft.com/winfx/2006/xaml/presentation?IsApiContractPresent(Windows.Foundation.UniversalApiContract, 7)"
-    xmlns:roba="using:ClassevivaPCTO.Utils"
 
 
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
@@ -80,12 +74,12 @@
             </Button>
 
 
-            <Rectangle x:Name="SeparatorDashboard" RelativePanel.LeftOf="EditWidgetsButton"
+            <Rectangle x:Name="SeparatorDashboard" RelativePanel.AlignRightWithPanel="True"
                        RelativePanel.AlignVerticalCenterWithPanel="True"
                        Fill="{ThemeResource ControlStrokeColorDefaultBrush}"
                        Width="2" Height="48" Margin="0,0,20,0" />
 
-            <Button
+         <!--   <Button
                 RelativePanel.AlignVerticalCenterWithPanel="True"
                 x:Name="EditWidgetsButton"
 
@@ -98,7 +92,7 @@
                     <TextBlock x:Uid="DashboardEditWidgetsButton" />
 
                 </StackPanel>
-            </Button>
+            </Button> -->
 
 
         </RelativePanel>

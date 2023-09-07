@@ -2,8 +2,6 @@
 using ClassevivaPCTO.ViewModels;
 using Microsoft.Extensions.DependencyInjection;
 using System;
-using System.Diagnostics;
-using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Threading.Tasks;
 using Windows.ApplicationModel.Core;

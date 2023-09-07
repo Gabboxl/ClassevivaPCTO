@@ -6,9 +6,6 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
-    xmlns:controlscust="using:ClassevivaPCTO.Controls"
-    xmlns:roba="using:ClassevivaPCTO.Utils"
     xmlns:helpers="using:ClassevivaPCTO.Helpers"
     xmlns:views="using:ClassevivaPCTO.Views"
     xmlns:custnav="using:ClassevivaPCTO.Controls.NiceNavigationView"
@@ -113,7 +110,7 @@
 
                 <Grid Grid.Column="1" MaxWidth="500">
 
-                    <AutoSuggestBox
+                  <!--  <AutoSuggestBox
                         x:Name="AutoSuggestBoxMain"
                         HorizontalAlignment="Stretch"
                         VerticalAlignment="Center"
@@ -128,7 +125,7 @@
                         ItemContainerStyle="{StaticResource ControlFullStretchStyle}"
                         AutomationProperties.Name="Basic AutoSuggestBox">
 
-                        <!--        <AutoSuggestBox.ItemTemplate>
+                        <xxx!-        <AutoSuggestBox.ItemTemplate>
                             <DataTemplate x:DataType="models:SearchedLocation">
                                 <RelativePanel Margin="2,0,0,0">
 
@@ -144,9 +141,9 @@
                                                RelativePanel.RightOf="icon" />
                                 </RelativePanel>
                             </DataTemplate>
-                        </AutoSuggestBox.ItemTemplate> -->
+                        </AutoSuggestBox.ItemTemplate> -xxx>
 
-                    </AutoSuggestBox>
+                    </AutoSuggestBox> -->
                 </Grid>
             </Grid>
 
