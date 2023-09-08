@@ -46,6 +46,8 @@ namespace ClassevivaPCTO.Dialogs
             var apiClient = app.Container.GetService<IClassevivaAPI>();
 
             apiWrapper = PoliciesDispatchProxy<IClassevivaAPI>.CreateProxy(apiClient);
+
+            MaxWidth = 800;
         }
 
         private async void ButtonOpen_Click(object sender, RoutedEventArgs e)

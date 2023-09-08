@@ -24,7 +24,7 @@ namespace ClassevivaPCTO.Dialogs
 
             apiWrapper = PoliciesDispatchProxy<IClassevivaAPI>.CreateProxy(apiClient);
 
-            MaxWidth = 500;
+            MaxWidth = 600;
         }
     }
 }
