@@ -68,6 +68,10 @@ namespace ClassevivaPCTO.Adapters
                 }
 
                 FontIcon icon = new FontIcon();
+
+                //add fontfamily FluentIcons StaticResource
+                icon.FontFamily = new FontFamily("ms-appx:///Assets/Fonts/SegoeFluentIcons.ttf#Segoe Fluent Icons");
+
                 icon.Glyph = iconString;
                 icon.Foreground = brush;
 
