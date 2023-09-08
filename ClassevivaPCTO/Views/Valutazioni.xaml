@@ -44,7 +44,8 @@
                                         HorizontalAlignment="Stretch"
                                         HorizontalContentAlignment="Stretch"
                                         Header="{x:Bind Subject.description}"
-                                        Description="{x:Bind Teachers}">
+                                        Description="{x:Bind Teachers}"
+                                        HeaderIcon="{x:Bind AverageVariationIcon}">
                     <Grid>
                         <controls1:RadialProgressBar
                             HorizontalAlignment="Center"
