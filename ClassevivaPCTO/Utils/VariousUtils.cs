@@ -92,6 +92,44 @@ namespace ClassevivaPCTO.Utils
             return dateTime.ToString("yyyyMMdd");
         }
 
+        public static (DateTime startDate, DateTime endDate) GetAgendaStartEndDates()
+        {
+            //var StartDate if i am on the first semester, then start date is 1st of september of the current year
+            //else start date is 1st of september of the next year
+
+            DateTime startDate = new DateTime(
+                DateTime.Now.Month >= 9 ? DateTime.Now.Year : DateTime.Now.Year - 1,
+                9,
+                1
+            );
+
+
+            //var EndDate is max +366 days from the start date (this is an api limitation)
+            DateTime endDate = startDate.AddDays(366);
+
+            return (startDate, endDate);
+        }
+
+        public static (DateTime startDate, DateTime endDate) GetLessonsStartEndDates()
+        {
+
+            //var StartDate if i am on the first semester, then start date is 1st of september of the current year
+            //else start date is 1st of september of the next year
+            DateTime startDate = new DateTime(
+                DateTime.Now.Month >= 9 ? DateTime.Now.Year : DateTime.Now.Year - 1,
+                9,
+                1
+            );
+
+
+            //var EndDate of next year + june 30th
+            DateTime endDate = new DateTime(
+                DateTime.Now.Month <= 8 ? DateTime.Now.Year : DateTime.Now.Year + 1,
+                6, 30);
+
+            return (startDate, endDate);
+        }
+
         public static float? GradeToFloat(object value)
         {
             float? valoreFinale = null;

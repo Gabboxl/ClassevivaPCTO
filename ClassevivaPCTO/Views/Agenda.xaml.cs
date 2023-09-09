@@ -47,6 +47,13 @@ namespace ClassevivaPCTO.Views
 
             //imposto la data di oggi del picker, e aziono il listener per il cambiamento della data
             CalendarAgenda.Date = DateTime.Now;
+
+
+            //set the min and max date of the calendaragenda
+            var agedaDates = VariousUtils.GetAgendaStartEndDates();
+            
+            CalendarAgenda.MinDate = agedaDates.startDate;
+            CalendarAgenda.MaxDate = agedaDates.endDate;
         }
 
         private async void CalendarAgenda_DateChanged(
@@ -184,25 +191,14 @@ namespace ClassevivaPCTO.Views
 
             if (_lessons == null)
             {
-                //var StartDate if i am on the first semester, then start date is 1st of september of the current year
-                //else start date is 1st of september of the next year
-                DateTime startDate = new DateTime(
-                    DateTime.Now.Month >= 9 ? DateTime.Now.Year : DateTime.Now.Year - 1,
-                    9,
-                    1
-                );
 
-
-                //var EndDate of next year + june 30th
-                DateTime endDate = new DateTime(
-                    DateTime.Now.Month <= 8 ? DateTime.Now.Year : DateTime.Now.Year + 1,
-                    6, 30);
+                var dates = VariousUtils.GetLessonsStartEndDates();
 
 
                 _lessons = await apiWrapper.GetLessons(
                     cardResult.usrId.ToString(),
-                    VariousUtils.ToApiDateTime(startDate),
-                    VariousUtils.ToApiDateTime(endDate)
+                    VariousUtils.ToApiDateTime(dates.startDate),
+                    VariousUtils.ToApiDateTime(dates.endDate)
                 );
             }
 
@@ -272,23 +268,12 @@ namespace ClassevivaPCTO.Views
             Card? cardResult = ViewModelHolder.GetViewModel().SingleCardResult;
 
 
-            //var StartDate if i am on the first semester, then start date is 1st of september of the current year
-            //else start date is 1st of september of the next year
-            DateTime startDate = new DateTime(
-                DateTime.Now.Month >= 9 ? DateTime.Now.Year : DateTime.Now.Year - 1,
-                9,
-                1
-            );
-
-
-            //var EndDate is max +366 days from the start date (this is an api limitation)
-            DateTime endDate = startDate.AddDays(366);
-
+            var dates = VariousUtils.GetAgendaStartEndDates();
 
             AgendaResult agendaEvents = await apiWrapper.GetAgendaEvents(
                 cardResult.usrId.ToString(),
-                VariousUtils.ToApiDateTime(startDate),
-                VariousUtils.ToApiDateTime(endDate)
+                VariousUtils.ToApiDateTime(dates.startDate),
+                VariousUtils.ToApiDateTime(dates.endDate)
             );
 
 
