@@ -42,11 +42,11 @@
             <TextBlock Margin="0,15,0,0" x:Uid="WhatsNew_Body_1" TextWrapping="WrapWholeWords" FontSize="15"
                        IsTextSelectionEnabled="True" Foreground="{ThemeResource TextFillColorTertiaryBrush}"
                        FontWeight="SemiBold" LineHeight="26" />
-            <TextBlock Margin="0,0,0,0" x:Uid="SettingsChangelogDashboard" TextWrapping="WrapWholeWords" FontSize="24"
-                       FontWeight="SemiBold" /> <!--Dashboard-->
-            <TextBlock Margin="0,15,0,0" x:Uid="WhatsNew_Body_2" TextWrapping="WrapWholeWords" FontSize="15"
+            <!-- <TextBlock Margin="0,0,0,0" x:Uid="SettingsChangelogDashboard" TextWrapping="WrapWholeWords" FontSize="24"
+                       FontWeight="SemiBold" /> -->
+            <!-- <TextBlock Margin="0,15,0,0" x:Uid="WhatsNew_Body_2" TextWrapping="WrapWholeWords" FontSize="15"
                        IsTextSelectionEnabled="True" Foreground="{ThemeResource TextFillColorTertiaryBrush}"
-                       FontWeight="SemiBold" LineHeight="26" />
+                       FontWeight="SemiBold" LineHeight="26" /> -->
             <TextBlock Margin="0,20,0,0" x:Uid="AgendaTitle" TextWrapping="WrapWholeWords" FontSize="24"
                        FontWeight="SemiBold" /> <!--Agenda-->
             <TextBlock Margin="0,15,0,0" x:Uid="WhatsNew_Body_3" TextWrapping="WrapWholeWords" FontSize="15"
