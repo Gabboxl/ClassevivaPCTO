@@ -78,7 +78,13 @@ namespace ClassevivaPCTO.Views
                     cardResult.usrId.ToString()
                 );
 
-                var grades = grades2Result.Grades;
+                var gradesRaw = grades2Result.Grades;
+
+                //order grades by date descending
+                var grades = gradesRaw
+                    .OrderByDescending(g => g.evtDate)
+                    .ToList();
+
                 var periods = resultPeriods.Periods;
                 var subjects = resultSubjects.Subjects;
 
