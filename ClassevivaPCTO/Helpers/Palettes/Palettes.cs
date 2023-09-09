@@ -12,7 +12,7 @@ namespace ClassevivaPCTO.Helpers.Palettes
             public Color ColorOrange => ColorHelper.ToColor("#EE9B4C");
             public Color ColorGreen => ColorHelper.ToColor("#7EAE83");
             public Color ColorBlue => ColorHelper.ToColor("#5E97B2");
-            public Color ColorYellow => Colors.Goldenrod;
+            public Color ColorYellow => ColorHelper.ToColor("#D8B83E");
         }
 
         public class PaletteJap : IPalette
@@ -30,7 +30,7 @@ namespace ClassevivaPCTO.Helpers.Palettes
             public Color ColorOrange => ColorHelper.ToColor("#FC9553");
             public Color ColorGreen => ColorHelper.ToColor("#78C141");
             public Color ColorBlue => ColorHelper.ToColor("#42AACD");
-            public Color ColorYellow => Colors.Goldenrod;
+            public Color ColorYellow => ColorHelper.ToColor("#D8B83E");
         }
 
         public class Palette4 : IPalette
@@ -39,7 +39,7 @@ namespace ClassevivaPCTO.Helpers.Palettes
             public Color ColorOrange => ColorHelper.ToColor("#FF7D00");
             public Color ColorGreen => ColorHelper.ToColor("#00FF00");
             public Color ColorBlue => ColorHelper.ToColor("#0000FF");
-            public Color ColorYellow => Colors.Goldenrod;
+            public Color ColorYellow => ColorHelper.ToColor("#D8B83E");
         }
 
         public class Palette5 : IPalette
@@ -48,7 +48,7 @@ namespace ClassevivaPCTO.Helpers.Palettes
             public Color ColorOrange => ColorHelper.ToColor("#FC9553");
             public Color ColorGreen => ColorHelper.ToColor("#78C141");
             public Color ColorBlue => ColorHelper.ToColor("#42AACD");
-            public Color ColorYellow => Colors.Goldenrod;
+            public Color ColorYellow => ColorHelper.ToColor("#D8B83E");
         }
     }
 }

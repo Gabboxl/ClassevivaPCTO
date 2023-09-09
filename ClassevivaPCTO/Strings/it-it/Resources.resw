@@ -180,18 +180,15 @@ Ricorda che quest'app è ancora in fase di sviluppo e alcune funzionalità posso
   <data name="WhatsNew_Body_Main.Text" xml:space="preserve">
     <value>•  Migliorata l'interfaccia di tutte le pagine
 •  Aggiunta la funzione di cambiare lo schema dei colori utilizzato per voti ed eventi
-•  Aggiunta la possibilità di cambiare la lingua dell'interfaccia (attualmente è disponibile solo la lingua Inglese - puoi contribuire alle traduzioni dal progetto Crowdin (vedi Informazioni app)
+•  Aggiunta la possibilità di cambiare la lingua dell'interfaccia (attualmente è disponibile solo la lingua Inglese - puoi contribuire alle traduzioni dal progetto Crowdin - vedi Informazioni app)
 </value>
     <comment>What's new prompt message body for highlights section</comment>
   </data>
   <data name="WhatsNew_Body_1.Text" xml:space="preserve">
     <value>•  La sezione account è adesso integrata nelle Impostazioni
-•  Aggiunta la possibilità di cambiare la foto profilo dell'utente (in locale)
-•  Aggiunta una barra di ricerca che indicizza i contenuti a seconda della pagina corrente
 •  Aggiunta la possibilità di visualizzare le modifiche recenti apportate all'app
 •  Aggiornata l'esperienza iniziale (tutorial) con nuovi suggerimenti, che da ora possono essere visualizzati anche dalle Impostazioni
-•  Aggiunta una splash screen - chi ha già fatto il login tramite credenziali all'apertura della app adesso visualizzerà una nuova splash screen che indica il caricamento dei dati dell'utente e dell'applicazione
-</value>
+•  Aggiunta una splash screen - chi ha già fatto il login tramite credenziali all'apertura della app adesso visualizzerà una nuova splash screen che indica il caricamento dei dati dell'utente e dell'applicazione</value>
     <comment>What's new prompt message body for first section (General)</comment>
   </data>
   <data name="WhatsNew_Body_2.Text" xml:space="preserve">
@@ -238,7 +235,7 @@ Ricorda che quest'app è ancora in fase di sviluppo e alcune funzionalità posso
     <value>© 2023. Tutti i diritti riservati.</value>
   </data>
   <data name="hyperlinkVote.Text" xml:space="preserve">
-    <value>Vota l'app nello Store</value>
+    <value>Vota nello Store</value>
   </data>
   <data name="hyperlinkIssue.Text" xml:space="preserve">
     <value>Segnala un problema</value>
@@ -361,7 +358,7 @@ Gli account studente hanno l'username che inizia con le lettere S, G o X.</value
   <data name="ChooseProfileDialogTitle" xml:space="preserve">
     <value>Scegli un profilo</value>
   </data>
-  <data name="LoginDialogButton" xml:space="preserve">
+  <data name="LoginButton.Content" xml:space="preserve">
     <value>Accedi</value>
   </data>
   <data name="CancelDialogButton" xml:space="preserve">
@@ -441,7 +438,7 @@ Gli account studente hanno l'username che inizia con le lettere S, G o X.</value
     <comment>What's new prompt message body for third section (Agenda)</comment>
   </data>
   <data name="WhatsNew_Body_4.Text" xml:space="preserve">
-    <value>•  La pagina è stata rinnovata completamente in termini di Layout e interfaccia - da adesso di default verrà visualizzata la lista di tutti i voti in ordine dal più recente al meno recente, senza distinzioni di materia o tipo
+    <value>•  La pagina è stata rinnovata completamente in termini di Layout e interfaccia
 •  Aggiunta la possibilità di visualizzare tutti i voti per trimestre/pentamestre o quadrimestre - le visualizzazioni adesso includono la lista di tutte le materie e la relativa media per ognuna di esse. Cliccando su una materia vengono visualizzati i voti di quella materia per quello specifico periodo didattico
 •  Aggiunta la possibilità di vedere la media di ogni periodo didattico e la media generale dell'anno scolastico</value>
     <comment>What's new prompt message body for fourth section (Valutazioni)</comment>
@@ -502,7 +499,7 @@ Gli account studente hanno l'username che inizia con le lettere S, G o X.</value
     <value>In evidenza</value>
   </data>
   <data name="SettingsChangelogReleaseDate.Text" xml:space="preserve">
-    <value>XX Settembre 2023</value>
+    <value>18 Settembre 2023</value>
   </data>
   <data name="SettingsChangelogVersion.Text" xml:space="preserve">
     <value>Versione 1.0.0</value>
@@ -559,7 +556,7 @@ Gli account studente hanno l'username che inizia con le lettere S, G o X.</value
     <value>Aggiorna</value>
   </data>
   <data name="SettingsPaletteColorBlueTT.ToolTipService.ToolTip" xml:space="preserve">
-    <value>Uscita anticipata, non fa media</value>
+    <value>Assenza parziale, non fa media</value>
   </data>
   <data name="SettingsPaletteColorGreenTT.ToolTipService.ToolTip" xml:space="preserve">
     <value>Presenza, sufficienza</value>
@@ -599,5 +596,11 @@ Gli account studente hanno l'username che inizia con le lettere S, G o X.</value
   </data>
   <data name="Restart" xml:space="preserve">
     <value>Riavvia</value>
+  </data>
+  <data name="CheckboxSuddividi.Content" xml:space="preserve">
+    <value>Suddividi per materia</value>
+  </data>
+  <data name="NoticeBoardTitle.Text" xml:space="preserve">
+    <value>Bacheca</value>
   </data>
 </root>

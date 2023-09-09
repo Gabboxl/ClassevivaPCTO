@@ -58,7 +58,7 @@
             <CheckBox x:Name="CheckboxCredenziali" x:Uid="CheckboxCredenziali"
                       Margin="0,0,0,20" />
 
-            <Button x:Name="buttonLogin" Style="{StaticResource AccentButtonStyle}" Content="Accedi" Height="32"
+            <Button x:Name="buttonLogin" Style="{StaticResource AccentButtonStyle}" x:Uid="LoginButton" Height="32"
                     Width="81" RenderTransformOrigin="2.13,0.797" HorizontalAlignment="Center" Margin="0,0,0,30"
                     Click="Button_Click" />
             <muxc:ProgressRing x:Name="progresslogin" IsActive="True" Visibility="Collapsed" />
