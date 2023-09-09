@@ -261,7 +261,7 @@
                                             RelativePanel.LeftOf="ButtonTomorrow"
                                             FirstDayOfWeek="Monday"
                                             toolkit:FrameworkElementExtensions.Cursor="Hand"
-                                            PlaceholderText="Scegli una data" Grid.Row="1" Margin="8,0,8,0"
+                                            PlaceholderText="Scegli una data" Margin="8,0,8,0"
                                             RelativePanel.AlignVerticalCenterWithPanel="True" />
 
                         <Button x:Name="ButtonTomorrow" Margin="0,0,0,0"

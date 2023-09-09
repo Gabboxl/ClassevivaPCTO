@@ -134,13 +134,13 @@
             </Button>
 
 
-            <Rectangle x:Name="Separatore_Bacheca" RelativePanel.LeftOf="CheckboxAttive"
+            <Rectangle x:Name="Separatore_Bacheca" RelativePanel.LeftOf="CheckboxRaggruppa"
                        RelativePanel.AlignVerticalCenterWithPanel="True"
                        Fill="{ThemeResource ControlStrokeColorDefaultBrush}"
                        Width="2" Height="48" Margin="20,0,20,0" />
 
-            <CheckBox x:Name="CheckboxAttive"
-                      x:Uid="CheckboxInattive"
+            <CheckBox x:Name="CheckboxRaggruppa"
+                      Content="Raggruppa per materia"
                       Margin="0,0,24,0"
                       RelativePanel.AlignRightWithPanel="True"
                       RelativePanel.AlignVerticalCenterWithPanel="True" />
