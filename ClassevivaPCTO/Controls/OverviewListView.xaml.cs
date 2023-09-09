@@ -73,7 +73,7 @@ namespace ClassevivaPCTO.Controls
 
             currentInstance.OverviewControlViewModel.FilteredOverviewResult = filteredOverviewResults;
 
-            currentInstance.OverviewControlViewModel.AreSourcesEmpty = filteredOverviewResults.AbsenceEvents.Count == 0 &&
+            currentInstance.OverviewControlViewModel.ShowEmptyAlert = filteredOverviewResults.AbsenceEvents.Count == 0 &&
                                                                 filteredOverviewResults.AgendaEvents.Count == 0 &&
                                                                 filteredOverviewResults.Grades.Count == 0 &&
                                                                 filteredOverviewResults.Lessons.Count == 0;

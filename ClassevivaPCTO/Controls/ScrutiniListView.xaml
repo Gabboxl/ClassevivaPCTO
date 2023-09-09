@@ -17,6 +17,8 @@
 
         <converters:DateTimeToNormalDateConverter x:Key="DateTimeToNormalDateConverter" />
         <microconverters:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" />
+        <converters:BetterBoolToVisibilityConverter x:Key="BetterBoolToVisibilityConverter" />
+
 
 
         <!-- being "BasedOn" the DefaultListViewItemStyle style, it removes the highlight effect of windows 10  -->

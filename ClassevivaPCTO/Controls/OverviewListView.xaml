@@ -37,6 +37,7 @@
                            Style="{ThemeResource BodyStrongTextBlockStyle}" FontSize="18" FontWeight="SemiBold" />
 
                 <controls2:AbsencesListView x:Name="AbsencesListView"
+                                            EnableEmptyAlert="False"
                                             HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
 
                 </controls2:AbsencesListView>
@@ -49,6 +50,7 @@
                            Style="{ThemeResource BodyStrongTextBlockStyle}" FontSize="18" FontWeight="SemiBold" />
 
                 <controls2:GradesListView x:Name="GradesListView"
+                                          EnableEmptyAlert="False"
                                           HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
 
                 </controls2:GradesListView>
@@ -60,6 +62,7 @@
                            Style="{ThemeResource BodyStrongTextBlockStyle}" FontSize="18" FontWeight="SemiBold" />
 
                 <controls2:LessonsListView x:Name="LessonsListView"
+                                           EnableEmptyAlert="False"
                                            HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
 
                 </controls2:LessonsListView>
@@ -84,7 +87,7 @@
             VerticalAlignment="Center"
             HorizontalAlignment="Center"
             Grid.Row="0"
-            Visibility="{x:Bind OverviewControlViewModel.AreSourcesEmpty, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}">
+            Visibility="{x:Bind OverviewControlViewModel.ShowEmptyAlert, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}">
             <FontIcon x:Name="IconCalendar" FontFamily="{StaticResource FluentIcons}" Glyph="&#xE787;"
                       Foreground="{ThemeResource TextFillColorDisabledBrush}"
                       RelativePanel.AlignHorizontalCenterWithPanel="True"
