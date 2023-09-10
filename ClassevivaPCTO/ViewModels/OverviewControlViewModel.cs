@@ -22,12 +22,12 @@ namespace ClassevivaPCTO.ViewModels
             set { SetProperty(ref _filteredOverviewResult, value); }
         }
 
-        private bool _areSourcesEmpty = true;
+        private bool _showEmptyAlert = true;
 
-        public bool AreSourcesEmpty
+        public bool ShowEmptyAlert
         {
-            get { return _areSourcesEmpty; }
-            set { SetProperty(ref _areSourcesEmpty, value); }
+            get { return _showEmptyAlert; }
+            set { SetProperty(ref _showEmptyAlert, value); }
         }
 
         public OverviewControlViewModel()

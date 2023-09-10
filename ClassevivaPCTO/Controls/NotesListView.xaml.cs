@@ -69,12 +69,12 @@ namespace ClassevivaPCTO.Controls
         }
 
 
-        private bool _areSourcesEmpty = true;
+        private bool _showEmptyAlert = true;
 
-        public bool AreSourcesEmpty
+        public bool ShowEmptyAlert
         {
-            get { return _areSourcesEmpty; }
-            set { SetField(ref _areSourcesEmpty, value); }
+            get { return _showEmptyAlert; }
+            set { SetField(ref _showEmptyAlert, value); }
         }
 
 
@@ -116,7 +116,7 @@ namespace ClassevivaPCTO.Controls
             scrollViewer.ChangeView(horizontalOffset, verticalOffset, null);
 
             //update the empty state
-            currentInstance.AreSourcesEmpty = newValue == null || newValue.Count == 0;
+            currentInstance.ShowEmptyAlert = newValue == null || newValue.Count == 0;
         }
 
         public NotesListView()

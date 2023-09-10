@@ -19,12 +19,12 @@ namespace ClassevivaPCTO.Controls
 {
     public sealed partial class NoticesListView : UserControl, INotifyPropertyChanged
     {
-        private bool _areSourcesEmpty = true;
+        private bool _showEmptyAlert = true;
 
-        public bool AreSourcesEmpty
+        public bool ShowEmptyAlert
         {
-            get { return _areSourcesEmpty; }
-            set { SetField(ref _areSourcesEmpty, value); }
+            get { return _showEmptyAlert; }
+            set { SetField(ref _showEmptyAlert, value); }
         }
 
         private readonly IClassevivaAPI apiWrapper;
@@ -80,7 +80,7 @@ namespace ClassevivaPCTO.Controls
             scrollViewer.ChangeView(horizontalOffset, verticalOffset, null);
 
             //set areSourcesEmpty
-            currentInstance.AreSourcesEmpty = newValue == null || newValue.Count == 0;
+            currentInstance.ShowEmptyAlert = newValue == null || newValue.Count == 0;
         }
 
         public NoticesListView()
@@ -213,7 +213,7 @@ namespace ClassevivaPCTO.Controls
 
         private void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
         }
 
         private bool SetField<T>(ref T field, T value, [CallerMemberName] string propertyName = null)

@@ -31,30 +31,6 @@
         </Grid.ColumnDefinitions>
 
 
-        <VisualStateManager.VisualStateGroups>
-            <VisualStateGroup>
-                <VisualState x:Name="WideState">
-                    <VisualState.StateTriggers>
-                        <AdaptiveTrigger MinWindowWidth="850" />
-                    </VisualState.StateTriggers>
-                    <VisualState.Setters>
-                        <Setter Target="SearchBoxBacheca.(Grid.Row)" Value="0" />
-
-                    </VisualState.Setters>
-                </VisualState>
-                <VisualState x:Name="NarrowState">
-                    <VisualState.StateTriggers>
-                        <AdaptiveTrigger MinWindowWidth="0" />
-                    </VisualState.StateTriggers>
-                    <VisualState.Setters>
-                        <Setter Target="SearchBoxBacheca.(Grid.Row)" Value="1" />
-
-                    </VisualState.Setters>
-                </VisualState>
-            </VisualStateGroup>
-        </VisualStateManager.VisualStateGroups>
-
-
         <RelativePanel Grid.Row="0" Margin="0,16,0,0">
             <TextBlock x:Name="TextTitolo" Grid.Row="0" x:Uid="NoticeBoardTitle"
                        Style="{StaticResource TitleLargeTextBlockStyle}"

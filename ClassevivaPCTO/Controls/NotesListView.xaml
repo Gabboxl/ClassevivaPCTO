@@ -130,7 +130,7 @@
             VerticalAlignment="Center"
             HorizontalAlignment="Center"
             Grid.Row="0"
-            Visibility="{x:Bind AreSourcesEmpty, Mode=OneWay, Converter={StaticResource BetterBoolToVisibilityConverter}, ConverterParameter=True}">
+            Visibility="{x:Bind ShowEmptyAlert, Mode=OneWay, Converter={StaticResource BetterBoolToVisibilityConverter}, ConverterParameter=True}">
             <FontIcon x:Name="IconNotes" FontFamily="{StaticResource FluentIcons}" Glyph="&#xe91c;"
                       Foreground="{ThemeResource TextFillColorDisabledBrush}"
                       RelativePanel.AlignHorizontalCenterWithPanel="True"
