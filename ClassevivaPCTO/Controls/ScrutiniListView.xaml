@@ -18,7 +18,7 @@
         <converters:DateTimeToNormalDateConverter x:Key="DateTimeToNormalDateConverter" />
         <microconverters:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" />
         <converters:BetterBoolToVisibilityConverter x:Key="BetterBoolToVisibilityConverter" />
-
+        <converters:EmptyListToVisibilityConverter x:Key="EmptyListToVisibilityConverter" />
 
 
         <!-- being "BasedOn" the DefaultListViewItemStyle style, it removes the highlight effect of windows 10  -->
@@ -175,27 +175,76 @@
         </DataTemplate>
     </UserControl.Resources>
 
-    <StackPanel>
+    <Grid
+        HorizontalAlignment="Stretch"
+        VerticalAlignment="Stretch">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
 
-        <ListView x:Name="listViewScrutini"
 
-                  ScrollViewer.VerticalScrollMode="Enabled"
-                  HorizontalAlignment="Stretch"
-                  HorizontalContentAlignment="Stretch"
-                  ItemTemplate="{StaticResource ScrutiniListViewDataTemplate}"
-                  ItemContainerStyle="{StaticResource ListViewFullStretchStyle}">
+        <ScrollViewer Grid.Row="0">
 
-        </ListView>
+            <StackPanel>
 
-        <ListView x:Name="listViewSchoolReports"
+                <TextBlock x:Name="DocumentsTitle"
+                           Text="Documenti"
+                           Margin="14,12,0,8"
+                           Visibility="{x:Bind ItemsSource.Documents, Mode=OneWay, FallbackValue=Collapsed, Converter={StaticResource EmptyListToVisibilityConverter}}"
+                           Style="{ThemeResource BodyStrongTextBlockStyle}" FontSize="18" FontWeight="SemiBold" />
 
-                  ScrollViewer.VerticalScrollMode="Enabled"
-                  HorizontalAlignment="Stretch"
-                  HorizontalContentAlignment="Stretch"
-                  ItemTemplate="{StaticResource SchoolReportListViewDataTemplate}"
-                  ItemContainerStyle="{StaticResource ListViewFullStretchStyle}">
 
-        </ListView>
+                <ListView x:Name="listViewScrutini"
 
-    </StackPanel>
+                          ScrollViewer.VerticalScrollMode="Enabled"
+                          HorizontalAlignment="Stretch"
+                          HorizontalContentAlignment="Stretch"
+                          ItemTemplate="{StaticResource ScrutiniListViewDataTemplate}"
+                          ItemContainerStyle="{StaticResource ListViewFullStretchStyle}">
+
+                </ListView>
+
+                <TextBlock x:Name="ReportsTitle"
+                           Text="Report scolastici"
+                           Margin="14,12,0,8"
+                           Visibility="{x:Bind ItemsSource.SchoolReports, Mode=OneWay, FallbackValue=Collapsed, Converter={StaticResource EmptyListToVisibilityConverter}}"
+                           Style="{ThemeResource BodyStrongTextBlockStyle}" FontSize="18" FontWeight="SemiBold" />
+
+                <ListView x:Name="listViewSchoolReports"
+
+                          ScrollViewer.VerticalScrollMode="Enabled"
+                          HorizontalAlignment="Stretch"
+                          HorizontalContentAlignment="Stretch"
+                          ItemTemplate="{StaticResource SchoolReportListViewDataTemplate}"
+                          ItemContainerStyle="{StaticResource ListViewFullStretchStyle}">
+
+                </ListView>
+
+            </StackPanel>
+
+        </ScrollViewer>
+
+        <RelativePanel
+            VerticalAlignment="Center"
+            HorizontalAlignment="Center"
+            Grid.Row="0"
+            Visibility="{x:Bind ShowEmptyAlert, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}">
+            <FontIcon x:Name="IconCalendar" FontFamily="{StaticResource FluentIcons}" Glyph="&#xE787;"
+                      Foreground="{ThemeResource TextFillColorDisabledBrush}"
+                      RelativePanel.AlignHorizontalCenterWithPanel="True"
+                      FontSize="136"
+                      Margin="0,0,0,0" />
+
+            <TextBlock x:Name="NoEventText"
+                       RelativePanel.Below="IconCalendar"
+                       RelativePanel.AlignHorizontalCenterWithPanel="True"
+                       Foreground="{ThemeResource TextFillColorDisabledBrush}"
+                       Margin="0,0,0,0"
+                       FontWeight="SemiBold"
+                       Text="Nessuno documento pubblicato" FontSize="36" VerticalAlignment="Center"
+                       HorizontalAlignment="Center" />
+        </RelativePanel>
+
+
+    </Grid>
 </UserControl>
