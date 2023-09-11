@@ -143,7 +143,7 @@
                       x:Uid="CheckboxSuddividi"
                       Margin="0,0,24,0"
                       RelativePanel.AlignRightWithPanel="True"
-                      RelativePanel.AlignVerticalCenterWithPanel="True" IsChecked="True" />
+                      RelativePanel.AlignVerticalCenterWithPanel="True" IsChecked="False" />
         </RelativePanel>
 
         <RelativePanel Grid.Row="2"
@@ -361,6 +361,17 @@
 
                 <controls:SegmentedItem Content="Tutti i periodi" />
             </controls:Segmented>
+
+            <controls2:GradesListView
+                Margin="0,32,0,0"
+                RelativePanel.Below="SegmentedVoti"
+                RelativePanel.AlignLeftWithPanel="True"
+                RelativePanel.AlignRightWithPanel="True"
+                RelativePanel.AlignBottomWithPanel="True"
+                x:Name="GradesOnlyListView"
+                HorizontalAlignment="Stretch"
+                HorizontalContentAlignment="Stretch"
+                ></controls2:GradesListView>
 
             <ListView
                 Margin="0,32,0,0"
