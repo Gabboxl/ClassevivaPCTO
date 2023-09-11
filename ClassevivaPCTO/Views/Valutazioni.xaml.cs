@@ -11,6 +11,7 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
 using ClassevivaPCTO.Adapters;
+using ClassevivaPCTO.Helpers;
 
 
 namespace ClassevivaPCTO.Views
@@ -235,9 +236,13 @@ namespace ClassevivaPCTO.Views
             ProgressMediaSecondoPeriodo.Value = secondPeriodGradesAverage * 10;
 
             //set grades count
-            NumTotVal.Text = string.Format("{0} valutazioni", allGradesCount.ToString());
-            NumFirstPerVal.Text = string.Format("{0} valutazioni", firstPeriodGradesCount.ToString());
-            NumSecondPerVal.Text = string.Format("{0} valutazioni", secondPeriodGradesCount.ToString());
+            string valutazioniPlAllgrad = allGradesCount == 1 ? "GradeSingular".GetLocalized() : "GradesPlural".GetLocalized();
+            string valutazioniPlurale1 = firstPeriodGradesCount == 1 ? "GradeSingular".GetLocalized() : "GradesPlural".GetLocalized();
+            string valutazioniPlurale2 = secondPeriodGradesCount == 1 ? "GradeSingular".GetLocalized() : "GradesPlural".GetLocalized();
+
+            NumTotVal.Text = string.Format("{0} " + valutazioniPlAllgrad, allGradesCount.ToString());
+            NumFirstPerVal.Text = string.Format("{0} " + valutazioniPlurale1, firstPeriodGradesCount.ToString());
+            NumSecondPerVal.Text = string.Format("{0} " + valutazioniPlurale2, secondPeriodGradesCount.ToString());
         }
 
 

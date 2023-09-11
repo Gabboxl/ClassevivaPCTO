@@ -13,6 +13,7 @@ using ClassevivaPCTO.Views;
 using Windows.UI.Xaml.Media.Animation;
 using ClassevivaPCTO.ViewModels;
 using System.Threading;
+using ClassevivaPCTO.Helpers;
 
 namespace ClassevivaPCTO.Utils
 {
@@ -65,10 +66,9 @@ namespace ClassevivaPCTO.Utils
                                         {
                                             ContentDialog noWifiDialog = new ContentDialog
                                             {
-                                                Title = "Sessione scaduta",
-                                                Content =
-                                                    "Una sessione dura un'ora dal login. Non avendo salvato le credenziali, ora verrai portato alla pagina di login. ",
-                                                PrimaryButtonText = "Ok"
+                                                Title = "SessionExpired".GetLocalized(),
+                                                Content = "SessionExpiredDesc".GetLocalized(),
+                                                PrimaryButtonText = "OKCapsText".GetLocalized()
                                             };
 
                                             ContentDialogResult result =
@@ -132,10 +132,9 @@ namespace ClassevivaPCTO.Utils
                                             {
                                                 ContentDialog noWifiDialog = new ContentDialog
                                                 {
-                                                    Title = "Errore login",
-                                                    Content =
-                                                        "Non è stato possibile effettuare il login. Riprova più tardi.",
-                                                    CloseButtonText = "Ok"
+                                                    Title = "LoginErrorTitle".GetLocalized(),
+                                                    Content = "LoginErrorDesc".GetLocalized(),
+                                                    CloseButtonText = "OKCapsText".GetLocalized()
                                                 };
 
                                                 ContentDialogResult result =
@@ -206,13 +205,13 @@ namespace ClassevivaPCTO.Utils
                         {
                             ContentDialog noWifiDialog = new ContentDialog
                             {
-                                Title = "Errore chiamata API (riprova più tardi)",
+                                Title = "APIErrorTitle".GetLocalized(),
                                 Content =
-                                    "Tentativi effettuati: "
+                                    "AttempsDone".GetLocalized()
                                     + currentRetryAttempts
                                     + "\n"
                                     + apiException.Message,
-                                CloseButtonText = "Ok"
+                                CloseButtonText = "OKCapsText".GetLocalized()
                             };
 
                             try

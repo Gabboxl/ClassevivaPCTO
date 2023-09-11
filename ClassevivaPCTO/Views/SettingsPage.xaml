@@ -6,7 +6,6 @@
     xmlns:helper="using:ClassevivaPCTO.Helpers"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:labs="using:CommunityToolkit.Labs.WinUI"
-    xmlns:xaml="using:Windows.UI.Xaml"
     xmlns:palette="using:ClassevivaPCTO.Helpers.Palettes"
     xmlns:controls="using:Microsoft.UI.Xaml.Controls"
     xmlns:adapters="using:ClassevivaPCTO.Adapters"
@@ -14,7 +13,6 @@
     xmlns:converters="using:ClassevivaPCTO.Converters"
     mc:Ignorable="d">
     <Page.Resources>
-        <!--  These styles can be referenced to create a consistent SettingsPage layout  -->
 
         <!--  Spacing between cards  -->
         <x:Double x:Key="SettingsCardSpacing">3</x:Double>

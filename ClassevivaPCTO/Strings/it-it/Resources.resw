@@ -615,4 +615,31 @@ Gli account studente hanno l'username che inizia con le lettere S, G o X.</value
   <data name="ReportsTitle.Text" xml:space="preserve">
     <value>Report scolastici</value>
   </data>
+  <data name="SessionExpired" xml:space="preserve">
+    <value>Sessione scaduta</value>
+  </data>
+  <data name="SessionExpiredDesc" xml:space="preserve">
+    <value>Una sessione dura un'ora dal login. Non avendo salvato le credenziali, ora verrai portato alla pagina di login. </value>
+  </data>
+  <data name="LoginErrorTitle" xml:space="preserve">
+    <value>Errore login</value>
+  </data>
+  <data name="LoginErrorDesc" xml:space="preserve">
+    <value>Non è stato possibile effettuare il login. Riprova più tardi.</value>
+  </data>
+  <data name="APIErrorTitle" xml:space="preserve">
+    <value>Errore chiamata API (riprova più tardi)</value>
+  </data>
+  <data name="AttempsDone" xml:space="preserve">
+    <value>Tentativi effettuati: </value>
+  </data>
+  <data name="GradeSingular" xml:space="preserve">
+    <value>valutazione</value>
+  </data>
+  <data name="GradesPlural" xml:space="preserve">
+    <value>valutazioni</value>
+  </data>
+  <data name="SegmentedAllPeriods" xml:space="preserve">
+    <value>Tutti i periodi</value>
+  </data>
 </root>
