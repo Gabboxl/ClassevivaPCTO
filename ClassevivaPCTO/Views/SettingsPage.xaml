@@ -118,9 +118,9 @@
 
                         <StackPanel Grid.Column="2" VerticalAlignment="Center" Margin="0,0,8,0"
                                     Width="164">
-                            <Button
+                           <!-- <Button
                                 x:Name="ChangePhotoButton"
-                                Margin="0,0,0,0" HorizontalAlignment="Stretch">
+                                Margin="0,0,0,0" HorizontalAlignment="Stretch" >
 
                                 <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Spacing="8">
 
@@ -131,12 +131,12 @@
 
                                 </StackPanel>
 
-
-                            </Button>
+                                </Button> 
+                            -->
 
                             <Button x:Name="ExitButton" Click="ButtonLogout_Click"
                                     HorizontalAlignment="Stretch"
-                                    Margin="0,24,0,0" HorizontalContentAlignment="Center"
+                                    Margin="0,12,0,0" HorizontalContentAlignment="Center"
                                     VerticalContentAlignment="Center">
 
                                 <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Spacing="8">
@@ -258,28 +258,30 @@
                            x:Uid="Settings_General" />
 
 
-                <labs:SettingsCard x:Uid="SettingsCardSchoolYear">
+                <!-- <labs:SettingsCard x:Uid="SettingsCardSchoolYear">
 
-                    <labs:SettingsCard.HeaderIcon>
+                     <labs:SettingsCard.HeaderIcon>
                         <FontIcon Glyph="&#xE97A;" />
-                    </labs:SettingsCard.HeaderIcon>
+                     </labs:SettingsCard.HeaderIcon>
 
-                    <Button MinWidth="130" toolkit:FrameworkElementExtensions.Cursor="Hand">
+                        <Button MinWidth="130" toolkit:FrameworkElementExtensions.Cursor="Hand">
 
-                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Spacing="8">
+                            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Spacing="8">
 
-                            <TextBlock Text="A.S. 2022/23" />
+                             <TextBlock Text="A.S. 2022/23" />
 
-                            <TextBlock Text="&#xE8A7;" VerticalAlignment="Center"
+                                <TextBlock Text="&#xE8A7;" VerticalAlignment="Center"
                                        FontFamily="{StaticResource FluentIcons}"
                                        Foreground="{ThemeResource AccentTextFillColorPrimaryBrush}" />
 
-                        </StackPanel>
+                            </StackPanel>
 
 
-                    </Button>
+                        </Button>
 
-                </labs:SettingsCard>
+                    </labs:SettingsCard>
+                
+                -->
 
                 <labs:SettingsCard x:Uid="SettingsCardLanguage">
 
