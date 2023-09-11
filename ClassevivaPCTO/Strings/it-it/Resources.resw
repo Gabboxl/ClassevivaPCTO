@@ -326,7 +326,7 @@ Ricorda che quest'app è ancora in fase di sviluppo e alcune funzionalità posso
     <value>Calendario eventi</value>
   </data>
   <data name="TitoloAgendaPopup.Text" xml:space="preserve">
-    <value>Agenda</value>
+    <value>Compiti</value>
   </data>
   <data name="ButtonTodayAgenda.Content" xml:space="preserve">
     <value>Oggi</value>
@@ -602,5 +602,17 @@ Gli account studente hanno l'username che inizia con le lettere S, G o X.</value
   </data>
   <data name="NoticeBoardTitle.Text" xml:space="preserve">
     <value>Bacheca</value>
+  </data>
+  <data name="NoAbscences.Text" xml:space="preserve">
+    <value>Nessun assenza</value>
+  </data>
+  <data name="NoTasks.Text" xml:space="preserve">
+    <value>Nessun compito</value>
+  </data>
+  <data name="NoScrutini.Text" xml:space="preserve">
+    <value>Scrutini non disponibili</value>
+  </data>
+  <data name="ReportsTitle.Text" xml:space="preserve">
+    <value>Report scolastici</value>
   </data>
 </root>

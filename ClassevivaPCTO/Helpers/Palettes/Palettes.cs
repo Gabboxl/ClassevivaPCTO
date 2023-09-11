@@ -19,8 +19,8 @@ namespace ClassevivaPCTO.Helpers.Palettes
         {
             public Color ColorRed => Colors.Crimson;
             public Color ColorOrange => Colors.DarkOrange;
-            public Color ColorGreen => Colors.Teal;
-            public Color ColorBlue => Colors.DarkSlateBlue;
+            public Color ColorGreen => Colors.ForestGreen;
+            public Color ColorBlue => Colors.Teal;
             public Color ColorYellow => Colors.Goldenrod;
         }
 
@@ -35,20 +35,20 @@ namespace ClassevivaPCTO.Helpers.Palettes
 
         public class Palette4 : IPalette
         {
-            public Color ColorRed => ColorHelper.ToColor("#FF0000");
-            public Color ColorOrange => ColorHelper.ToColor("#FF7D00");
-            public Color ColorGreen => ColorHelper.ToColor("#00FF00");
-            public Color ColorBlue => ColorHelper.ToColor("#0000FF");
+            public Color ColorRed => ColorHelper.ToColor("#D3015A");
+            public Color ColorOrange => ColorHelper.ToColor("#FE7E00");
+            public Color ColorGreen => ColorHelper.ToColor("#09A854");
+            public Color ColorBlue => ColorHelper.ToColor("#316595");
             public Color ColorYellow => ColorHelper.ToColor("#D8B83E");
         }
 
         public class Palette5 : IPalette
         {
-            public Color ColorRed => ColorHelper.ToColor("#9A4D31");
-            public Color ColorOrange => ColorHelper.ToColor("#FC9553");
-            public Color ColorGreen => ColorHelper.ToColor("#78C141");
-            public Color ColorBlue => ColorHelper.ToColor("#42AACD");
-            public Color ColorYellow => ColorHelper.ToColor("#D8B83E");
+            public Color ColorRed => ColorHelper.ToColor("#AA1841");
+            public Color ColorOrange => ColorHelper.ToColor("#FFB208");
+            public Color ColorGreen => ColorHelper.ToColor("#689F38");
+            public Color ColorBlue => ColorHelper.ToColor("#1491D3");
+            public Color ColorYellow => ColorHelper.ToColor("#EE9B4C");
         }
     }
 }

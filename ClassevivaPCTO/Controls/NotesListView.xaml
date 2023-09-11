@@ -141,7 +141,7 @@
                        RelativePanel.Below="IconNotes"
                        RelativePanel.AlignHorizontalCenterWithPanel="True"
                        Foreground="{ThemeResource TextFillColorDisabledBrush}"
-                       Margin="0,0,0,0"
+                       Margin="0,10,0,0"
                        FontWeight="SemiBold"
                        x:Uid="NoNotesText" FontSize="36" VerticalAlignment="Center"
                        HorizontalAlignment="Center" />

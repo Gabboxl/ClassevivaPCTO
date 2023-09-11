@@ -205,7 +205,7 @@
                 </ListView>
 
                 <TextBlock x:Name="ReportsTitle"
-                           Text="Report scolastici"
+                           x:Uid="ReportsTitle"
                            Margin="14,12,0,8"
                            Visibility="{x:Bind ItemsSource.SchoolReports, Mode=OneWay, FallbackValue=Collapsed, Converter={StaticResource EmptyListToVisibilityConverter}}"
                            Style="{ThemeResource BodyStrongTextBlockStyle}" FontSize="18" FontWeight="SemiBold" />
@@ -229,7 +229,7 @@
             HorizontalAlignment="Center"
             Grid.Row="0"
             Visibility="{x:Bind ShowEmptyAlert, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}">
-            <FontIcon x:Name="IconCalendar" FontFamily="{StaticResource FluentIcons}" Glyph="&#xE787;"
+            <FontIcon x:Name="IconCalendar" FontFamily="{StaticResource FluentIcons}" Glyph="&#xf180;"
                       Foreground="{ThemeResource TextFillColorDisabledBrush}"
                       RelativePanel.AlignHorizontalCenterWithPanel="True"
                       FontSize="136"
@@ -239,9 +239,9 @@
                        RelativePanel.Below="IconCalendar"
                        RelativePanel.AlignHorizontalCenterWithPanel="True"
                        Foreground="{ThemeResource TextFillColorDisabledBrush}"
-                       Margin="0,0,0,0"
+                       Margin="0,20,0,0"
                        FontWeight="SemiBold"
-                       Text="Nessuno documento pubblicato" FontSize="36" VerticalAlignment="Center"
+                       x:Uid="NoScrutini" FontSize="36" VerticalAlignment="Center"
                        HorizontalAlignment="Center" />
         </RelativePanel>
 

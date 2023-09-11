@@ -20,46 +20,46 @@
                     VerticalAlignment="Center" FontWeight="SemiBold" FontSize="26"
                     Text="{x:Bind}" />
                 <TextBlock
-                    Margin="175,-12,-40,0"
+                    Margin="195,-12,0,0"
                     VerticalAlignment="Center" Foreground="{ThemeResource TextFillColorTertiaryBrush}"
                     x:Uid="SettingsChangelogVersion" FontSize="16" IsTextSelectionEnabled="True" />
                 <TextBlock
-                    Margin="-95,24,0,0"
+                    Margin="-130,24,0,0"
                     VerticalAlignment="Center" Foreground="{ThemeResource TextFillColorTertiaryBrush}"
                     x:Uid="SettingsChangelogReleaseDate" FontSize="16" IsTextSelectionEnabled="True" />
             </StackPanel>
         </DataTemplate>
     </ContentDialog.TitleTemplate>
-    <ScrollViewer Height="400" Width="650">
+    <ScrollViewer Height="400" Width="680">
         <StackPanel>
             <TextBlock Margin="0,25,0,0" x:Uid="SettingsChangelogHighlights" TextWrapping="WrapWholeWords" FontSize="24"
                        FontWeight="SemiBold" /> <!--In evidenza-->
-            <TextBlock Margin="0,15,0,0" x:Uid="WhatsNew_Body_Main" TextWrapping="WrapWholeWords" FontSize="15"
+            <TextBlock Margin="0,15,15,0" x:Uid="WhatsNew_Body_Main" TextWrapping="WrapWholeWords" FontSize="15"
                        IsTextSelectionEnabled="True" Foreground="{ThemeResource TextFillColorTertiaryBrush}"
                        FontWeight="SemiBold" LineHeight="26" />
             <TextBlock Margin="0,0,0,0" x:Uid="Settings_General" TextWrapping="WrapWholeWords" FontSize="24"
                        FontWeight="SemiBold" /> <!--Generali-->
-            <TextBlock Margin="0,15,0,0" x:Uid="WhatsNew_Body_1" TextWrapping="WrapWholeWords" FontSize="15"
+            <TextBlock Margin="0,15,15,0" x:Uid="WhatsNew_Body_1" TextWrapping="WrapWholeWords" FontSize="15"
                        IsTextSelectionEnabled="True" Foreground="{ThemeResource TextFillColorTertiaryBrush}"
                        FontWeight="SemiBold" LineHeight="26" />
             <!-- <TextBlock Margin="0,0,0,0" x:Uid="SettingsChangelogDashboard" TextWrapping="WrapWholeWords" FontSize="24"
                        FontWeight="SemiBold" /> -->
-            <!-- <TextBlock Margin="0,15,0,0" x:Uid="WhatsNew_Body_2" TextWrapping="WrapWholeWords" FontSize="15"
+            <!-- <TextBlock Margin="0,15,15,0" x:Uid="WhatsNew_Body_2" TextWrapping="WrapWholeWords" FontSize="15"
                        IsTextSelectionEnabled="True" Foreground="{ThemeResource TextFillColorTertiaryBrush}"
                        FontWeight="SemiBold" LineHeight="26" /> -->
             <TextBlock Margin="0,20,0,0" x:Uid="AgendaTitle" TextWrapping="WrapWholeWords" FontSize="24"
                        FontWeight="SemiBold" /> <!--Agenda-->
-            <TextBlock Margin="0,15,0,0" x:Uid="WhatsNew_Body_3" TextWrapping="WrapWholeWords" FontSize="15"
+            <TextBlock Margin="0,15,15,0" x:Uid="WhatsNew_Body_3" TextWrapping="WrapWholeWords" FontSize="15"
                        IsTextSelectionEnabled="True" Foreground="{ThemeResource TextFillColorTertiaryBrush}"
                        FontWeight="SemiBold" LineHeight="26" />
             <TextBlock Margin="0,20,0,0" x:Uid="SettingsChangelogGrades" TextWrapping="WrapWholeWords" FontSize="24"
                        FontWeight="SemiBold" /> <!--Valutazioni-->
-            <TextBlock Margin="0,15,0,0" x:Uid="WhatsNew_Body_4" TextWrapping="WrapWholeWords" FontSize="15"
+            <TextBlock Margin="0,15,15,0" x:Uid="WhatsNew_Body_4" TextWrapping="WrapWholeWords" FontSize="15"
                        IsTextSelectionEnabled="True" Foreground="{ThemeResource TextFillColorTertiaryBrush}"
                        FontWeight="SemiBold" LineHeight="26" />
             <TextBlock Margin="0,20,0,0" x:Uid="TextTitoloAssenzeRitardi" TextWrapping="WrapWholeWords" FontSize="24"
                        FontWeight="SemiBold" /> <!--Assenze e ritardi-->
-            <TextBlock Margin="0,15,0,20" x:Uid="WhatsNew_Body_5" TextWrapping="WrapWholeWords" FontSize="15"
+            <TextBlock Margin="0,15,15,20" x:Uid="WhatsNew_Body_5" TextWrapping="WrapWholeWords" FontSize="15"
                        IsTextSelectionEnabled="True" Foreground="{ThemeResource TextFillColorTertiaryBrush}"
                        FontWeight="SemiBold" LineHeight="26" />
 

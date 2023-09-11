@@ -202,7 +202,7 @@
 
 
                 <RelativePanel Grid.Row="0" Margin="0,16,0,0">
-                    <TextBlock x:Name="TextTitolo" x:Uid="TitoloAgendaPopup"
+                    <TextBlock x:Name="TextTitolo" x:Uid="AgendaTitle"
                                Style="{StaticResource TitleLargeTextBlockStyle}"
 
                                Margin="32,0,0,0" />
