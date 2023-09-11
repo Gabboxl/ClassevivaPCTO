@@ -122,7 +122,7 @@ namespace ClassevivaPCTO.Views
                 //update UI on UI thread
                 await CoreApplication.MainView.Dispatcher.RunAsync(
                     CoreDispatcherPriority.Normal,
-                    async () => { ListRecentGrades.ItemsSource = fiveMostRecent?.ToList(); }
+                    async () => { ListRecentGrades.ItemsSource = fiveMostRecent.ToList(); }
                 );
             }
             finally
