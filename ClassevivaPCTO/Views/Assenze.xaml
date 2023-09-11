@@ -9,6 +9,7 @@
     xmlns:microconverters="using:Microsoft.Toolkit.Uwp.UI.Converters"
     mc:Ignorable="d"
     xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
+    xmlns:controls1="using:Microsoft.Toolkit.Uwp.UI.Controls"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
     muxc:BackdropMaterial.ApplyToRootOrPageBackground="True">
 
@@ -76,9 +77,10 @@
 
 
             <controls:UniformGridEx
+                MinRowHeight="200"
                 x:Name="MyUniformGrid"
                 ColumnSpacing="28" RowSpacing="36"
-                MinRowHeight="250">
+                Rows="1">
 
 
                 <Grid
@@ -87,7 +89,6 @@
                     CornerRadius="8"
                     Padding="12"
                     BorderThickness="1"
-                    Grid.RowSpan="1"
                     BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
                     Background="{ThemeResource CardBackgroundFillColorDefaultBrush}">
                     <Grid.RowDefinitions>
@@ -100,75 +101,51 @@
 
                     </Grid.ColumnDefinitions>
 
-
-                    <Grid
-                        Grid.Row="2">
-                        <StackPanel>
-
-                        <TextBlock x:Name="ToJustifyText"
-                                   x:Uid="AssenzeToBeJustified"
-                                   Margin="8,4,0,6"
-                                   Style="{ThemeResource BodyStrongTextBlockStyle}" />
-
-
-                        <controls:AbsencesListView x:Name="AbsencesToJustifyListView"
+                        <controls:AbsencesListView x:Name="AbsencesToJustifyListView" Grid.Row="2"
                                                    HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
 
                         </controls:AbsencesListView>
-
-                        <TextBlock x:Name="JustifiedText"
-                                   x:Uid="AssenzeJustified"
-                                   Margin="8,4,0,6"
-                                   Style="{ThemeResource BodyStrongTextBlockStyle}" />
-
-
-                        <controls:AbsencesListView x:Name="AbsencesJustifiedListView"
-                                                   HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-
-                        </controls:AbsencesListView>
-                        </StackPanel>
-
-                    </Grid>
 
 
                 </Grid>
 
-                <Grid>
+                <Grid
+                    VerticalAlignment="Stretch">
 
-                <RelativePanel
-                    Margin="8,0,0,0"
-                    x:Name="CalendarPanel"
-                    CornerRadius="8"
-                    VerticalAlignment="Top"
+                    <RelativePanel
+                        Margin="8,0,0,0"
+                        x:Name="CalendarPanel"
+                        CornerRadius="8"
+                        VerticalAlignment="Top"
 
-                    Padding="12"
-                    BorderThickness="1"
-                    BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
-                    Background="{ThemeResource CardBackgroundFillColorDefaultBrush}">
+                        Padding="12"
+                        BorderThickness="1"
+                        BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
+                        Background="{ThemeResource CardBackgroundFillColorDefaultBrush}">
 
 
-                    <TextBlock x:Name="TextBlockCalendarioEventi"
+                        <TextBlock x:Name="TextBlockCalendarioEventi"
 
-                               x:Uid="TextBlockCalendarioEventi"
-                               Margin="8,4,0,0"
-                               Style="{ThemeResource BodyStrongTextBlockStyle}" />
+                                   x:Uid="TextBlockCalendarioEventi"
+                                   Margin="8,4,0,0"
+                                   Style="{ThemeResource BodyStrongTextBlockStyle}" />
 
-                    <Button
-                        x:Name="TodayButton"
-                        x:Uid="TodayButton"
-                        RelativePanel.AlignRightWithPanel="True"
-                        Click="TodayButton_OnClick"
-                        Margin="0,4,2,12" />
+                        <Button
+                            x:Name="TodayButton"
+                            x:Uid="TodayButton"
+                            RelativePanel.AlignRightWithPanel="True"
+                            Click="TodayButton_OnClick"
+                            Margin="0,4,2,12" />
 
-                    <CalendarView
-                        x:Name="TestCalendar"
-                        RelativePanel.Below="TodayButton"
-                        RelativePanel.AlignLeftWithPanel="True"
-                        FirstDayOfWeek="Monday"
+                        <CalendarView
+                            x:Name="TestCalendar"
+                            RelativePanel.Below="TodayButton"
+                            RelativePanel.AlignLeftWithPanel="True"
+                            FirstDayOfWeek="Monday"
 
-                        CalendarViewDayItemChanging="MyCalendarView_CalendarViewDayItemChanging" />
+                            CalendarViewDayItemChanging="MyCalendarView_CalendarViewDayItemChanging" />
 
-                </RelativePanel>
+                    </RelativePanel>
                 </Grid>
 
             </controls:UniformGridEx>

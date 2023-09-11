@@ -80,7 +80,7 @@
         </Grid.RowDefinitions>
 
         <ListView x:Name="listView"
-
+                    Grid.Row="0"
                   ScrollViewer.VerticalScrollMode="Enabled"
                   HorizontalAlignment="Stretch"
                   HorizontalContentAlignment="Stretch"

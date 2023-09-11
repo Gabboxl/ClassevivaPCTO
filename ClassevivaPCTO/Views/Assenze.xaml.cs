@@ -96,8 +96,8 @@ namespace ClassevivaPCTO.Views
                     CoreDispatcherPriority.Normal,
                     async () =>
                     {
-                        AbsencesToJustifyListView.ItemsSource = notJustifiedAbsences;
-                        AbsencesJustifiedListView.ItemsSource = justifiedAbsences;
+                        AbsencesToJustifyListView.ItemsSource = notJustifiedAbsences.Concat(justifiedAbsences).ToList();
+                        //AbsencesJustifiedListView.ItemsSource = justifiedAbsences;
 
                         await UpdateCalendar();
 
