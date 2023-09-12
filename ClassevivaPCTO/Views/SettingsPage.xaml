@@ -9,7 +9,6 @@
     xmlns:palette="using:ClassevivaPCTO.Helpers.Palettes"
     xmlns:controls="using:Microsoft.UI.Xaml.Controls"
     xmlns:adapters="using:ClassevivaPCTO.Adapters"
-    xmlns:toolkit="using:Microsoft.Toolkit.Uwp.UI"
     xmlns:converters="using:ClassevivaPCTO.Converters"
     mc:Ignorable="d">
     <Page.Resources>
@@ -296,7 +295,7 @@
                     <ComboBox
                         x:Name="LanguageComboBox"
                         ItemsSource="{x:Bind ComboLanguages}"
-                        SelectedItem="{x:Bind CurrentLanguage, Mode=TwoWay}"
+                        SelectedIndex="{x:Bind CurrentLanguage, Mode=TwoWay}"
                         MinWidth="130">
 
                     </ComboBox>
