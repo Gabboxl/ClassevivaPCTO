@@ -32,9 +32,11 @@ namespace ClassevivaPCTO.Views
     {
         private readonly IClassevivaAPI _apiWrapper;
 
-        private List<PeriodList> _periodList;
+        private List<PeriodList> _mergedPeriodList;
 
-        private List<Grade> sortedGrades;
+        private List<Grade> _sortedGrades;
+
+        private List<Period> _periods;
 
         private ValutazioniViewModel ValutazioniViewModel { get; } = new();
 
@@ -86,20 +88,20 @@ namespace ClassevivaPCTO.Views
                 var gradesRaw = grades2Result.Grades;
 
                 //order grades by date descending
-                sortedGrades = gradesRaw
+                _sortedGrades = gradesRaw
                     .OrderByDescending(g => g.evtDate)
                     .ToList();
 
-                var periods = resultPeriods.Periods;
+                _periods = resultPeriods.Periods;
                 var subjects = resultSubjects.Subjects;
 
 
                 // Select unique Periods from Grade list
-                _periodList = sortedGrades
+                _mergedPeriodList = _sortedGrades
                     .GroupBy(g => g.periodPos)
                     .Select(g => new PeriodList
                     {
-                        Period = periods.Single(p => p.periodPos == g.Key),
+                        Period = _periods.Single(p => p.periodPos == g.Key),
                         Subjects = g.GroupBy(s => s.subjectId)
                             .Select(sub => new SubjectWithGrades
                             {
@@ -112,7 +114,7 @@ namespace ClassevivaPCTO.Views
                 //update UI on UI thread
                 await CoreApplication.MainView.Dispatcher.RunAsync(
                     CoreDispatcherPriority.Normal,
-                    async () => { UpdateUi(sortedGrades, periods, subjects); }
+                    async () => { UpdateUi(_sortedGrades, _periods, subjects); }
                 );
             }
             finally
@@ -130,13 +132,13 @@ namespace ClassevivaPCTO.Views
 
             if (periodIndex == -1)
             {
-                foreach (var period in _periodList)
+                foreach (var period in _mergedPeriodList)
                 {
                     SegmentedVoti.Items.Add(VariousUtils.UppercaseFirst(period.Period.periodDesc));
                 }
 
-                TitleFirstPerVal.Text = VariousUtils.UppercaseFirst(_periodList[0].Period.periodDesc);
-                TitleSecondPerVal.Text = VariousUtils.UppercaseFirst(_periodList[1].Period.periodDesc);
+                TitleFirstPerVal.Text = VariousUtils.UppercaseFirst(_periods[0].periodDesc);
+                TitleSecondPerVal.Text = VariousUtils.UppercaseFirst(_periods[1].periodDesc);
 
                 SegmentedVoti.SelectedIndex = 0;
 
@@ -152,7 +154,7 @@ namespace ClassevivaPCTO.Views
                     GradesOnlyListView .Visibility = Visibility.Collapsed;
 
                     //create a list of SubjectAdapter from periodGrades by merging periods together and count subjects as one distinct subject
-                    var mergetdPeriodsSubjects = _periodList
+                    var mergetdPeriodsSubjects = _mergedPeriodList
                         .SelectMany(p => p.Subjects)
                         .GroupBy(s => s.Subject.id)
                         .Select(g => new SubjectWithGrades
@@ -173,7 +175,7 @@ namespace ClassevivaPCTO.Views
                     MainListView.Visibility = Visibility.Collapsed;
                     GradesOnlyListView .Visibility = Visibility.Visible;
 
-                    GradesOnlyListView.ItemsSource = sortedGrades;
+                    GradesOnlyListView.ItemsSource = _sortedGrades;
                 }
             }
             else
@@ -183,7 +185,7 @@ namespace ClassevivaPCTO.Views
                 GradesOnlyListView .Visibility = Visibility.Collapsed;
 
 
-                var periodGrades = _periodList[periodIndex - 1].Subjects;
+                var periodGrades = _mergedPeriodList[periodIndex - 1].Subjects;
 
                 //create a list of SubjectAdapter for every subject in periodGrades
                 var subjectAdapters = periodGrades.Select(subject =>
@@ -202,8 +204,8 @@ namespace ClassevivaPCTO.Views
 
             //update statistics
 
-            var firstPeriodGrades = _periodList[0].Subjects.SelectMany(s => s.Grades).ToList();
-            var secondPeriodGrades = _periodList[1].Subjects.SelectMany(s => s.Grades).ToList();
+            var firstPeriodGrades = _mergedPeriodList[0].Subjects.SelectMany(s => s.Grades).ToList();
+            var secondPeriodGrades = _mergedPeriodList[1].Subjects.SelectMany(s => s.Grades).ToList();
 
             //count all grades
             var allGradesCount = grades.Count;

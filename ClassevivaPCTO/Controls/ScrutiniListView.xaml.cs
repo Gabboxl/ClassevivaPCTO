@@ -32,7 +32,7 @@ namespace ClassevivaPCTO.Controls
             DependencyProperty.Register(
                 nameof(EnableEmptyAlert),
                 typeof(bool),
-                typeof(LessonsListView),
+                typeof(ScrutiniListView),
                 new PropertyMetadata(false, null));
 
         private static bool _showEmptyAlert;

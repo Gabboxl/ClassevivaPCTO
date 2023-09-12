@@ -221,6 +221,7 @@
                                   VerticalScrollMode="Enabled" VerticalScrollBarVisibility="Auto">
 
                         <controls2:GradesListView x:Name="ListRecentGrades"
+                                                  EnableEmptyAlert="True"
                                                   HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
 
                                                   ScrollViewer.VerticalScrollMode="Disabled"
