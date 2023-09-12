@@ -286,10 +286,10 @@ Ricorda che quest'app è ancora in fase di sviluppo e alcune funzionalità posso
     <value>Select a subject</value>
   </data>
   <data name="TitleValutazioni.Text" xml:space="preserve">
-    <value>Valutazioni</value>
+    <value>Grades</value>
   </data>
   <data name="TitoloDashboardText" xml:space="preserve">
-    <value>Dashboard di {0}</value>
+    <value>{0}'s Dashboard</value>
   </data>
   <data name="TextOggiAgenda.Text" xml:space="preserve">
     <value>Today's events
@@ -326,7 +326,7 @@ Ricorda che quest'app è ancora in fase di sviluppo e alcune funzionalità posso
     <value>Events calendar</value>
   </data>
   <data name="TitoloAgendaPopup.Text" xml:space="preserve">
-    <value>Compiti</value>
+    <value>Tasks</value>
   </data>
   <data name="ButtonTodayAgenda.Content" xml:space="preserve">
     <value>Today</value>
@@ -359,7 +359,7 @@ Gli account studente hanno l'username che inizia con le lettere S, G o X.</value
     <value>Choose a profile</value>
   </data>
   <data name="LoginButton.Content" xml:space="preserve">
-    <value>Accedi</value>
+    <value>Login</value>
   </data>
   <data name="CancelDialogButton" xml:space="preserve">
     <value>Cancel</value>
@@ -404,7 +404,7 @@ Gli account studente hanno l'username che inizia con le lettere S, G o X.</value
     <value>Close</value>
   </data>
   <data name="ReadAndOpenFlyoutText" xml:space="preserve">
-    <value>Leggi e apri</value>
+    <value>Open and read</value>
   </data>
   <data name="InfoNoticeFlyoutText" xml:space="preserve">
     <value>The notice is going to be marked as read on the server. Continue?</value>
@@ -428,7 +428,7 @@ Gli account studente hanno l'username che inizia con le lettere S, G o X.</value
     <value>Classeviva</value>
   </data>
   <data name="PALETTE_CON" xml:space="preserve">
-    <value>Contrasto</value>
+    <value>Contrast</value>
   </data>
   <data name="PALETTE_NAT" xml:space="preserve">
     <value>Nature</value>
@@ -556,7 +556,7 @@ Gli account studente hanno l'username che inizia con le lettere S, G o X.</value
     <value>Refresh</value>
   </data>
   <data name="SettingsPaletteColorBlueTT.ToolTipService.ToolTip" xml:space="preserve">
-    <value>Assenza parziale, non fa media</value>
+    <value>Partial absence, doesn't average</value>
   </data>
   <data name="SettingsPaletteColorGreenTT.ToolTipService.ToolTip" xml:space="preserve">
     <value>Sufficient grade, presence</value>
@@ -568,61 +568,61 @@ Gli account studente hanno l'username che inizia con le lettere S, G o X.</value
     <value>Insufficient grade, absence</value>
   </data>
   <data name="NoticeAdapter_FromToValidDate" xml:space="preserve">
-    <value>Valida dal {0} al {1}</value>
+    <value>Valid from {0} to {1}</value>
   </data>
   <data name="NoticeAdapter_StatusText_Eliminata" xml:space="preserve">
-    <value>Eliminata</value>
+    <value>Deleted</value>
   </data>
   <data name="NoticeAdapter_StatusText_Scaduta" xml:space="preserve">
-    <value>Scaduta</value>
+    <value>Expired</value>
   </data>
   <data name="StatusText_NotAvailable" xml:space="preserve">
-    <value>Non disponibile</value>
+    <value>Not available</value>
   </data>
   <data name="AreYouSure" xml:space="preserve">
-    <value>Sei sicuro?</value>
+    <value>Are you sure?</value>
   </data>
   <data name="AreYouSureToExit" xml:space="preserve">
-    <value>Sei sicuro di voler uscire?</value>
+    <value>Are you sure you want to logout?</value>
   </data>
   <data name="Exit" xml:space="preserve">
-    <value>Esci</value>
+    <value>Logout</value>
   </data>
   <data name="RestartRequired" xml:space="preserve">
-    <value>Riavvio richiesto</value>
+    <value>Restart required</value>
   </data>
   <data name="RestartRequiredLanguageChange" xml:space="preserve">
     <value>Per applicare la nuova lingua è necessario riavviare l'app.</value>
   </data>
   <data name="Restart" xml:space="preserve">
-    <value>Riavvia</value>
+    <value>Restart</value>
   </data>
   <data name="CheckboxSuddividi.Content" xml:space="preserve">
     <value>Suddividi per materia</value>
   </data>
   <data name="NoticeBoardTitle.Text" xml:space="preserve">
-    <value>Bacheca</value>
+    <value>Notice board</value>
   </data>
   <data name="NoAbscences.Text" xml:space="preserve">
-    <value>Nessun assenza</value>
+    <value>No absences</value>
   </data>
   <data name="NoTasks.Text" xml:space="preserve">
-    <value>Nessun compito</value>
+    <value>No tasks</value>
   </data>
   <data name="NoScrutini.Text" xml:space="preserve">
-    <value>Scrutini non disponibili</value>
+    <value>Ballots unavailable</value>
   </data>
   <data name="ReportsTitle.Text" xml:space="preserve">
     <value>Report scolastici</value>
   </data>
   <data name="SessionExpired" xml:space="preserve">
-    <value>Sessione scaduta</value>
+    <value>Session expired</value>
   </data>
   <data name="SessionExpiredDesc" xml:space="preserve">
     <value>Una sessione dura un'ora dal login. Non avendo salvato le credenziali, ora verrai portato alla pagina di login. </value>
   </data>
   <data name="LoginErrorTitle" xml:space="preserve">
-    <value>Errore login</value>
+    <value>Login error</value>
   </data>
   <data name="LoginErrorDesc" xml:space="preserve">
     <value>Non è stato possibile effettuare il login. Riprova più tardi.</value>
@@ -634,16 +634,16 @@ Gli account studente hanno l'username che inizia con le lettere S, G o X.</value
     <value>Tentativi effettuati: </value>
   </data>
   <data name="GradeSingular" xml:space="preserve">
-    <value>valutazione</value>
+    <value>grade</value>
   </data>
   <data name="GradesPlural" xml:space="preserve">
-    <value>valutazioni</value>
+    <value>grades</value>
   </data>
   <data name="SegmentedAllPeriods" xml:space="preserve">
-    <value>Tutti i periodi</value>
+    <value>All periods</value>
   </data>
   <data name="NoGrades.Text" xml:space="preserve">
-    <value>Nessuna valutazione</value>
+    <value>No grades</value>
   </data>
   <data name="PALETTE_FLO" xml:space="preserve">
     <value>Flora</value>
