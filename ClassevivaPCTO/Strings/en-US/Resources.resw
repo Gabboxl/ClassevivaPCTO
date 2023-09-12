@@ -424,11 +424,11 @@ Gli account studente hanno l'username che inizia con le lettere S, G o X.</value
   <data name="TranslateAppText.Text" xml:space="preserve">
     <value>Translate on Crowdin</value>
   </data>
-  <data name="PALETTE_CV" xml:space="preserve">
+  <data name="PALETTE_CVV" xml:space="preserve">
     <value>Classeviva</value>
   </data>
-  <data name="PALETTE_JAP" xml:space="preserve">
-    <value>Semaforo giapponese</value>
+  <data name="PALETTE_CON" xml:space="preserve">
+    <value>Contrasto</value>
   </data>
   <data name="PALETTE_NAT" xml:space="preserve">
     <value>Nature</value>
@@ -641,5 +641,14 @@ Gli account studente hanno l'username che inizia con le lettere S, G o X.</value
   </data>
   <data name="SegmentedAllPeriods" xml:space="preserve">
     <value>Tutti i periodi</value>
+  </data>
+  <data name="NoGrades.Text" xml:space="preserve">
+    <value>Nessuna valutazione</value>
+  </data>
+  <data name="PALETTE_FLO" xml:space="preserve">
+    <value>Flora</value>
+  </data>
+  <data name="PALETTE_RET" xml:space="preserve">
+    <value>Retro</value>
   </data>
 </root>
