@@ -44,10 +44,10 @@
                        Margin="32,16,0,0" />
 
             <StackPanel Grid.Row="1"
-                        MaxWidth="1000"
-                        HorizontalAlignment="Stretch"
-                        Margin="24,0,24,0"
-                        Spacing="{StaticResource SettingsCardSpacing}">
+                  MaxWidth="1000"
+                  HorizontalAlignment="Stretch"
+                  Margin="24,0,24,0"
+                  Spacing="{StaticResource SettingsCardSpacing}">
                 <StackPanel.ChildrenTransitions>
                     <EntranceThemeTransition FromVerticalOffset="50" />
                     <RepositionThemeTransition IsStaggeringEnabled="False" />
@@ -108,7 +108,7 @@
                                        FontSize="14"
                                        FontWeight="Medium"
                                        Margin="0,8,0,0" Foreground="{ThemeResource TextFillColorTertiaryBrush}">
-                                <Run x:Uid="SettingsAccountSchool"/> <Run Text="{Binding Scuola}" />
+                                <Run x:Uid="SettingsAccountSchool" /> <Run Text="{Binding Scuola}" />
                             </TextBlock>
 
                         </RelativePanel>
@@ -116,7 +116,7 @@
 
                         <StackPanel Grid.Column="2" VerticalAlignment="Center" Margin="0,0,8,0"
                                     Width="164">
-                           <!-- <Button
+                            <!-- <Button
                                 x:Name="ChangePhotoButton"
                                 Margin="0,0,0,0" HorizontalAlignment="Stretch" >
 
@@ -197,53 +197,59 @@
                             <DataTemplate x:DataType="adapters:ComboPaletteAdapter">
                                 <Grid>
                                     <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                        <ColumnDefinition Width="*"></ColumnDefinition>
                                     </Grid.ColumnDefinitions>
 
 
-                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                            <ColumnDefinition Width="*"></ColumnDefinition>
+                                        </Grid.ColumnDefinitions>
 
-                                   <!-- <TextBlock Text="{x:Bind PaletteNameTranslatedResource}"
-                                               HorizontalAlignment="Left"
-                                               VerticalAlignment="Center"
-                                               Margin="0,0,0,0" /> -->
+                                        <TextBlock Text="{x:Bind PaletteNameTranslatedResource}"
+                                                   HorizontalAlignment="Left"
+                                                   VerticalAlignment="Center"
+                                                   
+                                                   Margin="0,0,0,0" />
 
-                                    <StackPanel Orientation="Horizontal"
-                                                HorizontalAlignment="Right"
-                                                VerticalAlignment="Center" Spacing="8"
-                                                Margin="0,4,0,0">
+                                        <StackPanel Orientation="Horizontal"
+                                                    HorizontalAlignment="Right"
+                                                    Grid.Column="1"
+                                                    VerticalAlignment="Center" Spacing="8"
+                                                    Margin="8,4,0,0">
 
-                                        <Border Width="24"
-                                                Height="24"
-                                                Background="{x:Bind CurrentPalette.ColorRed, Converter={StaticResource ColorToBrushConverter}, Mode=OneWay}"
-                                                CornerRadius="26"
-                                                IsTapEnabled="False"
-                                                x:Uid="SettingsPaletteColorRedTT" />
+                                            <Border Width="24"
+                                                    Height="24"
+                                                    Background="{x:Bind CurrentPalette.ColorRed, Converter={StaticResource ColorToBrushConverter}, Mode=OneWay}"
+                                                    CornerRadius="26"
+                                                    IsTapEnabled="False"
+                                                    x:Uid="SettingsPaletteColorRedTT" />
 
-                                        <Border Width="24"
-                                                Height="24"
-                                                Background="{x:Bind CurrentPalette.ColorOrange, Converter={StaticResource ColorToBrushConverter}, Mode=OneWay}"
-                                                CornerRadius="26"
-                                                IsTapEnabled="False"
-                                                x:Uid="SettingsPaletteColorOrangeTT" />
+                                            <Border Width="24"
+                                                    Height="24"
+                                                    Background="{x:Bind CurrentPalette.ColorOrange, Converter={StaticResource ColorToBrushConverter}, Mode=OneWay}"
+                                                    CornerRadius="26"
+                                                    IsTapEnabled="False"
+                                                    x:Uid="SettingsPaletteColorOrangeTT" />
 
-                                        <Border Width="24"
-                                                Height="24"
-                                                Background="{x:Bind CurrentPalette.ColorGreen, Converter={StaticResource ColorToBrushConverter}, Mode=OneWay}"
-                                                CornerRadius="26"
-                                                IsTapEnabled="False"
-                                                x:Uid="SettingsPaletteColorGreenTT" />
+                                            <Border Width="24"
+                                                    Height="24"
+                                                    Background="{x:Bind CurrentPalette.ColorGreen, Converter={StaticResource ColorToBrushConverter}, Mode=OneWay}"
+                                                    CornerRadius="26"
+                                                    IsTapEnabled="False"
+                                                    x:Uid="SettingsPaletteColorGreenTT" />
 
-                                        <Border Width="24"
-                                                Height="24"
-                                                Background="{x:Bind CurrentPalette.ColorBlue, Converter={StaticResource ColorToBrushConverter}, Mode=OneWay}"
-                                                CornerRadius="26"
-                                                IsTapEnabled="False"
-                                                x:Uid="SettingsPaletteColorBlueTT" />
+                                            <Border Width="24"
+                                                    Height="24"
+                                                    Background="{x:Bind CurrentPalette.ColorBlue, Converter={StaticResource ColorToBrushConverter}, Mode=OneWay}"
+                                                    CornerRadius="26"
+                                                    IsTapEnabled="False"
+                                                    x:Uid="SettingsPaletteColorBlueTT" />
 
-                                    </StackPanel>
+                                        </StackPanel>
 
-                                </StackPanel>
+                                    </Grid>
                                 </Grid>
                             </DataTemplate>
                         </ComboBox.ItemTemplate>
