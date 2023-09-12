@@ -16,11 +16,11 @@ namespace ClassevivaPCTO.Helpers.Palettes
 
     public enum PaletteType
     {
-        [ClassMapping(typeof(PaletteCv))] PALETTE_CV,
-        [ClassMapping(typeof(PaletteJap))] PALETTE_JAP,
+        [ClassMapping(typeof(PaletteCvv))] PALETTE_CVV,
+        [ClassMapping(typeof(PaletteCon))] PALETTE_CON,
         [ClassMapping(typeof(PaletteNat))] PALETTE_NAT,
-        [ClassMapping(typeof(Palette4))] PALETTE_4,
-        [ClassMapping(typeof(Palette5))] PALETTE_5,
+        [ClassMapping(typeof(PaletteFlo))] PALETTE_FLO,
+        [ClassMapping(typeof(PaletteRet))] PALETTE_RET,
     }
 
     [AttributeUsage(AttributeTargets.Field)]

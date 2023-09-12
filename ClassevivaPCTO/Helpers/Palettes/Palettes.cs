@@ -6,7 +6,7 @@ namespace ClassevivaPCTO.Helpers.Palettes
 {
     internal abstract class Palettes
     {
-        public class PaletteCv : IPalette
+        public class PaletteCvv : IPalette
         {
             public Color ColorRed => ColorHelper.ToColor("#CF5955");
             public Color ColorOrange => ColorHelper.ToColor("#EE9B4C");
@@ -15,7 +15,7 @@ namespace ClassevivaPCTO.Helpers.Palettes
             public Color ColorYellow => ColorHelper.ToColor("#D8B83E");
         }
 
-        public class PaletteJap : IPalette
+        public class PaletteCon : IPalette
         {
             public Color ColorRed => Colors.Crimson;
             public Color ColorOrange => Colors.DarkOrange;
@@ -33,7 +33,7 @@ namespace ClassevivaPCTO.Helpers.Palettes
             public Color ColorYellow => ColorHelper.ToColor("#D8B83E");
         }
 
-        public class Palette4 : IPalette
+        public class PaletteFlo : IPalette
         {
             public Color ColorRed => ColorHelper.ToColor("#D3015A");
             public Color ColorOrange => ColorHelper.ToColor("#FE7E00");
@@ -42,7 +42,7 @@ namespace ClassevivaPCTO.Helpers.Palettes
             public Color ColorYellow => ColorHelper.ToColor("#D8B83E");
         }
 
-        public class Palette5 : IPalette
+        public class PaletteRet : IPalette
         {
             public Color ColorRed => ColorHelper.ToColor("#AA1841");
             public Color ColorOrange => ColorHelper.ToColor("#FFB208");

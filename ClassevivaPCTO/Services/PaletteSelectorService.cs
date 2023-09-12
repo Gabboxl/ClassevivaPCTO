@@ -18,8 +18,8 @@ namespace ClassevivaPCTO.Services
 
         //private IPalette _currentPalette;
 
-        public static IPalette PaletteClass { get; set; } = new Palettes.PaletteCv();
-        public static PaletteType PaletteEnum { get; set; } = PaletteType.PALETTE_CV;
+        public static IPalette PaletteClass { get; set; } = new Palettes.PaletteCvv();
+        public static PaletteType PaletteEnum { get; set; } = PaletteType.PALETTE_CVV;
 
         public static async Task InitializeAsync()
         {
@@ -53,7 +53,7 @@ namespace ClassevivaPCTO.Services
 
         private static async Task<PaletteType> GetCurrentPaletteEnum()
         {
-            PaletteType cacheTheme = PaletteType.PALETTE_CV; //default palette
+            PaletteType cacheTheme = PaletteType.PALETTE_CVV; //default palette
             string themeName = await ApplicationData.Current.LocalSettings.ReadAsync<string>(SettingsKey);
 
             if (!string.IsNullOrEmpty(themeName))
