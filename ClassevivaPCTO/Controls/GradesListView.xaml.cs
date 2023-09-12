@@ -17,7 +17,6 @@ namespace ClassevivaPCTO.Controls
             set
             {
                 SetValue(EnableEmptyAlertProperty, value);
-                _showEmptyAlert = value;
             }
         }
 
@@ -28,7 +27,7 @@ namespace ClassevivaPCTO.Controls
                 typeof(GradesListView),
                 new PropertyMetadata(false, null));
 
-        private static bool _showEmptyAlert;
+        private bool _showEmptyAlert;
 
         public bool ShowEmptyAlert
         {
@@ -60,7 +59,7 @@ namespace ClassevivaPCTO.Controls
             currentInstance.listView.ItemsSource = eventAdapters;
 
 
-            currentInstance.ShowEmptyAlert = (newValue == null || newValue.Count == 0) && _showEmptyAlert;
+            currentInstance.ShowEmptyAlert = (newValue == null || newValue.Count == 0) && currentInstance.EnableEmptyAlert;
         }
 
 

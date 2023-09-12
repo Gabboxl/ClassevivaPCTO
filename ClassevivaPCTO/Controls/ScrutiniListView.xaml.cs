@@ -24,7 +24,6 @@ namespace ClassevivaPCTO.Controls
             set
             {
                 SetValue(EnableEmptyAlertProperty, value);
-                _showEmptyAlert = value;
             }
         }
 
@@ -35,7 +34,7 @@ namespace ClassevivaPCTO.Controls
                 typeof(ScrutiniListView),
                 new PropertyMetadata(false, null));
 
-        private static bool _showEmptyAlert;
+        private bool _showEmptyAlert;
 
         public bool ShowEmptyAlert
         {
@@ -90,7 +89,7 @@ namespace ClassevivaPCTO.Controls
             scrollViewer.ChangeView(horizontalOffset, verticalOffset, null);
 
             //update the empty state
-            currentInstance.ShowEmptyAlert = (newValue == null || (newValue.Documents.Count == 0 && newValue.SchoolReports.Count == 0)) && _showEmptyAlert;
+            currentInstance.ShowEmptyAlert = (newValue == null || (newValue.Documents.Count == 0 && newValue.SchoolReports.Count == 0)) && currentInstance.EnableEmptyAlert;
         }
 
         public ScrutiniListView()
