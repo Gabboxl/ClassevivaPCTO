@@ -138,7 +138,7 @@
                             Margin="0,4,2,12" />
 
                         <CalendarView
-                            x:Name="TestCalendar"
+                            x:Name="ColoredCalendarView"
                             RelativePanel.Below="TodayButton"
                             RelativePanel.AlignLeftWithPanel="True"
                             FirstDayOfWeek="Monday"

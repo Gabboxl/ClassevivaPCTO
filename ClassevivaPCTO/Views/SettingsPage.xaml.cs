@@ -50,12 +50,27 @@ namespace ClassevivaPCTO.Views
 
         public List<string> ComboLanguages
         {
-            get { return ApplicationLanguages.ManifestLanguages.ToList(); }
+            get
+            {
+                //for every language of the manifest create a new string list with full names of the languages
+                //ApplicationLanguages.ManifestLanguages.ToList();
+                
+                List<string> languages = new List<string>();
+                foreach (string language in ApplicationLanguages.ManifestLanguages)
+                {
+                    languages.Add(new Language(language).DisplayName);
+                }
+
+                return languages;
+            }
         }
 
-        public string CurrentLanguage
+        public int CurrentLanguage
         {
-            get { return ApplicationLanguages.PrimaryLanguageOverride; }
+            get
+            {
+                return ApplicationLanguages.ManifestLanguages.ToList().IndexOf(ApplicationLanguages.PrimaryLanguageOverride);
+            }
             set { ChangeLanguage(value); }
         }
 
@@ -232,9 +247,9 @@ namespace ClassevivaPCTO.Views
             }
         }
 
-        private async void ChangeLanguage(string value)
+        private async void ChangeLanguage(int indexValue)
         {
-            ApplicationLanguages.PrimaryLanguageOverride = value;
+            ApplicationLanguages.PrimaryLanguageOverride = ApplicationLanguages.ManifestLanguages[indexValue];
 
             /*    ContentDialog dialog = new ContentDialog
                 {

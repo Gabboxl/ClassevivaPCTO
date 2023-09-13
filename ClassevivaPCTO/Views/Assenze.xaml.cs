@@ -34,6 +34,12 @@ namespace ClassevivaPCTO.Views
             var apiClient = app.Container.GetService<IClassevivaAPI>();
 
             apiWrapper = PoliciesDispatchProxy<IClassevivaAPI>.CreateProxy(apiClient);
+
+            //set the min and max date of the calendaragenda
+            var agedaDates = VariousUtils.GetAgendaStartEndDates();
+            
+            ColoredCalendarView.MinDate = agedaDates.startDate;
+            ColoredCalendarView.MaxDate = agedaDates.endDate;
         }
 
 
@@ -102,7 +108,7 @@ namespace ClassevivaPCTO.Views
                         await UpdateCalendar();
 
                         //select the current day of the calendar
-                        TestCalendar.SetDisplayDate(DateTime.Now.Date);
+                        ColoredCalendarView.SetDisplayDate(DateTime.Now.Date);
 
                     }
                 );
@@ -127,7 +133,7 @@ namespace ClassevivaPCTO.Views
 
         private async Task UpdateCalendar()
         {
-            var displayedDays = TestCalendar.FindDescendants().OfType<CalendarViewDayItem>();
+            var displayedDays = ColoredCalendarView.FindDescendants().OfType<CalendarViewDayItem>();
 
             //check if displayeddays descendants are CalendarViewDayItem
 
@@ -205,7 +211,7 @@ namespace ClassevivaPCTO.Views
         private void TodayButton_OnClick(object sender, RoutedEventArgs e)
         {
             //select the current day of the calendar
-            TestCalendar.SetDisplayDate(DateTime.Now.Date);
+            ColoredCalendarView.SetDisplayDate(DateTime.Now.Date);
         }
     }
 }

@@ -53,7 +53,6 @@ namespace ClassevivaPCTO.Controls
             set
             {
                 SetField(ref _showEmptyAlert, value);
-                _showEmptyAlert = value;
             }
         }
 
