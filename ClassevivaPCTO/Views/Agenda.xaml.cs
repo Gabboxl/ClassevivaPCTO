@@ -223,6 +223,7 @@ namespace ClassevivaPCTO.Views
 
                         var listviewlessons = new LessonsListView()
                         {
+                            EnableEmptyAlert = true,
                             IsSingleSubjectList = true,
                             ItemsSource = subjectLessons,
                         };

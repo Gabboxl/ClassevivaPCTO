@@ -79,8 +79,7 @@
             <controls:UniformGridEx
                 MinRowHeight="200"
                 x:Name="MyUniformGrid"
-                ColumnSpacing="28" RowSpacing="36"
-                Rows="1">
+                ColumnSpacing="28" RowSpacing="36">
 
 
                 <Grid
