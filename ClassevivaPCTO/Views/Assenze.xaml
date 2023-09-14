@@ -102,6 +102,7 @@
                     </Grid.ColumnDefinitions>
 
                         <controls:AbsencesListView x:Name="AbsencesToJustifyListView" Grid.Row="2"
+                                                   EnableEmptyAlert="True"
                                                    HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
 
                         </controls:AbsencesListView>
