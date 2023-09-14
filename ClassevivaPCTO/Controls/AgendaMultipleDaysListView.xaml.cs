@@ -19,13 +19,12 @@ namespace ClassevivaPCTO.Controls
         {
         }
 
-
         public object Key { get; set; }
     }
 
     public sealed partial class AgendaMultipleDaysListView : UserControl, INotifyPropertyChanged
     {
-        public CollectionViewSource GroupedItems { get; set; }
+        private CollectionViewSource GroupedItems { get; set; }
 
 
         private static async Task<ObservableCollection<GroupInfoList>> GetEventsGroupedAsync(
@@ -112,7 +111,7 @@ namespace ClassevivaPCTO.Controls
                 orderedAgendaEvents = repeatedDays.ToList(); //we need to reorder the lissttt
             }
 
-            var eventAdapters = orderedAgendaEvents?.Select(evt => new AgendaEventAdapter(evt)).ToList();
+            var eventAdapters = orderedAgendaEvents.Select(evt => new AgendaEventAdapter(evt)).ToList();
 
             var groupedAgendaEvents = await GetEventsGroupedAsync(eventAdapters);
 
