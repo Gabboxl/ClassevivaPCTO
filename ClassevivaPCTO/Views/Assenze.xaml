@@ -79,11 +79,11 @@
             <controls:UniformGridEx
                 MinRowHeight="200"
                 x:Name="MyUniformGrid"
-                ColumnSpacing="28" RowSpacing="36">
+                ColumnSpacing="12" RowSpacing="36">
 
 
                 <Grid
-                    Margin="18,0,8,20"
+                    Margin="16,0,8,16"
                     x:Name="CardPanel"
                     CornerRadius="8"
                     Padding="12"
@@ -110,10 +110,14 @@
                 </Grid>
 
                 <Grid
-                    VerticalAlignment="Stretch">
+                    HorizontalAlignment="Left"
+                    Margin="16,0,8,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
 
                     <RelativePanel
-                        Margin="8,0,0,0"
+                        Margin="0,0,0,0"
                         x:Name="CalendarPanel"
                         CornerRadius="8"
                         VerticalAlignment="Top"
