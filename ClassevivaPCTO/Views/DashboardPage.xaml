@@ -105,7 +105,7 @@
 
             <controls2:UniformGridEx
                 x:Name="MyUniformGrid"
-                ColumnSpacing="28" RowSpacing="36"
+                ColumnSpacing="16" RowSpacing="36"
                 MinRowHeight="250"
 
                 Margin="18,16,18,18">
@@ -143,8 +143,8 @@
                     </RelativePanel>
 
 
-                    <controls2:OverviewListView Grid.Row="2" x:Name="OverviewListView"
-                                                HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                    <controls2:OverviewListView Grid.Row="1" x:Name="OverviewListView"
+                                                HorizontalAlignment="Stretch">
 
                     </controls2:OverviewListView>
 
@@ -166,7 +166,7 @@
 
                 <Grid CornerRadius="8"
                       Padding="12"
-                      Margin="-8,0,0,0"
+                      Margin="0,0,0,0"
                       BorderThickness="1"
                       BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
                       Background="{ThemeResource CardBackgroundFillColorDefaultBrush}">
@@ -222,10 +222,7 @@
 
                         <controls2:GradesListView x:Name="ListRecentGrades"
                                                   EnableEmptyAlert="True"
-                                                  HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
-
-                                                  ScrollViewer.VerticalScrollMode="Disabled"
-                                                  ScrollViewer.VerticalScrollBarVisibility="Disabled" />
+                                                  HorizontalAlignment="Stretch" />
 
                     </ScrollViewer>
 
@@ -247,9 +244,9 @@
 
 
                 <Grid
-                    VerticalAlignment="Stretch" HorizontalAlignment="Stretch"
+                    HorizontalAlignment="Stretch"
                     CornerRadius="8"
-                    Margin="-8,-16,0,0"
+                    Margin="0,-16,0,0"
                     Padding="12"
                     BorderThickness="1"
                     BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
@@ -276,23 +273,10 @@
                     </RelativePanel>
 
 
-                    <ScrollViewer Grid.Row="2" ZoomMode="Disabled"
-                                  x:Name="SideScroll"
-                                  IsTabStop="False" IsVerticalScrollChainingEnabled="False"
-                                  toolkit:FrameworkElementExtensions.EnableActualSizeBinding="true"
 
-                                  HorizontalScrollMode="Enabled" HorizontalScrollBarVisibility="Auto"
-                                  VerticalScrollMode="Enabled" VerticalScrollBarVisibility="Auto">
+                        <controls2:NoticesListView x:Name="ListRecentNotices" Grid.Row="2"
+                                                   HorizontalAlignment="Stretch"/>
 
-                        <controls2:NoticesListView x:Name="ListRecentNotices"
-                                                   Width="{Binding ElementName=SideScroll, Path=(toolkit:FrameworkElementExtensions.ActualWidth)}"
-                                                   HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
-
-                                                   ScrollViewer.VerticalScrollMode="Disabled"
-                                                   ScrollViewer.VerticalScrollBarVisibility="Disabled" />
-
-
-                    </ScrollViewer>
 
                     <HyperlinkButton Grid.Row="2" x:Name="ButtonApriBacheca"
                                      Click="ButtonApriBacheca_Click" VerticalAlignment="Bottom"
