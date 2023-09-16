@@ -22,7 +22,12 @@ namespace ClassevivaPCTO.Adapters
 
         public float Average
         {
-            get { return VariousUtils.CalcolaMedia(SubjectGrades); }
+            get
+            {
+                var media = VariousUtils.CalcolaMedia(SubjectGrades);
+                
+                return float.IsNaN(media) ? 0 : media;
+            }
         }
 
         public string AverageString

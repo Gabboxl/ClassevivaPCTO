@@ -144,7 +144,7 @@
                       x:Uid="CheckboxSuddividi"
                       Margin="0,0,24,0"
                       RelativePanel.AlignRightWithPanel="True"
-                      RelativePanel.AlignVerticalCenterWithPanel="True" IsChecked="True" />
+                      RelativePanel.AlignVerticalCenterWithPanel="True" />
         </RelativePanel>
 
         <RelativePanel Grid.Row="2"
@@ -364,6 +364,7 @@
             </controls:Segmented>
 
             <controls2:GradesListView
+                EnableEmptyAlert="True"
                 Margin="0,32,0,0"
                 RelativePanel.Below="SegmentedVoti"
                 RelativePanel.AlignLeftWithPanel="True"
