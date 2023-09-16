@@ -26,7 +26,7 @@ namespace ClassevivaPCTO.Adapters
             {
                 var media = VariousUtils.CalcolaMedia(SubjectGrades);
                 
-                return float.IsNaN(media) ? 0 : media;
+                return media;
             }
         }
 
@@ -37,7 +37,7 @@ namespace ClassevivaPCTO.Adapters
 
         public float Progress
         {
-            get { return (Average * 10); }
+            get { return float.IsNaN(Average) ? 0 : Average * 10; }
         }
 
         public FontIcon AverageVariationIcon
