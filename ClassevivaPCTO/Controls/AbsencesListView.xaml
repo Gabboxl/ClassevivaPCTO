@@ -105,7 +105,7 @@
                        Foreground="{ThemeResource TextFillColorDisabledBrush}"
                        Margin="0,0,0,0"
                        FontWeight="SemiBold"
-                       x:Uid="NoAbsences" FontSize="36" VerticalAlignment="Center"
+                       Text="Nessuna assenza" FontSize="36" VerticalAlignment="Center"
                        HorizontalAlignment="Center" />
         </RelativePanel>
 

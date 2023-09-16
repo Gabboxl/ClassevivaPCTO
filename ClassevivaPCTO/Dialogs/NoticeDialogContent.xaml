@@ -68,33 +68,34 @@
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        <RelativePanel Grid.Row="0" HorizontalAlignment="Stretch">
+        <ScrollViewer Grid.Row="0">
+        <StackPanel  HorizontalAlignment="Stretch">
 
-            <TextBlock x:Name="noticeBodyText"
-                       TextWrapping="Wrap"
-                       Style="{ThemeResource BodyTextBlockStyle}"
-                       IsTextSelectionEnabled="True"
-                       Foreground="{ThemeResource TextFillColorSecondaryBrush}"
-                       FontWeight="SemiBold"
-                       Text="{x:Bind CurrentReadResult.item.text}"
-                       Margin="0,12,0,8" />
+                <TextBlock x:Name="noticeBodyText"
+                           TextWrapping="Wrap"
+                           Style="{ThemeResource BodyTextBlockStyle}"
+                           IsTextSelectionEnabled="True"
+                           Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                           Text="{x:Bind CurrentReadResult.item.text}"
+                           Margin="0,12,0,8" />
 
 
-            <TextBlock x:Name="TitoloAttachments" RelativePanel.Below="noticeBodyText"
+            <TextBlock x:Name="TitoloAttachments"
                        TextWrapping="Wrap"
                        FontWeight="SemiBold"
                        Style="{ThemeResource BodyStrongTextBlockStyle}"
                        Text="{x:Bind AllegatiText}"
                        Margin="8,16,0,8" />
 
-            <ListView RelativePanel.Below="TitoloAttachments"
+            <ListView
                       x:Name="AttachmentsListView"
                       ItemContainerStyle="{StaticResource ListViewFullStretchStyle}"
                       ItemTemplate="{StaticResource AttachmentListViewDataTemplate}">
 
             </ListView>
-        </RelativePanel>
+        </StackPanel>
+        </ScrollViewer>
     </Grid>
 </Page>

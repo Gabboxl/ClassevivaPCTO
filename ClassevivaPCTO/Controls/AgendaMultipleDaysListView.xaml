@@ -168,11 +168,6 @@
     </UserControl.Resources>
 
 
-
-
-
-
-
     <Grid
         HorizontalAlignment="Stretch"
         VerticalAlignment="Stretch">
