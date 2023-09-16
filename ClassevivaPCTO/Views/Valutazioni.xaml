@@ -69,19 +69,25 @@
                     </Grid>
                     <winUi:SettingsExpander.Items>
                         <winUi:SettingsCard HorizontalContentAlignment="Stretch"
-                                            ContentAlignment="Left">
+                                            ContentAlignment="Left"
+                                            HorizontalAlignment="Stretch">
 
-                            <controls2:GradesListView x:Name="ListViewVoti"
-                                                      EnableEmptyAlert="True"
-                                                      ItemsSource="{x:Bind SubjectGrades}"
+                            <Grid
+                                HorizontalAlignment="Stretch">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
 
-                                                      Margin="0,0,0,0"
-                                                      HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+                                <controls2:GradesListView x:Name="ListViewVoti"
+                                                          EnableEmptyAlert="True"
+                                                          ItemsSource="{x:Bind SubjectGrades}"
 
-                                                      ScrollViewer.VerticalScrollMode="Auto"
-                                                      ScrollViewer.VerticalScrollBarVisibility="Auto">
+                                                          Margin="0,0,0,0"
+                                                          HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
 
                             </controls2:GradesListView>
+
+                            </Grid>
                         </winUi:SettingsCard>
                     </winUi:SettingsExpander.Items>
                 </winUi:SettingsExpander>
