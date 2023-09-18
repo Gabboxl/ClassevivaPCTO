@@ -97,18 +97,22 @@ namespace ClassevivaPCTO.Views
 
 
                 // Select unique Periods from Grade list
-                _mergedPeriodList = _sortedGrades
-                    .GroupBy(g => g.periodPos)
-                    .Select(g => new PeriodList
+                _mergedPeriodList = _periods
+                    .GroupBy(p => p.periodPos)
+                    .Select(p => new PeriodList
                     {
-                        Period = _periods.Single(p => p.periodPos == g.Key),
-                        Subjects = g.GroupBy(s => s.subjectId)
+                        Period = p.First(),
+                        Subjects = subjects
+                            .GroupBy(s => s.id)
                             .Select(sub => new SubjectWithGrades
                             {
-                                Subject = subjects.Single(s => s.id == sub.Key),
-                                Grades = sub.Select(gr => gr).ToList()
+                                Subject = sub.First(),
+                                Grades = _sortedGrades
+                                    .Where(g => g.subjectId == sub.Key && g.periodPos == p.Key)
+                                    .ToList()
                             }).ToList()
                     }).ToList();
+
 
 
                 //update UI on UI thread
@@ -233,9 +237,9 @@ namespace ClassevivaPCTO.Views
             MediaSecondoPeriodoText.Text = secondPeriodGradesAverage.ToString("0.0");
 
             //set progressrings value
-            ProgressMediaTot.Value = allGradesAverage * 10;
-            ProgressMediaPrimoPeriodo.Value = firstPeriodGradesAverage * 10;
-            ProgressMediaSecondoPeriodo.Value = secondPeriodGradesAverage * 10;
+            ProgressMediaTot.Value = float.IsNaN( allGradesAverage) ? 0 : allGradesAverage * 10;
+            ProgressMediaPrimoPeriodo.Value = float.IsNaN(firstPeriodGradesAverage) ? 0 : firstPeriodGradesAverage * 10;
+            ProgressMediaSecondoPeriodo.Value = float.IsNaN(secondPeriodGradesAverage) ? 0 : secondPeriodGradesAverage * 10;
 
             //set grades count
             string valutazioniPlAllgrad = allGradesCount == 1 ? "GradeSingular".GetLocalized() : "GradesPlural".GetLocalized();

@@ -29,7 +29,7 @@ namespace ClassevivaPCTO.Controls
 
         private bool _showEmptyAlert;
 
-        public bool ShowEmptyAlert
+        private bool ShowEmptyAlert
         {
             get { return _showEmptyAlert; }
             set { SetField(ref _showEmptyAlert, value); }

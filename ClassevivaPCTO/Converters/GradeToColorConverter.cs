@@ -3,6 +3,7 @@ using ClassevivaPCTO.Services;
 using ClassevivaPCTO.Utils;
 using System;
 using Windows.UI;
+using Windows.UI.Xaml;
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Media;
 
@@ -31,6 +32,12 @@ namespace ClassevivaPCTO.Converters
             else if (valore >= 5)
             {
                 brush.Color = currentPalette.ColorOrange;
+            }
+            else if (float.IsNaN((float) valore))
+            {
+                // set brush to staticresource TextFillColorTertiaryBrush
+                brush = (SolidColorBrush)Application.Current.Resources["TextFillColorTertiaryBrush"];
+
             }
             else
             {
