@@ -126,43 +126,43 @@
     <comment>Application description</comment>
   </data>
   <data name="Shell_Main.Content" xml:space="preserve">
-    <value>Main</value>
+    <value>Principal</value>
     <comment>Navigation view item name for Main</comment>
   </data>
   <data name="Settings_Theme.Text" xml:space="preserve">
-    <value>Scegli il tema</value>
+    <value>Elegir tema</value>
     <comment>Choose theme text for Settings</comment>
   </data>
   <data name="Settings_Theme_Dark.Content" xml:space="preserve">
-    <value>Scuro</value>
+    <value>Oscuro</value>
     <comment>Dark theme text for Settings</comment>
   </data>
   <data name="Settings_Theme_Default.Content" xml:space="preserve">
-    <value>Predefinito di Sistema</value>
+    <value>Predeterminado del sistema</value>
     <comment>Windows default theme text for Settings</comment>
   </data>
   <data name="Settings_Theme_Light.Content" xml:space="preserve">
-    <value>Chiaro</value>
+    <value>Claro</value>
     <comment>Light theme text for Settings</comment>
   </data>
   <data name="Settings_About.Text" xml:space="preserve">
-    <value>Informazioni app</value>
+    <value>Información de la aplicación</value>
     <comment>About this application title for Settings</comment>
   </data>
   <data name="Settings_Personalization.Text" xml:space="preserve">
-    <value>Aspetto</value>
+    <value>Apariencia</value>
     <comment>Personalization text for Settings</comment>
   </data>
   <data name="FirstRun_Body.Text" xml:space="preserve">
-    <value>Con quest'app potrai gestire i tuoi dati del registro elettronico Classeviva in maniera intuitiva.
+    <value>Con esta aplicación podrás gestionar los datos de tu registro electrónico Classeviva de forma intuitiva.
 
-Quest'app è rivolta soltanto agli account studente.
+Esta aplicación es sólo para cuentas de estudiantes.
 
-Ricorda che quest'app è ancora in fase di sviluppo e alcune funzionalità possono non essere disponibili al momento. Se hai idee apri un issue al seguente link! https://github.com/Gabboxl/ClassevivaPCTO/issues</value>
+Tenga en cuenta que esta aplicación aún está en desarrollo y es posible que algunas funciones no estén disponibles en este momento. Si tienes ideas, ¡abre un número en el siguiente enlace! https://github.com/Gabboxl/ClassevivaPCTO/issues</value>
     <comment>First use prompt message body</comment>
   </data>
   <data name="FirstRunDialog.Title" xml:space="preserve">
-    <value>Benvenuto in ClassevivaPCTO</value>
+    <value>Bienvenido a ClassevivaPCTO</value>
     <comment>First use prompt message title</comment>
   </data>
   <data name="FirstRunDialog.PrimaryButtonText" xml:space="preserve">
@@ -170,42 +170,41 @@ Ricorda che quest'app è ancora in fase di sviluppo e alcune funzionalità posso
     <comment>First use prompt message primary button text</comment>
   </data>
   <data name="WhatsNewDialog.PrimaryButtonText" xml:space="preserve">
-    <value>Chiudi</value>
+    <value>Cerrar</value>
     <comment>What's new prompt message primary button text</comment>
   </data>
   <data name="WhatsNewDialog.Title" xml:space="preserve">
-    <value>Novità in questa versione</value>
+    <value>Novedades de esta versión</value>
     <comment>What's new prompt message title</comment>
   </data>
   <data name="WhatsNew_Body_Main.Text" xml:space="preserve">
-    <value>•  Migliorata l'interfaccia di tutte le pagine
-•  Aggiunta la funzione di cambiare lo schema dei colori utilizzato per voti ed eventi
-•  Aggiunta la possibilità di cambiare la lingua dell'interfaccia (attualmente è disponibile solo la lingua Inglese - puoi contribuire alle traduzioni dal progetto Crowdin - vedi Informazioni app)
-</value>
+    <value>• Mejorada la interfaz de todas las páginas.
+• Se agregó la función para cambiar el esquema de color utilizado para votaciones y eventos.
+• Se agregó la capacidad de cambiar el idioma de la interfaz (actualmente solo está disponible el inglés; puede contribuir a las traducciones del proyecto Crowdin. Consulte la información de la aplicación)</value>
     <comment>What's new prompt message body for highlights section</comment>
   </data>
   <data name="WhatsNew_Body_1.Text" xml:space="preserve">
-    <value>•  La sezione account è adesso integrata nelle Impostazioni
-•  Aggiunta la possibilità di visualizzare le modifiche recenti apportate all'app
-•  Aggiornata l'esperienza iniziale (tutorial) con nuovi suggerimenti, che da ora possono essere visualizzati anche dalle Impostazioni
-•  Aggiunta una splash screen - chi ha già fatto il login tramite credenziali all'apertura della app adesso visualizzerà una nuova splash screen che indica il caricamento dei dati dell'utente e dell'applicazione</value>
+    <value>• La sección de cuenta ahora está integrada en Configuración
+• Se agregó la capacidad de ver los cambios recientes realizados en la aplicación.
+• Se actualizó la experiencia inicial (tutorial) con nuevas sugerencias, que ahora también se pueden ver desde Configuración.
+• Se agregó una pantalla de presentación: aquellos que ya iniciaron sesión con sus credenciales al abrir la aplicación ahora verán una nueva pantalla de presentación que indica la carga de los datos del usuario y de la aplicación.</value>
     <comment>What's new prompt message body for first section (General)</comment>
   </data>
   <data name="WhatsNew_Body_2.Text" xml:space="preserve">
-    <value>•  Aggiunta la possibilità di cambiare e spostare i widget visualizzati nella dashboard
-•  Nuovo widget: Collegamenti rapidi - permette di salvare fino a 5 collegamenti Internet da poter aprire rapidamente dall'app, come il sito della tua scuola, Classroom o la tua posta elettronica d'istituto</value>
+    <value>• Se agregó la capacidad de cambiar y mover los widgets que se muestran en el tablero.
+• Nuevo widget: Enlaces rápidos: le permite guardar hasta 5 enlaces de Internet que puede abrir rápidamente desde la aplicación, como el sitio web de su escuela, Classroom o el correo electrónico de su escuela.</value>
     <comment>What's new prompt message body for second section (Dashboard)</comment>
   </data>
   <data name="Settings_Account.Text" xml:space="preserve">
-    <value>Account</value>
+    <value>Cuenta</value>
     <comment>Account text for Settings</comment>
   </data>
   <data name="Settings_General.Text" xml:space="preserve">
-    <value>Generali</value>
+    <value>General</value>
     <comment>General text for Settings</comment>
   </data>
   <data name="Settings_Language_En_US.Content" xml:space="preserve">
-    <value>Inglese</value>
+    <value>Inglés</value>
     <comment>English language text</comment>
   </data>
   <data name="Settings_Language_It_IT.Content" xml:space="preserve">
@@ -213,93 +212,92 @@ Ricorda che quest'app è ancora in fase di sviluppo e alcune funzionalità posso
     <comment>Italian language text</comment>
   </data>
   <data name="Settings_Version.Text" xml:space="preserve">
-    <value>Versione</value>
+    <value>Versión</value>
     <comment>Version text for Settings</comment>
   </data>
   <data name="TextTitoloSettings.Text" xml:space="preserve">
-    <value>Impostazioni</value>
+    <value>Preferencias</value>
   </data>
   <data name="SettingsExpanderTheme.Description" xml:space="preserve">
-    <value>Scegli il tema dell'app</value>
+    <value>Elegir tema</value>
   </data>
   <data name="SettingsExpanderTheme.Header" xml:space="preserve">
     <value>Tema</value>
   </data>
   <data name="SettingsCardLanguage.Header" xml:space="preserve">
-    <value>Lingua</value>
+    <value>Idioma</value>
   </data>
   <data name="SettingsCardLanguage.Description" xml:space="preserve">
-    <value>Scegli la lingua dell'app</value>
+    <value>Elegir idioma de la aplicación</value>
   </data>
   <data name="SettingsExpanderReservedRights.Description" xml:space="preserve">
-    <value>© 2023. Tutti i diritti riservati.</value>
+    <value>© 2023. Todos los derechos reservados</value>
   </data>
   <data name="hyperlinkVote.Text" xml:space="preserve">
-    <value>Vota nello Store</value>
+    <value>Calificar en la tienda</value>
   </data>
   <data name="hyperlinkIssue.Text" xml:space="preserve">
-    <value>Segnala un problema</value>
+    <value>Reportar un problema</value>
   </data>
   <data name="SettingsCardTutorial.Header" xml:space="preserve">
     <value>Tutorial</value>
   </data>
   <data name="SettingsCardTutorial.Description" xml:space="preserve">
-    <value>Visualizza suggerimenti sul funzionamento dell'app</value>
+    <value>Ver consejos sobre cómo funciona la aplicación</value>
   </data>
   <data name="SettingsCardTutorialButton.Content" xml:space="preserve">
-    <value>Avvia tutorial</value>
+    <value>Iniciar tutorial</value>
   </data>
   <data name="SettingsCardWhatsNew.Header" xml:space="preserve">
-    <value>Novità in questa versione</value>
+    <value>Novedades de esta versión</value>
   </data>
   <data name="SettingsCardWhatsNew.Description" xml:space="preserve">
-    <value>Visualizza le modifiche recenti</value>
+    <value>Ver cambios recientes</value>
   </data>
   <data name="SettingsCardWhatsNewButton.Content" xml:space="preserve">
-    <value>Mostra novità</value>
+    <value>Mostrar noticias</value>
   </data>
   <data name="TitoloScrutini.Text" xml:space="preserve">
-    <value>Scrutini</value>
+    <value>Papeletas</value>
   </data>
   <data name="CheckboxEliminati.Content" xml:space="preserve">
-    <value>Mostra documenti eliminati</value>
+    <value>Mostrar documentos eliminados</value>
   </data>
   <data name="TextFileScrutini.Text" xml:space="preserve">
-    <value>Documenti</value>
+    <value>Documentos</value>
   </data>
   <data name="TitoloNote.Text" xml:space="preserve">
-    <value>Note</value>
+    <value>Notas</value>
   </data>
   <data name="TextBenvenutoLogin.Text" xml:space="preserve">
-    <value>Benvenuto</value>
+    <value>Bienvenido</value>
   </data>
   <data name="EdittextUsername.Header" xml:space="preserve">
-    <value>Nome utente:</value>
+    <value>Nombre de usuario:</value>
   </data>
   <data name="EdittextPassword.Header" xml:space="preserve">
-    <value>Password:</value>
+    <value>Contraseña:</value>
   </data>
   <data name="CheckboxCredenziali.Content" xml:space="preserve">
-    <value>Salva le credenziali (resta loggato)</value>
+    <value>Guardar credenciales (permanecer conectado)</value>
   </data>
   <data name="ComboMaterie.PlaceholderText" xml:space="preserve">
-    <value>Seleziona una materia</value>
+    <value>Selecciona una asignatura</value>
   </data>
   <data name="TitleValutazioni.Text" xml:space="preserve">
-    <value>Valutazioni</value>
+    <value>Evaluaciones</value>
   </data>
   <data name="TitoloDashboardText" xml:space="preserve">
-    <value>Dashboard di {0}</value>
+    <value>Tablero en {0}</value>
   </data>
   <data name="TextOggiAgenda.Text" xml:space="preserve">
-    <value>Eventi del giorno
-                                   </value>
+    <value>Eventos del día</value>
   </data>
   <data name="DashboardButtonApriAgenda.Text" xml:space="preserve">
-    <value>Apri agenda</value>
+    <value>Abrir agenda</value>
   </data>
   <data name="TitleRecentGrades.Text" xml:space="preserve">
-    <value>Valutazioni recenti</value>
+    <value>Calificaciones recientes</value>
   </data>
   <data name="TitleMedia.Text" xml:space="preserve">
     <value>Media totale:</value>
@@ -460,154 +458,154 @@ Gli account studente hanno l'username che inizia con le lettere S, G o X.</value
     <value>Francese</value>
   </data>
   <data name="AutoSuggestBoxSearch.PlaceholderText" xml:space="preserve">
-    <value>Cerca...</value>
+    <value>Buscar...</value>
   </data>
   <data name="hyperlinkGithub.Text" xml:space="preserve">
-    <value>Progetto su GitHub</value>
+    <value>Proyecto en Github</value>
   </data>
   <data name="hyperlinkGithubReleases.Text" xml:space="preserve">
-    <value>Visualizza tutti i cambiamenti</value>
+    <value>Ver todos los cambios</value>
   </data>
   <data name="SettingsAboutExpanderVersion.Text" xml:space="preserve">
-    <value>Versione </value>
+    <value>Versión </value>
   </data>
   <data name="SettingsAccountSchool.Text" xml:space="preserve">
-    <value>Istituto: </value>
+    <value>Instituto:</value>
   </data>
   <data name="SettingsAccountStudentCode.Text" xml:space="preserve">
-    <value>Codice studente: </value>
+    <value>Código de estudiante:</value>
   </data>
   <data name="SettingsCardPalette.Description" xml:space="preserve">
-    <value>Personalizza lo schema dei colori utilizzato nell'app per indicare voti ed eventi</value>
+    <value>Personalice la combinación de colores utilizada en la aplicación para indicar calificaciones y eventos.</value>
   </data>
   <data name="SettingsCardPalette.Header" xml:space="preserve">
-    <value>Schema colori</value>
+    <value>Esquema de colores</value>
   </data>
   <data name="SettingsCardSchoolYear.Description" xml:space="preserve">
-    <value>Seleziona l'anno scolastico da consultare / torna all'anno precedente</value>
+    <value>Selecciona el curso escolar a consultar / volver al año anterior</value>
   </data>
   <data name="SettingsCardSchoolYear.Header" xml:space="preserve">
-    <value>Anno scolastico</value>
+    <value>Año escolar</value>
   </data>
   <data name="SettingsChangelogDashboard.Text" xml:space="preserve">
-    <value>Dashboard</value>
+    <value>Tablero</value>
   </data>
   <data name="SettingsChangelogGrades.Text" xml:space="preserve">
-    <value>Valutazioni</value>
+    <value>Evaluaciones</value>
   </data>
   <data name="SettingsChangelogHighlights.Text" xml:space="preserve">
-    <value>In evidenza</value>
+    <value>Destacado</value>
   </data>
   <data name="SettingsChangelogReleaseDate.Text" xml:space="preserve">
-    <value>18 Settembre 2023</value>
+    <value>18 de septiembre de 2023</value>
   </data>
   <data name="SettingsChangelogVersion.Text" xml:space="preserve">
-    <value>Versione 1.0.0</value>
+    <value>Versión 1.0.0</value>
   </data>
   <data name="AgendaButtonTomorrowTT.ToolTipService.ToolTip" xml:space="preserve">
-    <value>Giorno successivo</value>
+    <value>Día siguiente</value>
   </data>
   <data name="AgendaButtonYesterdayTT.ToolTipService.ToolTip" xml:space="preserve">
-    <value>Giorno precedente</value>
+    <value>Día anterior</value>
   </data>
   <data name="AssenzeJustified.Text" xml:space="preserve">
-    <value>Giustificate</value>
+    <value>Justificar</value>
   </data>
   <data name="AssenzeToBeJustified.Text" xml:space="preserve">
-    <value>Da giustificare</value>
+    <value>Estar justificado</value>
   </data>
   <data name="ButtonTodayAgenda.ToolTipService.ToolTip" xml:space="preserve">
-    <value>Vai agli eventi di oggi</value>
+    <value>Ir a los eventos de hoy</value>
   </data>
   <data name="CheckboxInattive.Content" xml:space="preserve">
-    <value>Mostra comunicazioni inattive</value>
+    <value>Mostrar conversaciones inactivas</value>
   </data>
   <data name="DashboardEditWidgetsButton.Text" xml:space="preserve">
-    <value>Personalizza widget</value>
+    <value>Personalizar widget</value>
   </data>
   <data name="EdittextPassword.PlaceholderText" xml:space="preserve">
-    <value>Password</value>
+    <value>Contraseña</value>
   </data>
   <data name="EdittextUsername.PlaceholderText" xml:space="preserve">
-    <value>Nome utente</value>
+    <value>Nombre de usuario</value>
   </data>
   <data name="NavigationViewAgenda.Content" xml:space="preserve">
     <value>Agenda</value>
   </data>
   <data name="NavigationViewAssenze.Content" xml:space="preserve">
-    <value>Assenze</value>
+    <value>Ausencias</value>
   </data>
   <data name="NavigationViewBacheca.Content" xml:space="preserve">
-    <value>Bacheca</value>
+    <value>Tablón de anuncios</value>
   </data>
   <data name="NavigationViewDashboard.Content" xml:space="preserve">
-    <value>Dashboard</value>
+    <value>Tablero</value>
   </data>
   <data name="NavigationViewGrades.Content" xml:space="preserve">
-    <value>Valutazioni</value>
+    <value>Evaluaciones</value>
   </data>
   <data name="NavigationViewNote.Content" xml:space="preserve">
-    <value>Note</value>
+    <value>Notas</value>
   </data>
   <data name="NavigationViewScrutini.Content" xml:space="preserve">
-    <value>Scrutini</value>
+    <value>Papeletas</value>
   </data>
   <data name="RefreshButtonTT.ToolTipService.ToolTip" xml:space="preserve">
-    <value>Aggiorna</value>
+    <value>Actualizar</value>
   </data>
   <data name="SettingsPaletteColorBlueTT.ToolTipService.ToolTip" xml:space="preserve">
-    <value>Assenza parziale, non fa media</value>
+    <value>Ausencia parcial, no promedio</value>
   </data>
   <data name="SettingsPaletteColorGreenTT.ToolTipService.ToolTip" xml:space="preserve">
-    <value>Presenza, sufficienza</value>
+    <value>Presencia, suficiencia</value>
   </data>
   <data name="SettingsPaletteColorOrangeTT.ToolTipService.ToolTip" xml:space="preserve">
-    <value>Insufficienza lieve, ritardo</value>
+    <value>Insuficiencia leve, retraso</value>
   </data>
   <data name="SettingsPaletteColorRedTT.ToolTipService.ToolTip" xml:space="preserve">
-    <value>Insufficienza grave, assenza</value>
+    <value>Insuficiencia severa, ausencia</value>
   </data>
   <data name="NoticeAdapter_FromToValidDate" xml:space="preserve">
-    <value>Valida dal {0} al {1}</value>
+    <value>Valida del {0} al {1}</value>
   </data>
   <data name="NoticeAdapter_StatusText_Eliminata" xml:space="preserve">
-    <value>Eliminata</value>
+    <value>Eliminada</value>
   </data>
   <data name="NoticeAdapter_StatusText_Scaduta" xml:space="preserve">
-    <value>Scaduta</value>
+    <value>Caducada</value>
   </data>
   <data name="StatusText_NotAvailable" xml:space="preserve">
-    <value>Non disponibile</value>
+    <value>No disponible</value>
   </data>
   <data name="AreYouSure" xml:space="preserve">
-    <value>Sei sicuro?</value>
+    <value>¿Está seguro?</value>
   </data>
   <data name="AreYouSureToExit" xml:space="preserve">
-    <value>Sei sicuro di voler uscire?</value>
+    <value>¿Está seguro de que quiere cerrar la sesión?</value>
   </data>
   <data name="Exit" xml:space="preserve">
-    <value>Esci</value>
+    <value>Salir</value>
   </data>
   <data name="RestartRequired" xml:space="preserve">
-    <value>Riavvio richiesto</value>
+    <value>Reinicio requerido</value>
   </data>
   <data name="RestartRequiredLanguageChange" xml:space="preserve">
-    <value>Per applicare la nuova lingua è necessario riavviare l'app.</value>
+    <value>Para aplicar el nuevo idioma es necesario reiniciar la aplicación.</value>
   </data>
   <data name="Restart" xml:space="preserve">
-    <value>Riavvia</value>
+    <value>Reiniciar</value>
   </data>
   <data name="CheckboxSuddividi.Content" xml:space="preserve">
-    <value>Suddividi per materia</value>
+    <value>Dividir por asignatura</value>
   </data>
   <data name="NoticeBoardTitle.Text" xml:space="preserve">
-    <value>Bacheca</value>
+    <value>Tablón de anuncios</value>
   </data>
   <data name="NoAbscences.Text" xml:space="preserve">
-    <value>Nessun assenza</value>
+    <value>Sin ausencias</value>
   </data>
   <data name="NoTasks.Text" xml:space="preserve">
-    <value>Nessun compito</value>
+    <value>Sin tarea</value>
   </data>
   <data name="NoScrutini.Text" xml:space="preserve">
     <value>Scrutini non disponibili</value>
