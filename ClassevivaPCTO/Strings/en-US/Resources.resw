@@ -352,8 +352,7 @@ Gli account studente hanno l'username che inizia con le lettere S, G o X.</value
     <value>OK</value>
   </data>
   <data name="ErrorDialogBody" xml:space="preserve">
-    <value>Errore durante il login. Controlla il nome utente e la password. 
- Errore: </value>
+    <value>Error logging in. Check username and password. Error: </value>
   </data>
   <data name="ChooseProfileDialogTitle" xml:space="preserve">
     <value>Choose a profile</value>
@@ -434,17 +433,17 @@ Gli account studente hanno l'username che inizia con le lettere S, G o X.</value
     <value>Nature</value>
   </data>
   <data name="WhatsNew_Body_3.Text" xml:space="preserve">
-    <value>•  Rinnovato il layout</value>
+    <value>Renewed layout</value>
     <comment>What's new prompt message body for third section (Agenda)</comment>
   </data>
   <data name="WhatsNew_Body_4.Text" xml:space="preserve">
-    <value>•  La pagina è stata rinnovata completamente in termini di Layout e interfaccia
-•  Aggiunta la possibilità di visualizzare tutti i voti per trimestre/pentamestre o quadrimestre - le visualizzazioni adesso includono la lista di tutte le materie e la relativa media per ognuna di esse. Cliccando su una materia vengono visualizzati i voti di quella materia per quello specifico periodo didattico
-•  Aggiunta la possibilità di vedere la media di ogni periodo didattico e la media generale dell'anno scolastico</value>
+    <value>• The page has been completely renewed in terms of layout and interface
+• Added the ability to view all grades by term arrangement - the views now include the list of all subjects and the relative average for each of them. By clicking on a subject, the grades for that subject for that specific teaching period are displayed
+• Added the ability to see the average of each teaching period and the general average of the school year</value>
     <comment>What's new prompt message body for fourth section (Valutazioni)</comment>
   </data>
   <data name="WhatsNew_Body_5.Text" xml:space="preserve">
-    <value>•  Rinnovato il layout</value>
+    <value>Renewed layout</value>
     <comment>What's new prompt message body for fifth section (Assenze)</comment>
   </data>
   <data name="SettingsChangeProfilePicButton.Text" xml:space="preserve">
@@ -499,7 +498,7 @@ Gli account studente hanno l'username che inizia con le lettere S, G o X.</value
     <value>Highlights</value>
   </data>
   <data name="SettingsChangelogReleaseDate.Text" xml:space="preserve">
-    <value>18 Settembre 2023</value>
+    <value>18 September 2023</value>
   </data>
   <data name="SettingsChangelogVersion.Text" xml:space="preserve">
     <value>Version 1.0.0</value>
@@ -592,13 +591,13 @@ Gli account studente hanno l'username che inizia con le lettere S, G o X.</value
     <value>Restart required</value>
   </data>
   <data name="RestartRequiredLanguageChange" xml:space="preserve">
-    <value>Per applicare la nuova lingua è necessario riavviare l'app.</value>
+    <value>An app restart is required for the language change to take effect.</value>
   </data>
   <data name="Restart" xml:space="preserve">
     <value>Restart</value>
   </data>
   <data name="CheckboxSuddividi.Content" xml:space="preserve">
-    <value>Suddividi per materia</value>
+    <value>Divide by subject</value>
   </data>
   <data name="NoticeBoardTitle.Text" xml:space="preserve">
     <value>Notice board</value>
@@ -613,25 +612,25 @@ Gli account studente hanno l'username che inizia con le lettere S, G o X.</value
     <value>Ballots unavailable</value>
   </data>
   <data name="ReportsTitle.Text" xml:space="preserve">
-    <value>Report scolastici</value>
+    <value>School reports</value>
   </data>
   <data name="SessionExpired" xml:space="preserve">
     <value>Session expired</value>
   </data>
   <data name="SessionExpiredDesc" xml:space="preserve">
-    <value>Una sessione dura un'ora dal login. Non avendo salvato le credenziali, ora verrai portato alla pagina di login. </value>
+    <value>A session lasts one hour from login. Since you did not save your credentials, you will now be taken to the login page. </value>
   </data>
   <data name="LoginErrorTitle" xml:space="preserve">
     <value>Login error</value>
   </data>
   <data name="LoginErrorDesc" xml:space="preserve">
-    <value>Non è stato possibile effettuare il login. Riprova più tardi.</value>
+    <value>Login was not possible. Try again later.</value>
   </data>
   <data name="APIErrorTitle" xml:space="preserve">
-    <value>Errore chiamata API (riprova più tardi)</value>
+    <value>API error title (try again later)</value>
   </data>
   <data name="AttempsDone" xml:space="preserve">
-    <value>Tentativi effettuati: </value>
+    <value>Attempts done: </value>
   </data>
   <data name="GradeSingular" xml:space="preserve">
     <value>grade</value>
