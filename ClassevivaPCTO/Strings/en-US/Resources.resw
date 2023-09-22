@@ -154,11 +154,11 @@
     <comment>Personalization text for Settings</comment>
   </data>
   <data name="FirstRun_Body.Text" xml:space="preserve">
-    <value>Con quest'app potrai gestire i tuoi dati del registro elettronico Classeviva in maniera intuitiva.
+    <value>With this app, you can manage your Classeviva electronic register data in an intuitive way.
 
-Quest'app è rivolta soltanto agli account studente.
+This app is for student accounts only.
 
-Ricorda che quest'app è ancora in fase di sviluppo e alcune funzionalità possono non essere disponibili al momento. Se hai idee apri un issue al seguente link! https://github.com/Gabboxl/ClassevivaPCTO/issues</value>
+Please note that this app is still under development and some features may not be available at this time. If you have ideas, open an issue at the following link! https://github.com/Gabboxl/ClassevivaPCTO/issues</value>
     <comment>First use prompt message body</comment>
   </data>
   <data name="FirstRunDialog.Title" xml:space="preserve">
@@ -178,22 +178,22 @@ Ricorda che quest'app è ancora in fase di sviluppo e alcune funzionalità posso
     <comment>What's new prompt message title</comment>
   </data>
   <data name="WhatsNew_Body_Main.Text" xml:space="preserve">
-    <value>•  Migliorata l'interfaccia di tutte le pagine
-•  Aggiunta la funzione di cambiare lo schema dei colori utilizzato per voti ed eventi
-•  Aggiunta la possibilità di cambiare la lingua dell'interfaccia (attualmente è disponibile solo la lingua Inglese - puoi contribuire alle traduzioni dal progetto Crowdin - vedi Informazioni app)
+    <value>• Improved the interface of all pages
+• Added the function to change the color scheme used for votes and events
+• Added the ability to change the interface language (currently only English is available - you can contribute to translations from the Crowdin project - see app information)
 </value>
     <comment>What's new prompt message body for highlights section</comment>
   </data>
   <data name="WhatsNew_Body_1.Text" xml:space="preserve">
-    <value>•  La sezione account è adesso integrata nelle Impostazioni
-•  Aggiunta la possibilità di visualizzare le modifiche recenti apportate all'app
-•  Aggiornata l'esperienza iniziale (tutorial) con nuovi suggerimenti, che da ora possono essere visualizzati anche dalle Impostazioni
-•  Aggiunta una splash screen - chi ha già fatto il login tramite credenziali all'apertura della app adesso visualizzerà una nuova splash screen che indica il caricamento dei dati dell'utente e dell'applicazione</value>
+    <value>• The account section is now integrated into Settings
+• Added the ability to view recent changes made to the app
+• Updated the initial experience (tutorial) with new suggestions, which can now also be viewed from Settings
+• Added a splash screen - those who have already logged in using credentials when opening the app will now see a new splash screen indicating the loading of user and application data</value>
     <comment>What's new prompt message body for first section (General)</comment>
   </data>
   <data name="WhatsNew_Body_2.Text" xml:space="preserve">
-    <value>•  Aggiunta la possibilità di cambiare e spostare i widget visualizzati nella dashboard
-•  Nuovo widget: Collegamenti rapidi - permette di salvare fino a 5 collegamenti Internet da poter aprire rapidamente dall'app, come il sito della tua scuola, Classroom o la tua posta elettronica d'istituto</value>
+    <value>• Added the ability to change and move widgets displayed in the dashboard
+• New widget: Quick Links - allows you to save up to 5 Internet links that you can quickly open from the app, such as your school website, Classroom or your school email</value>
     <comment>What's new prompt message body for second section (Dashboard)</comment>
   </data>
   <data name="Settings_Account.Text" xml:space="preserve">
@@ -235,7 +235,7 @@ Ricorda che quest'app è ancora in fase di sviluppo e alcune funzionalità posso
     <value>© 2023. All rights reserved.</value>
   </data>
   <data name="hyperlinkVote.Text" xml:space="preserve">
-    <value>Vota nello Store</value>
+    <value>Rate app on the Store</value>
   </data>
   <data name="hyperlinkIssue.Text" xml:space="preserve">
     <value>Report an issue</value>
@@ -341,9 +341,9 @@ Ricorda che quest'app è ancora in fase di sviluppo e alcune funzionalità posso
     <value>Teacher accounts are not supported</value>
   </data>
   <data name="AccountNonSupportatoBody" xml:space="preserve">
-    <value>In questa app sono solo supportati gli account studente. 
+    <value>Only student accounts are supported in this app. 
 
-Gli account studente hanno l'username che inizia con le lettere S, G o X.</value>
+Student accounts have usernames starting with the letters S, G, or X.</value>
   </data>
   <data name="ErroreText" xml:space="preserve">
     <value>Error</value>
