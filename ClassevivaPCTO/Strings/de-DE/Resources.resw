@@ -154,11 +154,12 @@
     <comment>Personalization text for Settings</comment>
   </data>
   <data name="FirstRun_Body.Text" xml:space="preserve">
-    <value>Con quest'app potrai gestire i tuoi dati del registro elettronico Classeviva in maniera intuitiva.
+    <value>Con ClassevivaPCTO potrai visualizzare i tuoi dati del registro elettronico Classeviva in maniera intuitiva e sotto le vesti di un design innovativo.
 
 Quest'app è rivolta soltanto agli account studente.
 
-Ricorda che quest'app è ancora in fase di sviluppo e alcune funzionalità possono non essere disponibili al momento. Se hai idee apri un issue al seguente link! https://github.com/Gabboxl/ClassevivaPCTO/issues</value>
+Ricorda che quest'app è ancora in fase di sviluppo e alcune funzionalità non sono disponibili al momento. 
+Se riscontri bug o hai un'idea per l'app apri un issue su GitHub cliccando sul link "Segnala un problema" nella sezione Informazioni app</value>
     <comment>First use prompt message body</comment>
   </data>
   <data name="FirstRunDialog.Title" xml:space="preserve">
@@ -187,8 +188,8 @@ Ricorda che quest'app è ancora in fase di sviluppo e alcune funzionalità posso
   <data name="WhatsNew_Body_1.Text" xml:space="preserve">
     <value>•  La sezione account è adesso integrata nelle Impostazioni
 •  Aggiunta la possibilità di visualizzare le modifiche recenti apportate all'app
-•  Aggiornata l'esperienza iniziale (tutorial) con nuovi suggerimenti, che da ora possono essere visualizzati anche dalle Impostazioni
-•  Aggiunta una splash screen - chi ha già fatto il login tramite credenziali all'apertura della app adesso visualizzerà una nuova splash screen che indica il caricamento dei dati dell'utente e dell'applicazione</value>
+•  Da adesso il tutorial iniziale sarà visibile anche dalle Impostazioni - questo verrà modificato in futuro per includere suggerimenti e consigli su come usare al meglio l'app
+•  Aggiunta una sezione per i contributors di Github</value>
     <comment>What's new prompt message body for first section (General)</comment>
   </data>
   <data name="WhatsNew_Body_2.Text" xml:space="preserve">
