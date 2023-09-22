@@ -93,7 +93,7 @@
             HorizontalAlignment="Center"
             Grid.Row="0"
             Visibility="{x:Bind ShowEmptyAlert, Mode=OneWay, Converter={StaticResource BetterBoolToVisibilityConverter}, ConverterParameter=True}">
-            <FontIcon x:Name="IconNotes" FontFamily="{StaticResource FluentIcons}" Glyph="&#xe91c;"
+            <FontIcon x:Name="IconNotes" FontFamily="{StaticResource FluentIcons}" Glyph="&#xe7c1;"
                       Foreground="{ThemeResource TextFillColorDisabledBrush}"
                       RelativePanel.AlignHorizontalCenterWithPanel="True"
                       FontSize="124"
@@ -105,7 +105,7 @@
                        Foreground="{ThemeResource TextFillColorDisabledBrush}"
                        Margin="0,0,0,0"
                        FontWeight="SemiBold"
-                       Text="Nessuna assenza" FontSize="36" VerticalAlignment="Center"
+                       x:Uid="NoAbsences" FontSize="36" VerticalAlignment="Center"
                        HorizontalAlignment="Center" />
         </RelativePanel>
 
