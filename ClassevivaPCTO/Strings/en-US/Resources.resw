@@ -650,4 +650,7 @@ Student accounts have usernames starting with the letters S, G, or X.</value>
   <data name="PALETTE_RET" xml:space="preserve">
     <value>Retro</value>
   </data>
+  <data name="NoLessons.Text" xml:space="preserve">
+    <value>Nessuna lezione</value>
+  </data>
 </root>
