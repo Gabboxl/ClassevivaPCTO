@@ -55,7 +55,7 @@ namespace ClassevivaPCTO.Views
             var version = packageId.Version;
 
             VersionTextBlock.Text =
-                $"{appName} - {version.Major}.{version.Minor}.{version.Build}"; //.{version.Revision}
+                $"{appName} - {version.Major}.{version.Minor}.{version.Build}.{version.Revision}";
 
             var loginCredentials = new CredUtils().GetCredentialFromLocker();
 
