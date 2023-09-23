@@ -602,8 +602,8 @@ Gli account studente hanno l'username che inizia con le lettere S, G o X.</value
   <data name="NoticeBoardTitle.Text" xml:space="preserve">
     <value>Tablón de anuncios</value>
   </data>
-  <data name="NoAbscences.Text" xml:space="preserve">
-    <value>Sin ausencias</value>
+  <data name="NoAbsences.Text" xml:space="preserve">
+    <value>Nessun assenza</value>
   </data>
   <data name="NoTasks.Text" xml:space="preserve">
     <value>Sin tarea</value>
