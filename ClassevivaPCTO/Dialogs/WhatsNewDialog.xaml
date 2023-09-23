@@ -19,10 +19,10 @@
                     Margin="16,-4,20,0"
                     VerticalAlignment="Center" FontWeight="SemiBold" FontSize="26"
                     Text="{x:Bind}" />
-                <TextBlock
-                    Margin="195,-12,0,0"
-                    VerticalAlignment="Center" Foreground="{ThemeResource TextFillColorTertiaryBrush}"
-                    x:Uid="SettingsChangelogVersion" FontSize="16" IsTextSelectionEnabled="True" />
+                <TextBlock Margin="195,-12,0,0" FontSize="16" IsTextSelectionEnabled="True"
+                        VerticalAlignment="Center" Foreground="{ThemeResource TextFillColorTertiaryBrush}">
+                        <Run x:Uid="SettingsAboutExpanderVersion" /><Run Text="1.0.0" />
+                </TextBlock>
                 <TextBlock
                     Margin="-130,24,0,0"
                     VerticalAlignment="Center" Foreground="{ThemeResource TextFillColorTertiaryBrush}"
@@ -32,7 +32,10 @@
     </ContentDialog.TitleTemplate>
     <ScrollViewer Height="400" Width="680">
         <StackPanel>
-            
+
+            <Image Source="/Assets/storescreenshot.png" Stretch="Uniform" Height="350"/>
+
+
             <TextBlock Margin="0,25,0,0" x:Uid="SettingsChangelogHighlights" TextWrapping="WrapWholeWords" FontSize="24"
                        FontWeight="SemiBold" /> <!--In evidenza-->
             <TextBlock Margin="0,15,15,0" x:Uid="WhatsNew_Body_Main" TextWrapping="WrapWholeWords" FontSize="15"
@@ -62,14 +65,14 @@
             <TextBlock Margin="0,15,15,0" x:Uid="WhatsNew_Body_4" TextWrapping="WrapWholeWords" FontSize="15"
                        IsTextSelectionEnabled="True" Foreground="{ThemeResource TextFillColorTertiaryBrush}"
                        FontWeight="SemiBold" LineHeight="26" />
-            
-            <TextBlock Margin="0,20,0,0" x:Uid="TextTitoloAssenzeRitardi" TextWrapping="WrapWholeWords" FontSize="24"
-                       FontWeight="SemiBold" /> <!--Assenze e ritardi-->
-            <TextBlock Margin="0,15,15,20" x:Uid="WhatsNew_Body_5" TextWrapping="WrapWholeWords" FontSize="15"
-                       IsTextSelectionEnabled="True" Foreground="{ThemeResource TextFillColorTertiaryBrush}"
-                       FontWeight="SemiBold" LineHeight="26" />
 
-            <HyperlinkButton x:Name="WhatsNewHyperlink"
+            <!-- <TextBlock Margin="0,20,0,0" x:Uid="TextTitoloAssenzeRitardi" TextWrapping="WrapWholeWords" FontSize="24"
+                       FontWeight="SemiBold" />  -->
+            <!-- <TextBlock Margin="0,15,15,20" x:Uid="WhatsNew_Body_5" TextWrapping="WrapWholeWords" FontSize="15"
+                       IsTextSelectionEnabled="True" Foreground="{ThemeResource TextFillColorTertiaryBrush}"
+                       FontWeight="SemiBold" LineHeight="26" />  -->
+
+            <HyperlinkButton x:Name="WhatsNewHyperlink" Margin="0,24,0,0"
                              NavigateUri="https://github.com/Gabboxl/ClassevivaPCTO/releases">
                 <StackPanel Orientation="Horizontal" Spacing="10">
                     <Grid Width="18" Height="18">
