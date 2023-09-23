@@ -292,8 +292,7 @@ Ricorda che quest'app è ancora in fase di sviluppo e alcune funzionalità posso
     <value>Dashboard di {0}</value>
   </data>
   <data name="TextOggiAgenda.Text" xml:space="preserve">
-    <value>Eventi del giorno
-                                   </value>
+    <value>Eventi del giorno</value>
   </data>
   <data name="DashboardButtonApriAgenda.Text" xml:space="preserve">
     <value>Apri agenda</value>
