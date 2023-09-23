@@ -48,9 +48,10 @@
                   Margin="24,0,24,0"
                   Spacing="{StaticResource SettingsCardSpacing}">
                 <StackPanel.ChildrenTransitions>
-                    <EntranceThemeTransition FromVerticalOffset="50" />
+                    <EntranceThemeTransition FromVerticalOffset="50" IsStaggeringEnabled="True" />
                     <RepositionThemeTransition IsStaggeringEnabled="False" />
                 </StackPanel.ChildrenTransitions>
+
 
                 <TextBlock Style="{StaticResource SettingsSectionHeaderTextBlockStyle}"
                            x:Uid="Settings_Account" />
