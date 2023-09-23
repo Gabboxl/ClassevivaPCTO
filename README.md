@@ -8,15 +8,24 @@ A simple UWP app to consult Classeviva's website
 
 <a href="https://apps.microsoft.com/store/detail/9PNST3M88D1S?launch=true&mode=mini" > <img src="https://get.microsoft.com/images/en-US%20dark.svg" width=25% height=25%/> </a>
 
-## How to install from Github Releases
+> **Note**: This app is available for ARM/ARM64/x86/x64 architectures.
 
 ### Minimum requirements
 
 - Windows 10 version 1809 (build 17763)
 
-> **Note**: This app is available for ARM/ARM64/x86/x64 architectures.
+
 
 *Github releases for manual sideloading are coming soon!*
+
+
+## Test account
+
+If you want to try the app without a real account, use these credentials:
+
+
+*Username*: **test**
+*Password*: **test**
 
 
 ## How to compile
