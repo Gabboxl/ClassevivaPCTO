@@ -8,6 +8,7 @@
     xmlns:toolkit="using:Microsoft.Toolkit.Uwp.UI"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:helpers="using:ClassevivaPCTO.Helpers"
     mc:Ignorable="d"
     d:DesignHeight="300"
     d:DesignWidth="400">
@@ -130,17 +131,20 @@
                     </Button>
 
 
-                    <AppBarButton RelativePanel.AlignVerticalCenterWithPanel="True"
-                                  RelativePanel.AlignRightWithPanel="True"
-                                  x:Name="NotAvailableButton"
-                                  Label="Non disponibile"
-                                  IsEnabled="False"
-                                  Visibility="{x:Bind IsDeleted, Converter={StaticResource BetterBoolToVisibilityConverter}, ConverterParameter=True}">
-                        <!-- custom icon -->
-                        <AppBarButton.Icon>
-                            <FontIcon FontFamily="{StaticResource FluentIcons}" Glyph="&#xE894;" />
-                        </AppBarButton.Icon>
-                    </AppBarButton>
+                    <Button
+                        RelativePanel.AlignVerticalCenterWithPanel="True"
+                        RelativePanel.AlignRightWithPanel="True"
+                        x:Name="NotAvailableButton"
+                        IsEnabled="False"
+                        Visibility="{x:Bind IsDeleted, Converter={StaticResource BetterBoolToVisibilityConverter}, ConverterParameter=True}"
+                        Style="{ThemeResource TextButtonStyle}">
+                        <Button.Content>
+                            <StackPanel Orientation="Horizontal">
+                                <FontIcon FontFamily="{StaticResource FluentIcons}" Glyph="&#xE894;" />
+                                <TextBlock Text="{x:Bind helpers:ResourceExtensions.GetLocalized('StatusText_NotAvailable'), Mode=OneTime}" Margin="6,0,0,0" />
+                            </StackPanel>
+                        </Button.Content>
+                    </Button>
 
 
                 </RelativePanel>
