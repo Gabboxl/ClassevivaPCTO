@@ -105,7 +105,7 @@
                        Foreground="{ThemeResource TextFillColorDisabledBrush}"
                        Margin="0,0,0,0"
                        FontWeight="SemiBold"
-                       x:Uid="NoAbscences" FontSize="36" VerticalAlignment="Center"
+                       x:Uid="NoAbsences" FontSize="36" VerticalAlignment="Center"
                        HorizontalAlignment="Center" />
         </RelativePanel>
 
