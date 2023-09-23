@@ -293,8 +293,7 @@ Se riscontri bug o hai un'idea per l'app apri un issue su GitHub cliccando sul l
     <value>Dashboard di {0}</value>
   </data>
   <data name="TextOggiAgenda.Text" xml:space="preserve">
-    <value>Eventi del giorno
-                                   </value>
+    <value>Eventi del giorno</value>
   </data>
   <data name="DashboardButtonApriAgenda.Text" xml:space="preserve">
     <value>Apri agenda</value>
