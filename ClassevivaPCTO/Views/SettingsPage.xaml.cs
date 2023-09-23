@@ -120,7 +120,7 @@ namespace ClassevivaPCTO.Views
             var packageId = package.Id;
             var version = packageId.Version;
 
-            return $"{version.Major}.{version.Minor}.{version.Build}.{version.Revision}";
+            return $"{version.Major}.{version.Minor}.{version.Build}";
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

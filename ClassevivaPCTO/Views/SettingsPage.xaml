@@ -217,7 +217,7 @@
                                                     HorizontalAlignment="Right"
                                                     Grid.Column="1"
                                                     VerticalAlignment="Center" Spacing="8"
-                                                    Margin="14,4,0,0">
+                                                    Margin="12,4,0,0">
 
                                             <Border Width="24"
                                                     Height="24"
@@ -286,7 +286,8 @@
                     </labs:SettingsCard>
                 
                 -->
-
+                
+                
                 <labs:SettingsCard x:Uid="SettingsCardLanguage">
 
                     <labs:SettingsCard.HeaderIcon>
@@ -297,7 +298,7 @@
                         x:Name="LanguageComboBox"
                         ItemsSource="{x:Bind ComboLanguages}"
                         SelectedIndex="{x:Bind CurrentLanguage, Mode=TwoWay}"
-                        MinWidth="130">
+                        MinWidth="160">
 
                     </ComboBox>
 
@@ -310,7 +311,7 @@
                         <FontIcon Glyph="&#xE762;" />
                     </labs:SettingsCard.HeaderIcon>
 
-                    <Button x:Uid="SettingsCardWhatsNewButton" Click="ButtonChangelog_OnClick" MinWidth="130" />
+                    <Button x:Uid="SettingsCardWhatsNewButton" Click="ButtonChangelog_OnClick" MinWidth="160" />
 
 
                 </labs:SettingsCard>
@@ -322,7 +323,7 @@
                         <FontIcon Glyph="&#xEA80;" />
                     </labs:SettingsCard.HeaderIcon>
 
-                    <Button x:Uid="SettingsCardTutorialButton" MinWidth="130" Click="ButtonTutorial_OnClick" />
+                    <Button x:Uid="SettingsCardTutorialButton" MinWidth="160" Click="ButtonTutorial_OnClick" />
 
                 </labs:SettingsCard>
 

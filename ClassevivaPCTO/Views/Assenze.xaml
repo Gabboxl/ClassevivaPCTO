@@ -111,7 +111,7 @@
 
                 <Grid
                     HorizontalAlignment="Left"
-                    Margin="16,0,8,0">
+                    Margin="0,0,8,0">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto"></ColumnDefinition>
                     </Grid.ColumnDefinitions>

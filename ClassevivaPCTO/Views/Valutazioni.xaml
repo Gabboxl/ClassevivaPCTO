@@ -219,7 +219,7 @@
                             HorizontalAlignment="Left">
                             <TextBlock
                                 x:Name="TitleTotVal"
-                                Text="Media totale"
+                                x:Uid="GlobalAverage"
                                 Style="{StaticResource TitleTextBlockStyle}"
                                 HorizontalAlignment="Center"
                                 Margin="0,0,0,0" />

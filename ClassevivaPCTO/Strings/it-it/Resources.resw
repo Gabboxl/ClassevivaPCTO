@@ -159,7 +159,7 @@
 Quest'app è rivolta soltanto agli account studente.
 
 Ricorda che quest'app è ancora in fase di sviluppo e alcune funzionalità non sono disponibili al momento. 
-Se riscontri bug o hai un'idea per l'app apri un issue su GitHub cliccando sul link "Segnala un problema" nella sezione Informazioni app</value>
+Se riscontri bug o hai un'idea per l'app apri un issue su GitHub cliccando sul link "Segnala un problema" nella sezione Informazioni app.</value>
     <comment>First use prompt message body</comment>
   </data>
   <data name="FirstRunDialog.Title" xml:space="preserve">
@@ -242,13 +242,13 @@ Se riscontri bug o hai un'idea per l'app apri un issue su GitHub cliccando sul l
     <value>Segnala un problema</value>
   </data>
   <data name="SettingsCardTutorial.Header" xml:space="preserve">
-    <value>Tutorial</value>
+    <value>Suggerimenti</value>
   </data>
   <data name="SettingsCardTutorial.Description" xml:space="preserve">
     <value>Visualizza suggerimenti sul funzionamento dell'app</value>
   </data>
   <data name="SettingsCardTutorialButton.Content" xml:space="preserve">
-    <value>Avvia tutorial</value>
+    <value>Mostra suggerimenti</value>
   </data>
   <data name="SettingsCardWhatsNew.Header" xml:space="preserve">
     <value>Novità in questa versione</value>
@@ -281,7 +281,7 @@ Se riscontri bug o hai un'idea per l'app apri un issue su GitHub cliccando sul l
     <value>Password:</value>
   </data>
   <data name="CheckboxCredenziali.Content" xml:space="preserve">
-    <value>Salva le credenziali (resta loggato)</value>
+    <value>Mantieni le credenziali</value>
   </data>
   <data name="ComboMaterie.PlaceholderText" xml:space="preserve">
     <value>Seleziona una materia</value>
@@ -502,9 +502,6 @@ Gli account studente hanno l'username che inizia con le lettere S, G o X.</value
   <data name="SettingsChangelogReleaseDate.Text" xml:space="preserve">
     <value>18 Settembre 2023</value>
   </data>
-  <data name="SettingsChangelogVersion.Text" xml:space="preserve">
-    <value>Versione 1.0.0</value>
-  </data>
   <data name="AgendaButtonTomorrowTT.ToolTipService.ToolTip" xml:space="preserve">
     <value>Giorno successivo</value>
   </data>
@@ -629,7 +626,7 @@ Gli account studente hanno l'username che inizia con le lettere S, G o X.</value
     <value>Non è stato possibile effettuare il login. Riprova più tardi.</value>
   </data>
   <data name="APIErrorTitle" xml:space="preserve">
-    <value>Errore chiamata API (riprova più tardi)</value>
+    <value>Errore del server (riprova più tardi)</value>
   </data>
   <data name="AttempsDone" xml:space="preserve">
     <value>Tentativi effettuati: </value>
@@ -654,5 +651,14 @@ Gli account studente hanno l'username che inizia con le lettere S, G o X.</value
   </data>
   <data name="NoLessons.Text" xml:space="preserve">
     <value>Nessuna lezione</value>
+  </data>
+  <data name="ContributorsLink.Text" xml:space="preserve">
+    <value>Contributors</value>
+  </data>
+  <data name="GlobalAverage.Text" xml:space="preserve">
+    <value>Media totale</value>
+  </data>
+  <data name="LicensesLink.Text" xml:space="preserve">
+    <value>Licenze</value>
   </data>
 </root>
