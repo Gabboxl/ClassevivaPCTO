@@ -36,7 +36,7 @@ namespace ClassevivaPCTO
 
         public IServiceProvider Container { get; }
 
-        public IServiceProvider ConfigureDependencyInjection()
+        private IServiceProvider ConfigureDependencyInjection()
         {
             var getToken = new Func<Task<string>>(GetTokenAsync);
 
