@@ -179,9 +179,9 @@ If you encounter bugs or have an idea for the app, open an issue on GitHub by cl
     <comment>What's new prompt message title</comment>
   </data>
   <data name="WhatsNew_Body_Main.Text" xml:space="preserve">
-    <value>• Improved the interface of all pages
-• Added the function to change the color scheme used for votes and events
-• Added the ability to change the interface language (currently only English is available - you can contribute to translations from the Crowdin project - see app information)
+    <value>• Improved the interface across the whole app
+• Added the ability to change the color palette used for grades and events
+• Added the ability to change the interface language (currently only English is available - you can contribute to translations from the Crowdin project - see the About section)
 </value>
     <comment>What's new prompt message body for highlights section</comment>
   </data>
@@ -236,7 +236,7 @@ If you encounter bugs or have an idea for the app, open an issue on GitHub by cl
     <value>© 2023. All rights reserved.</value>
   </data>
   <data name="hyperlinkVote.Text" xml:space="preserve">
-    <value>Rate app on the Store</value>
+    <value>Rate on the Store</value>
   </data>
   <data name="hyperlinkIssue.Text" xml:space="preserve">
     <value>Report an issue</value>
