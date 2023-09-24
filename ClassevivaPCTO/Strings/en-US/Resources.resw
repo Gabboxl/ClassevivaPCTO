@@ -154,12 +154,12 @@
     <comment>Personalization text for Settings</comment>
   </data>
   <data name="FirstRun_Body.Text" xml:space="preserve">
-    <value>Con ClassevivaPCTO potrai visualizzare i tuoi dati del registro elettronico Classeviva in maniera intuitiva e sotto le vesti di un design innovativo.
+    <value>With ClassevivaPCTO you will be able to view your Classeviva school register data in an intuitive way and under the guise of an innovative design.
 
-Quest'app è rivolta soltanto agli account studente.
+This app is for student accounts only.
 
-Ricorda che quest'app è ancora in fase di sviluppo e alcune funzionalità non sono disponibili al momento. 
-Se riscontri bug o hai un'idea per l'app apri un issue su GitHub cliccando sul link "Segnala un problema" nella sezione Informazioni app.</value>
+Please note that this app is still under development and some features are not available at this time.
+If you encounter bugs or have an idea for the app, open an issue on GitHub by clicking on the "Report an issue" link in the About section.</value>
     <comment>First use prompt message body</comment>
   </data>
   <data name="FirstRunDialog.Title" xml:space="preserve">
@@ -186,10 +186,10 @@ Se riscontri bug o hai un'idea per l'app apri un issue su GitHub cliccando sul l
     <comment>What's new prompt message body for highlights section</comment>
   </data>
   <data name="WhatsNew_Body_1.Text" xml:space="preserve">
-    <value>•  La sezione account è adesso integrata nelle Impostazioni
-•  Aggiunta la possibilità di visualizzare le modifiche recenti apportate all'app
-•  Da adesso il tutorial iniziale sarà visibile anche dalle Impostazioni - questo verrà modificato in futuro per includere suggerimenti e consigli su come usare al meglio l'app
-•  Aggiunta una sezione per i contributors di Github</value>
+    <value>• The account section is now integrated into Settings
+• Added the ability to view the app changelog
+• From now on the initial experience will also be visible from Settings - this will be changed in the future to include tips and advice on how to use the app at your best
+• Added a section for Github contributors and Licences</value>
     <comment>What's new prompt message body for first section (General)</comment>
   </data>
   <data name="WhatsNew_Body_2.Text" xml:space="preserve">
@@ -242,13 +242,13 @@ Se riscontri bug o hai un'idea per l'app apri un issue su GitHub cliccando sul l
     <value>Report an issue</value>
   </data>
   <data name="SettingsCardTutorial.Header" xml:space="preserve">
-    <value>Suggerimenti</value>
+    <value>Tips</value>
   </data>
   <data name="SettingsCardTutorial.Description" xml:space="preserve">
     <value>View tips on how to use this app</value>
   </data>
   <data name="SettingsCardTutorialButton.Content" xml:space="preserve">
-    <value>Mostra suggerimenti</value>
+    <value>Show tips</value>
   </data>
   <data name="SettingsCardWhatsNew.Header" xml:space="preserve">
     <value>What’s new in this version</value>
@@ -281,7 +281,7 @@ Se riscontri bug o hai un'idea per l'app apri un issue su GitHub cliccando sul l
     <value>Password:</value>
   </data>
   <data name="CheckboxCredenziali.Content" xml:space="preserve">
-    <value>Mantieni le credenziali</value>
+    <value>Keep me logged in</value>
   </data>
   <data name="ComboMaterie.PlaceholderText" xml:space="preserve">
     <value>Select a subject</value>
@@ -293,7 +293,7 @@ Se riscontri bug o hai un'idea per l'app apri un issue su GitHub cliccando sul l
     <value>{0}'s Dashboard</value>
   </data>
   <data name="TextOggiAgenda.Text" xml:space="preserve">
-    <value>Eventi del giorno</value>
+    <value>Today's events</value>
   </data>
   <data name="DashboardButtonApriAgenda.Text" xml:space="preserve">
     <value>Open agenda</value>
@@ -600,7 +600,7 @@ Student accounts have usernames starting with the letters S, G, or X.</value>
     <value>Notice board</value>
   </data>
   <data name="NoAbsences.Text" xml:space="preserve">
-    <value>Nessun assenza</value>
+    <value>No absences</value>
   </data>
   <data name="NoTasks.Text" xml:space="preserve">
     <value>No tasks</value>
@@ -624,7 +624,7 @@ Student accounts have usernames starting with the letters S, G, or X.</value>
     <value>Login was not possible. Try again later.</value>
   </data>
   <data name="APIErrorTitle" xml:space="preserve">
-    <value>Errore del server (riprova più tardi)</value>
+    <value>Server error - try again later</value>
   </data>
   <data name="AttempsDone" xml:space="preserve">
     <value>Attempts done: </value>
@@ -648,15 +648,15 @@ Student accounts have usernames starting with the letters S, G, or X.</value>
     <value>Retro</value>
   </data>
   <data name="NoLessons.Text" xml:space="preserve">
-    <value>Nessuna lezione</value>
+    <value>No lessons</value>
   </data>
   <data name="ContributorsLink.Text" xml:space="preserve">
     <value>Contributors</value>
   </data>
   <data name="GlobalAverage.Text" xml:space="preserve">
-    <value>Media totale</value>
+    <value>Global average</value>
   </data>
   <data name="LicensesLink.Text" xml:space="preserve">
-    <value>Licenze</value>
+    <value>Licenses</value>
   </data>
 </root>
