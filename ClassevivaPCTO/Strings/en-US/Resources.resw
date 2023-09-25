@@ -154,11 +154,12 @@
     <comment>Personalization text for Settings</comment>
   </data>
   <data name="FirstRun_Body.Text" xml:space="preserve">
-    <value>Con quest'app potrai gestire i tuoi dati del registro elettronico Classeviva in maniera intuitiva.
+    <value>With ClassevivaPCTO you will be able to view your Classeviva school register data in an intuitive way and under the guise of an innovative design.
 
-Quest'app è rivolta soltanto agli account studente.
+This app is for student accounts only.
 
-Ricorda che quest'app è ancora in fase di sviluppo e alcune funzionalità possono non essere disponibili al momento. Se hai idee apri un issue al seguente link! https://github.com/Gabboxl/ClassevivaPCTO/issues</value>
+Please note that this app is still under development and some features are not available at this time.
+If you encounter bugs or have an idea for the app, open an issue on GitHub by clicking on the "Report an issue" link in the About section.</value>
     <comment>First use prompt message body</comment>
   </data>
   <data name="FirstRunDialog.Title" xml:space="preserve">
@@ -178,22 +179,22 @@ Ricorda che quest'app è ancora in fase di sviluppo e alcune funzionalità posso
     <comment>What's new prompt message title</comment>
   </data>
   <data name="WhatsNew_Body_Main.Text" xml:space="preserve">
-    <value>•  Migliorata l'interfaccia di tutte le pagine
-•  Aggiunta la funzione di cambiare lo schema dei colori utilizzato per voti ed eventi
-•  Aggiunta la possibilità di cambiare la lingua dell'interfaccia (attualmente è disponibile solo la lingua Inglese - puoi contribuire alle traduzioni dal progetto Crowdin - vedi Informazioni app)
+    <value>• Improved the interface across the whole app
+• Added the ability to change the color palette used for grades and events
+• Added the ability to change the interface language (currently only English is available - you can contribute to translations from the Crowdin project - see the About section)
 </value>
     <comment>What's new prompt message body for highlights section</comment>
   </data>
   <data name="WhatsNew_Body_1.Text" xml:space="preserve">
-    <value>•  La sezione account è adesso integrata nelle Impostazioni
-•  Aggiunta la possibilità di visualizzare le modifiche recenti apportate all'app
-•  Aggiornata l'esperienza iniziale (tutorial) con nuovi suggerimenti, che da ora possono essere visualizzati anche dalle Impostazioni
-•  Aggiunta una splash screen - chi ha già fatto il login tramite credenziali all'apertura della app adesso visualizzerà una nuova splash screen che indica il caricamento dei dati dell'utente e dell'applicazione</value>
+    <value>• The account section is now integrated into Settings
+• Added the ability to view the app changelog
+• From now on the initial experience will also be visible from Settings - this will be changed in the future to include tips and advice on how to use the app at your best
+• Added a section for Github contributors and Licences</value>
     <comment>What's new prompt message body for first section (General)</comment>
   </data>
   <data name="WhatsNew_Body_2.Text" xml:space="preserve">
-    <value>•  Aggiunta la possibilità di cambiare e spostare i widget visualizzati nella dashboard
-•  Nuovo widget: Collegamenti rapidi - permette di salvare fino a 5 collegamenti Internet da poter aprire rapidamente dall'app, come il sito della tua scuola, Classroom o la tua posta elettronica d'istituto</value>
+    <value>• Added the ability to change and move widgets displayed in the dashboard
+• New widget: Quick Links - allows you to save up to 5 Internet links that you can quickly open from the app, such as your school website, Classroom or your school email</value>
     <comment>What's new prompt message body for second section (Dashboard)</comment>
   </data>
   <data name="Settings_Account.Text" xml:space="preserve">
@@ -235,19 +236,19 @@ Ricorda che quest'app è ancora in fase di sviluppo e alcune funzionalità posso
     <value>© 2023. All rights reserved.</value>
   </data>
   <data name="hyperlinkVote.Text" xml:space="preserve">
-    <value>Vota nello Store</value>
+    <value>Rate on the Store</value>
   </data>
   <data name="hyperlinkIssue.Text" xml:space="preserve">
     <value>Report an issue</value>
   </data>
   <data name="SettingsCardTutorial.Header" xml:space="preserve">
-    <value>Tutorial</value>
+    <value>Tips</value>
   </data>
   <data name="SettingsCardTutorial.Description" xml:space="preserve">
     <value>View tips on how to use this app</value>
   </data>
   <data name="SettingsCardTutorialButton.Content" xml:space="preserve">
-    <value>Start tutorial</value>
+    <value>Show tips</value>
   </data>
   <data name="SettingsCardWhatsNew.Header" xml:space="preserve">
     <value>What’s new in this version</value>
@@ -292,8 +293,7 @@ Ricorda che quest'app è ancora in fase di sviluppo e alcune funzionalità posso
     <value>{0}'s Dashboard</value>
   </data>
   <data name="TextOggiAgenda.Text" xml:space="preserve">
-    <value>Today's events
-                                   </value>
+    <value>Today's events</value>
   </data>
   <data name="DashboardButtonApriAgenda.Text" xml:space="preserve">
     <value>Open agenda</value>
@@ -341,9 +341,9 @@ Ricorda che quest'app è ancora in fase di sviluppo e alcune funzionalità posso
     <value>Teacher accounts are not supported</value>
   </data>
   <data name="AccountNonSupportatoBody" xml:space="preserve">
-    <value>In questa app sono solo supportati gli account studente. 
+    <value>Only student accounts are supported in this app. 
 
-Gli account studente hanno l'username che inizia con le lettere S, G o X.</value>
+Student accounts have usernames starting with the letters S, G, or X.</value>
   </data>
   <data name="ErroreText" xml:space="preserve">
     <value>Error</value>
@@ -352,8 +352,7 @@ Gli account studente hanno l'username che inizia con le lettere S, G o X.</value
     <value>OK</value>
   </data>
   <data name="ErrorDialogBody" xml:space="preserve">
-    <value>Errore durante il login. Controlla il nome utente e la password. 
- Errore: </value>
+    <value>Error logging in. Check username and password. Error: </value>
   </data>
   <data name="ChooseProfileDialogTitle" xml:space="preserve">
     <value>Choose a profile</value>
@@ -434,17 +433,17 @@ Gli account studente hanno l'username che inizia con le lettere S, G o X.</value
     <value>Nature</value>
   </data>
   <data name="WhatsNew_Body_3.Text" xml:space="preserve">
-    <value>•  Rinnovato il layout</value>
+    <value>Renewed layout</value>
     <comment>What's new prompt message body for third section (Agenda)</comment>
   </data>
   <data name="WhatsNew_Body_4.Text" xml:space="preserve">
-    <value>•  La pagina è stata rinnovata completamente in termini di Layout e interfaccia
-•  Aggiunta la possibilità di visualizzare tutti i voti per trimestre/pentamestre o quadrimestre - le visualizzazioni adesso includono la lista di tutte le materie e la relativa media per ognuna di esse. Cliccando su una materia vengono visualizzati i voti di quella materia per quello specifico periodo didattico
-•  Aggiunta la possibilità di vedere la media di ogni periodo didattico e la media generale dell'anno scolastico</value>
+    <value>• The page has been completely renewed in terms of layout and interface
+• Added the ability to view all grades by term arrangement - the views now include the list of all subjects and the relative average for each of them. By clicking on a subject, the grades for that subject for that specific teaching period are displayed
+• Added the ability to see the average of each teaching period and the general average of the school year</value>
     <comment>What's new prompt message body for fourth section (Valutazioni)</comment>
   </data>
   <data name="WhatsNew_Body_5.Text" xml:space="preserve">
-    <value>•  Rinnovato il layout</value>
+    <value>Renewed layout</value>
     <comment>What's new prompt message body for fifth section (Assenze)</comment>
   </data>
   <data name="SettingsChangeProfilePicButton.Text" xml:space="preserve">
@@ -499,10 +498,7 @@ Gli account studente hanno l'username che inizia con le lettere S, G o X.</value
     <value>Highlights</value>
   </data>
   <data name="SettingsChangelogReleaseDate.Text" xml:space="preserve">
-    <value>18 Settembre 2023</value>
-  </data>
-  <data name="SettingsChangelogVersion.Text" xml:space="preserve">
-    <value>Version 1.0.0</value>
+    <value>18 September 2023</value>
   </data>
   <data name="AgendaButtonTomorrowTT.ToolTipService.ToolTip" xml:space="preserve">
     <value>Next day</value>
@@ -592,13 +588,13 @@ Gli account studente hanno l'username che inizia con le lettere S, G o X.</value
     <value>Restart required</value>
   </data>
   <data name="RestartRequiredLanguageChange" xml:space="preserve">
-    <value>Per applicare la nuova lingua è necessario riavviare l'app.</value>
+    <value>An app restart is required for the language change to take effect.</value>
   </data>
   <data name="Restart" xml:space="preserve">
     <value>Restart</value>
   </data>
   <data name="CheckboxSuddividi.Content" xml:space="preserve">
-    <value>Suddividi per materia</value>
+    <value>Divide by subject</value>
   </data>
   <data name="NoticeBoardTitle.Text" xml:space="preserve">
     <value>Notice board</value>
@@ -613,25 +609,25 @@ Gli account studente hanno l'username che inizia con le lettere S, G o X.</value
     <value>Ballots unavailable</value>
   </data>
   <data name="ReportsTitle.Text" xml:space="preserve">
-    <value>Report scolastici</value>
+    <value>School reports</value>
   </data>
   <data name="SessionExpired" xml:space="preserve">
     <value>Session expired</value>
   </data>
   <data name="SessionExpiredDesc" xml:space="preserve">
-    <value>Una sessione dura un'ora dal login. Non avendo salvato le credenziali, ora verrai portato alla pagina di login. </value>
+    <value>A session lasts one hour from login. Since you did not save your credentials, you will now be taken to the login page. </value>
   </data>
   <data name="LoginErrorTitle" xml:space="preserve">
     <value>Login error</value>
   </data>
   <data name="LoginErrorDesc" xml:space="preserve">
-    <value>Non è stato possibile effettuare il login. Riprova più tardi.</value>
+    <value>Login was not possible. Try again later.</value>
   </data>
   <data name="APIErrorTitle" xml:space="preserve">
-    <value>Errore chiamata API (riprova più tardi)</value>
+    <value>Server error - try again later</value>
   </data>
   <data name="AttempsDone" xml:space="preserve">
-    <value>Tentativi effettuati: </value>
+    <value>Attempts done: </value>
   </data>
   <data name="GradeSingular" xml:space="preserve">
     <value>grade</value>
@@ -650,5 +646,17 @@ Gli account studente hanno l'username che inizia con le lettere S, G o X.</value
   </data>
   <data name="PALETTE_RET" xml:space="preserve">
     <value>Retro</value>
+  </data>
+  <data name="NoLessons.Text" xml:space="preserve">
+    <value>No lessons</value>
+  </data>
+  <data name="ContributorsLink.Text" xml:space="preserve">
+    <value>Contributors</value>
+  </data>
+  <data name="GlobalAverage.Text" xml:space="preserve">
+    <value>Global average</value>
+  </data>
+  <data name="LicensesLink.Text" xml:space="preserve">
+    <value>Licenses</value>
   </data>
 </root>
