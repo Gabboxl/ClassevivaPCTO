@@ -126,31 +126,31 @@
     <comment>Application description</comment>
   </data>
   <data name="Shell_Main.Content" xml:space="preserve">
-    <value>Main</value>
+    <value>Principal</value>
     <comment>Navigation view item name for Main</comment>
   </data>
   <data name="Settings_Theme.Text" xml:space="preserve">
-    <value>Scegli il tema</value>
+    <value>Choisissez le thème</value>
     <comment>Choose theme text for Settings</comment>
   </data>
   <data name="Settings_Theme_Dark.Content" xml:space="preserve">
-    <value>Scuro</value>
+    <value>Sombre</value>
     <comment>Dark theme text for Settings</comment>
   </data>
   <data name="Settings_Theme_Default.Content" xml:space="preserve">
-    <value>Predefinito di Sistema</value>
+    <value>Défaillance du système</value>
     <comment>Windows default theme text for Settings</comment>
   </data>
   <data name="Settings_Theme_Light.Content" xml:space="preserve">
-    <value>Chiaro</value>
+    <value>Clair</value>
     <comment>Light theme text for Settings</comment>
   </data>
   <data name="Settings_About.Text" xml:space="preserve">
-    <value>Informazioni app</value>
+    <value>Informations sur l'application</value>
     <comment>About this application title for Settings</comment>
   </data>
   <data name="Settings_Personalization.Text" xml:space="preserve">
-    <value>Aspetto</value>
+    <value>Apparence</value>
     <comment>Personalization text for Settings</comment>
   </data>
   <data name="FirstRun_Body.Text" xml:space="preserve">
@@ -163,7 +163,7 @@ Se riscontri bug o hai un'idea per l'app apri un issue su GitHub cliccando sul l
     <comment>First use prompt message body</comment>
   </data>
   <data name="FirstRunDialog.Title" xml:space="preserve">
-    <value>Benvenuto in ClassevivaPCTO</value>
+    <value>Bienvenue chez ClassevivaPCTO</value>
     <comment>First use prompt message title</comment>
   </data>
   <data name="FirstRunDialog.PrimaryButtonText" xml:space="preserve">
@@ -171,11 +171,11 @@ Se riscontri bug o hai un'idea per l'app apri un issue su GitHub cliccando sul l
     <comment>First use prompt message primary button text</comment>
   </data>
   <data name="WhatsNewDialog.PrimaryButtonText" xml:space="preserve">
-    <value>Chiudi</value>
+    <value>Fermer</value>
     <comment>What's new prompt message primary button text</comment>
   </data>
   <data name="WhatsNewDialog.Title" xml:space="preserve">
-    <value>Novità in questa versione</value>
+    <value>Nouveautés de cette version </value>
     <comment>What's new prompt message title</comment>
   </data>
   <data name="WhatsNew_Body_Main.Text" xml:space="preserve">
@@ -198,87 +198,87 @@ Se riscontri bug o hai un'idea per l'app apri un issue su GitHub cliccando sul l
     <comment>What's new prompt message body for second section (Dashboard)</comment>
   </data>
   <data name="Settings_Account.Text" xml:space="preserve">
-    <value>Account</value>
+    <value>Comptes</value>
     <comment>Account text for Settings</comment>
   </data>
   <data name="Settings_General.Text" xml:space="preserve">
-    <value>Generali</value>
+    <value>Général</value>
     <comment>General text for Settings</comment>
   </data>
   <data name="Settings_Language_En_US.Content" xml:space="preserve">
-    <value>Inglese</value>
+    <value>Anglais</value>
     <comment>English language text</comment>
   </data>
   <data name="Settings_Language_It_IT.Content" xml:space="preserve">
-    <value>Italiano</value>
+    <value>Italien</value>
     <comment>Italian language text</comment>
   </data>
   <data name="Settings_Version.Text" xml:space="preserve">
-    <value>Versione</value>
+    <value>Version</value>
     <comment>Version text for Settings</comment>
   </data>
   <data name="TextTitoloSettings.Text" xml:space="preserve">
-    <value>Impostazioni</value>
+    <value>Paramètres</value>
   </data>
   <data name="SettingsExpanderTheme.Description" xml:space="preserve">
-    <value>Scegli il tema dell'app</value>
+    <value>Sélectionner le thème de l'application</value>
   </data>
   <data name="SettingsExpanderTheme.Header" xml:space="preserve">
-    <value>Tema</value>
+    <value>Thème</value>
   </data>
   <data name="SettingsCardLanguage.Header" xml:space="preserve">
-    <value>Lingua</value>
+    <value>Langue</value>
   </data>
   <data name="SettingsCardLanguage.Description" xml:space="preserve">
-    <value>Scegli la lingua dell'app</value>
+    <value>Choisir la langue de l'app</value>
   </data>
   <data name="SettingsExpanderReservedRights.Description" xml:space="preserve">
-    <value>© 2023. Tutti i diritti riservati.</value>
+    <value>© 2023. Tous droits réservés.</value>
   </data>
   <data name="hyperlinkVote.Text" xml:space="preserve">
-    <value>Vota nello Store</value>
+    <value>Noter sur l'App Store</value>
   </data>
   <data name="hyperlinkIssue.Text" xml:space="preserve">
-    <value>Segnala un problema</value>
+    <value>Signaler un problème</value>
   </data>
   <data name="SettingsCardTutorial.Header" xml:space="preserve">
-    <value>Suggerimenti</value>
+    <value>Feedback</value>
   </data>
   <data name="SettingsCardTutorial.Description" xml:space="preserve">
     <value>Visualizza suggerimenti sul funzionamento dell'app</value>
   </data>
   <data name="SettingsCardTutorialButton.Content" xml:space="preserve">
-    <value>Mostra suggerimenti</value>
+    <value>Afficher les conseils</value>
   </data>
   <data name="SettingsCardWhatsNew.Header" xml:space="preserve">
-    <value>Novità in questa versione</value>
+    <value>Nouveautés de cette version </value>
   </data>
   <data name="SettingsCardWhatsNew.Description" xml:space="preserve">
-    <value>Visualizza le modifiche recenti</value>
+    <value>Afficher les modifications envisagées</value>
   </data>
   <data name="SettingsCardWhatsNewButton.Content" xml:space="preserve">
     <value>Mostra novità</value>
   </data>
   <data name="TitoloScrutini.Text" xml:space="preserve">
-    <value>Scrutini</value>
+    <value>Sondage</value>
   </data>
   <data name="CheckboxEliminati.Content" xml:space="preserve">
-    <value>Mostra documenti eliminati</value>
+    <value>Afficher les éléments supprimés</value>
   </data>
   <data name="TextFileScrutini.Text" xml:space="preserve">
-    <value>Documenti</value>
+    <value>Documents</value>
   </data>
   <data name="TitoloNote.Text" xml:space="preserve">
-    <value>Note</value>
+    <value>Notes</value>
   </data>
   <data name="TextBenvenutoLogin.Text" xml:space="preserve">
-    <value>Benvenuto</value>
+    <value>Bienvenue</value>
   </data>
   <data name="EdittextUsername.Header" xml:space="preserve">
-    <value>Nome utente:</value>
+    <value>Nom utilisateur :</value>
   </data>
   <data name="EdittextPassword.Header" xml:space="preserve">
-    <value>Password:</value>
+    <value>Mot de passe :</value>
   </data>
   <data name="CheckboxCredenziali.Content" xml:space="preserve">
     <value>Mantieni le credenziali</value>
@@ -299,7 +299,7 @@ Se riscontri bug o hai un'idea per l'app apri un issue su GitHub cliccando sul l
     <value>Apri agenda</value>
   </data>
   <data name="TitleRecentGrades.Text" xml:space="preserve">
-    <value>Valutazioni recenti</value>
+    <value>Évaluations récentes</value>
   </data>
   <data name="TitleMedia.Text" xml:space="preserve">
     <value>Media totale:</value>
