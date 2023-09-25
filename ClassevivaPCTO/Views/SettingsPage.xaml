@@ -190,7 +190,7 @@
                     </labs:SettingsCard.HeaderIcon>
 
                     <ComboBox SelectedIndex="{x:Bind PaletteType.GetHashCode()}"
-                              x:Name="PaletteComboBox" MinWidth="240"
+                              x:Name="PaletteComboBox" MinWidth="200"
                               ItemsSource="{x:Bind ComboPalettes}"
                               SelectionChanged="PaletteComboBox_OnSelectionChanged">
                         <ComboBox.ItemTemplate>
