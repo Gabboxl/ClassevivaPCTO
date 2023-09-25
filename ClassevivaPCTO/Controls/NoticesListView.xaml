@@ -162,7 +162,9 @@
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
 
-        <ListView x:Name="listView"
+        <StackPanel>
+
+            <ListView x:Name="listView"
                   Grid.Row="0"
                   ScrollViewer.VerticalScrollMode="Enabled"
                   HorizontalAlignment="Stretch"
@@ -170,8 +172,10 @@
                   ItemTemplate="{StaticResource NoticeListViewDataTemplate}"
                   ItemContainerStyle="{StaticResource ListViewFullStretchStyle}">
 
-        </ListView>
-
+            </ListView>
+        
+        </StackPanel>
+    
         <RelativePanel
             VerticalAlignment="Center"
             HorizontalAlignment="Center"

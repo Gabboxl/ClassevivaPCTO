@@ -86,12 +86,9 @@
                        BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
                        Background="{ThemeResource CardBackgroundFillColorDefaultBrush}">
 
-
             <TextBlock x:Uid="TextBachecaComunicazioni" x:Name="TextComunicazioni"
-                       Margin="16,6,0,6"
-                       FontSize="18"
-                       FontWeight="SemiBold"
-                       Style="{ThemeResource BodyStrongTextBlockStyle}" />
+                       Margin="14,12,0,8"
+                       Style="{ThemeResource BodyStrongTextBlockStyle}" FontSize="18" FontWeight="SemiBold" />
 
 
             <Grid RelativePanel.Below="TextComunicazioni"
@@ -106,7 +103,7 @@
                     x:Name="NoticesListView"
                     HorizontalAlignment="Stretch"
                     VerticalAlignment="Stretch"
-                    Margin="0,8,0,0">
+                    Margin="0,0,0,0">
 
                 </controls:NoticesListView>
 
