@@ -14,6 +14,7 @@ using Windows.ApplicationModel.Activation;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
+using ClassevivaPCTO.Views;
 
 namespace ClassevivaPCTO
 {
@@ -36,7 +37,7 @@ namespace ClassevivaPCTO
 
         public IServiceProvider Container { get; }
 
-        public IServiceProvider ConfigureDependencyInjection()
+        private IServiceProvider ConfigureDependencyInjection()
         {
             var getToken = new Func<Task<string>>(GetTokenAsync);
 
@@ -111,41 +112,7 @@ namespace ClassevivaPCTO
         /// <param name="e">Dettagli sulla richiesta e sul processo di avvio.</param>
         protected override async void OnLaunched(LaunchActivatedEventArgs e)
         {
-            Frame rootFrame = Window.Current.Content as Frame;
-
-            // Non ripetere l'inizializzazione dell'applicazione se la finestra già dispone di contenuto,
-            // assicurarsi solo che la finestra sia attiva
-            if (rootFrame == null)
-            {
-                // Creare un frame che agisca da contesto di navigazione e passare alla prima pagina
-                rootFrame = new Frame();
-
-                rootFrame.NavigationFailed += OnNavigationFailed;
-
-                if (e.PreviousExecutionState == ApplicationExecutionState.Terminated)
-                {
-                    //TODO: caricare lo stato dall'applicazione sospesa in precedenza
-                }
-
-                // Posizionare il frame nella finestra corrente
-                Window.Current.Content = rootFrame;
-            }
-
             if (e.PrelaunchActivated == false)
-            {
-                if (rootFrame.Content == null)
-                {
-                    // Quando lo stack di esplorazione non viene ripristinato, passare alla prima pagina
-                    // configurando la nuova pagina per passare le informazioni richieste come parametro di
-                    // navigazione
-                    rootFrame.Navigate(typeof(Views.LoginPage), e.Arguments);
-                }
-
-                // Assicurarsi che la finestra corrente sia attiva
-                Window.Current.Activate();
-            }
-
-            if (!e.PrelaunchActivated)
             {
                 await ActivationService.ActivateAsync(e);
             }
@@ -219,7 +186,7 @@ namespace ClassevivaPCTO
 
         private ActivationService CreateActivationService()
         {
-            return new ActivationService(this, null, null);
+            return new ActivationService(this, typeof(LoginPage), null);
         }
 
         /*private UIElement CreateShell()

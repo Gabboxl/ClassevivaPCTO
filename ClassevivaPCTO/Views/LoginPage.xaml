@@ -63,9 +63,9 @@
                       Margin="0,0,0,20" />
 
             <Button x:Name="buttonLogin" Style="{StaticResource AccentButtonStyle}" x:Uid="LoginButton" Height="32"
-                    Width="81" RenderTransformOrigin="2.13,0.797" HorizontalAlignment="Center" Margin="0,18,0,30"
+                    Width="81" RenderTransformOrigin="2.13,0.797" HorizontalAlignment="Center" Margin="0,12,0,0"
                     Click="Button_Click" />
-            <muxc:ProgressRing x:Name="progresslogin" IsActive="True" Visibility="Collapsed" Margin="0,18"/>
+            <muxc:ProgressRing x:Name="progresslogin" IsActive="True" Visibility="Collapsed" Margin="0,12,0,0"/>
         </StackPanel>
 
         <TextBlock x:Name="VersionTextBlock" Style="{ThemeResource BodyStrongTextBlockStyle}"

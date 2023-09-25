@@ -292,8 +292,7 @@ Ricorda che quest'app è ancora in fase di sviluppo e alcune funzionalità posso
     <value>Dashboard di {0}</value>
   </data>
   <data name="TextOggiAgenda.Text" xml:space="preserve">
-    <value>Eventi del giorno
-                                   </value>
+    <value>Eventi del giorno</value>
   </data>
   <data name="DashboardButtonApriAgenda.Text" xml:space="preserve">
     <value>Apri agenda</value>
@@ -603,7 +602,7 @@ Gli account studente hanno l'username che inizia con le lettere S, G o X.</value
   <data name="NoticeBoardTitle.Text" xml:space="preserve">
     <value>Bacheca</value>
   </data>
-  <data name="NoAbscences.Text" xml:space="preserve">
+  <data name="NoAbsences.Text" xml:space="preserve">
     <value>Nessun assenza</value>
   </data>
   <data name="NoTasks.Text" xml:space="preserve">
