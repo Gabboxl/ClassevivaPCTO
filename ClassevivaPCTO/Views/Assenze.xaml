@@ -50,6 +50,10 @@
 
 
         <RelativePanel Grid.Row="0" Margin="0,16,0,16">
+            <RelativePanel.ChildrenTransitions>
+                <EntranceThemeTransition FromHorizontalOffset="100" IsStaggeringEnabled="True" />
+                <RepositionThemeTransition IsStaggeringEnabled="False" />
+            </RelativePanel.ChildrenTransitions>
 
             <TextBlock x:Name="TextTitolo" x:Uid="TextTitoloAssenzeRitardi"
                        Style="{StaticResource TitleLargeTextBlockStyle}" VerticalAlignment="Top"
@@ -83,7 +87,7 @@
 
 
                 <Grid
-                    Margin="16,0,8,16"
+                    Margin="18,0,8,16"
                     x:Name="CardPanel"
                     CornerRadius="8"
                     Padding="12"
@@ -111,7 +115,7 @@
 
                 <Grid
                     HorizontalAlignment="Left"
-                    Margin="0,0,8,0">
+                    Margin="0,0,8,24">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto"></ColumnDefinition>
                     </Grid.ColumnDefinitions>
@@ -121,7 +125,6 @@
                         x:Name="CalendarPanel"
                         CornerRadius="8"
                         VerticalAlignment="Top"
-
                         Padding="12"
                         BorderThickness="1"
                         BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"

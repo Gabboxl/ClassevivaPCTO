@@ -4,6 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:ClassevivaPCTO.Dialogs"
     xmlns:utils="using:ClassevivaPCTO.Utils"
+    xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
@@ -43,7 +44,6 @@
                                TextWrapping="Wrap"
                                MaxWidth="600"
                                Text="{x:Bind fileName}"
-                               Foreground="{ThemeResource TextFillColorSecondaryBrush}"
                                Style="{ThemeResource BaseTextBlockStyle}"
                                Margin="10,0,0,0" />
 
@@ -75,6 +75,7 @@
 
                 <TextBlock x:Name="noticeBodyText"
                            TextWrapping="Wrap"
+                           FontWeight="SemiBold"
                            Style="{ThemeResource BodyTextBlockStyle}"
                            IsTextSelectionEnabled="True"
                            Foreground="{ThemeResource TextFillColorSecondaryBrush}"
@@ -95,7 +96,31 @@
                       ItemTemplate="{StaticResource AttachmentListViewDataTemplate}">
 
             </ListView>
-        </StackPanel>
+
+                <Rectangle Fill="{ThemeResource TextFillColorDisabledBrush}" Height="1" Margin="0,8,0,8"/>
+
+                <muxc:InfoBar
+                    IsOpen="True"
+                    Severity="Informational"
+                    Title="Per questa comunicazione è richiesta una conferma di accettazione" IsClosable="False"/>
+
+                <RelativePanel Grid.Column="1" HorizontalAlignment="Stretch">
+                    <AppBarButton x:Name="ButtonConfirm" RelativePanel.AlignRightWithPanel="True"
+                                  RelativePanel.AlignVerticalCenterWithPanel="True" Icon="Accept"
+                                  Label="Conferma" />
+
+                    <AppBarButton x:Name="ButtonRefuse" RelativePanel.LeftOf="ButtonConfirm"
+                                  RelativePanel.AlignVerticalCenterWithPanel="True" Icon="Cancel"
+                                  Label="Rifiuta" />
+                    
+                    <AppBarButton x:Name="ButtonAderisci" RelativePanel.AlignLeftWithPanel="True"
+                                  RelativePanel.AlignVerticalCenterWithPanel="True" Icon="AddFriend"
+                                  Label="Aderisci" />
+
+                </RelativePanel>
+
+
+            </StackPanel>
         </ScrollViewer>
     </Grid>
 </Page>

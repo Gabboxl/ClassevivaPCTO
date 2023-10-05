@@ -30,6 +30,10 @@
 
 
         <RelativePanel Grid.Row="0" Margin="0,16,0,0">
+            <RelativePanel.ChildrenTransitions>
+                <EntranceThemeTransition FromHorizontalOffset="100" IsStaggeringEnabled="True" />
+                <RepositionThemeTransition IsStaggeringEnabled="False" />
+            </RelativePanel.ChildrenTransitions>
 
             <TextBlock x:Name="TextTitolo" x:Uid="TitoloNote"
                        Style="{StaticResource TitleLargeTextBlockStyle}"
@@ -90,7 +94,7 @@
                     HorizontalAlignment="Stretch"
                     VerticalAlignment="Stretch"
                     x:Name="NotesListView"
-                    Margin="0,8,0,0">
+                    Margin="0,0,0,0">
 
                 </controls:NotesListView>
 

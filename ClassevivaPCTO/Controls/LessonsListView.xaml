@@ -22,6 +22,11 @@
                       x:DataType="adapters:LessonAdapter">
             <RelativePanel>
 
+                <RelativePanel.ChildrenTransitions>
+                    <EntranceThemeTransition FromVerticalOffset="100" IsStaggeringEnabled="True" />
+                    <RepositionThemeTransition IsStaggeringEnabled="False" />
+                </RelativePanel.ChildrenTransitions>
+
                 <!-- vertical colored line with 3px width with rounded tips-->
                 <Rectangle RadiusX="2" RadiusY="2" Margin="0,6,0,6" x:Name="verticalLine" Width="3" Height="Auto"
                            Fill="{x:Bind ColorBrush}" RelativePanel.AlignLeftWithPanel="True"
@@ -171,11 +176,16 @@
             HorizontalAlignment="Center"
             Grid.Row="0"
             Visibility="{x:Bind ShowEmptyAlert, Mode=OneWay, Converter={StaticResource BetterBoolToVisibilityConverter}, ConverterParameter=True}">
-            <FontIcon x:Name="IconNotes" FontFamily="{StaticResource FluentIcons}" Glyph="&#xe7be;"
+
+            <RelativePanel.ChildrenTransitions>
+                <EntranceThemeTransition FromVerticalOffset="300" IsStaggeringEnabled="True" />
+                <RepositionThemeTransition IsStaggeringEnabled="False" />
+            </RelativePanel.ChildrenTransitions>
+            <FontIcon x:Name="IconNotes" FontFamily="{StaticResource FluentIcons}" Glyph="&#xEE56;"
                       Foreground="{ThemeResource TextFillColorDisabledBrush}"
                       RelativePanel.AlignHorizontalCenterWithPanel="True"
                       FontSize="124"
-                      Margin="0,0,0,0" />
+                      Margin="0,16,0,0" />
 
             <TextBlock x:Name="NoNotesText"
                        RelativePanel.Below="IconNotes"

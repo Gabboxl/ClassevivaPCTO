@@ -68,7 +68,7 @@
                 </controls2:LessonsListView>
 
                 <TextBlock x:Name="AgendaTitle"
-                           x:Uid="AgendaTitle"
+                           x:Uid="TitoloAgendaPopup"
                            Margin="14,12,0,8"
                            Visibility="{x:Bind OverviewControlViewModel.FilteredOverviewResult.AgendaEvents, Mode=OneWay, FallbackValue=Collapsed, Converter={StaticResource EmptyListToVisibilityConverter}}"
                            Style="{ThemeResource BodyStrongTextBlockStyle}" FontSize="18" FontWeight="SemiBold" />
@@ -88,6 +88,12 @@
             HorizontalAlignment="Center"
             Grid.Row="0"
             Visibility="{x:Bind OverviewControlViewModel.ShowEmptyAlert, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}">
+
+            <RelativePanel.ChildrenTransitions>
+                <EntranceThemeTransition FromVerticalOffset="300" IsStaggeringEnabled="True" />
+                <RepositionThemeTransition IsStaggeringEnabled="False" />
+            </RelativePanel.ChildrenTransitions>
+            
             <FontIcon x:Name="IconCalendar" FontFamily="{StaticResource FluentIcons}" Glyph="&#xE787;"
                       Foreground="{ThemeResource TextFillColorDisabledBrush}"
                       RelativePanel.AlignHorizontalCenterWithPanel="True"

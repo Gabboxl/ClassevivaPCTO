@@ -23,7 +23,6 @@
         <converters1:ColorToBrushConverter x:Key="ColorToBrushConverter" />
         <converters1:GradeToColorConverter x:Key="GradeToColorConverter" />
 
-
         <Style x:Key="ListViewFullStretchStyle" TargetType="ListViewItem"
                BasedOn="{StaticResource DefaultListViewItemStyle}">
             <Setter Property="HorizontalContentAlignment" Value="Stretch" />
@@ -40,6 +39,8 @@
                     <ColumnDefinition Width="*"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
 
+
+
                 <winUi:SettingsExpander x:Name="MateriaExpander" IsExpanded="False"
                                         HorizontalAlignment="Stretch"
                                         HorizontalContentAlignment="Stretch"
@@ -47,17 +48,21 @@
                                         Description="{x:Bind Teachers}"
                                         HeaderIcon="{x:Bind AverageVariationIcon}">
                     <Grid>
-                        <controls1:RadialProgressBar
+                        <Grid.ChildrenTransitions>
+                            <EntranceThemeTransition FromVerticalOffset="100" IsStaggeringEnabled="True" />
+                            <RepositionThemeTransition IsStaggeringEnabled="False" />
+                        </Grid.ChildrenTransitions>
+                        <muxc:ProgressRing
                             HorizontalAlignment="Center"
                             VerticalAlignment="Center"
                             Value="{x:Bind Progress}"
                             Foreground="{x:Bind Average, Converter={StaticResource GradeToColorConverter}}"
-                            Thickness="5"
+                            IsIndeterminate="False"
                             Minimum="0"
                             Maximum="100"
                             Width="45"
                             Height="45"
-                            Outline="DimGray" />
+                            Background="#545454" />
 
                         <TextBlock
                             Text="{x:Bind Average}"
@@ -85,14 +90,12 @@
                                                           Margin="0,0,0,0"
                                                           HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
 
-                            </controls2:GradesListView>
+                                </controls2:GradesListView>
 
                             </Grid>
                         </winUi:SettingsCard>
                     </winUi:SettingsExpander.Items>
                 </winUi:SettingsExpander>
-
-
             </Grid>
         </DataTemplate>
 
@@ -111,6 +114,10 @@
 
 
         <RelativePanel Grid.Row="0" Margin="0,16,0,0">
+            <RelativePanel.ChildrenTransitions>
+                <EntranceThemeTransition FromHorizontalOffset="100" IsStaggeringEnabled="True" />
+                <RepositionThemeTransition IsStaggeringEnabled="False" />
+            </RelativePanel.ChildrenTransitions>
 
             <TextBlock x:Name="MainTitleTextBox" x:Uid="TitleValutazioni"
                        Style="{StaticResource TitleLargeTextBlockStyle}"
@@ -127,7 +134,10 @@
         </RelativePanel>
 
         <RelativePanel Grid.Row="0" Margin="0,18,0,0">
-
+            <RelativePanel.ChildrenTransitions>
+                <EntranceThemeTransition FromHorizontalOffset="100" IsStaggeringEnabled="True" />
+                <RepositionThemeTransition IsStaggeringEnabled="False" />
+            </RelativePanel.ChildrenTransitions>
 
             <Button x:Name="ReloadButton"
                     Click="ReloadButton_OnClick"
@@ -161,6 +171,10 @@
                        BorderThickness="1"
                        BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
                        Background="{ThemeResource CardBackgroundFillColorDefaultBrush}">
+            <RelativePanel.ChildrenTransitions>
+                <EntranceThemeTransition FromHorizontalOffset="100" IsStaggeringEnabled="True" />
+                <RepositionThemeTransition IsStaggeringEnabled="False" />
+            </RelativePanel.ChildrenTransitions>
 
             <Grid
                 x:Name="GridMedie"
@@ -189,21 +203,22 @@
 
                     <Grid
                         HorizontalAlignment="Left">
-                        <controls1:RadialProgressBar
+                        <muxc:ProgressRing
                             HorizontalAlignment="Center"
                             VerticalAlignment="Center"
                             x:Name="ProgressMediaTot"
                             Value="0"
                             Foreground="{x:Bind ValutazioniViewModel.AverageTot, Mode=OneWay, Converter={StaticResource GradeToColorConverter}}"
-                            Thickness="12"
+                            IsIndeterminate="False"
                             Minimum="0"
                             Maximum="100"
-                            Width="100"
-                            Height="100"
-                            Outline="DimGray" />
+                            Width="80"
+                            Height="80"
+                            Background="#545454" />
 
                         <TextBlock
                             x:Name="MediaTotText"
+                            FontSize="24"
                             Text="-"
                             Style="{StaticResource TitleTextBlockStyle}"
                             Foreground="{x:Bind ValutazioniViewModel.AverageTot, Mode=OneWay, Converter={StaticResource GradeToColorConverter}}"
@@ -217,15 +232,21 @@
                             Margin="32,0,0,0"
                             VerticalAlignment="Center"
                             HorizontalAlignment="Left">
+                            <RelativePanel.ChildrenTransitions>
+                                <EntranceThemeTransition FromHorizontalOffset="100" IsStaggeringEnabled="True" />
+                                <RepositionThemeTransition IsStaggeringEnabled="False" />
+                            </RelativePanel.ChildrenTransitions>
                             <TextBlock
                                 x:Name="TitleTotVal"
                                 x:Uid="GlobalAverage"
+                                FontSize="26"
                                 Style="{StaticResource TitleTextBlockStyle}"
                                 HorizontalAlignment="Center"
                                 Margin="0,0,0,0" />
                             <TextBlock
                                 x:Name="NumTotVal"
                                 RelativePanel.Below="TitleTotVal"
+                                FontSize="18"
                                 Text="-"
                                 Style="{StaticResource SubtitleTextBlockStyle}"
                                 Foreground="{ThemeResource TextFillColorTertiaryBrush}"
@@ -248,22 +269,23 @@
                     <Grid
                         Grid.Column="0"
                         HorizontalAlignment="Left">
-                        <controls1:RadialProgressBar
+                        <muxc:ProgressRing
                             HorizontalAlignment="Center"
                             VerticalAlignment="Center"
                             x:Name="ProgressMediaPrimoPeriodo"
                             Value="0"
                             Foreground="{x:Bind ValutazioniViewModel.AverageFirstPeriodo, Mode=OneWay, Converter={StaticResource GradeToColorConverter}}"
-                            Thickness="12"
+                            IsIndeterminate="False"
                             Minimum="0"
                             Maximum="100"
-                            Width="100"
-                            Height="100"
-                            Outline="DimGray" />
+                            Width="80"
+                            Height="80"
+                            Background="#545454" />
 
                         <TextBlock
                             x:Name="MediaPrimoPeriodoText"
                             Text="-"
+                            FontSize="24"
                             Style="{StaticResource TitleTextBlockStyle}"
                             Foreground="{x:Bind ValutazioniViewModel.AverageFirstPeriodo, Mode=OneWay, Converter={StaticResource GradeToColorConverter}}"
                             HorizontalAlignment="Center"
@@ -276,9 +298,14 @@
                             Margin="32,0,0,0"
                             VerticalAlignment="Center"
                             HorizontalAlignment="Left">
+                            <RelativePanel.ChildrenTransitions>
+                                <EntranceThemeTransition FromHorizontalOffset="100" IsStaggeringEnabled="True" />
+                                <RepositionThemeTransition IsStaggeringEnabled="False" />
+                            </RelativePanel.ChildrenTransitions>
                             <TextBlock
                                 x:Name="TitleFirstPerVal"
                                 Text="-"
+                                FontSize="26"
                                 Style="{StaticResource TitleTextBlockStyle}"
                                 HorizontalAlignment="Center"
                                 Margin="0,0,0,0" />
@@ -286,6 +313,7 @@
                                 x:Name="NumFirstPerVal"
                                 RelativePanel.Below="TitleFirstPerVal"
                                 Text="-"
+                                FontSize="18"
                                 Style="{StaticResource SubtitleTextBlockStyle}"
                                 Foreground="{ThemeResource TextFillColorTertiaryBrush}"
                                 HorizontalAlignment="Center"
@@ -305,23 +333,24 @@
 
                     <Grid
                         HorizontalAlignment="Left">
-                        <controls1:RadialProgressBar
+                        <muxc:ProgressRing
 
                             HorizontalAlignment="Center"
                             VerticalAlignment="Center"
                             x:Name="ProgressMediaSecondoPeriodo"
                             Value="0"
                             Foreground="{x:Bind ValutazioniViewModel.AverageSecondPeriodo, Mode=OneWay, Converter={StaticResource GradeToColorConverter}}"
-                            Thickness="12"
+                            IsIndeterminate="False"
                             Minimum="0"
                             Maximum="100"
-                            Width="100"
-                            Height="100"
-                            Outline="DimGray" />
+                            Width="80"
+                            Height="80"
+                            Background="#545454" />
 
                         <TextBlock
                             x:Name="MediaSecondoPeriodoText"
                             Text="-"
+                            FontSize="24"
                             Style="{StaticResource TitleTextBlockStyle}"
                             Foreground="{x:Bind ValutazioniViewModel.AverageSecondPeriodo, Mode=OneWay, Converter={StaticResource GradeToColorConverter}}"
                             HorizontalAlignment="Center"
@@ -336,9 +365,14 @@
                             Margin="32,0,0,0"
                             VerticalAlignment="Center"
                             HorizontalAlignment="Left">
+                            <RelativePanel.ChildrenTransitions>
+                                <EntranceThemeTransition FromHorizontalOffset="100" IsStaggeringEnabled="True" />
+                                <RepositionThemeTransition IsStaggeringEnabled="False" />
+                            </RelativePanel.ChildrenTransitions>
                             <TextBlock
                                 x:Name="TitleSecondPerVal"
                                 Text="-"
+                                FontSize="26"
                                 Style="{StaticResource TitleTextBlockStyle}"
                                 HorizontalAlignment="Center"
                                 Margin="0,0,0,0" />
@@ -346,6 +380,7 @@
                                 x:Name="NumSecondPerVal"
                                 RelativePanel.Below="TitleSecondPerVal"
                                 Text="-"
+                                FontSize="18"
                                 Style="{StaticResource SubtitleTextBlockStyle}"
                                 Foreground="{ThemeResource TextFillColorTertiaryBrush}"
                                 HorizontalAlignment="Center"
@@ -367,6 +402,11 @@
                 HorizontalAlignment="Stretch">
 
                 <controls:SegmentedItem x:Uid="AllPeriods" />
+                
+                <controls:Segmented.Transitions>
+                    <EntranceThemeTransition FromVerticalOffset="100" IsStaggeringEnabled="True" />
+                    <RepositionThemeTransition IsStaggeringEnabled="False" />
+                </controls:Segmented.Transitions>
             </controls:Segmented>
 
             <controls2:GradesListView

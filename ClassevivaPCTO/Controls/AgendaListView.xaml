@@ -21,17 +21,22 @@
 
                       x:DataType="adapters:AgendaEventAdapter">
             <RelativePanel>
+                <RelativePanel.ChildrenTransitions>
+                    <EntranceThemeTransition FromVerticalOffset="100" IsStaggeringEnabled="True" />
+                    <RepositionThemeTransition IsStaggeringEnabled="False" />
+                </RelativePanel.ChildrenTransitions>
 
                 <!-- icon calendar -->
                 <FontIcon x:Name="IconCalendar" FontFamily="{StaticResource FluentIcons}" Glyph="&#xE787;"
                           RelativePanel.AlignVerticalCenterWithPanel="True"
                           Foreground="{ThemeResource TextFillColorTertiaryBrush}"
-                          Margin="4,0,8,0" />
+                          Margin="4,0,8,0" /> 
 
+                <!-- <CheckBox x:Name="IconCalendar" RelativePanel.AlignVerticalCenterWithPanel="True" Margin="4,0,8,0"  /> -->
 
                 <TextBlock x:Name="titoloEvento" TextWrapping="Wrap"
                            RelativePanel.RightOf="IconCalendar"
-                           MaxWidth="500"
+                           MaxWidth="800"
                            IsTextSelectionEnabled="True"
                            Text="{x:Bind Title}"
                            Style="{ThemeResource BaseTextBlockStyle}"
@@ -40,7 +45,6 @@
 
                 <TextBlock RelativePanel.RightOf="dataEnd" x:Name="tipoEvento" TextWrapping="Wrap"
                            RelativePanel.AlignVerticalCenterWith="titoloEvento"
-                           MaxWidth="500"
                            Foreground="{ThemeResource TextFillColorTertiaryBrush}"
                            Text="{x:Bind EventType}"
                            FontWeight="Medium"

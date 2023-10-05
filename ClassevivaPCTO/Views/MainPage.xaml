@@ -291,6 +291,28 @@
                     </custnav:CustomNavigationViewItem.IconFilled>
                 </custnav:CustomNavigationViewItem>
 
+                <custnav:CustomNavigationViewItem Content="Libri"
+                                                  helpers:NavHelper.NavigateTo="views:Books">
+                    <custnav:CustomNavigationViewItem.IconOutline>
+                        <FontIcon Glyph="&#xE1D3;" FontFamily="{StaticResource FluentIcons}" />
+                    </custnav:CustomNavigationViewItem.IconOutline>
+
+                    <custnav:CustomNavigationViewItem.IconFilled>
+                        <FontIcon Glyph="&#xE1D3;" FontFamily="{StaticResource FluentIcons}" />
+                    </custnav:CustomNavigationViewItem.IconFilled>
+                </custnav:CustomNavigationViewItem>
+
+                <custnav:CustomNavigationViewItem Content="Didattica"
+                                                  helpers:NavHelper.NavigateTo="views:Didattica">
+                    <custnav:CustomNavigationViewItem.IconOutline>
+                        <FontIcon Glyph="&#xE7BE;" FontFamily="{StaticResource FluentIcons}" />
+                    </custnav:CustomNavigationViewItem.IconOutline>
+
+                    <custnav:CustomNavigationViewItem.IconFilled>
+                        <FontIcon Glyph="&#xE7BE;" FontFamily="{StaticResource FluentIcons}" />
+                    </custnav:CustomNavigationViewItem.IconFilled>
+                </custnav:CustomNavigationViewItem>
+
 
             </muxc:NavigationView.MenuItems>
 
