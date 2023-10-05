@@ -86,23 +86,6 @@ namespace ClassevivaPCTO
             // Deferred execution until used. Check https://docs.microsoft.com/dotnet/api/system.lazy-1 for further info on Lazy<T> class.
             _activationService = new Lazy<ActivationService>(CreateActivationService);
 
-
-/*
-
-            CoreApplication.UnhandledErrorDetected += (sender, eventArgs) =>
-            {
-                try
-                {
-                    eventArgs.UnhandledError.Propagate();
-                }
-                catch (Exception ex)
-                {
-                    Debug.WriteLine("OKBRO:" + ex.StackTrace);
-                    ExceptionDispatchInfo.Capture(ex).Throw();
-                    
-                }
-            };
-            */
         }
 
         /// <summary>
@@ -150,14 +133,13 @@ namespace ClassevivaPCTO
             //http://blog.wpdev.fr/inspecting-unhandled-exceptions-youve-got-only-one-chance/
             Exception exceptionThatDoesntGoAway = e.Exception;
 
-            //create a list of ErrorAttachmentLog
             var attachments = new List<ErrorAttachmentLog>();
 
             try
             {
                 var dataLogin = ViewModelHolder.GetViewModel().LoginResult;
 
-                var serializedLogin = Newtonsoft.Json.JsonConvert.SerializeObject(
+                var serializedLogin = JsonConvert.SerializeObject(
                     dataLogin,
                     Formatting.Indented,
                     new JsonSerializerSettings
@@ -171,6 +153,7 @@ namespace ClassevivaPCTO
             }
             catch (Exception ex)
             {
+                // ignored
             }
 
             Debug.WriteLine("TESTEXCEPTION: " + exceptionThatDoesntGoAway.StackTrace);

@@ -154,11 +154,12 @@
     <comment>Personalization text for Settings</comment>
   </data>
   <data name="FirstRun_Body.Text" xml:space="preserve">
-    <value>Con quest'app potrai gestire i tuoi dati del registro elettronico Classeviva in maniera intuitiva.
+    <value>Con ClassevivaPCTO potrai visualizzare i tuoi dati del registro elettronico Classeviva in maniera intuitiva e sotto le vesti di un design innovativo.
 
 Quest'app è rivolta soltanto agli account studente.
 
-Ricorda che quest'app è ancora in fase di sviluppo e alcune funzionalità possono non essere disponibili al momento. Se hai idee apri un issue al seguente link! https://github.com/Gabboxl/ClassevivaPCTO/issues</value>
+Ricorda che quest'app è ancora in fase di sviluppo e alcune funzionalità non sono disponibili al momento. 
+Se riscontri bug o hai un'idea per l'app apri un issue su GitHub cliccando sul link "Segnala un problema" nella sezione Informazioni app.</value>
     <comment>First use prompt message body</comment>
   </data>
   <data name="FirstRunDialog.Title" xml:space="preserve">
@@ -187,8 +188,8 @@ Ricorda che quest'app è ancora in fase di sviluppo e alcune funzionalità posso
   <data name="WhatsNew_Body_1.Text" xml:space="preserve">
     <value>•  La sezione account è adesso integrata nelle Impostazioni
 •  Aggiunta la possibilità di visualizzare le modifiche recenti apportate all'app
-•  Aggiornata l'esperienza iniziale (tutorial) con nuovi suggerimenti, che da ora possono essere visualizzati anche dalle Impostazioni
-•  Aggiunta una splash screen - chi ha già fatto il login tramite credenziali all'apertura della app adesso visualizzerà una nuova splash screen che indica il caricamento dei dati dell'utente e dell'applicazione</value>
+•  Da adesso il tutorial iniziale sarà visibile anche dalle Impostazioni - questo verrà modificato in futuro per includere suggerimenti e consigli su come usare al meglio l'app
+•  Aggiunta una sezione per i contributors di Github</value>
     <comment>What's new prompt message body for first section (General)</comment>
   </data>
   <data name="WhatsNew_Body_2.Text" xml:space="preserve">
@@ -241,13 +242,13 @@ Ricorda che quest'app è ancora in fase di sviluppo e alcune funzionalità posso
     <value>Segnala un problema</value>
   </data>
   <data name="SettingsCardTutorial.Header" xml:space="preserve">
-    <value>Tutorial</value>
+    <value>Suggerimenti</value>
   </data>
   <data name="SettingsCardTutorial.Description" xml:space="preserve">
     <value>Visualizza suggerimenti sul funzionamento dell'app</value>
   </data>
   <data name="SettingsCardTutorialButton.Content" xml:space="preserve">
-    <value>Avvia tutorial</value>
+    <value>Mostra suggerimenti</value>
   </data>
   <data name="SettingsCardWhatsNew.Header" xml:space="preserve">
     <value>Novità in questa versione</value>
@@ -280,7 +281,7 @@ Ricorda che quest'app è ancora in fase di sviluppo e alcune funzionalità posso
     <value>Password:</value>
   </data>
   <data name="CheckboxCredenziali.Content" xml:space="preserve">
-    <value>Salva le credenziali (resta loggato)</value>
+    <value>Mantieni le credenziali</value>
   </data>
   <data name="ComboMaterie.PlaceholderText" xml:space="preserve">
     <value>Seleziona una materia</value>
@@ -500,9 +501,6 @@ Gli account studente hanno l'username che inizia con le lettere S, G o X.</value
   <data name="SettingsChangelogReleaseDate.Text" xml:space="preserve">
     <value>18 Settembre 2023</value>
   </data>
-  <data name="SettingsChangelogVersion.Text" xml:space="preserve">
-    <value>Versione 1.0.0</value>
-  </data>
   <data name="AgendaButtonTomorrowTT.ToolTipService.ToolTip" xml:space="preserve">
     <value>Giorno successivo</value>
   </data>
@@ -627,7 +625,7 @@ Gli account studente hanno l'username che inizia con le lettere S, G o X.</value
     <value>Non è stato possibile effettuare il login. Riprova più tardi.</value>
   </data>
   <data name="APIErrorTitle" xml:space="preserve">
-    <value>Errore chiamata API (riprova più tardi)</value>
+    <value>Errore del server (riprova più tardi)</value>
   </data>
   <data name="AttempsDone" xml:space="preserve">
     <value>Tentativi effettuati: </value>
@@ -649,5 +647,17 @@ Gli account studente hanno l'username che inizia con le lettere S, G o X.</value
   </data>
   <data name="PALETTE_RET" xml:space="preserve">
     <value>Retro</value>
+  </data>
+  <data name="NoLessons.Text" xml:space="preserve">
+    <value>Nessuna lezione</value>
+  </data>
+  <data name="ContributorsLink.Text" xml:space="preserve">
+    <value>Contributors</value>
+  </data>
+  <data name="GlobalAverage.Text" xml:space="preserve">
+    <value>Media totale</value>
+  </data>
+  <data name="LicensesLink.Text" xml:space="preserve">
+    <value>Licenze</value>
   </data>
 </root>

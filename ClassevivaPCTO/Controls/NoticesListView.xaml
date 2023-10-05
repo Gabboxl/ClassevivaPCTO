@@ -147,7 +147,9 @@
                         <Button.Content>
                             <StackPanel Orientation="Horizontal">
                                 <FontIcon FontFamily="{StaticResource FluentIcons}" Glyph="&#xE894;" />
-                                <TextBlock Text="{x:Bind helpers:ResourceExtensions.GetLocalized('StatusText_NotAvailable'), Mode=OneTime}" Margin="6,0,0,0" />
+                                <TextBlock
+                                    Text="{x:Bind helpers:ResourceExtensions.GetLocalized('StatusText_NotAvailable'), Mode=OneTime}"
+                                    Margin="6,0,0,0" />
                             </StackPanel>
                         </Button.Content>
                     </Button>
@@ -168,9 +170,7 @@
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
 
-        <StackPanel>
-
-            <ListView x:Name="listView"
+        <ListView x:Name="listView"
                   Grid.Row="0"
                   ScrollViewer.VerticalScrollMode="Enabled"
                   HorizontalAlignment="Stretch"
@@ -178,10 +178,8 @@
                   ItemTemplate="{StaticResource NoticeListViewDataTemplate}"
                   ItemContainerStyle="{StaticResource ListViewFullStretchStyle}">
 
-            </ListView>
-        
-        </StackPanel>
-    
+        </ListView>
+
         <RelativePanel
             VerticalAlignment="Center"
             HorizontalAlignment="Center"
