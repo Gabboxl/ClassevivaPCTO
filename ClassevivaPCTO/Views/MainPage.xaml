@@ -89,13 +89,13 @@
                        Grid.Column="1"
                        HorizontalAlignment="Left"
                        Width="24" Height="24"
-                       Margin="16,0,0,0" />
+                       Margin="14,0,0,0" />
                 <TextBlock x:Name="AppTitleTextBlock"
                            Text="test"
                            Style="{StaticResource CaptionTextBlockStyle}"
                            Grid.Column="1"
                            VerticalAlignment="Center"
-                           Margin="48,0,0,0" />
+                           Margin="44,0,0,4" />
             </Grid>
 
 

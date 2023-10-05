@@ -33,7 +33,7 @@
                               FontFamily="{StaticResource FluentIcons}"
                               Foreground="{ThemeResource TextFillColorTertiaryBrush}"
                               RelativePanel.AlignVerticalCenterWithPanel="True"
-                              x:Name="IconaAttachment" />
+                              x:Name="IconaAttachment" Margin="8" />
 
 
                     <TextBlock x:Name="nomeAllegato"
@@ -45,7 +45,7 @@
                                Text="{x:Bind fileName}"
                                Foreground="{ThemeResource TextFillColorSecondaryBrush}"
                                Style="{ThemeResource BaseTextBlockStyle}"
-                               Margin="16,0,0,0" />
+                               Margin="10,0,0,0" />
 
                 </RelativePanel>
 

@@ -366,7 +366,7 @@
                 SelectionChanged="SegmentedVoti_OnSelectionChanged"
                 HorizontalAlignment="Stretch">
 
-                <controls:SegmentedItem Content="Tutti i periodi" />
+                <controls:SegmentedItem x:Uid="AllPeriods" />
             </controls:Segmented>
 
             <controls2:GradesListView

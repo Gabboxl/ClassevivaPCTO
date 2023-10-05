@@ -188,7 +188,7 @@
             <StackPanel>
 
                 <TextBlock x:Name="DocumentsTitle"
-                           Text="Documenti"
+                           x:Uid="TextFileScrutini"
                            Margin="14,12,0,8"
                            Visibility="{x:Bind ItemsSource.Documents, Mode=OneWay, FallbackValue=Collapsed, Converter={StaticResource EmptyListToVisibilityConverter}}"
                            Style="{ThemeResource BodyStrongTextBlockStyle}" FontSize="18" FontWeight="SemiBold" />
