@@ -81,8 +81,6 @@
         </RelativePanel>
 
 
-
-
         <RelativePanel Grid.Row="2"
                        Margin="18"
                        VerticalAlignment="Stretch" HorizontalAlignment="Stretch"
@@ -113,44 +111,44 @@
                     </StackPanel.ChildrenTransitions>
                     <TextBlock Text="Raggruppa per docente = OFF" Margin="0,0,0,6"/>
                     <labs:SettingsCard Header="Questo è un documento" Description="Nome Cognome Docente, 00/00/2000">
-                    <labs:SettingsCard.HeaderIcon>
-                        <FontIcon Glyph="&#xE130;"/>
-                    </labs:SettingsCard.HeaderIcon>
+                        <labs:SettingsCard.HeaderIcon>
+                            <FontIcon Glyph="&#xE130;"/>
+                        </labs:SettingsCard.HeaderIcon>
 
-                    <labs:SettingsCard.Content>
+                        <labs:SettingsCard.Content>
 
-                        <StackPanel Orientation="Horizontal">
+                            <StackPanel Orientation="Horizontal">
 
 
-							<Button
-						x:Name="ButtonOpenDocument" 
-						Margin="0,0,14,0" MinWidth="70">
-								<Button.Content>
-									<StackPanel Orientation="Vertical" Padding="6,0,6,0" VerticalAlignment="Center">
-										<FontIcon FontFamily="{StaticResource FluentIcons}" Glyph="&#xE8E5;"
+                                <Button
+						                x:Name="ButtonOpenDocument" 
+						                Margin="0,0,14,0" MinWidth="70">
+                                    <Button.Content>
+                                        <StackPanel Orientation="Vertical" Padding="6,0,6,0" VerticalAlignment="Center">
+                                            <FontIcon FontFamily="{StaticResource FluentIcons}" Glyph="&#xE8E5;"
 										  FontSize="16" />
-										<TextBlock FontSize="12" x:Uid="ButtonOpen" Margin="0,0,0,0" />
-									</StackPanel>
-								</Button.Content>
-							</Button>
+                                            <TextBlock FontSize="12" x:Uid="ButtonOpen" Margin="0,0,0,0" />
+                                        </StackPanel>
+                                    </Button.Content>
+                                </Button>
 
-                            <Button
-						x:Name="ButtonSaveDocument"
-						Margin="0,0,12,0" MinWidth="70">
-                                <Button.Content>
-                                    <StackPanel Orientation="Vertical" Padding="6,0,6,0">
-                                        <FontIcon FontFamily="{StaticResource FluentIcons}" Glyph="&#xE74E;"
+                                <Button
+						                x:Name="ButtonSaveDocument"
+						                Margin="0,0,12,0" MinWidth="70">
+                                    <Button.Content>
+                                        <StackPanel Orientation="Vertical" Padding="6,0,6,0">
+                                            <FontIcon FontFamily="{StaticResource FluentIcons}" Glyph="&#xE74E;"
 										  FontSize="16" />
-                                        <TextBlock FontSize="12" x:Uid="DialogButtonSave" Margin="0,0,0,0" />
-                                    </StackPanel>
-                                </Button.Content>
-                            </Button>
+                                            <TextBlock FontSize="12" x:Uid="DialogButtonSave" Margin="0,0,0,0" />
+                                        </StackPanel>
+                                    </Button.Content>
+                                </Button>
 
-                        </StackPanel>
-                        
-                    </labs:SettingsCard.Content>
-                    
-                </labs:SettingsCard>
+                            </StackPanel>
+
+                        </labs:SettingsCard.Content>
+
+                    </labs:SettingsCard>
 
                     <labs:SettingsCard Header="Questo è un link" Description="Nome Cognome Docente, 00/00/2000">
                         <labs:SettingsCard.HeaderIcon>
@@ -163,8 +161,8 @@
 
 
                                 <Button toolkit:FrameworkElementExtensions.Cursor="Hand"
-                            x:Name="ButtonOpenLink"
-                            Margin="0,0,12,0" MinWidth="70">
+                                        x:Name="ButtonOpenLink"
+                                        Margin="0,0,12,0" MinWidth="70">        
                                     <Button.Content>
                                         <StackPanel Orientation="Vertical" Padding="6,0,6,0">
                                             <FontIcon FontFamily="{StaticResource FluentIcons}" Glyph="&#xE71B;"
@@ -201,7 +199,7 @@
 
 
                                         <Button
-						Margin="0,0,14,0" MinWidth="70">
+						                    Margin="0,0,14,0" MinWidth="70">
                                             <Button.Content>
                                                 <StackPanel Orientation="Vertical" Padding="6,0,6,0" VerticalAlignment="Center">
                                                     <FontIcon FontFamily="{StaticResource FluentIcons}" Glyph="&#xE8E5;"
@@ -212,7 +210,7 @@
                                         </Button>
 
                                         <Button
-						Margin="0,0,12,0" MinWidth="70">
+						                    Margin="0,0,12,0" MinWidth="70">
                                             <Button.Content>
                                                 <StackPanel Orientation="Vertical" Padding="6,0,6,0">
                                                     <FontIcon FontFamily="{StaticResource FluentIcons}" Glyph="&#xE74E;"
@@ -239,7 +237,7 @@
 
 
                                         <Button toolkit:FrameworkElementExtensions.Cursor="Hand"
-                            Margin="0,0,12,0" MinWidth="70">
+                                                Margin="0,0,12,0" MinWidth="70">
                                             <Button.Content>
                                                 <StackPanel Orientation="Vertical" Padding="6,0,6,0">
                                                     <FontIcon FontFamily="{StaticResource FluentIcons}" Glyph="&#xE71B;"
@@ -256,44 +254,11 @@
 
                             </labs:SettingsCard>
 
-
-
-
                         </labs:SettingsExpander.Items>
-
-
-
-
-
-
-
-
-
-
-
 
                     </labs:SettingsExpander>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                 </StackPanel>
-
-
-
-
-
 
                 <!-- PLACEHOLDER DIDATTICA VUOTA <RelativePanel
                      VerticalAlignment="Center"
@@ -324,10 +289,7 @@
                     
                 </RelativePanel>-->
 
-
-
             </Grid>
-
 
         </RelativePanel>
 

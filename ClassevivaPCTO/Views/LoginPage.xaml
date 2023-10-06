@@ -43,7 +43,7 @@
         </Grid>
 
 
-        <Image x:Name="Logo" Source="/Assets/mainlogo.png" Stretch="Uniform" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  Margin="0,-520,0,0" Height="83" Width="398">
+        <Image x:Name="Logo" Source="/Assets/mainlogo.png" Stretch="Uniform" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  Margin="0,-520,0,0" Height="60" Width="300">
             <Image.Transitions>
                 <EntranceThemeTransition FromHorizontalOffset="500" IsStaggeringEnabled="True" />
                 <RepositionThemeTransition IsStaggeringEnabled="False" />
