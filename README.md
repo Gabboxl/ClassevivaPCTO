@@ -1,8 +1,11 @@
 # ClassevivaPCTO   ![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/Gabboxl/ClassevivaPCTO) ![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/Gabboxl/ClassevivaPCTO?include_prereleases) [![Crowdin](https://badges.crowdin.net/classevivapcto/localized.svg)](https://crowdin.com/project/classevivapcto)
 
-A simple UWP app to consult Classeviva's website 
+With ClassevivaPCTO you will be able to view your Classeviva school register data in an intuitive way and under the guise of an innovative design.
 
-<img src="https://user-images.githubusercontent.com/26819478/233453057-00abd338-8469-40fb-9d21-37bd74b15b06.png" width=15% height=15%>
+[This app is for student accounts only]
+
+## Releases
+<img src="https://github.com/Gabboxl/ClassevivaPCTO/blob/main/ClassevivaPCTO/Assets/storescreenshot.png?raw=true" width=50% height=50%>
 
 ## Download
 
