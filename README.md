@@ -2,11 +2,11 @@
 
 With ClassevivaPCTO you will be able to view your Classeviva school register data in an intuitive way and under the guise of an innovative design.
 
-[This app is for student accounts only]
+_This app is for student accounts only_
 
 ## Releases
 
-**Current release: 1.0.0**
+**Current release: v1.0.0**
 
 <img src="https://github.com/Gabboxl/ClassevivaPCTO/blob/main/ClassevivaPCTO/Assets/storescreenshot.png?raw=true" width=80% height=80%>
 
