@@ -92,7 +92,6 @@
 
                       x:DataType="adapters:AgendaEventAdapter">
             <RelativePanel>
-
                 <!-- icon calendar -->
                 <FontIcon x:Name="IconCalendar" FontFamily="{StaticResource FluentIcons}" Glyph="&#xE787;"
                           RelativePanel.AlignVerticalCenterWithPanel="True"

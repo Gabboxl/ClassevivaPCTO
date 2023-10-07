@@ -111,6 +111,10 @@
 
 
         <RelativePanel Grid.Row="0" Margin="0,16,0,0">
+            <RelativePanel.ChildrenTransitions>
+                <EntranceThemeTransition FromHorizontalOffset="100" IsStaggeringEnabled="True" />
+                <RepositionThemeTransition IsStaggeringEnabled="False" />
+            </RelativePanel.ChildrenTransitions>
 
             <TextBlock x:Name="MainTitleTextBox" x:Uid="TitleValutazioni"
                        Style="{StaticResource TitleLargeTextBlockStyle}"
@@ -127,7 +131,10 @@
         </RelativePanel>
 
         <RelativePanel Grid.Row="0" Margin="0,18,0,0">
-
+            <RelativePanel.ChildrenTransitions>
+                <EntranceThemeTransition FromHorizontalOffset="100" IsStaggeringEnabled="True" />
+                <RepositionThemeTransition IsStaggeringEnabled="False" />
+            </RelativePanel.ChildrenTransitions>
 
             <Button x:Name="ReloadButton"
                     Click="ReloadButton_OnClick"
@@ -161,6 +168,10 @@
                        BorderThickness="1"
                        BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
                        Background="{ThemeResource CardBackgroundFillColorDefaultBrush}">
+            <RelativePanel.ChildrenTransitions>
+                <EntranceThemeTransition FromHorizontalOffset="100" IsStaggeringEnabled="True" />
+                <RepositionThemeTransition IsStaggeringEnabled="False" />
+            </RelativePanel.ChildrenTransitions>
 
             <Grid
                 x:Name="GridMedie"
@@ -217,6 +228,10 @@
                             Margin="32,0,0,0"
                             VerticalAlignment="Center"
                             HorizontalAlignment="Left">
+                            <RelativePanel.ChildrenTransitions>
+                                <EntranceThemeTransition FromHorizontalOffset="100" IsStaggeringEnabled="True" />
+                                <RepositionThemeTransition IsStaggeringEnabled="False" />
+                            </RelativePanel.ChildrenTransitions>
                             <TextBlock
                                 x:Name="TitleTotVal"
                                 x:Uid="GlobalAverage"
@@ -276,6 +291,10 @@
                             Margin="32,0,0,0"
                             VerticalAlignment="Center"
                             HorizontalAlignment="Left">
+                            <RelativePanel.ChildrenTransitions>
+                                <EntranceThemeTransition FromHorizontalOffset="100" IsStaggeringEnabled="True" />
+                                <RepositionThemeTransition IsStaggeringEnabled="False" />
+                            </RelativePanel.ChildrenTransitions>
                             <TextBlock
                                 x:Name="TitleFirstPerVal"
                                 Text="-"
@@ -367,6 +386,11 @@
                 HorizontalAlignment="Stretch">
 
                 <controls:SegmentedItem x:Uid="AllPeriods" />
+                
+                <controls:Segmented.Transitions>
+                    <EntranceThemeTransition FromVerticalOffset="100" IsStaggeringEnabled="True" />
+                    <RepositionThemeTransition IsStaggeringEnabled="False" />
+                </controls:Segmented.Transitions>
             </controls:Segmented>
 
             <controls2:GradesListView

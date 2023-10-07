@@ -229,6 +229,11 @@
                     </Grid.RowDefinitions>
 
                     <RelativePanel Grid.Row="0" Grid.Column="0" Margin="0,16,0,0" VerticalAlignment="Center">
+                        
+                        <RelativePanel.ChildrenTransitions>
+                            <EntranceThemeTransition FromHorizontalOffset="100" IsStaggeringEnabled="True" />
+                            <RepositionThemeTransition IsStaggeringEnabled="False" />
+                        </RelativePanel.ChildrenTransitions>
 
                         <Button RelativePanel.LeftOf="Separator0" x:Name="AggiornaCommand"
                                 RelativePanel.AlignVerticalCenterWithPanel="True"

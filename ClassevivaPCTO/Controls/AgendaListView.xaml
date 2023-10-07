@@ -21,6 +21,10 @@
 
                       x:DataType="adapters:AgendaEventAdapter">
             <RelativePanel>
+                <RelativePanel.ChildrenTransitions>
+                    <EntranceThemeTransition FromVerticalOffset="100" IsStaggeringEnabled="True" />
+                    <RepositionThemeTransition IsStaggeringEnabled="False" />
+                </RelativePanel.ChildrenTransitions>
 
                 <!-- icon calendar -->
                 <FontIcon x:Name="IconCalendar" FontFamily="{StaticResource FluentIcons}" Glyph="&#xE787;"
