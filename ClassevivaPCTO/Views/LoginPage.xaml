@@ -52,6 +52,11 @@
                     BorderThickness="1"
                     BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
                     Background="{ThemeResource CardBackgroundFillColorDefaultBrush}">
+            
+            <StackPanel.ChildrenTransitions>
+                <EntranceThemeTransition FromVerticalOffset="300" IsStaggeringEnabled="True" />
+                <RepositionThemeTransition IsStaggeringEnabled="False" />
+            </StackPanel.ChildrenTransitions>
 
             <TextBlock x:Uid="TextBenvenutoLogin" FontSize="24" TextAlignment="Center" Height="60"/>
 

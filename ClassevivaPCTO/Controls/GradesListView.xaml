@@ -43,6 +43,10 @@
 
                 <RelativePanel RelativePanel.AlignVerticalCenterWithPanel="True" RelativePanel.RightOf="gridVoto"
                                Margin="0,8,0,8">
+                    <RelativePanel.ChildrenTransitions>
+                        <EntranceThemeTransition FromVerticalOffset="100" IsStaggeringEnabled="True" />
+                        <RepositionThemeTransition IsStaggeringEnabled="False" />
+                    </RelativePanel.ChildrenTransitions>
 
                     <TextBlock x:Name="textMateria" TextWrapping="Wrap"
                                MaxWidth="500"
@@ -160,6 +164,11 @@
             HorizontalAlignment="Center"
             Grid.Row="0"
             Visibility="{x:Bind ShowEmptyAlert, Mode=OneWay, Converter={StaticResource BetterBoolToVisibilityConverter}, ConverterParameter=True}">
+
+            <RelativePanel.ChildrenTransitions>
+                <EntranceThemeTransition FromVerticalOffset="300" IsStaggeringEnabled="True" />
+                <RepositionThemeTransition IsStaggeringEnabled="False" />
+            </RelativePanel.ChildrenTransitions>
             <FontIcon x:Name="IconNotes" FontFamily="{StaticResource FluentIcons}" Glyph="&#xe9f9;"
                       Foreground="{ThemeResource TextFillColorDisabledBrush}"
                       RelativePanel.AlignHorizontalCenterWithPanel="True"

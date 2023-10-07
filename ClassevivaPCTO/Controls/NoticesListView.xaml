@@ -42,7 +42,10 @@
 
                 <RelativePanel ScrollViewer.HorizontalScrollMode="Disabled" Grid.Row="0" Grid.Column="0"
                                Margin="0,8,0,8">
-
+                    <RelativePanel.ChildrenTransitions>
+                        <EntranceThemeTransition FromVerticalOffset="100" IsStaggeringEnabled="True" />
+                        <RepositionThemeTransition IsStaggeringEnabled="False" />
+                    </RelativePanel.ChildrenTransitions>
                     <!-- icon pin -->
                     <FontIcon x:Name="pinIcon" FontFamily="{StaticResource FluentIcons}" Glyph="&#xE840;"
                               RelativePanel.AlignVerticalCenterWithPanel="True"
@@ -102,7 +105,10 @@
 
                 <RelativePanel
                     Grid.Column="1">
-
+                    <RelativePanel.ChildrenTransitions>
+                        <EntranceThemeTransition FromVerticalOffset="100" IsStaggeringEnabled="True" />
+                        <RepositionThemeTransition IsStaggeringEnabled="False" />
+                    </RelativePanel.ChildrenTransitions>
                     <FontIcon RelativePanel.LeftOf="ReadButton"
                               FontFamily="{StaticResource FluentIcons}"
                               Glyph="{x:Bind ReadIcon}"
@@ -179,6 +185,12 @@
             HorizontalAlignment="Center"
             Grid.Row="0"
             Visibility="{x:Bind ShowEmptyAlert, Mode=OneWay, Converter={StaticResource BetterBoolToVisibilityConverter}, ConverterParameter=True}">
+
+            <RelativePanel.ChildrenTransitions>
+                <EntranceThemeTransition FromVerticalOffset="100" IsStaggeringEnabled="True" />
+                <RepositionThemeTransition IsStaggeringEnabled="False" />
+            </RelativePanel.ChildrenTransitions>
+            
             <FontIcon x:Name="IconNotices" FontFamily="{StaticResource FluentIcons}" Glyph="&#xe718;"
                       Foreground="{ThemeResource TextFillColorDisabledBrush}"
                       RelativePanel.AlignHorizontalCenterWithPanel="True"

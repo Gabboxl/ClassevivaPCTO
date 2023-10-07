@@ -89,6 +89,11 @@
                             x:Name="PersonPictureSettings" />
 
                         <RelativePanel Grid.Column="1" VerticalAlignment="Center">
+                            
+                            <RelativePanel.ChildrenTransitions>
+                                <EntranceThemeTransition FromHorizontalOffset="100" IsStaggeringEnabled="True" />
+                                <RepositionThemeTransition IsStaggeringEnabled="False" />
+                            </RelativePanel.ChildrenTransitions>
 
                             <TextBlock x:Name="NomeCognome" Text="{Binding FirstName}" FontSize="32"
                                        FontWeight="SemiBold"
@@ -116,6 +121,11 @@
 
                         <StackPanel Grid.Column="2" VerticalAlignment="Center" Margin="0,0,8,0"
                                     Width="164">
+                            <StackPanel.ChildrenTransitions>
+                                <EntranceThemeTransition FromHorizontalOffset="100" IsStaggeringEnabled="True" />
+                                <RepositionThemeTransition IsStaggeringEnabled="False" />
+                            </StackPanel.ChildrenTransitions>
+
                             <!-- <Button
                                 x:Name="ChangePhotoButton"
                                 Margin="0,0,0,0" HorizontalAlignment="Stretch" >

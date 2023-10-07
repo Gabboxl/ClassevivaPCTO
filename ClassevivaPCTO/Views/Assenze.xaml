@@ -50,6 +50,10 @@
 
 
         <RelativePanel Grid.Row="0" Margin="0,16,0,16">
+            <RelativePanel.ChildrenTransitions>
+                <EntranceThemeTransition FromHorizontalOffset="100" IsStaggeringEnabled="True" />
+                <RepositionThemeTransition IsStaggeringEnabled="False" />
+            </RelativePanel.ChildrenTransitions>
 
             <TextBlock x:Name="TextTitolo" x:Uid="TextTitoloAssenzeRitardi"
                        Style="{StaticResource TitleLargeTextBlockStyle}" VerticalAlignment="Top"

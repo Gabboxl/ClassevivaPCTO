@@ -40,6 +40,11 @@
 
                 <RelativePanel ScrollViewer.HorizontalScrollMode="Disabled" Grid.Row="0" Grid.Column="0">
 
+                    <RelativePanel.ChildrenTransitions>
+                        <EntranceThemeTransition FromVerticalOffset="100" IsStaggeringEnabled="True" />
+                        <RepositionThemeTransition IsStaggeringEnabled="False" />
+                    </RelativePanel.ChildrenTransitions>
+
                     <!-- note icon -->
                     <FontIcon x:Name="NoteIcon"
                               FontSize="24" Margin="8"
@@ -116,7 +121,21 @@
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
 
-        <ListView x:Name="listView"
+        <ScrollViewer Grid.Row="0">
+
+            <StackPanel>
+                <StackPanel.ChildrenTransitions>
+                    <EntranceThemeTransition FromVerticalOffset="300" IsStaggeringEnabled="True" />
+                    <RepositionThemeTransition IsStaggeringEnabled="False" />
+                </StackPanel.ChildrenTransitions>
+                
+                <TextBlock x:Name="NotesTitle"
+                           x:Uid="NotesLVTitle"
+                           Margin="14,12,0,8"
+
+                           Style="{ThemeResource BodyStrongTextBlockStyle}" FontSize="18" FontWeight="SemiBold" />
+                <!-- </TextBlock>Visibility="{x:Bind ItemsSource.Note, Mode=OneWay, FallbackValue=Collapsed, Converter={StaticResource EmptyListToVisibilityConverter}}" -->
+                <ListView x:Name="listView"
 
                   ScrollViewer.VerticalScrollMode="Enabled"
                   HorizontalAlignment="Stretch"
@@ -124,13 +143,21 @@
                   ItemTemplate="{StaticResource NotesListViewDataTemplate}"
                   ItemContainerStyle="{StaticResource ListViewFullStretchStyle}">
 
-        </ListView>
+                </ListView>
+            </StackPanel>
+        </ScrollViewer>
 
         <RelativePanel
             VerticalAlignment="Center"
             HorizontalAlignment="Center"
             Grid.Row="0"
             Visibility="{x:Bind ShowEmptyAlert, Mode=OneWay, Converter={StaticResource BetterBoolToVisibilityConverter}, ConverterParameter=True}">
+
+            <RelativePanel.ChildrenTransitions>
+                <EntranceThemeTransition FromVerticalOffset="300" IsStaggeringEnabled="True" />
+                <RepositionThemeTransition IsStaggeringEnabled="False" />
+            </RelativePanel.ChildrenTransitions>
+            
             <FontIcon x:Name="IconNotes" FontFamily="{StaticResource FluentIcons}" Glyph="&#xe91c;"
                       Foreground="{ThemeResource TextFillColorDisabledBrush}"
                       RelativePanel.AlignHorizontalCenterWithPanel="True"

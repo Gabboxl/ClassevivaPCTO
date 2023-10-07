@@ -32,6 +32,10 @@
 
 
         <RelativePanel Grid.Row="0" Margin="0,16,0,0">
+            <RelativePanel.ChildrenTransitions>
+                <EntranceThemeTransition FromHorizontalOffset="100" IsStaggeringEnabled="True" />
+                <RepositionThemeTransition IsStaggeringEnabled="False" />
+            </RelativePanel.ChildrenTransitions>
             <TextBlock x:Name="TextTitolo" Grid.Row="0" x:Uid="NoticeBoardTitle"
                        Style="{StaticResource TitleLargeTextBlockStyle}"
                        VerticalAlignment="Top"
@@ -48,6 +52,10 @@
 
         <RelativePanel Grid.Row="0" Margin="0,18,0,0">
 
+            <RelativePanel.ChildrenTransitions>
+                <EntranceThemeTransition FromHorizontalOffset="100" IsStaggeringEnabled="True" />
+                <RepositionThemeTransition IsStaggeringEnabled="False" />
+            </RelativePanel.ChildrenTransitions>
 
             <Button RelativePanel.LeftOf="Separatore_Bacheca" x:Name="AggiornaCommand"
                     RelativePanel.AlignVerticalCenterWithPanel="True"

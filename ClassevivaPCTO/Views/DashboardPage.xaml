@@ -60,6 +60,10 @@
 
 
         <RelativePanel Grid.Row="0" Margin="0,18,0,0">
+            <RelativePanel.ChildrenTransitions>
+                <EntranceThemeTransition FromHorizontalOffset="100" IsStaggeringEnabled="True" />
+                <RepositionThemeTransition IsStaggeringEnabled="False" />
+            </RelativePanel.ChildrenTransitions>
 
             <TextBlock x:Name="TextTitolo" Style="{StaticResource TitleLargeTextBlockStyle}"
                        VerticalAlignment="Top"
@@ -127,6 +131,10 @@
                         <ColumnDefinition Width="*" />
 
                     </Grid.ColumnDefinitions>
+                    <Grid.ChildrenTransitions>
+                        <EntranceThemeTransition FromVerticalOffset="100" IsStaggeringEnabled="True" />
+                        <RepositionThemeTransition IsStaggeringEnabled="False" />
+                    </Grid.ChildrenTransitions>
 
                     <RelativePanel Grid.Row="0">
 
@@ -176,6 +184,10 @@
                         <RowDefinition Height="*" />
                     </Grid.RowDefinitions>
 
+                    <Grid.ChildrenTransitions>
+                        <EntranceThemeTransition FromVerticalOffset="100" IsStaggeringEnabled="True" />
+                        <RepositionThemeTransition IsStaggeringEnabled="False" />
+                    </Grid.ChildrenTransitions>
 
                     <RelativePanel Grid.Row="0">
 
@@ -257,6 +269,11 @@
                         <RowDefinition Height="*" />
                         <RowDefinition Height="Auto" />
                     </Grid.RowDefinitions>
+
+                    <Grid.ChildrenTransitions>
+                        <EntranceThemeTransition FromVerticalOffset="100" IsStaggeringEnabled="True" />
+                        <RepositionThemeTransition IsStaggeringEnabled="False" />
+                    </Grid.ChildrenTransitions>
 
                     <RelativePanel Grid.Row="0">
 

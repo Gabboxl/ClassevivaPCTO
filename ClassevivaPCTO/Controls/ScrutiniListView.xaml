@@ -43,7 +43,10 @@
 
 
                 <RelativePanel ScrollViewer.HorizontalScrollMode="Disabled" Grid.Row="0" Grid.Column="0">
-
+                    <RelativePanel.ChildrenTransitions>
+                        <EntranceThemeTransition FromVerticalOffset="100" IsStaggeringEnabled="True" />
+                        <RepositionThemeTransition IsStaggeringEnabled="False" />
+                    </RelativePanel.ChildrenTransitions>
                     <!-- file icon -->
                     <FontIcon x:Name="FileIcon"
                               FontSize="24"
@@ -76,6 +79,10 @@
                 <RelativePanel
                     Grid.Column="1"
                     Padding="0,6,0,6">
+                    <RelativePanel.ChildrenTransitions>
+                        <EntranceThemeTransition FromVerticalOffset="100" IsStaggeringEnabled="True" />
+                        <RepositionThemeTransition IsStaggeringEnabled="False" />
+                    </RelativePanel.ChildrenTransitions>
 
                     <Button
                         x:Name="ButtonOpenScrutinio" RelativePanel.LeftOf="ButtonSaveScrutinio"
@@ -130,6 +137,10 @@
 
                 <RelativePanel ScrollViewer.HorizontalScrollMode="Disabled" Grid.Row="0" Grid.Column="0">
 
+                    <RelativePanel.ChildrenTransitions>
+                        <EntranceThemeTransition FromVerticalOffset="100" IsStaggeringEnabled="True" />
+                        <RepositionThemeTransition IsStaggeringEnabled="False" />
+                    </RelativePanel.ChildrenTransitions>
 
                     <!-- globe icon -->
                     <FontIcon x:Name="testIcon"
@@ -152,6 +163,10 @@
                 <RelativePanel
                     Grid.Column="1"
                     Padding="0,6,0,6">
+                    <RelativePanel.ChildrenTransitions>
+                        <EntranceThemeTransition FromVerticalOffset="100" IsStaggeringEnabled="True" />
+                        <RepositionThemeTransition IsStaggeringEnabled="False" />
+                    </RelativePanel.ChildrenTransitions>
 
                     <Button toolkit:FrameworkElementExtensions.Cursor="Hand"
                             x:Name="ButtonOpenReport"
@@ -186,6 +201,10 @@
         <ScrollViewer Grid.Row="0">
 
             <StackPanel>
+                <StackPanel.ChildrenTransitions>
+                    <EntranceThemeTransition FromVerticalOffset="300" IsStaggeringEnabled="True" />
+                    <RepositionThemeTransition IsStaggeringEnabled="False" />
+                </StackPanel.ChildrenTransitions>
 
                 <TextBlock x:Name="DocumentsTitle"
                            x:Uid="TextFileScrutini"
@@ -229,6 +248,12 @@
             HorizontalAlignment="Center"
             Grid.Row="0"
             Visibility="{x:Bind ShowEmptyAlert, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}">
+
+            <RelativePanel.ChildrenTransitions>
+                <EntranceThemeTransition FromVerticalOffset="100" IsStaggeringEnabled="True" />
+                <RepositionThemeTransition IsStaggeringEnabled="False" />
+            </RelativePanel.ChildrenTransitions>
+            
             <FontIcon x:Name="IconCalendar" FontFamily="{StaticResource FluentIcons}" Glyph="&#xf180;"
                       Foreground="{ThemeResource TextFillColorDisabledBrush}"
                       RelativePanel.AlignHorizontalCenterWithPanel="True"
