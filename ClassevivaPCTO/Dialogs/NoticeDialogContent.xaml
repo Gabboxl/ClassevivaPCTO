@@ -124,6 +124,29 @@
                           ItemContainerStyle="{StaticResource ListViewFullStretchStyle}"
                           ItemTemplate="{StaticResource AttachmentListViewDataTemplate}" />
 
+                <Rectangle Fill="{ThemeResource TextFillColorDisabledBrush}" Height="1" Margin="0,8,0,8"/>
+
+                <muxc:InfoBar
+                    IsOpen="True"
+                    Severity="Informational"
+                    Title="Per questa comunicazione è richiesta una conferma di accettazione" IsClosable="False"/>
+
+                <RelativePanel Grid.Column="1" HorizontalAlignment="Stretch">
+                    <AppBarButton x:Name="ButtonConfirm" RelativePanel.AlignRightWithPanel="True"
+                                  RelativePanel.AlignVerticalCenterWithPanel="True" Icon="Accept"
+                                  Label="Conferma" />
+
+                    <AppBarButton x:Name="ButtonRefuse" RelativePanel.LeftOf="ButtonConfirm"
+                                  RelativePanel.AlignVerticalCenterWithPanel="True" Icon="Cancel"
+                                  Label="Rifiuta" />
+                    
+                    <AppBarButton x:Name="ButtonAderisci" RelativePanel.AlignLeftWithPanel="True"
+                                  RelativePanel.AlignVerticalCenterWithPanel="True" Icon="AddFriend"
+                                  Label="Aderisci" />
+
+                </RelativePanel>
+
+
             </StackPanel>
         </ScrollViewer>
     </Grid>
