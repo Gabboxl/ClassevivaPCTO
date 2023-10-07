@@ -123,10 +123,16 @@
                         <RowDefinition Height="*" />
                         <RowDefinition Height="Auto" />
                     </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
+                    <!--<Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*" />
 
                     </Grid.ColumnDefinitions>
+                    </Grid.ColumnDefinitions>-->
+
+                    <Grid.ChildrenTransitions>
+                        <EntranceThemeTransition FromVerticalOffset="100" IsStaggeringEnabled="True" />
+                        <RepositionThemeTransition IsStaggeringEnabled="False" />
+                    </Grid.ChildrenTransitions>
 
                     <RelativePanel Grid.Row="0">
 
@@ -136,7 +142,7 @@
 
                         <muxc:ProgressRing IsActive="True" x:Name="ProgressRingAgenda"
                                            RelativePanel.RightOf="TextOggiAgenda"
-                                           Margin="12,0,0,16" Width="18" Height="18"
+                                           Margin="24,0,0,16" Width="18" Height="18"
                                            RelativePanel.AlignVerticalCenterWithPanel="True"
 
                                            Visibility="{x:Bind DashboardPageViewModel.IsLoadingAgenda, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" />
