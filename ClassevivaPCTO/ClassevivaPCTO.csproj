@@ -227,6 +227,9 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Didattica.xaml.cs">
+      <DependentUpon>Didattica.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Note.xaml.cs">
       <DependentUpon>Note.xaml</DependentUpon>
     </Compile>
@@ -410,6 +413,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Agenda.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Didattica.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
