@@ -659,4 +659,10 @@ Student accounts have usernames starting with the letters S, G, or X.</value>
   <data name="LicensesLink.Text" xml:space="preserve">
     <value>Licenses</value>
   </data>
+  <data name="AllPeriods.Content" xml:space="preserve">
+    <value>Tutti i periodi</value>
+  </data>
+  <data name="CalendarTT.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Seleziona una data</value>
+  </data>
 </root>

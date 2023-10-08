@@ -659,4 +659,10 @@ Gli account studente hanno l'username che inizia con le lettere S, G o X.</value
   <data name="LicensesLink.Text" xml:space="preserve">
     <value>Licenze</value>
   </data>
+  <data name="AllPeriods.Content" xml:space="preserve">
+    <value>Tutti i periodi</value>
+  </data>
+  <data name="CalendarTT.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Seleziona una data</value>
+  </data>
 </root>
