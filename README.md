@@ -1,4 +1,4 @@
-# <img src="https://github.com/alessandrocaseti/ClassevivaPCTO/blob/main/ClassevivaPCTO/Assets/mainlogo.png" width=40% height=40%>     ![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/Gabboxl/ClassevivaPCTO) ![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/Gabboxl/ClassevivaPCTO?include_prereleases) [![Crowdin](https://badges.crowdin.net/classevivapcto/localized.svg)](https://crowdin.com/project/classevivapcto)
+# <img src="https://github.com/Gabboxl/ClassevivaPCTO/blob/main/ClassevivaPCTO/Assets/mainlogo.png" width=40% height=40%>     ![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/Gabboxl/ClassevivaPCTO) ![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/Gabboxl/ClassevivaPCTO?include_prereleases) [![Crowdin](https://badges.crowdin.net/classevivapcto/localized.svg)](https://crowdin.com/project/classevivapcto)
 
 With ClassevivaPCTO you will be able to view your Classeviva school register data in an intuitive way and under the guise of an innovative design.
 
