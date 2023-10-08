@@ -308,7 +308,7 @@
                             Margin="8,0,20,0">
 
                             <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Spacing="8">
-                                <TextBlock Text="&#xEE56;" VerticalAlignment="Center"
+                                <TextBlock Text="&#xe7be;" VerticalAlignment="Center"
                                            FontFamily="{StaticResource FluentIcons}" />
                                 <TextBlock x:Uid="PopupLessonsButton" />
 

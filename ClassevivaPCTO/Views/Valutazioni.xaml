@@ -48,10 +48,6 @@
                                         Description="{x:Bind Teachers}"
                                         HeaderIcon="{x:Bind AverageVariationIcon}">
                     <Grid>
-                        <Grid.ChildrenTransitions>
-                            <EntranceThemeTransition FromVerticalOffset="100" IsStaggeringEnabled="True" />
-                            <RepositionThemeTransition IsStaggeringEnabled="False" />
-                        </Grid.ChildrenTransitions>
                         <muxc:ProgressRing
                             HorizontalAlignment="Center"
                             VerticalAlignment="Center"
@@ -346,10 +342,6 @@
                             Margin="32,0,0,0"
                             VerticalAlignment="Center"
                             HorizontalAlignment="Left">
-                            <RelativePanel.ChildrenTransitions>
-                                <EntranceThemeTransition FromHorizontalOffset="100" IsStaggeringEnabled="True" />
-                                <RepositionThemeTransition IsStaggeringEnabled="False" />
-                            </RelativePanel.ChildrenTransitions>
                             <TextBlock
                                 x:Name="TitleSecondPerVal"
                                 Text="-"
