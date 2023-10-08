@@ -90,15 +90,12 @@
                                VerticalAlignment="Top"
                                Margin="32,16,0,0" />
 
-                    <!-- progress ring -->
                     <muxc:ProgressRing
                         x:Name="LezioniPopupProgressRing"
                         IsActive="True"
                         RelativePanel.RightOf="TitoloLezioniPopup"
                         RelativePanel.AlignVerticalCenterWith="TitoloLezioniPopup"
                         Margin="16,16,0,0" Width="28" Height="28" />
-
-
                 </RelativePanel>
 
                 <ScrollViewer Grid.Row="1">
@@ -282,13 +279,9 @@
                                       toolkit:FrameworkElementExtensions.Cursor="Hand"
                                       Click="ButtonToday_Click" />
 
-                        <Rectangle x:Name="Separator1" RelativePanel.AlignRightWithPanel="True"
+                        <Rectangle x:Name="Separator1" RelativePanel.LeftOf="TuttiCompitiButton"
                                    Fill="{ThemeResource ControlStrokeColorDefaultBrush}"
                                    Width="2" Height="48" Margin="16,0,0,0" />
-                    </RelativePanel>
-
-                    <RelativePanel x:Name="PopupButtonsRelativePanel" Grid.Row="0" Grid.Column="1" Margin="0,16,0,0"
-                                   VerticalAlignment="Center">
 
                         <Button
                             RelativePanel.AlignVerticalCenterWithPanel="True"
@@ -321,11 +314,6 @@
 
                             </StackPanel>
                         </Button>
-
-                        <!--<Rectangle x:Name="Separator2" RelativePanel.AlignRightWithPanel="True"
-                               VerticalAlignment="Stretch"
-                               Fill="{ThemeResource ControlStrokeColorDefaultBrush}"
-                               Width="2" Height="48" Margin="16,0,0,0" />-->
 
                     </RelativePanel>
 

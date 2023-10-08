@@ -43,7 +43,9 @@
         </Grid>
 
 
-        <Image x:Name="Logo" Source="/Assets/mainlogo.png" Stretch="Uniform" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  Margin="0,-520,0,0" Height="83" Width="398" />
+        <Image x:Name="Logo" Source="/Assets/mainlogo.png" Stretch="Uniform" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  Margin="0,-520,0,0" Height="60" Width="300">
+        </Image>
+
 
 
         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Height="380" Width="349"
@@ -63,7 +65,7 @@
                       Margin="0,0,0,20" />
 
             <Button x:Name="buttonLogin" Style="{StaticResource AccentButtonStyle}" x:Uid="LoginButton" Height="32"
-                    Width="81" RenderTransformOrigin="2.13,0.797" HorizontalAlignment="Center" Margin="0,12,0,0"
+                    Width="80" RenderTransformOrigin="2.13,0.797" HorizontalAlignment="Center" Margin="0,12,0,0"
                     Click="Button_Click" />
             <muxc:ProgressRing x:Name="progresslogin" IsActive="True" Visibility="Collapsed" Margin="0,12,0,0"/>
         </StackPanel>
