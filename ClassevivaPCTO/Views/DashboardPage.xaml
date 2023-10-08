@@ -123,30 +123,23 @@
                         <RowDefinition Height="*" />
                         <RowDefinition Height="Auto" />
                     </Grid.RowDefinitions>
-                    <!--<Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*" />
-
-                    </Grid.ColumnDefinitions>
-                    </Grid.ColumnDefinitions>-->
-
-                    <Grid.ChildrenTransitions>
-                        <EntranceThemeTransition FromVerticalOffset="100" IsStaggeringEnabled="True" />
-                        <RepositionThemeTransition IsStaggeringEnabled="False" />
-                    </Grid.ChildrenTransitions>
 
                     <RelativePanel Grid.Row="0">
 
                         <TextBlock x:Name="TextOggiAgenda" x:Uid="TextOggiAgenda"
-                                   FontSize="20" VerticalAlignment="Top" FontWeight="Medium"
-                                   HorizontalAlignment="Left" Margin="8,4,0,0" />
+                                  FontSize="20"
+                                   VerticalAlignment="Top"
+                                   HorizontalAlignment="Left" Margin="8,4,0,8" FontWeight="Medium" />
 
                         <muxc:ProgressRing IsActive="True" x:Name="ProgressRingAgenda"
                                            RelativePanel.RightOf="TextOggiAgenda"
-                                           Margin="24,0,0,16" Width="18" Height="18"
-                                           RelativePanel.AlignVerticalCenterWithPanel="True"
+                                           Margin="12,0,0,0" Width="18" Height="18"
+                                           RelativePanel.AlignVerticalCenterWith="TextOggiAgenda"
 
                                            Visibility="{x:Bind DashboardPageViewModel.IsLoadingAgenda, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" />
                     </RelativePanel>
+
+
 
 
                     <controls2:OverviewListView Grid.Row="1" x:Name="OverviewListView"
