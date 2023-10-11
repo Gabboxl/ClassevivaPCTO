@@ -50,7 +50,7 @@
         <RelativePanel Grid.Row="0" Margin="0,18,0,0">
 
 
-            <Button RelativePanel.LeftOf="Separatore_Bacheca1" x:Name="AggiornaCommand"
+            <Button RelativePanel.LeftOf="SeparatoreBacheca1" x:Name="AggiornaCommand"
                     RelativePanel.AlignVerticalCenterWithPanel="True"
                     Width="48"
                     Height="32"
@@ -59,50 +59,53 @@
 
 
             </Button>
-            
-            <Rectangle x:Name="Separatore_Bacheca1" RelativePanel.LeftOf="SegmentedView"
+
+            <Rectangle x:Name="SeparatoreBacheca1" RelativePanel.LeftOf="SegmentedView"
                        RelativePanel.AlignVerticalCenterWithPanel="True"
                        Fill="{ThemeResource ControlStrokeColorDefaultBrush}"
                        Width="2" Height="48" Margin="20,0,20,0" />
-            
+
             <controls1:Segmented
-                RelativePanel.LeftOf="Separatore_Bacheca2"
-                RelativePanel.AlignVerticalCenterWithPanel="True" 
+                RelativePanel.LeftOf="SeparatoreBacheca2"
+                RelativePanel.AlignVerticalCenterWithPanel="True"
                 Margin="0,0,0,0"
                 Width="325"
                 x:Name="SegmentedView"
                 SelectedIndex="0"
                 HorizontalAlignment="Stretch">
-                <controls1:SegmentedItem ToolTipService.ToolTip="Visualizzazione a copertina" >
+                <controls1:SegmentedItem>
                     <controls1:SegmentedItem.Content>
                         <StackPanel Orientation="Horizontal">
-                            <FontIcon Glyph="&#xE138;" FontFamily="{StaticResource FluentIcons}" FontSize="14" Margin="0,0,6,0"/>
-                            <TextBlock Text="Tutte"/>
+                            <FontIcon Glyph="&#xE138;" FontFamily="{StaticResource FluentIcons}" FontSize="14"
+                                      Margin="0,0,6,0" />
+                            <TextBlock Text="Tutte" />
                         </StackPanel>
                     </controls1:SegmentedItem.Content>
                 </controls1:SegmentedItem>
 
-                <controls1:SegmentedItem ToolTipService.ToolTip="Visualizzazione a copertina" >
+                <controls1:SegmentedItem>
                     <controls1:SegmentedItem.Content>
                         <StackPanel Orientation="Horizontal">
-                            <FontIcon Glyph="&#xE119;" FontFamily="{StaticResource FluentIcons}" FontSize="14" Margin="0,0,6,0"/>
-                            <TextBlock Text="Non lette"/> 
+                            <FontIcon Glyph="&#xE119;" FontFamily="{StaticResource FluentIcons}" FontSize="14"
+                                      Margin="0,0,6,0" />
+                            <TextBlock Text="Non lette" />
                         </StackPanel>
                     </controls1:SegmentedItem.Content>
                 </controls1:SegmentedItem>
 
-                <controls1:SegmentedItem ToolTipService.ToolTip="Visualizzazione a copertina" >
+                <controls1:SegmentedItem>
                     <controls1:SegmentedItem.Content>
                         <StackPanel Orientation="Horizontal">
-                            <FontIcon Glyph="&#xE166;" FontFamily="{StaticResource FluentIcons}" FontSize="14" Margin="0,0,6,0"/>
-                            <TextBlock Text="Lette"/>
+                            <FontIcon Glyph="&#xE166;" FontFamily="{StaticResource FluentIcons}" FontSize="14"
+                                      Margin="0,0,6,0" />
+                            <TextBlock Text="Lette" />
                         </StackPanel>
                     </controls1:SegmentedItem.Content>
                 </controls1:SegmentedItem>
 
             </controls1:Segmented>
 
-            <Rectangle x:Name="Separatore_Bacheca2" RelativePanel.LeftOf="CheckboxAttive"
+            <Rectangle x:Name="SeparatoreBacheca2" RelativePanel.LeftOf="CheckboxAttive"
                        RelativePanel.AlignVerticalCenterWithPanel="True"
                        Fill="{ThemeResource ControlStrokeColorDefaultBrush}"
                        Width="2" Height="48" Margin="20,0,20,0" />
@@ -138,7 +141,7 @@
                   RelativePanel.AlignLeftWithPanel="True"
                   RelativePanel.AlignBottomWithPanel="True">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*" />
@@ -147,7 +150,7 @@
                 <controls:NoticesListView
                     x:Name="NoticesListView"
                     HorizontalAlignment="Stretch"
-                    VerticalAlignment="Stretch"/>
+                    VerticalAlignment="Stretch" />
 
             </Grid>
 
