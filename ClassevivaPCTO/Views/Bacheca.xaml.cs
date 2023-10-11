@@ -51,12 +51,15 @@ namespace ClassevivaPCTO.Views
             try
             {
                 bool showInactiveNotices = false;
+                int readUnreadSegmentedIndex = 0;
 
                 await CoreApplication.MainView.Dispatcher.RunAsync(
                     CoreDispatcherPriority.Normal,
                     async () =>
                     {
                         BachecaViewModel.IsLoadingBacheca = true;
+
+                        readUnreadSegmentedIndex = ReadUnreadSegmented.SelectedIndex;
 
                         if (CheckboxAttive.IsChecked != null) showInactiveNotices = CheckboxAttive.IsChecked.Value;
                     }
@@ -75,6 +78,21 @@ namespace ClassevivaPCTO.Views
                 {
                     //filter notices that are valid from the cntValidInRange property
                     notices = notices.Where(n => n.cntValidInRange).ToList();
+                }
+
+                //filter notices by read status
+                switch (readUnreadSegmentedIndex)
+                {
+                    case 1:
+                        notices = notices.Where(n => !n.readStatus).ToList();
+                        break;
+
+                    case 2:
+                        notices = notices.Where(n => n.readStatus).ToList();
+                        break;
+
+                    default:
+                        break;
                 }
 
 
@@ -99,6 +117,11 @@ namespace ClassevivaPCTO.Views
         }
 
         private async void AggiornaCommand_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+            await Task.Run(async () => { await LoadData(); });
+        }
+
+        private async void ReadUnreadSegmented_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             await Task.Run(async () => { await LoadData(); });
         }

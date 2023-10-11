@@ -60,7 +60,7 @@
 
             </Button>
 
-            <Rectangle x:Name="SeparatoreBacheca1" RelativePanel.LeftOf="SegmentedView"
+            <Rectangle x:Name="SeparatoreBacheca1" RelativePanel.LeftOf="ReadUnreadSegmented"
                        RelativePanel.AlignVerticalCenterWithPanel="True"
                        Fill="{ThemeResource ControlStrokeColorDefaultBrush}"
                        Width="2" Height="48" Margin="20,0,20,0" />
@@ -70,8 +70,9 @@
                 RelativePanel.AlignVerticalCenterWithPanel="True"
                 Margin="0,0,0,0"
                 Width="325"
-                x:Name="SegmentedView"
+                x:Name="ReadUnreadSegmented"
                 SelectedIndex="0"
+                SelectionChanged="ReadUnreadSegmented_OnSelectionChanged"
                 HorizontalAlignment="Stretch">
                 <controls1:SegmentedItem>
                     <controls1:SegmentedItem.Content>
