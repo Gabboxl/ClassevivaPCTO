@@ -138,15 +138,16 @@
                   RelativePanel.AlignLeftWithPanel="True"
                   RelativePanel.AlignBottomWithPanel="True">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="1096*"/>
-                    <ColumnDefinition Width="343*"/>
+                    <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
 
                 <controls:NoticesListView
-                    x:Name="NoticesListView" Grid.ColumnSpan="2"/>
+                    x:Name="NoticesListView"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Stretch"/>
 
             </Grid>
 
