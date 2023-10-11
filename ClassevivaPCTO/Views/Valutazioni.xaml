@@ -22,6 +22,7 @@
 
         <converters1:ColorToBrushConverter x:Key="ColorToBrushConverter" />
         <converters1:GradeToColorConverter x:Key="GradeToColorConverter" />
+        <converters1:NanToNdConverter x:Key="NanToNdConverter" />
 
         <Style x:Key="ListViewFullStretchStyle" TargetType="ListViewItem"
                BasedOn="{StaticResource DefaultListViewItemStyle}">
@@ -61,7 +62,7 @@
                             Background="#545454" />
 
                         <TextBlock
-                            Text="{x:Bind Average}"
+                            Text="{x:Bind Average, Converter={StaticResource NanToNdConverter}}"
                             Style="{StaticResource BodyStrongTextBlockStyle}"
                             Foreground="{x:Bind Average, Converter={StaticResource GradeToColorConverter}}"
                             HorizontalAlignment="Center"
@@ -204,7 +205,7 @@
                         <TextBlock
                             x:Name="MediaTotText"
                             FontSize="24"
-                            Text="-"
+                            Text="{x:Bind ValutazioniViewModel.AverageTot, Mode=OneWay, Converter={StaticResource NanToNdConverter}}"
                             Style="{StaticResource TitleTextBlockStyle}"
                             Foreground="{x:Bind ValutazioniViewModel.AverageTot, Mode=OneWay, Converter={StaticResource GradeToColorConverter}}"
                             HorizontalAlignment="Center"
@@ -265,7 +266,7 @@
 
                         <TextBlock
                             x:Name="MediaPrimoPeriodoText"
-                            Text="-"
+                            Text="{x:Bind ValutazioniViewModel.AverageFirstPeriodo, Mode=OneWay, Converter={StaticResource NanToNdConverter}}"
                             FontSize="24"
                             Style="{StaticResource TitleTextBlockStyle}"
                             Foreground="{x:Bind ValutazioniViewModel.AverageFirstPeriodo, Mode=OneWay, Converter={StaticResource GradeToColorConverter}}"
@@ -326,7 +327,7 @@
 
                         <TextBlock
                             x:Name="MediaSecondoPeriodoText"
-                            Text="-"
+                            Text="{x:Bind ValutazioniViewModel.AverageSecondPeriodo, Mode=OneWay, Converter={StaticResource NanToNdConverter}}"
                             FontSize="24"
                             Style="{StaticResource TitleTextBlockStyle}"
                             Foreground="{x:Bind ValutazioniViewModel.AverageSecondPeriodo, Mode=OneWay, Converter={StaticResource GradeToColorConverter}}"

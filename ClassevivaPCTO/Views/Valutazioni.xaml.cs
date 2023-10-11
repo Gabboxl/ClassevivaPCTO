@@ -231,13 +231,8 @@ namespace ClassevivaPCTO.Views
             ValutazioniViewModel.AverageFirstPeriodo = firstPeriodGradesAverage;
             ValutazioniViewModel.AverageSecondPeriodo = secondPeriodGradesAverage;
 
-            //update ui
-            MediaTotText.Text = allGradesAverage.ToString("0.0");
-            MediaPrimoPeriodoText.Text = firstPeriodGradesAverage.ToString("0.0");
-            MediaSecondoPeriodoText.Text = secondPeriodGradesAverage.ToString("0.0");
-
             //set progressrings value
-            ProgressMediaTot.Value = float.IsNaN( allGradesAverage) ? 0 : allGradesAverage * 10;
+            ProgressMediaTot.Value = float.IsNaN(allGradesAverage) ? 0 : allGradesAverage * 10;
             ProgressMediaPrimoPeriodo.Value = float.IsNaN(firstPeriodGradesAverage) ? 0 : firstPeriodGradesAverage * 10;
             ProgressMediaSecondoPeriodo.Value = float.IsNaN(secondPeriodGradesAverage) ? 0 : secondPeriodGradesAverage * 10;
 

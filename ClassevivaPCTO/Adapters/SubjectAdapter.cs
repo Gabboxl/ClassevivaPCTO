@@ -30,11 +30,6 @@ namespace ClassevivaPCTO.Adapters
             }
         }
 
-        public string AverageString
-        {
-            get { return Average.ToString("0.0"); }
-        }
-
         public float Progress
         {
             get { return float.IsNaN(Average) ? 0 : Average * 10; }
