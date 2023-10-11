@@ -21,9 +21,17 @@ namespace ClassevivaPCTO.Adapters
             }
         }
 
-        public string EventType
+        public string EventTypeIcon
         {
-            get { return "[" + CurrentObject.evtCode + "]"; }
+            get
+            {
+                return CurrentObject.evtCode switch
+                {
+                    "AGNT" => "\uE787",
+                    "AGHW" => "\uEA98",
+                    _ => "\uE787"
+                };
+            }
         }
 
         public string Notes => CurrentObject.notes;
