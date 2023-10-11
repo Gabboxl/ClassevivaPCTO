@@ -6,6 +6,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:controls="using:ClassevivaPCTO.Controls"
+    xmlns:controls1="using:CommunityToolkit.WinUI.Controls"
     mc:Ignorable="d"
     xmlns:microconverters="using:Microsoft.Toolkit.Uwp.UI.Converters"
     xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
@@ -49,18 +50,63 @@
         <RelativePanel Grid.Row="0" Margin="0,18,0,0">
 
 
-            <Button RelativePanel.LeftOf="Separatore_Bacheca" x:Name="AggiornaCommand"
+            <Button RelativePanel.LeftOf="SeparatoreBacheca1" x:Name="AggiornaCommand"
                     RelativePanel.AlignVerticalCenterWithPanel="True"
                     Width="48"
                     Height="32"
-                    Margin="16,0,2,0" Click="AggiornaCommand_Click" x:Uid="RefreshButtonTT">
+                    Margin="16,0,0,0" Click="AggiornaCommand_Click" x:Uid="RefreshButtonTT">
                 <FontIcon Glyph="&#xE72C;" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" />
 
 
             </Button>
 
+            <Rectangle x:Name="SeparatoreBacheca1" RelativePanel.LeftOf="ReadUnreadSegmented"
+                       RelativePanel.AlignVerticalCenterWithPanel="True"
+                       Fill="{ThemeResource ControlStrokeColorDefaultBrush}"
+                       Width="2" Height="48" Margin="20,0,20,0" />
 
-            <Rectangle x:Name="Separatore_Bacheca" RelativePanel.LeftOf="CheckboxAttive"
+            <controls1:Segmented
+                RelativePanel.LeftOf="SeparatoreBacheca2"
+                RelativePanel.AlignVerticalCenterWithPanel="True"
+                Margin="0,0,0,0"
+                Width="325"
+                x:Name="ReadUnreadSegmented"
+                SelectedIndex="0"
+                SelectionChanged="ReadUnreadSegmented_OnSelectionChanged"
+                HorizontalAlignment="Stretch">
+                <controls1:SegmentedItem>
+                    <controls1:SegmentedItem.Content>
+                        <StackPanel Orientation="Horizontal">
+                            <FontIcon Glyph="&#xE138;" FontFamily="{StaticResource FluentIcons}" FontSize="14"
+                                      Margin="0,0,6,0" />
+                            <TextBlock Text="Tutte" />
+                        </StackPanel>
+                    </controls1:SegmentedItem.Content>
+                </controls1:SegmentedItem>
+
+                <controls1:SegmentedItem>
+                    <controls1:SegmentedItem.Content>
+                        <StackPanel Orientation="Horizontal">
+                            <FontIcon Glyph="&#xE119;" FontFamily="{StaticResource FluentIcons}" FontSize="14"
+                                      Margin="0,0,6,0" />
+                            <TextBlock Text="Non lette" />
+                        </StackPanel>
+                    </controls1:SegmentedItem.Content>
+                </controls1:SegmentedItem>
+
+                <controls1:SegmentedItem>
+                    <controls1:SegmentedItem.Content>
+                        <StackPanel Orientation="Horizontal">
+                            <FontIcon Glyph="&#xE166;" FontFamily="{StaticResource FluentIcons}" FontSize="14"
+                                      Margin="0,0,6,0" />
+                            <TextBlock Text="Lette" />
+                        </StackPanel>
+                    </controls1:SegmentedItem.Content>
+                </controls1:SegmentedItem>
+
+            </controls1:Segmented>
+
+            <Rectangle x:Name="SeparatoreBacheca2" RelativePanel.LeftOf="CheckboxAttive"
                        RelativePanel.AlignVerticalCenterWithPanel="True"
                        Fill="{ThemeResource ControlStrokeColorDefaultBrush}"
                        Width="2" Height="48" Margin="20,0,20,0" />
@@ -70,8 +116,8 @@
                       Margin="0,0,24,0"
                       RelativePanel.AlignRightWithPanel="True"
                       RelativePanel.AlignVerticalCenterWithPanel="True"
-
                       IsChecked="{x:Bind BachecaViewModel.MostraComInattive, Mode=TwoWay}" />
+
         </RelativePanel>
 
 
@@ -95,6 +141,9 @@
                   RelativePanel.AlignRightWithPanel="True"
                   RelativePanel.AlignLeftWithPanel="True"
                   RelativePanel.AlignBottomWithPanel="True">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
@@ -102,10 +151,7 @@
                 <controls:NoticesListView
                     x:Name="NoticesListView"
                     HorizontalAlignment="Stretch"
-                    VerticalAlignment="Stretch"
-                    Margin="0,0,0,0">
-
-                </controls:NoticesListView>
+                    VerticalAlignment="Stretch" />
 
             </Grid>
 
