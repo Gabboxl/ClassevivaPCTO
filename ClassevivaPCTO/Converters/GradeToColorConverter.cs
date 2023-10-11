@@ -13,7 +13,7 @@ namespace ClassevivaPCTO.Converters
     {
         public object Convert(object value, Type targetType, object parameter, string language)
         {
-            SolidColorBrush brush = new SolidColorBrush();
+            SolidColorBrush brush = new();
 
             float? valore = null;
 

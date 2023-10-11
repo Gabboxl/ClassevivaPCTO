@@ -77,7 +77,7 @@ namespace ClassevivaPCTO.Adapters
         {
             get
             {
-                SolidColorBrush brush = new SolidColorBrush();
+                SolidColorBrush brush = new();
 
                 if (CurrentObject.readStatus)
                 {

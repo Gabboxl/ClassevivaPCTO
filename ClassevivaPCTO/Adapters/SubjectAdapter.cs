@@ -17,7 +17,7 @@ namespace ClassevivaPCTO.Adapters
 
         public string Teachers
         {
-            get { return String.Join(", ", Subject.teachers.Select(t => t.teacherName)); }
+            get { return string.Join(", ", Subject.teachers.Select(t => t.teacherName)); }
         }
 
         public float Average
@@ -47,7 +47,7 @@ namespace ClassevivaPCTO.Adapters
 
                 IPalette currentPalette = PaletteSelectorService.PaletteClass;
 
-                SolidColorBrush brush = new SolidColorBrush();
+                SolidColorBrush brush = new();
 
                 string iconString;
 
@@ -67,13 +67,13 @@ namespace ClassevivaPCTO.Adapters
                     brush.Color = currentPalette.ColorOrange;
                 }
 
-                FontIcon icon = new FontIcon();
-
-                //add fontfamily FluentIcons StaticResource
-                icon.FontFamily = new FontFamily("ms-appx:///Assets/Fonts/SegoeFluentIcons.ttf#Segoe Fluent Icons");
-
-                icon.Glyph = iconString;
-                icon.Foreground = brush;
+                FontIcon icon = new FontIcon
+                {
+                    //add fontfamily FluentIcons StaticResource
+                    FontFamily = new FontFamily("ms-appx:///Assets/Fonts/SegoeFluentIcons.ttf#Segoe Fluent Icons"),
+                    Glyph = iconString,
+                    Foreground = brush
+                };
 
                 return icon;
             }
