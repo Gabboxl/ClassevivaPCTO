@@ -69,7 +69,8 @@ namespace ClassevivaPCTO.Views
         {
             get
             {
-                return ApplicationLanguages.ManifestLanguages.ToList().IndexOf(ApplicationLanguages.PrimaryLanguageOverride);
+                
+                return ApplicationLanguages.ManifestLanguages.ToList().IndexOf(ApplicationLanguages.Languages.First());
             }
             set { ChangeLanguage(value); }
         }
