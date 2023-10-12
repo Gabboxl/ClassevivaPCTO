@@ -30,9 +30,6 @@ Also see the [ClassevivaPCTO's Roadmap](https://github.com/users/Gabboxl/project
 
 
 
-*Github releases for manual sideloading are coming soon!*
-
-
 ## Test account
 
 If you want to try the app without a real account, use these credentials:
