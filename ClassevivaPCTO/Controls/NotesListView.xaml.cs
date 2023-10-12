@@ -12,7 +12,6 @@ using System.Threading.Tasks;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using ClassevivaPCTO.Helpers;
-using CommunityToolkit.Mvvm.ComponentModel;
 using Microsoft.Toolkit.Uwp.UI;
 
 
@@ -49,7 +48,7 @@ namespace ClassevivaPCTO.Controls
             set { SetValue(ModeProperty, value); }
         }
 
-        public static readonly DependencyProperty ModeProperty =
+        private static readonly DependencyProperty ModeProperty =
             DependencyProperty.Register(nameof(Mode), typeof(DisplayMode), typeof(NotesListView),
                 new PropertyMetadata(DisplayMode.Default, OnModeChanged));
 
@@ -132,8 +131,8 @@ namespace ClassevivaPCTO.Controls
 
         private async void ReadButton_Click(object sender, RoutedEventArgs e)
         {
-            var senderbutton = sender as Button;
-            var currentNote = (senderbutton.DataContext as NoteAdapter).CurrentObject;
+            var senderbutton = (Button) sender;
+            var currentNote = ((NoteAdapter) senderbutton.DataContext).CurrentObject;
 
 
             //check whether the notice needs to be read, if yes create a flyout and with a text and button to confirm and display it on the button
@@ -143,11 +142,13 @@ namespace ClassevivaPCTO.Controls
             {
                 //create a flyout
                 var flyout = new Flyout();
-                //create a textblock
-                var textBlock = new TextBlock();
-                textBlock.Text = "InfoNoteFlyoutText".GetLocalized();
-                textBlock.TextWrapping = TextWrapping.WrapWholeWords;
-                textBlock.Margin = new Thickness(0, 0, 0, 12);
+
+                var textBlock = new TextBlock
+                {
+                    Text = "InfoNoteFlyoutText".GetLocalized(),
+                    TextWrapping = TextWrapping.WrapWholeWords,
+                    Margin = new Thickness(0, 0, 0, 12)
+                };
 
 
                 //create a flyoutpresenterstyle with the SystemFillColorCautionBackgroundBrush color and set it to the flyout
@@ -171,8 +172,11 @@ namespace ClassevivaPCTO.Controls
 
 
                 //create a button
-                var button = new Button();
-                button.Content = "ReadAndOpenFlyoutText".GetLocalized();
+                var button = new Button
+                {
+                    Content = "ReadAndOpenFlyoutText".GetLocalized()
+                };
+
                 button.Click += async delegate
                 {
                     //close the flyout
@@ -218,15 +222,16 @@ namespace ClassevivaPCTO.Controls
             {
                 var noteDialogContent = new NoteDialogContent(currentNote, readNoteResult);
 
-                ContentDialog dialog = new ContentDialog();
-                dialog.Title = currentNote.evtCode.GetLongName() + " del " + currentNote.evtDate.ToString("dd/MM/yyyy");
-                dialog.PrimaryButtonText = "CloseDialogButtonText".GetLocalized();
-                dialog.DefaultButton = ContentDialogButton.Primary;
-                dialog.RequestedTheme = ((FrameworkElement) Window.Current.Content).RequestedTheme;
-                dialog.Content = noteDialogContent;
-
-                //dialog.FullSizeDesired = true;
-                dialog.Width = 1200;
+                ContentDialog dialog = new()
+                {
+                    Title = currentNote.evtCode.GetLongName() + " del " + currentNote.evtDate.ToString("dd/MM/yyyy"),
+                    PrimaryButtonText = "CloseDialogButtonText".GetLocalized(),
+                    DefaultButton = ContentDialogButton.Primary,
+                    RequestedTheme = ((FrameworkElement) Window.Current.Content).RequestedTheme,
+                    Content = noteDialogContent,
+                    //dialog.FullSizeDesired = true;
+                    Width = 1200
+                };
 
                 try
                 {
