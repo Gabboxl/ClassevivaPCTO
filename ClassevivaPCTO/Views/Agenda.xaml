@@ -286,7 +286,7 @@
                         <Button
                             RelativePanel.AlignVerticalCenterWithPanel="True"
                             x:Name="TuttiCompitiButton"
-
+                            MinWidth="110"
                             RelativePanel.LeftOf="PopupLessonsButton"
                             Click="PopupAgendaButton_OnClick"
                             Margin="16,0,0,0">
@@ -303,6 +303,7 @@
                         <Button
                             RelativePanel.AlignVerticalCenterWithPanel="True"
                             x:Name="PopupLessonsButton"
+                            MinWidth="110"
                             Click="PopupLessonsButton_OnClick"
                             RelativePanel.AlignRightWithPanel="True"
                             Margin="8,0,20,0">
