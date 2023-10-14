@@ -38,16 +38,16 @@ namespace ClassevivaPCTO.Utils
 
     public enum AbsenceEventCode
     {
-        [ApiValue("A", "Assenza")]
+        [ApiValue("A", "")]
         ABA0, //assenza
 
-        [ApiValue("R", "Ritardo")]
+        [ApiValue("R", "")]
         ABR0, //ritardo
 
-        [ApiValue("Rb", "Ritardo breve")]
+        [ApiValue("Rb", "")]
         ABR1, //ritardo breve
 
-        [ApiValue("U", "Uscita anticipata")]
+        [ApiValue("U", "")]
         ABU0 //uscita anticipata
     }
 

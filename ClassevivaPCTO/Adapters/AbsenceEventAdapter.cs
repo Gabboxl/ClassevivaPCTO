@@ -1,4 +1,5 @@
-﻿using ClassevivaPCTO.Utils;
+﻿using ClassevivaPCTO.Helpers;
+using ClassevivaPCTO.Utils;
 
 namespace ClassevivaPCTO.Adapters
 {
@@ -13,7 +14,7 @@ namespace ClassevivaPCTO.Adapters
 
         public string EventTitle
         {
-            get { return CurrentObject.evtCode.GetLongName() + " del " + CurrentObject.evtDate.ToString("dd/MM/yyyy"); }
+            get { return CurrentObject.evtCode.ToString().GetLocalized("sing") + " del " + CurrentObject.evtDate.ToString("dd/MM/yyyy"); }
         }
 
         public string JustifiedText

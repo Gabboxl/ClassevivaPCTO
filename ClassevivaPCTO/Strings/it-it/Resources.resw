@@ -702,4 +702,28 @@ Gli account studente hanno l'username che inizia con le lettere S, G o X.</value
   <data name="NTWN_sing" xml:space="preserve">
     <value>Richiamo</value>
   </data>
+  <data name="ABA0_plur" xml:space="preserve">
+    <value>Assenze</value>
+  </data>
+  <data name="ABA0_sing" xml:space="preserve">
+    <value>Assenza</value>
+  </data>
+  <data name="ABR0_plur" xml:space="preserve">
+    <value>Ritardi</value>
+  </data>
+  <data name="ABR0_sing" xml:space="preserve">
+    <value>Ritardo</value>
+  </data>
+  <data name="ABR1_plur" xml:space="preserve">
+    <value>Ritardi brevi</value>
+  </data>
+  <data name="ABR1_sing" xml:space="preserve">
+    <value>Ritardo breve</value>
+  </data>
+  <data name="ABU0_plur" xml:space="preserve">
+    <value>Uscite anticipate</value>
+  </data>
+  <data name="ABU0_sing" xml:space="preserve">
+    <value>Uscita anticipata</value>
+  </data>
 </root>
