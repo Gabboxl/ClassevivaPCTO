@@ -142,7 +142,7 @@
                             <StackPanel Orientation="Horizontal">
                                 <FontIcon FontFamily="{StaticResource FluentIcons}" Glyph="&#xE894;" />
                                 <TextBlock
-                                    Text="{x:Bind helpers:ResourceExtensions.GetLocalized('StatusText_NotAvailable'), Mode=OneTime}"
+                                    Text="{x:Bind helpers:ResourceExtensions.GetLocalized('StatusText_NotAvailable')}"
                                     Margin="6,0,0,0" />
                             </StackPanel>
                         </Button.Content>

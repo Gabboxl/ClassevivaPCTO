@@ -117,12 +117,29 @@
         </Grid.RowDefinitions>
 
         <ListView x:Name="listView"
-
-                  ScrollViewer.VerticalScrollMode="Enabled"
                   HorizontalAlignment="Stretch"
                   HorizontalContentAlignment="Stretch"
                   ItemTemplate="{StaticResource NotesListViewDataTemplate}"
                   ItemContainerStyle="{StaticResource ListViewFullStretchStyle}">
+
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <ItemsStackPanel AreStickyGroupHeadersEnabled="True" />
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
+
+            <ListView.GroupStyle>
+                <GroupStyle>
+                    <GroupStyle.HeaderTemplate>
+                        <DataTemplate x:DataType="local:GroupInfoList">
+                            <Border AutomationProperties.Name="{x:Bind Key}">
+
+                                <TextBlock Text="{x:Bind Key}" />
+                            </Border>
+                        </DataTemplate>
+                    </GroupStyle.HeaderTemplate>
+                </GroupStyle>
+            </ListView.GroupStyle>
 
         </ListView>
 

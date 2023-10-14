@@ -13,15 +13,6 @@ using System.ComponentModel;
 
 namespace ClassevivaPCTO.Controls
 {
-    public class GroupInfoList : List<object>
-    {
-        public GroupInfoList(IEnumerable<object> items) : base(items)
-        {
-        }
-
-        public object Key { get; set; }
-    }
-
     public sealed partial class AgendaMultipleDaysListView : UserControl, INotifyPropertyChanged
     {
         private CollectionViewSource GroupedItems { get; set; }
@@ -80,6 +71,7 @@ namespace ClassevivaPCTO.Controls
             {
                 //repeat days whose startdate and enddate span multiple days in the list
                 var repeatedDays = new List<AgendaEvent>();
+
                 foreach (var currentEvt in orderedAgendaEvents.ToList())
                 {
                     if (currentEvt.evtDatetimeEnd.Date > currentEvt.evtDatetimeBegin.Date.AddDays(1))
@@ -110,6 +102,7 @@ namespace ClassevivaPCTO.Controls
 
                 orderedAgendaEvents = repeatedDays.ToList(); //we need to reorder the lissttt
             }
+
 
             var eventAdapters = orderedAgendaEvents.Select(evt => new AgendaEventAdapter(evt)).ToList();
 

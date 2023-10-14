@@ -10,5 +10,11 @@ namespace ClassevivaPCTO.Helpers
         {
             return _resLoader.GetString(resourceKey);
         }
+
+        public static string GetLocalized(this string resourceKey, string tag)
+        {
+            resourceKey += tag;
+            return GetLocalized(resourceKey);
+        }
     }
 }

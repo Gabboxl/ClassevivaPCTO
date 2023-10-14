@@ -5,12 +5,14 @@ using ClassevivaPCTO.ViewModels;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Data;
 using ClassevivaPCTO.Helpers;
 using Microsoft.Toolkit.Uwp.UI;
 
@@ -90,16 +92,35 @@ namespace ClassevivaPCTO.Controls
             new PropertyMetadata(null, new PropertyChangedCallback(OnItemsSourceChanged))
         );
 
-        private static void OnItemsSourceChanged(
+
+        private CollectionViewSource GroupedItems { get; set; }
+
+
+        private static async Task<ObservableCollection<GroupInfoList>> GetNotesGroupedAsync(
+            List<NoteAdapter> noteAdapters)
+        {
+            var query = from item in noteAdapters
+
+                // Group the items returned from the query, sort and select the ones you want to keep
+                group item by item.CurrentObject.evtCode
+                into g
+                orderby g.Key descending
+
+                //prendo il long name dell'enum con attributo ApiValueAttribute
+                select new GroupInfoList(g) {Key = g.Key.ToString().GetLocalized("plur")};
+
+            return new ObservableCollection<GroupInfoList>(query);
+        }
+
+        private static async void OnItemsSourceChanged(
             DependencyObject d,
             DependencyPropertyChangedEventArgs e
-        )
-        {
+        ) {
             NotesListView currentInstance = (NotesListView) d;
 
             var newValue = e.NewValue as List<Note>;
 
-            var eventAdapters = newValue?.Select(evt => new NoteAdapter(evt)).ToList();
+            var noteAdapters = newValue?.Select(evt => new NoteAdapter(evt)).ToList();
 
             //save the scroll position
             var scrollViewer = currentInstance.listView.FindDescendant<ScrollViewer>();
@@ -107,8 +128,20 @@ namespace ClassevivaPCTO.Controls
             double verticalOffset = scrollViewer.VerticalOffset;
 
 
+            var groupedNotes = await GetNotesGroupedAsync(noteAdapters);
+
+
+
+            currentInstance.GroupedItems = new CollectionViewSource
+            {
+                IsSourceGrouped = true, //TODO: settare proprietà da dependencyproperty
+                Source = groupedNotes //in base al valore di IsSourceGrouped, Source può essere un IEnumerable oppure un IList
+            };
+
+
+
             //update the listview contents
-            currentInstance.listView.ItemsSource = eventAdapters;
+            currentInstance.listView.ItemsSource = currentInstance.GroupedItems.View;;
 
 
             //restore the scroll position
@@ -224,7 +257,7 @@ namespace ClassevivaPCTO.Controls
 
                 ContentDialog dialog = new()
                 {
-                    Title = currentNote.evtCode.GetLongName() + " del " + currentNote.evtDate.ToString("dd/MM/yyyy"),
+                    Title = currentNote.evtCode.ToString().GetLocalized("sing") + " del " + currentNote.evtDate.ToString("dd/MM/yyyy"),
                     PrimaryButtonText = "CloseDialogButtonText".GetLocalized(),
                     DefaultButton = ContentDialogButton.Primary,
                     RequestedTheme = ((FrameworkElement) Window.Current.Content).RequestedTheme,

@@ -325,17 +325,10 @@ namespace ClassevivaPCTO.Utils
 
     public enum NoteEventCode
     {
-        [ApiValue("", "Annotazione")]
-        NTTE,
-
-        [ApiValue("", "Nota disciplinare")]
-        NTCL,
-
-        [ApiValue("", "Richiamo")]
-        NTWN,
-
-        [ApiValue("", "Sanzione disciplinare")]
-        NTST
+        NTTE, // annotazioni
+        NTCL, // note disciplinari
+        NTWN, // richiami
+        NTST // sanzioni disciplinari
     }
 
     public class Note
