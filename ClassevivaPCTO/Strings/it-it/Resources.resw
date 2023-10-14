@@ -678,28 +678,28 @@ Gli account studente hanno l'username che inizia con le lettere S, G o X.</value
   <data name="GradesNotAvailable" xml:space="preserve">
     <value>N/D</value>
   </data>
-  <data name="NTCLplur" xml:space="preserve">
+  <data name="NTCL_plur" xml:space="preserve">
     <value>Note disciplinari</value>
   </data>
-  <data name="NTCLsing" xml:space="preserve">
+  <data name="NTCL_sing" xml:space="preserve">
     <value>Nota disciplinare</value>
   </data>
-  <data name="NTSTplur" xml:space="preserve">
+  <data name="NTST_plur" xml:space="preserve">
     <value>Sanzioni disciplinari</value>
   </data>
-  <data name="NTSTsing" xml:space="preserve">
+  <data name="NTST_sing" xml:space="preserve">
     <value>Sanzione disciplinare</value>
   </data>
-  <data name="NTTEplur" xml:space="preserve">
+  <data name="NTTE_plur" xml:space="preserve">
     <value>Annotazioni</value>
   </data>
-  <data name="NTTEsing" xml:space="preserve">
+  <data name="NTTE_sing" xml:space="preserve">
     <value>Annotazione</value>
   </data>
-  <data name="NTWNplur" xml:space="preserve">
+  <data name="NTWN_plur" xml:space="preserve">
     <value>Richiami</value>
   </data>
-  <data name="NTWNsing" xml:space="preserve">
+  <data name="NTWN_sing" xml:space="preserve">
     <value>Richiamo</value>
   </data>
 </root>

@@ -13,7 +13,7 @@ namespace ClassevivaPCTO.Helpers
 
         public static string GetLocalized(this string resourceKey, string tag)
         {
-            resourceKey += tag;
+            resourceKey += "_" + tag;
             return GetLocalized(resourceKey);
         }
     }
