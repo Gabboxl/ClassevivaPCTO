@@ -11,6 +11,7 @@
     xmlns:microconverters="using:Microsoft.Toolkit.Uwp.UI.Converters"
     xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
     xmlns:toolkit="using:Microsoft.Toolkit.Uwp.UI"
+    xmlns:converters="using:ClassevivaPCTO.Converters"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
     muxc:BackdropMaterial.ApplyToRootOrPageBackground="True">
 
@@ -18,6 +19,7 @@
     <Page.Resources>
         <ResourceDictionary>
             <microconverters:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" />
+            <converters:EmptyListToVisibilityConverter x:Key="EmptyListToVisibilityConverter" />
         </ResourceDictionary>
     </Page.Resources>
 
@@ -133,7 +135,8 @@
                        Background="{ThemeResource CardBackgroundFillColorDefaultBrush}">
 
             <TextBlock x:Uid="TextBachecaComunicazioni" x:Name="TextComunicazioni"
-                       Margin="14,12,0,8"
+                       Margin="14,6,0,8"
+                       Visibility="{x:Bind BachecaViewModel.NoticesToShow, Mode=OneWay, FallbackValue=Collapsed, Converter={StaticResource EmptyListToVisibilityConverter}}"
                        Style="{ThemeResource BodyStrongTextBlockStyle}" FontSize="18" FontWeight="SemiBold" />
 
 
@@ -150,6 +153,7 @@
 
                 <controls:NoticesListView
                     x:Name="NoticesListView"
+                    ItemsSource="{x:Bind BachecaViewModel.NoticesToShow, Mode=OneWay}"
                     HorizontalAlignment="Stretch"
                     VerticalAlignment="Stretch" />
 

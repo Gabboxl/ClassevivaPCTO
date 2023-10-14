@@ -13,7 +13,7 @@ namespace ClassevivaPCTO.Views
 {
     public sealed partial class Bacheca : Page
     {
-        public BachecaViewModel BachecaViewModel { get; } = new BachecaViewModel();
+        public BachecaViewModel BachecaViewModel { get; } = new();
 
         private readonly IClassevivaAPI apiWrapper;
 
@@ -72,38 +72,39 @@ namespace ClassevivaPCTO.Views
                     cardResult.usrId.ToString()
                 );
 
-                var notices = noticeboardResult.Notices;
+                var noticesToShow = noticeboardResult.Notices;
 
                 if (!showInactiveNotices) //there are also notes that are deleted but still active (not expired), so we filter them out too
                 {
                     //filter notices that are valid from the cntValidInRange property
-                    notices = notices.Where(n => n.cntValidInRange && n.cntStatus != "deleted").ToList();
+                    noticesToShow = noticesToShow.Where(n => n.cntValidInRange && n.cntStatus != "deleted").ToList();
                 }
 
                 //filter notices by read status
                 switch (readUnreadSegmentedIndex)
                 {
                     case 1:
-                        notices = notices.Where(n => !n.readStatus).ToList();
+                        noticesToShow = noticesToShow.Where(n => !n.readStatus).ToList();
                         break;
 
                     case 2:
-                        notices = notices.Where(n => n.readStatus).ToList();
+                        noticesToShow = noticesToShow.Where(n => n.readStatus).ToList();
                         break;
 
                     default:
                         break;
                 }
 
-
-                //update UI on UI thread
                 await CoreApplication.MainView.Dispatcher.RunAsync(
                     CoreDispatcherPriority.Normal,
                     async () =>
                     {
-                        NoticesListView.ItemsSource = notices;
+                        //set the notices to show
+                        BachecaViewModel.NoticesToShow = noticesToShow;
                     }
                 );
+
+
             }
             finally
             {

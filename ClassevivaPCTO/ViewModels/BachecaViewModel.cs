@@ -1,9 +1,20 @@
-﻿using CommunityToolkit.Mvvm.ComponentModel;
+﻿using System.Collections.Generic;
+using ClassevivaPCTO.Utils;
+using CommunityToolkit.Mvvm.ComponentModel;
 
 namespace ClassevivaPCTO.ViewModels
 {
     public class BachecaViewModel : ObservableObject
     {
+        private List<Notice> _noticesToShow;
+
+        public List<Notice> NoticesToShow
+        {
+            get { return _noticesToShow; }
+            set { SetProperty(ref _noticesToShow, value); }
+        }
+
+
         private bool _isLoadingBacheca = true;
 
         public bool IsLoadingBacheca
