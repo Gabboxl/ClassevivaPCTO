@@ -11,6 +11,7 @@
     xmlns:converters="using:ClassevivaPCTO.Converters"
     xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
     xmlns:toolkit="using:Microsoft.Toolkit.Uwp.UI"
+    xmlns:controls="using:CommunityToolkit.WinUI.Controls"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
     muxc:BackdropMaterial.ApplyToRootOrPageBackground="True">
 
@@ -76,6 +77,7 @@
                 Width="{Binding ElementName=LezioniPopup, Path=Width}"
                 Height="{Binding ElementName=LezioniPopup, Path=Height}">
                 <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
@@ -83,7 +85,17 @@
                     <RowDefinition Height="*"></RowDefinition>
                 </Grid.RowDefinitions>
 
+                <controls:PropertySizer
+                    Grid.Column="0"
+                    Grid.RowSpan="2"
+                    VerticalAlignment="Stretch"
+                    HorizontalAlignment="Left"
+                    IsDragInverted="True"
+                    Binding="{x:Bind LezioniPopup.Width, Mode=TwoWay}"
+                    Minimum="100"/>
+
                 <RelativePanel
+                    Grid.Column="1"
                     Grid.Row="0"
                     Margin="0,0,0,24">
                     <TextBlock x:Name="TitoloLezioniPopup" x:Uid="LessonsTitle" FontSize="42"
@@ -98,7 +110,8 @@
                         Margin="16,16,0,0" Width="28" Height="28" />
                 </RelativePanel>
 
-                <ScrollViewer Grid.Row="1">
+                <ScrollViewer Grid.Row="1"
+                              Grid.Column="1">
                     <StackPanel
                         x:Name="LezioniPopupStackPanel">
                     </StackPanel>
@@ -134,6 +147,7 @@
                 Width="{Binding ElementName=AgendaPopup, Path=Width}"
                 Height="{Binding ElementName=AgendaPopup, Path=Height}">
                 <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
@@ -141,7 +155,18 @@
                     <RowDefinition Height="*"></RowDefinition>
                 </Grid.RowDefinitions>
 
+
+                <controls:PropertySizer
+                    Grid.Column="0"
+                    Grid.RowSpan="2"
+                    VerticalAlignment="Stretch"
+                    HorizontalAlignment="Left"
+                    IsDragInverted="True"
+                    Binding="{x:Bind AgendaPopup.Width, Mode=TwoWay}"
+                    Minimum="100"/>
+
                 <RelativePanel
+                    Grid.Column="1"
                     Grid.Row="0"
                     Margin="0,0,0,24">
                     <TextBlock x:Name="TitoloAgendaPopup" x:Uid="TitoloAgendaPopup" FontSize="42"
@@ -160,6 +185,7 @@
 
 
                 <Grid Grid.Row="1"
+                      Grid.Column="1"
                       HorizontalAlignment="Stretch"
                       x:Name="AgendaPopupListviewContainer">
                 </Grid>
