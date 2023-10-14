@@ -248,7 +248,7 @@ If you encounter bugs or have an idea for the app, open an issue on GitHub by cl
     <value>View tips on how to use this app</value>
   </data>
   <data name="SettingsCardTutorialButton.Content" xml:space="preserve">
-    <value>Show tips</value>
+    <value>Mostra Tips</value>
   </data>
   <data name="SettingsCardWhatsNew.Header" xml:space="preserve">
     <value>What’s new in this version</value>
@@ -664,5 +664,17 @@ Student accounts have usernames starting with the letters S, G, or X.</value>
   </data>
   <data name="CalendarTT.ToolTipService.ToolTip" xml:space="preserve">
     <value>Seleziona una data</value>
+  </data>
+  <data name="FilterAllNotices.Text" xml:space="preserve">
+    <value>Tutte</value>
+  </data>
+  <data name="FilterReadNotices.Text" xml:space="preserve">
+    <value>Lette</value>
+  </data>
+  <data name="FilterUnreadNotices.Text" xml:space="preserve">
+    <value>Non lette</value>
+  </data>
+  <data name="GradesNotAvailable" xml:space="preserve">
+    <value>N/D</value>
   </data>
 </root>
