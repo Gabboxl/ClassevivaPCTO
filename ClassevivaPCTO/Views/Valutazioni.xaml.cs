@@ -16,13 +16,13 @@ using ClassevivaPCTO.Helpers;
 
 namespace ClassevivaPCTO.Views
 {
-    public class PeriodList
+    public struct PeriodList
     {
         public Period Period { get; set; }
         public List<SubjectWithGrades> Subjects { get; set; }
     }
 
-    public class SubjectWithGrades
+    public struct SubjectWithGrades
     {
         public Subject Subject { get; set; }
         public List<Grade> Grades { get; set; }
@@ -36,7 +36,6 @@ namespace ClassevivaPCTO.Views
 
         private List<Grade> _sortedGrades;
 
-        private List<Period> _periods;
 
         private ValutazioniViewModel ValutazioniViewModel { get; } = new();
 
@@ -92,12 +91,26 @@ namespace ClassevivaPCTO.Views
                     .OrderByDescending(g => g.evtDate)
                     .ToList();
 
-                _periods = resultPeriods.Periods;
                 var subjects = resultSubjects.Subjects;
 
 
+                //find all periods with same periodDesc value
+                var samePeriods = resultPeriods.Periods
+                    .GroupBy(p => p.periodDesc)
+                    .Where(g => g.Count() > 1)
+                    .SelectMany(g => g)
+                    .OrderBy(p => p.periodPos)
+                    .ToList();
+
+                samePeriods.ForEach(p => p.periodDesc = (samePeriods.IndexOf(p) + 1) + "° " + p.periodDesc);
+
+
+
+
+
+
                 // Select unique Periods from Grade list
-                _mergedPeriodList = _periods
+                _mergedPeriodList = resultPeriods.Periods
                     .GroupBy(p => p.periodPos)
                     .Select(p => new PeriodList
                     {
@@ -118,7 +131,7 @@ namespace ClassevivaPCTO.Views
                 //update UI on UI thread
                 await CoreApplication.MainView.Dispatcher.RunAsync(
                     CoreDispatcherPriority.Normal,
-                    async () => { UpdateUi(_sortedGrades, _periods, subjects); }
+                    async () => { UpdateUi(_sortedGrades, subjects); }
                 );
             }
             finally
@@ -141,8 +154,8 @@ namespace ClassevivaPCTO.Views
                     SegmentedVoti.Items.Add(VariousUtils.UppercaseFirst(period.Period.periodDesc));
                 }
 
-                TitleFirstPerVal.Text = VariousUtils.UppercaseFirst(_periods[0].periodDesc);
-                TitleSecondPerVal.Text = VariousUtils.UppercaseFirst(_periods[1].periodDesc);
+                TitleFirstPerVal.Text = VariousUtils.UppercaseFirst(_mergedPeriodList[0].Period.periodDesc);
+                TitleSecondPerVal.Text = VariousUtils.UppercaseFirst(_mergedPeriodList[1].Period.periodDesc);
 
                 SegmentedVoti.SelectedIndex = 0;
 
@@ -200,7 +213,7 @@ namespace ClassevivaPCTO.Views
             }
         }
 
-        private void UpdateUi(List<Grade> grades, List<Period> periods, List<Subject> subjects)
+        private void UpdateUi(List<Grade> grades, List<Subject> subjects)
         {
             //update main UI
             UpdateUi();
