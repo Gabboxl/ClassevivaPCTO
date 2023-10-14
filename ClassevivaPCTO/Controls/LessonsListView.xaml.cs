@@ -16,10 +16,7 @@ namespace ClassevivaPCTO.Controls
         public bool EnableEmptyAlert
         {
             get { return (bool) GetValue(EnableEmptyAlertProperty); }
-            set
-            {
-                SetValue(EnableEmptyAlertProperty, value);
-            }
+            set { SetValue(EnableEmptyAlertProperty, value); }
         }
 
         private static readonly DependencyProperty EnableEmptyAlertProperty =

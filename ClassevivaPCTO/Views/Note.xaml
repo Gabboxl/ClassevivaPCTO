@@ -89,6 +89,7 @@
                 <controls:NotesListView
                     HorizontalAlignment="Stretch"
                     VerticalAlignment="Stretch"
+                    EnableStickyHeader="True"
                     x:Name="NotesListView"
                     Margin="0,0,0,0">
 

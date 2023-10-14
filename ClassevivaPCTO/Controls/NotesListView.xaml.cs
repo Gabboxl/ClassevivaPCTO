@@ -26,6 +26,13 @@ namespace ClassevivaPCTO.Controls
         Default
     }
 
+    //public enum HeaderType
+    //{
+    //    None,
+    //    Single,
+    //    Sticky
+    //}
+
 
     public sealed partial class NotesListView : UserControl, INotifyPropertyChanged
     {
@@ -53,6 +60,17 @@ namespace ClassevivaPCTO.Controls
         private static readonly DependencyProperty ModeProperty =
             DependencyProperty.Register(nameof(Mode), typeof(DisplayMode), typeof(NotesListView),
                 new PropertyMetadata(DisplayMode.Default, OnModeChanged));
+
+
+        public bool EnableStickyHeader
+        {
+            get { return (bool) GetValue(EnableStickyHeaderProperty); }
+            set { SetValue(EnableStickyHeaderProperty, value); }
+        }
+
+        private static readonly DependencyProperty EnableStickyHeaderProperty =
+            DependencyProperty.Register(nameof(EnableStickyHeader), typeof(bool), typeof(NotesListView),
+                new PropertyMetadata(false, null));
 
 
         private static void OnModeChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
@@ -127,15 +145,14 @@ namespace ClassevivaPCTO.Controls
             double horizontalOffset = scrollViewer.HorizontalOffset;
             double verticalOffset = scrollViewer.VerticalOffset;
 
-
-            var groupedNotes = await GetNotesGroupedAsync(noteAdapters);
-
+            //object perchè GroupedItems.Source può essere un IEnumerable oppure un IList
+            object finalNotesObject = currentInstance.EnableStickyHeader ? await GetNotesGroupedAsync(noteAdapters) : noteAdapters;
 
 
             currentInstance.GroupedItems = new CollectionViewSource
             {
-                IsSourceGrouped = true, //TODO: settare proprietà da dependencyproperty
-                Source = groupedNotes //in base al valore di IsSourceGrouped, Source può essere un IEnumerable oppure un IList
+                IsSourceGrouped = currentInstance.EnableStickyHeader, //TODO: settare proprietà da dependencyproperty
+                Source = finalNotesObject //in base al valore di IsSourceGrouped, Source può essere un IEnumerable oppure un IList
             };
 
 
