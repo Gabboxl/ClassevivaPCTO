@@ -1,11 +1,15 @@
 ﻿using ClassevivaPCTO.Adapters;
 using ClassevivaPCTO.Utils;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
+using System.Threading.Tasks;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Data;
+using ClassevivaPCTO.Helpers;
 
 namespace ClassevivaPCTO.Controls
 {
@@ -26,6 +30,18 @@ namespace ClassevivaPCTO.Controls
                 typeof(bool),
                 typeof(AbsencesListView),
                 new PropertyMetadata(false, null));
+
+
+        public bool EnableStickyHeader
+        {
+            get { return (bool) GetValue(EnableStickyHeaderProperty); }
+            set { SetValue(EnableStickyHeaderProperty, value); }
+        }
+
+        private static readonly DependencyProperty EnableStickyHeaderProperty =
+            DependencyProperty.Register(nameof(EnableStickyHeader), typeof(bool), typeof(AbsencesListView),
+                new PropertyMetadata(false, null));
+
 
         private bool _showEmptyAlert;
 
@@ -48,7 +64,28 @@ namespace ClassevivaPCTO.Controls
                 typeof(GradesListView),
                 new PropertyMetadata(null, new PropertyChangedCallback(OnItemsSourceChanged)));
 
-        private static void OnItemsSourceChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        private CollectionViewSource GroupedItems { get; set; }
+
+        
+        private static async Task<ObservableCollection<GroupInfoList>> GetAbsenceEventsGroupedAsync(
+            List<AbsenceEventAdapter> absenceEventAdapters)
+        {
+            var query = from item in absenceEventAdapters
+
+                // Group the items returned from the query, sort and select the ones you want to keep
+                group item by item.CurrentObject.evtCode
+                into g
+                orderby g.Key descending
+
+                //TODO: forse ordinare ulteriormente ogni gruppo per data?
+
+                //prendo il long name dell'enum con attributo ApiValueAttribute
+                select new GroupInfoList(g) {Key = g.Key.ToString().GetLocalized("plur")};
+
+            return new ObservableCollection<GroupInfoList>(query);
+        }
+
+        private static async void OnItemsSourceChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             var currentInstance = (AbsencesListView) d;
 
@@ -56,7 +93,18 @@ namespace ClassevivaPCTO.Controls
 
             var eventAdapters = newValue?.Select(evt => new AbsenceEventAdapter(evt)).ToList();
 
-            currentInstance.listView.ItemsSource = eventAdapters;
+
+            currentInstance.GroupedItems = new CollectionViewSource
+            {
+                IsSourceGrouped = currentInstance.EnableStickyHeader, //TODO: settare proprietà da dependencyproperty
+
+                //in base al valore di IsSourceGrouped, Source può essere un IEnumerable oppure un IList
+                Source = currentInstance.EnableStickyHeader ? await GetAbsenceEventsGroupedAsync(eventAdapters) : eventAdapters 
+            };
+
+
+            //update the listview contents
+            currentInstance.listView.ItemsSource = currentInstance.GroupedItems.View;;
 
             currentInstance.ShowEmptyAlert = (newValue == null || newValue.Count == 0) && currentInstance.EnableEmptyAlert;
         }

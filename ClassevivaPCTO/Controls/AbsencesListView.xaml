@@ -80,11 +80,29 @@
         </Grid.RowDefinitions>
 
         <ListView x:Name="listView"
-                    Grid.Row="0"
-                  ScrollViewer.VerticalScrollMode="Enabled"
+                  Grid.Row="0"
                   HorizontalAlignment="Stretch"
                   HorizontalContentAlignment="Stretch"
                   ItemTemplate="{StaticResource AbsenceEventListViewDataTemplateCompact}">
+
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <ItemsStackPanel AreStickyGroupHeadersEnabled="True" />
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
+
+            <ListView.GroupStyle>
+                <GroupStyle>
+                    <GroupStyle.HeaderTemplate>
+                        <DataTemplate x:DataType="local:GroupInfoList">
+                            <Border AutomationProperties.Name="{x:Bind Key}">
+
+                                <TextBlock Text="{x:Bind Key}" />
+                            </Border>
+                        </DataTemplate>
+                    </GroupStyle.HeaderTemplate>
+                </GroupStyle>
+            </ListView.GroupStyle>
 
         </ListView>
 

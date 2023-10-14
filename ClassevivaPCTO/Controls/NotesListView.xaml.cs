@@ -124,6 +124,9 @@ namespace ClassevivaPCTO.Controls
                 into g
                 orderby g.Key descending
 
+                //TODO: forse ordinare ulteriormente ogni gruppo per data?
+
+
                 //prendo il long name dell'enum con attributo ApiValueAttribute
                 select new GroupInfoList(g) {Key = g.Key.ToString().GetLocalized("plur")};
 
@@ -154,7 +157,6 @@ namespace ClassevivaPCTO.Controls
                 IsSourceGrouped = currentInstance.EnableStickyHeader, //TODO: settare proprietà da dependencyproperty
                 Source = finalNotesObject //in base al valore di IsSourceGrouped, Source può essere un IEnumerable oppure un IList
             };
-
 
 
             //update the listview contents
