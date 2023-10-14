@@ -74,10 +74,10 @@ namespace ClassevivaPCTO.Views
 
                 var notices = noticeboardResult.Notices;
 
-                if (!showInactiveNotices)
+                if (!showInactiveNotices) //there are also notes that are deleted but still active (not expired), so we filter them out too
                 {
                     //filter notices that are valid from the cntValidInRange property
-                    notices = notices.Where(n => n.cntValidInRange).ToList();
+                    notices = notices.Where(n => n.cntValidInRange && n.cntStatus != "deleted").ToList();
                 }
 
                 //filter notices by read status
