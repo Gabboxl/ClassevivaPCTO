@@ -20,7 +20,7 @@ namespace ClassevivaPCTO.Adapters
         {
             get
             {
-                if ((bool) CurrentObject.isJustified)
+                if (CurrentObject.isJustified)
                 {
                     return CurrentObject.justifReasonDesc + " (" + CurrentObject.justifReasonCode + ")";
                 }

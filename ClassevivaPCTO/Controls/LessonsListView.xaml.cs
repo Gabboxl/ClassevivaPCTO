@@ -26,15 +26,13 @@ namespace ClassevivaPCTO.Controls
                 typeof(LessonsListView),
                 new PropertyMetadata(false, null));
 
+
         private bool _showEmptyAlert;
 
         public bool ShowEmptyAlert
         {
             get { return _showEmptyAlert; }
-            set
-            {
-                SetField(ref _showEmptyAlert, value);
-            }
+            set { SetField(ref _showEmptyAlert, value); }
         }
 
         public bool IsSingleSubjectList
