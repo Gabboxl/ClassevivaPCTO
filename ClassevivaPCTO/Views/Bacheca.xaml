@@ -79,7 +79,7 @@
                         <StackPanel Orientation="Horizontal">
                             <FontIcon Glyph="&#xE138;" FontFamily="{StaticResource FluentIcons}" FontSize="14"
                                       Margin="0,0,6,0" />
-                            <TextBlock Text="Tutte" />
+                            <TextBlock x:Uid="FilterAllNotices" />
                         </StackPanel>
                     </controls1:SegmentedItem.Content>
                 </controls1:SegmentedItem>
@@ -89,7 +89,7 @@
                         <StackPanel Orientation="Horizontal">
                             <FontIcon Glyph="&#xE119;" FontFamily="{StaticResource FluentIcons}" FontSize="14"
                                       Margin="0,0,6,0" />
-                            <TextBlock Text="Non lette" />
+                            <TextBlock x:Uid="FilterUnreadNotices" />
                         </StackPanel>
                     </controls1:SegmentedItem.Content>
                 </controls1:SegmentedItem>
@@ -99,7 +99,7 @@
                         <StackPanel Orientation="Horizontal">
                             <FontIcon Glyph="&#xE166;" FontFamily="{StaticResource FluentIcons}" FontSize="14"
                                       Margin="0,0,6,0" />
-                            <TextBlock Text="Lette" />
+                            <TextBlock x:Uid="FilterReadNotices" />
                         </StackPanel>
                     </controls1:SegmentedItem.Content>
                 </controls1:SegmentedItem>

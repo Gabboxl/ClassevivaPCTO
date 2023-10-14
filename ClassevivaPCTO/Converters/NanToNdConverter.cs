@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ClassevivaPCTO.Helpers;
+using System;
 using System.Collections;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Data;
@@ -10,7 +11,7 @@ namespace ClassevivaPCTO.Converters
         public object Convert(object value, Type targetType, object parameter, string language)
         {
             if (value is float.NaN)
-                return "N/D";
+                return "GradesNotAvailable".GetLocalized();
             else if (value is float numberValue)
                 return numberValue.ToString("0.0");
             

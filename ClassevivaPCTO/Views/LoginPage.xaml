@@ -43,36 +43,36 @@
         </Grid>
 
 
-        <Image x:Name="Logo" Source="/Assets/mainlogo.png" Stretch="Uniform" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  Margin="0,-520,0,0" Height="60" Width="300">
+        <Image x:Name="Logo" Source="/Assets/mainlogo.png" Stretch="Uniform" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  Margin="0,-480,0,0" Height="60" Width="300">
         </Image>
 
 
 
-        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Height="380" Width="349"
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Height="380" Width="340"
                     CornerRadius="8"
                     Padding="12"
                     BorderThickness="1"
                     BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
                     Background="{ThemeResource CardBackgroundFillColorDefaultBrush}">
 
-            <TextBlock x:Uid="TextBenvenutoLogin" FontSize="24" TextAlignment="Center" Height="60"/>
+            <TextBlock x:Uid="TextBenvenutoLogin" FontSize="26" FontWeight="Medium" TextAlignment="Center" Height="60" Margin="0,8,0,0"/>
 
             <TextBox x:Name="EdittextUsername" x:Uid="EdittextUsername"
-                     Margin="0,0,0,30" />
+                     Margin="0,0,0,20" />
             <PasswordBox x:Name="EdittextPassword" x:Uid="EdittextPassword"
                          Margin="0,0,0,20" />
             <CheckBox x:Name="CheckboxCredenziali" x:Uid="CheckboxCredenziali"
                       Margin="0,0,0,20" />
 
             <Button x:Name="buttonLogin" Style="{StaticResource AccentButtonStyle}" x:Uid="LoginButton" Height="32"
-                    Width="80" RenderTransformOrigin="2.13,0.797" HorizontalAlignment="Center" Margin="0,12,0,0"
+                    MinWidth="90" RenderTransformOrigin="2.13,0.797" HorizontalAlignment="Center" Margin="0,12,0,0"
                     Click="Button_Click" />
             <muxc:ProgressRing x:Name="progresslogin" IsActive="True" Visibility="Collapsed" Margin="0,12,0,0"/>
         </StackPanel>
 
         <TextBlock x:Name="VersionTextBlock" Style="{ThemeResource BodyStrongTextBlockStyle}"
                    Foreground="{ThemeResource TextFillColorTertiaryBrush}" VerticalAlignment="Bottom"
-                   HorizontalAlignment="Left" Margin="24,0,0,18" />
+                   HorizontalAlignment="Left" Margin="24,0,0,16" />
 
         <!--<Button Style="{StaticResource AccentButtonStyle}" Content="Usa account demo" Margin="16" VerticalAlignment="Bottom" HorizontalAlignment="Left"/>-->
     </Grid>
