@@ -241,13 +241,13 @@ Se riscontri bug o hai un'idea per l'app apri un issue su GitHub cliccando sul l
     <value>Reportar un problema</value>
   </data>
   <data name="SettingsCardTutorial.Header" xml:space="preserve">
-    <value>Suggerimenti</value>
+    <value>Tips</value>
   </data>
   <data name="SettingsCardTutorial.Description" xml:space="preserve">
     <value>Ver consejos sobre cómo funciona la aplicación</value>
   </data>
   <data name="SettingsCardTutorialButton.Content" xml:space="preserve">
-    <value>Mostra suggerimenti</value>
+    <value>Mostra Tips</value>
   </data>
   <data name="SettingsCardWhatsNew.Header" xml:space="preserve">
     <value>Novedades de esta versión</value>
@@ -600,7 +600,7 @@ Gli account studente hanno l'username che inizia con le lettere S, G o X.</value
     <value>Tablón de anuncios</value>
   </data>
   <data name="NoAbsences.Text" xml:space="preserve">
-    <value>Nessun assenza</value>
+    <value>Nessuna assenza</value>
   </data>
   <data name="NoTasks.Text" xml:space="preserve">
     <value>Sin tarea</value>
@@ -664,5 +664,65 @@ Gli account studente hanno l'username che inizia con le lettere S, G o X.</value
   </data>
   <data name="CalendarTT.ToolTipService.ToolTip" xml:space="preserve">
     <value>Seleziona una data</value>
+  </data>
+  <data name="FilterAllNotices.Text" xml:space="preserve">
+    <value>Tutte</value>
+  </data>
+  <data name="FilterReadNotices.Text" xml:space="preserve">
+    <value>Lette</value>
+  </data>
+  <data name="FilterUnreadNotices.Text" xml:space="preserve">
+    <value>Non lette</value>
+  </data>
+  <data name="GradesNotAvailable" xml:space="preserve">
+    <value>N/D</value>
+  </data>
+  <data name="NTCL_plur" xml:space="preserve">
+    <value>Note disciplinari</value>
+  </data>
+  <data name="NTCL_sing" xml:space="preserve">
+    <value>Nota disciplinare</value>
+  </data>
+  <data name="NTST_plur" xml:space="preserve">
+    <value>Sanzioni disciplinari</value>
+  </data>
+  <data name="NTST_sing" xml:space="preserve">
+    <value>Sanzione disciplinare</value>
+  </data>
+  <data name="NTTE_plur" xml:space="preserve">
+    <value>Annotazioni</value>
+  </data>
+  <data name="NTTE_sing" xml:space="preserve">
+    <value>Annotazione</value>
+  </data>
+  <data name="NTWN_plur" xml:space="preserve">
+    <value>Richiami</value>
+  </data>
+  <data name="NTWN_sing" xml:space="preserve">
+    <value>Richiamo</value>
+  </data>
+  <data name="ABA0_plur" xml:space="preserve">
+    <value>Assenze</value>
+  </data>
+  <data name="ABA0_sing" xml:space="preserve">
+    <value>Assenza</value>
+  </data>
+  <data name="ABR0_plur" xml:space="preserve">
+    <value>Ritardi</value>
+  </data>
+  <data name="ABR0_sing" xml:space="preserve">
+    <value>Ritardo</value>
+  </data>
+  <data name="ABR1_plur" xml:space="preserve">
+    <value>Ritardi brevi</value>
+  </data>
+  <data name="ABR1_sing" xml:space="preserve">
+    <value>Ritardo breve</value>
+  </data>
+  <data name="ABU0_plur" xml:space="preserve">
+    <value>Uscite anticipate</value>
+  </data>
+  <data name="ABU0_sing" xml:space="preserve">
+    <value>Uscita anticipata</value>
   </data>
 </root>
