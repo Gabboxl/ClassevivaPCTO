@@ -600,7 +600,7 @@ Student accounts have usernames starting with the letters S, G, or X.</value>
     <value>Notice board</value>
   </data>
   <data name="NoAbsences.Text" xml:space="preserve">
-    <value>No absences</value>
+    <value>Nessuna assenza</value>
   </data>
   <data name="NoTasks.Text" xml:space="preserve">
     <value>No tasks</value>
