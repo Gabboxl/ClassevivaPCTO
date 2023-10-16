@@ -54,8 +54,9 @@ namespace ClassevivaPCTO.Controls
                     )
                     .ToList();
 
-                filteredOverviewResults.Grades = overviewResult.Grades
-                    .Where(grade => grade.evtDate == newValue.FilterDate.Date).ToList();
+                filteredOverviewResults.Grades = overviewResult.Grades.Where(grade => grade.evtDate == newValue.FilterDate.Date).ToList();
+
+                filteredOverviewResults.Notes = overviewResult.Notes.Where(note => note.evtDate == newValue.FilterDate.Date).ToList();
 
                 //questo per le lezioni in teoria non serve
                 //filteredOverviewResults.Lessons = overviewResult.Lessons.Where(les => les.evtDate == newValue.FilterDate.Date).ToList();
