@@ -1,36 +1,36 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using System;
 using System.Collections.Generic;
 using ClassevivaPCTO.Utils;
-using Newtonsoft.Json.Linq;
-using Newtonsoft.Json;
-
 namespace ClassevivaPCTO.Deserializers
 {
-    public class NoteDeserializer : JsonConverter<List<Note>>
+    public class NoteDeserializer : JsonConverter
     {
-        public override List<Note> ReadJson(JsonReader reader, Type objectType, List<Note> existingValue,
-            bool hasExistingValue, JsonSerializer serializer)
+        public override bool CanConvert(Type objectType)
         {
-            List<Note> notesList = new List<Note>();
-            JObject jsonObject = JObject.Load(reader);
-
-            foreach (KeyValuePair<string, JToken> entry in jsonObject)
+            return objectType == typeof(List<Note>);
+        }
+        public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
+        {
+            var notesList = new List<Note>();
+            var jObject = JObject.Load(reader);
+            foreach (var property in jObject.Properties())
             {
-                JArray jsonArray = (JArray) entry.Value;
-                foreach (JToken jsonElement in jsonArray)
+                var evtCode = Enum.Parse<NoteEventCode>(property.Name);
+                var jsonArray = JArray.Parse(property.Value.ToString());
+                foreach (var jsonElement in jsonArray)
                 {
-                    Note note = jsonElement.ToObject<Note>(serializer);
-                    note.evtCode = Enum.Parse<NoteEventCode>(entry.Key);
+                    var note = jsonElement.ToObject<Note>();
+                    note.evtCode = evtCode;
                     notesList.Add(note);
                 }
             }
-
             return notesList;
         }
-
-        public override void WriteJson(JsonWriter writer, List<Note> value, JsonSerializer serializer)
+        public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
         {
-            throw new NotImplementedException("WriteJson is not implemented for this converter.");
+            throw new NotImplementedException();
         }
     }
 }
