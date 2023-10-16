@@ -44,9 +44,11 @@
                 <TextBlock x:Name="NotesTitle"
                            Text="Note"
                            Margin="14,12,0,8"
+                           Visibility="{x:Bind OverviewControlViewModel.FilteredOverviewResult.Notes, Mode=OneWay, FallbackValue=Collapsed, Converter={StaticResource EmptyListToVisibilityConverter}}"
                            Style="{ThemeResource BodyStrongTextBlockStyle}" FontSize="18" FontWeight="SemiBold" />
 
                 <controls2:NotesListView x:Name="NotesListView"
+                                         EnableEmptyAlert="False"
                                             HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
                 </controls2:NotesListView>
 

@@ -61,6 +61,18 @@ namespace ClassevivaPCTO.Controls
             DependencyProperty.Register(nameof(Mode), typeof(DisplayMode), typeof(NotesListView),
                 new PropertyMetadata(DisplayMode.Default, OnModeChanged));
 
+        public bool EnableEmptyAlert
+        {
+            get { return (bool) GetValue(EnableEmptyAlertProperty); }
+            set { SetValue(EnableEmptyAlertProperty, value); }
+        }
+
+        private static readonly DependencyProperty EnableEmptyAlertProperty =
+            DependencyProperty.Register(
+                nameof(EnableEmptyAlert),
+                typeof(bool),
+                typeof(NotesListView),
+                new PropertyMetadata(false, null));
 
         public bool EnableStickyHeader
         {
@@ -167,7 +179,7 @@ namespace ClassevivaPCTO.Controls
             scrollViewer.ChangeView(horizontalOffset, verticalOffset, null);
 
             //update the empty state
-            currentInstance.ShowEmptyAlert = newValue == null || newValue.Count == 0;
+            currentInstance.ShowEmptyAlert = (newValue == null || newValue.Count == 0) && currentInstance.EnableEmptyAlert;
         }
 
         public NotesListView()

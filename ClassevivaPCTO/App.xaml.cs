@@ -55,13 +55,13 @@ namespace ClassevivaPCTO
                         ContentSerializer = new SystemTextJsonContentSerializer(
                             new JsonSerializerOptions
                             {
-                                PropertyNameCaseInsensitive = true,
+                                PropertyNameCaseInsensitive = true, //TODO: is this needed?
                                 Converters =
                                 {
-                                    new JsonStringEnumConverter(),
+                                    new JsonStringEnumConverter(), //TODO: is this needed?
                                     new NoteDeserializerNet(),
                                 },
-                                PropertyNamingPolicy = JsonNamingPolicy.CamelCase
+                                PropertyNamingPolicy = JsonNamingPolicy.CamelCase // TODO: is this needed?
                             })
                     }
                 )
