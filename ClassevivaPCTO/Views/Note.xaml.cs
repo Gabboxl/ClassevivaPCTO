@@ -49,18 +49,15 @@ namespace ClassevivaPCTO.Views
                 Card? cardResult = ViewModelHolder.GetViewModel().SingleCardResult;
 
 
-                ApiResponse<string> notesResult = await apiWrapper.GetAllNotes(
+                List<Utils.Note> notesResult = await apiWrapper.GetAllNotes(
                     cardResult.usrId.ToString()
                 );
-
-                List<Utils.Note> notesList =
-                    JsonConvert.DeserializeObject<List<Utils.Note>>(notesResult.Content, new NoteDeserializer());
 
 
                 //update UI on UI thread
                 await CoreApplication.MainView.Dispatcher.RunAsync(
                     CoreDispatcherPriority.Normal,
-                    async () => { NotesListView.ItemsSource = notesList; }
+                    async () => { NotesListView.ItemsSource = notesResult; }
                 );
             }
             finally

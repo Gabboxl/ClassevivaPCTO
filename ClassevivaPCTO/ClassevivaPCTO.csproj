@@ -184,7 +184,7 @@
     <Compile Include="Converters\NanToNdConverter.cs" />
     <Compile Include="Converters\EmptyListToVisibilityConverter.cs" />
     <Compile Include="Converters\ColorToBrushConverter.cs" />
-    <Compile Include="Deserializers\NoteDeserializer.cs" />
+    <Compile Include="Deserializers\NoteDeserializerNet.cs" />
     <Compile Include="Dialogs\NoteDialogContent.xaml.cs">
       <DependentUpon>NoteDialogContent.xaml</DependentUpon>
     </Compile>

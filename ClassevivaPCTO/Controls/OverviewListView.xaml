@@ -3,7 +3,6 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:ClassevivaPCTO.Controls"
-    xmlns:adapters="using:ClassevivaPCTO.Adapters"
     xmlns:controls2="using:ClassevivaPCTO.Controls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -41,6 +40,15 @@
                                             HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
 
                 </controls2:AbsencesListView>
+
+                <TextBlock x:Name="NotesTitle"
+                           Text="Note"
+                           Margin="14,12,0,8"
+                           Style="{ThemeResource BodyStrongTextBlockStyle}" FontSize="18" FontWeight="SemiBold" />
+
+                <controls2:NotesListView x:Name="NotesListView"
+                                            HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                </controls2:NotesListView>
 
 
                 <TextBlock x:Name="GradesTitle"

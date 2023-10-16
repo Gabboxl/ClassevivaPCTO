@@ -3,6 +3,7 @@ using Refit;
 using System;
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
+using ClassevivaPCTO.Deserializers;
 
 namespace ClassevivaPCTO.Utils
 {
@@ -201,7 +202,8 @@ namespace ClassevivaPCTO.Utils
         public List<Grade> Grades { get; set; }
 
         [JsonPropertyName("notes")]
-        public NotesResult NotesResult { get; set; }
+        //[System.Text.Json.Serialization.JsonConverter(typeof(NoteDeserializerNet))]
+        public List<Note> Notes { get; set; }
     }
 
 
@@ -345,6 +347,8 @@ namespace ClassevivaPCTO.Utils
         public bool? toUpload { get; set; }
         public string? warningType { get; set; }
     }
+
+
 
     public class NotesResult
     {

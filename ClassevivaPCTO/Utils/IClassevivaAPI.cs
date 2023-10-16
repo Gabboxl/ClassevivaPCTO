@@ -1,8 +1,11 @@
 ﻿using System;
 using Refit;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Net.Http;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
+using ClassevivaPCTO.Deserializers;
 
 namespace ClassevivaPCTO.Utils
 {
@@ -12,7 +15,7 @@ namespace ClassevivaPCTO.Utils
     [Headers("User-Agent: CVVS/std/4.2.3 Android/10", "Z-Dev-Apikey: Tg1NWEwNGIgIC0K", "Content-Type: application/json")]
     public interface IClassevivaAPI
     {
-        //add mark in some way to mark the request that doesnt need authentication
+        //TODO: add mark in some way to mark the request that doesnt need authentication
 
         [NoAuth]
         [Post("/auth/login")]
@@ -43,7 +46,7 @@ namespace ClassevivaPCTO.Utils
         Task<SubjectsResult> GetSubjects(string userId);
 
         [Get("/students/{userId}/notes/all")]
-        Task<ApiResponse<string>> GetAllNotes(string userId);
+        Task<List<Note>> GetAllNotes(string userId);
 
         [Post("/students/{userId}/notes/{evtCode}/read/{evtId}")]
         Task<ReadNoteResult> ReadNote(string userId, string evtCode, string evtId);

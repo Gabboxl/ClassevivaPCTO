@@ -8,12 +8,15 @@ using Refit;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
+using ClassevivaPCTO.Deserializers;
 using ClassevivaPCTO.Views;
 
 namespace ClassevivaPCTO
@@ -45,11 +48,30 @@ namespace ClassevivaPCTO
             var serviceCollection = new ServiceCollection();
 
             serviceCollection
-                .AddRefitClient(typeof(IClassevivaAPI))
+                .AddRefitClient(typeof(IClassevivaAPI),
+                    new RefitSettings
+                    {
+                        //use system.text.json
+                        ContentSerializer = new SystemTextJsonContentSerializer(
+                            new JsonSerializerOptions
+                            {
+                                PropertyNameCaseInsensitive = true,
+                                Converters =
+                                {
+                                    new JsonStringEnumConverter(),
+                                    new NoteDeserializerNet(),
+                                },
+                                PropertyNamingPolicy = JsonNamingPolicy.CamelCase
+                            })
+                    }
+                )
+
+                //add custom jsonconverter to the refit settings client
                 .ConfigureHttpClient(
                     (sp, client) => { client.BaseAddress = new Uri(Endpoint.CurrentEndpoint); }
                 )
                 .AddHttpMessageHandler(() => new AuthenticatedHttpClientHandler(getToken));
+
 
             return serviceCollection.BuildServiceProvider();
         }
@@ -85,7 +107,6 @@ namespace ClassevivaPCTO
 
             // Deferred execution until used. Check https://docs.microsoft.com/dotnet/api/system.lazy-1 for further info on Lazy<T> class.
             _activationService = new Lazy<ActivationService>(CreateActivationService);
-
         }
 
         /// <summary>
