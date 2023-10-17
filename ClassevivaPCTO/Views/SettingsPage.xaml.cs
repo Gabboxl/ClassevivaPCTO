@@ -18,6 +18,9 @@ using ClassevivaPCTO.Dialogs;
 using ClassevivaPCTO.Helpers.Palettes;
 using ClassevivaPCTO.Utils;
 using Windows.Globalization;
+using Crowdin.Api;
+using Crowdin.Api.ProjectsGroups;
+using Crowdin.Api.TranslationStatus;
 
 namespace ClassevivaPCTO.Views
 {
@@ -48,13 +51,13 @@ namespace ClassevivaPCTO.Views
             set { Set(ref _comboPalettes, value); }
         }
 
-        public List<string> ComboLanguages
+        private List<string> ComboLanguages
         {
             get
             {
                 //for every language of the manifest create a new string list with full names of the languages
                 //ApplicationLanguages.ManifestLanguages.ToList();
-                
+
                 List<string> languages = new List<string>();
                 foreach (string language in ApplicationLanguages.ManifestLanguages)
                 {
@@ -65,18 +68,18 @@ namespace ClassevivaPCTO.Views
             }
         }
 
-        public int CurrentLanguage
+
+        private static int CurrentLanguage
         {
             get
             {
-                
                 return ApplicationLanguages.ManifestLanguages.ToList().IndexOf(ApplicationLanguages.Languages.First());
             }
-            set { ChangeLanguage(value); }
+            set { }
         }
 
 
-        public string AppName
+        public static string AppName
         {
             get { return "AppDisplayName".GetLocalized(); }
         }
@@ -92,12 +95,17 @@ namespace ClassevivaPCTO.Views
         public SettingsPage()
         {
             InitializeComponent();
+
+            LanguageComboBox.ItemsSource = ComboLanguages;
+            LanguageComboBox.SelectedIndex = CurrentLanguage;
+            LanguageComboBox.SelectionChanged += LanguageComboBox_OnSelectionChanged;
         }
 
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
             await InitializeAsync();
         }
+
 
         private async Task InitializeAsync()
         {
@@ -252,14 +260,105 @@ namespace ClassevivaPCTO.Views
         {
             ApplicationLanguages.PrimaryLanguageOverride = ApplicationLanguages.ManifestLanguages[indexValue];
 
-            /*    ContentDialog dialog = new ContentDialog
-                {
-                    Title = "LanguageChangeRestartTitle".GetLocalized(),
-                    Content = "LanguageChangeRestartContent".GetLocalized(),
-                    CloseButtonText = "Ok".GetLocalized()
-                };*/
+            //set selected index to the new value
+            CurrentLanguage = indexValue;
+        }
 
-            ContentDialog dialog = new ContentDialog
+        private async void LanguageComboBox_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            ComboBox languageSelector = (ComboBox) sender;
+            var selectedIndex = languageSelector.SelectedIndex;
+
+
+            if (selectedIndex == -1)
+            {
+                return;
+            }
+
+            if (selectedIndex != 0)
+            {
+                string langcode = ApplicationLanguages.ManifestLanguages[selectedIndex].ToLower();
+
+
+                var credentials = new CrowdinCredentials
+                {
+                    AccessToken = "60bf870634938d9ef6f0dfb831748dfced1fb6000452405fc3df563f94d2942ec98454c90a524674"
+                };
+                var client = new CrowdinApiClient(credentials);
+
+                var projectexecutor = new ProjectsGroupsApiExecutor(client);
+                var projectBase = await projectexecutor.GetProject<ProjectBase>(605451);
+
+
+                //from the TargetLanguages property of the projectBase object, create a list only of the Locale property of each object
+
+                //var localelist = projectBase.TargetLanguages.Select(x => x.Locale).ToList();
+
+
+                var selectedCrowdingLangId = projectBase.TargetLanguages.Where(x => x.Locale.ToLower() == langcode)
+                    .Select(x => x.Id).FirstOrDefault();
+
+
+                var languageProgressObj =
+                    await new TranslationStatusApiExecutor(client).GetLanguageProgress(605451, selectedCrowdingLangId);
+
+                var langProgressPerc = languageProgressObj.Data[0].TranslationProgress;
+
+
+                if (langProgressPerc != 100)
+                {
+                    ContentDialog dialogtrans = new()
+                    {
+                        Title = "Attenzione",
+                        Content = "L'app è stata tradotta al " + langProgressPerc + "% nella lingua che hai scelto. Alcune parti dell'app potrebbero non essere stare ancora tradotte.\n\n Vuoi veramente cambiare la lingua?",
+                        PrimaryButtonText = "Ok, continua",
+                        CloseButtonText = "CancelDialogButton".GetLocalized(),
+                        RequestedTheme = ((FrameworkElement) Window.Current.Content).RequestedTheme,
+                        DefaultButton = ContentDialogButton.Primary
+                    };
+
+                    var resTransChoice = await dialogtrans.ShowAsync();
+
+                    if (resTransChoice == ContentDialogResult.Primary)
+                    {
+                    }
+                    else
+                    {
+                        //do not trigger this event again
+                        LanguageComboBox.SelectionChanged -= LanguageComboBox_OnSelectionChanged;
+
+                        //set previous selected value
+                        LanguageComboBox.SelectedIndex = CurrentLanguage;
+
+                        //re-add listener
+                        LanguageComboBox.SelectionChanged += LanguageComboBox_OnSelectionChanged;
+
+                        return;
+                    }
+                } else if (langProgressPerc == 0)
+                {
+
+                    ContentDialog dialogtrans = new()
+                    {
+                        Title = "Attenzione",
+                        Content = "L'app non è stata ancora tradotta nella lingua che hai scelto.",
+                        PrimaryButtonText = "Ok",
+                        RequestedTheme = ((FrameworkElement) Window.Current.Content).RequestedTheme,
+                        DefaultButton = ContentDialogButton.Primary
+                    };
+
+                    await dialogtrans.ShowAsync();
+
+                    return;
+                }
+            }
+
+
+            //update values
+            ChangeLanguage(selectedIndex);
+
+
+            ContentDialog dialog = new()
             {
                 Title = "RestartRequired".GetLocalized(),
                 Content = "RestartRequiredLanguageChange".GetLocalized(),
