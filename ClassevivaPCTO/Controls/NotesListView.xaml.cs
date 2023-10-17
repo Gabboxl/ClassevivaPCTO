@@ -100,7 +100,7 @@ namespace ClassevivaPCTO.Controls
         }
 
 
-        private bool _showEmptyAlert = true;
+        private bool _showEmptyAlert;
 
         public bool ShowEmptyAlert
         {
