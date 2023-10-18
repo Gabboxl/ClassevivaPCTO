@@ -220,29 +220,29 @@
                                                     VerticalAlignment="Center" Spacing="8"
                                                     Margin="12,4,0,0">
 
-                                            <Border Width="24"
-                                                    Height="24"
+                                            <Border Width="20"
+                                                    Height="20"
                                                     Background="{x:Bind CurrentPalette.ColorRed, Converter={StaticResource ColorToBrushConverter}, Mode=OneWay}"
                                                     CornerRadius="26"
                                                     IsTapEnabled="False"
                                                     x:Uid="SettingsPaletteColorRedTT" />
 
-                                            <Border Width="24"
-                                                    Height="24"
+                                            <Border Width="20"
+                                                    Height="20"
                                                     Background="{x:Bind CurrentPalette.ColorOrange, Converter={StaticResource ColorToBrushConverter}, Mode=OneWay}"
                                                     CornerRadius="26"
                                                     IsTapEnabled="False"
                                                     x:Uid="SettingsPaletteColorOrangeTT" />
 
-                                            <Border Width="24"
-                                                    Height="24"
+                                            <Border Width="20"
+                                                    Height="20"
                                                     Background="{x:Bind CurrentPalette.ColorGreen, Converter={StaticResource ColorToBrushConverter}, Mode=OneWay}"
                                                     CornerRadius="26"
                                                     IsTapEnabled="False"
                                                     x:Uid="SettingsPaletteColorGreenTT" />
 
-                                            <Border Width="24"
-                                                    Height="24"
+                                            <Border Width="20"
+                                                    Height="20"
                                                     Background="{x:Bind CurrentPalette.ColorBlue, Converter={StaticResource ColorToBrushConverter}, Mode=OneWay}"
                                                     CornerRadius="26"
                                                     IsTapEnabled="False"
