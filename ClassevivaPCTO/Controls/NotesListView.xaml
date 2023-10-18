@@ -42,7 +42,7 @@
 
                     <!-- note icon -->
                     <FontIcon x:Name="NoteIcon"
-                              FontSize="24" Margin="8"
+                              FontSize="24" Margin="8,0,0,0"
                               RelativePanel.AlignVerticalCenterWithPanel="True"
                               FontFamily="{StaticResource FluentIcons}" Glyph="&#xe91c;"
                               Foreground="{ThemeResource TextFillColorTertiaryBrush}" />
@@ -53,7 +53,7 @@
 
                                Text="{x:Bind CurrentObject.authorName}"
                                Style="{ThemeResource BaseTextBlockStyle}"
-                               Margin="14,8,0,0" />
+                               Margin="18,8,0,0" />
 
                     <!-- data pubblicazione -->
                     <TextBlock RelativePanel.RightOf="titoloEvento" x:Name="dataPubblicazione" TextWrapping="NoWrap"
@@ -63,7 +63,7 @@
                                Text="{x:Bind  CurrentObject.evtDate, Converter={StaticResource DateTimeToNormalDateConverter}}"
                                Style="{ThemeResource BodyStrongTextBlockStyle}"
                                Foreground="{ThemeResource TextFillColorTertiaryBrush}"
-                               Margin="16,8,0,0" />
+                               Margin="12,8,0,0" />
 
 
                     <TextBlock x:Name="bodyText" RelativePanel.Below="titoloEvento" TextWrapping="Wrap"
@@ -75,7 +75,7 @@
                                IsTextSelectionEnabled="True"
                                TextTrimming="WordEllipsis"
                                MaxLines="1"
-                               Margin="14,6,0,6">
+                               Margin="18,6,0,6">
                     </TextBlock>
 
 
@@ -134,7 +134,7 @@
                         <DataTemplate x:DataType="local:GroupInfoList">
                             <Border AutomationProperties.Name="{x:Bind Key}">
 
-                                <TextBlock Text="{x:Bind Key}" />
+                                <TextBlock Text="{x:Bind Key}" FontWeight="SemiBold" FontSize="18" />
                             </Border>
                         </DataTemplate>
                     </GroupStyle.HeaderTemplate>
