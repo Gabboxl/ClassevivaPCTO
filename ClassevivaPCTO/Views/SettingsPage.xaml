@@ -10,6 +10,7 @@
     xmlns:controls="using:Microsoft.UI.Xaml.Controls"
     xmlns:adapters="using:ClassevivaPCTO.Adapters"
     xmlns:converters="using:ClassevivaPCTO.Converters"
+    xmlns:views="using:ClassevivaPCTO.Views"
     mc:Ignorable="d">
     <Page.Resources>
 
@@ -296,10 +297,7 @@
 
                     <ComboBox
                         x:Name="LanguageComboBox"
-                        ItemsSource="{x:Bind ComboLanguages}"
-                        SelectedIndex="{x:Bind CurrentLanguage, Mode=TwoWay}"
                         MinWidth="160">
-
                     </ComboBox>
 
 
@@ -333,7 +331,7 @@
                            x:Uid="Settings_About" />
 
                 <labs:SettingsExpander x:Uid="SettingsExpanderReservedRights" IsExpanded="True"
-                                       Header="{x:Bind AppName}">
+                                       Header="{x:Bind views:SettingsPage.AppName}">
                     <labs:SettingsExpander.HeaderIcon>
                         <BitmapIcon ShowAsMonochrome="False"
                                     UriSource="ms-appx:///Assets/StoreLogo.png" />
