@@ -726,4 +726,19 @@ Gli account studente hanno l'username che inizia con le lettere S, G o X.</value
   <data name="ABU0_sing" xml:space="preserve">
     <value>Uscita anticipata</value>
   </data>
+  <data name="AppTranslationStatus1" xml:space="preserve">
+    <value>L'app è stata tradotta al </value>
+  </data>
+  <data name="AppTranslationStatus2" xml:space="preserve">
+    <value>nella lingua che hai scelto. Alcune parti dell'app potrebbero non essere stare ancora tradotte.</value>
+  </data>
+  <data name="AreYouSureLanguageDialogText" xml:space="preserve">
+    <value>Vuoi veramente cambiare la lingua?</value>
+  </data>
+  <data name="CautionDialogTitle" xml:space="preserve">
+    <value>Attenzione</value>
+  </data>
+  <data name="ContinueDialogButton" xml:space="preserve">
+    <value>Continua</value>
+  </data>
 </root>

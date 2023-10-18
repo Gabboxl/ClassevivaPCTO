@@ -309,9 +309,9 @@ namespace ClassevivaPCTO.Views
                 {
                     ContentDialog dialogtrans = new()
                     {
-                        Title = "Attenzione",
-                        Content = "L'app è stata tradotta al " + langProgressPerc + "% nella lingua che hai scelto. Alcune parti dell'app potrebbero non essere stare ancora tradotte.\n\n Vuoi veramente cambiare la lingua?",
-                        PrimaryButtonText = "Ok, continua",
+                        Title = "CautionDialogTitle".GetLocalized(),
+                        Content = "AppTranslationStatus1".GetLocalized() + langProgressPerc + "% " + "AppTranslationStatus2".GetLocalized() + "\n\n" + "AreYouSureLanguageDialogText".GetLocalized(),
+                        PrimaryButtonText = "ContinueDialogButton".GetLocalized(),
                         CloseButtonText = "CancelDialogButton".GetLocalized(),
                         RequestedTheme = ((FrameworkElement) Window.Current.Content).RequestedTheme,
                         DefaultButton = ContentDialogButton.Primary
