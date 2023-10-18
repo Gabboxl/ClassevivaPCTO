@@ -87,6 +87,7 @@
                 </Grid.RowDefinitions>
 
                 <controls:NotesListView
+                    EnableEmptyAlert="True"
                     HorizontalAlignment="Stretch"
                     VerticalAlignment="Stretch"
                     EnableStickyHeader="True"
