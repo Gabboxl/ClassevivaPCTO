@@ -97,7 +97,7 @@
                         <DataTemplate x:DataType="local:GroupInfoList">
                             <Border AutomationProperties.Name="{x:Bind Key}">
 
-                                <TextBlock Text="{x:Bind Key}" />
+                                <TextBlock Text="{x:Bind Key}" FontWeight="SemiBold" FontSize="18" />
                             </Border>
                         </DataTemplate>
                     </GroupStyle.HeaderTemplate>
