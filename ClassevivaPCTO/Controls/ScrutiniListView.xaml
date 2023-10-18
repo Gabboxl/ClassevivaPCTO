@@ -193,6 +193,8 @@
                            Visibility="{x:Bind ItemsSource.Documents, Mode=OneWay, FallbackValue=Collapsed, Converter={StaticResource EmptyListToVisibilityConverter}}"
                            Style="{ThemeResource BodyStrongTextBlockStyle}" FontSize="18" FontWeight="SemiBold" />
 
+                <Rectangle Fill="#5B5B5B" Height="1" Margin="14,2,14,8" Visibility="{x:Bind ItemsSource.Documents, Mode=OneWay, FallbackValue=Collapsed, Converter={StaticResource EmptyListToVisibilityConverter}}"/>
+
 
                 <ListView x:Name="listViewScrutini"
 
@@ -209,6 +211,8 @@
                            Margin="14,12,0,8"
                            Visibility="{x:Bind ItemsSource.SchoolReports, Mode=OneWay, FallbackValue=Collapsed, Converter={StaticResource EmptyListToVisibilityConverter}}"
                            Style="{ThemeResource BodyStrongTextBlockStyle}" FontSize="18" FontWeight="SemiBold" />
+
+                <Rectangle Fill="#5B5B5B" Height="1" Margin="14,2,14,8" Visibility="{x:Bind ItemsSource.Documents, Mode=OneWay, FallbackValue=Collapsed, Converter={StaticResource EmptyListToVisibilityConverter}}"/>
 
                 <ListView x:Name="listViewSchoolReports"
 
