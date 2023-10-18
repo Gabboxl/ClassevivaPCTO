@@ -184,7 +184,7 @@
                 </labs:SettingsCard>
 
                 <labs:SettingsCard x:Name="ColorSchemeExpander"
-                                   x:Uid="SettingsCardPalette" MinHeight="80">
+                                   x:Uid="SettingsCardPalette" MinHeight="70">
 
                     <labs:SettingsCard.HeaderIcon>
                         <FontIcon Glyph="&#xE790;" />
@@ -287,8 +287,8 @@
                     </labs:SettingsCard>
                 
                 -->
-                
-                
+
+
                 <labs:SettingsCard x:Uid="SettingsCardLanguage">
 
                     <labs:SettingsCard.HeaderIcon>
