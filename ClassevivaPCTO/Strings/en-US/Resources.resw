@@ -552,16 +552,16 @@ Student accounts have usernames starting with the letters S, G, or X.</value>
     <value>Refresh</value>
   </data>
   <data name="SettingsPaletteColorBlueTT.ToolTipService.ToolTip" xml:space="preserve">
-    <value>Partial absence, doesn't average</value>
+    <value>Non fa media, assenza parziale</value>
   </data>
   <data name="SettingsPaletteColorGreenTT.ToolTipService.ToolTip" xml:space="preserve">
-    <value>Sufficient grade, presence</value>
+    <value>Sufficienza, presenza, comunicazione letta</value>
   </data>
   <data name="SettingsPaletteColorOrangeTT.ToolTipService.ToolTip" xml:space="preserve">
-    <value>Nearly sufficient grade, delay</value>
+    <value>Insufficienza lieve, ritardo, comunicazione scaduta</value>
   </data>
   <data name="SettingsPaletteColorRedTT.ToolTipService.ToolTip" xml:space="preserve">
-    <value>Insufficient grade, absence</value>
+    <value>Insufficienza grave, assenza, comunicazione non letta</value>
   </data>
   <data name="NoticeAdapter_FromToValidDate" xml:space="preserve">
     <value>Valid from {0} to {1}</value>
@@ -724,5 +724,20 @@ Student accounts have usernames starting with the letters S, G, or X.</value>
   </data>
   <data name="ABU0_sing" xml:space="preserve">
     <value>Uscita anticipata</value>
+  </data>
+  <data name="AppTranslationStatus1" xml:space="preserve">
+    <value>L'app è stata tradotta al </value>
+  </data>
+  <data name="AppTranslationStatus2" xml:space="preserve">
+    <value>nella lingua che hai scelto. Alcune parti dell'app potrebbero non essere stare ancora tradotte.</value>
+  </data>
+  <data name="AreYouSureLanguageDialogText" xml:space="preserve">
+    <value>Vuoi veramente cambiare la lingua?</value>
+  </data>
+  <data name="CautionDialogTitle" xml:space="preserve">
+    <value>Attenzione</value>
+  </data>
+  <data name="ContinueDialogButton" xml:space="preserve">
+    <value>Continua</value>
   </data>
 </root>
