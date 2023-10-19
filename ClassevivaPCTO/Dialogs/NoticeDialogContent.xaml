@@ -75,6 +75,7 @@
 
                 <TextBlock x:Name="noticeBodyText"
                            TextWrapping="Wrap"
+                           FontWeight="SemiBold"
                            Style="{ThemeResource BodyTextBlockStyle}"
                            IsTextSelectionEnabled="True"
                            Foreground="{ThemeResource TextFillColorSecondaryBrush}"
