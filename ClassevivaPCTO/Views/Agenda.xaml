@@ -23,7 +23,6 @@
 
     <RelativePanel>
 
-
         <VisualStateManager.VisualStateGroups>
             <VisualStateGroup>
                 <VisualState x:Name="WideState">
@@ -100,7 +99,7 @@
                     Margin="0,0,0,24">
                     <TextBlock x:Name="TitoloLezioniPopup" x:Uid="LessonsTitle" FontSize="42"
                                VerticalAlignment="Top"
-                               Margin="32,16,0,0" />
+                               Margin="12,16,0,0" />
 
                     <muxc:ProgressRing
                         x:Name="LezioniPopupProgressRing"
@@ -112,7 +111,7 @@
 
                 <ScrollViewer Grid.Row="1"
                               Grid.Column="1">
-                    <StackPanel Margin="0,0,12,0"
+                    <StackPanel Margin="0,0,16,0"
                         x:Name="LezioniPopupStackPanel">
                     </StackPanel>
                 </ScrollViewer>
@@ -171,10 +170,8 @@
                     Margin="0,0,0,24">
                     <TextBlock x:Name="TitoloAgendaPopup" x:Uid="TitoloAgendaPopup" FontSize="42"
                                VerticalAlignment="Top"
-                               Margin="32,16,0,0" />
+                               Margin="12,16,0,0" />
 
-
-                    <!-- progress ring -->
                     <muxc:ProgressRing
                         x:Name="AgendaPopupProgressRing"
                         IsActive="True"
@@ -183,8 +180,8 @@
                         Margin="16,16,0,0" Width="28" Height="28" />
                 </RelativePanel>
 
-
                 <Grid Grid.Row="1"
+                      Margin="0,0,12,0"
                       Grid.Column="1"
                       HorizontalAlignment="Stretch"
                       x:Name="AgendaPopupListviewContainer">
@@ -262,7 +259,6 @@
                                       VerticalAlignment="Center" />
                         </Button>
 
-                        <!-- vertical separator -->
                         <Rectangle x:Name="Separator0" RelativePanel.LeftOf="ButtonYesterday"
                                    Fill="{ThemeResource ControlStrokeColorDefaultBrush}"
                                    Width="2" Height="48" Margin="16,0,0,0"/>
@@ -277,7 +273,6 @@
                             <FontIcon FontSize="16" Glyph="&#xE76B;" HorizontalAlignment="Center"
                                       VerticalAlignment="Center" />
                         </Button>
-
 
                         <!-- should we set the firstdayofweek in code instead? -->
                         <CalendarDatePicker x:Name="CalendarAgenda" x:Uid="CalendarTT"
@@ -359,7 +354,6 @@
                            BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
                            Background="{ThemeResource CardBackgroundFillColorDefaultBrush}">
 
-
                 <controls2:OverviewListView
                     RelativePanel.AlignTopWithPanel="True"
                     RelativePanel.AlignBottomWithPanel="True"
@@ -368,7 +362,6 @@
                     HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
                     Margin="0,0,0,0" x:Name="OverviewListView">
                 </controls2:OverviewListView>
-
 
             </RelativePanel>
 
