@@ -179,12 +179,12 @@ If you encounter bugs or have an idea for the app, open an issue on GitHub by cl
     <comment>What's new prompt message title</comment>
   </data>
   <data name="WhatsNew_Body_Main.Text" xml:space="preserve">
-    <value>•  Migliorata l'interfaccia della pagina di Login
-•  Corretti alcuni errori relativi al cambio della lingua e ottimizzate le traduzioni
-•  Le note ora verranno visualizzate negli eventi del giorno
-•  Aggiornato il design del widget Bacheca nella Dashboard
-•  Aggiornato il design dei titoli delle categorie nelle pagine Bacheca, Assenze, Note e Scrutini
-•  Aggiunta la possibilità di visualizzare i contributors di GitHub e le licenze nella sezione Tips</value>
+    <value>• Improved the Login page interface
+• Fixed some errors related to language switching and optimized translations
+• Notes will now appear in today's events
+• Updated the design of the Notice Board widget in the Dashboard
+• Updated the design of category titles on the Notice board, Absences, Notes and Ballots pages
+• Added the ability to view GitHub contributors and licenses in the Tips section</value>
     <comment>What's new prompt message body for highlights section</comment>
   </data>
   <data name="WhatsNew_Body_1.Text" xml:space="preserve">
@@ -435,19 +435,19 @@ Student accounts have usernames starting with the letters S, G, or X.</value>
     <value>Nature</value>
   </data>
   <data name="WhatsNew_Body_3.Text" xml:space="preserve">
-    <value>•  Aggiunta la possibilità di ridimensionare i popup
-•  Gli eventi nella sezione "Agenda" e nella sezione "Compiti" sono da adesso distinguibili tramite un'icona apposita
-•  Miglioramenti all'interfaccia</value>
+    <value>• Added ability to resize popups
+• Events in the "Agenda" section and in the "Tasks" section are now distinguishable by a specific icon
+• Interface improvements</value>
     <comment>What's new prompt message body for third section (Agenda)</comment>
   </data>
   <data name="WhatsNew_Body_4.Text" xml:space="preserve">
-    <value>•  Aggiornato il design della sezione medie
-•  Le materie / periodi didattici senza voti da adesso presenteranno il placeholder N/D
-•  Aggiunta una distizione tra primo e secondo quadrimestre nella selezione del periodo didattico; ciò vale solo per le scuole che non utilizzano il sistema trimestre/pentamestre</value>
+    <value>• Updated the design of the averages sections
+• Subjects / teaching periods without grades will now have the N/A placeholder
+• Added a distinction between the first and second quarter in the selection of the teaching period; this only applies to schools that do not use the quarter/five-month system</value>
     <comment>What's new prompt message body for fourth section (Valutazioni)</comment>
   </data>
   <data name="WhatsNew_Body_5.Text" xml:space="preserve">
-    <value>•  Aggiunto un filtro per le comunicazioni lette/non lette</value>
+    <value>•  Added a filter for read/unread notices</value>
     <comment>What's new prompt message body for fifth section (Bacheca)</comment>
   </data>
   <data name="SettingsChangeProfilePicButton.Text" xml:space="preserve">
@@ -502,7 +502,7 @@ Student accounts have usernames starting with the letters S, G, or X.</value>
     <value>Highlights</value>
   </data>
   <data name="SettingsChangelogRelease.Text" xml:space="preserve">
-    <value>v1.1.0.0, 21 Ottobre 2023</value>
+    <value>v1.1.0, 21 Ottobre 2023</value>
   </data>
   <data name="AgendaButtonTomorrowTT.ToolTipService.ToolTip" xml:space="preserve">
     <value>Next day</value>
