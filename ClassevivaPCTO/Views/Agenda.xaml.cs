@@ -17,7 +17,7 @@ namespace ClassevivaPCTO.Views
 {
     public sealed partial class Agenda : Page
     {
-        public AgendaViewModel AgendaViewModel { get; } = new AgendaViewModel();
+        public AgendaViewModel AgendaViewModel { get; } = new();
 
         private readonly IClassevivaAPI apiWrapper;
 

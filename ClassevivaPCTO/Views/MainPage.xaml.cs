@@ -19,8 +19,7 @@ namespace ClassevivaPCTO.Views
     {
         private AppViewModel AppViewModel { get; }
 
-        public NavigationViewViewModel NavigationViewViewModel { get; } =
-            new NavigationViewViewModel();
+        public NavigationViewViewModel NavigationViewViewModel { get; } = new();
 
         public string FirstName
         {

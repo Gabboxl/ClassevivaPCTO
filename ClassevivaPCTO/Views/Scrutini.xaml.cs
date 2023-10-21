@@ -13,7 +13,7 @@ namespace ClassevivaPCTO.Views
 {
     public sealed partial class Scrutini : Page
     {
-        public ScrutiniViewModel ScrutiniViewModel { get; } = new ScrutiniViewModel();
+        public ScrutiniViewModel ScrutiniViewModel { get; } = new();
 
         private readonly IClassevivaAPI apiWrapper;
 

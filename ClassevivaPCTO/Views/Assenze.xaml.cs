@@ -18,7 +18,7 @@ namespace ClassevivaPCTO.Views
 {
     public sealed partial class Assenze : Page
     {
-        public AssenzeViewModel AssenzeViewModel { get; } = new AssenzeViewModel();
+        public AssenzeViewModel AssenzeViewModel { get; } = new();
 
         private readonly IClassevivaAPI apiWrapper;
 

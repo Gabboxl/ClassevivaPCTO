@@ -21,8 +21,7 @@ namespace ClassevivaPCTO.Views
     {
         private readonly IClassevivaAPI apiWrapper;
 
-        public DashboardPageViewModel DashboardPageViewModel { get; } =
-            new DashboardPageViewModel();
+        public DashboardPageViewModel DashboardPageViewModel { get; } = new();
 
         public DashboardPage()
         {
