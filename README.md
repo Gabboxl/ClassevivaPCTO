@@ -1,6 +1,18 @@
-# <img src="https://github.com/Gabboxl/ClassevivaPCTO/blob/main/ClassevivaPCTO/Assets/mainlogo.png" width=40% height=40%>     ![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/Gabboxl/ClassevivaPCTO) ![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/Gabboxl/ClassevivaPCTO?include_prereleases) [![Crowdin](https://badges.crowdin.net/classevivapcto/localized.svg)](https://crowdin.com/project/classevivapcto)
+<p align="center">
+ <img src="https://github.com/Gabboxl/ClassevivaPCTO/blob/main/ClassevivaPCTO/Assets/mainlogo.png" width=40% height=40%>
+</p>
 
-A simple UWP app to consult Classeviva's website.
+<div align="center">
+
+![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/Gabboxl/ClassevivaPCTO)
+![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/Gabboxl/ClassevivaPCTO?include_prereleases) 
+[![Crowdin](https://badges.crowdin.net/classevivapcto/localized.svg)](https://crowdin.com/project/classevivapcto)
+
+</div>
+
+# About
+
+ClassevivaPCTO is a simple UWP client to consult Classeviva's electronic register.
 
 > **Note**: This app is for student accounts only.
 
@@ -14,7 +26,7 @@ A simple UWP app to consult Classeviva's website.
 
 ## What's next
 
-See the [v1.1.0 milestone](https://github.com/Gabboxl/ClassevivaPCTO/milestone/3) to know what features are currently under development and planned to be released in the next version. 
+See the [v1.2.0 milestone](https://github.com/Gabboxl/ClassevivaPCTO/milestone/4) to know what features are currently under development and planned to be released in the next version. 
 
 Also see the [ClassevivaPCTO's Roadmap](https://github.com/users/Gabboxl/projects/5) for a full view of the funcionalities scheduled for the next releases.
 
