@@ -12,7 +12,7 @@
 
 # About
 
-ClassevivaPCTO is a simple UWP client to consult Classeviva's electronic register.
+ClassevivaPCTO is a simple UWP client to consult Spaggiari's electronic register.
 
 > **Note**: This app is for student accounts only.
 
