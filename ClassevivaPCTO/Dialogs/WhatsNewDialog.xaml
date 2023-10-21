@@ -8,69 +8,67 @@
     d:DesignHeight="500"
     d:DesignWidth="750"
     mc:Ignorable="d" Opacity="1">
+    
     <ContentDialog.TitleTemplate>
         <DataTemplate x:DataType="x:String">
-            <StackPanel Orientation="Horizontal">
-                <Image
-                    Width="40"
-                    Height="40"
-                    Source="ms-appx:///Assets/StoreLogo.png" VerticalAlignment="Center" />
-                <TextBlock
-                    Margin="16,-4,20,0"
+            <RelativePanel Width="720">
+                
+                <TextBlock x:Name="AppName" RelativePanel.AlignLeftWithPanel="True"
+                    Margin="0,-4,0,0"
                     VerticalAlignment="Center" FontWeight="SemiBold" FontSize="26"
                     Text="{x:Bind}" />
-                <TextBlock Margin="195,-12,0,0" FontSize="16" IsTextSelectionEnabled="True"
-                        VerticalAlignment="Center" Foreground="{ThemeResource TextFillColorTertiaryBrush}">
-                        <Run x:Uid="SettingsAboutExpanderVersion" /><Run Text="1.0.0" />
-                </TextBlock>
-                <TextBlock
-                    Margin="-130,24,0,0"
-                    VerticalAlignment="Center" Foreground="{ThemeResource TextFillColorTertiaryBrush}"
-                    x:Uid="SettingsChangelogReleaseDate" FontSize="16" IsTextSelectionEnabled="True" />
-            </StackPanel>
+                
+                <TextBlock Margin="0,2,8,0" FontSize="16" IsTextSelectionEnabled="True"
+                        VerticalAlignment="Center" Foreground="{ThemeResource TextFillColorTertiaryBrush}"
+                        x:Uid="SettingsChangelogRelease" RelativePanel.AlignRightWithPanel="True"/>
+
+                <Rectangle Fill="#5B5B5B" Height="1" Margin="0,4,0,4" RelativePanel.Below="AppName" RelativePanel.AlignLeftWithPanel="True" Width="712"/>
+
+            </RelativePanel>
         </DataTemplate>
     </ContentDialog.TitleTemplate>
-    <ScrollViewer Height="400" Width="680">
+    
+    <ScrollViewer Height="350" Width="720">
         <StackPanel>
 
-            <Image Source="/Assets/storescreenshot.png" Stretch="Uniform" Height="380"/>
+            <Image Source="/Assets/storescreenshot.png" Stretch="Uniform" Height="350" Margin="0,8,0,0"/>
 
 
-            <TextBlock Margin="0,12,0,0" x:Uid="SettingsChangelogHighlights" TextWrapping="WrapWholeWords" FontSize="24"
+            <TextBlock Margin="0,4,0,0" x:Uid="SettingsChangelogHighlights" TextWrapping="WrapWholeWords" FontSize="24"
                        FontWeight="SemiBold" /> <!--In evidenza-->
             <TextBlock Margin="0,15,15,0" x:Uid="WhatsNew_Body_Main" TextWrapping="WrapWholeWords" FontSize="15"
                        IsTextSelectionEnabled="True" Foreground="{ThemeResource TextFillColorTertiaryBrush}"
-                       FontWeight="SemiBold" LineHeight="26" />
+                       FontWeight="SemiBold" LineHeight="24" />
             
-            <TextBlock Margin="0,0,0,0" x:Uid="Settings_General" TextWrapping="WrapWholeWords" FontSize="24"
-                       FontWeight="SemiBold" /> <!--Generali-->
+            <!--<TextBlock Margin="0,0,0,0" x:Uid="Settings_General" TextWrapping="WrapWholeWords" FontSize="24"
+                       FontWeight="SemiBold" /> --><!--Generali--><!--
             <TextBlock Margin="0,15,15,0" x:Uid="WhatsNew_Body_1" TextWrapping="WrapWholeWords" FontSize="15"
                        IsTextSelectionEnabled="True" Foreground="{ThemeResource TextFillColorTertiaryBrush}"
-                       FontWeight="SemiBold" LineHeight="26" />
+                       FontWeight="SemiBold" LineHeight="24" />-->
             
             <!-- <TextBlock Margin="0,0,0,0" x:Uid="SettingsChangelogDashboard" TextWrapping="WrapWholeWords" FontSize="24"
                        FontWeight="SemiBold" /> -->
             <!-- <TextBlock Margin="0,15,15,0" x:Uid="WhatsNew_Body_2" TextWrapping="WrapWholeWords" FontSize="15"
                        IsTextSelectionEnabled="True" Foreground="{ThemeResource TextFillColorTertiaryBrush}"
-                       FontWeight="SemiBold" LineHeight="26" /> -->
+                       FontWeight="SemiBold" LineHeight="24" /> -->
             
             <TextBlock Margin="0,20,0,0" x:Uid="AgendaTitle" TextWrapping="WrapWholeWords" FontSize="24"
                        FontWeight="SemiBold" /> <!--Agenda-->
             <TextBlock Margin="0,15,15,0" x:Uid="WhatsNew_Body_3" TextWrapping="WrapWholeWords" FontSize="15"
                        IsTextSelectionEnabled="True" Foreground="{ThemeResource TextFillColorTertiaryBrush}"
-                       FontWeight="SemiBold" LineHeight="26" />
+                       FontWeight="SemiBold" LineHeight="24" />
             
             <TextBlock Margin="0,20,0,0" x:Uid="SettingsChangelogGrades" TextWrapping="WrapWholeWords" FontSize="24"
                        FontWeight="SemiBold" /> <!--Valutazioni-->
             <TextBlock Margin="0,15,15,0" x:Uid="WhatsNew_Body_4" TextWrapping="WrapWholeWords" FontSize="15"
                        IsTextSelectionEnabled="True" Foreground="{ThemeResource TextFillColorTertiaryBrush}"
-                       FontWeight="SemiBold" LineHeight="26" />
+                       FontWeight="SemiBold" LineHeight="24" />
 
-            <!-- <TextBlock Margin="0,20,0,0" x:Uid="TextTitoloAssenzeRitardi" TextWrapping="WrapWholeWords" FontSize="24"
-                       FontWeight="SemiBold" />  -->
-            <!-- <TextBlock Margin="0,15,15,20" x:Uid="WhatsNew_Body_5" TextWrapping="WrapWholeWords" FontSize="15"
+            <TextBlock Margin="0,20,0,0" x:Uid="NoticeBoardTitle" TextWrapping="WrapWholeWords" FontSize="24"
+                       FontWeight="SemiBold" /> 
+            <TextBlock Margin="0,15,15,20" x:Uid="WhatsNew_Body_5" TextWrapping="WrapWholeWords" FontSize="15"
                        IsTextSelectionEnabled="True" Foreground="{ThemeResource TextFillColorTertiaryBrush}"
-                       FontWeight="SemiBold" LineHeight="26" />  -->
+                       FontWeight="SemiBold" LineHeight="24" />
 
             <HyperlinkButton x:Name="WhatsNewHyperlink" Margin="0,24,0,0"
                              NavigateUri="https://github.com/Gabboxl/ClassevivaPCTO/releases">
@@ -85,7 +83,6 @@
                     <TextBlock x:Uid="hyperlinkGithubReleases" />
                 </StackPanel>
             </HyperlinkButton>
-            
         </StackPanel>
     </ScrollViewer>
 </ContentDialog>
