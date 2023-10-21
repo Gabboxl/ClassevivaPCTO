@@ -502,7 +502,7 @@ Student accounts have usernames starting with the letters S, G, or X.</value>
     <value>Highlights</value>
   </data>
   <data name="SettingsChangelogRelease.Text" xml:space="preserve">
-    <value>v1.1.0, 21 Ottobre 2023</value>
+    <value>v1.1.0, 21 October 2023</value>
   </data>
   <data name="AgendaButtonTomorrowTT.ToolTipService.ToolTip" xml:space="preserve">
     <value>Next day</value>
@@ -667,7 +667,7 @@ Student accounts have usernames starting with the letters S, G, or X.</value>
     <value>All periods</value>
   </data>
   <data name="CalendarTT.ToolTipService.ToolTip" xml:space="preserve">
-    <value>Select a date</value>
+    <value>Pick a date</value>
   </data>
   <data name="FilterAllNotices.Text" xml:space="preserve">
     <value>All</value>
