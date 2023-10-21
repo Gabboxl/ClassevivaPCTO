@@ -47,7 +47,7 @@ namespace ClassevivaPCTO.Utils
         {
             if (voti.Count == 0)
             {
-                return Single.NaN;
+                return float.NaN;
             }
 
             float somma = 0;
