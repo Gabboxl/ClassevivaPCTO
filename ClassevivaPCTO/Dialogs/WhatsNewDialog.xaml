@@ -38,37 +38,37 @@
                        FontWeight="SemiBold" /> <!--In evidenza-->
             <TextBlock Margin="0,15,15,0" x:Uid="WhatsNew_Body_Main" TextWrapping="WrapWholeWords" FontSize="15"
                        IsTextSelectionEnabled="True" Foreground="{ThemeResource TextFillColorTertiaryBrush}"
-                       FontWeight="SemiBold" LineHeight="24" />
+                       FontWeight="SemiBold" LineHeight="26" />
             
             <!--<TextBlock Margin="0,0,0,0" x:Uid="Settings_General" TextWrapping="WrapWholeWords" FontSize="24"
                        FontWeight="SemiBold" /> --><!--Generali--><!--
             <TextBlock Margin="0,15,15,0" x:Uid="WhatsNew_Body_1" TextWrapping="WrapWholeWords" FontSize="15"
                        IsTextSelectionEnabled="True" Foreground="{ThemeResource TextFillColorTertiaryBrush}"
-                       FontWeight="SemiBold" LineHeight="24" />-->
+                       FontWeight="SemiBold" LineHeight="26" />-->
             
             <!-- <TextBlock Margin="0,0,0,0" x:Uid="SettingsChangelogDashboard" TextWrapping="WrapWholeWords" FontSize="24"
                        FontWeight="SemiBold" /> -->
             <!-- <TextBlock Margin="0,15,15,0" x:Uid="WhatsNew_Body_2" TextWrapping="WrapWholeWords" FontSize="15"
                        IsTextSelectionEnabled="True" Foreground="{ThemeResource TextFillColorTertiaryBrush}"
-                       FontWeight="SemiBold" LineHeight="24" /> -->
+                       FontWeight="SemiBold" LineHeight="26" /> -->
             
             <TextBlock Margin="0,20,0,0" x:Uid="AgendaTitle" TextWrapping="WrapWholeWords" FontSize="24"
                        FontWeight="SemiBold" /> <!--Agenda-->
             <TextBlock Margin="0,15,15,0" x:Uid="WhatsNew_Body_3" TextWrapping="WrapWholeWords" FontSize="15"
                        IsTextSelectionEnabled="True" Foreground="{ThemeResource TextFillColorTertiaryBrush}"
-                       FontWeight="SemiBold" LineHeight="24" />
+                       FontWeight="SemiBold" LineHeight="26" />
             
             <TextBlock Margin="0,20,0,0" x:Uid="SettingsChangelogGrades" TextWrapping="WrapWholeWords" FontSize="24"
                        FontWeight="SemiBold" /> <!--Valutazioni-->
             <TextBlock Margin="0,15,15,0" x:Uid="WhatsNew_Body_4" TextWrapping="WrapWholeWords" FontSize="15"
                        IsTextSelectionEnabled="True" Foreground="{ThemeResource TextFillColorTertiaryBrush}"
-                       FontWeight="SemiBold" LineHeight="24" />
+                       FontWeight="SemiBold" LineHeight="26" />
 
             <TextBlock Margin="0,20,0,0" x:Uid="NoticeBoardTitle" TextWrapping="WrapWholeWords" FontSize="24"
                        FontWeight="SemiBold" /> 
             <TextBlock Margin="0,15,15,20" x:Uid="WhatsNew_Body_5" TextWrapping="WrapWholeWords" FontSize="15"
                        IsTextSelectionEnabled="True" Foreground="{ThemeResource TextFillColorTertiaryBrush}"
-                       FontWeight="SemiBold" LineHeight="24" />
+                       FontWeight="SemiBold" LineHeight="26" />
 
             <HyperlinkButton x:Name="WhatsNewHyperlink" Margin="0,24,0,0"
                              NavigateUri="https://github.com/Gabboxl/ClassevivaPCTO/releases">
