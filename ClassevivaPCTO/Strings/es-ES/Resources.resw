@@ -179,9 +179,12 @@ Se riscontri bug o hai un'idea per l'app apri un issue su GitHub cliccando sul l
     <comment>What's new prompt message title</comment>
   </data>
   <data name="WhatsNew_Body_Main.Text" xml:space="preserve">
-    <value>• Mejorada la interfaz de todas las páginas.
-• Se agregó la función para cambiar el esquema de color utilizado para votaciones y eventos.
-• Se agregó la capacidad de cambiar el idioma de la interfaz (actualmente solo está disponible el inglés; puede contribuir a las traducciones del proyecto Crowdin. Consulte la información de la aplicación)</value>
+    <value>•  Migliorata l'interfaccia della pagina di Login
+•  Corretti alcuni errori relativi al cambio della lingua e ottimizzate le traduzioni
+•  Le note ora verranno visualizzate negli eventi del giorno
+•  Aggiornato il design del widget Bacheca nella Dashboard
+•  Aggiornato il design dei titoli delle categorie nelle pagine Bacheca, Assenze, Note e Scrutini
+•  Aggiunta la possibilità di visualizzare i contributors di GitHub e le licenze nella sezione Tips</value>
     <comment>What's new prompt message body for highlights section</comment>
   </data>
   <data name="WhatsNew_Body_1.Text" xml:space="preserve">
@@ -433,18 +436,20 @@ Gli account studente hanno l'username che inizia con le lettere S, G o X.</value
     <value>Natura</value>
   </data>
   <data name="WhatsNew_Body_3.Text" xml:space="preserve">
-    <value>•  Rinnovato il layout</value>
+    <value>•  Aggiunta la possibilità di ridimensionare i popup
+•  Gli eventi nella sezione "Agenda" e nella sezione "Compiti" sono da adesso distinguibili tramite un'icona apposita
+•  Miglioramenti all'interfaccia</value>
     <comment>What's new prompt message body for third section (Agenda)</comment>
   </data>
   <data name="WhatsNew_Body_4.Text" xml:space="preserve">
-    <value>•  La pagina è stata rinnovata completamente in termini di Layout e interfaccia
-•  Aggiunta la possibilità di visualizzare tutti i voti per trimestre/pentamestre o quadrimestre - le visualizzazioni adesso includono la lista di tutte le materie e la relativa media per ognuna di esse. Cliccando su una materia vengono visualizzati i voti di quella materia per quello specifico periodo didattico
-•  Aggiunta la possibilità di vedere la media di ogni periodo didattico e la media generale dell'anno scolastico</value>
+    <value>•  Aggiornato il design della sezione medie
+•  Le materie / periodi didattici senza voti da adesso presenteranno il placeholder N/D
+•  Aggiunta una distizione tra primo e secondo quadrimestre nella selezione del periodo didattico; ciò vale solo per le scuole che non utilizzano il sistema trimestre/pentamestre</value>
     <comment>What's new prompt message body for fourth section (Valutazioni)</comment>
   </data>
   <data name="WhatsNew_Body_5.Text" xml:space="preserve">
-    <value>•  Rinnovato il layout</value>
-    <comment>What's new prompt message body for fifth section (Assenze)</comment>
+    <value>•  Aggiunto un filtro per le comunicazioni lette/non lette</value>
+    <comment>What's new prompt message body for fifth section (Bacheca)</comment>
   </data>
   <data name="SettingsChangeProfilePicButton.Text" xml:space="preserve">
     <value>Cambia foto</value>
@@ -497,8 +502,8 @@ Gli account studente hanno l'username che inizia con le lettere S, G o X.</value
   <data name="SettingsChangelogHighlights.Text" xml:space="preserve">
     <value>Destacado</value>
   </data>
-  <data name="SettingsChangelogReleaseDate.Text" xml:space="preserve">
-    <value>18 de septiembre de 2023</value>
+  <data name="SettingsChangelogRelease.Text" xml:space="preserve">
+    <value>v1.1.0.0, 21 Ottobre 2023</value>
   </data>
   <data name="AgendaButtonTomorrowTT.ToolTipService.ToolTip" xml:space="preserve">
     <value>Día siguiente</value>
@@ -552,16 +557,16 @@ Gli account studente hanno l'username che inizia con le lettere S, G o X.</value
     <value>Actualizar</value>
   </data>
   <data name="SettingsPaletteColorBlueTT.ToolTipService.ToolTip" xml:space="preserve">
-    <value>Ausencia parcial, no promedio</value>
+    <value>Non fa media, assenza parziale</value>
   </data>
   <data name="SettingsPaletteColorGreenTT.ToolTipService.ToolTip" xml:space="preserve">
-    <value>Presencia, suficiencia</value>
+    <value>Sufficienza, presenza, comunicazione letta</value>
   </data>
   <data name="SettingsPaletteColorOrangeTT.ToolTipService.ToolTip" xml:space="preserve">
-    <value>Insuficiencia leve, retraso</value>
+    <value>Insufficienza lieve, ritardo, comunicazione scaduta</value>
   </data>
   <data name="SettingsPaletteColorRedTT.ToolTipService.ToolTip" xml:space="preserve">
-    <value>Insuficiencia severa, ausencia</value>
+    <value>Insufficienza grave, assenza, comunicazione non letta</value>
   </data>
   <data name="NoticeAdapter_FromToValidDate" xml:space="preserve">
     <value>Valida del {0} al {1}</value>
@@ -724,5 +729,20 @@ Gli account studente hanno l'username che inizia con le lettere S, G o X.</value
   </data>
   <data name="ABU0_sing" xml:space="preserve">
     <value>Uscita anticipata</value>
+  </data>
+  <data name="AppTranslationStatus1" xml:space="preserve">
+    <value>L'app è stata tradotta al </value>
+  </data>
+  <data name="AppTranslationStatus2" xml:space="preserve">
+    <value>nella lingua che hai scelto. Alcune parti dell'app potrebbero non essere stare ancora tradotte.</value>
+  </data>
+  <data name="AreYouSureLanguageDialogText" xml:space="preserve">
+    <value>Vuoi veramente cambiare la lingua?</value>
+  </data>
+  <data name="CautionDialogTitle" xml:space="preserve">
+    <value>Attenzione</value>
+  </data>
+  <data name="ContinueDialogButton" xml:space="preserve">
+    <value>Continua</value>
   </data>
 </root>

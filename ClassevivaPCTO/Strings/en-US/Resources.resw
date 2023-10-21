@@ -179,10 +179,12 @@ If you encounter bugs or have an idea for the app, open an issue on GitHub by cl
     <comment>What's new prompt message title</comment>
   </data>
   <data name="WhatsNew_Body_Main.Text" xml:space="preserve">
-    <value>• Improved the interface across the whole app
-• Added the ability to change the color palette used for grades and events
-• Added the ability to change the interface language (currently only English is available - you can contribute to translations from the Crowdin project - see the About section)
-</value>
+    <value>•  Migliorata l'interfaccia della pagina di Login
+•  Corretti alcuni errori relativi al cambio della lingua e ottimizzate le traduzioni
+•  Le note ora verranno visualizzate negli eventi del giorno
+•  Aggiornato il design del widget Bacheca nella Dashboard
+•  Aggiornato il design dei titoli delle categorie nelle pagine Bacheca, Assenze, Note e Scrutini
+•  Aggiunta la possibilità di visualizzare i contributors di GitHub e le licenze nella sezione Tips</value>
     <comment>What's new prompt message body for highlights section</comment>
   </data>
   <data name="WhatsNew_Body_1.Text" xml:space="preserve">
@@ -248,7 +250,7 @@ If you encounter bugs or have an idea for the app, open an issue on GitHub by cl
     <value>View tips on how to use this app</value>
   </data>
   <data name="SettingsCardTutorialButton.Content" xml:space="preserve">
-    <value>Mostra Tips</value>
+    <value>Show Tips</value>
   </data>
   <data name="SettingsCardWhatsNew.Header" xml:space="preserve">
     <value>What’s new in this version</value>
@@ -433,18 +435,20 @@ Student accounts have usernames starting with the letters S, G, or X.</value>
     <value>Nature</value>
   </data>
   <data name="WhatsNew_Body_3.Text" xml:space="preserve">
-    <value>Renewed layout</value>
+    <value>•  Aggiunta la possibilità di ridimensionare i popup
+•  Gli eventi nella sezione "Agenda" e nella sezione "Compiti" sono da adesso distinguibili tramite un'icona apposita
+•  Miglioramenti all'interfaccia</value>
     <comment>What's new prompt message body for third section (Agenda)</comment>
   </data>
   <data name="WhatsNew_Body_4.Text" xml:space="preserve">
-    <value>• The page has been completely renewed in terms of layout and interface
-• Added the ability to view all grades by term arrangement - the views now include the list of all subjects and the relative average for each of them. By clicking on a subject, the grades for that subject for that specific teaching period are displayed
-• Added the ability to see the average of each teaching period and the general average of the school year</value>
+    <value>•  Aggiornato il design della sezione medie
+•  Le materie / periodi didattici senza voti da adesso presenteranno il placeholder N/D
+•  Aggiunta una distizione tra primo e secondo quadrimestre nella selezione del periodo didattico; ciò vale solo per le scuole che non utilizzano il sistema trimestre/pentamestre</value>
     <comment>What's new prompt message body for fourth section (Valutazioni)</comment>
   </data>
   <data name="WhatsNew_Body_5.Text" xml:space="preserve">
-    <value>Renewed layout</value>
-    <comment>What's new prompt message body for fifth section (Assenze)</comment>
+    <value>•  Aggiunto un filtro per le comunicazioni lette/non lette</value>
+    <comment>What's new prompt message body for fifth section (Bacheca)</comment>
   </data>
   <data name="SettingsChangeProfilePicButton.Text" xml:space="preserve">
     <value>Change photo</value>
@@ -497,8 +501,8 @@ Student accounts have usernames starting with the letters S, G, or X.</value>
   <data name="SettingsChangelogHighlights.Text" xml:space="preserve">
     <value>Highlights</value>
   </data>
-  <data name="SettingsChangelogReleaseDate.Text" xml:space="preserve">
-    <value>18 September 2023</value>
+  <data name="SettingsChangelogRelease.Text" xml:space="preserve">
+    <value>v1.1.0.0, 21 Ottobre 2023</value>
   </data>
   <data name="AgendaButtonTomorrowTT.ToolTipService.ToolTip" xml:space="preserve">
     <value>Next day</value>
@@ -552,16 +556,16 @@ Student accounts have usernames starting with the letters S, G, or X.</value>
     <value>Refresh</value>
   </data>
   <data name="SettingsPaletteColorBlueTT.ToolTipService.ToolTip" xml:space="preserve">
-    <value>Partial absence, doesn't average</value>
+    <value>Doesn't average, partial absence</value>
   </data>
   <data name="SettingsPaletteColorGreenTT.ToolTipService.ToolTip" xml:space="preserve">
-    <value>Sufficient grade, presence</value>
+    <value>Sufficient grade, presence, read notice</value>
   </data>
   <data name="SettingsPaletteColorOrangeTT.ToolTipService.ToolTip" xml:space="preserve">
-    <value>Nearly sufficient grade, delay</value>
+    <value>Nearly sufficient grade, delay, expired notice</value>
   </data>
   <data name="SettingsPaletteColorRedTT.ToolTipService.ToolTip" xml:space="preserve">
-    <value>Insufficient grade, absence</value>
+    <value>Insufficient grade, absence, unread notice</value>
   </data>
   <data name="NoticeAdapter_FromToValidDate" xml:space="preserve">
     <value>Valid from {0} to {1}</value>
@@ -600,7 +604,7 @@ Student accounts have usernames starting with the letters S, G, or X.</value>
     <value>Notice board</value>
   </data>
   <data name="NoAbsences.Text" xml:space="preserve">
-    <value>Nessuna assenza</value>
+    <value>No absences</value>
   </data>
   <data name="NoTasks.Text" xml:space="preserve">
     <value>No tasks</value>
@@ -660,69 +664,84 @@ Student accounts have usernames starting with the letters S, G, or X.</value>
     <value>Licenses</value>
   </data>
   <data name="AllPeriods.Content" xml:space="preserve">
-    <value>Tutti i periodi</value>
+    <value>All periods</value>
   </data>
   <data name="CalendarTT.ToolTipService.ToolTip" xml:space="preserve">
-    <value>Seleziona una data</value>
+    <value>Select a date</value>
   </data>
   <data name="FilterAllNotices.Text" xml:space="preserve">
-    <value>Tutte</value>
+    <value>All</value>
   </data>
   <data name="FilterReadNotices.Text" xml:space="preserve">
-    <value>Lette</value>
+    <value>Read</value>
   </data>
   <data name="FilterUnreadNotices.Text" xml:space="preserve">
-    <value>Non lette</value>
+    <value>Unread</value>
   </data>
   <data name="GradesNotAvailable" xml:space="preserve">
-    <value>N/D</value>
+    <value>N/A</value>
   </data>
   <data name="NTCL_plur" xml:space="preserve">
-    <value>Note disciplinari</value>
+    <value>Disciplinary notes</value>
   </data>
   <data name="NTCL_sing" xml:space="preserve">
-    <value>Nota disciplinare</value>
+    <value>Disciplinary note</value>
   </data>
   <data name="NTST_plur" xml:space="preserve">
-    <value>Sanzioni disciplinari</value>
+    <value>Disciplinary sanctions</value>
   </data>
   <data name="NTST_sing" xml:space="preserve">
-    <value>Sanzione disciplinare</value>
+    <value>Disciplinary sanction</value>
   </data>
   <data name="NTTE_plur" xml:space="preserve">
-    <value>Annotazioni</value>
+    <value>Annotations</value>
   </data>
   <data name="NTTE_sing" xml:space="preserve">
-    <value>Annotazione</value>
+    <value>Annotation</value>
   </data>
   <data name="NTWN_plur" xml:space="preserve">
-    <value>Richiami</value>
+    <value>Recalls</value>
   </data>
   <data name="NTWN_sing" xml:space="preserve">
-    <value>Richiamo</value>
+    <value>Recall</value>
   </data>
   <data name="ABA0_plur" xml:space="preserve">
-    <value>Assenze</value>
+    <value>Absences</value>
   </data>
   <data name="ABA0_sing" xml:space="preserve">
-    <value>Assenza</value>
+    <value>Absence</value>
   </data>
   <data name="ABR0_plur" xml:space="preserve">
-    <value>Ritardi</value>
+    <value>Delays</value>
   </data>
   <data name="ABR0_sing" xml:space="preserve">
-    <value>Ritardo</value>
+    <value>Delay</value>
   </data>
   <data name="ABR1_plur" xml:space="preserve">
-    <value>Ritardi brevi</value>
+    <value>Short delays</value>
   </data>
   <data name="ABR1_sing" xml:space="preserve">
-    <value>Ritardo breve</value>
+    <value>Short delay</value>
   </data>
   <data name="ABU0_plur" xml:space="preserve">
-    <value>Uscite anticipate</value>
+    <value>Early releases</value>
   </data>
   <data name="ABU0_sing" xml:space="preserve">
-    <value>Uscita anticipata</value>
+    <value>Early release</value>
+  </data>
+  <data name="AppTranslationStatus1" xml:space="preserve">
+    <value>The app has been translated at </value>
+  </data>
+  <data name="AppTranslationStatus2" xml:space="preserve">
+    <value>in the language you have chosen. Some sections of the app may not be translated yet.</value>
+  </data>
+  <data name="AreYouSureLanguageDialogText" xml:space="preserve">
+    <value>Are you sure you really want to change the app language?</value>
+  </data>
+  <data name="CautionDialogTitle" xml:space="preserve">
+    <value>Warning</value>
+  </data>
+  <data name="ContinueDialogButton" xml:space="preserve">
+    <value>Continue</value>
   </data>
 </root>
