@@ -29,11 +29,6 @@ namespace ClassevivaPCTO.Views
         {
             this.InitializeComponent();
 
-            //var mediaPlayer = new MediaPlayer();
-            //mediaPlayer.Source = MediaSource.CreateFromUri(new Uri("ms-appx:///Audio/sweep.mp3"));
-            //mediaPlayer.Play();
-
-
             // Hide default title bar.
             var coreTitleBar = CoreApplication.GetCurrentView().TitleBar;
             coreTitleBar.ExtendViewIntoTitleBar = true;
