@@ -1,4 +1,6 @@
-<div></div>
+<div>
+  
+</div>
 <p align="center">
  <img src="https://github.com/Gabboxl/ClassevivaPCTO/blob/main/ClassevivaPCTO/Assets/mainlogo.png" width=55% height=55%>
 </p>
