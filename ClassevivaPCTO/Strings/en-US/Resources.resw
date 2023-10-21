@@ -179,10 +179,12 @@ If you encounter bugs or have an idea for the app, open an issue on GitHub by cl
     <comment>What's new prompt message title</comment>
   </data>
   <data name="WhatsNew_Body_Main.Text" xml:space="preserve">
-    <value>• Improved the interface across the whole app
-• Added the ability to change the color palette used for grades and events
-• Added the ability to change the interface language (currently only English is available - you can contribute to translations from the Crowdin project - see the About section)
-</value>
+    <value>•  Migliorata l'interfaccia della pagina di Login
+•  Corretti alcuni errori relativi al cambio della lingua e ottimizzate le traduzioni
+•  Le note ora verranno visualizzate negli eventi del giorno
+•  Aggiornato il design del widget Bacheca nella Dashboard
+•  Aggiornato il design dei titoli delle categorie nelle pagine Bacheca, Assenze, Note e Scrutini
+•  Aggiunta la possibilità di visualizzare i contributors di GitHub e le licenze nella sezione Tips</value>
     <comment>What's new prompt message body for highlights section</comment>
   </data>
   <data name="WhatsNew_Body_1.Text" xml:space="preserve">
@@ -433,18 +435,20 @@ Student accounts have usernames starting with the letters S, G, or X.</value>
     <value>Nature</value>
   </data>
   <data name="WhatsNew_Body_3.Text" xml:space="preserve">
-    <value>Renewed layout</value>
+    <value>•  Aggiunta la possibilità di ridimensionare i popup
+•  Gli eventi nella sezione "Agenda" e nella sezione "Compiti" sono da adesso distinguibili tramite un'icona apposita
+•  Miglioramenti all'interfaccia</value>
     <comment>What's new prompt message body for third section (Agenda)</comment>
   </data>
   <data name="WhatsNew_Body_4.Text" xml:space="preserve">
-    <value>• The page has been completely renewed in terms of layout and interface
-• Added the ability to view all grades by term arrangement - the views now include the list of all subjects and the relative average for each of them. By clicking on a subject, the grades for that subject for that specific teaching period are displayed
-• Added the ability to see the average of each teaching period and the general average of the school year</value>
+    <value>•  Aggiornato il design della sezione medie
+•  Le materie / periodi didattici senza voti da adesso presenteranno il placeholder N/D
+•  Aggiunta una distizione tra primo e secondo quadrimestre nella selezione del periodo didattico; ciò vale solo per le scuole che non utilizzano il sistema trimestre/pentamestre</value>
     <comment>What's new prompt message body for fourth section (Valutazioni)</comment>
   </data>
   <data name="WhatsNew_Body_5.Text" xml:space="preserve">
-    <value>Renewed layout</value>
-    <comment>What's new prompt message body for fifth section (Assenze)</comment>
+    <value>•  Aggiunto un filtro per le comunicazioni lette/non lette</value>
+    <comment>What's new prompt message body for fifth section (Bacheca)</comment>
   </data>
   <data name="SettingsChangeProfilePicButton.Text" xml:space="preserve">
     <value>Change photo</value>
@@ -497,8 +501,8 @@ Student accounts have usernames starting with the letters S, G, or X.</value>
   <data name="SettingsChangelogHighlights.Text" xml:space="preserve">
     <value>Highlights</value>
   </data>
-  <data name="SettingsChangelogReleaseDate.Text" xml:space="preserve">
-    <value>18 September 2023</value>
+  <data name="SettingsChangelogRelease.Text" xml:space="preserve">
+    <value>v1.1.0.0, 21 Ottobre 2023</value>
   </data>
   <data name="AgendaButtonTomorrowTT.ToolTipService.ToolTip" xml:space="preserve">
     <value>Next day</value>
