@@ -8,7 +8,6 @@
     mc:Ignorable="d"
     xmlns:controls2="using:ClassevivaPCTO.Controls"
     xmlns:microconverters="using:Microsoft.Toolkit.Uwp.UI.Converters"
-    xmlns:converters="using:ClassevivaPCTO.Converters"
     xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
     xmlns:toolkit="using:Microsoft.Toolkit.Uwp.UI"
     xmlns:controls="using:CommunityToolkit.WinUI.Controls"
@@ -91,7 +90,7 @@
                     HorizontalAlignment="Left"
                     IsDragInverted="True"
                     Binding="{x:Bind LezioniPopup.Width, Mode=TwoWay}"
-                    Minimum="100"/>
+                    Minimum="100" />
 
                 <RelativePanel
                     Grid.Column="1"
@@ -112,7 +111,7 @@
                 <ScrollViewer Grid.Row="1"
                               Grid.Column="1">
                     <StackPanel Margin="4,0,16,0"
-                        x:Name="LezioniPopupStackPanel">
+                                x:Name="LezioniPopupStackPanel">
                     </StackPanel>
                 </ScrollViewer>
             </Grid>
@@ -161,7 +160,7 @@
                     HorizontalAlignment="Left"
                     IsDragInverted="True"
                     Binding="{x:Bind AgendaPopup.Width, Mode=TwoWay}"
-                    Minimum="100"/>
+                    Minimum="100" />
 
                 <RelativePanel
                     Grid.Column="1"
@@ -260,7 +259,7 @@
 
                         <Rectangle x:Name="Separator0" RelativePanel.LeftOf="ButtonYesterday"
                                    Fill="{ThemeResource ControlStrokeColorDefaultBrush}"
-                                   Width="2" Height="48" Margin="16,0,0,0"/>
+                                   Width="2" Height="48" Margin="16,0,0,0" />
 
                         <Button x:Name="ButtonYesterday" Margin="16,0,0,0"
                                 RelativePanel.AlignVerticalCenterWithPanel="True"
@@ -279,7 +278,7 @@
                                             FirstDayOfWeek="Monday"
                                             toolkit:FrameworkElementExtensions.Cursor="Hand"
                                             PlaceholderText="Scegli una data" Margin="8,0,8,0"
-                                            RelativePanel.AlignVerticalCenterWithPanel="True" MinWidth="116"/>
+                                            RelativePanel.AlignVerticalCenterWithPanel="True" MinWidth="116" />
 
                         <Button x:Name="ButtonTomorrow" Margin="0,0,0,0"
                                 RelativePanel.LeftOf="ButtonToday"

@@ -12,7 +12,6 @@ namespace ClassevivaPCTO.Controls
 {
     public sealed partial class LessonsListView : UserControl, INotifyPropertyChanged
     {
-
         public bool EnableEmptyAlert
         {
             get { return (bool) GetValue(EnableEmptyAlertProperty); }
@@ -119,7 +118,8 @@ namespace ClassevivaPCTO.Controls
             currentInstance.listView.ItemsSource = eventAdapters;
 
 
-            currentInstance.ShowEmptyAlert = (newValue == null || newValue.Count == 0) && currentInstance.EnableEmptyAlert;
+            currentInstance.ShowEmptyAlert =
+                (newValue == null || newValue.Count == 0) && currentInstance.EnableEmptyAlert;
         }
 
 

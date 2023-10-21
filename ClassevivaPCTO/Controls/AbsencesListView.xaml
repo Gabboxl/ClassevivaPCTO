@@ -18,7 +18,6 @@
         <converters:BetterBoolToVisibilityConverter x:Key="BetterBoolToVisibilityConverter" />
 
 
-
         <DataTemplate x:Key="AbsenceEventListViewDataTemplateCompact"
 
                       x:DataType="adapters:AbsenceEventAdapter">

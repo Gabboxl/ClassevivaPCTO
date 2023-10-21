@@ -14,7 +14,7 @@ namespace ClassevivaPCTO.Converters
                 return "GradesNotAvailable".GetLocalized();
             else if (value is float numberValue)
                 return numberValue.ToString("0.0");
-            
+
             return new InvalidOperationException("Value must be a float or NaN");
         }
 

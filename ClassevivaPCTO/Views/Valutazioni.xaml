@@ -41,7 +41,6 @@
                 </Grid.ColumnDefinitions>
 
 
-
                 <winUi:SettingsExpander x:Name="MateriaExpander" IsExpanded="False"
                                         HorizontalAlignment="Stretch"
                                         HorizontalContentAlignment="Stretch"
@@ -387,8 +386,8 @@
                 RelativePanel.AlignBottomWithPanel="True"
                 x:Name="GradesOnlyListView"
                 HorizontalAlignment="Stretch"
-                HorizontalContentAlignment="Stretch"
-                ></controls2:GradesListView>
+                HorizontalContentAlignment="Stretch">
+            </controls2:GradesListView>
 
             <ListView
                 Margin="0,32,0,0"

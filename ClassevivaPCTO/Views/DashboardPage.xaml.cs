@@ -40,7 +40,8 @@ namespace ClassevivaPCTO.Views
 
             Card? cardResult = ViewModelHolder.GetViewModel().SingleCardResult;
 
-            TextTitolo.Text = string.Format("TitoloDashboardText".GetLocalized(), VariousUtils.ToTitleCase(cardResult.firstName));
+            TextTitolo.Text = string.Format("TitoloDashboardText".GetLocalized(),
+                VariousUtils.ToTitleCase(cardResult.firstName));
 
             /*
 
@@ -116,7 +117,7 @@ namespace ClassevivaPCTO.Views
                 var result1 = await apiWrapper
                     .GetGrades(cardResult.usrId.ToString())
                     .ConfigureAwait(false);
-                
+
                 var fiveMostRecent = result1.Grades.OrderByDescending(x => x.evtDate).Take(4);
 
                 //update UI on UI thread

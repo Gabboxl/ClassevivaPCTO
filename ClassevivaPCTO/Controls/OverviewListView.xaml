@@ -49,7 +49,7 @@
 
                 <controls2:NotesListView x:Name="NotesListView"
                                          EnableEmptyAlert="False"
-                                            HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                                         HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
                 </controls2:NotesListView>
 
 

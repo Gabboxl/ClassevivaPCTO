@@ -25,7 +25,7 @@ namespace ClassevivaPCTO.Adapters
             get
             {
                 var media = VariousUtils.CalcolaMedia(SubjectGrades);
-                
+
                 return media;
             }
         }

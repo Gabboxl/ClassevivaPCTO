@@ -44,10 +44,10 @@
                        Margin="32,16,0,0" />
 
             <StackPanel Grid.Row="1"
-                  MaxWidth="1000"
-                  HorizontalAlignment="Stretch"
-                  Margin="24,0,24,0"
-                  Spacing="{StaticResource SettingsCardSpacing}">
+                        MaxWidth="1000"
+                        HorizontalAlignment="Stretch"
+                        Margin="24,0,24,0"
+                        Spacing="{StaticResource SettingsCardSpacing}">
                 <StackPanel.ChildrenTransitions>
                     <EntranceThemeTransition FromVerticalOffset="50" IsStaggeringEnabled="True" />
                     <RepositionThemeTransition IsStaggeringEnabled="False" />
@@ -211,7 +211,7 @@
                                         <TextBlock Text="{x:Bind PaletteNameTranslatedResource}"
                                                    HorizontalAlignment="Left"
                                                    VerticalAlignment="Center"
-                                                   
+
                                                    Margin="0,0,0,0" />
 
                                         <StackPanel Orientation="Horizontal"

@@ -40,10 +40,7 @@ namespace ClassevivaPCTO.Controls
         public bool ShowEmptyAlert
         {
             get { return _showEmptyAlert; }
-            set
-            {
-                SetField(ref _showEmptyAlert, value);
-            }
+            set { SetField(ref _showEmptyAlert, value); }
         }
 
         public List<AgendaEvent> ItemsSource
@@ -116,7 +113,6 @@ namespace ClassevivaPCTO.Controls
 
 
             currentInstance.listView.ItemsSource = currentInstance.GroupedItems.View;
-
 
 
             currentInstance.ShowEmptyAlert = newValue == null || newValue.Count == 0;

@@ -18,10 +18,7 @@ namespace ClassevivaPCTO.Controls
         public bool EnableEmptyAlert
         {
             get { return (bool) GetValue(EnableEmptyAlertProperty); }
-            set
-            {
-                SetValue(EnableEmptyAlertProperty, value);
-            }
+            set { SetValue(EnableEmptyAlertProperty, value); }
         }
 
         private static readonly DependencyProperty EnableEmptyAlertProperty =
@@ -66,7 +63,7 @@ namespace ClassevivaPCTO.Controls
 
         private CollectionViewSource GroupedItems { get; set; }
 
-        
+
         private static async Task<ObservableCollection<GroupInfoList>> GetAbsenceEventsGroupedAsync(
             List<AbsenceEventAdapter> absenceEventAdapters)
         {
@@ -99,14 +96,18 @@ namespace ClassevivaPCTO.Controls
                 IsSourceGrouped = currentInstance.EnableStickyHeader, //TODO: settare proprietà da dependencyproperty
 
                 //in base al valore di IsSourceGrouped, Source può essere un IEnumerable oppure un IList
-                Source = currentInstance.EnableStickyHeader ? await GetAbsenceEventsGroupedAsync(eventAdapters) : eventAdapters 
+                Source = currentInstance.EnableStickyHeader
+                    ? await GetAbsenceEventsGroupedAsync(eventAdapters)
+                    : eventAdapters
             };
 
 
             //update the listview contents
-            currentInstance.listView.ItemsSource = currentInstance.GroupedItems.View;;
+            currentInstance.listView.ItemsSource = currentInstance.GroupedItems.View;
+            ;
 
-            currentInstance.ShowEmptyAlert = (newValue == null || newValue.Count == 0) && currentInstance.EnableEmptyAlert;
+            currentInstance.ShowEmptyAlert =
+                (newValue == null || newValue.Count == 0) && currentInstance.EnableEmptyAlert;
         }
 
 

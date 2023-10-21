@@ -14,7 +14,11 @@ namespace ClassevivaPCTO.Adapters
 
         public string EventTitle
         {
-            get { return CurrentObject.evtCode.ToString().GetLocalized("sing") + " del " + CurrentObject.evtDate.ToString("dd/MM/yyyy"); }
+            get
+            {
+                return CurrentObject.evtCode.ToString().GetLocalized("sing") + " del " +
+                       CurrentObject.evtDate.ToString("dd/MM/yyyy");
+            }
         }
 
         public string JustifiedText

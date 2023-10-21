@@ -7,10 +7,7 @@ using Windows.ApplicationModel.Core;
 using Windows.UI.Core;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
-using ClassevivaPCTO.Deserializers;
-using Newtonsoft.Json;
 using System.Collections.Generic;
-using Refit;
 
 namespace ClassevivaPCTO.Views
 {

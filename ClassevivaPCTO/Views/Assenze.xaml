@@ -9,7 +9,6 @@
     xmlns:microconverters="using:Microsoft.Toolkit.Uwp.UI.Converters"
     mc:Ignorable="d"
     xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
-    xmlns:controls1="using:Microsoft.Toolkit.Uwp.UI.Controls"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
     muxc:BackdropMaterial.ApplyToRootOrPageBackground="True">
 
@@ -100,11 +99,11 @@
 
                     </Grid.ColumnDefinitions>
 
-                        <controls:AbsencesListView x:Name="AbsencesToJustifyListView" Grid.Row="2"
-                                                   EnableStickyHeader="True"
-                                                   EnableEmptyAlert="True"
-                                                   HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-                        </controls:AbsencesListView>
+                    <controls:AbsencesListView x:Name="AbsencesToJustifyListView" Grid.Row="2"
+                                               EnableStickyHeader="True"
+                                               EnableEmptyAlert="True"
+                                               HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                    </controls:AbsencesListView>
 
 
                 </Grid>

@@ -112,7 +112,6 @@ namespace ClassevivaPCTO.Utils
 
         public static (DateTime startDate, DateTime endDate) GetLessonsStartEndDates()
         {
-
             //var StartDate if i am on the first semester, then start date is 1st of september of the current year
             //else start date is 1st of september of the next year
             DateTime startDate = new DateTime(

@@ -87,10 +87,7 @@ namespace ClassevivaPCTO.Views
                 //update UI on UI thread
                 await CoreApplication.MainView.Dispatcher.RunAsync(
                     CoreDispatcherPriority.Normal,
-                    async () =>
-                    {
-                        ScrutiniListView.ItemsSource = scrutiniDocumentsResult;
-                    }
+                    async () => { ScrutiniListView.ItemsSource = scrutiniDocumentsResult; }
                 );
             }
             finally

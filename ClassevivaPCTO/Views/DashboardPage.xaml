@@ -127,7 +127,7 @@
                     <RelativePanel Grid.Row="0">
 
                         <TextBlock x:Name="TextOggiAgenda" x:Uid="TextOggiAgenda"
-                                  FontSize="20"
+                                   FontSize="20"
                                    VerticalAlignment="Top"
                                    HorizontalAlignment="Left" Margin="8,4,0,8" FontWeight="Medium" />
 
@@ -138,8 +138,6 @@
 
                                            Visibility="{x:Bind DashboardPageViewModel.IsLoadingAgenda, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" />
                     </RelativePanel>
-
-
 
 
                     <controls2:OverviewListView Grid.Row="1" x:Name="OverviewListView"
@@ -272,9 +270,8 @@
                     </RelativePanel>
 
 
-
-                        <controls2:NoticesListView x:Name="ListRecentNotices" Grid.Row="1"
-                                                   HorizontalAlignment="Stretch"/>
+                    <controls2:NoticesListView x:Name="ListRecentNotices" Grid.Row="1"
+                                               HorizontalAlignment="Stretch" />
 
 
                     <HyperlinkButton Grid.Row="2" x:Name="ButtonApriBacheca"

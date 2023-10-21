@@ -17,7 +17,6 @@
         <converters:BetterBoolToVisibilityConverter x:Key="BetterBoolToVisibilityConverter" />
 
 
-
         <DataTemplate x:Key="LessonListViewDataTemplate"
                       x:DataType="adapters:LessonAdapter">
             <RelativePanel>

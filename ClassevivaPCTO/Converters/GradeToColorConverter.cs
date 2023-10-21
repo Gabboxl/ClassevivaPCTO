@@ -36,8 +36,7 @@ namespace ClassevivaPCTO.Converters
             else if (float.IsNaN((float) valore))
             {
                 // set brush to staticresource TextFillColorTertiaryBrush
-                brush = (SolidColorBrush)Application.Current.Resources["TextFillColorTertiaryBrush"];
-
+                brush = (SolidColorBrush) Application.Current.Resources["TextFillColorTertiaryBrush"];
             }
             else
             {

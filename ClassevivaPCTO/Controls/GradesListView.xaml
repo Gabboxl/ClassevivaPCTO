@@ -163,7 +163,7 @@
             <FontIcon x:Name="IconNotes" FontFamily="{StaticResource FluentIcons}" Glyph="&#xe9f9;"
                       Foreground="{ThemeResource TextFillColorDisabledBrush}"
                       RelativePanel.AlignHorizontalCenterWithPanel="True"
-                      
+
                       FontSize="124"
                       Margin="0,16,0,0" />
 

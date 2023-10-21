@@ -14,10 +14,7 @@ namespace ClassevivaPCTO.Controls
         public bool EnableEmptyAlert
         {
             get { return (bool) GetValue(EnableEmptyAlertProperty); }
-            set
-            {
-                SetValue(EnableEmptyAlertProperty, value);
-            }
+            set { SetValue(EnableEmptyAlertProperty, value); }
         }
 
         private static readonly DependencyProperty EnableEmptyAlertProperty =
@@ -59,7 +56,8 @@ namespace ClassevivaPCTO.Controls
             currentInstance.listView.ItemsSource = eventAdapters;
 
 
-            currentInstance.ShowEmptyAlert = (newValue == null || newValue.Count == 0) && currentInstance.EnableEmptyAlert;
+            currentInstance.ShowEmptyAlert =
+                (newValue == null || newValue.Count == 0) && currentInstance.EnableEmptyAlert;
         }
 
 

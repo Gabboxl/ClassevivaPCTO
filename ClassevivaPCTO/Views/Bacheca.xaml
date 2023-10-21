@@ -140,9 +140,6 @@
                        Style="{ThemeResource BodyStrongTextBlockStyle}" FontSize="18" FontWeight="SemiBold" />
 
 
-
-
-
             <Grid RelativePanel.Below="TextComunicazioni"
                   RelativePanel.AlignRightWithPanel="True"
                   RelativePanel.AlignLeftWithPanel="True"
@@ -155,7 +152,8 @@
                     <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
 
-                <Rectangle Fill="#5B5B5B" Height="1" Margin="14,0,14,0" VerticalAlignment="Top" Visibility="{x:Bind BachecaViewModel.NoticesToShow, Mode=OneWay, FallbackValue=Collapsed, Converter={StaticResource EmptyListToVisibilityConverter}}"/>
+                <Rectangle Fill="#5B5B5B" Height="1" Margin="14,0,14,0" VerticalAlignment="Top"
+                           Visibility="{x:Bind BachecaViewModel.NoticesToShow, Mode=OneWay, FallbackValue=Collapsed, Converter={StaticResource EmptyListToVisibilityConverter}}" />
 
                 <controls:NoticesListView
                     Margin="0,8,0,0"

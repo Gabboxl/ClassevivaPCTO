@@ -103,8 +103,6 @@ namespace ClassevivaPCTO.Views
                         BachecaViewModel.NoticesToShow = noticesToShow;
                     }
                 );
-
-
             }
             finally
             {

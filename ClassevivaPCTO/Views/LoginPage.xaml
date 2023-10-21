@@ -43,9 +43,9 @@
         </Grid>
 
 
-        <Image x:Name="Logo" Source="/Assets/mainlogo.png" Stretch="Uniform" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  Margin="0,-480,0,0" Height="60" Width="300">
+        <Image x:Name="Logo" Source="/Assets/mainlogo.png" Stretch="Uniform" HorizontalAlignment="Stretch"
+               VerticalAlignment="Stretch" Margin="0,-480,0,0" Height="60" Width="300">
         </Image>
-
 
 
         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Height="380" Width="340"
@@ -55,7 +55,8 @@
                     BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
                     Background="{ThemeResource CardBackgroundFillColorDefaultBrush}">
 
-            <TextBlock x:Uid="TextBenvenutoLogin" FontSize="26" FontWeight="Medium" TextAlignment="Center" Height="60" Margin="0,8,0,0"/>
+            <TextBlock x:Uid="TextBenvenutoLogin" FontSize="26" FontWeight="Medium" TextAlignment="Center" Height="60"
+                       Margin="0,8,0,0" />
 
             <TextBox x:Name="EdittextUsername" x:Uid="EdittextUsername"
                      Margin="0,0,0,20" />
@@ -67,7 +68,7 @@
             <Button x:Name="buttonLogin" Style="{StaticResource AccentButtonStyle}" x:Uid="LoginButton" Height="32"
                     MinWidth="90" RenderTransformOrigin="2.13,0.797" HorizontalAlignment="Center" Margin="0,12,0,0"
                     Click="Button_Click" />
-            <muxc:ProgressRing x:Name="progresslogin" IsActive="True" Visibility="Collapsed" Margin="0,12,0,0"/>
+            <muxc:ProgressRing x:Name="progresslogin" IsActive="True" Visibility="Collapsed" Margin="0,12,0,0" />
         </StackPanel>
 
         <TextBlock x:Name="VersionTextBlock" Style="{ThemeResource BodyStrongTextBlockStyle}"

@@ -105,10 +105,6 @@ namespace ClassevivaPCTO.Views
                 samePeriods.ForEach(p => p.periodDesc = (samePeriods.IndexOf(p) + 1) + "° " + p.periodDesc);
 
 
-
-
-
-
                 // Select unique Periods from Grade list
                 _mergedPeriodList = resultPeriods.Periods
                     .GroupBy(p => p.periodPos)
@@ -125,7 +121,6 @@ namespace ClassevivaPCTO.Views
                                     .ToList()
                             }).ToList()
                     }).ToList();
-
 
 
                 //update UI on UI thread
@@ -168,7 +163,7 @@ namespace ClassevivaPCTO.Views
                 if (CheckboxSuddividi.IsChecked == true)
                 {
                     MainListView.Visibility = Visibility.Visible;
-                    GradesOnlyListView .Visibility = Visibility.Collapsed;
+                    GradesOnlyListView.Visibility = Visibility.Collapsed;
 
                     //create a list of SubjectAdapter from periodGrades by merging periods together and count subjects as one distinct subject
                     var mergetdPeriodsSubjects = _mergedPeriodList
@@ -190,7 +185,7 @@ namespace ClassevivaPCTO.Views
                 else
                 {
                     MainListView.Visibility = Visibility.Collapsed;
-                    GradesOnlyListView .Visibility = Visibility.Visible;
+                    GradesOnlyListView.Visibility = Visibility.Visible;
 
                     GradesOnlyListView.ItemsSource = _sortedGrades;
                 }
@@ -199,7 +194,7 @@ namespace ClassevivaPCTO.Views
             {
                 CheckboxSuddividi.IsEnabled = false;
                 MainListView.Visibility = Visibility.Visible;
-                GradesOnlyListView .Visibility = Visibility.Collapsed;
+                GradesOnlyListView.Visibility = Visibility.Collapsed;
 
 
                 var periodGrades = _mergedPeriodList[periodIndex - 1].Subjects;
@@ -247,12 +242,18 @@ namespace ClassevivaPCTO.Views
             //set progressrings value
             ProgressMediaTot.Value = float.IsNaN(allGradesAverage) ? 0 : allGradesAverage * 10;
             ProgressMediaPrimoPeriodo.Value = float.IsNaN(firstPeriodGradesAverage) ? 0 : firstPeriodGradesAverage * 10;
-            ProgressMediaSecondoPeriodo.Value = float.IsNaN(secondPeriodGradesAverage) ? 0 : secondPeriodGradesAverage * 10;
+            ProgressMediaSecondoPeriodo.Value =
+                float.IsNaN(secondPeriodGradesAverage) ? 0 : secondPeriodGradesAverage * 10;
 
             //set grades count
-            string valutazioniPlAllgrad = allGradesCount == 1 ? "GradeSingular".GetLocalized() : "GradesPlural".GetLocalized();
-            string valutazioniPlurale1 = firstPeriodGradesCount == 1 ? "GradeSingular".GetLocalized() : "GradesPlural".GetLocalized();
-            string valutazioniPlurale2 = secondPeriodGradesCount == 1 ? "GradeSingular".GetLocalized() : "GradesPlural".GetLocalized();
+            string valutazioniPlAllgrad =
+                allGradesCount == 1 ? "GradeSingular".GetLocalized() : "GradesPlural".GetLocalized();
+            string valutazioniPlurale1 = firstPeriodGradesCount == 1
+                ? "GradeSingular".GetLocalized()
+                : "GradesPlural".GetLocalized();
+            string valutazioniPlurale2 = secondPeriodGradesCount == 1
+                ? "GradeSingular".GetLocalized()
+                : "GradesPlural".GetLocalized();
 
             NumTotVal.Text = string.Format("{0} " + valutazioniPlAllgrad, allGradesCount.ToString());
             NumFirstPerVal.Text = string.Format("{0} " + valutazioniPlurale1, firstPeriodGradesCount.ToString());

@@ -18,14 +18,14 @@
         <converters:BetterBoolToVisibilityConverter x:Key="BetterBoolToVisibilityConverter" />
 
 
-
         <DataTemplate x:Key="AgendaEventListViewDataTemplate"
 
                       x:DataType="adapters:AgendaEventAdapter">
             <RelativePanel>
 
                 <!-- icon calendar -->
-                <FontIcon x:Name="IconCalendar" FontFamily="{StaticResource FluentIcons}" Glyph="{x:Bind EventTypeIcon}"
+                <FontIcon x:Name="IconCalendar" FontFamily="{StaticResource FluentIcons}"
+                          Glyph="{x:Bind EventTypeIcon}"
                           RelativePanel.AlignVerticalCenterWithPanel="True"
                           Foreground="{ThemeResource TextFillColorTertiaryBrush}"
                           Margin="4,0,8,0" />
@@ -85,7 +85,8 @@
             <RelativePanel>
 
                 <!-- icon calendar -->
-                <FontIcon x:Name="IconCalendar" FontFamily="{StaticResource FluentIcons}" Glyph="{x:Bind EventTypeIcon}"
+                <FontIcon x:Name="IconCalendar" FontFamily="{StaticResource FluentIcons}"
+                          Glyph="{x:Bind EventTypeIcon}"
                           RelativePanel.AlignVerticalCenterWithPanel="True"
                           Foreground="{ThemeResource TextFillColorTertiaryBrush}"
                           Margin="4,0,8,0" />

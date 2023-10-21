@@ -138,7 +138,6 @@ namespace ClassevivaPCTO.Controls
 
                 //TODO: forse ordinare ulteriormente ogni gruppo per data?
 
-
                 //prendo il long name dell'enum con attributo ApiValueAttribute
                 select new GroupInfoList(g) {Key = g.Key.ToString().GetLocalized("plur")};
 
@@ -148,7 +147,8 @@ namespace ClassevivaPCTO.Controls
         private static async void OnItemsSourceChanged(
             DependencyObject d,
             DependencyPropertyChangedEventArgs e
-        ) {
+        )
+        {
             NotesListView currentInstance = (NotesListView) d;
 
             var newValue = e.NewValue as List<Note>;
@@ -161,7 +161,9 @@ namespace ClassevivaPCTO.Controls
             double verticalOffset = scrollViewer.VerticalOffset;
 
             //object perchè GroupedItems.Source può essere un IEnumerable oppure un IList
-            object finalNotesObject = currentInstance.EnableStickyHeader ? await GetNotesGroupedAsync(noteAdapters) : noteAdapters;
+            object finalNotesObject = currentInstance.EnableStickyHeader
+                ? await GetNotesGroupedAsync(noteAdapters)
+                : noteAdapters;
 
 
             currentInstance.GroupedItems = new CollectionViewSource
@@ -172,14 +174,16 @@ namespace ClassevivaPCTO.Controls
 
 
             //update the listview contents
-            currentInstance.listView.ItemsSource = currentInstance.GroupedItems.View;;
+            currentInstance.listView.ItemsSource = currentInstance.GroupedItems.View;
+            ;
 
 
             //restore the scroll position
             scrollViewer.ChangeView(horizontalOffset, verticalOffset, null);
 
             //update the empty state
-            currentInstance.ShowEmptyAlert = (newValue == null || newValue.Count == 0) && currentInstance.EnableEmptyAlert;
+            currentInstance.ShowEmptyAlert =
+                (newValue == null || newValue.Count == 0) && currentInstance.EnableEmptyAlert;
         }
 
         public NotesListView()
@@ -288,7 +292,8 @@ namespace ClassevivaPCTO.Controls
 
                 ContentDialog dialog = new()
                 {
-                    Title = currentNote.evtCode.ToString().GetLocalized("sing") + " del " + currentNote.evtDate.ToString("dd/MM/yyyy"),
+                    Title = currentNote.evtCode.ToString().GetLocalized("sing") + " del " +
+                            currentNote.evtDate.ToString("dd/MM/yyyy"),
                     PrimaryButtonText = "CloseDialogButtonText".GetLocalized(),
                     DefaultButton = ContentDialogButton.Primary,
                     RequestedTheme = ((FrameworkElement) Window.Current.Content).RequestedTheme,

@@ -37,7 +37,7 @@ namespace ClassevivaPCTO.Views
 
             //set the min and max date of the calendaragenda
             var agedaDates = VariousUtils.GetAgendaStartEndDates();
-            
+
             ColoredCalendarView.MinDate = agedaDates.startDate;
             ColoredCalendarView.MaxDate = agedaDates.endDate;
         }
@@ -109,7 +109,6 @@ namespace ClassevivaPCTO.Views
 
                         //select the current day of the calendar
                         ColoredCalendarView.SetDisplayDate(DateTime.Now.Date);
-
                     }
                 );
             }

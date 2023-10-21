@@ -54,9 +54,11 @@ namespace ClassevivaPCTO.Controls
                     )
                     .ToList();
 
-                filteredOverviewResults.Grades = overviewResult.Grades.Where(grade => grade.evtDate == newValue.FilterDate.Date).ToList();
+                filteredOverviewResults.Grades = overviewResult.Grades
+                    .Where(grade => grade.evtDate == newValue.FilterDate.Date).ToList();
 
-                filteredOverviewResults.Notes = overviewResult.Notes.Where(note => note.evtDate == newValue.FilterDate.Date).ToList();
+                filteredOverviewResults.Notes =
+                    overviewResult.Notes.Where(note => note.evtDate == newValue.FilterDate.Date).ToList();
 
                 //questo per le lezioni in teoria non serve
                 //filteredOverviewResults.Lessons = overviewResult.Lessons.Where(les => les.evtDate == newValue.FilterDate.Date).ToList();
@@ -70,16 +72,16 @@ namespace ClassevivaPCTO.Controls
             currentInstance.LessonsListView.ItemsSource = filteredOverviewResults.Lessons;
             currentInstance.AgendaListView.ItemsSource = filteredOverviewResults.AgendaEvents;
             currentInstance.NotesListView.ItemsSource = filteredOverviewResults.Notes;
-            
 
 
             currentInstance.OverviewControlViewModel.FilteredOverviewResult = filteredOverviewResults;
 
-            currentInstance.OverviewControlViewModel.ShowEmptyAlert = filteredOverviewResults.AbsenceEvents.Count == 0 &&
-                                                                filteredOverviewResults.AgendaEvents.Count == 0 &&
-                                                                filteredOverviewResults.Grades.Count == 0 &&
-                                                                filteredOverviewResults.Lessons.Count == 0 &&
-                                                                filteredOverviewResults.Notes.Count == 0;
+            currentInstance.OverviewControlViewModel.ShowEmptyAlert =
+                filteredOverviewResults.AbsenceEvents.Count == 0 &&
+                filteredOverviewResults.AgendaEvents.Count == 0 &&
+                filteredOverviewResults.Grades.Count == 0 &&
+                filteredOverviewResults.Lessons.Count == 0 &&
+                filteredOverviewResults.Notes.Count == 0;
         }
 
 

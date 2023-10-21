@@ -23,10 +23,11 @@
             <RelativePanel>
 
                 <!-- icon calendar -->
-                <FontIcon x:Name="IconCalendar" FontFamily="{StaticResource FluentIcons}" Glyph="{x:Bind EventTypeIcon}"
+                <FontIcon x:Name="IconCalendar" FontFamily="{StaticResource FluentIcons}"
+                          Glyph="{x:Bind EventTypeIcon}"
                           RelativePanel.AlignVerticalCenterWithPanel="True"
                           Foreground="{ThemeResource TextFillColorTertiaryBrush}"
-                          Margin="4,0,8,0" /> 
+                          Margin="4,0,8,0" />
 
                 <!-- <CheckBox x:Name="IconCalendar" RelativePanel.AlignVerticalCenterWithPanel="True" Margin="4,0,8,0"  /> -->
 

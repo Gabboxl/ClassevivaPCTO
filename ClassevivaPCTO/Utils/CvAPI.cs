@@ -7,7 +7,6 @@ using ClassevivaPCTO.Deserializers;
 
 namespace ClassevivaPCTO.Utils
 {
-
     public static class Endpoint
     {
         public const string Official = "https://web.spaggiari.eu/rest/v1";
@@ -26,30 +25,22 @@ namespace ClassevivaPCTO.Utils
 
     public class LoginData
     {
-        [AliasAs("uid")]
-        public string Uid { get; init; }
+        [AliasAs("uid")] public string Uid { get; init; }
 
-        [AliasAs("pass")]
-        public string Pass { get; init; }
+        [AliasAs("pass")] public string Pass { get; init; }
 
-        [AliasAs("ident")]
-        public string? Ident { get; init; }
-
+        [AliasAs("ident")] public string? Ident { get; init; }
     }
 
     public enum AbsenceEventCode
     {
-        [ApiValue("A", "")]
-        ABA0, //assenza
+        [ApiValue("A", "")] ABA0, //assenza
 
-        [ApiValue("R", "")]
-        ABR0, //ritardo
+        [ApiValue("R", "")] ABR0, //ritardo
 
-        [ApiValue("Rb", "")]
-        ABR1, //ritardo breve
+        [ApiValue("Rb", "")] ABR1, //ritardo breve
 
-        [ApiValue("U", "")]
-        ABU0 //uscita anticipata
+        [ApiValue("U", "")] ABU0 //uscita anticipata
     }
 
     public class AbsenceEvent
@@ -63,16 +54,13 @@ namespace ClassevivaPCTO.Utils
         public string justifReasonCode { get; set; }
         public string justifReasonDesc { get; set; }
         public List<int?> hoursAbsence { get; set; }
-
     }
 
 
     public class AbsencesResult
     {
-        [JsonPropertyName("events")]
-        public List<AbsenceEvent> AbsenceEvents { get; set; }
+        [JsonPropertyName("events")] public List<AbsenceEvent> AbsenceEvents { get; set; }
     }
-
 
 
     public class Grade
@@ -104,13 +92,11 @@ namespace ClassevivaPCTO.Utils
         public string skillValueShortDesc { get; set; }
         public long? oldskillId { get; set; }
         public string oldskillDesc { get; set; }
-
     }
 
     public class Grades2Result
     {
-        [JsonPropertyName("grades")]
-        public List<Grade> Grades { get; set; }
+        [JsonPropertyName("grades")] public List<Grade> Grades { get; set; }
     }
 
     public class LoginChoice
@@ -125,8 +111,7 @@ namespace ClassevivaPCTO.Utils
     {
         public string requestedAction { get; set; }
 
-        [JsonPropertyName("choices")]
-        public List<LoginChoice> choices { get; set; }
+        [JsonPropertyName("choices")] public List<LoginChoice> choices { get; set; }
 
         public string message { get; set; }
     }
@@ -139,11 +124,9 @@ namespace ClassevivaPCTO.Utils
         public string token { get; set; }
         public bool showPwdChangeReminder { get; set; }
 
-        [JsonProperty("release")]
-        public DateTime release { get; set; }
+        [JsonProperty("release")] public DateTime release { get; set; }
 
-        [JsonProperty("expire")]
-        public DateTime expire { get; set; }
+        [JsonProperty("expire")] public DateTime expire { get; set; }
     }
 
 
@@ -161,7 +144,6 @@ namespace ClassevivaPCTO.Utils
         public string subjectDesc { get; set; }
         public string lessonType { get; set; }
         public string lessonArg { get; set; }
-
     }
 
     public class AgendaEvent
@@ -181,25 +163,19 @@ namespace ClassevivaPCTO.Utils
 
     public class AgendaResult
     {
-        [JsonPropertyName("agenda")]
-        public List<AgendaEvent> AgendaEvents { get; set; }
+        [JsonPropertyName("agenda")] public List<AgendaEvent> AgendaEvents { get; set; }
     }
-
 
 
     public class OverviewResult
     {
-        [JsonPropertyName("lessons")]
-        public List<Lesson> Lessons { get; set; }
+        [JsonPropertyName("lessons")] public List<Lesson> Lessons { get; set; }
 
-        [JsonPropertyName("agenda")]
-        public List<AgendaEvent> AgendaEvents { get; set; }
+        [JsonPropertyName("agenda")] public List<AgendaEvent> AgendaEvents { get; set; }
 
-        [JsonPropertyName("events")]
-        public List<AbsenceEvent> AbsenceEvents { get; set; }
+        [JsonPropertyName("events")] public List<AbsenceEvent> AbsenceEvents { get; set; }
 
-        [JsonPropertyName("grades")]
-        public List<Grade> Grades { get; set; }
+        [JsonPropertyName("grades")] public List<Grade> Grades { get; set; }
 
         [JsonPropertyName("notes")]
         //[System.Text.Json.Serialization.JsonConverter(typeof(NoteDeserializerNet))]
@@ -209,8 +185,7 @@ namespace ClassevivaPCTO.Utils
 
     public class SingleCardResult
     {
-        [JsonPropertyName("card")]
-        public Card Card { get; set; }
+        [JsonPropertyName("card")] public Card Card { get; set; }
     }
 
 
@@ -230,16 +205,13 @@ namespace ClassevivaPCTO.Utils
         public string schDedication { get; set; }
         public string schCity { get; set; }
         public string schProv { get; set; }
-
     }
 
 
     public class CardsResult
     {
-        [JsonPropertyName("cards")]
-        public List<Card> Cards { get; set; }
+        [JsonPropertyName("cards")] public List<Card> Cards { get; set; }
     }
-
 
 
     public class Period
@@ -258,7 +230,7 @@ namespace ClassevivaPCTO.Utils
         public string teacherId { get; set; }
         public string teacherName { get; set; }
     }
-    
+
     public class Subject
     {
         public long id { get; set; }
@@ -349,7 +321,6 @@ namespace ClassevivaPCTO.Utils
     }
 
 
-
     public class NotesResult
     {
         [JsonPropertyName("NTTE")] //Annotazioni
@@ -367,32 +338,27 @@ namespace ClassevivaPCTO.Utils
 
     public class ReadNoteResult
     {
-        [JsonPropertyName("event")]
-        public Note Note { get; set; }
+        [JsonPropertyName("event")] public Note Note { get; set; }
     }
 
     public class PeriodsResult
     {
-        [JsonPropertyName("periods")]
-        public List<Period> Periods { get; set; }
+        [JsonPropertyName("periods")] public List<Period> Periods { get; set; }
     }
 
     public class SubjectsResult
     {
-        [JsonPropertyName("subjects")]
-        public List<Subject> Subjects { get; set; }
+        [JsonPropertyName("subjects")] public List<Subject> Subjects { get; set; }
     }
 
     public class LessonsResult
     {
-        [JsonPropertyName("lessons")]
-        public List<Lesson> Lessons { get; set; }
+        [JsonPropertyName("lessons")] public List<Lesson> Lessons { get; set; }
     }
 
     public class NoticeboardResult
     {
-        [JsonPropertyName("items")]
-        public List<Notice> Notices { get; set; }
+        [JsonPropertyName("items")] public List<Notice> Notices { get; set; }
     }
 
     //scrutini
@@ -415,11 +381,9 @@ namespace ClassevivaPCTO.Utils
 
     public class ScrutiniDocumentsResult
     {
-        [JsonPropertyName("documents")]
-        public List<ScrutiniDocument> Documents { get; set; }
+        [JsonPropertyName("documents")] public List<ScrutiniDocument> Documents { get; set; }
 
-        [JsonPropertyName("schoolReports")]
-        public List<ScrutiniSchoolReport> SchoolReports { get; set; }
+        [JsonPropertyName("schoolReports")] public List<ScrutiniSchoolReport> SchoolReports { get; set; }
     }
 
     public class ScrutiniDocumentCheckStatus
@@ -455,10 +419,8 @@ namespace ClassevivaPCTO.Utils
         public DayStatus dayStatus { get; set; }
     }
 
-    public class CalendarResult {
-
-        [JsonPropertyName("calendar")]
-        public List<CalendarDay> CalendarDays { get; set; }
+    public class CalendarResult
+    {
+        [JsonPropertyName("calendar")] public List<CalendarDay> CalendarDays { get; set; }
     }
-
 }

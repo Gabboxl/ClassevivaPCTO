@@ -21,10 +21,7 @@ namespace ClassevivaPCTO.Controls
         public bool EnableEmptyAlert
         {
             get { return (bool) GetValue(EnableEmptyAlertProperty); }
-            set
-            {
-                SetValue(EnableEmptyAlertProperty, value);
-            }
+            set { SetValue(EnableEmptyAlertProperty, value); }
         }
 
         private static readonly DependencyProperty EnableEmptyAlertProperty =
@@ -39,10 +36,7 @@ namespace ClassevivaPCTO.Controls
         public bool ShowEmptyAlert
         {
             get { return _showEmptyAlert; }
-            set
-            {
-                SetField(ref _showEmptyAlert, value);
-            }
+            set { SetField(ref _showEmptyAlert, value); }
         }
 
 
@@ -89,7 +83,9 @@ namespace ClassevivaPCTO.Controls
             scrollViewer.ChangeView(horizontalOffset, verticalOffset, null);
 
             //update the empty state
-            currentInstance.ShowEmptyAlert = (newValue == null || (newValue.Documents.Count == 0 && newValue.SchoolReports.Count == 0)) && currentInstance.EnableEmptyAlert;
+            currentInstance.ShowEmptyAlert =
+                (newValue == null || (newValue.Documents.Count == 0 && newValue.SchoolReports.Count == 0)) &&
+                currentInstance.EnableEmptyAlert;
         }
 
         public ScrutiniListView()
@@ -207,7 +203,6 @@ namespace ClassevivaPCTO.Controls
             //open link in browser
             Windows.System.Launcher.LaunchUriAsync(new Uri(link));
         }
-
 
 
         public event PropertyChangedEventHandler PropertyChanged;

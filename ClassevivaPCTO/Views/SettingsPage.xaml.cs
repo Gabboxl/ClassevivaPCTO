@@ -310,7 +310,9 @@ namespace ClassevivaPCTO.Views
                     ContentDialog dialogtrans = new()
                     {
                         Title = "CautionDialogTitle".GetLocalized(),
-                        Content = "AppTranslationStatus1".GetLocalized() + langProgressPerc + "% " + "AppTranslationStatus2".GetLocalized() + "\n\n" + "AreYouSureLanguageDialogText".GetLocalized(),
+                        Content = "AppTranslationStatus1".GetLocalized() + langProgressPerc + "% " +
+                                  "AppTranslationStatus2".GetLocalized() + "\n\n" +
+                                  "AreYouSureLanguageDialogText".GetLocalized(),
                         PrimaryButtonText = "ContinueDialogButton".GetLocalized(),
                         CloseButtonText = "CancelDialogButton".GetLocalized(),
                         RequestedTheme = ((FrameworkElement) Window.Current.Content).RequestedTheme,
@@ -335,9 +337,9 @@ namespace ClassevivaPCTO.Views
 
                         return;
                     }
-                } else if (langProgressPerc == 0)
+                }
+                else if (langProgressPerc == 0)
                 {
-
                     ContentDialog dialogtrans = new()
                     {
                         Title = "Attenzione",

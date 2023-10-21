@@ -51,7 +51,7 @@ namespace ClassevivaPCTO.Views
 
             //set the min and max date of the calendaragenda
             var agedaDates = VariousUtils.GetAgendaStartEndDates();
-            
+
             CalendarAgenda.MinDate = agedaDates.startDate;
             CalendarAgenda.MaxDate = agedaDates.endDate;
         }
@@ -191,7 +191,6 @@ namespace ClassevivaPCTO.Views
 
             if (_lessons == null)
             {
-
                 var dates = VariousUtils.GetLessonsStartEndDates();
 
 

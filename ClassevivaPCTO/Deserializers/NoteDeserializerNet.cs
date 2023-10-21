@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using ClassevivaPCTO.Utils;
+
 namespace ClassevivaPCTO.Deserializers
 {
     public class NoteDeserializerNet : JsonConverter<List<Note>>
@@ -16,7 +17,7 @@ namespace ClassevivaPCTO.Deserializers
         public override List<Note> Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
         {
             List<Note> notesList = new();
-        
+
             using JsonDocument document = JsonDocument.ParseValue(ref reader);
             JsonElement root = document.RootElement;
 
