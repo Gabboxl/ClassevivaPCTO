@@ -1,5 +1,5 @@
 <p align="center">
- <img src="https://github.com/Gabboxl/ClassevivaPCTO/blob/main/ClassevivaPCTO/Assets/logo-upscaled.png" width=55% height=55%>
+ <img src="https://github.com/Gabboxl/ClassevivaPCTO/blob/main/.github/assets/logo-upscaled.png" width=55% height=55%>
 </p>
 
 <div align="center">
@@ -20,7 +20,7 @@ ClassevivaPCTO is a simple UWP client to consult Spaggiari's electronic school r
 
 **Current release: v1.0.0**
 
-<img src="https://github.com/Gabboxl/ClassevivaPCTO/blob/main/ClassevivaPCTO/Assets/storescreenshot.png?raw=true" width=80% height=80%>
+<img src="https://github.com/Gabboxl/ClassevivaPCTO/blob/main/.github/assets/github-v1.png?raw=true" width=80% height=80%>
 
 [Full Changelog](https://github.com/Gabboxl/ClassevivaPCTO/compare/0.0.11...1.0.0)
 
