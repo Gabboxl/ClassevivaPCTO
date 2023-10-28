@@ -587,7 +587,7 @@ Gli account studente hanno l'username che inizia con le lettere S, G o X.</value
     <value>Êtes-vous sûr de vouloir vous déconnecter ?</value>
   </data>
   <data name="Exit" xml:space="preserve">
-    <value>Esci</value>
+    <value>Quitter</value>
   </data>
   <data name="RestartRequired" xml:space="preserve">
     <value>Redémarrage requis</value>
@@ -665,10 +665,10 @@ Gli account studente hanno l'username che inizia con le lettere S, G o X.</value
     <value>Licences</value>
   </data>
   <data name="AllPeriods.Content" xml:space="preserve">
-    <value>Tutti i periodi</value>
+    <value>Toutes les périodes</value>
   </data>
   <data name="CalendarTT.ToolTipService.ToolTip" xml:space="preserve">
-    <value>Seleziona una data</value>
+    <value>Choisir une date</value>
   </data>
   <data name="FilterAllNotices.Text" xml:space="preserve">
     <value>Tutte</value>
@@ -695,28 +695,28 @@ Gli account studente hanno l'username che inizia con le lettere S, G o X.</value
     <value>Sanzione disciplinare</value>
   </data>
   <data name="NTTE_plur" xml:space="preserve">
-    <value>Annotazioni</value>
+    <value>Annotations</value>
   </data>
   <data name="NTTE_sing" xml:space="preserve">
-    <value>Annotazione</value>
+    <value>Annotations</value>
   </data>
   <data name="NTWN_plur" xml:space="preserve">
-    <value>Richiami</value>
+    <value>Rappeler</value>
   </data>
   <data name="NTWN_sing" xml:space="preserve">
-    <value>Richiamo</value>
+    <value>Rappeler</value>
   </data>
   <data name="ABA0_plur" xml:space="preserve">
-    <value>Assenze</value>
+    <value>Absences</value>
   </data>
   <data name="ABA0_sing" xml:space="preserve">
-    <value>Assenza</value>
+    <value>Absence</value>
   </data>
   <data name="ABR0_plur" xml:space="preserve">
-    <value>Ritardi</value>
+    <value>Délais</value>
   </data>
   <data name="ABR0_sing" xml:space="preserve">
-    <value>Ritardo</value>
+    <value>Délai</value>
   </data>
   <data name="ABR1_plur" xml:space="preserve">
     <value>Ritardi brevi</value>
@@ -740,9 +740,9 @@ Gli account studente hanno l'username che inizia con le lettere S, G o X.</value
     <value>Vuoi veramente cambiare la lingua?</value>
   </data>
   <data name="CautionDialogTitle" xml:space="preserve">
-    <value>Attenzione</value>
+    <value>Attention</value>
   </data>
   <data name="ContinueDialogButton" xml:space="preserve">
-    <value>Continua</value>
+    <value>Continuer</value>
   </data>
 </root>
