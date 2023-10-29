@@ -503,7 +503,7 @@ Gli account studente hanno l'username che inizia con le lettere S, G o X.</value
     <value>Destacado</value>
   </data>
   <data name="SettingsChangelogRelease.Text" xml:space="preserve">
-    <value>v1.1.0.0, 21 Ottobre 2023</value>
+    <value>v1.1.0, 21 Ottobre 2023</value>
   </data>
   <data name="AgendaButtonTomorrowTT.ToolTipService.ToolTip" xml:space="preserve">
     <value>Día siguiente</value>
