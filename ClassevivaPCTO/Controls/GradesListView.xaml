@@ -164,7 +164,7 @@
                       Foreground="{ThemeResource TextFillColorDisabledBrush}"
                       RelativePanel.AlignHorizontalCenterWithPanel="True"
 
-                      FontSize="124"
+                      FontSize="80"
                       Margin="0,16,0,0" />
 
             <TextBlock x:Name="NoNotesText"
