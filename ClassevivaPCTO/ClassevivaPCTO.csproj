@@ -477,6 +477,9 @@
     <PackageReference Include="CommunityToolkit.Labs.Uwp.SettingsControls">
       <Version>0.0.18</Version>
     </PackageReference>
+    <PackageReference Include="CommunityToolkit.Labs.Uwp.Shimmer">
+      <Version>0.1.230830</Version>
+    </PackageReference>
     <PackageReference Include="CommunityToolkit.Mvvm">
       <Version>8.2.1</Version>
     </PackageReference>
