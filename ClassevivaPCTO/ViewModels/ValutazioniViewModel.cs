@@ -12,6 +12,13 @@ namespace ClassevivaPCTO.ViewModels
             set { SetProperty(ref _isLoadingValutazioni, value); }
         }
 
+        private bool _isLoadedValutazioni = true;
+
+        public bool IsLoadedValutazioni
+        {
+            get { return _isLoadedValutazioni; }
+            set { SetProperty(ref _isLoadedValutazioni, value); }
+        }
 
         private float _averageTot;
 
