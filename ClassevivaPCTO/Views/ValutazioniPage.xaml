@@ -141,16 +141,10 @@
             </Button>
 
 
-            <Rectangle x:Name="Separatore_Bacheca" RelativePanel.LeftOf="CheckboxSuddividi"
+            <Rectangle x:Name="Separatore_Bacheca" RelativePanel.LeftOf="SegmentedLayout"
                        RelativePanel.AlignVerticalCenterWithPanel="True"
                        Fill="{ThemeResource ControlStrokeColorDefaultBrush}"
                        Width="1" Height="48" Margin="16,0,16,0" />
-
-            <CheckBox x:Name="CheckboxSuddividi"
-                      x:Uid="CheckboxSuddividi"
-                      Margin="0,0,0,0"
-                      RelativePanel.LeftOf="SegmentedLayout"
-                      RelativePanel.AlignVerticalCenterWithPanel="True" />
 
             <controls:Segmented x:Name="SegmentedLayout" Margin="0,0,24,0"
                                 RelativePanel.AlignRightWithPanel="True"
@@ -245,12 +239,15 @@
                             Margin="32,0,0,0"
                             VerticalAlignment="Center"
                             HorizontalAlignment="Left">
-                            <winUi:Shimmer Visibility="Visible" Width="180" Height="26" Margin="0,4,0,0" />
-                            <winUi:Shimmer Visibility="Visible" Width="120" Height="20" Margin="0,38,0,0"/>
+                            <winUi:Shimmer Visibility="{x:Bind ValutazioniViewModel.IsLoadingValutazioni, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" 
+                                           Width="180" Height="26" Margin="0,4,0,0" />
+                            <winUi:Shimmer Visibility="{x:Bind ValutazioniViewModel.IsLoadingValutazioni, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" 
+                                           Width="120" Height="20" Margin="0,38,0,0"/>
                             
                             <TextBlock
                                 x:Name="TitleTotVal"
                                 x:Uid="GlobalAverage"
+                                Visibility="{x:Bind ValutazioniViewModel.IsLoadedValutazioni, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" 
                                 FontSize="26"
                                 Style="{StaticResource TitleTextBlockStyle}"
                                 HorizontalAlignment="Center"
@@ -310,8 +307,10 @@
                             Margin="32,0,0,0"
                             VerticalAlignment="Center"
                             HorizontalAlignment="Left">
-                            <winUi:Shimmer Visibility="Visible" Width="180" Height="26" Margin="0,4,0,0" />
-                            <winUi:Shimmer Visibility="Visible" Width="120" Height="20" Margin="0,38,0,0"/>
+                            <winUi:Shimmer Visibility="{x:Bind ValutazioniViewModel.IsLoadingValutazioni, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" 
+                                           Width="180" Height="26" Margin="0,4,0,0" />
+                            <winUi:Shimmer Visibility="{x:Bind ValutazioniViewModel.IsLoadingValutazioni, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" 
+                                           Width="120" Height="20" Margin="0,38,0,0"/>
                             
                             <TextBlock
                                 x:Name="TitleFirstPerVal"
@@ -377,8 +376,10 @@
                             VerticalAlignment="Center"
                             HorizontalAlignment="Left">
 
-                            <winUi:Shimmer Visibility="Visible" Width="180" Height="26" Margin="0,4,0,0" />
-                            <winUi:Shimmer Visibility="Visible" Width="120" Height="20" Margin="0,38,0,0" />
+                            <winUi:Shimmer Visibility="{x:Bind ValutazioniViewModel.IsLoadingValutazioni, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" 
+                                           Width="180" Height="26" Margin="0,4,0,0" />
+                            <winUi:Shimmer Visibility="{x:Bind ValutazioniViewModel.IsLoadingValutazioni, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" 
+                                           Width="120" Height="20" Margin="0,38,0,0" />
 
                             <TextBlock
                                 x:Name="TitleSecondPerVal"
@@ -404,7 +405,8 @@
                 </Grid>
             </Grid>
 
-            <winUi:Shimmer Visibility="Visible" Width="Auto" Height="32" Margin="0,122,0,0" 
+            <winUi:Shimmer Visibility="{x:Bind ValutazioniViewModel.IsLoadingValutazioni, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" 
+                           Width="Auto" Height="32" Margin="0,122,0,0" 
                            HorizontalAlignment="Stretch" 
                            RelativePanel.AlignLeftWithPanel="True"
                            RelativePanel.AlignRightWithPanel="True" />
