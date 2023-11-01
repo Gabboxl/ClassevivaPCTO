@@ -48,8 +48,8 @@ namespace ClassevivaPCTO.Views
 
             _apiWrapper = PoliciesDispatchProxy<IClassevivaAPI>.CreateProxy(apiClient!);
 
-            CheckboxSuddividi.Checked += CheckboxSuddividi_Click;
-            CheckboxSuddividi.Unchecked += CheckboxSuddividi_Click;
+            SegmentedLayout.SelectionChanged += SegmentedVoti_OnSelectionChanged;
+
         }
 
         protected override async void OnNavigatedTo(NavigationEventArgs e)
@@ -141,6 +141,7 @@ namespace ClassevivaPCTO.Views
         private void UpdateUi()
         {
             var periodIndex = SegmentedVoti.SelectedIndex;
+            var layoutIndex = SegmentedLayout.SelectedIndex;
 
             if (periodIndex == -1)
             {
@@ -153,14 +154,14 @@ namespace ClassevivaPCTO.Views
                 TitleSecondPerVal.Text = VariousUtils.UppercaseFirst(_mergedPeriodList[1].Period.periodDesc);
 
                 SegmentedVoti.SelectedIndex = 0;
-
                 SegmentedVoti.IsEnabled = true;
+
             }
             else if (periodIndex == 0)
             {
-                CheckboxSuddividi.IsEnabled = true;
+                SegmentedLayout.IsEnabled = true;
 
-                if (CheckboxSuddividi.IsChecked == true)
+                if (layoutIndex == 1)
                 {
                     MainListView.Visibility = Visibility.Visible;
                     GradesOnlyListView.Visibility = Visibility.Collapsed;
@@ -186,13 +187,13 @@ namespace ClassevivaPCTO.Views
                 {
                     MainListView.Visibility = Visibility.Collapsed;
                     GradesOnlyListView.Visibility = Visibility.Visible;
-
                     GradesOnlyListView.ItemsSource = _sortedGrades;
                 }
             }
             else
             {
-                CheckboxSuddividi.IsEnabled = false;
+                SegmentedLayout.SelectedIndex = 1;
+                SegmentedLayout.IsEnabled = false;
                 MainListView.Visibility = Visibility.Visible;
                 GradesOnlyListView.Visibility = Visibility.Collapsed;
 
@@ -269,11 +270,6 @@ namespace ClassevivaPCTO.Views
         private async void ReloadButton_OnClick(object sender, RoutedEventArgs e)
         {
             await Task.Run(async () => { await LoadData(); });
-        }
-
-        private async void CheckboxSuddividi_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
-        {
-            UpdateUi();
         }
     }
 }
