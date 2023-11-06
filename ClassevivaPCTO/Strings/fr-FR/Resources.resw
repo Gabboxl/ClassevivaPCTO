@@ -154,12 +154,13 @@
     <comment>Personalization text for Settings</comment>
   </data>
   <data name="FirstRun_Body.Text" xml:space="preserve">
-    <value>Con ClassevivaPCTO potrai visualizzare i tuoi dati del registro elettronico Classeviva in maniera intuitiva e sotto le vesti di un design innovativo.
+    <value>Avec ClassevivaPCTO vous pourrez visualiser les données de votre registre électronique Classeviva de manière intuitive et sous couvert d'un design innovant.
 
-Quest'app è rivolta soltanto agli account studente.
+Cette application est réservée aux comptes étudiants.
 
-Ricorda che quest'app è ancora in fase di sviluppo e alcune funzionalità non sono disponibili al momento. 
-Se riscontri bug o hai un'idea per l'app apri un issue su GitHub cliccando sul link "Segnala un problema" nella sezione Informazioni app.</value>
+Veuillez noter que cette application est encore en développement et que certaines fonctionnalités ne sont pas disponibles pour le moment.
+
+Si vous rencontrez des bugs ou avez une idée pour l'application, ouvrez un ticket sur GitHub en cliquant sur le lien « Signaler un problème » dans la section Informations sur l'application.</value>
     <comment>First use prompt message body</comment>
   </data>
   <data name="FirstRunDialog.Title" xml:space="preserve">
@@ -179,24 +180,24 @@ Se riscontri bug o hai un'idea per l'app apri un issue su GitHub cliccando sul l
     <comment>What's new prompt message title</comment>
   </data>
   <data name="WhatsNew_Body_Main.Text" xml:space="preserve">
-    <value>•  Migliorata l'interfaccia della pagina di Login
-•  Corretti alcuni errori relativi al cambio della lingua e ottimizzate le traduzioni
-•  Le note ora verranno visualizzate negli eventi del giorno
-•  Aggiornato il design del widget Bacheca nella Dashboard
-•  Aggiornato il design dei titoli delle categorie nelle pagine Bacheca, Assenze, Note e Scrutini
-•  Aggiunta la possibilità di visualizzare i contributors di GitHub e le licenze nella sezione Tips</value>
+    <value>Amélioration de l'interface de la page de connexion
+• Correction de quelques erreurs liées au changement de langue et aux traductions optimisées
+• Les notes apparaîtront désormais dans les événements de la journée
+• Mise à jour de la conception du widget Tableau dans le tableau de bord
+• Mise à jour de la conception des titres de catégories sur les pages Tableau d'affichage, Absences, Notes et Bulletins de vote.
+• Ajout de la possibilité d'afficher les contributeurs et les licences GitHub dans la section Conseils</value>
     <comment>What's new prompt message body for highlights section</comment>
   </data>
   <data name="WhatsNew_Body_1.Text" xml:space="preserve">
-    <value>•  La sezione account è adesso integrata nelle Impostazioni
-•  Aggiunta la possibilità di visualizzare le modifiche recenti apportate all'app
-•  Da adesso il tutorial iniziale sarà visibile anche dalle Impostazioni - questo verrà modificato in futuro per includere suggerimenti e consigli su come usare al meglio l'app
-•  Aggiunta una sezione per i contributors di Github</value>
+    <value>La section compte est désormais intégrée aux paramètres
+• Ajout de la possibilité d'afficher les modifications récentes apportées à l'application
+• À partir de maintenant, le didacticiel initial sera également visible depuis les paramètres. Il sera modifié à l'avenir pour inclure des astuces et des conseils sur la meilleure façon d'utiliser l'application.
+• Ajout d'une section pour les contributeurs Github</value>
     <comment>What's new prompt message body for first section (General)</comment>
   </data>
   <data name="WhatsNew_Body_2.Text" xml:space="preserve">
-    <value>•  Aggiunta la possibilità di cambiare e spostare i widget visualizzati nella dashboard
-•  Nuovo widget: Collegamenti rapidi - permette di salvare fino a 5 collegamenti Internet da poter aprire rapidamente dall'app, come il sito della tua scuola, Classroom o la tua posta elettronica d'istituto</value>
+    <value>Ajout de la possibilité de modifier et de déplacer les widgets affichés dans le tableau de bord
+• Nouveau widget : Liens rapides - vous permet d'enregistrer jusqu'à 5 liens Internet que vous pouvez ouvrir rapidement depuis l'application, tels que le site Web de votre école, Classroom ou la messagerie électronique de votre école</value>
     <comment>What's new prompt message body for second section (Dashboard)</comment>
   </data>
   <data name="Settings_Account.Text" xml:space="preserve">
@@ -244,13 +245,13 @@ Se riscontri bug o hai un'idea per l'app apri un issue su GitHub cliccando sul l
     <value>Signaler un problème</value>
   </data>
   <data name="SettingsCardTutorial.Header" xml:space="preserve">
-    <value>Tips</value>
+    <value>Conseils</value>
   </data>
   <data name="SettingsCardTutorial.Description" xml:space="preserve">
-    <value>Visualizza suggerimenti sul funzionamento dell'app</value>
+    <value>Afficher des conseils sur le fonctionnement de l'application</value>
   </data>
   <data name="SettingsCardTutorialButton.Content" xml:space="preserve">
-    <value>Mostra Tips</value>
+    <value>Montre des conseils</value>
   </data>
   <data name="SettingsCardWhatsNew.Header" xml:space="preserve">
     <value>Nouveautés de cette version </value>
@@ -259,7 +260,7 @@ Se riscontri bug o hai un'idea per l'app apri un issue su GitHub cliccando sul l
     <value>Afficher les modifications envisagées</value>
   </data>
   <data name="SettingsCardWhatsNewButton.Content" xml:space="preserve">
-    <value>Mostra novità</value>
+    <value>Afficher les actualités</value>
   </data>
   <data name="TitoloScrutini.Text" xml:space="preserve">
     <value>Sondage</value>
@@ -283,7 +284,7 @@ Se riscontri bug o hai un'idea per l'app apri un issue su GitHub cliccando sul l
     <value>Mot de passe :</value>
   </data>
   <data name="CheckboxCredenziali.Content" xml:space="preserve">
-    <value>Mantieni le credenziali</value>
+    <value>Conserver les informations d'identification</value>
   </data>
   <data name="ComboMaterie.PlaceholderText" xml:space="preserve">
     <value>Sélectionner un sujet</value>
@@ -295,7 +296,7 @@ Se riscontri bug o hai un'idea per l'app apri un issue su GitHub cliccando sul l
     <value>Le panneau de bord de {0}</value>
   </data>
   <data name="TextOggiAgenda.Text" xml:space="preserve">
-    <value>Eventi del giorno</value>
+    <value>Événements de la journée</value>
   </data>
   <data name="DashboardButtonApriAgenda.Text" xml:space="preserve">
     <value>Agenda ouverte</value>
@@ -304,7 +305,7 @@ Se riscontri bug o hai un'idea per l'app apri un issue su GitHub cliccando sul l
     <value>Évaluations récentes</value>
   </data>
   <data name="TitleMedia.Text" xml:space="preserve">
-    <value>Media totale:</value>
+    <value>Moyenne totale :</value>
   </data>
   <data name="DashboardButtonApriValutazioni.Text" xml:space="preserve">
     <value>Montrer toutes les saisons</value>
@@ -313,7 +314,7 @@ Se riscontri bug o hai un'idea per l'app apri un issue su GitHub cliccando sul l
     <value>Évaluations récentes</value>
   </data>
   <data name="DashboardButtonApriBacheca.Text" xml:space="preserve">
-    <value>Apri bacheca</value>
+    <value>Tableau d'affichage ouvert</value>
   </data>
   <data name="TextBachecaComunicazioni.Text" xml:space="preserve">
     <value>Communications</value>
