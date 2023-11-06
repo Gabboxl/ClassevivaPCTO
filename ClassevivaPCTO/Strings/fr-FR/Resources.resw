@@ -320,7 +320,7 @@ Si vous rencontrez des bugs ou avez une idée pour l'application, ouvrez un tick
     <value>Communications</value>
   </data>
   <data name="TextTitoloAssenzeRitardi.Text" xml:space="preserve">
-    <value>Assenze e Ritardi</value>
+    <value>Absences et retards</value>
   </data>
   <data name="TodayButton.Content" xml:space="preserve">
     <value>Aujourd'hui</value>
@@ -335,13 +335,13 @@ Si vous rencontrez des bugs ou avez une idée pour l'application, ouvrez un tick
     <value>Aujourd'hui</value>
   </data>
   <data name="TuttiCompitiButton.Text" xml:space="preserve">
-    <value>Tutti i compiti</value>
+    <value>Toutes les tâches</value>
   </data>
   <data name="PopupLessonsButton.Text" xml:space="preserve">
-    <value>Tutte le lezioni</value>
+    <value>Toutes les leçons</value>
   </data>
   <data name="AccountNonSupportato" xml:space="preserve">
-    <value>Account insegnante non supportato</value>
+    <value>Compte enseignant non pris en charge</value>
   </data>
   <data name="AccountNonSupportatoBody" xml:space="preserve">
     <value>In questa app sono solo supportati gli account studente. 
