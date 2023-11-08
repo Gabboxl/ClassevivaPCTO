@@ -5,11 +5,11 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:helper="using:ClassevivaPCTO.Helpers"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:labs="using:CommunityToolkit.Labs.WinUI"
     xmlns:palette="using:ClassevivaPCTO.Helpers.Palettes"
     xmlns:controls="using:Microsoft.UI.Xaml.Controls"
     xmlns:adapters="using:ClassevivaPCTO.Adapters"
     xmlns:converters="using:ClassevivaPCTO.Converters"
+    xmlns:controls1="using:CommunityToolkit.WinUI.Controls"
     xmlns:views="using:ClassevivaPCTO.Views"
     mc:Ignorable="d">
     <Page.Resources>
@@ -159,10 +159,10 @@
                            x:Uid="Settings_Personalization" />
 
 
-                <labs:SettingsCard x:Uid="SettingsExpanderTheme">
-                    <labs:SettingsCard.HeaderIcon>
+                <controls1:SettingsCard x:Uid="SettingsExpanderTheme">
+                    <controls1:SettingsCard.HeaderIcon>
                         <FontIcon Glyph="&#xE793;" />
-                    </labs:SettingsCard.HeaderIcon>
+                    </controls1:SettingsCard.HeaderIcon>
 
                     <!-- the combobox selected index is bound to the current theme enum value -->
 
@@ -181,14 +181,14 @@
 
                         </ComboBoxItem>
                     </ComboBox>
-                </labs:SettingsCard>
+                </controls1:SettingsCard>
 
-                <labs:SettingsCard x:Name="ColorSchemeExpander"
+                <controls1:SettingsCard x:Name="ColorSchemeExpander"
                                    x:Uid="SettingsCardPalette" MinHeight="70">
 
-                    <labs:SettingsCard.HeaderIcon>
+                    <controls1:SettingsCard.HeaderIcon>
                         <FontIcon Glyph="&#xE790;" />
-                    </labs:SettingsCard.HeaderIcon>
+                    </controls1:SettingsCard.HeaderIcon>
 
                     <ComboBox SelectedIndex="{x:Bind PaletteType.GetHashCode()}"
                               x:Name="PaletteComboBox" MinWidth="200"
@@ -256,7 +256,7 @@
                         </ComboBox.ItemTemplate>
 
                     </ComboBox>
-                </labs:SettingsCard>
+                </controls1:SettingsCard>
 
 
                 <TextBlock Style="{StaticResource SettingsSectionHeaderTextBlockStyle}"
@@ -289,11 +289,11 @@
                 -->
 
 
-                <labs:SettingsCard x:Uid="SettingsCardLanguage">
+                <controls1:SettingsCard x:Uid="SettingsCardLanguage">
 
-                    <labs:SettingsCard.HeaderIcon>
+                    <controls1:SettingsCard.HeaderIcon>
                         <FontIcon Glyph="&#xE8C1;" />
-                    </labs:SettingsCard.HeaderIcon>
+                    </controls1:SettingsCard.HeaderIcon>
 
                     <ComboBox
                         x:Name="LanguageComboBox"
@@ -301,48 +301,48 @@
                     </ComboBox>
 
 
-                </labs:SettingsCard>
+                </controls1:SettingsCard>
 
-                <labs:SettingsCard x:Uid="SettingsCardWhatsNew">
+                <controls1:SettingsCard x:Uid="SettingsCardWhatsNew">
 
-                    <labs:SettingsCard.HeaderIcon>
+                    <controls1:SettingsCard.HeaderIcon>
                         <FontIcon Glyph="&#xE762;" />
-                    </labs:SettingsCard.HeaderIcon>
+                    </controls1:SettingsCard.HeaderIcon>
 
                     <Button x:Uid="SettingsCardWhatsNewButton" Click="ButtonChangelog_OnClick" MinWidth="130" />
 
 
-                </labs:SettingsCard>
+                </controls1:SettingsCard>
 
 
-                <labs:SettingsCard x:Uid="SettingsCardTutorial">
+                <controls1:SettingsCard x:Uid="SettingsCardTutorial">
 
-                    <labs:SettingsCard.HeaderIcon>
+                    <controls1:SettingsCard.HeaderIcon>
                         <FontIcon Glyph="&#xEA80;" />
-                    </labs:SettingsCard.HeaderIcon>
+                    </controls1:SettingsCard.HeaderIcon>
 
                     <Button x:Uid="SettingsCardTutorialButton" MinWidth="130" Click="ButtonTutorial_OnClick" />
 
-                </labs:SettingsCard>
+                </controls1:SettingsCard>
 
 
                 <!--  'About' section  -->
                 <TextBlock Style="{StaticResource SettingsSectionHeaderTextBlockStyle}"
                            x:Uid="Settings_About" />
 
-                <labs:SettingsExpander x:Uid="SettingsExpanderReservedRights" IsExpanded="True"
+                <controls1:SettingsExpander x:Uid="SettingsExpanderReservedRights" IsExpanded="True"
                                        Header="{x:Bind views:SettingsPage.AppName}">
-                    <labs:SettingsExpander.HeaderIcon>
+                    <controls1:SettingsExpander.HeaderIcon>
                         <BitmapIcon ShowAsMonochrome="False"
                                     UriSource="ms-appx:///Assets/StoreLogo.png" />
-                    </labs:SettingsExpander.HeaderIcon>
+                    </controls1:SettingsExpander.HeaderIcon>
                     <TextBlock IsTextSelectionEnabled="True"
                                Foreground="{ThemeResource TextFillColorSecondaryBrush}"
                                Style="{StaticResource BodyTextBlockStyle}">
                         <Run x:Uid="SettingsAboutExpanderVersion" /><Run Text="{x:Bind Version}" />
                     </TextBlock>
-                    <labs:SettingsExpander.Items>
-                        <labs:SettingsCard HorizontalContentAlignment="Left"
+                    <controls1:SettingsExpander.Items>
+                        <controls1:SettingsCard HorizontalContentAlignment="Left"
                                            ContentAlignment="Left">
 
                             <StackPanel Margin="-12,0,0,0"
@@ -412,9 +412,9 @@
 
 
                             </StackPanel>
-                        </labs:SettingsCard>
-                    </labs:SettingsExpander.Items>
-                </labs:SettingsExpander>
+                        </controls1:SettingsCard>
+                    </controls1:SettingsExpander.Items>
+                </controls1:SettingsExpander>
 
 
             </StackPanel>

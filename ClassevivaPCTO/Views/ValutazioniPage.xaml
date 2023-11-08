@@ -9,7 +9,6 @@
     xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
     xmlns:controls="using:CommunityToolkit.WinUI.Controls"
     xmlns:adapters="using:ClassevivaPCTO.Adapters"
-    xmlns:winUi="using:CommunityToolkit.Labs.WinUI"
     xmlns:converters="using:Microsoft.Toolkit.Uwp.UI.Converters"
     xmlns:converters1="using:ClassevivaPCTO.Converters"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
@@ -40,7 +39,7 @@
                 </Grid.ColumnDefinitions>
 
 
-                <winUi:SettingsExpander x:Name="MateriaExpander" IsExpanded="False"
+                <controls:SettingsExpander x:Name="MateriaExpander" IsExpanded="False"
                                         HorizontalAlignment="Stretch"
                                         HorizontalContentAlignment="Stretch"
                                         Header="{x:Bind Subject.description}"
@@ -67,8 +66,8 @@
                             VerticalAlignment="Center"
                             Margin="0,0,0,0" />
                     </Grid>
-                    <winUi:SettingsExpander.Items>
-                        <winUi:SettingsCard HorizontalContentAlignment="Stretch"
+                    <controls:SettingsExpander.Items>
+                        <controls:SettingsCard HorizontalContentAlignment="Stretch"
                                             ContentAlignment="Left"
                                             HorizontalAlignment="Stretch">
 
@@ -88,9 +87,9 @@
                                 </controls2:GradesListView>
 
                             </Grid>
-                        </winUi:SettingsCard>
-                    </winUi:SettingsExpander.Items>
-                </winUi:SettingsExpander>
+                        </controls:SettingsCard>
+                    </controls:SettingsExpander.Items>
+                </controls:SettingsExpander>
             </Grid>
         </DataTemplate>
 
