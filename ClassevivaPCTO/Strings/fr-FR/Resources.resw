@@ -523,10 +523,10 @@ Erreur: </value>
     <value>Accédez aux événements d'aujourd'hui</value>
   </data>
   <data name="CheckboxInattive.Content" xml:space="preserve">
-    <value>Mostra comunicazioni inattive</value>
+    <value>Afficher les communications inactives</value>
   </data>
   <data name="DashboardEditWidgetsButton.Text" xml:space="preserve">
-    <value>Personalizza widget</value>
+    <value>Personnaliser les widgets</value>
   </data>
   <data name="EdittextPassword.PlaceholderText" xml:space="preserve">
     <value>Mot de passe</value>
@@ -559,19 +559,19 @@ Erreur: </value>
     <value>Actualiser</value>
   </data>
   <data name="SettingsPaletteColorBlueTT.ToolTipService.ToolTip" xml:space="preserve">
-    <value>Non fa media, assenza parziale</value>
+    <value>Pas de moyenne, absence partielle</value>
   </data>
   <data name="SettingsPaletteColorGreenTT.ToolTipService.ToolTip" xml:space="preserve">
-    <value>Sufficienza, presenza, comunicazione letta</value>
+    <value>Suffisance, présence, communication lue</value>
   </data>
   <data name="SettingsPaletteColorOrangeTT.ToolTipService.ToolTip" xml:space="preserve">
-    <value>Insufficienza lieve, ritardo, comunicazione scaduta</value>
+    <value>Légère insuffisance, retard, communication expirée</value>
   </data>
   <data name="SettingsPaletteColorRedTT.ToolTipService.ToolTip" xml:space="preserve">
-    <value>Insufficienza grave, assenza, comunicazione non letta</value>
+    <value>Insuffisance grave, absence, communication non lue</value>
   </data>
   <data name="NoticeAdapter_FromToValidDate" xml:space="preserve">
-    <value>Valida dal {0} al {1}</value>
+    <value>Valable du {0} au {1}</value>
   </data>
   <data name="NoticeAdapter_StatusText_Eliminata" xml:space="preserve">
     <value>Supprimé</value>
@@ -601,28 +601,28 @@ Erreur: </value>
     <value>Redémarrer</value>
   </data>
   <data name="CheckboxSuddividi.Content" xml:space="preserve">
-    <value>Suddividi per materia</value>
+    <value>Diviser par sujet</value>
   </data>
   <data name="NoticeBoardTitle.Text" xml:space="preserve">
     <value>Tableau</value>
   </data>
   <data name="NoAbsences.Text" xml:space="preserve">
-    <value>Nessuna assenza</value>
+    <value>Aucune absence</value>
   </data>
   <data name="NoTasks.Text" xml:space="preserve">
     <value>Pas de tâche</value>
   </data>
   <data name="NoScrutini.Text" xml:space="preserve">
-    <value>Scrutini non disponibili</value>
+    <value>Bulletins de vote non disponibles</value>
   </data>
   <data name="ReportsTitle.Text" xml:space="preserve">
-    <value>Report scolastici</value>
+    <value>Bulletins scolaires</value>
   </data>
   <data name="SessionExpired" xml:space="preserve">
     <value>La session a expiré</value>
   </data>
   <data name="SessionExpiredDesc" xml:space="preserve">
-    <value>Una sessione dura un'ora dal login. Non avendo salvato le credenziali, ora verrai portato alla pagina di login. </value>
+    <value>Une session dure une heure à compter de la connexion. N'ayant pas enregistré vos identifiants, vous serez désormais redirigé vers la page de connexion. </value>
   </data>
   <data name="LoginErrorTitle" xml:space="preserve">
     <value>Erreur de connexion</value>
@@ -634,7 +634,7 @@ Erreur: </value>
     <value>Erreur serveur (veuillez réessayer plus tard)</value>
   </data>
   <data name="AttempsDone" xml:space="preserve">
-    <value>Tentativi effettuati: </value>
+    <value>Tentatives effectuées: </value>
   </data>
   <data name="GradeSingular" xml:space="preserve">
     <value>note</value>
@@ -661,7 +661,7 @@ Erreur: </value>
     <value>Contributeurs</value>
   </data>
   <data name="GlobalAverage.Text" xml:space="preserve">
-    <value>Media totale</value>
+    <value>Moyenne totale</value>
   </data>
   <data name="LicensesLink.Text" xml:space="preserve">
     <value>Licences</value>
@@ -673,28 +673,28 @@ Erreur: </value>
     <value>Choisir une date</value>
   </data>
   <data name="FilterAllNotices.Text" xml:space="preserve">
-    <value>Tutte</value>
+    <value>Tous</value>
   </data>
   <data name="FilterReadNotices.Text" xml:space="preserve">
-    <value>Lette</value>
+    <value>Poids léger</value>
   </data>
   <data name="FilterUnreadNotices.Text" xml:space="preserve">
-    <value>Non lette</value>
+    <value>Pas lu</value>
   </data>
   <data name="GradesNotAvailable" xml:space="preserve">
     <value>N/D</value>
   </data>
   <data name="NTCL_plur" xml:space="preserve">
-    <value>Note disciplinari</value>
+    <value>Soyez discipliné</value>
   </data>
   <data name="NTCL_sing" xml:space="preserve">
-    <value>Nota disciplinare</value>
+    <value>Soyez discipliné</value>
   </data>
   <data name="NTST_plur" xml:space="preserve">
-    <value>Sanzioni disciplinari</value>
+    <value>Sanctions disciplinaires</value>
   </data>
   <data name="NTST_sing" xml:space="preserve">
-    <value>Sanzione disciplinare</value>
+    <value>Sanctions disciplinaires</value>
   </data>
   <data name="NTTE_plur" xml:space="preserve">
     <value>Annotations</value>
@@ -721,25 +721,25 @@ Erreur: </value>
     <value>Délai</value>
   </data>
   <data name="ABR1_plur" xml:space="preserve">
-    <value>Ritardi brevi</value>
+    <value>Délais courts</value>
   </data>
   <data name="ABR1_sing" xml:space="preserve">
-    <value>Ritardo breve</value>
+    <value>Court délai</value>
   </data>
   <data name="ABU0_plur" xml:space="preserve">
-    <value>Uscite anticipate</value>
+    <value>Premières versions</value>
   </data>
   <data name="ABU0_sing" xml:space="preserve">
-    <value>Uscita anticipata</value>
+    <value>Sortie anticipée</value>
   </data>
   <data name="AppTranslationStatus1" xml:space="preserve">
-    <value>L'app è stata tradotta al </value>
+    <value>L'application a été traduite en </value>
   </data>
   <data name="AppTranslationStatus2" xml:space="preserve">
-    <value>nella lingua che hai scelto. Alcune parti dell'app potrebbero non essere stare ancora tradotte.</value>
+    <value>dans la langue que vous avez choisie. Certaines parties de l'application ne sont peut-être pas encore traduites.</value>
   </data>
   <data name="AreYouSureLanguageDialogText" xml:space="preserve">
-    <value>Vuoi veramente cambiare la lingua?</value>
+    <value>Voulez-vous vraiment changer la langue?</value>
   </data>
   <data name="CautionDialogTitle" xml:space="preserve">
     <value>Attention</value>
