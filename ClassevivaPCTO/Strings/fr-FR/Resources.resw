@@ -344,9 +344,9 @@ Si vous rencontrez des bugs ou avez une idée pour l'application, ouvrez un tick
     <value>Compte enseignant non pris en charge</value>
   </data>
   <data name="AccountNonSupportatoBody" xml:space="preserve">
-    <value>In questa app sono solo supportati gli account studente. 
+    <value>Seuls les comptes étudiants sont pris en charge dans cette application.
 
-Gli account studente hanno l'username che inizia con le lettere S, G o X.</value>
+Les comptes étudiants ont des noms d'utilisateur commençant par les lettres S, G ou X.</value>
   </data>
   <data name="ErroreText" xml:space="preserve">
     <value>Erreur</value>
@@ -355,8 +355,9 @@ Gli account studente hanno l'username che inizia con le lettere S, G o X.</value
     <value>OK</value>
   </data>
   <data name="ErrorDialogBody" xml:space="preserve">
-    <value>Errore durante il login. Controlla il nome utente e la password. 
- Errore: </value>
+    <value>Erreur de connexion. Vérifiez votre nom d'utilisateur et votre mot de passe.
+
+Erreur: </value>
   </data>
   <data name="ChooseProfileDialogTitle" xml:space="preserve">
     <value>Choisir un autre profil</value>
@@ -377,7 +378,7 @@ Gli account studente hanno l'username che inizia con le lettere S, G o X.</value
     <value>Selectionnez un profil:</value>
   </data>
   <data name="ProfileChoiceDialogInfoTextBlock.Text" xml:space="preserve">
-    <value>Più profili sono associati a questo account.</value>
+    <value>Plusieurs profils sont associés à ce compte.</value>
   </data>
   <data name="DialogButtonSave.Text" xml:space="preserve">
     <value>Sauver</value>
@@ -407,13 +408,13 @@ Gli account studente hanno l'username che inizia con le lettere S, G o X.</value
     <value>Fermer</value>
   </data>
   <data name="ReadAndOpenFlyoutText" xml:space="preserve">
-    <value>Leggi e apri</value>
+    <value>Lire et ouvrir</value>
   </data>
   <data name="InfoNoticeFlyoutText" xml:space="preserve">
-    <value>La comunicazione verrà contrassegnata come letta sul server. Continuare?</value>
+    <value>La communication sera marquée comme lue sur le serveur. Continuer?</value>
   </data>
   <data name="InfoNoteFlyoutText" xml:space="preserve">
-    <value>La nota verrà contrassegnata come letta sul server. Continuare?</value>
+    <value>La note sera marquée comme lue sur le serveur. Continuer?</value>
   </data>
   <data name="SettingsAccountExitButton.Text" xml:space="preserve">
     <value>Quitter</value>
@@ -437,19 +438,19 @@ Gli account studente hanno l'username che inizia con le lettere S, G o X.</value
     <value>Nature</value>
   </data>
   <data name="WhatsNew_Body_3.Text" xml:space="preserve">
-    <value>•  Aggiunta la possibilità di ridimensionare i popup
-•  Gli eventi nella sezione "Agenda" e nella sezione "Compiti" sono da adesso distinguibili tramite un'icona apposita
-•  Miglioramenti all'interfaccia</value>
+    <value>• Ajout de la possibilité de redimensionner les fenêtres contextuelles
+• Les événements de la section "Agenda" et de la section "Tâches" se distinguent désormais par une icône spécifique
+• Améliorations de l'interface</value>
     <comment>What's new prompt message body for third section (Agenda)</comment>
   </data>
   <data name="WhatsNew_Body_4.Text" xml:space="preserve">
-    <value>•  Aggiornato il design della sezione medie
-•  Le materie / periodi didattici senza voti da adesso presenteranno il placeholder N/D
-•  Aggiunta una distizione tra primo e secondo quadrimestre nella selezione del periodo didattico; ciò vale solo per le scuole che non utilizzano il sistema trimestre/pentamestre</value>
+    <value>• Mise à jour du design de la section moyenne
+• Les matières/périodes d'enseignement sans notes auront désormais l'espace réservé N/A.
+• Ajout d'une distinction entre le premier et le deuxième trimestre dans le choix de la période d'enseignement ; cela ne s'applique qu'aux écoles qui n'utilisent pas le système des quarts/cinq mois</value>
     <comment>What's new prompt message body for fourth section (Valutazioni)</comment>
   </data>
   <data name="WhatsNew_Body_5.Text" xml:space="preserve">
-    <value>•  Aggiunto un filtro per le comunicazioni lette/non lette</value>
+    <value>• Ajout d'un filtre pour les communications lues/non lues</value>
     <comment>What's new prompt message body for fifth section (Bacheca)</comment>
   </data>
   <data name="SettingsChangeProfilePicButton.Text" xml:space="preserve">
@@ -480,19 +481,19 @@ Gli account studente hanno l'username che inizia con le lettere S, G o X.</value
     <value>Etablissement : </value>
   </data>
   <data name="SettingsAccountStudentCode.Text" xml:space="preserve">
-    <value>Codice studente: </value>
+    <value>Code étudiant: </value>
   </data>
   <data name="SettingsCardPalette.Description" xml:space="preserve">
-    <value>Personalizza lo schema dei colori utilizzato nell'app per indicare voti ed eventi</value>
+    <value>Personnalisez la palette de couleurs utilisée dans l'application pour indiquer les notes et les événements</value>
   </data>
   <data name="SettingsCardPalette.Header" xml:space="preserve">
     <value>Schéma de couleurs</value>
   </data>
   <data name="SettingsCardSchoolYear.Description" xml:space="preserve">
-    <value>Seleziona l'anno scolastico da consultare / torna all'anno precedente</value>
+    <value>Sélectionner l'année scolaire à consulter / revenir à l'année précédente</value>
   </data>
   <data name="SettingsCardSchoolYear.Header" xml:space="preserve">
-    <value>Anno scolastico</value>
+    <value>Année scolaire</value>
   </data>
   <data name="SettingsChangelogDashboard.Text" xml:space="preserve">
     <value>Tableau de bord</value>
@@ -504,7 +505,7 @@ Gli account studente hanno l'username che inizia con le lettere S, G o X.</value
     <value>En vedette</value>
   </data>
   <data name="SettingsChangelogRelease.Text" xml:space="preserve">
-    <value>v1.1.0, 21 Ottobre 2023</value>
+    <value>v1.1.0, 21 octobre 2023</value>
   </data>
   <data name="AgendaButtonTomorrowTT.ToolTipService.ToolTip" xml:space="preserve">
     <value>Jour suivant</value>
@@ -516,10 +517,10 @@ Gli account studente hanno l'username che inizia con le lettere S, G o X.</value
     <value>Justifié</value>
   </data>
   <data name="AssenzeToBeJustified.Text" xml:space="preserve">
-    <value>Da giustificare</value>
+    <value>Être justifié</value>
   </data>
   <data name="ButtonTodayAgenda.ToolTipService.ToolTip" xml:space="preserve">
-    <value>Vai agli eventi di oggi</value>
+    <value>Accédez aux événements d'aujourd'hui</value>
   </data>
   <data name="CheckboxInattive.Content" xml:space="preserve">
     <value>Mostra comunicazioni inattive</value>
