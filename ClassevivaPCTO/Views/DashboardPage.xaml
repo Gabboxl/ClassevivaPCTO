@@ -8,7 +8,6 @@
     mc:Ignorable="d"
     xmlns:controls2="using:ClassevivaPCTO.Controls"
     xmlns:microconverters="using:Microsoft.Toolkit.Uwp.UI.Converters"
-    xmlns:toolkit="using:Microsoft.Toolkit.Uwp.UI"
     xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
 
 

@@ -11,7 +11,6 @@
     xmlns:adapters="using:ClassevivaPCTO.Adapters"
     xmlns:winUi="using:CommunityToolkit.Labs.WinUI"
     xmlns:converters="using:Microsoft.Toolkit.Uwp.UI.Converters"
-    xmlns:controls1="using:Microsoft.Toolkit.Uwp.UI.Controls"
     xmlns:converters1="using:ClassevivaPCTO.Converters"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
     muxc:BackdropMaterial.ApplyToRootOrPageBackground="True">
