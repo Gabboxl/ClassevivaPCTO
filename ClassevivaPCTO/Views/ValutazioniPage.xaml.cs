@@ -28,7 +28,7 @@ namespace ClassevivaPCTO.Views
         public List<Grade> Grades { get; set; }
     }
 
-    public sealed partial class Valutazioni : Page
+    public sealed partial class ValutazioniPage : Page
     {
         private readonly IClassevivaAPI _apiWrapper;
 
@@ -39,7 +39,7 @@ namespace ClassevivaPCTO.Views
 
         private ValutazioniViewModel ValutazioniViewModel { get; } = new();
 
-        public Valutazioni()
+        public ValutazioniPage()
         {
             this.InitializeComponent();
 

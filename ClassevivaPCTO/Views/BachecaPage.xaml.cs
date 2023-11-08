@@ -11,13 +11,13 @@ using Windows.UI.Xaml.Navigation;
 
 namespace ClassevivaPCTO.Views
 {
-    public sealed partial class Bacheca : Page
+    public sealed partial class BachecaPage : Page
     {
         public BachecaViewModel BachecaViewModel { get; } = new();
 
         private readonly IClassevivaAPI apiWrapper;
 
-        public Bacheca()
+        public BachecaPage()
         {
             this.InitializeComponent();
 

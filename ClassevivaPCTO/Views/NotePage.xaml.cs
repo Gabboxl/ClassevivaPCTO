@@ -11,13 +11,13 @@ using System.Collections.Generic;
 
 namespace ClassevivaPCTO.Views
 {
-    public sealed partial class Note : Page
+    public sealed partial class NotePage : Page
     {
         private NoteViewModel NoteViewModel { get; } = new();
 
         private readonly IClassevivaAPI apiWrapper;
 
-        public Note()
+        public NotePage()
         {
             this.InitializeComponent();
 

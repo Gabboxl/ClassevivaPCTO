@@ -1,5 +1,5 @@
 <Page
-    x:Class="ClassevivaPCTO.Views.Scrutini"
+    x:Class="ClassevivaPCTO.Views.NotePage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:ClassevivaPCTO"
@@ -30,45 +30,28 @@
 
 
         <RelativePanel Grid.Row="0" Margin="0,16,0,0">
-            <TextBlock x:Name="TextTitolo" Grid.Row="0" x:Uid="TitoloScrutini"
+
+            <TextBlock x:Name="TextTitolo" x:Uid="TitoloNote"
                        Style="{StaticResource TitleLargeTextBlockStyle}"
                        VerticalAlignment="Top"
                        Margin="32,0,0,0" />
 
-
-            <muxc:ProgressRing IsActive="True" x:Name="ProgressRingScrutini"
+            <muxc:ProgressRing IsActive="True" x:Name="ProgressRingNote"
                                RelativePanel.AlignVerticalCenterWith="TextTitolo"
                                RelativePanel.RightOf="TextTitolo"
                                Margin="16,0,0,0" Width="28" Height="28"
-                               Visibility="{x:Bind ScrutiniViewModel.IsLoadingScrutini, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" />
+                               Visibility="{x:Bind NoteViewModel.IsLoadingNote, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" />
 
-
-        </RelativePanel>
-
-
-        <RelativePanel Grid.Row="0" Margin="0,16,0,0" HorizontalAlignment="Right" Width="1500">
-
-
-            <Button x:Name="AggiornaCommand" RelativePanel.LeftOf="Separatore0"
-                    RelativePanel.AlignVerticalCenterWithPanel="True"
+            <Button x:Name="AggiornaCommand"
+                    HorizontalAlignment="Right"
                     Width="48"
                     Height="32"
-                    Margin="0,0,2,0" Click="AggiornaCommand_Click" x:Uid="RefreshButtonTT">
+                    Margin="26,0,20,0" Click="AggiornaCommand_Click" RelativePanel.AlignRightWithPanel="True"
+                    RelativePanel.AlignVerticalCenterWith="TextTitolo" x:Uid="RefreshButtonTT">
                 <FontIcon Glyph="&#xE72C;" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" />
-
-
             </Button>
 
-            <Rectangle x:Name="Separatore0" RelativePanel.LeftOf="CheckboxEliminati"
-                       RelativePanel.AlignVerticalCenterWithPanel="True"
-                       Fill="{ThemeResource ControlStrokeColorDefaultBrush}"
-                       Width="2" Height="48" Margin="20,0,20,0" />
 
-            <CheckBox x:Name="CheckboxEliminati"
-                      x:Uid="CheckboxEliminati"
-                      Margin="0,0,24,0"
-                      RelativePanel.AlignRightWithPanel="True"
-                      RelativePanel.AlignVerticalCenterWithPanel="True" />
         </RelativePanel>
 
 
@@ -82,22 +65,36 @@
                        BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
                        Background="{ThemeResource CardBackgroundFillColorDefaultBrush}">
 
+            <!--
+            <TextBlock Text="File" x:Name="TextComunicazioni"
+                       Margin="8,6,0,0"
+                       Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                       Style="{ThemeResource BodyStrongTextBlockStyle}" />
 
+            <muxc:ProgressRing IsActive="True" x:Name="ProgressRingBacheca" 
+                           RelativePanel.RightOf="TextComunicazioni"
+                               Margin="12,0,0,0"
+                                       Visibility="{x:Bind ScrutiniViewModel.IsLoadingScrutini, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}"/>
+
+            -->
             <Grid
                 RelativePanel.AlignTopWithPanel="True"
-                RelativePanel.AlignRightWithPanel="True"
                 RelativePanel.AlignBottomWithPanel="True"
+                RelativePanel.AlignRightWithPanel="True"
                 RelativePanel.AlignLeftWithPanel="True">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
 
-                <controls:ScrutiniListView
+                <controls:NotesListView
                     EnableEmptyAlert="True"
-                    x:Name="ScrutiniListView"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Stretch"
+                    EnableStickyHeader="True"
+                    x:Name="NotesListView"
                     Margin="0,0,0,0">
 
-                </controls:ScrutiniListView>
+                </controls:NotesListView>
 
             </Grid>
 

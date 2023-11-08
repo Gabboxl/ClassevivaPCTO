@@ -248,12 +248,12 @@ namespace ClassevivaPCTO.Views
         private void HyperlinkButton_Click_Valutazioni(object sender, RoutedEventArgs e)
         {
             //NavigationService.Navigate(typeof(Views.DettaglioVoti), null);
-            NavigationService.Navigate(typeof(Views.Valutazioni));
+            NavigationService.Navigate(typeof(Views.ValutazioniPage));
         }
 
         private async void HyperlinkButton_Click_Agenda(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(typeof(Views.Agenda));
+            NavigationService.Navigate(typeof(Views.AgendaPage));
         }
 
         private async void AggiornaButton_Click(object sender, RoutedEventArgs e)
@@ -263,7 +263,7 @@ namespace ClassevivaPCTO.Views
 
         private void ButtonApriBacheca_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(typeof(Views.Bacheca));
+            NavigationService.Navigate(typeof(Views.BachecaPage));
         }
     }
 }

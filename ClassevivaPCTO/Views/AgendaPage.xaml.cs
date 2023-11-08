@@ -15,7 +15,7 @@ using Expander = Microsoft.UI.Xaml.Controls.Expander;
 
 namespace ClassevivaPCTO.Views
 {
-    public sealed partial class Agenda : Page
+    public sealed partial class AgendaPage : Page
     {
         public AgendaViewModel AgendaViewModel { get; } = new();
 
@@ -26,7 +26,7 @@ namespace ClassevivaPCTO.Views
         private LessonsResult _lessons;
 
 
-        public Agenda()
+        public AgendaPage()
         {
             this.InitializeComponent();
 

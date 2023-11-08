@@ -11,13 +11,13 @@ using Windows.UI.Xaml.Navigation;
 
 namespace ClassevivaPCTO.Views
 {
-    public sealed partial class Scrutini : Page
+    public sealed partial class ScrutiniPage : Page
     {
         public ScrutiniViewModel ScrutiniViewModel { get; } = new();
 
         private readonly IClassevivaAPI apiWrapper;
 
-        public Scrutini()
+        public ScrutiniPage()
         {
             this.InitializeComponent();
 

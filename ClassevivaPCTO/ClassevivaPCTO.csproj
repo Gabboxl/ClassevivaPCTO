@@ -223,23 +223,23 @@
     <Compile Include="ViewModels\AgendaViewModel.cs" />
     <Compile Include="ViewModels\DashboardPageViewModel.cs" />
     <Compile Include="ViewModels\NavigationViewViewModel.cs" />
-    <Compile Include="Views\Agenda.xaml.cs">
-      <DependentUpon>Agenda.xaml</DependentUpon>
+    <Compile Include="Views\AgendaPage.xaml.cs">
+      <DependentUpon>AgendaPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Note.xaml.cs">
-      <DependentUpon>Note.xaml</DependentUpon>
+    <Compile Include="Views\NotePage.xaml.cs">
+      <DependentUpon>NotePage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Scrutini.xaml.cs">
-      <DependentUpon>Scrutini.xaml</DependentUpon>
+    <Compile Include="Views\ScrutiniPage.xaml.cs">
+      <DependentUpon>ScrutiniPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Assenze.xaml.cs">
-      <DependentUpon>Assenze.xaml</DependentUpon>
+    <Compile Include="Views\AssenzePage.xaml.cs">
+      <DependentUpon>AssenzePage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Bacheca.xaml.cs">
-      <DependentUpon>Bacheca.xaml</DependentUpon>
+    <Compile Include="Views\BachecaPage.xaml.cs">
+      <DependentUpon>BachecaPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Dialogs\FirstRunDialog.xaml.cs">
       <DependentUpon>FirstRunDialog.xaml</DependentUpon>
@@ -251,8 +251,8 @@
     <Compile Include="Views\DashboardPage.xaml.cs">
       <DependentUpon>DashboardPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Valutazioni.xaml.cs">
-      <DependentUpon>Valutazioni.xaml</DependentUpon>
+    <Compile Include="Views\ValutazioniPage.xaml.cs">
+      <DependentUpon>ValutazioniPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\LoginPage.xaml.cs">
       <DependentUpon>LoginPage.xaml</DependentUpon>
@@ -410,23 +410,23 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Agenda.xaml">
+    <Page Include="Views\AgendaPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Note.xaml">
+    <Page Include="Views\NotePage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\Scrutini.xaml">
+    <Page Include="Views\ScrutiniPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\Assenze.xaml">
+    <Page Include="Views\AssenzePage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\Bacheca.xaml">
+    <Page Include="Views\BachecaPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -442,7 +442,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Valutazioni.xaml">
+    <Page Include="Views\ValutazioniPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

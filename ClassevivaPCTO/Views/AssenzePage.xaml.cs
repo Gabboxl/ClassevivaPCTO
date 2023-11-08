@@ -16,7 +16,7 @@ using Microsoft.Toolkit.Uwp.UI;
 
 namespace ClassevivaPCTO.Views
 {
-    public sealed partial class Assenze : Page
+    public sealed partial class AssenzePage : Page
     {
         public AssenzeViewModel AssenzeViewModel { get; } = new();
 
@@ -26,7 +26,7 @@ namespace ClassevivaPCTO.Views
 
         private AbsencesResult? _absencesResult;
 
-        public Assenze()
+        public AssenzePage()
         {
             this.InitializeComponent();
 
