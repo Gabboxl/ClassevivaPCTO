@@ -478,7 +478,7 @@
       <Version>0.0.18</Version>
     </PackageReference>
     <PackageReference Include="CommunityToolkit.Mvvm">
-      <Version>8.2.1</Version>
+      <Version>8.2.2</Version>
     </PackageReference>
     <PackageReference Include="CommunityToolkit.Uwp.Controls.Segmented">
       <Version>8.0.230907</Version>
@@ -487,7 +487,7 @@
       <Version>8.0.230907</Version>
     </PackageReference>
     <PackageReference Include="Crowdin.Api">
-      <Version>2.18.0</Version>
+      <Version>2.19.0</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.AppCenter.Analytics">
       <Version>5.0.3</Version>
@@ -502,7 +502,7 @@
       <Version>7.0.0</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.Extensions.Http.Polly">
-      <Version>7.0.11</Version>
+      <Version>7.0.13</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
       <Version>6.2.14</Version>
@@ -517,13 +517,13 @@
       <Version>7.1.3</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.UI.Xaml">
-      <Version>2.8.5</Version>
+      <Version>2.8.6</Version>
     </PackageReference>
     <PackageReference Include="Newtonsoft.Json">
       <Version>13.0.3</Version>
     </PackageReference>
     <PackageReference Include="Polly">
-      <Version>8.0.0</Version>
+      <Version>8.1.0</Version>
     </PackageReference>
     <PackageReference Include="Polly.Extensions.Http">
       <Version>3.0.0</Version>
