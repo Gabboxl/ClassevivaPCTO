@@ -62,7 +62,7 @@
             <Rectangle x:Name="Separatore0" RelativePanel.LeftOf="CheckboxEliminati"
                        RelativePanel.AlignVerticalCenterWithPanel="True"
                        Fill="{ThemeResource ControlStrokeColorDefaultBrush}"
-                       Width="2" Height="48" Margin="20,0,20,0" />
+                       Width="1" Height="48" Margin="16,0,16,0" />
 
             <CheckBox x:Name="CheckboxEliminati"
                       x:Uid="CheckboxEliminati"

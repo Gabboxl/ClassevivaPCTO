@@ -39,7 +39,7 @@ namespace ClassevivaPCTO.Views
             titleBar.ButtonInactiveBackgroundColor = Colors.Transparent;
 
             //titolo title bar
-            AppTitleTextBlock.Text = "Login - " + AppInfo.Current.DisplayInfo.DisplayName;
+            AppTitleTextBlock.Text = "Login" + " - " + AppInfo.Current.DisplayInfo.DisplayName;
 
             Window.Current.SetTitleBar(AppTitleBar);
 

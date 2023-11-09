@@ -52,7 +52,7 @@
         <Popup
             x:Name="LezioniPopup"
             IsOpen="False"
-            Width="1000"
+            Width="800"
             RelativePanel.AlignRightWithPanel="True"
             RelativePanel.AlignTopWithPanel="True"
             RelativePanel.AlignBottomWithPanel="True"
@@ -121,7 +121,7 @@
         <Popup
             x:Name="AgendaPopup"
             IsOpen="False"
-            Width="1000"
+            Width="800"
             RelativePanel.AlignRightWithPanel="True"
             RelativePanel.AlignTopWithPanel="True"
             RelativePanel.AlignBottomWithPanel="True"
@@ -259,12 +259,12 @@
 
                         <Rectangle x:Name="Separator0" RelativePanel.LeftOf="ButtonYesterday"
                                    Fill="{ThemeResource ControlStrokeColorDefaultBrush}"
-                                   Width="2" Height="48" Margin="16,0,0,0" />
+                                   Width="1" Height="48" Margin="12,0,0,0" />
 
-                        <Button x:Name="ButtonYesterday" Margin="16,0,0,0"
+                        <Button x:Name="ButtonYesterday" Margin="12,0,0,0"
                                 RelativePanel.AlignVerticalCenterWithPanel="True"
                                 RelativePanel.LeftOf="CalendarAgenda"
-                                Width="48"
+                                Width="42"
                                 Height="32"
                                 toolkit:FrameworkElementExtensions.Cursor="Hand"
                                 Click="ButtonYesterday_Click" x:Uid="AgendaButtonYesterdayTT">
@@ -282,7 +282,7 @@
 
                         <Button x:Name="ButtonTomorrow" Margin="0,0,0,0"
                                 RelativePanel.LeftOf="ButtonToday"
-                                Width="48"
+                                Width="42"
                                 Height="32"
                                 RelativePanel.AlignVerticalCenterWithPanel="True"
                                 toolkit:FrameworkElementExtensions.Cursor="Hand"
@@ -300,7 +300,7 @@
 
                         <Rectangle x:Name="Separator1" RelativePanel.LeftOf="TuttiCompitiButton"
                                    Fill="{ThemeResource ControlStrokeColorDefaultBrush}"
-                                   Width="2" Height="48" Margin="16,0,0,0" />
+                                   Width="1" Height="48" Margin="12,0,0,0" />
 
                         <Button
                             RelativePanel.AlignVerticalCenterWithPanel="True"
@@ -308,7 +308,7 @@
                             MinWidth="110"
                             RelativePanel.LeftOf="PopupLessonsButton"
                             Click="PopupAgendaButton_OnClick"
-                            Margin="16,0,0,0">
+                            Margin="12,0,0,0">
                             <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Spacing="8">
 
                                 <TextBlock Text="&#xEA98;" VerticalAlignment="Center"
