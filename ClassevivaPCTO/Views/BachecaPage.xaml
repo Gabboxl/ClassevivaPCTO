@@ -54,7 +54,7 @@
 
             <Button RelativePanel.LeftOf="SeparatoreBacheca1" x:Name="AggiornaCommand"
                     RelativePanel.AlignVerticalCenterWithPanel="True"
-                    Width="48"
+                    Width="42"
                     Height="32"
                     Margin="16,0,0,0" Click="AggiornaCommand_Click" x:Uid="RefreshButtonTT">
                 <FontIcon Glyph="&#xE72C;" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" />
@@ -71,7 +71,7 @@
                 RelativePanel.LeftOf="SeparatoreBacheca2"
                 RelativePanel.AlignVerticalCenterWithPanel="True"
                 Margin="0,0,0,0"
-                MaxWidth="310"
+                Width="310"
                 x:Name="ReadUnreadSegmented"
                 SelectedIndex="0"
                 SelectionChanged="ReadUnreadSegmented_OnSelectionChanged"
