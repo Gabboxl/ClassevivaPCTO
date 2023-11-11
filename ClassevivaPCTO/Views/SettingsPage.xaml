@@ -499,35 +499,7 @@
                 
                 -->
 
-                <labs:SettingsExpander Header="Impostazioni agenda" Description="Gestisci funzioni aggiuntive dell'Agenda">
-                    <labs:SettingsExpander.HeaderIcon>
-                        <FontIcon Glyph="&#xE787;" />
-                    </labs:SettingsExpander.HeaderIcon>
-
-                    <labs:SettingsExpander.Items>
-                        <labs:SettingsCard Header="Mostra tipologia eventi (AGNT/AGHW) nella sezione Agenda">
-                            <labs:SettingsCard.HeaderIcon>
-                                <FontIcon Glyph="&#xE81E;" />
-                            </labs:SettingsCard.HeaderIcon>
-                            <ToggleSwitch IsOn="True"/>
-
-                        </labs:SettingsCard>
-
-                        <labs:SettingsCard Header="Abilita completamento compiti">
-                            <labs:SettingsCard.HeaderIcon>
-                                <FontIcon Glyph="&#xF16C;" />
-                            </labs:SettingsCard.HeaderIcon>
-
-                                <ToggleSwitch IsOn="True"/>
-
-                        </labs:SettingsCard>
-
-                    </labs:SettingsExpander.Items>
-
-                </labs:SettingsExpander>
-
-
-                <labs:SettingsCard x:Uid="SettingsCardLanguage">
+             <labs:SettingsCard x:Uid="SettingsCardLanguage">
 
 
                 <controls1:SettingsCard x:Uid="SettingsCardLanguage">
