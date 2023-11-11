@@ -18,11 +18,11 @@ ClassevivaPCTO is a simple UWP client to consult Spaggiari's electronic school r
 
 ## Releases
 
-**Current release: v1.1.0**
+**Current release:**  ![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/Gabboxl/ClassevivaPCTO?include_prereleases) 
 
 <img src="https://github.com/Gabboxl/ClassevivaPCTO/blob/main/.github/assets/github-v1.png?raw=true" width=80% height=80%>
 
-[Full Changelog](https://github.com/Gabboxl/ClassevivaPCTO/compare/1.0.0...1.1.0)
+[Full Changelog](https://github.com/Gabboxl/ClassevivaPCTO/releases/latest)
 
 ## What's next
 
