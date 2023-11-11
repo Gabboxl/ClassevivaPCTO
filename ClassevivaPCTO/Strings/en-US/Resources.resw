@@ -160,15 +160,12 @@ This app is for student accounts only.
 
 Please note that this app is still under development and some features are not available at this time.
 If you encounter bugs or have an idea for the app, open an issue on GitHub by clicking on the "Report an issue" link in the About section.</value>
-    <comment>First use prompt message body</comment>
   </data>
   <data name="FirstRunDialog.Title" xml:space="preserve">
     <value>Welcome in ClassevivaPCTO</value>
-    <comment>First use prompt message title</comment>
   </data>
   <data name="FirstRunDialog.PrimaryButtonText" xml:space="preserve">
     <value>Ok</value>
-    <comment>First use prompt message primary button text</comment>
   </data>
   <data name="WhatsNewDialog.PrimaryButtonText" xml:space="preserve">
     <value>Close</value>
@@ -209,11 +206,9 @@ If you encounter bugs or have an idea for the app, open an issue on GitHub by cl
   </data>
   <data name="Settings_Language_En_US.Content" xml:space="preserve">
     <value>English</value>
-    <comment>English language text</comment>
   </data>
   <data name="Settings_Language_It_IT.Content" xml:space="preserve">
     <value>Italian</value>
-    <comment>Italian language text</comment>
   </data>
   <data name="Settings_Version.Text" xml:space="preserve">
     <value>Version</value>
@@ -475,7 +470,7 @@ Student accounts have usernames starting with the letters S, G, or X.</value>
     <value>Version </value>
   </data>
   <data name="SettingsAccountSchool.Text" xml:space="preserve">
-    <value>School: </value>
+    <value>Istituto:</value>
   </data>
   <data name="SettingsAccountStudentCode.Text" xml:space="preserve">
     <value>Student code: </value>
@@ -743,5 +738,35 @@ Student accounts have usernames starting with the letters S, G, or X.</value>
   </data>
   <data name="ContinueDialogButton" xml:space="preserve">
     <value>Continue</value>
+  </data>
+  <data name="SettingsCardAskConfirm.Description" xml:space="preserve">
+    <value>Chiedi conferma prima di aprire una comunicazione per evitare di contrassegnarla erroneamente come letta</value>
+  </data>
+  <data name="SettingsCardAskConfirm.Header" xml:space="preserve">
+    <value>Conferma apertura comunicazioni</value>
+  </data>
+  <data name="ChangePhotoDialogContent" xml:space="preserve">
+    <value>Cambia la tua foto profilo in locale, visualizzabile negli account ClassevivaPCTO e nelle Impostazioni dell'App.</value>
+  </data>
+  <data name="ChangeProfilePhotoTitle" xml:space="preserve">
+    <value>Modifica foto profilo</value>
+  </data>
+  <data name="ToBeJustifiedText" xml:space="preserve">
+    <value>Da giustificare</value>
+  </data>
+  <data name="OkDialogButton" xml:space="preserve">
+    <value>Ok</value>
+  </data>
+  <data name="RemovePhotoDialogButton" xml:space="preserve">
+    <value>Rimuovi foto</value>
+  </data>
+  <data name="SelectFileDialogButton" xml:space="preserve">
+    <value>Seleziona file</value>
+  </data>
+  <data name="UntranslatedLanguage" xml:space="preserve">
+    <value>L'app non è stata ancora tradotta nella lingua che hai scelto.</value>
+  </data>
+  <data name="AbsenceEventOnDayPreposition" xml:space="preserve">
+    <value> del </value>
   </data>
 </root>
