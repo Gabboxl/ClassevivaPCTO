@@ -681,49 +681,49 @@ Gli account studente hanno l'username che inizia con le lettere S, G o X.</value
     <value>Note disciplinari</value>
   </data>
   <data name="NTCL_sing" xml:space="preserve">
-    <value>Nota disciplinare del </value>
+    <value>Nota disciplinare</value>
   </data>
   <data name="NTST_plur" xml:space="preserve">
     <value>Sanzioni disciplinari</value>
   </data>
   <data name="NTST_sing" xml:space="preserve">
-    <value>Sanzione disciplinare del </value>
+    <value>Sanzione disciplinare</value>
   </data>
   <data name="NTTE_plur" xml:space="preserve">
     <value>Annotazioni</value>
   </data>
   <data name="NTTE_sing" xml:space="preserve">
-    <value>Annotazione del </value>
+    <value>Annotazione</value>
   </data>
   <data name="NTWN_plur" xml:space="preserve">
     <value>Richiami</value>
   </data>
   <data name="NTWN_sing" xml:space="preserve">
-    <value>Richiamo del </value>
+    <value>Richiamo</value>
   </data>
   <data name="ABA0_plur" xml:space="preserve">
     <value>Assenze</value>
   </data>
   <data name="ABA0_sing" xml:space="preserve">
-    <value>Assenza del </value>
+    <value>Assenza</value>
   </data>
   <data name="ABR0_plur" xml:space="preserve">
     <value>Ritardi</value>
   </data>
   <data name="ABR0_sing" xml:space="preserve">
-    <value>Ritardo del </value>
+    <value>Ritardo</value>
   </data>
   <data name="ABR1_plur" xml:space="preserve">
     <value>Ritardi brevi</value>
   </data>
   <data name="ABR1_sing" xml:space="preserve">
-    <value>Ritardo breve del </value>
+    <value>Ritardo breve</value>
   </data>
   <data name="ABU0_plur" xml:space="preserve">
     <value>Uscite anticipate</value>
   </data>
   <data name="ABU0_sing" xml:space="preserve">
-    <value>Uscita anticipata del </value>
+    <value>Uscita anticipata</value>
   </data>
   <data name="AppTranslationStatus1" xml:space="preserve">
     <value>L'app è stata tradotta al </value>
