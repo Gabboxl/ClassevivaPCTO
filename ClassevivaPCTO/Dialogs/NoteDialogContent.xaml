@@ -23,7 +23,6 @@
                        TextWrapping="Wrap"
                        Style="{ThemeResource BodyTextBlockStyle}"
                        IsTextSelectionEnabled="True"
-                       FontWeight="SemiBold"
                        Text="{x:Bind CurrentReadResult.Note.evtText}"
                        Margin="2,8,0,8" />
 
