@@ -44,7 +44,7 @@
 
             <Button x:Name="AggiornaCommand"
                     HorizontalAlignment="Right"
-                    Width="42"
+                    Width="48"
                     Height="32"
                     Margin="26,0,20,0" Click="AggiornaCommand_Click" RelativePanel.AlignRightWithPanel="True"
                     RelativePanel.AlignVerticalCenterWith="TextTitolo" x:Uid="RefreshButtonTT">

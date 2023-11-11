@@ -128,7 +128,7 @@
                     Click="ReloadButton_OnClick"
                     RelativePanel.LeftOf="Separatore_Bacheca"
                     RelativePanel.AlignVerticalCenterWithPanel="True"
-                    Width="42"
+                    Width="48"
                     Height="32"
                     Margin="0,0,0,0"
                     x:Uid="RefreshButtonTT">
