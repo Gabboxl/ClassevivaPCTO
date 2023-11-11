@@ -9,6 +9,7 @@
     xmlns:microconverters="using:Microsoft.Toolkit.Uwp.UI.Converters"
     mc:Ignorable="d"
     xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
+    xmlns:comToolkit="using:CommunityToolkit.WinUI.Controls"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
     muxc:BackdropMaterial.ApplyToRootOrPageBackground="True">
 
@@ -73,12 +74,22 @@
 
         <ScrollViewer
             Grid.Row="1">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"></RowDefinition>
+                </Grid.RowDefinitions>
+            
 
-
-            <controls:UniformGridEx
-                MinRowHeight="200"
-                x:Name="MyUniformGrid"
-                ColumnSpacing="12" RowSpacing="36">
+                <comToolkit:StaggeredPanel
+                    DesiredColumnWidth="500"
+                    ScrollViewer.VerticalScrollMode="Enabled"
+                    HorizontalAlignment="Stretch"
+                    RowSpacing="12"
+                    ColumnSpacing="12"
+                    Margin="18,16,18,18">
 
 
                 <Grid
@@ -150,7 +161,8 @@
                     </RelativePanel>
                 </Grid>
 
-            </controls:UniformGridEx>
+            </comToolkit:StaggeredPanel>
+            </Grid>
 
         </ScrollViewer>
     </Grid>

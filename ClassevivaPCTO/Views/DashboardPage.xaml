@@ -9,7 +9,7 @@
     xmlns:controls2="using:ClassevivaPCTO.Controls"
     xmlns:microconverters="using:Microsoft.Toolkit.Uwp.UI.Converters"
     xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
-    xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    xmlns:comToolkit="using:CommunityToolkit.WinUI.Controls"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
     muxc:BackdropMaterial.ApplyToRootOrPageBackground="True">
 
@@ -79,7 +79,7 @@
                 </Grid.RowDefinitions>
             
 
-            <controls2:CustomStaggeredPanel
+            <comToolkit:StaggeredPanel
                 DesiredColumnWidth="500"
                 ScrollViewer.VerticalScrollMode="Enabled"
                 HorizontalAlignment="Stretch"
@@ -270,7 +270,7 @@
                 </Grid>
 
 
-            </controls2:CustomStaggeredPanel>
+            </comToolkit:StaggeredPanel>
             </Grid>
         </ScrollViewer>
 
