@@ -130,7 +130,7 @@
                     RelativePanel.AlignVerticalCenterWithPanel="True"
                     Width="48"
                     Height="32"
-                    Margin="16,0,0,0"
+                    Margin="0,0,0,0"
                     x:Uid="RefreshButtonTT">
                 <FontIcon Glyph="&#xE72C;" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" />
             </Button>
@@ -139,7 +139,7 @@
             <Rectangle x:Name="Separatore_Bacheca" RelativePanel.LeftOf="CheckboxSuddividi"
                        RelativePanel.AlignVerticalCenterWithPanel="True"
                        Fill="{ThemeResource ControlStrokeColorDefaultBrush}"
-                       Width="2" Height="48" Margin="20,0,20,0" />
+                       Width="1" Height="48" Margin="16,0,16,0" />
 
             <CheckBox x:Name="CheckboxSuddividi"
                       x:Uid="CheckboxSuddividi"

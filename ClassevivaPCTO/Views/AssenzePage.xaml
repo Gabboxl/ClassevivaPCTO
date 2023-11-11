@@ -64,10 +64,12 @@
 
 
             <Button x:Name="AggiornaCommand" Click="AggiornaCommand_Click"
-                    RelativePanel.AlignVerticalCenterWith="TextTitolo" RelativePanel.AlignRightWithPanel="True"
+                    RelativePanel.AlignVerticalCenterWith="TextTitolo" 
+                    RelativePanel.AlignRightWithPanel="True"
                     Margin="0,0,20,0"
                     Height="32" Width="48" x:Uid="RefreshButtonTT">
-                <FontIcon Glyph="&#xE72C;" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" />
+                
+                    <FontIcon Glyph="&#xE72C;" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" />
             </Button>
         </RelativePanel>
 

@@ -98,14 +98,13 @@
             HorizontalAlignment="Center"
             Grid.Row="0"
             Visibility="{x:Bind OverviewControlViewModel.ShowEmptyAlert, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}">
-            <FontIcon x:Name="IconCalendar" FontFamily="{StaticResource FluentIcons}" Glyph="&#xE787;"
+            <FontIcon x:Name="OverviewPlaceholderIcon" FontFamily="{StaticResource FluentIcons}" Glyph="&#xE787;"
                       Foreground="{ThemeResource TextFillColorDisabledBrush}"
                       RelativePanel.AlignHorizontalCenterWithPanel="True"
-                      FontSize="136"
+                      FontSize="124"
                       Margin="0,0,0,0" />
 
-            <TextBlock x:Name="NoEventText"
-                       RelativePanel.Below="IconCalendar"
+            <TextBlock RelativePanel.Below="OverviewPlaceholderIcon"
                        RelativePanel.AlignHorizontalCenterWithPanel="True"
                        Foreground="{ThemeResource TextFillColorDisabledBrush}"
                        Margin="0,0,0,0"

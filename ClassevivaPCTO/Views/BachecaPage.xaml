@@ -65,13 +65,13 @@
             <Rectangle x:Name="SeparatoreBacheca1" RelativePanel.LeftOf="ReadUnreadSegmented"
                        RelativePanel.AlignVerticalCenterWithPanel="True"
                        Fill="{ThemeResource ControlStrokeColorDefaultBrush}"
-                       Width="2" Height="48" Margin="20,0,20,0" />
+                       Width="1" Height="48" Margin="16,0,16,0" />
 
             <controls1:Segmented
                 RelativePanel.LeftOf="SeparatoreBacheca2"
                 RelativePanel.AlignVerticalCenterWithPanel="True"
                 Margin="0,0,0,0"
-                Width="325"
+                Width="310"
                 x:Name="ReadUnreadSegmented"
                 SelectedIndex="0"
                 SelectionChanged="ReadUnreadSegmented_OnSelectionChanged"
@@ -111,7 +111,7 @@
             <Rectangle x:Name="SeparatoreBacheca2" RelativePanel.LeftOf="CheckboxAttive"
                        RelativePanel.AlignVerticalCenterWithPanel="True"
                        Fill="{ThemeResource ControlStrokeColorDefaultBrush}"
-                       Width="2" Height="48" Margin="20,0,20,0" />
+                       Width="1" Height="48" Margin="16,0,16,0" />
 
             <CheckBox x:Name="CheckboxAttive"
                       x:Uid="CheckboxInattive"
