@@ -154,12 +154,13 @@
     <comment>Personalization text for Settings</comment>
   </data>
   <data name="FirstRun_Body.Text" xml:space="preserve">
-    <value>Con ClassevivaPCTO potrai visualizzare i tuoi dati del registro elettronico Classeviva in maniera intuitiva e sotto le vesti di un design innovativo.
+    <value>Avec ClassevivaPCTO vous pourrez visualiser les données de votre registre électronique Classeviva de manière intuitive et sous couvert d'un design innovant.
 
-Quest'app è rivolta soltanto agli account studente.
+Cette application est réservée aux comptes étudiants.
 
-Ricorda che quest'app è ancora in fase di sviluppo e alcune funzionalità non sono disponibili al momento. 
-Se riscontri bug o hai un'idea per l'app apri un issue su GitHub cliccando sul link "Segnala un problema" nella sezione Informazioni app.</value>
+Veuillez noter que cette application est encore en développement et que certaines fonctionnalités ne sont pas disponibles pour le moment.
+
+Si vous rencontrez des bugs ou avez une idée pour l'application, ouvrez un ticket sur GitHub en cliquant sur le lien « Signaler un problème » dans la section Informations sur l'application.</value>
     <comment>First use prompt message body</comment>
   </data>
   <data name="FirstRunDialog.Title" xml:space="preserve">
@@ -179,24 +180,24 @@ Se riscontri bug o hai un'idea per l'app apri un issue su GitHub cliccando sul l
     <comment>What's new prompt message title</comment>
   </data>
   <data name="WhatsNew_Body_Main.Text" xml:space="preserve">
-    <value>•  Migliorata l'interfaccia della pagina di Login
-•  Corretti alcuni errori relativi al cambio della lingua e ottimizzate le traduzioni
-•  Le note ora verranno visualizzate negli eventi del giorno
-•  Aggiornato il design del widget Bacheca nella Dashboard
-•  Aggiornato il design dei titoli delle categorie nelle pagine Bacheca, Assenze, Note e Scrutini
-•  Aggiunta la possibilità di visualizzare i contributors di GitHub e le licenze nella sezione Tips</value>
+    <value>Amélioration de l'interface de la page de connexion
+• Correction de quelques erreurs liées au changement de langue et aux traductions optimisées
+• Les notes apparaîtront désormais dans les événements de la journée
+• Mise à jour de la conception du widget Tableau dans le tableau de bord
+• Mise à jour de la conception des titres de catégories sur les pages Tableau d'affichage, Absences, Notes et Bulletins de vote.
+• Ajout de la possibilité d'afficher les contributeurs et les licences GitHub dans la section Conseils</value>
     <comment>What's new prompt message body for highlights section</comment>
   </data>
   <data name="WhatsNew_Body_1.Text" xml:space="preserve">
-    <value>•  La sezione account è adesso integrata nelle Impostazioni
-•  Aggiunta la possibilità di visualizzare le modifiche recenti apportate all'app
-•  Da adesso il tutorial iniziale sarà visibile anche dalle Impostazioni - questo verrà modificato in futuro per includere suggerimenti e consigli su come usare al meglio l'app
-•  Aggiunta una sezione per i contributors di Github</value>
+    <value>La section compte est désormais intégrée aux paramètres
+• Ajout de la possibilité d'afficher les modifications récentes apportées à l'application
+• À partir de maintenant, le didacticiel initial sera également visible depuis les paramètres. Il sera modifié à l'avenir pour inclure des astuces et des conseils sur la meilleure façon d'utiliser l'application.
+• Ajout d'une section pour les contributeurs Github</value>
     <comment>What's new prompt message body for first section (General)</comment>
   </data>
   <data name="WhatsNew_Body_2.Text" xml:space="preserve">
-    <value>•  Aggiunta la possibilità di cambiare e spostare i widget visualizzati nella dashboard
-•  Nuovo widget: Collegamenti rapidi - permette di salvare fino a 5 collegamenti Internet da poter aprire rapidamente dall'app, come il sito della tua scuola, Classroom o la tua posta elettronica d'istituto</value>
+    <value>Ajout de la possibilité de modifier et de déplacer les widgets affichés dans le tableau de bord
+• Nouveau widget : Liens rapides - vous permet d'enregistrer jusqu'à 5 liens Internet que vous pouvez ouvrir rapidement depuis l'application, tels que le site Web de votre école, Classroom ou la messagerie électronique de votre école</value>
     <comment>What's new prompt message body for second section (Dashboard)</comment>
   </data>
   <data name="Settings_Account.Text" xml:space="preserve">
@@ -244,13 +245,13 @@ Se riscontri bug o hai un'idea per l'app apri un issue su GitHub cliccando sul l
     <value>Signaler un problème</value>
   </data>
   <data name="SettingsCardTutorial.Header" xml:space="preserve">
-    <value>Tips</value>
+    <value>Conseils</value>
   </data>
   <data name="SettingsCardTutorial.Description" xml:space="preserve">
-    <value>Visualizza suggerimenti sul funzionamento dell'app</value>
+    <value>Afficher des conseils sur le fonctionnement de l'application</value>
   </data>
   <data name="SettingsCardTutorialButton.Content" xml:space="preserve">
-    <value>Mostra Tips</value>
+    <value>Montre des conseils</value>
   </data>
   <data name="SettingsCardWhatsNew.Header" xml:space="preserve">
     <value>Nouveautés de cette version </value>
@@ -259,7 +260,7 @@ Se riscontri bug o hai un'idea per l'app apri un issue su GitHub cliccando sul l
     <value>Afficher les modifications envisagées</value>
   </data>
   <data name="SettingsCardWhatsNewButton.Content" xml:space="preserve">
-    <value>Mostra novità</value>
+    <value>Afficher les actualités</value>
   </data>
   <data name="TitoloScrutini.Text" xml:space="preserve">
     <value>Sondage</value>
@@ -283,7 +284,7 @@ Se riscontri bug o hai un'idea per l'app apri un issue su GitHub cliccando sul l
     <value>Mot de passe :</value>
   </data>
   <data name="CheckboxCredenziali.Content" xml:space="preserve">
-    <value>Mantieni le credenziali</value>
+    <value>Conserver les informations d'identification</value>
   </data>
   <data name="ComboMaterie.PlaceholderText" xml:space="preserve">
     <value>Sélectionner un sujet</value>
@@ -295,7 +296,7 @@ Se riscontri bug o hai un'idea per l'app apri un issue su GitHub cliccando sul l
     <value>Le panneau de bord de {0}</value>
   </data>
   <data name="TextOggiAgenda.Text" xml:space="preserve">
-    <value>Eventi del giorno</value>
+    <value>Événements de la journée</value>
   </data>
   <data name="DashboardButtonApriAgenda.Text" xml:space="preserve">
     <value>Agenda ouverte</value>
@@ -304,7 +305,7 @@ Se riscontri bug o hai un'idea per l'app apri un issue su GitHub cliccando sul l
     <value>Évaluations récentes</value>
   </data>
   <data name="TitleMedia.Text" xml:space="preserve">
-    <value>Media totale:</value>
+    <value>Moyenne totale :</value>
   </data>
   <data name="DashboardButtonApriValutazioni.Text" xml:space="preserve">
     <value>Montrer toutes les saisons</value>
@@ -313,13 +314,13 @@ Se riscontri bug o hai un'idea per l'app apri un issue su GitHub cliccando sul l
     <value>Évaluations récentes</value>
   </data>
   <data name="DashboardButtonApriBacheca.Text" xml:space="preserve">
-    <value>Apri bacheca</value>
+    <value>Tableau d'affichage ouvert</value>
   </data>
   <data name="TextBachecaComunicazioni.Text" xml:space="preserve">
     <value>Communications</value>
   </data>
   <data name="TextTitoloAssenzeRitardi.Text" xml:space="preserve">
-    <value>Assenze e Ritardi</value>
+    <value>Absences et retards</value>
   </data>
   <data name="TodayButton.Content" xml:space="preserve">
     <value>Aujourd'hui</value>
@@ -334,18 +335,18 @@ Se riscontri bug o hai un'idea per l'app apri un issue su GitHub cliccando sul l
     <value>Aujourd'hui</value>
   </data>
   <data name="TuttiCompitiButton.Text" xml:space="preserve">
-    <value>Tutti i compiti</value>
+    <value>Toutes les tâches</value>
   </data>
   <data name="PopupLessonsButton.Text" xml:space="preserve">
-    <value>Tutte le lezioni</value>
+    <value>Toutes les leçons</value>
   </data>
   <data name="AccountNonSupportato" xml:space="preserve">
-    <value>Account insegnante non supportato</value>
+    <value>Compte enseignant non pris en charge</value>
   </data>
   <data name="AccountNonSupportatoBody" xml:space="preserve">
-    <value>In questa app sono solo supportati gli account studente. 
+    <value>Seuls les comptes étudiants sont pris en charge dans cette application.
 
-Gli account studente hanno l'username che inizia con le lettere S, G o X.</value>
+Les comptes étudiants ont des noms d'utilisateur commençant par les lettres S, G ou X.</value>
   </data>
   <data name="ErroreText" xml:space="preserve">
     <value>Erreur</value>
@@ -354,8 +355,9 @@ Gli account studente hanno l'username che inizia con le lettere S, G o X.</value
     <value>OK</value>
   </data>
   <data name="ErrorDialogBody" xml:space="preserve">
-    <value>Errore durante il login. Controlla il nome utente e la password. 
- Errore: </value>
+    <value>Erreur de connexion. Vérifiez votre nom d'utilisateur et votre mot de passe.
+
+Erreur: </value>
   </data>
   <data name="ChooseProfileDialogTitle" xml:space="preserve">
     <value>Choisir un autre profil</value>
@@ -376,7 +378,7 @@ Gli account studente hanno l'username che inizia con le lettere S, G o X.</value
     <value>Selectionnez un profil:</value>
   </data>
   <data name="ProfileChoiceDialogInfoTextBlock.Text" xml:space="preserve">
-    <value>Più profili sono associati a questo account.</value>
+    <value>Plusieurs profils sont associés à ce compte.</value>
   </data>
   <data name="DialogButtonSave.Text" xml:space="preserve">
     <value>Sauver</value>
@@ -406,13 +408,13 @@ Gli account studente hanno l'username che inizia con le lettere S, G o X.</value
     <value>Fermer</value>
   </data>
   <data name="ReadAndOpenFlyoutText" xml:space="preserve">
-    <value>Leggi e apri</value>
+    <value>Lire et ouvrir</value>
   </data>
   <data name="InfoNoticeFlyoutText" xml:space="preserve">
-    <value>La comunicazione verrà contrassegnata come letta sul server. Continuare?</value>
+    <value>La communication sera marquée comme lue sur le serveur. Continuer?</value>
   </data>
   <data name="InfoNoteFlyoutText" xml:space="preserve">
-    <value>La nota verrà contrassegnata come letta sul server. Continuare?</value>
+    <value>La note sera marquée comme lue sur le serveur. Continuer?</value>
   </data>
   <data name="SettingsAccountExitButton.Text" xml:space="preserve">
     <value>Quitter</value>
@@ -436,19 +438,19 @@ Gli account studente hanno l'username che inizia con le lettere S, G o X.</value
     <value>Nature</value>
   </data>
   <data name="WhatsNew_Body_3.Text" xml:space="preserve">
-    <value>•  Aggiunta la possibilità di ridimensionare i popup
-•  Gli eventi nella sezione "Agenda" e nella sezione "Compiti" sono da adesso distinguibili tramite un'icona apposita
-•  Miglioramenti all'interfaccia</value>
+    <value>• Ajout de la possibilité de redimensionner les fenêtres contextuelles
+• Les événements de la section "Agenda" et de la section "Tâches" se distinguent désormais par une icône spécifique
+• Améliorations de l'interface</value>
     <comment>What's new prompt message body for third section (Agenda)</comment>
   </data>
   <data name="WhatsNew_Body_4.Text" xml:space="preserve">
-    <value>•  Aggiornato il design della sezione medie
-•  Le materie / periodi didattici senza voti da adesso presenteranno il placeholder N/D
-•  Aggiunta una distizione tra primo e secondo quadrimestre nella selezione del periodo didattico; ciò vale solo per le scuole che non utilizzano il sistema trimestre/pentamestre</value>
+    <value>• Mise à jour du design de la section moyenne
+• Les matières/périodes d'enseignement sans notes auront désormais l'espace réservé N/A.
+• Ajout d'une distinction entre le premier et le deuxième trimestre dans le choix de la période d'enseignement ; cela ne s'applique qu'aux écoles qui n'utilisent pas le système des quarts/cinq mois</value>
     <comment>What's new prompt message body for fourth section (Valutazioni)</comment>
   </data>
   <data name="WhatsNew_Body_5.Text" xml:space="preserve">
-    <value>•  Aggiunto un filtro per le comunicazioni lette/non lette</value>
+    <value>• Ajout d'un filtre pour les communications lues/non lues</value>
     <comment>What's new prompt message body for fifth section (Bacheca)</comment>
   </data>
   <data name="SettingsChangeProfilePicButton.Text" xml:space="preserve">
@@ -479,19 +481,19 @@ Gli account studente hanno l'username che inizia con le lettere S, G o X.</value
     <value>Etablissement : </value>
   </data>
   <data name="SettingsAccountStudentCode.Text" xml:space="preserve">
-    <value>Codice studente: </value>
+    <value>Code étudiant: </value>
   </data>
   <data name="SettingsCardPalette.Description" xml:space="preserve">
-    <value>Personalizza lo schema dei colori utilizzato nell'app per indicare voti ed eventi</value>
+    <value>Personnalisez la palette de couleurs utilisée dans l'application pour indiquer les notes et les événements</value>
   </data>
   <data name="SettingsCardPalette.Header" xml:space="preserve">
     <value>Schéma de couleurs</value>
   </data>
   <data name="SettingsCardSchoolYear.Description" xml:space="preserve">
-    <value>Seleziona l'anno scolastico da consultare / torna all'anno precedente</value>
+    <value>Sélectionner l'année scolaire à consulter / revenir à l'année précédente</value>
   </data>
   <data name="SettingsCardSchoolYear.Header" xml:space="preserve">
-    <value>Anno scolastico</value>
+    <value>Année scolaire</value>
   </data>
   <data name="SettingsChangelogDashboard.Text" xml:space="preserve">
     <value>Tableau de bord</value>
@@ -503,7 +505,7 @@ Gli account studente hanno l'username che inizia con le lettere S, G o X.</value
     <value>En vedette</value>
   </data>
   <data name="SettingsChangelogRelease.Text" xml:space="preserve">
-    <value>v1.1.0, 21 Ottobre 2023</value>
+    <value>v1.1.0, 21 octobre 2023</value>
   </data>
   <data name="AgendaButtonTomorrowTT.ToolTipService.ToolTip" xml:space="preserve">
     <value>Jour suivant</value>
@@ -515,16 +517,16 @@ Gli account studente hanno l'username che inizia con le lettere S, G o X.</value
     <value>Justifié</value>
   </data>
   <data name="AssenzeToBeJustified.Text" xml:space="preserve">
-    <value>Da giustificare</value>
+    <value>Être justifié</value>
   </data>
   <data name="ButtonTodayAgenda.ToolTipService.ToolTip" xml:space="preserve">
-    <value>Vai agli eventi di oggi</value>
+    <value>Accédez aux événements d'aujourd'hui</value>
   </data>
   <data name="CheckboxInattive.Content" xml:space="preserve">
-    <value>Mostra comunicazioni inattive</value>
+    <value>Afficher les communications inactives</value>
   </data>
   <data name="DashboardEditWidgetsButton.Text" xml:space="preserve">
-    <value>Personalizza widget</value>
+    <value>Personnaliser les widgets</value>
   </data>
   <data name="EdittextPassword.PlaceholderText" xml:space="preserve">
     <value>Mot de passe</value>
@@ -557,19 +559,19 @@ Gli account studente hanno l'username che inizia con le lettere S, G o X.</value
     <value>Actualiser</value>
   </data>
   <data name="SettingsPaletteColorBlueTT.ToolTipService.ToolTip" xml:space="preserve">
-    <value>Non fa media, assenza parziale</value>
+    <value>Pas de moyenne, absence partielle</value>
   </data>
   <data name="SettingsPaletteColorGreenTT.ToolTipService.ToolTip" xml:space="preserve">
-    <value>Sufficienza, presenza, comunicazione letta</value>
+    <value>Suffisance, présence, communication lue</value>
   </data>
   <data name="SettingsPaletteColorOrangeTT.ToolTipService.ToolTip" xml:space="preserve">
-    <value>Insufficienza lieve, ritardo, comunicazione scaduta</value>
+    <value>Légère insuffisance, retard, communication expirée</value>
   </data>
   <data name="SettingsPaletteColorRedTT.ToolTipService.ToolTip" xml:space="preserve">
-    <value>Insufficienza grave, assenza, comunicazione non letta</value>
+    <value>Insuffisance grave, absence, communication non lue</value>
   </data>
   <data name="NoticeAdapter_FromToValidDate" xml:space="preserve">
-    <value>Valida dal {0} al {1}</value>
+    <value>Valable du {0} au {1}</value>
   </data>
   <data name="NoticeAdapter_StatusText_Eliminata" xml:space="preserve">
     <value>Supprimé</value>
@@ -599,28 +601,28 @@ Gli account studente hanno l'username che inizia con le lettere S, G o X.</value
     <value>Redémarrer</value>
   </data>
   <data name="CheckboxSuddividi.Content" xml:space="preserve">
-    <value>Suddividi per materia</value>
+    <value>Diviser par sujet</value>
   </data>
   <data name="NoticeBoardTitle.Text" xml:space="preserve">
     <value>Tableau</value>
   </data>
   <data name="NoAbsences.Text" xml:space="preserve">
-    <value>Nessuna assenza</value>
+    <value>Aucune absence</value>
   </data>
   <data name="NoTasks.Text" xml:space="preserve">
     <value>Pas de tâche</value>
   </data>
   <data name="NoScrutini.Text" xml:space="preserve">
-    <value>Scrutini non disponibili</value>
+    <value>Bulletins de vote non disponibles</value>
   </data>
   <data name="ReportsTitle.Text" xml:space="preserve">
-    <value>Report scolastici</value>
+    <value>Bulletins scolaires</value>
   </data>
   <data name="SessionExpired" xml:space="preserve">
     <value>La session a expiré</value>
   </data>
   <data name="SessionExpiredDesc" xml:space="preserve">
-    <value>Una sessione dura un'ora dal login. Non avendo salvato le credenziali, ora verrai portato alla pagina di login. </value>
+    <value>Une session dure une heure à compter de la connexion. N'ayant pas enregistré vos identifiants, vous serez désormais redirigé vers la page de connexion. </value>
   </data>
   <data name="LoginErrorTitle" xml:space="preserve">
     <value>Erreur de connexion</value>
@@ -632,7 +634,7 @@ Gli account studente hanno l'username che inizia con le lettere S, G o X.</value
     <value>Erreur serveur (veuillez réessayer plus tard)</value>
   </data>
   <data name="AttempsDone" xml:space="preserve">
-    <value>Tentativi effettuati: </value>
+    <value>Tentatives effectuées: </value>
   </data>
   <data name="GradeSingular" xml:space="preserve">
     <value>note</value>
@@ -659,7 +661,7 @@ Gli account studente hanno l'username che inizia con le lettere S, G o X.</value
     <value>Contributeurs</value>
   </data>
   <data name="GlobalAverage.Text" xml:space="preserve">
-    <value>Media totale</value>
+    <value>Moyenne totale</value>
   </data>
   <data name="LicensesLink.Text" xml:space="preserve">
     <value>Licences</value>
@@ -671,28 +673,28 @@ Gli account studente hanno l'username che inizia con le lettere S, G o X.</value
     <value>Choisir une date</value>
   </data>
   <data name="FilterAllNotices.Text" xml:space="preserve">
-    <value>Tutte</value>
+    <value>Tous</value>
   </data>
   <data name="FilterReadNotices.Text" xml:space="preserve">
-    <value>Lette</value>
+    <value>Poids léger</value>
   </data>
   <data name="FilterUnreadNotices.Text" xml:space="preserve">
-    <value>Non lette</value>
+    <value>Pas lu</value>
   </data>
   <data name="GradesNotAvailable" xml:space="preserve">
     <value>N/D</value>
   </data>
   <data name="NTCL_plur" xml:space="preserve">
-    <value>Note disciplinari</value>
+    <value>Soyez discipliné</value>
   </data>
   <data name="NTCL_sing" xml:space="preserve">
-    <value>Nota disciplinare</value>
+    <value>Soyez discipliné</value>
   </data>
   <data name="NTST_plur" xml:space="preserve">
-    <value>Sanzioni disciplinari</value>
+    <value>Sanctions disciplinaires</value>
   </data>
   <data name="NTST_sing" xml:space="preserve">
-    <value>Sanzione disciplinare</value>
+    <value>Sanctions disciplinaires</value>
   </data>
   <data name="NTTE_plur" xml:space="preserve">
     <value>Annotations</value>
@@ -719,25 +721,25 @@ Gli account studente hanno l'username che inizia con le lettere S, G o X.</value
     <value>Délai</value>
   </data>
   <data name="ABR1_plur" xml:space="preserve">
-    <value>Ritardi brevi</value>
+    <value>Délais courts</value>
   </data>
   <data name="ABR1_sing" xml:space="preserve">
-    <value>Ritardo breve</value>
+    <value>Court délai</value>
   </data>
   <data name="ABU0_plur" xml:space="preserve">
-    <value>Uscite anticipate</value>
+    <value>Premières versions</value>
   </data>
   <data name="ABU0_sing" xml:space="preserve">
-    <value>Uscita anticipata</value>
+    <value>Sortie anticipée</value>
   </data>
   <data name="AppTranslationStatus1" xml:space="preserve">
-    <value>L'app è stata tradotta al </value>
+    <value>L'application a été traduite en </value>
   </data>
   <data name="AppTranslationStatus2" xml:space="preserve">
-    <value>nella lingua che hai scelto. Alcune parti dell'app potrebbero non essere stare ancora tradotte.</value>
+    <value>dans la langue que vous avez choisie. Certaines parties de l'application ne sont peut-être pas encore traduites.</value>
   </data>
   <data name="AreYouSureLanguageDialogText" xml:space="preserve">
-    <value>Vuoi veramente cambiare la lingua?</value>
+    <value>Voulez-vous vraiment changer la langue?</value>
   </data>
   <data name="CautionDialogTitle" xml:space="preserve">
     <value>Attention</value>
