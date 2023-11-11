@@ -154,6 +154,7 @@
     <Compile Include="Controls\AgendaMultipleDaysListView.xaml.cs">
       <DependentUpon>AgendaMultipleDaysListView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\CustomStaggeredPanel.cs" />
     <Compile Include="Controls\GroupInfoList.cs" />
     <Compile Include="Controls\NiceNavigationView\CustomNavigationViewItem.cs" />
     <Compile Include="Controls\NotesListView.xaml.cs">
@@ -177,7 +178,6 @@
     <Compile Include="Controls\NoticesListView.xaml.cs">
       <DependentUpon>NoticesListView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\UniformGridEx.cs" />
     <Compile Include="Converters\DateTimeToHourConverter.cs" />
     <Compile Include="Converters\AbsenceTypeToColorConverter.cs" />
     <Compile Include="Converters\BetterBoolToVisibilityConverter.cs" />
@@ -476,6 +476,9 @@
     </PackageReference>
     <PackageReference Include="CommunityToolkit.Mvvm">
       <Version>8.2.2</Version>
+    </PackageReference>
+    <PackageReference Include="CommunityToolkit.Uwp.Controls.Primitives">
+      <Version>8.0.230907</Version>
     </PackageReference>
     <PackageReference Include="CommunityToolkit.Uwp.Controls.Segmented">
       <Version>8.0.230907</Version>

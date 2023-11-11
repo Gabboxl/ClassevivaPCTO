@@ -17,8 +17,6 @@
     <Page.Resources>
 
         <converters:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" />
-
-        <converters1:ColorToBrushConverter x:Key="ColorToBrushConverter" />
         <converters1:GradeToColorConverter x:Key="GradeToColorConverter" />
         <converters1:NanToNdConverter x:Key="NanToNdConverter" />
 
@@ -73,7 +71,7 @@
 
                             <Grid
                                 HorizontalAlignment="Stretch">
-                                <Grid.ColumnDefinitions>
+                                <Grid.ColumnDefinitions> 
                                     <ColumnDefinition Width="*"></ColumnDefinition>
                                 </Grid.ColumnDefinitions>
 

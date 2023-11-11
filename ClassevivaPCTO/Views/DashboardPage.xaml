@@ -9,8 +9,7 @@
     xmlns:controls2="using:ClassevivaPCTO.Controls"
     xmlns:microconverters="using:Microsoft.Toolkit.Uwp.UI.Converters"
     xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
-
-
+    xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
     muxc:BackdropMaterial.ApplyToRootOrPageBackground="True">
 
@@ -29,34 +28,6 @@
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-
-
-        <VisualStateManager.VisualStateGroups>
-            <VisualStateGroup>
-                <VisualState x:Name="WideState">
-                    <VisualState.StateTriggers>
-                        <AdaptiveTrigger MinWindowWidth="950" />
-                    </VisualState.StateTriggers>
-                    <VisualState.Setters>
-                        <Setter Target="MyUniformGrid.Columns" Value="2" />
-                        <!--<Setter Target="MyUniformGrid.Rows" Value="2" />-->
-                    </VisualState.Setters>
-                </VisualState>
-                <VisualState x:Name="NarrowState">
-                    <VisualState.StateTriggers>
-                        <AdaptiveTrigger MinWindowWidth="0" />
-                    </VisualState.StateTriggers>
-                    <VisualState.Setters>
-                        <Setter Target="MyUniformGrid.Columns" Value="1" />
-                        <!--
-                        <Setter Target="MyUniformGrid.Rows" Value="3" />
-                        -->
-
-                    </VisualState.Setters>
-                </VisualState>
-            </VisualStateGroup>
-        </VisualStateManager.VisualStateGroups>
-
 
         <RelativePanel Grid.Row="0" Margin="0,18,0,0">
 
@@ -98,20 +69,27 @@
 
 
         <ScrollViewer
-
             Grid.Row="1">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"></RowDefinition>
+                </Grid.RowDefinitions>
+            
 
-
-            <controls2:UniformGridEx
-                x:Name="MyUniformGrid"
-                ColumnSpacing="16" RowSpacing="36"
-                MinRowHeight="250"
-
+            <controls2:CustomStaggeredPanel
+                DesiredColumnWidth="500"
+                ScrollViewer.VerticalScrollMode="Enabled"
+                HorizontalAlignment="Stretch"
+                RowSpacing="12"
+                ColumnSpacing="12"
                 Margin="18,16,18,18">
 
-
+                <!-- agenda grid -->
                 <Grid
-                    Grid.RowSpan="2"
+                    MinHeight="500"
                     CornerRadius="8"
                     Padding="12"
                     BorderThickness="1"
@@ -160,7 +138,9 @@
 
                 </Grid>
 
-                <Grid CornerRadius="8"
+                <!-- grades grid -->
+                <Grid
+                    CornerRadius="8"
                       Padding="12"
                       Margin="0,0,0,0"
                       BorderThickness="1"
@@ -168,8 +148,8 @@
                       Background="{ThemeResource CardBackgroundFillColorDefaultBrush}">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
                         <RowDefinition Height="*" />
+                        <RowDefinition Height="Auto" />
                     </Grid.RowDefinitions>
 
 
@@ -210,7 +190,7 @@
                     </RelativePanel>
 
 
-                    <ScrollViewer Grid.Row="2" ZoomMode="Disabled"
+                    <ScrollViewer Grid.Row="1" ZoomMode="Disabled"
                                   IsTabStop="False" IsVerticalScrollChainingEnabled="False"
 
                                   HorizontalScrollMode="Disabled" HorizontalScrollBarVisibility="Hidden"
@@ -242,7 +222,7 @@
                 <Grid
                     HorizontalAlignment="Stretch"
                     CornerRadius="8"
-                    Margin="0,-16,0,0"
+                    Margin="0,0,0,0"
                     Padding="12"
                     BorderThickness="1"
                     BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
@@ -290,7 +270,8 @@
                 </Grid>
 
 
-            </controls2:UniformGridEx>
+            </controls2:CustomStaggeredPanel>
+            </Grid>
         </ScrollViewer>
 
 
