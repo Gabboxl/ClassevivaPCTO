@@ -79,11 +79,6 @@
                                 <controls2:GradesListView x:Name="ListViewVoti"
                                                           EnableEmptyAlert="True"
                                                           ItemsSource="{x:Bind SubjectGrades}"
-                                                          RelativePanel.AlignLeftWithPanel="True"
-                                                          RelativePanel.AlignRightWithPanel="True"
-                                                          Width="Auto"
-                                                          Margin="-2,0,16,8"
-                                                          HorizontalContentAlignment="Stretch"
                                                           HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
 
                                 </controls2:GradesListView>
