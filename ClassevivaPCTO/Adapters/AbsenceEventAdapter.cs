@@ -16,7 +16,7 @@ namespace ClassevivaPCTO.Adapters
         {
             get
             {
-                return CurrentObject.evtCode.ToString().GetLocalized("sing") + " del " +
+                return CurrentObject.evtCode.ToString().GetLocalized("sing") + "AbsenceEventOnDayPreposition".GetLocalized() +
                        CurrentObject.evtDate.ToString("dd/MM/yyyy");
             }
         }
