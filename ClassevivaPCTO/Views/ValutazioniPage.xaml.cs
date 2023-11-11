@@ -141,7 +141,6 @@ namespace ClassevivaPCTO.Views
         private void UpdateUi()
         {
             var periodIndex = SegmentedVoti.SelectedIndex;
-            var layoutIndex = SegmentedLayout.SelectedIndex;
 
             if (periodIndex == -1)
             {
@@ -161,7 +160,7 @@ namespace ClassevivaPCTO.Views
             {
                 SegmentedLayout.IsEnabled = true;
 
-                if (layoutIndex == 1)
+                if (SegmentedLayout.SelectedIndex == 1)
                 {
                     MainListView.Visibility = Visibility.Visible;
                     GradesOnlyListView.Visibility = Visibility.Collapsed;
@@ -192,7 +191,6 @@ namespace ClassevivaPCTO.Views
             }
             else
             {
-                SegmentedLayout.SelectedIndex = 1;
                 SegmentedLayout.IsEnabled = false;
                 MainListView.Visibility = Visibility.Visible;
                 GradesOnlyListView.Visibility = Visibility.Collapsed;
