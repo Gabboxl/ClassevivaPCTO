@@ -11,6 +11,7 @@
     xmlns:adapters="using:ClassevivaPCTO.Adapters"
     xmlns:converters="using:Microsoft.Toolkit.Uwp.UI.Converters"
     xmlns:converters1="using:ClassevivaPCTO.Converters"
+    xmlns:labs="using:CommunityToolkit.Labs.WinUI"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
     muxc:BackdropMaterial.ApplyToRootOrPageBackground="True">
 
@@ -234,9 +235,9 @@
                             Margin="32,0,0,0"
                             VerticalAlignment="Center"
                             HorizontalAlignment="Left">
-                            <winUi:Shimmer Visibility="{x:Bind ValutazioniViewModel.IsLoadingValutazioni, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" 
+                            <labs:Shimmer Visibility="{x:Bind ValutazioniViewModel.IsLoadingValutazioni, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" 
                                            Width="180" Height="26" Margin="0,4,0,0" />
-                            <winUi:Shimmer Visibility="{x:Bind ValutazioniViewModel.IsLoadingValutazioni, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" 
+                            <labs:Shimmer Visibility="{x:Bind ValutazioniViewModel.IsLoadingValutazioni, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" 
                                            Width="120" Height="20" Margin="0,38,0,0"/>
                             
                             <TextBlock
@@ -302,9 +303,9 @@
                             Margin="32,0,0,0"
                             VerticalAlignment="Center"
                             HorizontalAlignment="Left">
-                            <winUi:Shimmer Visibility="{x:Bind ValutazioniViewModel.IsLoadingValutazioni, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" 
+                            <labs:Shimmer Visibility="{x:Bind ValutazioniViewModel.IsLoadingValutazioni, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" 
                                            Width="180" Height="26" Margin="0,4,0,0" />
-                            <winUi:Shimmer Visibility="{x:Bind ValutazioniViewModel.IsLoadingValutazioni, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" 
+                            <labs:Shimmer Visibility="{x:Bind ValutazioniViewModel.IsLoadingValutazioni, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" 
                                            Width="120" Height="20" Margin="0,38,0,0"/>
                             
                             <TextBlock
@@ -371,9 +372,9 @@
                             VerticalAlignment="Center"
                             HorizontalAlignment="Left">
 
-                            <winUi:Shimmer Visibility="{x:Bind ValutazioniViewModel.IsLoadingValutazioni, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" 
+                            <labs:Shimmer Visibility="{x:Bind ValutazioniViewModel.IsLoadingValutazioni, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" 
                                            Width="180" Height="26" Margin="0,4,0,0" />
-                            <winUi:Shimmer Visibility="{x:Bind ValutazioniViewModel.IsLoadingValutazioni, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" 
+                            <labs:Shimmer Visibility="{x:Bind ValutazioniViewModel.IsLoadingValutazioni, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" 
                                            Width="120" Height="20" Margin="0,38,0,0" />
 
                             <TextBlock
@@ -400,7 +401,7 @@
                 </Grid>
             </Grid>
 
-            <winUi:Shimmer Visibility="{x:Bind ValutazioniViewModel.IsLoadingValutazioni, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" 
+            <labs:Shimmer Visibility="{x:Bind ValutazioniViewModel.IsLoadingValutazioni, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" 
                            Width="Auto" Height="32" Margin="0,122,0,0" 
                            HorizontalAlignment="Stretch" 
                            RelativePanel.AlignLeftWithPanel="True"
