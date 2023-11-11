@@ -292,7 +292,7 @@ namespace ClassevivaPCTO.Controls
 
                 ContentDialog dialog = new()
                 {
-                    Title = currentNote.evtCode.ToString().GetLocalized("sing") + currentNote.evtDate.ToString("dd/MM/yyyy"),
+                    Title = currentNote.evtCode.ToString().GetLocalized("sing") + " del " + currentNote.evtDate.ToString("dd/MM/yyyy"),
                     PrimaryButtonText = "CloseDialogButtonText".GetLocalized(),
                     DefaultButton = ContentDialogButton.Primary,
                     RequestedTheme = ((FrameworkElement) Window.Current.Content).RequestedTheme,
