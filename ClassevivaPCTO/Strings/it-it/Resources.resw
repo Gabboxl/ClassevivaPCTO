@@ -129,31 +129,27 @@
     <value>Main</value>
     <comment>Navigation view item name for Main</comment>
   </data>
-  <data name="Settings_Theme.Text" xml:space="preserve">
-    <value>Scegli il tema</value>
-    <comment>Choose theme text for Settings</comment>
-  </data>
-  <data name="Settings_Theme_Dark.Content" xml:space="preserve">
+  <data name="SettingsCardThemeDarkComboboxItem.Content" xml:space="preserve">
     <value>Scuro</value>
     <comment>Dark theme text for Settings</comment>
   </data>
-  <data name="Settings_Theme_Default.Content" xml:space="preserve">
+  <data name="SettingsCardThemeDefaultComboboxItem.Content" xml:space="preserve">
     <value>Predefinito di Sistema</value>
     <comment>Windows default theme text for Settings</comment>
   </data>
-  <data name="Settings_Theme_Light.Content" xml:space="preserve">
+  <data name="SettingsCardThemeLightComboboxItem.Content" xml:space="preserve">
     <value>Chiaro</value>
     <comment>Light theme text for Settings</comment>
   </data>
-  <data name="Settings_About.Text" xml:space="preserve">
+  <data name="SettingsAboutHeader.Text" xml:space="preserve">
     <value>Informazioni app</value>
     <comment>About this application title for Settings</comment>
   </data>
-  <data name="Settings_Personalization.Text" xml:space="preserve">
+  <data name="SettingsPersonalizationHeader.Text" xml:space="preserve">
     <value>Aspetto</value>
     <comment>Personalization text for Settings</comment>
   </data>
-  <data name="FirstRun_Body.Text" xml:space="preserve">
+  <data name="FirstRunDialogBody.Text" xml:space="preserve">
     <value>Con ClassevivaPCTO potrai visualizzare i tuoi dati del registro elettronico Classeviva in maniera intuitiva e sotto le vesti di un design innovativo.
 
 Quest'app è rivolta soltanto agli account studente.
@@ -196,25 +192,21 @@ Se riscontri bug o hai un'idea per l'app apri un issue su GitHub cliccando sul l
 •  Nuovo widget: Collegamenti rapidi - permette di salvare fino a 5 collegamenti Internet da poter aprire rapidamente dall'app, come il sito della tua scuola, Classroom o la tua posta elettronica d'istituto</value>
     <comment>What's new prompt message body for second section (Dashboard)</comment>
   </data>
-  <data name="Settings_Account.Text" xml:space="preserve">
+  <data name="SettingsAccountHeader.Text" xml:space="preserve">
     <value>Account</value>
     <comment>Account text for Settings</comment>
   </data>
-  <data name="Settings_General.Text" xml:space="preserve">
+  <data name="SettingsGeneralHeader.Text" xml:space="preserve">
     <value>Generali</value>
     <comment>General text for Settings</comment>
   </data>
-  <data name="Settings_Version.Text" xml:space="preserve">
-    <value>Versione</value>
-    <comment>Version text for Settings</comment>
-  </data>
-  <data name="TextTitoloSettings.Text" xml:space="preserve">
+  <data name="SettingsTitle.Text" xml:space="preserve">
     <value>Impostazioni</value>
   </data>
-  <data name="SettingsExpanderTheme.Description" xml:space="preserve">
+  <data name="SettingsCardTheme.Description" xml:space="preserve">
     <value>Scegli il tema dell'app</value>
   </data>
-  <data name="SettingsExpanderTheme.Header" xml:space="preserve">
+  <data name="SettingsCardTheme.Header" xml:space="preserve">
     <value>Tema</value>
   </data>
   <data name="SettingsCardLanguage.Header" xml:space="preserve">
@@ -223,13 +215,13 @@ Se riscontri bug o hai un'idea per l'app apri un issue su GitHub cliccando sul l
   <data name="SettingsCardLanguage.Description" xml:space="preserve">
     <value>Scegli la lingua dell'app</value>
   </data>
-  <data name="SettingsExpanderReservedRights.Description" xml:space="preserve">
+  <data name="SettingsAboutExpander.Description" xml:space="preserve">
     <value>© 2023. Tutti i diritti riservati.</value>
   </data>
-  <data name="hyperlinkVote.Text" xml:space="preserve">
+  <data name="SettingsAboutExpanderRateHyperlink.Text" xml:space="preserve">
     <value>Vota nello Store</value>
   </data>
-  <data name="hyperlinkIssue.Text" xml:space="preserve">
+  <data name="SettingsAboutExpanderIssueHyperlink.Text" xml:space="preserve">
     <value>Segnala un problema</value>
   </data>
   <data name="SettingsCardTutorial.Header" xml:space="preserve">
@@ -273,9 +265,6 @@ Se riscontri bug o hai un'idea per l'app apri un issue su GitHub cliccando sul l
   </data>
   <data name="LoginKeepCredentialsCheckbox.Content" xml:space="preserve">
     <value>Mantieni le credenziali</value>
-  </data>
-  <data name="TitleValutazioni.Text" xml:space="preserve">
-    <value>Valutazioni</value>
   </data>
   <data name="TitoloDashboardText" xml:space="preserve">
     <value>Dashboard di {0}</value>
@@ -404,7 +393,7 @@ Errore: </value>
   <data name="NoNotesText.Text" xml:space="preserve">
     <value>Nessuna nota</value>
   </data>
-  <data name="TranslateAppText.Text" xml:space="preserve">
+  <data name="SettingsAboutExpanderCrowdinHyperlink.Text" xml:space="preserve">
     <value>Traduci su Crowdin</value>
   </data>
   <data name="PALETTE_CVV" xml:space="preserve">
@@ -432,16 +421,16 @@ Errore: </value>
     <value>•  Aggiunto un filtro per le comunicazioni lette/non lette</value>
     <comment>What's new prompt message body for fifth section (Bacheca)</comment>
   </data>
-  <data name="SettingsChangeProfilePicButton.Text" xml:space="preserve">
+  <data name="SettingsAccountChangePhoto.Text" xml:space="preserve">
     <value>Cambia foto</value>
   </data>
   <data name="AutoSuggestBoxSearch.PlaceholderText" xml:space="preserve">
     <value>Cerca...</value>
   </data>
-  <data name="hyperlinkGithub.Text" xml:space="preserve">
+  <data name="SettingsAboutExpanderGitHubHyperlink.Text" xml:space="preserve">
     <value>Progetto su GitHub</value>
   </data>
-  <data name="hyperlinkGithubReleases.Text" xml:space="preserve">
+  <data name="ChangelogHyperlinkAllChanges.Text" xml:space="preserve">
     <value>Visualizza tutti i cambiamenti</value>
   </data>
   <data name="SettingsAboutExpanderVersion.Text" xml:space="preserve">
@@ -465,16 +454,10 @@ Errore: </value>
   <data name="SettingsCardSchoolYear.Header" xml:space="preserve">
     <value>Anno scolastico</value>
   </data>
-  <data name="SettingsChangelogDashboard.Text" xml:space="preserve">
-    <value>Dashboard</value>
-  </data>
-  <data name="SettingsChangelogGrades.Text" xml:space="preserve">
-    <value>Valutazioni</value>
-  </data>
-  <data name="SettingsChangelogHighlights.Text" xml:space="preserve">
+  <data name="ChangelogHighlights.Text" xml:space="preserve">
     <value>In evidenza</value>
   </data>
-  <data name="SettingsChangelogRelease.Text" xml:space="preserve">
+  <data name="ChangelogRelease.Text" xml:space="preserve">
     <value>v1.1.0, 21 Ottobre 2023</value>
   </data>
   <data name="AgendaTomorrowButton.ToolTipService.ToolTip" xml:space="preserve">
@@ -522,16 +505,16 @@ Errore: </value>
   <data name="RefreshButtonTT.ToolTipService.ToolTip" xml:space="preserve">
     <value>Aggiorna</value>
   </data>
-  <data name="SettingsPaletteColorBlueTT.ToolTipService.ToolTip" xml:space="preserve">
+  <data name="SettingsPaletteColorBlue.ToolTipService.ToolTip" xml:space="preserve">
     <value>Non fa media, assenza parziale</value>
   </data>
-  <data name="SettingsPaletteColorGreenTT.ToolTipService.ToolTip" xml:space="preserve">
+  <data name="SettingsPaletteColorGreen.ToolTipService.ToolTip" xml:space="preserve">
     <value>Sufficienza, presenza, comunicazione letta</value>
   </data>
-  <data name="SettingsPaletteColorOrangeTT.ToolTipService.ToolTip" xml:space="preserve">
+  <data name="SettingsPaletteColorOrange.ToolTipService.ToolTip" xml:space="preserve">
     <value>Insufficienza lieve, ritardo, comunicazione scaduta</value>
   </data>
-  <data name="SettingsPaletteColorRedTT.ToolTipService.ToolTip" xml:space="preserve">
+  <data name="SettingsPaletteColorRed.ToolTipService.ToolTip" xml:space="preserve">
     <value>Insufficienza grave, assenza, comunicazione non letta</value>
   </data>
   <data name="NoticeAdapter_FromToValidDate" xml:space="preserve">
@@ -618,13 +601,13 @@ Errore: </value>
   <data name="NoLessons.Text" xml:space="preserve">
     <value>Nessuna lezione</value>
   </data>
-  <data name="ContributorsLink.Text" xml:space="preserve">
+  <data name="FirstRunDialogContributorsHyperlink.Text" xml:space="preserve">
     <value>Contributors</value>
   </data>
   <data name="GradesGlobalAverage.Text" xml:space="preserve">
     <value>Media totale</value>
   </data>
-  <data name="LicensesLink.Text" xml:space="preserve">
+  <data name="FirstRunDialogLicensesHyperlink.Text" xml:space="preserve">
     <value>Licenze</value>
   </data>
   <data name="GradesAllPeriodsSegmentedItem.Content" xml:space="preserve">

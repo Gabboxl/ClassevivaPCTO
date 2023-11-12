@@ -13,7 +13,6 @@
     xmlns:views="using:ClassevivaPCTO.Views"
     mc:Ignorable="d">
     <Page.Resources>
-
         <!--  Spacing between cards  -->
         <x:Double x:Key="SettingsCardSpacing">3</x:Double>
 
@@ -25,11 +24,10 @@
                 <Setter Property="Margin" Value="1,29,0,5" />
             </Style.Setters>
         </Style>
-
         <helper:EnumToBooleanConverter x:Key="EnumToBooleanConverter" EnumType="palette:PaletteType" />
-
         <converters:ColorToBrushConverter x:Key="ColorToBrushConverter" />
     </Page.Resources>
+    
     <ScrollViewer>
         <Grid Padding="0,0,0,128">
             <Grid.RowDefinitions>
@@ -38,7 +36,7 @@
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
 
-            <TextBlock x:Name="TextTitolo" Grid.Row="0" x:Uid="TextTitoloSettings"
+            <TextBlock x:Name="TextTitolo" Grid.Row="0" x:Uid="SettingsTitle"
                        Style="{StaticResource TitleLargeTextBlockStyle}"
                        VerticalAlignment="Top"
                        Margin="32,16,0,0" />
@@ -48,15 +46,14 @@
                         HorizontalAlignment="Stretch"
                         Margin="24,0,24,0"
                         Spacing="{StaticResource SettingsCardSpacing}">
+                
                 <StackPanel.ChildrenTransitions>
                     <EntranceThemeTransition FromVerticalOffset="50" IsStaggeringEnabled="True" />
                     <RepositionThemeTransition IsStaggeringEnabled="False" />
                 </StackPanel.ChildrenTransitions>
 
-
                 <TextBlock Style="{StaticResource SettingsSectionHeaderTextBlockStyle}"
-                           x:Uid="Settings_Account" />
-
+                           x:Uid="SettingsAccountHeader" />
 
                 <Grid Margin="0,0,0,0"
                       CornerRadius="8"
@@ -126,7 +123,7 @@
                                     <TextBlock Text="&#xE722;" VerticalAlignment="Center"
                                                FontFamily="{StaticResource FluentIcons}" />
 
-                                    <TextBlock x:Uid="SettingsChangeProfilePicButton" />
+                                    <TextBlock x:Uid="SettingsAccountChangePhotoButton" />
 
                                 </StackPanel>
 
@@ -147,19 +144,16 @@
 
                             </Button>
 
-
                         </StackPanel>
 
                     </Grid>
 
                 </Grid>
 
-
                 <TextBlock Style="{StaticResource SettingsSectionHeaderTextBlockStyle}"
-                           x:Uid="Settings_Personalization" />
+                           x:Uid="SettingsPersonalizationHeader" />
 
-
-                <controls1:SettingsCard x:Uid="SettingsExpanderTheme">
+                <controls1:SettingsCard x:Uid="SettingsCardTheme">
                     <controls1:SettingsCard.HeaderIcon>
                         <FontIcon Glyph="&#xE793;" />
                     </controls1:SettingsCard.HeaderIcon>
@@ -169,16 +163,13 @@
                     <ComboBox SelectedIndex="{x:Bind ElementTheme.GetHashCode()}"
                               SelectionChanged="ThemeSelector_OnSelectionChanged" MinWidth="200">
                         <ComboBoxItem
-                            x:Uid="Settings_Theme_Default">
-
+                            x:Uid="SettingsCardThemeDefaultComboboxItem">
                         </ComboBoxItem>
                         <ComboBoxItem
-                            x:Uid="Settings_Theme_Light">
-
+                            x:Uid="SettingsCardThemeLightComboboxItem">
                         </ComboBoxItem>
                         <ComboBoxItem
-                            x:Uid="Settings_Theme_Dark">
-
+                            x:Uid="SettingsCardThemeDarkComboboxItem">
                         </ComboBoxItem>
                     </ComboBox>
                 </controls1:SettingsCard>
@@ -200,7 +191,6 @@
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="*"></ColumnDefinition>
                                     </Grid.ColumnDefinitions>
-
 
                                     <Grid>
                                         <Grid.ColumnDefinitions>
@@ -225,28 +215,28 @@
                                                     Background="{x:Bind CurrentPalette.ColorRed, Converter={StaticResource ColorToBrushConverter}, Mode=OneWay}"
                                                     CornerRadius="26"
                                                     IsTapEnabled="False"
-                                                    x:Uid="SettingsPaletteColorRedTT" />
+                                                    x:Uid="SettingsPaletteColorRed" />
 
                                             <Border Width="20"
                                                     Height="20"
                                                     Background="{x:Bind CurrentPalette.ColorOrange, Converter={StaticResource ColorToBrushConverter}, Mode=OneWay}"
                                                     CornerRadius="26"
                                                     IsTapEnabled="False"
-                                                    x:Uid="SettingsPaletteColorOrangeTT" />
+                                                    x:Uid="SettingsPaletteColorOrange" />
 
                                             <Border Width="20"
                                                     Height="20"
                                                     Background="{x:Bind CurrentPalette.ColorGreen, Converter={StaticResource ColorToBrushConverter}, Mode=OneWay}"
                                                     CornerRadius="26"
                                                     IsTapEnabled="False"
-                                                    x:Uid="SettingsPaletteColorGreenTT" />
+                                                    x:Uid="SettingsPaletteColorGreen" />
 
                                             <Border Width="20"
                                                     Height="20"
                                                     Background="{x:Bind CurrentPalette.ColorBlue, Converter={StaticResource ColorToBrushConverter}, Mode=OneWay}"
                                                     CornerRadius="26"
                                                     IsTapEnabled="False"
-                                                    x:Uid="SettingsPaletteColorBlueTT" />
+                                                    x:Uid="SettingsPaletteColorBlue" />
 
                                         </StackPanel>
 
@@ -260,8 +250,7 @@
 
 
                 <TextBlock Style="{StaticResource SettingsSectionHeaderTextBlockStyle}"
-                           x:Uid="Settings_General" />
-
+                           x:Uid="SettingsGeneralHeader" />
 
                 <!-- <labs:SettingsCard x:Uid="SettingsCardSchoolYear">
 
@@ -280,10 +269,7 @@
                                        Foreground="{ThemeResource AccentTextFillColorPrimaryBrush}" />
 
                             </StackPanel>
-
-
                         </Button>
-
                     </labs:SettingsCard>
                 
                 -->
@@ -300,7 +286,6 @@
                         MinWidth="160">
                     </ComboBox>
 
-
                 </controls1:SettingsCard>
 
                 <controls1:SettingsCard x:Uid="SettingsCardWhatsNew">
@@ -310,7 +295,6 @@
                     </controls1:SettingsCard.HeaderIcon>
 
                     <Button x:Uid="SettingsCardWhatsNewButton" Click="ButtonChangelog_OnClick" MinWidth="130" />
-
 
                 </controls1:SettingsCard>
 
@@ -325,13 +309,12 @@
 
                 </controls1:SettingsCard>
 
-
-                <!--  'About' section  -->
+                
                 <TextBlock Style="{StaticResource SettingsSectionHeaderTextBlockStyle}"
-                           x:Uid="Settings_About" />
+                           x:Uid="SettingsAboutHeader" />
 
-                <controls1:SettingsExpander x:Uid="SettingsExpanderReservedRights" IsExpanded="True"
-                                       Header="{x:Bind views:SettingsPage.AppName}">
+                <controls1:SettingsExpander x:Uid="SettingsAboutExpander" IsExpanded="True"
+                                            Header="{x:Bind views:SettingsPage.AppName}">
                     <controls1:SettingsExpander.HeaderIcon>
                         <BitmapIcon ShowAsMonochrome="False"
                                     UriSource="ms-appx:///Assets/StoreLogo.png" />
@@ -358,10 +341,9 @@
                                                 Fill="{ThemeResource AccentTextFillColorPrimaryBrush}" />
                                         </Grid>
 
-                                        <TextBlock x:Uid="hyperlinkGithub" />
+                                        <TextBlock x:Uid="SettingsAboutExpanderGitHubHyperlink" />
                                     </StackPanel>
                                 </HyperlinkButton>
-
 
                                 <HyperlinkButton x:Name="hyperlinkVote"
                                                  Click="HyperlinkVote_Click">
@@ -374,7 +356,7 @@
                                                 Fill="{ThemeResource AccentTextFillColorPrimaryBrush}" />
                                         </Grid>
 
-                                        <TextBlock x:Uid="hyperlinkVote" />
+                                        <TextBlock x:Uid="SettingsAboutExpanderRateHyperlink" />
                                     </StackPanel>
                                 </HyperlinkButton>
 
@@ -390,7 +372,7 @@
                                                 Fill="{ThemeResource AccentTextFillColorPrimaryBrush}" />
                                         </Grid>
 
-                                        <TextBlock x:Uid="TranslateAppText" />
+                                        <TextBlock x:Uid="SettingsAboutExpanderCrowdinHyperlink" />
                                     </StackPanel>
                                 </HyperlinkButton>
 
@@ -406,10 +388,9 @@
                                                 Fill="{ThemeResource AccentTextFillColorPrimaryBrush}" />
                                         </Grid>
 
-                                        <TextBlock x:Uid="hyperlinkIssue" />
+                                        <TextBlock x:Uid="SettingsAboutExpanderIssueHyperlink" />
                                     </StackPanel>
                                 </HyperlinkButton>
-
 
                             </StackPanel>
                         </controls1:SettingsCard>
