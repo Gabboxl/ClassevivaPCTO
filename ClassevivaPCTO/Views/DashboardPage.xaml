@@ -15,13 +15,11 @@
 
     <Page.Resources>
 
-
         <ResourceDictionary>
             <microconverters:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" />
         </ResourceDictionary>
 
     </Page.Resources>
-
 
     <Grid>
         <Grid.RowDefinitions>
@@ -52,21 +50,15 @@
             <Button
                 RelativePanel.AlignVerticalCenterWithPanel="True"
                 x:Name="EditWidgetsButton"
-
                 RelativePanel.AlignRightWithPanel="True"
                 Margin="0,0,20,0">
                 <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Spacing="8">
-
                     <TextBlock Text="&#xE70F;" VerticalAlignment="Center" FontFamily="{StaticResource FluentIcons}" />
-
                     <TextBlock x:Uid="DashboardEditWidgetsButton" />
-
                 </StackPanel>
             </Button> -->
 
-
         </RelativePanel>
-
 
         <ScrollViewer
             Grid.Row="1">
@@ -78,7 +70,6 @@
                     <RowDefinition Height="*"></RowDefinition>
                 </Grid.RowDefinitions>
             
-
             <comToolkit:StaggeredPanel
                 DesiredColumnWidth="500"
                 ScrollViewer.VerticalScrollMode="Enabled"
@@ -129,10 +120,8 @@
                                      Click="HyperlinkButton_Click_Agenda">
 
                         <StackPanel Orientation="Horizontal" Spacing="4">
-                            <TextBlock x:Uid="DashboardButtonApriAgenda" />
+                            <TextBlock x:Uid="DashboardOpenAgendaButton" />
                             <FontIcon FontSize="12" Glyph="&#xE76C;" VerticalAlignment="Center" />
-
-
                         </StackPanel>
                     </HyperlinkButton>
 
@@ -163,36 +152,28 @@
                                            RelativePanel.RightOf="TitleRecentGrades"
                                            Margin="12,0,0,0" Width="18" Height="18"
                                            RelativePanel.AlignVerticalCenterWith="TitleRecentGrades"
-
                                            Visibility="{x:Bind DashboardPageViewModel.IsLoadingGrades, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" />
 
-
                         <TextBlock TextWrapping="Wrap"
-                                   x:Name="TitleMedia"
+                                   x:Name="DashboardGradesAverage"
                                    TextAlignment="Center" x:Uid="TitleMedia" FontSize="16"
                                    RelativePanel.LeftOf="TextBlockMedia"
                                    Foreground="{ThemeResource TextFillColorTertiaryBrush}"
                                    Margin="0,9,6,0" />
 
-
                         <muxc:ProgressRing IsActive="False" x:Name="ProgressRingMedia"
                                            Margin="8,0,0,0"
-
                                            RelativePanel.RightOf="TitleMedia"
                                            Visibility="{x:Bind DashboardPageViewModel.IsLoadingMedia, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" />
 
                         <TextBlock x:Name="TextBlockMedia" Text="test" Visibility="Collapsed"
                                    RelativePanel.AlignRightWithPanel="True" Margin="0,9,4,0"
-
                                    FontSize="18" FontWeight="ExtraBold" />
-
 
                     </RelativePanel>
 
-
                     <ScrollViewer Grid.Row="1" ZoomMode="Disabled"
                                   IsTabStop="False" IsVerticalScrollChainingEnabled="False"
-
                                   HorizontalScrollMode="Disabled" HorizontalScrollBarVisibility="Hidden"
                                   VerticalScrollMode="Enabled" VerticalScrollBarVisibility="Auto">
 
@@ -205,13 +186,10 @@
                     <HyperlinkButton Grid.Row="2"
                                      Click="HyperlinkButton_Click_Valutazioni" VerticalAlignment="Bottom"
                                      HorizontalAlignment="Right">
-
-
+                        
                         <StackPanel Orientation="Horizontal" Spacing="4">
-                            <TextBlock x:Uid="DashboardButtonApriValutazioni" />
+                            <TextBlock x:Uid="DashboardOpenGradesButton" />
                             <FontIcon FontSize="12" Glyph="&#xE76C;" VerticalAlignment="Center" />
-
-
                         </StackPanel>
 
                     </HyperlinkButton>
@@ -252,28 +230,22 @@
                     <controls2:NoticesListView x:Name="ListRecentNotices" Grid.Row="1"
                                                HorizontalAlignment="Stretch" />
 
-
                     <HyperlinkButton Grid.Row="2" x:Name="ButtonApriBacheca"
                                      Click="ButtonApriBacheca_Click" VerticalAlignment="Bottom"
                                      HorizontalAlignment="Right">
 
                         <StackPanel Orientation="Horizontal" Spacing="4">
-                            <TextBlock x:Uid="DashboardButtonApriBacheca" />
+                            <TextBlock x:Uid="DashboardOpenNoticeBoardButton" />
                             <FontIcon FontSize="12" Glyph="&#xE76C;" VerticalAlignment="Center" />
-
-
                         </StackPanel>
 
                     </HyperlinkButton>
 
-
                 </Grid>
-
 
             </comToolkit:StaggeredPanel>
             </Grid>
         </ScrollViewer>
-
 
     </Grid>
 </Page>

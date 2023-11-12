@@ -286,22 +286,22 @@ Se riscontri bug o hai un'idea per l'app apri un issue su GitHub cliccando sul l
   <data name="TextOggiAgenda.Text" xml:space="preserve">
     <value>Eventi del giorno</value>
   </data>
-  <data name="DashboardButtonApriAgenda.Text" xml:space="preserve">
+  <data name="DashboardOpenAgendaButton.Text" xml:space="preserve">
     <value>Apri agenda</value>
   </data>
   <data name="TitleRecentGrades.Text" xml:space="preserve">
     <value>Valutazioni recenti</value>
   </data>
-  <data name="TitleMedia.Text" xml:space="preserve">
+  <data name="DashboardGradesAverage.Text" xml:space="preserve">
     <value>Media totale:</value>
   </data>
-  <data name="DashboardButtonApriValutazioni.Text" xml:space="preserve">
+  <data name="DashboardOpenGradesButton.Text" xml:space="preserve">
     <value>Visualizza tutte le valutazioni</value>
   </data>
   <data name="TextBachecaRecenti.Text" xml:space="preserve">
     <value>Comunicazioni recenti</value>
   </data>
-  <data name="DashboardButtonApriBacheca.Text" xml:space="preserve">
+  <data name="DashboardOpenNoticeBoardButton.Text" xml:space="preserve">
     <value>Apri bacheca</value>
   </data>
   <data name="NoticeBoardNotices.Text" xml:space="preserve">
