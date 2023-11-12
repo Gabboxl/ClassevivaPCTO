@@ -11,6 +11,7 @@
     xmlns:adapters="using:ClassevivaPCTO.Adapters"
     xmlns:converters="using:Microsoft.Toolkit.Uwp.UI.Converters"
     xmlns:converters1="using:ClassevivaPCTO.Converters"
+    xmlns:labs="using:CommunityToolkit.Labs.WinUI"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
     muxc:BackdropMaterial.ApplyToRootOrPageBackground="True">
 
@@ -19,6 +20,7 @@
         <converters:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" />
         <converters1:GradeToColorConverter x:Key="GradeToColorConverter" />
         <converters1:NanToNdConverter x:Key="NanToNdConverter" />
+        <converters1:BetterBoolToVisibilityConverter x:Key="BetterBoolToVisibilityConverter" />
 
         <Style x:Key="ListViewFullStretchStyle" TargetType="ListViewItem"
                BasedOn="{StaticResource DefaultListViewItemStyle}">
@@ -28,7 +30,7 @@
 
         <DataTemplate x:Key="VotiListViewDataTemplateStandard"
                       x:DataType="adapters:SubjectAdapter">
-            <Grid Margin="0,0,0,16">
+            <Grid Margin="0,0,0,12">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
@@ -63,10 +65,11 @@
                             HorizontalAlignment="Center"
                             VerticalAlignment="Center"
                             Margin="0,0,0,0" />
+
                     </Grid>
                     <controls:SettingsExpander.Items>
                         <controls:SettingsCard HorizontalContentAlignment="Stretch"
-                                            ContentAlignment="Left"
+                                            ContentAlignment="Vertical"
                                             HorizontalAlignment="Stretch">
 
                             <Grid
@@ -78,8 +81,6 @@
                                 <controls2:GradesListView x:Name="ListViewVoti"
                                                           EnableEmptyAlert="True"
                                                           ItemsSource="{x:Bind SubjectGrades}"
-
-                                                          Margin="0,0,0,0"
                                                           HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
 
                                 </controls2:GradesListView>
@@ -89,6 +90,7 @@
                     </controls:SettingsExpander.Items>
                 </controls:SettingsExpander>
             </Grid>
+
         </DataTemplate>
 
 
@@ -136,16 +138,37 @@
             </Button>
 
 
-            <Rectangle x:Name="Separatore_Bacheca" RelativePanel.LeftOf="CheckboxSuddividi"
+            <Rectangle x:Name="Separatore_Bacheca" RelativePanel.LeftOf="SegmentedLayout"
                        RelativePanel.AlignVerticalCenterWithPanel="True"
                        Fill="{ThemeResource ControlStrokeColorDefaultBrush}"
                        Width="1" Height="48" Margin="16,0,16,0" />
 
-            <CheckBox x:Name="CheckboxSuddividi"
-                      x:Uid="CheckboxSuddividi"
-                      Margin="0,0,24,0"
-                      RelativePanel.AlignRightWithPanel="True"
-                      RelativePanel.AlignVerticalCenterWithPanel="True" />
+            <controls:Segmented x:Name="SegmentedLayout" Margin="0,0,24,0"
+                                RelativePanel.AlignRightWithPanel="True"
+                                RelativePanel.AlignVerticalCenterWithPanel="True" SelectedIndex="0">
+
+                <controls:SegmentedItem>
+                    <controls:SegmentedItem.Content>
+                        <StackPanel Orientation="Horizontal">
+                            <FontIcon Glyph="&#xE14C;" FontFamily="{StaticResource FluentIcons}" FontSize="14"
+                                      Margin="0,0,6,0" />
+                            <TextBlock Text="Lista" />
+                        </StackPanel>
+                    </controls:SegmentedItem.Content>
+                </controls:SegmentedItem>
+
+                <controls:SegmentedItem>
+                    <controls:SegmentedItem.Content>
+                        <StackPanel Orientation="Horizontal">
+                            <FontIcon Glyph="&#xE169;" FontFamily="{StaticResource FluentIcons}" FontSize="14"
+                                      Margin="0,0,6,0" />
+                            <TextBlock Text="Materie" />
+                        </StackPanel>
+                    </controls:SegmentedItem.Content>
+                </controls:SegmentedItem>
+
+            </controls:Segmented>
+            
         </RelativePanel>
 
         <RelativePanel Grid.Row="2"
@@ -182,7 +205,7 @@
 
                     </Grid.ColumnDefinitions>
 
-                    <Grid
+                    <Grid 
                         HorizontalAlignment="Left">
                         <muxc:ProgressRing
                             HorizontalAlignment="Center"
@@ -213,10 +236,16 @@
                             Margin="32,0,0,0"
                             VerticalAlignment="Center"
                             HorizontalAlignment="Left">
+                            <labs:Shimmer Visibility="{x:Bind ValutazioniViewModel.ShowShimmers, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" 
+                                           Width="180" Height="26" Margin="0,4,0,0" />
+                            <labs:Shimmer Visibility="{x:Bind ValutazioniViewModel.ShowShimmers, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" 
+                                           Width="120" Height="20" Margin="0,38,0,0"/>
+                            
                             <TextBlock
                                 x:Name="TitleTotVal"
                                 x:Uid="GlobalAverage"
                                 FontSize="26"
+                                Visibility="{x:Bind ValutazioniViewModel.ShowShimmers, Mode=OneWay, Converter={StaticResource BetterBoolToVisibilityConverter}, ConverterParameter=False}"
                                 Style="{StaticResource TitleTextBlockStyle}"
                                 HorizontalAlignment="Center"
                                 Margin="0,0,0,0" />
@@ -224,7 +253,7 @@
                                 x:Name="NumTotVal"
                                 RelativePanel.Below="TitleTotVal"
                                 FontSize="18"
-                                Text="-"
+                                Text=" "
                                 Style="{StaticResource SubtitleTextBlockStyle}"
                                 Foreground="{ThemeResource TextFillColorTertiaryBrush}"
                                 HorizontalAlignment="Center"
@@ -275,9 +304,14 @@
                             Margin="32,0,0,0"
                             VerticalAlignment="Center"
                             HorizontalAlignment="Left">
+                            <labs:Shimmer Visibility="{x:Bind ValutazioniViewModel.ShowShimmers, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" 
+                                           Width="180" Height="26" Margin="0,4,0,0" />
+                            <labs:Shimmer Visibility="{x:Bind ValutazioniViewModel.ShowShimmers, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" 
+                                           Width="120" Height="20" Margin="0,38,0,0"/>
+                            
                             <TextBlock
                                 x:Name="TitleFirstPerVal"
-                                Text="-"
+                                Text=" "
                                 FontSize="26"
                                 Style="{StaticResource TitleTextBlockStyle}"
                                 HorizontalAlignment="Center"
@@ -285,7 +319,7 @@
                             <TextBlock
                                 x:Name="NumFirstPerVal"
                                 RelativePanel.Below="TitleFirstPerVal"
-                                Text="-"
+                                Text=" "
                                 FontSize="18"
                                 Style="{StaticResource SubtitleTextBlockStyle}"
                                 Foreground="{ThemeResource TextFillColorTertiaryBrush}"
@@ -338,9 +372,15 @@
                             Margin="32,0,0,0"
                             VerticalAlignment="Center"
                             HorizontalAlignment="Left">
+
+                            <labs:Shimmer Visibility="{x:Bind ValutazioniViewModel.ShowShimmers, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" 
+                                           Width="180" Height="26" Margin="0,4,0,0" />
+                            <labs:Shimmer Visibility="{x:Bind ValutazioniViewModel.ShowShimmers, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" 
+                                           Width="120" Height="20" Margin="0,38,0,0" />
+
                             <TextBlock
                                 x:Name="TitleSecondPerVal"
-                                Text="-"
+                                Text=" "
                                 FontSize="26"
                                 Style="{StaticResource TitleTextBlockStyle}"
                                 HorizontalAlignment="Center"
@@ -348,12 +388,13 @@
                             <TextBlock
                                 x:Name="NumSecondPerVal"
                                 RelativePanel.Below="TitleSecondPerVal"
-                                Text="-"
+                                Text=" "
                                 FontSize="18"
                                 Style="{StaticResource SubtitleTextBlockStyle}"
                                 Foreground="{ThemeResource TextFillColorTertiaryBrush}"
                                 HorizontalAlignment="Center"
                                 Margin="0,0,0,0" />
+
                         </RelativePanel>
                     </Grid>
 
@@ -361,6 +402,11 @@
                 </Grid>
             </Grid>
 
+            <labs:Shimmer Visibility="{x:Bind ValutazioniViewModel.ShowShimmers, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" 
+                           Width="Auto" Height="32" Margin="0,122,0,0" 
+                           HorizontalAlignment="Stretch" 
+                           RelativePanel.AlignLeftWithPanel="True"
+                           RelativePanel.AlignRightWithPanel="True" />
 
             <controls:Segmented
                 Margin="0,16,0,0"
@@ -370,7 +416,8 @@
                 SelectionChanged="SegmentedVoti_OnSelectionChanged"
                 HorizontalAlignment="Stretch">
 
-                <controls:SegmentedItem x:Uid="AllPeriods" />
+                    <controls:SegmentedItem x:Uid="AllPeriods" />
+                
             </controls:Segmented>
 
             <controls2:GradesListView
@@ -397,7 +444,7 @@
                 HorizontalAlignment="Stretch"
                 HorizontalContentAlignment="Stretch"
                 ItemTemplate="{StaticResource VotiListViewDataTemplateStandard}"
-                ItemContainerStyle="{StaticResource ListViewFullStretchStyle}" />
+                ItemContainerStyle="{StaticResource ListViewFullStretchStyle}"/>
 
 
         </RelativePanel>
