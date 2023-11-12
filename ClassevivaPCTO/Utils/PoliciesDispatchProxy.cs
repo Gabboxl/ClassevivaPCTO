@@ -66,9 +66,9 @@ namespace ClassevivaPCTO.Utils
                                         {
                                             ContentDialog noWifiDialog = new ContentDialog
                                             {
-                                                Title = "SessionExpired".GetLocalized(),
-                                                Content = "SessionExpiredDesc".GetLocalized(),
-                                                PrimaryButtonText = "OKCapsText".GetLocalized()
+                                                Title = "SessionExpired".GetLocalizedStr(),
+                                                Content = "SessionExpiredDesc".GetLocalizedStr(),
+                                                PrimaryButtonText = "OKCapsText".GetLocalizedStr()
                                             };
 
                                             ContentDialogResult result =
@@ -132,9 +132,9 @@ namespace ClassevivaPCTO.Utils
                                             {
                                                 ContentDialog noWifiDialog = new ContentDialog
                                                 {
-                                                    Title = "LoginErrorTitle".GetLocalized(),
-                                                    Content = "LoginErrorDesc".GetLocalized(),
-                                                    CloseButtonText = "OKCapsText".GetLocalized()
+                                                    Title = "LoginErrorTitle".GetLocalizedStr(),
+                                                    Content = "LoginErrorDesc".GetLocalizedStr(),
+                                                    CloseButtonText = "OKCapsText".GetLocalizedStr()
                                                 };
 
                                                 ContentDialogResult result =
@@ -205,13 +205,13 @@ namespace ClassevivaPCTO.Utils
                         {
                             ContentDialog noWifiDialog = new ContentDialog
                             {
-                                Title = "APIErrorTitle".GetLocalized(),
+                                Title = "APIErrorTitle".GetLocalizedStr(),
                                 Content =
-                                    "AttempsDone".GetLocalized()
+                                    "AttempsDone".GetLocalizedStr()
                                     + currentRetryAttempts
                                     + "\n"
                                     + apiException.Message,
-                                CloseButtonText = "OKCapsText".GetLocalized()
+                                CloseButtonText = "OKCapsText".GetLocalizedStr()
                             };
 
                             try

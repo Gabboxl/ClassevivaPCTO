@@ -7,16 +7,17 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     xmlns:controls2="using:ClassevivaPCTO.Controls"
-    xmlns:microconverters="using:Microsoft.Toolkit.Uwp.UI.Converters"
     xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
     xmlns:toolkit="using:Microsoft.Toolkit.Uwp.UI"
     xmlns:controls="using:CommunityToolkit.WinUI.Controls"
+    xmlns:converters="using:CommunityToolkit.WinUI.Converters"
+    xmlns:winUi="using:CommunityToolkit.WinUI"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
     muxc:BackdropMaterial.ApplyToRootOrPageBackground="True">
 
     <Page.Resources>
         <ResourceDictionary>
-            <microconverters:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" />
+            <converters:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" />
         </ResourceDictionary>
     </Page.Resources>
 
@@ -266,7 +267,7 @@
                                 RelativePanel.LeftOf="CalendarAgenda"
                                 Width="48"
                                 Height="32"
-                                toolkit:FrameworkElementExtensions.Cursor="Hand"
+                                winUi:FrameworkElementExtensions.Cursor="Hand"
                                 Click="ButtonYesterday_Click" x:Uid="AgendaButtonYesterdayTT">
                             <FontIcon FontSize="16" Glyph="&#xE76B;" HorizontalAlignment="Center"
                                       VerticalAlignment="Center" />
@@ -276,7 +277,7 @@
                         <CalendarDatePicker x:Name="CalendarAgenda" x:Uid="CalendarTT"
                                             RelativePanel.LeftOf="ButtonTomorrow"
                                             FirstDayOfWeek="Monday"
-                                            toolkit:FrameworkElementExtensions.Cursor="Hand"
+                                            winUi:FrameworkElementExtensions.Cursor="Hand"
                                             PlaceholderText="Scegli una data" Margin="8,0,8,0"
                                             RelativePanel.AlignVerticalCenterWithPanel="True" MinWidth="116" />
 
@@ -285,7 +286,7 @@
                                 Width="48"
                                 Height="32"
                                 RelativePanel.AlignVerticalCenterWithPanel="True"
-                                toolkit:FrameworkElementExtensions.Cursor="Hand"
+                                winUi:FrameworkElementExtensions.Cursor="Hand"
                                 Click="ButtonTomorrow_Click" x:Uid="AgendaButtonTomorrowTT">
                             <FontIcon FontSize="16" Glyph="&#xE76C;" HorizontalAlignment="Center"
                                       VerticalAlignment="Center" />
@@ -295,7 +296,7 @@
                                       x:Uid="ButtonTodayAgenda" Margin="8,0,0,0"
                                       RelativePanel.LeftOf="Separator1"
                                       RelativePanel.AlignVerticalCenterWithPanel="True"
-                                      toolkit:FrameworkElementExtensions.Cursor="Hand"
+                                      winUi:FrameworkElementExtensions.Cursor="Hand"
                                       Click="ButtonToday_Click" />
 
                         <Rectangle x:Name="Separator1" RelativePanel.LeftOf="TuttiCompitiButton"
@@ -345,7 +346,7 @@
                            Margin="18"
                            VerticalAlignment="Stretch" HorizontalAlignment="Stretch"
                            x:Name="CardPanel"
-                           toolkit:FrameworkElementExtensions.EnableActualSizeBinding="true"
+                           winUi:FrameworkElementExtensions.EnableActualSizeBinding="true"
                            CornerRadius="8"
                            Padding="12"
                            BorderThickness="1"

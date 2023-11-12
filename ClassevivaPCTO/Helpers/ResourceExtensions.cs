@@ -6,15 +6,15 @@ namespace ClassevivaPCTO.Helpers
     {
         private static ResourceLoader _resLoader = new();
 
-        public static string GetLocalized(this string resourceKey)
+        public static string GetLocalizedStr(this string resourceKey)
         {
             return _resLoader.GetString(resourceKey);
         }
 
-        public static string GetLocalized(this string resourceKey, string tag)
+        public static string GetLocalizedStr(this string resourceKey, string tag)
         {
             resourceKey += "_" + tag;
-            return GetLocalized(resourceKey);
+            return GetLocalizedStr(resourceKey);
         }
     }
 }

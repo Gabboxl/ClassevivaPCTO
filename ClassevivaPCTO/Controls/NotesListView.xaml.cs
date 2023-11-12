@@ -14,8 +14,7 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Data;
 using ClassevivaPCTO.Helpers;
-using Microsoft.Toolkit.Uwp.UI;
-
+using CommunityToolkit.WinUI;
 
 namespace ClassevivaPCTO.Controls
 {
@@ -139,7 +138,7 @@ namespace ClassevivaPCTO.Controls
                 //TODO: forse ordinare ulteriormente ogni gruppo per data?
 
                 //prendo il long name dell'enum con attributo ApiValueAttribute
-                select new GroupInfoList(g) {Key = g.Key.ToString().GetLocalized("plur")};
+                select new GroupInfoList(g) {Key = g.Key.ToString().GetLocalizedStr("plur")};
 
             return new ObservableCollection<GroupInfoList>(query);
         }
@@ -214,7 +213,7 @@ namespace ClassevivaPCTO.Controls
 
                 var textBlock = new TextBlock
                 {
-                    Text = "InfoNoteFlyoutText".GetLocalized(),
+                    Text = "InfoNoteFlyoutText".GetLocalizedStr(),
                     TextWrapping = TextWrapping.WrapWholeWords,
                     Margin = new Thickness(0, 0, 0, 12)
                 };
@@ -243,7 +242,7 @@ namespace ClassevivaPCTO.Controls
                 //create a button
                 var button = new Button
                 {
-                    Content = "ReadAndOpenFlyoutText".GetLocalized()
+                    Content = "ReadAndOpenFlyoutText".GetLocalizedStr()
                 };
 
                 button.Click += async delegate
@@ -293,8 +292,8 @@ namespace ClassevivaPCTO.Controls
 
                 ContentDialog dialog = new()
                 {
-                    Title = currentNote.evtCode.ToString().GetLocalized("sing") + "AbsenceEventOnDayPreposition".GetLocalized() + currentNote.evtDate.ToString("dd/MM/yyyy"),
-                    PrimaryButtonText = "CloseDialogButtonText".GetLocalized(),
+                    Title = currentNote.evtCode.ToString().GetLocalized("sing") + "AbsenceEventOnDayPreposition".GetLocalizedStr() + currentNote.evtDate.ToString("dd/MM/yyyy"),
+                    PrimaryButtonText = "CloseDialogButtonText".GetLocalizedStr(),
                     DefaultButton = ContentDialogButton.Primary,
                     RequestedTheme = ((FrameworkElement) Window.Current.Content).RequestedTheme,
                     Content = noteDialogContent,

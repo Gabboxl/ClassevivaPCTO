@@ -11,7 +11,7 @@ namespace ClassevivaPCTO.Converters
         public object Convert(object value, Type targetType, object parameter, string language)
         {
             if (value is float.NaN)
-                return "GradesNotAvailable".GetLocalized();
+                return "GradesNotAvailable".GetLocalizedStr();
             else if (value is float numberValue)
                 return numberValue.ToString("0.0");
 

@@ -12,7 +12,7 @@ using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using ClassevivaPCTO.Services;
-using Microsoft.Toolkit.Uwp.UI;
+using CommunityToolkit.WinUI;
 
 namespace ClassevivaPCTO.Views
 {

@@ -10,7 +10,7 @@ using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Microsoft.Toolkit.Uwp.UI;
+using CommunityToolkit.WinUI;
 using ScrutinioAdapter = ClassevivaPCTO.Adapters.ScrutinioAdapter;
 
 

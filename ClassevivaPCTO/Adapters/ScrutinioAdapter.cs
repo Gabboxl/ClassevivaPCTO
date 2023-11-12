@@ -41,7 +41,7 @@ namespace ClassevivaPCTO.Adapters
                     return " ";
                 }
 
-                return "StatusText_NotAvailable".GetLocalized();
+                return "StatusText_NotAvailable".GetLocalizedStr();
             }
         }
 
