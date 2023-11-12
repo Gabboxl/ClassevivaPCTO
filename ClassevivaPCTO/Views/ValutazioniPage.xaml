@@ -9,15 +9,15 @@
     xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
     xmlns:controls="using:CommunityToolkit.WinUI.Controls"
     xmlns:adapters="using:ClassevivaPCTO.Adapters"
-    xmlns:converters="using:Microsoft.Toolkit.Uwp.UI.Converters"
     xmlns:converters1="using:ClassevivaPCTO.Converters"
     xmlns:labs="using:CommunityToolkit.Labs.WinUI"
+    xmlns:converters2="using:CommunityToolkit.WinUI.Converters"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
     muxc:BackdropMaterial.ApplyToRootOrPageBackground="True">
 
     <Page.Resources>
 
-        <converters:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" />
+        <converters2:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" />
         <converters1:GradeToColorConverter x:Key="GradeToColorConverter" />
         <converters1:NanToNdConverter x:Key="NanToNdConverter" />
         <converters1:BetterBoolToVisibilityConverter x:Key="BetterBoolToVisibilityConverter" />

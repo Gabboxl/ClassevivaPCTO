@@ -81,7 +81,7 @@ namespace ClassevivaPCTO.Views
 
         public static string AppName
         {
-            get { return "AppDisplayName".GetLocalized(); }
+            get { return "AppDisplayName".GetLocalizedStr(); }
         }
 
         private string _version;
@@ -240,10 +240,10 @@ namespace ClassevivaPCTO.Views
         {
             ContentDialog dialog = new ContentDialog
             {
-                Title = "AreYouSure".GetLocalized(),
-                Content = "AreYouSureToExit".GetLocalized(),
-                PrimaryButtonText = "Exit".GetLocalized(),
-                CloseButtonText = "CancelDialogButton".GetLocalized(),
+                Title = "AreYouSure".GetLocalizedStr(),
+                Content = "AreYouSureToExit".GetLocalizedStr(),
+                PrimaryButtonText = "Exit".GetLocalizedStr(),
+                CloseButtonText = "CancelDialogButton".GetLocalizedStr(),
                 RequestedTheme = ((FrameworkElement) Window.Current.Content).RequestedTheme,
                 DefaultButton = ContentDialogButton.Primary
             };
@@ -309,12 +309,12 @@ namespace ClassevivaPCTO.Views
                 {
                     ContentDialog dialogtrans = new()
                     {
-                        Title = "CautionDialogTitle".GetLocalized(),
-                        Content = "AppTranslationStatus1".GetLocalized() + langProgressPerc + "% " +
-                                  "AppTranslationStatus2".GetLocalized() + "\n\n" +
-                                  "AreYouSureLanguageDialogText".GetLocalized(),
-                        PrimaryButtonText = "ContinueDialogButton".GetLocalized(),
-                        CloseButtonText = "CancelDialogButton".GetLocalized(),
+                        Title = "CautionDialogTitle".GetLocalizedStr(),
+                        Content = "AppTranslationStatus1".GetLocalizedStr() + langProgressPerc + "% " +
+                                  "AppTranslationStatus2".GetLocalizedStr() + "\n\n" +
+                                  "AreYouSureLanguageDialogText".GetLocalizedStr(),
+                        PrimaryButtonText = "ContinueDialogButton".GetLocalizedStr(),
+                        CloseButtonText = "CancelDialogButton".GetLocalizedStr(),
                         RequestedTheme = ((FrameworkElement) Window.Current.Content).RequestedTheme,
                         DefaultButton = ContentDialogButton.Primary
                     };
@@ -362,10 +362,10 @@ namespace ClassevivaPCTO.Views
 
             ContentDialog dialog = new()
             {
-                Title = "RestartRequired".GetLocalized(),
-                Content = "RestartRequiredLanguageChange".GetLocalized(),
-                PrimaryButtonText = "Restart".GetLocalized(),
-                CloseButtonText = "CancelDialogButton".GetLocalized(),
+                Title = "RestartRequired".GetLocalizedStr(),
+                Content = "RestartRequiredLanguageChange".GetLocalizedStr(),
+                PrimaryButtonText = "Restart".GetLocalizedStr(),
+                CloseButtonText = "CancelDialogButton".GetLocalizedStr(),
                 RequestedTheme = ((FrameworkElement) Window.Current.Content).RequestedTheme,
                 DefaultButton = ContentDialogButton.Primary
             };

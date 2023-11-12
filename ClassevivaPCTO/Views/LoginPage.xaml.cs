@@ -44,7 +44,7 @@ namespace ClassevivaPCTO.Views
             Window.Current.SetTitleBar(AppTitleBar);
 
             //display app version
-            var appName = "AppDisplayName".GetLocalized();
+            var appName = "AppDisplayName".GetLocalizedStr();
             var package = Package.Current;
             var packageId = package.Id;
             var version = packageId.Version;
@@ -149,10 +149,10 @@ namespace ClassevivaPCTO.Views
                             async () =>
                             {
                                 ContentDialog dialog = new ContentDialog();
-                                dialog.Title = "AccountNonSupportato".GetLocalized();
-                                dialog.PrimaryButtonText = "OKCapsText".GetLocalized();
+                                dialog.Title = "AccountNonSupportato".GetLocalizedStr();
+                                dialog.PrimaryButtonText = "OKCapsText".GetLocalizedStr();
                                 dialog.DefaultButton = ContentDialogButton.Primary;
-                                dialog.Content = "AccountNonSupportatoBody".GetLocalized();
+                                dialog.Content = "AccountNonSupportatoBody".GetLocalizedStr();
 
                                 try
                                 {
@@ -227,11 +227,11 @@ namespace ClassevivaPCTO.Views
                     async () =>
                     {
                         ContentDialog dialog = new ContentDialog();
-                        dialog.Title = "ErroreText".GetLocalized();
-                        dialog.PrimaryButtonText = "OKCapsText".GetLocalized();
+                        dialog.Title = "ErroreText".GetLocalizedStr();
+                        dialog.PrimaryButtonText = "OKCapsText".GetLocalizedStr();
                         dialog.DefaultButton = ContentDialogButton.Primary;
                         dialog.Content =
-                            "ErrorDialogBody".GetLocalized()
+                            "ErrorDialogBody".GetLocalizedStr()
                             + ex.Content;
 
                         try
@@ -320,9 +320,9 @@ namespace ClassevivaPCTO.Views
                     contentDialogContent = new ChoiceDialogContent(loginResultChoices.choices);
 
                     ContentDialog dialog = new ContentDialog();
-                    dialog.Title = "ChooseProfileDialogTitle".GetLocalized();
-                    dialog.PrimaryButtonText = "LoginDialogButton".GetLocalized();
-                    dialog.CloseButtonText = "CancelDialogButton".GetLocalized();
+                    dialog.Title = "ChooseProfileDialogTitle".GetLocalizedStr();
+                    dialog.PrimaryButtonText = "LoginDialogButton".GetLocalizedStr();
+                    dialog.CloseButtonText = "CancelDialogButton".GetLocalizedStr();
                     dialog.DefaultButton = ContentDialogButton.Primary;
                     dialog.RequestedTheme = ((FrameworkElement) Window.Current.Content).RequestedTheme;
                     dialog.Content = contentDialogContent;

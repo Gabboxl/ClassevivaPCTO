@@ -250,13 +250,13 @@ namespace ClassevivaPCTO.Views
 
             //set grades count
             string valutazioniPlAllgrad =
-                allGradesCount == 1 ? "GradeSingular".GetLocalized() : "GradesPlural".GetLocalized();
+                allGradesCount == 1 ? "GradeSingular".GetLocalizedStr() : "GradesPlural".GetLocalizedStr();
             string valutazioniPlurale1 = firstPeriodGradesCount == 1
-                ? "GradeSingular".GetLocalized()
-                : "GradesPlural".GetLocalized();
+                ? "GradeSingular".GetLocalizedStr()
+                : "GradesPlural".GetLocalizedStr();
             string valutazioniPlurale2 = secondPeriodGradesCount == 1
-                ? "GradeSingular".GetLocalized()
-                : "GradesPlural".GetLocalized();
+                ? "GradeSingular".GetLocalizedStr()
+                : "GradesPlural".GetLocalizedStr();
 
             NumTotVal.Text = string.Format("{0} " + valutazioniPlAllgrad, allGradesCount.ToString());
             NumFirstPerVal.Text = string.Format("{0} " + valutazioniPlurale1, firstPeriodGradesCount.ToString());

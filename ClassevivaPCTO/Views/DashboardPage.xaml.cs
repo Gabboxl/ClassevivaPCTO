@@ -39,7 +39,7 @@ namespace ClassevivaPCTO.Views
 
             Card? cardResult = ViewModelHolder.GetViewModel().SingleCardResult;
 
-            TextTitolo.Text = string.Format("TitoloDashboardText".GetLocalized(),
+            TextTitolo.Text = string.Format("TitoloDashboardText".GetLocalizedStr(),
                 VariousUtils.ToTitleCase(cardResult.firstName));
 
             /*

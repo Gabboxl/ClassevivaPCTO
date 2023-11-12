@@ -8,17 +8,18 @@
     xmlns:controls="using:ClassevivaPCTO.Controls"
     xmlns:controls1="using:CommunityToolkit.WinUI.Controls"
     mc:Ignorable="d"
-    xmlns:microconverters="using:Microsoft.Toolkit.Uwp.UI.Converters"
     xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
     xmlns:toolkit="using:Microsoft.Toolkit.Uwp.UI"
     xmlns:converters="using:ClassevivaPCTO.Converters"
+    xmlns:converters1="using:CommunityToolkit.WinUI.Converters"
+    xmlns:winUi="using:CommunityToolkit.WinUI"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
     muxc:BackdropMaterial.ApplyToRootOrPageBackground="True">
 
 
     <Page.Resources>
         <ResourceDictionary>
-            <microconverters:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" />
+            <converters1:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" />
             <converters:EmptyListToVisibilityConverter x:Key="EmptyListToVisibilityConverter" />
         </ResourceDictionary>
     </Page.Resources>
@@ -125,7 +126,7 @@
                        Margin="18"
                        VerticalAlignment="Stretch" HorizontalAlignment="Stretch"
                        x:Name="CardPanel"
-                       toolkit:FrameworkElementExtensions.EnableActualSizeBinding="true"
+                       winUi:FrameworkElementExtensions.EnableActualSizeBinding="true"
                        CornerRadius="8"
                        Padding="12"
                        BorderThickness="1"

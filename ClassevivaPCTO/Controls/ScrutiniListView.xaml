@@ -8,7 +8,8 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:toolkit="using:Microsoft.Toolkit.Uwp.UI"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:microconverters="using:Microsoft.Toolkit.Uwp.UI.Converters"
+    xmlns:winUi="using:CommunityToolkit.WinUI"
+    xmlns:converters1="using:CommunityToolkit.WinUI.Converters"
     mc:Ignorable="d"
     d:DesignHeight="300"
     d:DesignWidth="400">
@@ -16,7 +17,7 @@
     <UserControl.Resources>
 
         <converters:DateTimeToNormalDateConverter x:Key="DateTimeToNormalDateConverter" />
-        <microconverters:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" />
+        <converters1:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" />
         <converters:BetterBoolToVisibilityConverter x:Key="BetterBoolToVisibilityConverter" />
         <converters:EmptyListToVisibilityConverter x:Key="EmptyListToVisibilityConverter" />
 
@@ -153,7 +154,7 @@
                     Grid.Column="1"
                     Padding="0,6,0,6">
 
-                    <Button toolkit:FrameworkElementExtensions.Cursor="Hand"
+                    <Button winUi:FrameworkElementExtensions.Cursor="Hand"
                             x:Name="ButtonOpenReport"
                             Click="ButtonOpenReport_OnClick"
                             RelativePanel.AlignVerticalCenterWithPanel="True"
