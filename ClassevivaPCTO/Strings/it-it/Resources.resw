@@ -286,7 +286,7 @@ Se riscontri bug o hai un'idea per l'app apri un issue su GitHub cliccando sul l
   <data name="DashboardOpenAgendaButton.Text" xml:space="preserve">
     <value>Apri agenda</value>
   </data>
-  <data name="TitleRecentGrades.Text" xml:space="preserve">
+  <data name="DashboardRecentGrades.Text" xml:space="preserve">
     <value>Valutazioni recenti</value>
   </data>
   <data name="DashboardGradesAverage.Text" xml:space="preserve">
@@ -295,7 +295,7 @@ Se riscontri bug o hai un'idea per l'app apri un issue su GitHub cliccando sul l
   <data name="DashboardOpenGradesButton.Text" xml:space="preserve">
     <value>Visualizza tutte le valutazioni</value>
   </data>
-  <data name="TextBachecaRecenti.Text" xml:space="preserve">
+  <data name="DashboardRecentNotices.Text" xml:space="preserve">
     <value>Comunicazioni recenti</value>
   </data>
   <data name="DashboardOpenNoticeBoardButton.Text" xml:space="preserve">

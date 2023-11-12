@@ -139,7 +139,7 @@
 
                     <RelativePanel Grid.Row="0">
 
-                        <TextBlock x:Name="TitleRecentGrades" x:Uid="TitleRecentGrades" FontSize="20"
+                        <TextBlock x:Name="TitleRecentGrades" x:Uid="DashboardRecentGrades" FontSize="20"
                                    VerticalAlignment="Top"
                                    HorizontalAlignment="Left" Margin="8,4,0,8" FontWeight="Medium" />
 
@@ -150,8 +150,8 @@
                                            Visibility="{x:Bind DashboardPageViewModel.IsLoadingGrades, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" />
 
                         <TextBlock TextWrapping="Wrap"
-                                   x:Name="DashboardGradesAverage"
-                                   TextAlignment="Center" x:Uid="TitleMedia" FontSize="16"
+                                   x:Name="TitleMedia"
+                                   TextAlignment="Center" x:Uid="DashboardGradesAverage" FontSize="16"
                                    RelativePanel.LeftOf="TextBlockMedia"
                                    Foreground="{ThemeResource TextFillColorTertiaryBrush}"
                                    Margin="0,9,6,0" />
@@ -209,7 +209,7 @@
 
                     <RelativePanel Grid.Row="0">
 
-                        <TextBlock x:Name="TextBachecaRecenti" x:Uid="TextBachecaRecenti" FontSize="20"
+                        <TextBlock x:Name="TextBachecaRecenti" x:Uid="DashboardRecentNotices" FontSize="20"
                                    VerticalAlignment="Top"
                                    HorizontalAlignment="Left" Margin="8,4,0,8" FontWeight="Medium" />
 
