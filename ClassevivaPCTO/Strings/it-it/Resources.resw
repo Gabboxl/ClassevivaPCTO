@@ -322,16 +322,16 @@ Se riscontri bug o hai un'idea per l'app apri un issue su GitHub cliccando sul l
   <data name="TextBlockCalendarioEventi.Text" xml:space="preserve">
     <value>Calendario eventi</value>
   </data>
-  <data name="TitoloAgendaPopup.Text" xml:space="preserve">
+  <data name="AgendaTasksPopupTitle.Text" xml:space="preserve">
     <value>Compiti</value>
   </data>
-  <data name="ButtonTodayAgenda.Content" xml:space="preserve">
+  <data name="AgendaButtonToday.Content" xml:space="preserve">
     <value>Oggi</value>
   </data>
-  <data name="TuttiCompitiButton.Text" xml:space="preserve">
+  <data name="AgendaAllTasksButton.Text" xml:space="preserve">
     <value>Tutti i compiti</value>
   </data>
-  <data name="PopupLessonsButton.Text" xml:space="preserve">
+  <data name="AgendaAllLessonsButton.Text" xml:space="preserve">
     <value>Tutte le lezioni</value>
   </data>
   <data name="AccountNonSupportato" xml:space="preserve">
@@ -379,7 +379,7 @@ Gli account studente hanno l'username che inizia con le lettere S, G o X.</value
   <data name="ButtonOpen.Text" xml:space="preserve">
     <value>Apri</value>
   </data>
-  <data name="LessonsTitle.Text" xml:space="preserve">
+  <data name="AgendaLessonsPopupTitle.Text" xml:space="preserve">
     <value>Lezioni</value>
   </data>
   <data name="GradesTitle.Text" xml:space="preserve">
@@ -500,10 +500,10 @@ Gli account studente hanno l'username che inizia con le lettere S, G o X.</value
   <data name="SettingsChangelogRelease.Text" xml:space="preserve">
     <value>v1.1.0, 21 Ottobre 2023</value>
   </data>
-  <data name="AgendaButtonTomorrowTT.ToolTipService.ToolTip" xml:space="preserve">
+  <data name="AgendaTomorrowButton.ToolTipService.ToolTip" xml:space="preserve">
     <value>Giorno successivo</value>
   </data>
-  <data name="AgendaButtonYesterdayTT.ToolTipService.ToolTip" xml:space="preserve">
+  <data name="AgendaYesterdayButton.ToolTipService.ToolTip" xml:space="preserve">
     <value>Giorno precedente</value>
   </data>
   <data name="AssenzeJustified.Text" xml:space="preserve">
@@ -512,7 +512,7 @@ Gli account studente hanno l'username che inizia con le lettere S, G o X.</value
   <data name="AssenzeToBeJustified.Text" xml:space="preserve">
     <value>Da giustificare</value>
   </data>
-  <data name="ButtonTodayAgenda.ToolTipService.ToolTip" xml:space="preserve">
+  <data name="AgendaButtonToday.ToolTipService.ToolTip" xml:space="preserve">
     <value>Vai agli eventi di oggi</value>
   </data>
   <data name="CheckboxInattive.Content" xml:space="preserve">
@@ -662,7 +662,7 @@ Gli account studente hanno l'username che inizia con le lettere S, G o X.</value
   <data name="AllPeriods.Content" xml:space="preserve">
     <value>Tutti i periodi</value>
   </data>
-  <data name="CalendarTT.ToolTipService.ToolTip" xml:space="preserve">
+  <data name="AgendaCalendarDatePicker.ToolTipService.ToolTip" xml:space="preserve">
     <value>Seleziona una data</value>
   </data>
   <data name="FilterAllNotices.Text" xml:space="preserve">

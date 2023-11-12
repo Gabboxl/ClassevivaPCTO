@@ -66,7 +66,7 @@
                 </controls2:GradesListView>
 
                 <TextBlock x:Name="LessonsTitle"
-                           x:Uid="LessonsTitle"
+                           x:Uid="AgendaLessonsPopupTitle"
                            Margin="14,12,0,8"
                            Visibility="{x:Bind OverviewControlViewModel.FilteredOverviewResult.Lessons, Mode=OneWay, FallbackValue=Collapsed, Converter={StaticResource EmptyListToVisibilityConverter}}"
                            Style="{ThemeResource BodyStrongTextBlockStyle}" FontSize="18" FontWeight="SemiBold" />
@@ -78,7 +78,7 @@
                 </controls2:LessonsListView>
 
                 <TextBlock x:Name="AgendaTitle"
-                           x:Uid="TitoloAgendaPopup"
+                           x:Uid="AgendaTasksPopupTitle"
                            Margin="14,12,0,8"
                            Visibility="{x:Bind OverviewControlViewModel.FilteredOverviewResult.AgendaEvents, Mode=OneWay, FallbackValue=Collapsed, Converter={StaticResource EmptyListToVisibilityConverter}}"
                            Style="{ThemeResource BodyStrongTextBlockStyle}" FontSize="18" FontWeight="SemiBold" />

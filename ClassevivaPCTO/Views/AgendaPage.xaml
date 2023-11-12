@@ -96,7 +96,7 @@
                     Grid.Column="1"
                     Grid.Row="0"
                     Margin="0,0,0,24">
-                    <TextBlock x:Name="TitoloLezioniPopup" x:Uid="LessonsTitle" FontSize="42"
+                    <TextBlock x:Name="TitoloLezioniPopup" x:Uid="AgendaLessonsPopupTitle" FontSize="42"
                                VerticalAlignment="Top"
                                Margin="12,16,0,0" />
 
@@ -166,7 +166,7 @@
                     Grid.Column="1"
                     Grid.Row="0"
                     Margin="0,0,0,24">
-                    <TextBlock x:Name="TitoloAgendaPopup" x:Uid="TitoloAgendaPopup" FontSize="42"
+                    <TextBlock x:Name="TitoloAgendaPopup" x:Uid="AgendaTasksPopupTitle" FontSize="42"
                                VerticalAlignment="Top"
                                Margin="12,16,0,0" />
 
@@ -267,13 +267,13 @@
                                 Width="48"
                                 Height="32"
                                 toolkit:FrameworkElementExtensions.Cursor="Hand"
-                                Click="ButtonYesterday_Click" x:Uid="AgendaButtonYesterdayTT">
+                                Click="ButtonYesterday_Click" x:Uid="AgendaYesterdayButton">
                             <FontIcon FontSize="16" Glyph="&#xE76B;" HorizontalAlignment="Center"
                                       VerticalAlignment="Center" />
                         </Button>
 
                         <!-- should we set the firstdayofweek in code instead? -->
-                        <CalendarDatePicker x:Name="CalendarAgenda" x:Uid="CalendarTT"
+                        <CalendarDatePicker x:Name="CalendarAgenda" x:Uid="AgendaCalendarDatePicker"
                                             RelativePanel.LeftOf="ButtonTomorrow"
                                             FirstDayOfWeek="Monday"
                                             toolkit:FrameworkElementExtensions.Cursor="Hand"
@@ -286,13 +286,13 @@
                                 Height="32"
                                 RelativePanel.AlignVerticalCenterWithPanel="True"
                                 toolkit:FrameworkElementExtensions.Cursor="Hand"
-                                Click="ButtonTomorrow_Click" x:Uid="AgendaButtonTomorrowTT">
+                                Click="ButtonTomorrow_Click" x:Uid="AgendaTomorrowButton">
                             <FontIcon FontSize="16" Glyph="&#xE76C;" HorizontalAlignment="Center"
                                       VerticalAlignment="Center" />
                         </Button>
 
                         <ToggleButton x:Name="ButtonToday" HorizontalAlignment="Center" VerticalAlignment="Center"
-                                      x:Uid="ButtonTodayAgenda" Margin="8,0,0,0"
+                                      x:Uid="AgendaButtonToday" Margin="8,0,0,0"
                                       RelativePanel.LeftOf="Separator1"
                                       RelativePanel.AlignVerticalCenterWithPanel="True"
                                       toolkit:FrameworkElementExtensions.Cursor="Hand"
@@ -313,8 +313,7 @@
 
                                 <TextBlock Text="&#xEA98;" VerticalAlignment="Center"
                                            FontFamily="{StaticResource FluentIcons}" />
-
-                                <TextBlock x:Uid="TuttiCompitiButton" />
+                                <TextBlock x:Uid="AgendaAllTasksButton" />
 
                             </StackPanel>
                         </Button>
@@ -330,7 +329,7 @@
                             <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Spacing="8">
                                 <TextBlock Text="&#xe7be;" VerticalAlignment="Center"
                                            FontFamily="{StaticResource FluentIcons}" />
-                                <TextBlock x:Uid="PopupLessonsButton" />
+                                <TextBlock x:Uid="AgendaAllLessonsButton" />
 
                             </StackPanel>
                         </Button>
