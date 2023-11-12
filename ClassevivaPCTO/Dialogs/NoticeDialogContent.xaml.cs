@@ -24,11 +24,11 @@ namespace ClassevivaPCTO.Dialogs
             {
                 if (CurrentNotice.attachments.Count == 0)
                 {
-                    return "NoticeDialogNessunAllegatiSubtitle".GetLocalized();
+                    return "NoticeDialogNessunAllegatiSubtitle".GetLocalizedStr();
                 }
                 else
                 {
-                    return "NoticeDialogAllegatiSubtitle".GetLocalized();
+                    return "NoticeDialogAllegatiSubtitle".GetLocalizedStr();
                 }
             }
         }

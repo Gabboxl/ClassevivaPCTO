@@ -77,7 +77,7 @@ namespace ClassevivaPCTO.Controls
                 //TODO: forse ordinare ulteriormente ogni gruppo per data?
 
                 //prendo il long name dell'enum con attributo ApiValueAttribute
-                select new GroupInfoList(g) {Key = g.Key.ToString().GetLocalized("plur")};
+                select new GroupInfoList(g) {Key = g.Key.ToString().GetLocalizedStr("plur")};
 
             return new ObservableCollection<GroupInfoList>(query);
         }

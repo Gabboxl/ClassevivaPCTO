@@ -7,15 +7,15 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     xmlns:controls2="using:ClassevivaPCTO.Controls"
-    xmlns:microconverters="using:Microsoft.Toolkit.Uwp.UI.Converters"
     xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
     xmlns:comToolkit="using:CommunityToolkit.WinUI.Controls"
+    xmlns:converters="using:CommunityToolkit.WinUI.Converters"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
     muxc:BackdropMaterial.ApplyToRootOrPageBackground="True">
 
     <Page.Resources>
         <ResourceDictionary>
-            <microconverters:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" />
+            <converters:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" />
         </ResourceDictionary>
     </Page.Resources>
 
