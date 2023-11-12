@@ -29,7 +29,6 @@
 
                 <RelativePanel RelativePanel.AlignVerticalCenterWithPanel="True">
 
-
                     <TextBlock x:Name="textMateria" TextWrapping="WrapWholeWords"
                                MaxWidth="500"
                                Text="{x:Bind CurrentObject.subjectDesc}"
@@ -144,10 +143,7 @@
 
             </RelativePanel>
         </DataTemplate>
-
-
     </UserControl.Resources>
-
 
     <Grid
         HorizontalAlignment="Stretch"
@@ -157,7 +153,6 @@
         </Grid.RowDefinitions>
 
         <ListView x:Name="listView"
-
                   ScrollViewer.VerticalScrollMode="Enabled"
                   HorizontalAlignment="Stretch"
                   HorizontalContentAlignment="Stretch"
@@ -181,7 +176,7 @@
                        Foreground="{ThemeResource TextFillColorDisabledBrush}"
                        Margin="0,0,0,0"
                        FontWeight="SemiBold"
-                       x:Uid="NoLessons" FontSize="36" VerticalAlignment="Center"
+                       x:Uid="AgendaLessonsPlaceholder" FontSize="36" VerticalAlignment="Center"
                        HorizontalAlignment="Center" />
         </RelativePanel>
 

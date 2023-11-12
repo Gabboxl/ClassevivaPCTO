@@ -369,7 +369,7 @@ Errore: </value>
   <data name="AgendaPlaceholder.Text" xml:space="preserve">
     <value>Nessun evento</value>
   </data>
-  <data name="ReadText.Text" xml:space="preserve">
+  <data name="NoticeBoardReadButton.Text" xml:space="preserve">
     <value>Leggi</value>
   </data>
   <data name="CloseDialogButtonText" xml:space="preserve">
@@ -387,10 +387,10 @@ Errore: </value>
   <data name="SettingsAccountExitButton.Text" xml:space="preserve">
     <value>Esci</value>
   </data>
-  <data name="NoNoticesText.Text" xml:space="preserve">
+  <data name="NoticeBoardPlaceholder.Text" xml:space="preserve">
     <value>Nessuna comunicazione</value>
   </data>
-  <data name="NoNotesText.Text" xml:space="preserve">
+  <data name="NotesPlaceholder.Text" xml:space="preserve">
     <value>Nessuna nota</value>
   </data>
   <data name="SettingsAboutExpanderCrowdinHyperlink.Text" xml:space="preserve">
@@ -526,7 +526,7 @@ Errore: </value>
   <data name="NoticeAdapter_StatusText_Scaduta" xml:space="preserve">
     <value>Scaduta</value>
   </data>
-  <data name="StatusText_NotAvailable" xml:space="preserve">
+  <data name="NoticeBoardNotAvailableStatusButton" xml:space="preserve">
     <value>Non disponibile</value>
   </data>
   <data name="AreYouSure" xml:space="preserve">
@@ -550,10 +550,10 @@ Errore: </value>
   <data name="NoticeBoardTitle.Text" xml:space="preserve">
     <value>Bacheca</value>
   </data>
-  <data name="NoAbsences.Text" xml:space="preserve">
+  <data name="AbsencesPlaceholder.Text" xml:space="preserve">
     <value>Nessuna assenza</value>
   </data>
-  <data name="NoTasks.Text" xml:space="preserve">
+  <data name="AgendaTasksPlaceholder.Text" xml:space="preserve">
     <value>Nessun compito</value>
   </data>
   <data name="ScrutiniPlaceholder.Text" xml:space="preserve">
@@ -586,7 +586,7 @@ Errore: </value>
   <data name="GradesPlural" xml:space="preserve">
     <value>valutazioni</value>
   </data>
-  <data name="NoGrades.Text" xml:space="preserve">
+  <data name="GradesPlaceholder.Text" xml:space="preserve">
     <value>Nessuna valutazione</value>
   </data>
   <data name="PALETTE_FLO" xml:space="preserve">
@@ -595,7 +595,7 @@ Errore: </value>
   <data name="PALETTE_RET" xml:space="preserve">
     <value>Retro</value>
   </data>
-  <data name="NoLessons.Text" xml:space="preserve">
+  <data name="AgendaLessonsPlaceholder.Text" xml:space="preserve">
     <value>Nessuna lezione</value>
   </data>
   <data name="FirstRunDialogContributorsHyperlink.Text" xml:space="preserve">
@@ -726,6 +726,9 @@ Errore: </value>
   </data>
   <data name="GradesSubjectsLayoutSegmentedItem.Text" xml:space="preserve">
     <value>Materie</value>
+  </data>
+  <data name="NotesReadButton.Text" xml:space="preserve">
+    <value>Leggi</value>
   </data>
   <data name="ScrutiniOpenFileButton.Text" xml:space="preserve">
     <value>Apri</value>

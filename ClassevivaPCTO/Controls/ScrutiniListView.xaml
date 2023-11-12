@@ -42,7 +42,6 @@
 
                 <RelativePanel ScrollViewer.HorizontalScrollMode="Disabled" Grid.Row="0" Grid.Column="0">
 
-                    <!-- file icon -->
                     <FontIcon x:Name="FileIcon"
                               FontSize="24"
                               RelativePanel.AlignVerticalCenterWithPanel="True"
