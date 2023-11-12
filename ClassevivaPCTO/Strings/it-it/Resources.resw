@@ -348,12 +348,6 @@ Errore: </value>
   <data name="ProfileChoiceDialogInfoTextBlock.Text" xml:space="preserve">
     <value>Più profili sono associati a questo account.</value>
   </data>
-  <data name="ScrutiniSaveFileButton.Text" xml:space="preserve">
-    <value>Salva</value>
-  </data>
-  <data name="ScrutiniOpenReportButton.Text" xml:space="preserve">
-    <value>Apri</value>
-  </data>
   <data name="AgendaLessonsPopupTitle.Text" xml:space="preserve">
     <value>Lezioni</value>
   </data>
@@ -368,9 +362,6 @@ Errore: </value>
   </data>
   <data name="AgendaPlaceholder.Text" xml:space="preserve">
     <value>Nessun evento</value>
-  </data>
-  <data name="NoticeBoardReadButton.Text" xml:space="preserve">
-    <value>Leggi</value>
   </data>
   <data name="CloseDialogButtonText" xml:space="preserve">
     <value>Chiudi</value>
@@ -727,16 +718,28 @@ Errore: </value>
   <data name="GradesSubjectsLayoutSegmentedItem.Text" xml:space="preserve">
     <value>Materie</value>
   </data>
-  <data name="NotesReadButton.Text" xml:space="preserve">
+  <data name="GenericOpenButton.Text" xml:space="preserve">
+    <value>Apri</value>
+  </data>
+  <data name="GenericReadButton.Text" xml:space="preserve">
     <value>Leggi</value>
   </data>
-  <data name="ScrutiniOpenFileButton.Text" xml:space="preserve">
-    <value>Apri</value>
+  <data name="GenericSaveButton.Text" xml:space="preserve">
+    <value>Salva</value>
   </data>
   <data name="NoticeDialogOpenAttachmentButton.Label" xml:space="preserve">
     <value>Apri</value>
   </data>
   <data name="NoticeDialogSaveAttachmentButton.Label" xml:space="preserve">
     <value>Salva</value>
+  </data>
+  <data name="ScrutiniOpenFileButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Visualizza scrutinio</value>
+  </data>
+  <data name="ScrutiniOpenReportButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Apri report nel browser</value>
+  </data>
+  <data name="ScrutiniSaveFileButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Salva il file dello scrutinio sul PC</value>
   </data>
 </root>

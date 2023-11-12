@@ -72,7 +72,7 @@
                     Padding="0,6,0,6">
 
                     <Button
-                        x:Name="ButtonOpenScrutinio" RelativePanel.LeftOf="ButtonSaveScrutinio"
+                        x:Name="ButtonOpenScrutinio" x:Uid="ScrutiniOpenFileButton" RelativePanel.LeftOf="ButtonSaveScrutinio"
                         Click="ButtonOpen_Click"
                         Visibility="{x:Bind CurrentObject.checkStatus.available, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}"
                         RelativePanel.AlignVerticalCenterWithPanel="True"
@@ -81,13 +81,13 @@
                             <StackPanel Orientation="Vertical" Padding="6,0,6,0" VerticalAlignment="Center">
                                 <FontIcon FontFamily="{StaticResource FluentIcons}" Glyph="&#xE8E5;"
                                           FontSize="16" />
-                                <TextBlock FontSize="12" x:Uid="ScrutiniOpenFileButton" Margin="0,0,0,0" />
+                                <TextBlock FontSize="12" x:Uid="GenericOpenButton" Margin="0,0,0,0" />
                             </StackPanel>
                         </Button.Content>
                     </Button>
 
                     <Button
-                        x:Name="ButtonSaveScrutinio" Click="ButtonSave_Click"
+                        x:Name="ButtonSaveScrutinio" x:Uid="ScrutiniSaveFileButton" Click="ButtonSave_Click"
                         RelativePanel.AlignRightWithPanel="True"
                         Visibility="{x:Bind CurrentObject.checkStatus.available, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}"
                         RelativePanel.AlignVerticalCenterWithPanel="True"
@@ -96,7 +96,7 @@
                             <StackPanel Orientation="Vertical" Padding="6,0,6,0">
                                 <FontIcon FontFamily="{StaticResource FluentIcons}" Glyph="&#xE74E;"
                                           FontSize="16" />
-                                <TextBlock FontSize="12" x:Uid="ScrutiniSaveFileButton" Margin="0,0,0,0" />
+                                <TextBlock FontSize="12" x:Uid="GenericSaveButton"  Margin="0,0,0,0" />
                             </StackPanel>
                         </Button.Content>
                     </Button>
@@ -142,6 +142,7 @@
 
                     <Button winUi:FrameworkElementExtensions.Cursor="Hand"
                             x:Name="ButtonOpenReport"
+                            x:Uid="ScrutiniOpenReportButton"
                             Click="ButtonOpenReport_OnClick"
                             RelativePanel.AlignVerticalCenterWithPanel="True"
                             Margin="0,0,12,0" MinWidth="70">
@@ -149,7 +150,7 @@
                             <StackPanel Orientation="Vertical" Padding="6,0,6,0">
                                 <FontIcon FontFamily="{StaticResource FluentIcons}" Glyph="&#xE71B;"
                                           FontSize="16" Foreground="{ThemeResource AccentTextFillColorPrimaryBrush}" />
-                                <TextBlock FontSize="12" x:Uid="ScrutiniOpenReportButton" Margin="0,0,0,0" />
+                                <TextBlock FontSize="12" x:Uid="GenericOpenButton" Margin="0,0,0,0" />
                             </StackPanel>
                         </Button.Content>
                     </Button>

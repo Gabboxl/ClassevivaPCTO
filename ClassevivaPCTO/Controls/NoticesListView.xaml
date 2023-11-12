@@ -117,7 +117,7 @@
                         <Button.Content>
                             <StackPanel Orientation="Horizontal">
                                 <FontIcon FontFamily="{StaticResource FluentIcons}" Glyph="&#xE890;" />
-                                <TextBlock x:Uid="NoticeBoardReadButton" Margin="6,0,0,0" />
+                                <TextBlock x:Uid="GenericReadButton" Margin="6,0,0,0" />
                             </StackPanel>
                         </Button.Content>
                     </Button>
