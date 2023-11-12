@@ -220,11 +220,15 @@
                             Height="80"
                             Background="#545454" />
 
+                        <labs:Shimmer Visibility="{x:Bind ValutazioniViewModel.ShowShimmers, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" 
+                                      Width="30" Height="24" Margin="0,2,0,0" />
+
                         <TextBlock
                             x:Name="MediaTotText"
                             FontSize="24"
                             Text="{x:Bind ValutazioniViewModel.AverageTot, Mode=OneWay, Converter={StaticResource NanToNdConverter}}"
                             Style="{StaticResource TitleTextBlockStyle}"
+                            Visibility="{x:Bind ValutazioniViewModel.ShowShimmers, Mode=OneWay, Converter={StaticResource BetterBoolToVisibilityConverter}, ConverterParameter=False}"
                             Foreground="{x:Bind ValutazioniViewModel.AverageTot, Mode=OneWay, Converter={StaticResource GradeToColorConverter}}"
                             HorizontalAlignment="Center"
                             VerticalAlignment="Center"
@@ -288,11 +292,15 @@
                             Height="80"
                             Background="#545454" />
 
+                        <labs:Shimmer Visibility="{x:Bind ValutazioniViewModel.ShowShimmers, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" 
+                                      Width="30" Height="24" Margin="0,2,0,0" />
+
                         <TextBlock
                             x:Name="MediaPrimoPeriodoText"
                             Text="{x:Bind ValutazioniViewModel.AverageFirstPeriodo, Mode=OneWay, Converter={StaticResource NanToNdConverter}}"
                             FontSize="24"
                             Style="{StaticResource TitleTextBlockStyle}"
+                            Visibility="{x:Bind ValutazioniViewModel.ShowShimmers, Mode=OneWay, Converter={StaticResource BetterBoolToVisibilityConverter}, ConverterParameter=False}"
                             Foreground="{x:Bind ValutazioniViewModel.AverageFirstPeriodo, Mode=OneWay, Converter={StaticResource GradeToColorConverter}}"
                             HorizontalAlignment="Center"
                             VerticalAlignment="Center"
@@ -354,11 +362,15 @@
                             Height="80"
                             Background="#545454" />
 
+                        <labs:Shimmer Visibility="{x:Bind ValutazioniViewModel.ShowShimmers, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" 
+                                      Width="30" Height="24" Margin="0,2,0,0" />
+
                         <TextBlock
                             x:Name="MediaSecondoPeriodoText"
                             Text="{x:Bind ValutazioniViewModel.AverageSecondPeriodo, Mode=OneWay, Converter={StaticResource NanToNdConverter}}"
                             FontSize="24"
                             Style="{StaticResource TitleTextBlockStyle}"
+                            Visibility="{x:Bind ValutazioniViewModel.ShowShimmers, Mode=OneWay, Converter={StaticResource BetterBoolToVisibilityConverter}, ConverterParameter=False}"
                             Foreground="{x:Bind ValutazioniViewModel.AverageSecondPeriodo, Mode=OneWay, Converter={StaticResource GradeToColorConverter}}"
                             HorizontalAlignment="Center"
                             VerticalAlignment="Center"
@@ -409,6 +421,7 @@
                            RelativePanel.AlignRightWithPanel="True" />
 
             <controls:Segmented
+                Visibility="{x:Bind ValutazioniViewModel.ShowShimmers, Mode=OneWay, Converter={StaticResource BetterBoolToVisibilityConverter}, ConverterParameter=False}"
                 Margin="0,16,0,0"
                 RelativePanel.Below="GridMedie"
                 IsEnabled="False"
