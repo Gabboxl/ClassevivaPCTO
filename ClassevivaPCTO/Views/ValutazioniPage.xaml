@@ -119,20 +119,16 @@
                                Margin="16,0,0,0" Width="28" Height="28"
                                Visibility="{x:Bind ValutazioniViewModel.IsLoadingValutazioni, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" />
 
-
         </RelativePanel>
 
         <RelativePanel Grid.Row="0" Margin="0,18,0,0">
-
 
             <Button x:Name="ReloadButton"
                     Click="ReloadButton_OnClick"
                     RelativePanel.LeftOf="Separatore_Bacheca"
                     RelativePanel.AlignVerticalCenterWithPanel="True"
-                    Width="48"
-                    Height="32"
-                    Margin="0,0,0,0"
-                    x:Uid="RefreshButtonTT">
+                    Width="48" Height="32" Margin="0,0,0,0"
+                    x:Uid="RefreshButton">
                 <FontIcon Glyph="&#xE72C;" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" />
             </Button>
 
@@ -243,7 +239,7 @@
                                            Width="180" Height="26" Margin="0,4,0,0" />
                             <labs:Shimmer Visibility="{x:Bind ValutazioniViewModel.ShowShimmers, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" 
                                            Width="120" Height="20" Margin="0,38,0,0"/>
-                            
+
                             <TextBlock
                                 x:Name="TitleTotVal"
                                 x:Uid="GradesGlobalAverage"
@@ -265,7 +261,6 @@
                     </Grid>
 
                 </Grid>
-
 
                 <Grid
                     Grid.Column="1">
@@ -315,7 +310,7 @@
                                            Width="180" Height="26" Margin="0,4,0,0" />
                             <labs:Shimmer Visibility="{x:Bind ValutazioniViewModel.ShowShimmers, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" 
                                            Width="120" Height="20" Margin="0,38,0,0"/>
-                            
+
                             <TextBlock
                                 x:Name="TitleFirstPerVal"
                                 Text=" "
@@ -428,8 +423,8 @@
                 SelectionChanged="SegmentedVoti_OnSelectionChanged"
                 HorizontalAlignment="Stretch">
 
-                    <controls:SegmentedItem x:Uid="GradesAllPeriodsSegmentedItem" />
-                
+                <controls:SegmentedItem x:Uid="GradesAllPeriodsSegmentedItem" />
+
             </controls:Segmented>
 
             <controls2:GradesListView
@@ -458,9 +453,6 @@
                 ItemTemplate="{StaticResource VotiListViewDataTemplateStandard}"
                 ItemContainerStyle="{StaticResource ListViewFullStretchStyle}"/>
 
-
         </RelativePanel>
-
-
     </Grid>
 </Page>

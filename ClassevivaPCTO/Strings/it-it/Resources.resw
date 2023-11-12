@@ -336,10 +336,10 @@ Errore: </value>
   <data name="CancelDialogButton" xml:space="preserve">
     <value>Annulla</value>
   </data>
-  <data name="NoticeDialogAllegatiSubtitle" xml:space="preserve">
+  <data name="NoticeDialogAttachmentsSubtitle" xml:space="preserve">
     <value>Allegati</value>
   </data>
-  <data name="NoticeDialogNessunAllegatiSubtitle" xml:space="preserve">
+  <data name="NoticeDialogNoAttachmentsSubtitle" xml:space="preserve">
     <value>Nessun allegato</value>
   </data>
   <data name="ComboChoiceSelectProfile.Header" xml:space="preserve">
@@ -502,7 +502,7 @@ Errore: </value>
   <data name="NavigationViewScrutini.Content" xml:space="preserve">
     <value>Scrutini</value>
   </data>
-  <data name="RefreshButtonTT.ToolTipService.ToolTip" xml:space="preserve">
+  <data name="RefreshButton.ToolTipService.ToolTip" xml:space="preserve">
     <value>Aggiorna</value>
   </data>
   <data name="SettingsPaletteColorBlue.ToolTipService.ToolTip" xml:space="preserve">
@@ -732,5 +732,11 @@ Errore: </value>
   </data>
   <data name="ScrutiniOpenFileButton.Text" xml:space="preserve">
     <value>Apri</value>
+  </data>
+  <data name="NoticeDialogOpenAttachmentButton.Label" xml:space="preserve">
+    <value>Apri</value>
+  </data>
+  <data name="NoticeDialogSaveAttachmentButton.Label" xml:space="preserve">
+    <value>Salva</value>
   </data>
 </root>

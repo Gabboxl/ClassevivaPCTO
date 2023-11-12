@@ -34,7 +34,6 @@
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
 
-
         <RelativePanel Grid.Row="0" Margin="0,16,0,0">
             <TextBlock x:Name="TextTitolo" Grid.Row="0" x:Uid="NoticeBoardTitle"
                        Style="{StaticResource TitleLargeTextBlockStyle}"
@@ -45,19 +44,16 @@
                                RelativePanel.RightOf="TextTitolo" RelativePanel.AlignVerticalCenterWith="TextTitolo"
                                Margin="16,0,0,0" Width="28" Height="28"
                                Visibility="{x:Bind BachecaViewModel.IsLoadingBacheca, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" />
-
-
         </RelativePanel>
 
 
         <RelativePanel Grid.Row="0" Margin="0,18,0,0">
 
-
             <Button RelativePanel.LeftOf="SeparatoreBacheca1" x:Name="AggiornaCommand"
                     RelativePanel.AlignVerticalCenterWithPanel="True"
                     Width="48"
                     Height="32"
-                    Margin="16,0,0,0" Click="AggiornaCommand_Click" x:Uid="RefreshButtonTT">
+                    Margin="16,0,0,0" Click="AggiornaCommand_Click" x:Uid="RefreshButton">
                 <FontIcon Glyph="&#xE72C;" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" />
             </Button>
 
@@ -163,8 +159,6 @@
 
             </Grid>
 
-
         </RelativePanel>
-
     </Grid>
 </Page>

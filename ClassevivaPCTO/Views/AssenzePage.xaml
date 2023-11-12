@@ -62,14 +62,12 @@
                                Margin="16,0,0,0" Width="28" Height="28"
                                Visibility="{x:Bind AssenzeViewModel.IsLoadingAssenze, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" />
 
-
             <Button x:Name="AggiornaCommand" Click="AggiornaCommand_Click"
                     RelativePanel.AlignVerticalCenterWith="TextTitolo" 
                     RelativePanel.AlignRightWithPanel="True"
                     Margin="0,0,20,0"
-                    Height="32" Width="48" x:Uid="RefreshButtonTT">
-                
-                    <FontIcon Glyph="&#xE72C;" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" />
+                    Height="32" Width="48" x:Uid="RefreshButton">
+                <FontIcon Glyph="&#xE72C;" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" />
             </Button>
         </RelativePanel>
 
@@ -84,7 +82,6 @@
                     <RowDefinition Height="*"></RowDefinition>
                 </Grid.RowDefinitions>
             
-
                 <comToolkit:StaggeredPanel
                     DesiredColumnWidth="500"
                     ScrollViewer.VerticalScrollMode="Enabled"
@@ -92,7 +89,6 @@
                     RowSpacing="12"
                     ColumnSpacing="12"
                     Margin="18,16,18,18">
-
 
                 <Grid
                     Margin="18,0,8,16"

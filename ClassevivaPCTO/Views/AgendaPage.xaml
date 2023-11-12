@@ -49,7 +49,6 @@
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
 
-
         <Popup
             x:Name="LezioniPopup"
             IsOpen="False"
@@ -116,7 +115,6 @@
                     </StackPanel>
                 </ScrollViewer>
             </Grid>
-
         </Popup>
 
         <Popup
@@ -133,7 +131,6 @@
                 <TransitionCollection>
                     <PaneThemeTransition Edge="Right"></PaneThemeTransition>
                 </TransitionCollection>
-
             </Popup.ChildTransitions>
 
             <!-- con il grid mi prendo lo spazio con il binding, poi ci posiziono come voglio gli elementi all'interno -->
@@ -152,7 +149,6 @@
                     <RowDefinition Height="Auto"></RowDefinition>
                     <RowDefinition Height="*"></RowDefinition>
                 </Grid.RowDefinitions>
-
 
                 <controls:PropertySizer
                     Grid.Column="0"
@@ -185,11 +181,8 @@
                       HorizontalAlignment="Stretch"
                       x:Name="AgendaPopupListviewContainer">
                 </Grid>
-
             </Grid>
-
         </Popup>
-
 
         <Grid
             HorizontalAlignment="Stretch"
@@ -219,21 +212,16 @@
 
                 </Grid.RowDefinitions>
 
-
                 <RelativePanel Grid.Row="0" Margin="0,16,0,0">
                     <TextBlock x:Name="TextTitolo" x:Uid="AgendaTitle"
                                Style="{StaticResource TitleLargeTextBlockStyle}"
-
                                Margin="32,0,0,0" />
-
 
                     <muxc:ProgressRing IsActive="True" x:Name="ProgressRingAgenda"
                                        RelativePanel.AlignVerticalCenterWith="TextTitolo"
                                        RelativePanel.RightOf="TextTitolo"
                                        Margin="16,0,0,0" Width="28" Height="28"
                                        Visibility="{x:Bind AgendaViewModel.IsLoadingAgenda, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" />
-
-
                 </RelativePanel>
 
                 <Grid Grid.Row="0" Margin="20,0,0,0" Grid.Column="1" HorizontalAlignment="Right"
@@ -253,7 +241,7 @@
                                 RelativePanel.AlignVerticalCenterWithPanel="True"
                                 Width="48"
                                 Height="32"
-                                Margin="16,0,0,0" Click="AggiornaCommand_Click" x:Uid="RefreshButtonTT">
+                                Margin="16,0,0,0" Click="AggiornaCommand_Click" x:Uid="RefreshButton">
                             <FontIcon FontSize="16" Glyph="&#xE72C;" HorizontalAlignment="Center"
                                       VerticalAlignment="Center" />
                         </Button>
@@ -269,7 +257,7 @@
                                 Height="32"
                                 winUi:FrameworkElementExtensions.Cursor="Hand"
                                 Click="ButtonYesterday_Click" x:Uid="AgendaYesterdayButton">
-                          
+
                             <FontIcon FontSize="16" Glyph="&#xE76B;" HorizontalAlignment="Center"
                                       VerticalAlignment="Center" />
                         </Button>
@@ -336,11 +324,8 @@
 
                             </StackPanel>
                         </Button>
-
                     </RelativePanel>
-
                 </Grid>
-
             </Grid>
 
             <RelativePanel Grid.Row="2"

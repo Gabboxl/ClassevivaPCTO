@@ -35,7 +35,6 @@
                               RelativePanel.AlignVerticalCenterWithPanel="True"
                               x:Name="IconaAttachment" Margin="8" />
 
-
                     <TextBlock x:Name="nomeAllegato"
                                IsTextSelectionEnabled="True"
                                RelativePanel.RightOf="IconaAttachment"
@@ -49,15 +48,12 @@
 
                 </RelativePanel>
 
-
                 <RelativePanel Grid.Column="1" HorizontalAlignment="Right">
-                    <AppBarButton x:Name="ButtonOpen" RelativePanel.LeftOf="ButtonSave" Click="ButtonOpen_Click"
-                                  RelativePanel.AlignVerticalCenterWithPanel="True" Icon="OpenFile"
-                                  Label="Apri" />
+                    <AppBarButton x:Name="ButtonOpen" x:Uid="NoticeDialogOpenAttachmentButton" RelativePanel.LeftOf="ButtonSave" Click="ButtonOpen_Click"
+                                  RelativePanel.AlignVerticalCenterWithPanel="True" Icon="OpenFile" />
 
-                    <AppBarButton x:Name="ButtonSave" Click="ButtonSave_Click" RelativePanel.AlignRightWithPanel="True"
-                                  RelativePanel.AlignVerticalCenterWithPanel="True" Icon="Save"
-                                  Label="Salva" />
+                    <AppBarButton x:Name="ButtonSave" x:Uid="NoticeDialogSaveAttachmentButton" Click="ButtonSave_Click" RelativePanel.AlignRightWithPanel="True"
+                                  RelativePanel.AlignVerticalCenterWithPanel="True" Icon="Save" />
 
                 </RelativePanel>
 
@@ -73,15 +69,14 @@
         <ScrollViewer Grid.Row="0">
         <StackPanel  HorizontalAlignment="Stretch">
 
-                <TextBlock x:Name="noticeBodyText"
-                           TextWrapping="Wrap"
-                           FontWeight="SemiBold"
-                           Style="{ThemeResource BodyTextBlockStyle}"
-                           IsTextSelectionEnabled="True"
-                           Foreground="{ThemeResource TextFillColorSecondaryBrush}"
-                           Text="{x:Bind CurrentReadResult.item.text}"
-                           Margin="0,12,0,8" />
-
+            <TextBlock x:Name="noticeBodyText"
+                        TextWrapping="Wrap"
+                        FontWeight="SemiBold"
+                        Style="{ThemeResource BodyTextBlockStyle}"
+                        IsTextSelectionEnabled="True"
+                        Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                        Text="{x:Bind CurrentReadResult.item.text}"
+                        Margin="0,12,0,8" />
 
             <TextBlock x:Name="TitoloAttachments"
                        TextWrapping="Wrap"
@@ -90,13 +85,11 @@
                        Text="{x:Bind AllegatiText}"
                        Margin="8,16,0,8" />
 
-            <ListView
-                      x:Name="AttachmentsListView"
-                      ItemContainerStyle="{StaticResource ListViewFullStretchStyle}"
-                      ItemTemplate="{StaticResource AttachmentListViewDataTemplate}">
+            <ListView x:Name="AttachmentsListView"
+                        ItemContainerStyle="{StaticResource ListViewFullStretchStyle}"
+                        ItemTemplate="{StaticResource AttachmentListViewDataTemplate}" />
 
-            </ListView>
-        </StackPanel>
+            </StackPanel>
         </ScrollViewer>
     </Grid>
 </Page>

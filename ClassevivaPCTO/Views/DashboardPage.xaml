@@ -35,7 +35,7 @@
                     RelativePanel.AlignVerticalCenterWithPanel="True"
                     Width="48"
                     Height="32"
-                    Margin="16,0,20,0" Click="AggiornaButton_Click" x:Uid="RefreshButtonTT">
+                    Margin="16,0,20,0" Click="AggiornaButton_Click" x:Uid="RefreshButton">
                 <FontIcon Glyph="&#xE72C;" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" />
             </Button>
 

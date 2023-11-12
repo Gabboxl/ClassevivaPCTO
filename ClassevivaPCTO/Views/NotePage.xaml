@@ -47,7 +47,7 @@
                     Width="48"
                     Height="32"
                     Margin="26,0,20,0" Click="AggiornaCommand_Click" RelativePanel.AlignRightWithPanel="True"
-                    RelativePanel.AlignVerticalCenterWith="TextTitolo" x:Uid="RefreshButtonTT">
+                    RelativePanel.AlignVerticalCenterWith="TextTitolo" x:Uid="RefreshButton">
                 <FontIcon Glyph="&#xE72C;" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" />
             </Button>
 
@@ -63,19 +63,6 @@
                        BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
                        Background="{ThemeResource CardBackgroundFillColorDefaultBrush}">
 
-            <!--
-            <TextBlock Text="File" x:Name="TextComunicazioni"
-                       Margin="8,6,0,0"
-                       Foreground="{ThemeResource TextFillColorSecondaryBrush}"
-                       Style="{ThemeResource BodyStrongTextBlockStyle}" />
-
-            <muxc:ProgressRing IsActive="True" x:Name="ProgressRingBacheca" 
-                           RelativePanel.RightOf="TextComunicazioni"
-                               Margin="12,0,0,0"
-                                       Visibility="{x:Bind ScrutiniViewModel.IsLoadingScrutini, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}"/>
-
-            -->
-            
             <Grid
                 RelativePanel.AlignTopWithPanel="True"
                 RelativePanel.AlignBottomWithPanel="True"
@@ -91,13 +78,9 @@
                     VerticalAlignment="Stretch"
                     EnableStickyHeader="True"
                     x:Name="NotesListView"
-                    Margin="0,0,0,0">
-
-                </controls:NotesListView>
+                    Margin="0,0,0,0" />
 
             </Grid>
-
         </RelativePanel>
-
     </Grid>
 </Page>

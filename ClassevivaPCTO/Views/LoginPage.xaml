@@ -47,7 +47,6 @@
                VerticalAlignment="Stretch" Margin="0,-480,0,0" Height="60" Width="300">
         </Image>
 
-
         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Height="380" Width="340"
                     CornerRadius="8"
                     Padding="12"
