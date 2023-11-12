@@ -20,6 +20,7 @@
         <converters:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" />
         <converters1:GradeToColorConverter x:Key="GradeToColorConverter" />
         <converters1:NanToNdConverter x:Key="NanToNdConverter" />
+        <converters1:BetterBoolToVisibilityConverter x:Key="BetterBoolToVisibilityConverter" />
 
         <Style x:Key="ListViewFullStretchStyle" TargetType="ListViewItem"
                BasedOn="{StaticResource DefaultListViewItemStyle}">
@@ -235,16 +236,16 @@
                             Margin="32,0,0,0"
                             VerticalAlignment="Center"
                             HorizontalAlignment="Left">
-                            <labs:Shimmer Visibility="{x:Bind ValutazioniViewModel.IsLoadingValutazioni, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" 
+                            <labs:Shimmer Visibility="{x:Bind ValutazioniViewModel.ShowShimmers, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" 
                                            Width="180" Height="26" Margin="0,4,0,0" />
-                            <labs:Shimmer Visibility="{x:Bind ValutazioniViewModel.IsLoadingValutazioni, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" 
+                            <labs:Shimmer Visibility="{x:Bind ValutazioniViewModel.ShowShimmers, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" 
                                            Width="120" Height="20" Margin="0,38,0,0"/>
                             
                             <TextBlock
                                 x:Name="TitleTotVal"
                                 x:Uid="GlobalAverage"
-                                Visibility="{x:Bind ValutazioniViewModel.IsLoadedValutazioni, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" 
                                 FontSize="26"
+                                Visibility="{x:Bind ValutazioniViewModel.ShowShimmers, Mode=OneWay, Converter={StaticResource BetterBoolToVisibilityConverter}, ConverterParameter=False}"
                                 Style="{StaticResource TitleTextBlockStyle}"
                                 HorizontalAlignment="Center"
                                 Margin="0,0,0,0" />
@@ -303,9 +304,9 @@
                             Margin="32,0,0,0"
                             VerticalAlignment="Center"
                             HorizontalAlignment="Left">
-                            <labs:Shimmer Visibility="{x:Bind ValutazioniViewModel.IsLoadingValutazioni, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" 
+                            <labs:Shimmer Visibility="{x:Bind ValutazioniViewModel.ShowShimmers, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" 
                                            Width="180" Height="26" Margin="0,4,0,0" />
-                            <labs:Shimmer Visibility="{x:Bind ValutazioniViewModel.IsLoadingValutazioni, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" 
+                            <labs:Shimmer Visibility="{x:Bind ValutazioniViewModel.ShowShimmers, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" 
                                            Width="120" Height="20" Margin="0,38,0,0"/>
                             
                             <TextBlock
@@ -372,9 +373,9 @@
                             VerticalAlignment="Center"
                             HorizontalAlignment="Left">
 
-                            <labs:Shimmer Visibility="{x:Bind ValutazioniViewModel.IsLoadingValutazioni, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" 
+                            <labs:Shimmer Visibility="{x:Bind ValutazioniViewModel.ShowShimmers, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" 
                                            Width="180" Height="26" Margin="0,4,0,0" />
-                            <labs:Shimmer Visibility="{x:Bind ValutazioniViewModel.IsLoadingValutazioni, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" 
+                            <labs:Shimmer Visibility="{x:Bind ValutazioniViewModel.ShowShimmers, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" 
                                            Width="120" Height="20" Margin="0,38,0,0" />
 
                             <TextBlock
@@ -401,7 +402,7 @@
                 </Grid>
             </Grid>
 
-            <labs:Shimmer Visibility="{x:Bind ValutazioniViewModel.IsLoadingValutazioni, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" 
+            <labs:Shimmer Visibility="{x:Bind ValutazioniViewModel.ShowShimmers, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" 
                            Width="Auto" Height="32" Margin="0,122,0,0" 
                            HorizontalAlignment="Stretch" 
                            RelativePanel.AlignLeftWithPanel="True"

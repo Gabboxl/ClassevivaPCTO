@@ -12,12 +12,12 @@ namespace ClassevivaPCTO.ViewModels
             set { SetProperty(ref _isLoadingValutazioni, value); }
         }
 
-        private bool _isLoadedValutazioni = true;
+        private bool _showShimmers = true;
 
-        public bool IsLoadedValutazioni
+        public bool ShowShimmers
         {
-            get { return _isLoadedValutazioni; }
-            set { SetProperty(ref _isLoadedValutazioni, value); }
+            get { return _showShimmers; }
+            set { SetProperty(ref _showShimmers, value); }
         }
 
         private float _averageTot;

@@ -133,7 +133,11 @@ namespace ClassevivaPCTO.Views
             {
                 await CoreApplication.MainView.Dispatcher.RunAsync(
                     CoreDispatcherPriority.Normal,
-                    async () => { ValutazioniViewModel.IsLoadingValutazioni = false; }
+                    async () =>
+                    {
+                        ValutazioniViewModel.IsLoadingValutazioni = false;
+                        ValutazioniViewModel.ShowShimmers = false;
+                    }
                 );
             }
         }
