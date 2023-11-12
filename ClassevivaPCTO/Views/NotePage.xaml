@@ -51,9 +51,7 @@
                 <FontIcon Glyph="&#xE72C;" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" />
             </Button>
 
-
         </RelativePanel>
-
 
         <RelativePanel Grid.Row="2"
                        Margin="18"
@@ -77,6 +75,7 @@
                                        Visibility="{x:Bind ScrutiniViewModel.IsLoadingScrutini, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}"/>
 
             -->
+            
             <Grid
                 RelativePanel.AlignTopWithPanel="True"
                 RelativePanel.AlignBottomWithPanel="True"
@@ -97,7 +96,6 @@
                 </controls:NotesListView>
 
             </Grid>
-
 
         </RelativePanel>
 

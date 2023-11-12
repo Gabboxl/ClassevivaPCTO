@@ -14,11 +14,9 @@
     muxc:BackdropMaterial.ApplyToRootOrPageBackground="True">
 
     <Page.Resources>
-
         <ResourceDictionary>
             <microconverters:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" />
         </ResourceDictionary>
-
     </Page.Resources>
 
     <Grid>
@@ -103,16 +101,13 @@
                                            RelativePanel.RightOf="TextOggiAgenda"
                                            Margin="12,0,0,0" Width="18" Height="18"
                                            RelativePanel.AlignVerticalCenterWith="TextOggiAgenda"
-
                                            Visibility="{x:Bind DashboardPageViewModel.IsLoadingAgenda, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" />
                     </RelativePanel>
 
 
                     <controls2:OverviewListView Grid.Row="1" x:Name="OverviewListView"
                                                 HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-
                     </controls2:OverviewListView>
-
 
                     <HyperlinkButton Grid.Row="2"
                                      VerticalAlignment="Bottom"

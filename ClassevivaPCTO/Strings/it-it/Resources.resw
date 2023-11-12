@@ -250,10 +250,10 @@ Se riscontri bug o hai un'idea per l'app apri un issue su GitHub cliccando sul l
   <data name="SettingsCardWhatsNewButton.Content" xml:space="preserve">
     <value>Mostra novità</value>
   </data>
-  <data name="TitoloScrutini.Text" xml:space="preserve">
+  <data name="ScrutiniTitle.Text" xml:space="preserve">
     <value>Scrutini</value>
   </data>
-  <data name="CheckboxEliminati.Content" xml:space="preserve">
+  <data name="ScrutiniShowDeletedDocumentsCheckbox.Content" xml:space="preserve">
     <value>Mostra documenti eliminati</value>
   </data>
   <data name="TextFileScrutini.Text" xml:space="preserve">
