@@ -204,12 +204,6 @@ Se riscontri bug o hai un'idea per l'app apri un issue su GitHub cliccando sul l
     <value>Generali</value>
     <comment>General text for Settings</comment>
   </data>
-  <data name="Settings_Language_En_US.Content" xml:space="preserve">
-    <value>Inglese</value>
-  </data>
-  <data name="Settings_Language_It_IT.Content" xml:space="preserve">
-    <value>Italiano</value>
-  </data>
   <data name="Settings_Version.Text" xml:space="preserve">
     <value>Versione</value>
     <comment>Version text for Settings</comment>
@@ -448,15 +442,6 @@ Gli account studente hanno l'username che inizia con le lettere S, G o X.</value
   </data>
   <data name="SettingsChangeProfilePicButton.Text" xml:space="preserve">
     <value>Cambia foto</value>
-  </data>
-  <data name="Settings_Language_De_DE.Content" xml:space="preserve">
-    <value>Tedesco</value>
-  </data>
-  <data name="Settings_Language_Es_ES.Content" xml:space="preserve">
-    <value>Spagnolo</value>
-  </data>
-  <data name="Settings_Language_Fr_FR.Content" xml:space="preserve">
-    <value>Francese</value>
   </data>
   <data name="AutoSuggestBoxSearch.PlaceholderText" xml:space="preserve">
     <value>Cerca...</value>
