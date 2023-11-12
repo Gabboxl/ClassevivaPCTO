@@ -769,5 +769,13 @@ Gli account studente hanno l'username che inizia con le lettere S, G o X.</value
   </data>
   <data name="AbsenceEventOnDayPreposition" xml:space="preserve">
     <value> del </value>
+  <data name="NotesLVTitle.Text" xml:space="preserve">
+    <value>Annotazioni</value>
+  </data>
+  <data name="SettingsCardAnimations.Description" xml:space="preserve">
+    <value>Imposta la fluidità delle animazioni dell'interfaccia</value>
+  </data>
+  <data name="SettingsCardAnimations.Header" xml:space="preserve">
+    <value>Animazioni</value>
   </data>
 </root>
