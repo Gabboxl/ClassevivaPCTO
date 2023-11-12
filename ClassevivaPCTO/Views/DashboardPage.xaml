@@ -92,7 +92,7 @@
 
                     <RelativePanel Grid.Row="0">
 
-                        <TextBlock x:Name="TextOggiAgenda" x:Uid="TextOggiAgenda"
+                        <TextBlock x:Name="TextOggiAgenda" x:Uid="DashboardTodaysEvents"
                                    FontSize="20"
                                    VerticalAlignment="Top"
                                    HorizontalAlignment="Left" Margin="8,4,0,8" FontWeight="Medium" />
@@ -217,7 +217,6 @@
                                            RelativePanel.RightOf="TextBachecaRecenti"
                                            Margin="12,0,0,0" Width="18" Height="18"
                                            RelativePanel.AlignVerticalCenterWith="TextBachecaRecenti"
-
                                            Visibility="{x:Bind DashboardPageViewModel.IsLoadingNotices, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" />
                     </RelativePanel>
 
