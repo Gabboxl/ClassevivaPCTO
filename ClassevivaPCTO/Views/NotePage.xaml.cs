@@ -46,7 +46,7 @@ namespace ClassevivaPCTO.Views
                 Card? cardResult = ViewModelHolder.GetViewModel().SingleCardResult;
 
 
-                List<Utils.Note> notesResult = await apiWrapper.GetAllNotes(
+                List<Note> notesResult = await apiWrapper.GetAllNotes(
                     cardResult.usrId.ToString()
                 );
 

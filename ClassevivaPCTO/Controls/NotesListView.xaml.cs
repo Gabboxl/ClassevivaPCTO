@@ -175,8 +175,9 @@ namespace ClassevivaPCTO.Controls
 
             //update the listview contents
             currentInstance.listView.ItemsSource = currentInstance.GroupedItems.View;
-            ;
-
+            
+            //reset the selection
+            currentInstance.listView.SelectedIndex = -1;
 
             //restore the scroll position
             scrollViewer.ChangeView(horizontalOffset, verticalOffset, null);
