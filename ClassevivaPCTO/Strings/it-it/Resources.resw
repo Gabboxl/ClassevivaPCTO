@@ -131,23 +131,18 @@
   </data>
   <data name="SettingsCardThemeDarkComboboxItem.Content" xml:space="preserve">
     <value>Scuro</value>
-    <comment>Dark theme text for Settings</comment>
   </data>
   <data name="SettingsCardThemeDefaultComboboxItem.Content" xml:space="preserve">
     <value>Predefinito di Sistema</value>
-    <comment>Windows default theme text for Settings</comment>
   </data>
   <data name="SettingsCardThemeLightComboboxItem.Content" xml:space="preserve">
     <value>Chiaro</value>
-    <comment>Light theme text for Settings</comment>
   </data>
   <data name="SettingsAboutHeader.Text" xml:space="preserve">
     <value>Informazioni app</value>
-    <comment>About this application title for Settings</comment>
   </data>
   <data name="SettingsPersonalizationHeader.Text" xml:space="preserve">
     <value>Aspetto</value>
-    <comment>Personalization text for Settings</comment>
   </data>
   <data name="FirstRunDialogBody.Text" xml:space="preserve">
     <value>Con ClassevivaPCTO potrai visualizzare i tuoi dati del registro elettronico Classeviva in maniera intuitiva e sotto le vesti di un design innovativo.
@@ -194,11 +189,9 @@ Se riscontri bug o hai un'idea per l'app apri un issue su GitHub cliccando sul l
   </data>
   <data name="SettingsAccountHeader.Text" xml:space="preserve">
     <value>Account</value>
-    <comment>Account text for Settings</comment>
   </data>
   <data name="SettingsGeneralHeader.Text" xml:space="preserve">
     <value>Generali</value>
-    <comment>General text for Settings</comment>
   </data>
   <data name="SettingsTitle.Text" xml:space="preserve">
     <value>Impostazioni</value>
