@@ -248,7 +248,7 @@ Se riscontri bug o hai un'idea per l'app apri un issue su GitHub cliccando sul l
   <data name="ScrutiniShowDeletedDocumentsCheckbox.Content" xml:space="preserve">
     <value>Mostra documenti eliminati</value>
   </data>
-  <data name="TextFileScrutini.Text" xml:space="preserve">
+  <data name="ScrutiniDocumentsHeader.Text" xml:space="preserve">
     <value>Documenti</value>
   </data>
   <data name="NotesTitle.Text" xml:space="preserve">
@@ -348,10 +348,10 @@ Errore: </value>
   <data name="ProfileChoiceDialogInfoTextBlock.Text" xml:space="preserve">
     <value>Più profili sono associati a questo account.</value>
   </data>
-  <data name="DialogButtonSave.Text" xml:space="preserve">
+  <data name="ScrutiniSaveFileButton.Text" xml:space="preserve">
     <value>Salva</value>
   </data>
-  <data name="ButtonOpen.Text" xml:space="preserve">
+  <data name="ScrutiniOpenReportButton.Text" xml:space="preserve">
     <value>Apri</value>
   </data>
   <data name="AgendaLessonsPopupTitle.Text" xml:space="preserve">
@@ -366,7 +366,7 @@ Errore: </value>
   <data name="AgendaTitle.Text" xml:space="preserve">
     <value>Agenda</value>
   </data>
-  <data name="NoEventText.Text" xml:space="preserve">
+  <data name="AgendaPlaceholder.Text" xml:space="preserve">
     <value>Nessun evento</value>
   </data>
   <data name="ReadText.Text" xml:space="preserve">
@@ -430,7 +430,7 @@ Errore: </value>
   <data name="SettingsAboutExpanderGitHubHyperlink.Text" xml:space="preserve">
     <value>Progetto su GitHub</value>
   </data>
-  <data name="ChangelogHyperlinkAllChanges.Text" xml:space="preserve">
+  <data name="WhatsNewDialogHyperlinkAllChanges.Text" xml:space="preserve">
     <value>Visualizza tutti i cambiamenti</value>
   </data>
   <data name="SettingsAboutExpanderVersion.Text" xml:space="preserve">
@@ -454,10 +454,10 @@ Errore: </value>
   <data name="SettingsCardSchoolYear.Header" xml:space="preserve">
     <value>Anno scolastico</value>
   </data>
-  <data name="ChangelogHighlights.Text" xml:space="preserve">
+  <data name="WhatsNewDialogHighlights.Text" xml:space="preserve">
     <value>In evidenza</value>
   </data>
-  <data name="ChangelogRelease.Text" xml:space="preserve">
+  <data name="WhatsNewDialogRelease.Text" xml:space="preserve">
     <value>v1.1.0, 21 Ottobre 2023</value>
   </data>
   <data name="AgendaTomorrowButton.ToolTipService.ToolTip" xml:space="preserve">
@@ -556,10 +556,10 @@ Errore: </value>
   <data name="NoTasks.Text" xml:space="preserve">
     <value>Nessun compito</value>
   </data>
-  <data name="NoScrutini.Text" xml:space="preserve">
+  <data name="ScrutiniPlaceholder.Text" xml:space="preserve">
     <value>Scrutini non disponibili</value>
   </data>
-  <data name="ReportsTitle.Text" xml:space="preserve">
+  <data name="ScrutiniReportsHeader.Text" xml:space="preserve">
     <value>Report scolastici</value>
   </data>
   <data name="SessionExpired" xml:space="preserve">
@@ -585,9 +585,6 @@ Errore: </value>
   </data>
   <data name="GradesPlural" xml:space="preserve">
     <value>valutazioni</value>
-  </data>
-  <data name="SegmentedAllPeriods" xml:space="preserve">
-    <value>Tutti i periodi</value>
   </data>
   <data name="NoGrades.Text" xml:space="preserve">
     <value>Nessuna valutazione</value>
@@ -729,5 +726,8 @@ Errore: </value>
   </data>
   <data name="GradesSubjectsLayoutSegmentedItem.Text" xml:space="preserve">
     <value>Materie</value>
+  </data>
+  <data name="ScrutiniOpenFileButton.Text" xml:space="preserve">
+    <value>Apri</value>
   </data>
 </root>

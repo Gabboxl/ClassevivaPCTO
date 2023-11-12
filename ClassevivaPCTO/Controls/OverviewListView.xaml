@@ -109,7 +109,7 @@
                        Foreground="{ThemeResource TextFillColorDisabledBrush}"
                        Margin="0,0,0,0"
                        FontWeight="SemiBold"
-                       x:Uid="NoEventText" FontSize="36" VerticalAlignment="Center"
+                       x:Uid="AgendaPlaceholder" FontSize="36" VerticalAlignment="Center"
                        HorizontalAlignment="Center" />
         </RelativePanel>
 

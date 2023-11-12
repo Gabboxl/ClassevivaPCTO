@@ -20,7 +20,7 @@
                 
                 <TextBlock Margin="0,2,8,0" FontSize="16" IsTextSelectionEnabled="True"
                         VerticalAlignment="Center" Foreground="{ThemeResource TextFillColorTertiaryBrush}"
-                        x:Uid="ChangelogRelease" RelativePanel.AlignRightWithPanel="True"/>
+                        x:Uid="WhatsNewDialogRelease" RelativePanel.AlignRightWithPanel="True"/>
 
                 <Rectangle Fill="#5B5B5B" Height="1" Margin="0,4,0,4" RelativePanel.Below="AppName" RelativePanel.AlignLeftWithPanel="True" Width="712"/>
 
@@ -34,7 +34,7 @@
             <Image Source="/Assets/storescreenshot.png" Stretch="Uniform" Height="350" Margin="0,8,0,0"/>
 
 
-            <TextBlock Margin="0,4,0,0" x:Uid="ChangelogHighlights" TextWrapping="WrapWholeWords" FontSize="24"
+            <TextBlock Margin="0,4,0,0" x:Uid="WhatsNewDialogHighlights" TextWrapping="WrapWholeWords" FontSize="24"
                        FontWeight="SemiBold" /> <!--In evidenza-->
             <TextBlock Margin="0,15,15,0" x:Uid="WhatsNew_Body_Main" TextWrapping="WrapWholeWords" FontSize="15"
                        IsTextSelectionEnabled="True" Foreground="{ThemeResource TextFillColorTertiaryBrush}"
@@ -80,7 +80,7 @@
                             Fill="{ThemeResource AccentTextFillColorPrimaryBrush}" />
                     </Grid>
 
-                    <TextBlock x:Uid="ChangelogHyperlinkAllChanges" />
+                    <TextBlock x:Uid="WhatsNewDialogHyperlinkAllChanges" />
                 </StackPanel>
             </HyperlinkButton>
         </StackPanel>
