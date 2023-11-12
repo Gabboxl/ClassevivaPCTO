@@ -42,7 +42,7 @@
                 </controls2:AbsencesListView>
 
                 <TextBlock x:Name="NotesTitle"
-                           Text="Note"
+                           x:Uid="NotesTitle"
                            Margin="14,12,0,8"
                            Visibility="{x:Bind OverviewControlViewModel.FilteredOverviewResult.Notes, Mode=OneWay, FallbackValue=Collapsed, Converter={StaticResource EmptyListToVisibilityConverter}}"
                            Style="{ThemeResource BodyStrongTextBlockStyle}" FontSize="18" FontWeight="SemiBold" />

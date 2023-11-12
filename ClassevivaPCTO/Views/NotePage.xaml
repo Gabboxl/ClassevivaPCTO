@@ -31,7 +31,7 @@
 
         <RelativePanel Grid.Row="0" Margin="0,16,0,0">
 
-            <TextBlock x:Name="TextTitolo" x:Uid="TitoloNote"
+            <TextBlock x:Name="TextTitolo" x:Uid="NotesTitle"
                        Style="{StaticResource TitleLargeTextBlockStyle}"
                        VerticalAlignment="Top"
                        Margin="32,0,0,0" />
