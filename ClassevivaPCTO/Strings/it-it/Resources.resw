@@ -572,9 +572,6 @@ Gli account studente hanno l'username che inizia con le lettere S, G o X.</value
   <data name="Restart" xml:space="preserve">
     <value>Riavvia</value>
   </data>
-  <data name="CheckboxSuddividi.Content" xml:space="preserve">
-    <value>Suddividi per materia</value>
-  </data>
   <data name="NoticeBoardTitle.Text" xml:space="preserve">
     <value>Bacheca</value>
   </data>
