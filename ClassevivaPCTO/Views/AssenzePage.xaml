@@ -51,7 +51,7 @@
 
         <RelativePanel Grid.Row="0" Margin="0,16,0,16">
 
-            <TextBlock x:Name="TextTitolo" x:Uid="TextTitoloAssenzeRitardi"
+            <TextBlock x:Name="TextTitolo" x:Uid="AbsencesTitle"
                        Style="{StaticResource TitleLargeTextBlockStyle}" VerticalAlignment="Top"
                        Margin="32,0,0,0" />
 
@@ -140,14 +140,13 @@
 
 
                         <TextBlock x:Name="TextBlockCalendarioEventi"
-
-                                   x:Uid="TextBlockCalendarioEventi"
+                                   x:Uid="AbsencesEventsCalendar"
                                    Margin="8,4,0,0"
                                    Style="{ThemeResource BodyStrongTextBlockStyle}" />
 
                         <Button
                             x:Name="TodayButton"
-                            x:Uid="TodayButton"
+                            x:Uid="AbsencesTodayButton"
                             RelativePanel.AlignRightWithPanel="True"
                             Click="TodayButton_OnClick"
                             Margin="0,4,2,12" />
@@ -157,7 +156,6 @@
                             RelativePanel.Below="TodayButton"
                             RelativePanel.AlignLeftWithPanel="True"
                             FirstDayOfWeek="Monday"
-
                             CalendarViewDayItemChanging="MyCalendarView_CalendarViewDayItemChanging" />
 
                     </RelativePanel>

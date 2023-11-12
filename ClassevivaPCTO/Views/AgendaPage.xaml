@@ -292,7 +292,7 @@
                         </Button>
 
                         <ToggleButton x:Name="ButtonToday" HorizontalAlignment="Center" VerticalAlignment="Center"
-                                      x:Uid="AgendaButtonToday" Margin="8,0,0,0"
+                                      x:Uid="AgendaTodayButton" Margin="8,0,0,0"
                                       RelativePanel.LeftOf="Separator1"
                                       RelativePanel.AlignVerticalCenterWithPanel="True"
                                       toolkit:FrameworkElementExtensions.Cursor="Hand"
