@@ -25,11 +25,10 @@
 
     <ScrollViewer MaxWidth="800">
         <StackPanel>
-            
-            <TextBlock x:Uid="FirstRun_Body" Margin="0,25"  TextWrapping="WrapWholeWords" FontSize="15" FontWeight="SemiBold" Foreground="{ThemeResource TextFillColorSecondaryBrush}"/>
 
-        
-        <HyperlinkButton 
+            <TextBlock x:Uid="FirstRunDialogBody" Margin="0,25"  TextWrapping="WrapWholeWords" FontSize="15" FontWeight="SemiBold" Foreground="{ThemeResource TextFillColorSecondaryBrush}"/>
+
+            <HyperlinkButton 
                              NavigateUri="https://github.com/Gabboxl/ClassevivaPCTO/graphs/contributors">
             <StackPanel Orientation="Horizontal" Spacing="10">
                 <Grid Width="18" Height="18">
@@ -39,7 +38,7 @@
                             Fill="{ThemeResource AccentTextFillColorPrimaryBrush}" />
                 </Grid>
 
-                <TextBlock x:Uid="ContributorsLink" />
+                <TextBlock x:Uid="FirstRunDialogContributorsHyperlink" />
             </StackPanel>
         </HyperlinkButton>
         
@@ -53,7 +52,7 @@
                             Fill="{ThemeResource AccentTextFillColorPrimaryBrush}" />
                 </Grid>
 
-                <TextBlock x:Uid="LicensesLink" />
+                <TextBlock x:Uid="FirstRunDialogLicensesHyperlink" />
                 
             </StackPanel>
         </HyperlinkButton>

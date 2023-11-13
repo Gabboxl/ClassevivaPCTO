@@ -34,7 +34,6 @@
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
 
-
         <RelativePanel Grid.Row="0" Margin="0,16,0,0">
             <TextBlock x:Name="TextTitolo" Grid.Row="0" x:Uid="NoticeBoardTitle"
                        Style="{StaticResource TitleLargeTextBlockStyle}"
@@ -45,22 +44,17 @@
                                RelativePanel.RightOf="TextTitolo" RelativePanel.AlignVerticalCenterWith="TextTitolo"
                                Margin="16,0,0,0" Width="28" Height="28"
                                Visibility="{x:Bind BachecaViewModel.IsLoadingBacheca, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" />
-
-
         </RelativePanel>
 
 
         <RelativePanel Grid.Row="0" Margin="0,18,0,0">
 
-
             <Button RelativePanel.LeftOf="SeparatoreBacheca1" x:Name="AggiornaCommand"
                     RelativePanel.AlignVerticalCenterWithPanel="True"
                     Width="48"
                     Height="32"
-                    Margin="16,0,0,0" Click="AggiornaCommand_Click" x:Uid="RefreshButtonTT">
+                    Margin="16,0,0,0" Click="AggiornaCommand_Click" x:Uid="RefreshButton">
                 <FontIcon Glyph="&#xE72C;" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" />
-
-
             </Button>
 
             <Rectangle x:Name="SeparatoreBacheca1" RelativePanel.LeftOf="ReadUnreadSegmented"
@@ -82,7 +76,7 @@
                         <StackPanel Orientation="Horizontal">
                             <FontIcon Glyph="&#xE138;" FontFamily="{StaticResource FluentIcons}" FontSize="14"
                                       Margin="0,0,6,0" />
-                            <TextBlock x:Uid="FilterAllNotices" />
+                            <TextBlock x:Uid="NoticeBoardFilterAllNotices" />
                         </StackPanel>
                     </controls1:SegmentedItem.Content>
                 </controls1:SegmentedItem>
@@ -92,7 +86,7 @@
                         <StackPanel Orientation="Horizontal">
                             <FontIcon Glyph="&#xE119;" FontFamily="{StaticResource FluentIcons}" FontSize="14"
                                       Margin="0,0,6,0" />
-                            <TextBlock x:Uid="FilterUnreadNotices" />
+                            <TextBlock x:Uid="NoticeBoardFilterUnreadNotices" />
                         </StackPanel>
                     </controls1:SegmentedItem.Content>
                 </controls1:SegmentedItem>
@@ -102,7 +96,7 @@
                         <StackPanel Orientation="Horizontal">
                             <FontIcon Glyph="&#xE166;" FontFamily="{StaticResource FluentIcons}" FontSize="14"
                                       Margin="0,0,6,0" />
-                            <TextBlock x:Uid="FilterReadNotices" />
+                            <TextBlock x:Uid="NoticeBoardFilterReadNotices" />
                         </StackPanel>
                     </controls1:SegmentedItem.Content>
                 </controls1:SegmentedItem>
@@ -115,7 +109,7 @@
                        Width="1" Height="48" Margin="16,0,16,0" />
 
             <CheckBox x:Name="CheckboxAttive"
-                      x:Uid="CheckboxInattive"
+                      x:Uid="NoticeBoardShowInactiveNoticesCheckbox"
                       Margin="0,0,24,0"
                       RelativePanel.AlignRightWithPanel="True"
                       RelativePanel.AlignVerticalCenterWithPanel="True"
@@ -135,7 +129,7 @@
                        BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
                        Background="{ThemeResource CardBackgroundFillColorDefaultBrush}">
 
-            <TextBlock x:Uid="TextBachecaComunicazioni" x:Name="TextComunicazioni"
+            <TextBlock x:Uid="NoticeBoardNotices" x:Name="TextComunicazioni"
                        Margin="14,6,0,0"
                        Visibility="{x:Bind BachecaViewModel.NoticesToShow, Mode=OneWay, FallbackValue=Collapsed, Converter={StaticResource EmptyListToVisibilityConverter}}"
                        Style="{ThemeResource BodyStrongTextBlockStyle}" FontSize="18" FontWeight="SemiBold" />
@@ -165,8 +159,6 @@
 
             </Grid>
 
-
         </RelativePanel>
-
     </Grid>
 </Page>

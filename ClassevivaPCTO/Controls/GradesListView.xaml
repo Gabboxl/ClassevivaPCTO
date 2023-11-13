@@ -89,9 +89,7 @@
                              Width="42"
                              Height="42"
                              Margin="2"
-
                              Fill="{x:Bind CurrentObject, Converter={StaticResource GradeToColorConverter}}"
-
                              VerticalAlignment="Center"
                              HorizontalAlignment="Center">
                         <!-- ="{ThemeResource SystemControlBackgroundBaseMediumBrush}" -->
@@ -108,7 +106,6 @@
                                Style="{ThemeResource BaseTextBlockStyle}"
                                IsTextSelectionEnabled="True"
                                Margin="12,6,0,0" />
-
 
                     <TextBlock RelativePanel.Below="textMateria" x:Name="dataVoto"
                                Text="{x:Bind CurrentObject.evtDate, Converter={StaticResource DateTimeToNormalDateConverter}}"
@@ -147,7 +144,6 @@
         </Grid.RowDefinitions>
 
         <ListView x:Name="listView"
-
                   ScrollViewer.VerticalScrollMode="Enabled"
                   HorizontalAlignment="Stretch"
                   HorizontalContentAlignment="Stretch"
@@ -171,7 +167,7 @@
                        Foreground="{ThemeResource TextFillColorDisabledBrush}"
                        Margin="0,0,0,0"
                        FontWeight="SemiBold"
-                       x:Uid="NoGrades" FontSize="36" VerticalAlignment="Center"
+                       x:Uid="GradesPlaceholder" FontSize="36" VerticalAlignment="Center"
                        HorizontalAlignment="Center" />
         </RelativePanel>
 

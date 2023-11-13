@@ -19,14 +19,12 @@
         <converters:DateTimeToNormalDateConverter x:Key="DateTimeToNormalDateConverter" />
         <converters:BetterBoolToVisibilityConverter x:Key="BetterBoolToVisibilityConverter" />
 
-
         <!-- being "BasedOn" the DefaultListViewItemStyle style, it removes the highlight effect of windows 10  -->
         <Style x:Key="ListViewFullStretchStyle" TargetType="ListViewItem"
                BasedOn="{StaticResource DefaultListViewItemStyle}">
             <Setter Property="HorizontalContentAlignment" Value="Stretch" />
             <Setter Property="VerticalContentAlignment" Value="Stretch" />
         </Style>
-
 
         <DataTemplate x:Key="NoticeListViewDataTemplate"
                       x:DataType="adapters:NoticeAdapter">
@@ -40,11 +38,9 @@
                     <ColumnDefinition Width="Auto" />
                 </Grid.ColumnDefinitions>
 
-
                 <RelativePanel ScrollViewer.HorizontalScrollMode="Disabled" Grid.Row="0" Grid.Column="0"
                                Margin="0,8,0,8">
 
-                    <!-- icon pin -->
                     <FontIcon x:Name="pinIcon" FontFamily="{StaticResource FluentIcons}" Glyph="&#xE840;"
                               RelativePanel.AlignVerticalCenterWithPanel="True"
                               Foreground="{ThemeResource TextFillColorTertiaryBrush}"
@@ -67,7 +63,6 @@
                                Foreground="{ThemeResource TextFillColorTertiaryBrush}"
                                Margin="8,0,4,0" />
 
-
                     <!-- data pubblicazione -->
                     <TextBlock RelativePanel.RightOf="categoriaEvento" x:Name="dataPubblicazione" TextWrapping="NoWrap"
                                TextTrimming="None"
@@ -76,7 +71,6 @@
                                Style="{ThemeResource BodyStrongTextBlockStyle}"
                                Foreground="{ThemeResource TextFillColorTertiaryBrush}"
                                Margin="0,0,0,0" />
-
 
                     <TextBlock x:Name="StatusText" RelativePanel.RightOf="dataPubblicazione" TextWrapping="NoWrap"
                                RelativePanel.AlignVerticalCenterWith="dataPubblicazione"
@@ -88,7 +82,6 @@
                                Style="{ThemeResource CaptionTextBlockStyle}"
                                Margin="8,0,0,0" />
 
-
                     <TextBlock x:Name="FromToDateText" RelativePanel.Below="titoloEvento" TextWrapping="Wrap"
                                RelativePanel.AlignLeftWith="titoloEvento"
                                Text="{x:Bind  FromToValidDate}"
@@ -97,7 +90,6 @@
                                Foreground="{ThemeResource TextFillColorTertiaryBrush}"
                                Style="{ThemeResource CaptionTextBlockStyle}"
                                Margin="4,6,0,0" />
-
 
                 </RelativePanel>
 
@@ -112,7 +104,6 @@
                               Visibility="{x:Bind IsDeleted, Converter={StaticResource BetterBoolToVisibilityConverter}, ConverterParameter=False}"
                               Margin="0,0,12,0" />
 
-
                     <!-- the same ReadButton but is a Button with the icon on the left inside the button -->
                     <Button
                         RelativePanel.AlignVerticalCenterWithPanel="True"
@@ -126,11 +117,10 @@
                         <Button.Content>
                             <StackPanel Orientation="Horizontal">
                                 <FontIcon FontFamily="{StaticResource FluentIcons}" Glyph="&#xE890;" />
-                                <TextBlock x:Uid="ReadText" Margin="6,0,0,0" />
+                                <TextBlock x:Uid="GenericReadButton" Margin="6,0,0,0" />
                             </StackPanel>
                         </Button.Content>
                     </Button>
-
 
                     <Button
                         RelativePanel.AlignVerticalCenterWithPanel="True"
@@ -143,7 +133,7 @@
                             <StackPanel Orientation="Horizontal">
                                 <FontIcon FontFamily="{StaticResource FluentIcons}" Glyph="&#xE894;" />
                                 <TextBlock
-                                    Text="{x:Bind helpers:ResourceExtensions.GetLocalizedStr('StatusText_NotAvailable')}"
+                                    Text="{x:Bind helpers:ResourceExtensions.GetLocalizedStr('NoticeBoardNotAvailableStatusButton')}"
                                     Margin="6,0,0,0" />
                             </StackPanel>
                         </Button.Content>
@@ -191,7 +181,7 @@
                        Foreground="{ThemeResource TextFillColorDisabledBrush}"
                        Margin="0,8,0,0"
                        FontWeight="SemiBold"
-                       x:Uid="NoNoticesText" FontSize="36" VerticalAlignment="Center"
+                       x:Uid="NoticeBoardPlaceholder" FontSize="36" VerticalAlignment="Center"
                        HorizontalAlignment="Center" />
         </RelativePanel>
 

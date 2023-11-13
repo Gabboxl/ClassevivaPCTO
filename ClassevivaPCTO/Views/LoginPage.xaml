@@ -47,7 +47,6 @@
                VerticalAlignment="Stretch" Margin="0,-480,0,0" Height="60" Width="300">
         </Image>
 
-
         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Height="380" Width="340"
                     CornerRadius="8"
                     Padding="12"
@@ -55,14 +54,14 @@
                     BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
                     Background="{ThemeResource CardBackgroundFillColorDefaultBrush}">
 
-            <TextBlock x:Uid="TextBenvenutoLogin" FontSize="26" FontWeight="Medium" TextAlignment="Center" Height="60"
+            <TextBlock x:Uid="LoginWelcome" FontSize="26" FontWeight="Medium" TextAlignment="Center" Height="60"
                        Margin="0,8,0,0" />
 
-            <TextBox x:Name="EdittextUsername" x:Uid="EdittextUsername"
+            <TextBox x:Name="EdittextUsername" x:Uid="LoginUsernameField"
                      Margin="0,0,0,20" />
-            <PasswordBox x:Name="EdittextPassword" x:Uid="EdittextPassword"
+            <PasswordBox x:Name="EdittextPassword" x:Uid="LoginPasswordField"
                          Margin="0,0,0,20" />
-            <CheckBox x:Name="CheckboxCredenziali" x:Uid="CheckboxCredenziali"
+            <CheckBox x:Name="CheckboxCredenziali" x:Uid="LoginKeepCredentialsCheckbox"
                       Margin="0,0,0,20" />
 
             <Button x:Name="buttonLogin" Style="{StaticResource AccentButtonStyle}" x:Uid="LoginButton" Height="32"

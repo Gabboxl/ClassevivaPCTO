@@ -14,15 +14,11 @@
     muxc:BackdropMaterial.ApplyToRootOrPageBackground="True">
 
     <Page.Resources>
-
         <Style x:Key="ControlFullStretchStyle" TargetType="ListViewItem"
                BasedOn="{StaticResource DefaultListViewItemStyle}">
             <Setter Property="HorizontalContentAlignment" Value="Stretch" />
-
         </Style>
-
     </Page.Resources>
-
 
     <Grid>
         <Grid.RowDefinitions>
@@ -200,7 +196,6 @@
 
 
         </Grid>
-
 
         <muxc:NavigationView Grid.Row="1"
                              IsTitleBarAutoPaddingEnabled="False"

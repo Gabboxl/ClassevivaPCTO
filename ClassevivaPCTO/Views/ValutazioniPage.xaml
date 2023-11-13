@@ -38,7 +38,6 @@
                     <ColumnDefinition Width="*"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
 
-
                 <controls:SettingsExpander x:Name="MateriaExpander" IsExpanded="False"
                                         HorizontalAlignment="Stretch"
                                         HorizontalContentAlignment="Stretch"
@@ -109,7 +108,7 @@
 
         <RelativePanel Grid.Row="0" Margin="0,16,0,0">
 
-            <TextBlock x:Name="MainTitleTextBox" x:Uid="TitleValutazioni"
+            <TextBlock x:Name="MainTitleTextBox" x:Uid="GradesTitle"
                        Style="{StaticResource TitleLargeTextBlockStyle}"
                        VerticalAlignment="Top"
                        Margin="32,0,0,0" />
@@ -120,20 +119,16 @@
                                Margin="16,0,0,0" Width="28" Height="28"
                                Visibility="{x:Bind ValutazioniViewModel.IsLoadingValutazioni, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" />
 
-
         </RelativePanel>
 
         <RelativePanel Grid.Row="0" Margin="0,18,0,0">
-
 
             <Button x:Name="ReloadButton"
                     Click="ReloadButton_OnClick"
                     RelativePanel.LeftOf="Separatore_Bacheca"
                     RelativePanel.AlignVerticalCenterWithPanel="True"
-                    Width="48"
-                    Height="32"
-                    Margin="0,0,0,0"
-                    x:Uid="RefreshButtonTT">
+                    Width="48" Height="32" Margin="0,0,0,0"
+                    x:Uid="RefreshButton">
                 <FontIcon Glyph="&#xE72C;" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" />
             </Button>
 
@@ -152,7 +147,7 @@
                         <StackPanel Orientation="Horizontal">
                             <FontIcon Glyph="&#xE14C;" FontFamily="{StaticResource FluentIcons}" FontSize="14"
                                       Margin="0,0,6,0" />
-                            <TextBlock Text="Lista" />
+                            <TextBlock x:Uid="GradesListLayoutSegmentedItem" />
                         </StackPanel>
                     </controls:SegmentedItem.Content>
                 </controls:SegmentedItem>
@@ -162,7 +157,7 @@
                         <StackPanel Orientation="Horizontal">
                             <FontIcon Glyph="&#xE169;" FontFamily="{StaticResource FluentIcons}" FontSize="14"
                                       Margin="0,0,6,0" />
-                            <TextBlock Text="Materie" />
+                            <TextBlock x:Uid="GradesSubjectsLayoutSegmentedItem" />
                         </StackPanel>
                     </controls:SegmentedItem.Content>
                 </controls:SegmentedItem>
@@ -244,10 +239,10 @@
                                            Width="180" Height="26" Margin="0,4,0,0" />
                             <labs:Shimmer Visibility="{x:Bind ValutazioniViewModel.ShowShimmers, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" 
                                            Width="120" Height="20" Margin="0,38,0,0"/>
-                            
+
                             <TextBlock
                                 x:Name="TitleTotVal"
-                                x:Uid="GlobalAverage"
+                                x:Uid="GradesGlobalAverage"
                                 FontSize="26"
                                 Visibility="{x:Bind ValutazioniViewModel.ShowShimmers, Mode=OneWay, Converter={StaticResource BetterBoolToVisibilityConverter}, ConverterParameter=False}"
                                 Style="{StaticResource TitleTextBlockStyle}"
@@ -266,7 +261,6 @@
                     </Grid>
 
                 </Grid>
-
 
                 <Grid
                     Grid.Column="1">
@@ -316,7 +310,7 @@
                                            Width="180" Height="26" Margin="0,4,0,0" />
                             <labs:Shimmer Visibility="{x:Bind ValutazioniViewModel.ShowShimmers, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" 
                                            Width="120" Height="20" Margin="0,38,0,0"/>
-                            
+
                             <TextBlock
                                 x:Name="TitleFirstPerVal"
                                 Text=" "
@@ -429,8 +423,8 @@
                 SelectionChanged="SegmentedVoti_OnSelectionChanged"
                 HorizontalAlignment="Stretch">
 
-                    <controls:SegmentedItem x:Uid="AllPeriods" />
-                
+                <controls:SegmentedItem x:Uid="GradesAllPeriodsSegmentedItem" />
+
             </controls:Segmented>
 
             <controls2:GradesListView
@@ -459,9 +453,6 @@
                 ItemTemplate="{StaticResource VotiListViewDataTemplateStandard}"
                 ItemContainerStyle="{StaticResource ListViewFullStretchStyle}"/>
 
-
         </RelativePanel>
-
-
     </Grid>
 </Page>
