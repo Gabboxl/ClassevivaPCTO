@@ -129,37 +129,28 @@
     <value>Main</value>
     <comment>Navigation view item name for Main</comment>
   </data>
-  <data name="Settings_Theme.Text" xml:space="preserve">
-    <value>Choose your theme</value>
-    <comment>Choose theme text for Settings</comment>
+  <data name="SettingsCardThemeDarkComboboxItem.Content" xml:space="preserve">
+    <value>Scuro</value>
   </data>
-  <data name="Settings_Theme_Dark.Content" xml:space="preserve">
-    <value>Dark</value>
-    <comment>Dark theme text for Settings</comment>
+  <data name="SettingsCardThemeDefaultComboboxItem.Content" xml:space="preserve">
+    <value>Predefinito di Sistema</value>
   </data>
-  <data name="Settings_Theme_Default.Content" xml:space="preserve">
-    <value>System Default</value>
-    <comment>Windows default theme text for Settings</comment>
+  <data name="SettingsCardThemeLightComboboxItem.Content" xml:space="preserve">
+    <value>Chiaro</value>
   </data>
-  <data name="Settings_Theme_Light.Content" xml:space="preserve">
-    <value>Light</value>
-    <comment>Light theme text for Settings</comment>
+  <data name="SettingsAboutHeader.Text" xml:space="preserve">
+    <value>Informazioni app</value>
   </data>
-  <data name="Settings_About.Text" xml:space="preserve">
-    <value>About</value>
-    <comment>About this application title for Settings</comment>
+  <data name="SettingsPersonalizationHeader.Text" xml:space="preserve">
+    <value>Aspetto</value>
   </data>
-  <data name="Settings_Personalization.Text" xml:space="preserve">
-    <value>Appearance</value>
-    <comment>Personalization text for Settings</comment>
-  </data>
-  <data name="FirstRun_Body.Text" xml:space="preserve">
-    <value>With ClassevivaPCTO you will be able to view your Classeviva school register data in an intuitive way and under the guise of an innovative design.
+  <data name="FirstRunDialogBody.Text" xml:space="preserve">
+    <value>Con ClassevivaPCTO potrai visualizzare i tuoi dati del registro elettronico Classeviva in maniera intuitiva e sotto le vesti di un design innovativo.
 
-This app is for student accounts only.
+Quest'app è rivolta soltanto agli account studente.
 
-Please note that this app is still under development and some features are not available at this time.
-If you encounter bugs or have an idea for the app, open an issue on GitHub by clicking on the "Report an issue" link in the About section.</value>
+Ricorda che quest'app è ancora in fase di sviluppo e alcune funzionalità non sono disponibili al momento. 
+Se riscontri bug o hai un'idea per l'app apri un issue su GitHub cliccando sul link "Segnala un problema" nella sezione Informazioni app.</value>
   </data>
   <data name="FirstRunDialog.Title" xml:space="preserve">
     <value>Welcome in ClassevivaPCTO</value>
@@ -196,32 +187,20 @@ If you encounter bugs or have an idea for the app, open an issue on GitHub by cl
 • New widget: Quick Links - allows you to save up to 5 Internet links that you can quickly open from the app, such as your school website, Classroom or your school email</value>
     <comment>What's new prompt message body for second section (Dashboard)</comment>
   </data>
-  <data name="Settings_Account.Text" xml:space="preserve">
+  <data name="SettingsAccountHeader.Text" xml:space="preserve">
     <value>Account</value>
-    <comment>Account text for Settings</comment>
   </data>
-  <data name="Settings_General.Text" xml:space="preserve">
-    <value>General</value>
-    <comment>General text for Settings</comment>
+  <data name="SettingsGeneralHeader.Text" xml:space="preserve">
+    <value>Generali</value>
   </data>
-  <data name="Settings_Language_En_US.Content" xml:space="preserve">
-    <value>English</value>
+  <data name="SettingsTitle.Text" xml:space="preserve">
+    <value>Impostazioni</value>
   </data>
-  <data name="Settings_Language_It_IT.Content" xml:space="preserve">
-    <value>Italian</value>
+  <data name="SettingsCardTheme.Description" xml:space="preserve">
+    <value>Scegli il tema dell'app</value>
   </data>
-  <data name="Settings_Version.Text" xml:space="preserve">
-    <value>Version</value>
-    <comment>Version text for Settings</comment>
-  </data>
-  <data name="TextTitoloSettings.Text" xml:space="preserve">
-    <value>Settings</value>
-  </data>
-  <data name="SettingsExpanderTheme.Description" xml:space="preserve">
-    <value>Choose app theme</value>
-  </data>
-  <data name="SettingsExpanderTheme.Header" xml:space="preserve">
-    <value>Theme</value>
+  <data name="SettingsCardTheme.Header" xml:space="preserve">
+    <value>Tema</value>
   </data>
   <data name="SettingsCardLanguage.Header" xml:space="preserve">
     <value>Language</value>
@@ -229,14 +208,14 @@ If you encounter bugs or have an idea for the app, open an issue on GitHub by cl
   <data name="SettingsCardLanguage.Description" xml:space="preserve">
     <value>Choose the displayed app language</value>
   </data>
-  <data name="SettingsExpanderReservedRights.Description" xml:space="preserve">
-    <value>© 2023. All rights reserved.</value>
+  <data name="SettingsAboutExpander.Description" xml:space="preserve">
+    <value>© 2023. Tutti i diritti riservati.</value>
   </data>
-  <data name="hyperlinkVote.Text" xml:space="preserve">
-    <value>Rate on the Store</value>
+  <data name="SettingsAboutExpanderRateHyperlink.Text" xml:space="preserve">
+    <value>Vota nello Store</value>
   </data>
-  <data name="hyperlinkIssue.Text" xml:space="preserve">
-    <value>Report an issue</value>
+  <data name="SettingsAboutExpanderIssueHyperlink.Text" xml:space="preserve">
+    <value>Segnala un problema</value>
   </data>
   <data name="SettingsCardTutorial.Header" xml:space="preserve">
     <value>Tips</value>
@@ -256,83 +235,71 @@ If you encounter bugs or have an idea for the app, open an issue on GitHub by cl
   <data name="SettingsCardWhatsNewButton.Content" xml:space="preserve">
     <value>See changelog</value>
   </data>
-  <data name="TitoloScrutini.Text" xml:space="preserve">
-    <value>Ballots</value>
+  <data name="ScrutiniTitle.Text" xml:space="preserve">
+    <value>Scrutini</value>
   </data>
-  <data name="CheckboxEliminati.Content" xml:space="preserve">
-    <value>Show deleted documents</value>
+  <data name="ScrutiniShowDeletedDocumentsCheckbox.Content" xml:space="preserve">
+    <value>Mostra documenti eliminati</value>
   </data>
-  <data name="TextFileScrutini.Text" xml:space="preserve">
-    <value>Documents</value>
+  <data name="ScrutiniDocumentsHeader.Text" xml:space="preserve">
+    <value>Documenti</value>
   </data>
-  <data name="TitoloNote.Text" xml:space="preserve">
-    <value>Notes</value>
+  <data name="NotesTitle.Text" xml:space="preserve">
+    <value>Note</value>
   </data>
-  <data name="TextBenvenutoLogin.Text" xml:space="preserve">
-    <value>Welcome</value>
+  <data name="LoginWelcome.Text" xml:space="preserve">
+    <value>Benvenuto</value>
   </data>
-  <data name="EdittextUsername.Header" xml:space="preserve">
-    <value>Username:</value>
+  <data name="LoginUsernameField.Header" xml:space="preserve">
+    <value>Nome utente:</value>
   </data>
-  <data name="EdittextPassword.Header" xml:space="preserve">
+  <data name="LoginPasswordField.Header" xml:space="preserve">
     <value>Password:</value>
   </data>
-  <data name="CheckboxCredenziali.Content" xml:space="preserve">
-    <value>Keep me logged in</value>
-  </data>
-  <data name="ComboMaterie.PlaceholderText" xml:space="preserve">
-    <value>Select a subject</value>
-  </data>
-  <data name="TitleValutazioni.Text" xml:space="preserve">
-    <value>Grades</value>
+  <data name="LoginKeepCredentialsCheckbox.Content" xml:space="preserve">
+    <value>Mantieni le credenziali</value>
   </data>
   <data name="TitoloDashboardText" xml:space="preserve">
     <value>{0}'s Dashboard</value>
   </data>
-  <data name="TextOggiAgenda.Text" xml:space="preserve">
-    <value>Today's events</value>
+  <data name="DashboardTodaysEvents.Text" xml:space="preserve">
+    <value>Eventi del giorno</value>
   </data>
-  <data name="DashboardButtonApriAgenda.Text" xml:space="preserve">
-    <value>Open agenda</value>
+  <data name="DashboardOpenAgendaButton.Text" xml:space="preserve">
+    <value>Apri agenda</value>
   </data>
-  <data name="TitleRecentGrades.Text" xml:space="preserve">
-    <value>Recent grades</value>
+  <data name="DashboardRecentGrades.Text" xml:space="preserve">
+    <value>Valutazioni recenti</value>
   </data>
-  <data name="TitleMedia.Text" xml:space="preserve">
-    <value>Global average:</value>
+  <data name="DashboardGradesAverage.Text" xml:space="preserve">
+    <value>Media totale:</value>
   </data>
-  <data name="DashboardButtonApriValutazioni.Text" xml:space="preserve">
-    <value>View all grades</value>
+  <data name="DashboardOpenGradesButton.Text" xml:space="preserve">
+    <value>Visualizza tutte le valutazioni</value>
   </data>
-  <data name="TextBachecaRecenti.Text" xml:space="preserve">
-    <value>Recent notices</value>
+  <data name="DashboardRecentNotices.Text" xml:space="preserve">
+    <value>Comunicazioni recenti</value>
   </data>
-  <data name="DashboardButtonApriBacheca.Text" xml:space="preserve">
-    <value>Open notice board</value>
+  <data name="DashboardOpenNoticeBoardButton.Text" xml:space="preserve">
+    <value>Apri bacheca</value>
   </data>
-  <data name="TextBachecaComunicazioni.Text" xml:space="preserve">
-    <value>Notices</value>
+  <data name="NoticeBoardNotices.Text" xml:space="preserve">
+    <value>Comunicazioni</value>
   </data>
-  <data name="TextTitoloAssenzeRitardi.Text" xml:space="preserve">
-    <value>Absences and delays</value>
+  <data name="AbsencesEventsCalendar.Text" xml:space="preserve">
+    <value>Calendario eventi</value>
   </data>
-  <data name="TodayButton.Content" xml:space="preserve">
-    <value>Today</value>
+  <data name="AgendaTasksPopupTitle.Text" xml:space="preserve">
+    <value>Compiti</value>
   </data>
-  <data name="TextBlockCalendarioEventi.Text" xml:space="preserve">
-    <value>Events calendar</value>
+  <data name="AgendaTodayButton.Content" xml:space="preserve">
+    <value>Oggi</value>
   </data>
-  <data name="TitoloAgendaPopup.Text" xml:space="preserve">
-    <value>Tasks</value>
+  <data name="AgendaAllTasksButton.Text" xml:space="preserve">
+    <value>Tutti i compiti</value>
   </data>
-  <data name="ButtonTodayAgenda.Content" xml:space="preserve">
-    <value>Today</value>
-  </data>
-  <data name="TuttiCompitiButton.Text" xml:space="preserve">
-    <value>All tasks</value>
-  </data>
-  <data name="PopupLessonsButton.Text" xml:space="preserve">
-    <value>All lessons</value>
+  <data name="AgendaAllLessonsButton.Text" xml:space="preserve">
+    <value>Tutte le lezioni</value>
   </data>
   <data name="AccountNonSupportato" xml:space="preserve">
     <value>Teacher accounts are not supported</value>
@@ -349,7 +316,9 @@ Student accounts have usernames starting with the letters S, G, or X.</value>
     <value>OK</value>
   </data>
   <data name="ErrorDialogBody" xml:space="preserve">
-    <value>Error logging in. Check username and password. Error: </value>
+    <value>Errore durante il login. Controlla il nome utente e la password.
+
+Errore: </value>
   </data>
   <data name="ChooseProfileDialogTitle" xml:space="preserve">
     <value>Choose a profile</value>
@@ -360,11 +329,11 @@ Student accounts have usernames starting with the letters S, G, or X.</value>
   <data name="CancelDialogButton" xml:space="preserve">
     <value>Cancel</value>
   </data>
-  <data name="NoticeDialogAllegatiSubtitle" xml:space="preserve">
-    <value>Attachments</value>
+  <data name="NoticeDialogAttachmentsSubtitle" xml:space="preserve">
+    <value>Allegati</value>
   </data>
-  <data name="NoticeDialogNessunAllegatiSubtitle" xml:space="preserve">
-    <value>No attachments</value>
+  <data name="NoticeDialogNoAttachmentsSubtitle" xml:space="preserve">
+    <value>Nessun allegato</value>
   </data>
   <data name="ComboChoiceSelectProfile.Header" xml:space="preserve">
     <value>Select a profile:</value>
@@ -372,14 +341,8 @@ Student accounts have usernames starting with the letters S, G, or X.</value>
   <data name="ProfileChoiceDialogInfoTextBlock.Text" xml:space="preserve">
     <value>Multiple profiles are associated to this account.</value>
   </data>
-  <data name="DialogButtonSave.Text" xml:space="preserve">
-    <value>Save</value>
-  </data>
-  <data name="ButtonOpen.Text" xml:space="preserve">
-    <value>Open</value>
-  </data>
-  <data name="LessonsTitle.Text" xml:space="preserve">
-    <value>Lessons</value>
+  <data name="AgendaLessonsPopupTitle.Text" xml:space="preserve">
+    <value>Lezioni</value>
   </data>
   <data name="GradesTitle.Text" xml:space="preserve">
     <value>Grades</value>
@@ -390,11 +353,8 @@ Student accounts have usernames starting with the letters S, G, or X.</value>
   <data name="AgendaTitle.Text" xml:space="preserve">
     <value>Agenda</value>
   </data>
-  <data name="NoEventText.Text" xml:space="preserve">
-    <value>No events</value>
-  </data>
-  <data name="ReadText.Text" xml:space="preserve">
-    <value>Read</value>
+  <data name="AgendaPlaceholder.Text" xml:space="preserve">
+    <value>Nessun evento</value>
   </data>
   <data name="CloseDialogButtonText" xml:space="preserve">
     <value>Close</value>
@@ -411,14 +371,14 @@ Student accounts have usernames starting with the letters S, G, or X.</value>
   <data name="SettingsAccountExitButton.Text" xml:space="preserve">
     <value>Logout</value>
   </data>
-  <data name="NoNoticesText.Text" xml:space="preserve">
-    <value>No notices</value>
+  <data name="NoticeBoardPlaceholder.Text" xml:space="preserve">
+    <value>Nessuna comunicazione</value>
   </data>
-  <data name="NoNotesText.Text" xml:space="preserve">
-    <value>No notes</value>
+  <data name="NotesPlaceholder.Text" xml:space="preserve">
+    <value>Nessuna nota</value>
   </data>
-  <data name="TranslateAppText.Text" xml:space="preserve">
-    <value>Translate on Crowdin</value>
+  <data name="SettingsAboutExpanderCrowdinHyperlink.Text" xml:space="preserve">
+    <value>Traduci su Crowdin</value>
   </data>
   <data name="PALETTE_CVV" xml:space="preserve">
     <value>Classeviva</value>
@@ -445,26 +405,17 @@ Student accounts have usernames starting with the letters S, G, or X.</value>
     <value>•  Added a filter for read/unread notices</value>
     <comment>What's new prompt message body for fifth section (Bacheca)</comment>
   </data>
-  <data name="SettingsChangeProfilePicButton.Text" xml:space="preserve">
-    <value>Change photo</value>
-  </data>
-  <data name="Settings_Language_De_DE.Content" xml:space="preserve">
-    <value>German</value>
-  </data>
-  <data name="Settings_Language_Es_ES.Content" xml:space="preserve">
-    <value>Spanish</value>
-  </data>
-  <data name="Settings_Language_Fr_FR.Content" xml:space="preserve">
-    <value>French</value>
+  <data name="SettingsAccountChangePhoto.Text" xml:space="preserve">
+    <value>Cambia foto</value>
   </data>
   <data name="AutoSuggestBoxSearch.PlaceholderText" xml:space="preserve">
     <value>Search...</value>
   </data>
-  <data name="hyperlinkGithub.Text" xml:space="preserve">
-    <value>GitHub repository</value>
+  <data name="SettingsAboutExpanderGitHubHyperlink.Text" xml:space="preserve">
+    <value>Progetto su GitHub</value>
   </data>
-  <data name="hyperlinkGithubReleases.Text" xml:space="preserve">
-    <value>View all changes</value>
+  <data name="WhatsNewDialogHyperlinkAllChanges.Text" xml:space="preserve">
+    <value>Visualizza tutti i cambiamenti</value>
   </data>
   <data name="SettingsAboutExpanderVersion.Text" xml:space="preserve">
     <value>Version </value>
@@ -487,44 +438,32 @@ Student accounts have usernames starting with the letters S, G, or X.</value>
   <data name="SettingsCardSchoolYear.Header" xml:space="preserve">
     <value>School year</value>
   </data>
-  <data name="SettingsChangelogDashboard.Text" xml:space="preserve">
-    <value>Dashboard</value>
+  <data name="WhatsNewDialogHighlights.Text" xml:space="preserve">
+    <value>In evidenza</value>
   </data>
-  <data name="SettingsChangelogGrades.Text" xml:space="preserve">
-    <value>Grades</value>
+  <data name="WhatsNewDialogRelease.Text" xml:space="preserve">
+    <value>v1.1.0, 21 Ottobre 2023</value>
   </data>
-  <data name="SettingsChangelogHighlights.Text" xml:space="preserve">
-    <value>Highlights</value>
+  <data name="AgendaTomorrowButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Giorno successivo</value>
   </data>
-  <data name="SettingsChangelogRelease.Text" xml:space="preserve">
-    <value>v1.1.0, 21 October 2023</value>
+  <data name="AgendaYesterdayButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Giorno precedente</value>
   </data>
-  <data name="AgendaButtonTomorrowTT.ToolTipService.ToolTip" xml:space="preserve">
-    <value>Next day</value>
+  <data name="AgendaTodayButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Vai agli eventi di oggi</value>
   </data>
-  <data name="AgendaButtonYesterdayTT.ToolTipService.ToolTip" xml:space="preserve">
-    <value>Previous day</value>
-  </data>
-  <data name="AssenzeJustified.Text" xml:space="preserve">
-    <value>Justified</value>
-  </data>
-  <data name="AssenzeToBeJustified.Text" xml:space="preserve">
-    <value>To be justified</value>
-  </data>
-  <data name="ButtonTodayAgenda.ToolTipService.ToolTip" xml:space="preserve">
-    <value>Go to today's events</value>
-  </data>
-  <data name="CheckboxInattive.Content" xml:space="preserve">
-    <value>Show inactive notices</value>
+  <data name="NoticeBoardShowInactiveNoticesCheckbox.Content" xml:space="preserve">
+    <value>Mostra comunicazioni inattive</value>
   </data>
   <data name="DashboardEditWidgetsButton.Text" xml:space="preserve">
     <value>Edit widgets</value>
   </data>
-  <data name="EdittextPassword.PlaceholderText" xml:space="preserve">
+  <data name="LoginPasswordField.PlaceholderText" xml:space="preserve">
     <value>Password</value>
   </data>
-  <data name="EdittextUsername.PlaceholderText" xml:space="preserve">
-    <value>Username</value>
+  <data name="LoginUsernameField.PlaceholderText" xml:space="preserve">
+    <value>Nome utente</value>
   </data>
   <data name="NavigationViewAgenda.Content" xml:space="preserve">
     <value>Agenda</value>
@@ -547,20 +486,20 @@ Student accounts have usernames starting with the letters S, G, or X.</value>
   <data name="NavigationViewScrutini.Content" xml:space="preserve">
     <value>Ballots</value>
   </data>
-  <data name="RefreshButtonTT.ToolTipService.ToolTip" xml:space="preserve">
-    <value>Refresh</value>
+  <data name="RefreshButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Aggiorna</value>
   </data>
-  <data name="SettingsPaletteColorBlueTT.ToolTipService.ToolTip" xml:space="preserve">
-    <value>Doesn't average, partial absence</value>
+  <data name="SettingsPaletteColorBlue.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Non fa media, assenza parziale</value>
   </data>
-  <data name="SettingsPaletteColorGreenTT.ToolTipService.ToolTip" xml:space="preserve">
-    <value>Sufficient grade, presence, read notice</value>
+  <data name="SettingsPaletteColorGreen.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Sufficienza, presenza, comunicazione letta</value>
   </data>
-  <data name="SettingsPaletteColorOrangeTT.ToolTipService.ToolTip" xml:space="preserve">
-    <value>Nearly sufficient grade, delay, expired notice</value>
+  <data name="SettingsPaletteColorOrange.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Insufficienza lieve, ritardo, comunicazione scaduta</value>
   </data>
-  <data name="SettingsPaletteColorRedTT.ToolTipService.ToolTip" xml:space="preserve">
-    <value>Insufficient grade, absence, unread notice</value>
+  <data name="SettingsPaletteColorRed.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Insufficienza grave, assenza, comunicazione non letta</value>
   </data>
   <data name="NoticeAdapter_FromToValidDate" xml:space="preserve">
     <value>Valid from {0} to {1}</value>
@@ -571,8 +510,8 @@ Student accounts have usernames starting with the letters S, G, or X.</value>
   <data name="NoticeAdapter_StatusText_Scaduta" xml:space="preserve">
     <value>Expired</value>
   </data>
-  <data name="StatusText_NotAvailable" xml:space="preserve">
-    <value>Not available</value>
+  <data name="NoticeBoardNotAvailableStatusButton" xml:space="preserve">
+    <value>Non disponibile</value>
   </data>
   <data name="AreYouSure" xml:space="preserve">
     <value>Are you sure?</value>
@@ -592,23 +531,20 @@ Student accounts have usernames starting with the letters S, G, or X.</value>
   <data name="Restart" xml:space="preserve">
     <value>Restart</value>
   </data>
-  <data name="CheckboxSuddividi.Content" xml:space="preserve">
-    <value>Divide by subject</value>
-  </data>
   <data name="NoticeBoardTitle.Text" xml:space="preserve">
     <value>Notice board</value>
   </data>
-  <data name="NoAbsences.Text" xml:space="preserve">
-    <value>No absences</value>
+  <data name="AbsencesPlaceholder.Text" xml:space="preserve">
+    <value>Nessuna assenza</value>
   </data>
-  <data name="NoTasks.Text" xml:space="preserve">
-    <value>No tasks</value>
+  <data name="AgendaTasksPlaceholder.Text" xml:space="preserve">
+    <value>Nessun compito</value>
   </data>
-  <data name="NoScrutini.Text" xml:space="preserve">
-    <value>Ballots unavailable</value>
+  <data name="ScrutiniPlaceholder.Text" xml:space="preserve">
+    <value>Scrutini non disponibili</value>
   </data>
-  <data name="ReportsTitle.Text" xml:space="preserve">
-    <value>School reports</value>
+  <data name="ScrutiniReportsHeader.Text" xml:space="preserve">
+    <value>Report scolastici</value>
   </data>
   <data name="SessionExpired" xml:space="preserve">
     <value>Session expired</value>
@@ -634,11 +570,8 @@ Student accounts have usernames starting with the letters S, G, or X.</value>
   <data name="GradesPlural" xml:space="preserve">
     <value>grades</value>
   </data>
-  <data name="SegmentedAllPeriods" xml:space="preserve">
-    <value>All periods</value>
-  </data>
-  <data name="NoGrades.Text" xml:space="preserve">
-    <value>No grades</value>
+  <data name="GradesPlaceholder.Text" xml:space="preserve">
+    <value>Nessuna valutazione</value>
   </data>
   <data name="PALETTE_FLO" xml:space="preserve">
     <value>Flora</value>
@@ -646,32 +579,32 @@ Student accounts have usernames starting with the letters S, G, or X.</value>
   <data name="PALETTE_RET" xml:space="preserve">
     <value>Retro</value>
   </data>
-  <data name="NoLessons.Text" xml:space="preserve">
-    <value>No lessons</value>
+  <data name="AgendaLessonsPlaceholder.Text" xml:space="preserve">
+    <value>Nessuna lezione</value>
   </data>
-  <data name="ContributorsLink.Text" xml:space="preserve">
+  <data name="FirstRunDialogContributorsHyperlink.Text" xml:space="preserve">
     <value>Contributors</value>
   </data>
-  <data name="GlobalAverage.Text" xml:space="preserve">
-    <value>Global average</value>
+  <data name="GradesGlobalAverage.Text" xml:space="preserve">
+    <value>Media totale</value>
   </data>
-  <data name="LicensesLink.Text" xml:space="preserve">
-    <value>Licenses</value>
+  <data name="FirstRunDialogLicensesHyperlink.Text" xml:space="preserve">
+    <value>Licenze</value>
   </data>
-  <data name="AllPeriods.Content" xml:space="preserve">
-    <value>All periods</value>
+  <data name="GradesAllPeriodsSegmentedItem.Content" xml:space="preserve">
+    <value>Tutti i periodi</value>
   </data>
-  <data name="CalendarTT.ToolTipService.ToolTip" xml:space="preserve">
-    <value>Pick a date</value>
+  <data name="AgendaCalendarDatePicker.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Seleziona una data</value>
   </data>
-  <data name="FilterAllNotices.Text" xml:space="preserve">
-    <value>All</value>
+  <data name="NoticeBoardFilterAllNotices.Text" xml:space="preserve">
+    <value>Tutte</value>
   </data>
-  <data name="FilterReadNotices.Text" xml:space="preserve">
-    <value>Read</value>
+  <data name="NoticeBoardFilterReadNotices.Text" xml:space="preserve">
+    <value>Lette</value>
   </data>
-  <data name="FilterUnreadNotices.Text" xml:space="preserve">
-    <value>Unread</value>
+  <data name="NoticeBoardFilterUnreadNotices.Text" xml:space="preserve">
+    <value>Non lette</value>
   </data>
   <data name="GradesNotAvailable" xml:space="preserve">
     <value>N/A</value>
@@ -768,5 +701,38 @@ Student accounts have usernames starting with the letters S, G, or X.</value>
   </data>
   <data name="AbsenceEventOnDayPreposition" xml:space="preserve">
     <value> del </value>
+  </data>
+  <data name="AbsencesTodayButton.Content" xml:space="preserve">
+    <value>Oggi</value>
+  </data>
+  <data name="GradesListLayoutSegmentedItem.Text" xml:space="preserve">
+    <value>Lista</value>
+  </data>
+  <data name="GradesSubjectsLayoutSegmentedItem.Text" xml:space="preserve">
+    <value>Materie</value>
+  </data>
+  <data name="GenericOpenButton.Text" xml:space="preserve">
+    <value>Apri</value>
+  </data>
+  <data name="GenericReadButton.Text" xml:space="preserve">
+    <value>Leggi</value>
+  </data>
+  <data name="GenericSaveButton.Text" xml:space="preserve">
+    <value>Salva</value>
+  </data>
+  <data name="NoticeDialogOpenAttachmentButton.Label" xml:space="preserve">
+    <value>Apri</value>
+  </data>
+  <data name="NoticeDialogSaveAttachmentButton.Label" xml:space="preserve">
+    <value>Salva</value>
+  </data>
+  <data name="ScrutiniOpenFileButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Visualizza scrutinio</value>
+  </data>
+  <data name="ScrutiniOpenReportButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Apri report nel browser</value>
+  </data>
+  <data name="ScrutiniSaveFileButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Salva il file dello scrutinio sul PC</value>
   </data>
 </root>
