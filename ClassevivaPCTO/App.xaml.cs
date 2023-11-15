@@ -115,15 +115,19 @@ namespace ClassevivaPCTO
         /// <param name="e">Dettagli sulla richiesta e sul processo di avvio.</param>
         protected override async void OnLaunched(LaunchActivatedEventArgs e)
         {
+            //  Display an extended splash screen if app was not previously running.
+            if (e.PreviousExecutionState != ApplicationExecutionState.Running)
+            {
+                bool loadState = (e.PreviousExecutionState == ApplicationExecutionState.Terminated);
+                ExtendedSplash extendedSplash = new ExtendedSplash(e.SplashScreen, loadState);
+                rootFrame.Content = extendedSplash;
+                Window.Current.Content = rootFrame;
+            }
+
             if (e.PrelaunchActivated == false)
             {
                 await ActivationService.ActivateAsync(e);
             }
-        }
-
-        void OnNavigationFailed(object sender, NavigationFailedEventArgs e)
-        {
-            throw new Exception("Failed to load Page " + e.SourcePageType.FullName);
         }
 
         /// <summary>
