@@ -131,20 +131,16 @@
                         Style="{ThemeResource TextButtonStyle}">
                         <Button.Content>
                             <StackPanel Orientation="Horizontal">
-                                <FontIcon FontFamily="{StaticResource FluentIcons}" Glyph="&#xE894;" />
+                                <FontIcon FontFamily="{StaticResource FluentIcons}" Glyph="&#xE894;" Margin="0,3,0,0" />
                                 <TextBlock
                                     Text="{x:Bind helpers:ResourceExtensions.GetLocalizedStr('NoticeBoardNotAvailableStatusButton')}"
-                                    Margin="6,0,0,0" />
+                                    Margin="8,2,0,0" />
                             </StackPanel>
                         </Button.Content>
                     </Button>
 
-
                 </RelativePanel>
-
             </Grid>
-
-
         </DataTemplate>
     </UserControl.Resources>
 
@@ -161,9 +157,7 @@
                   HorizontalAlignment="Stretch"
                   HorizontalContentAlignment="Stretch"
                   ItemTemplate="{StaticResource NoticeListViewDataTemplate}"
-                  ItemContainerStyle="{StaticResource ListViewFullStretchStyle}">
-
-        </ListView>
+                  ItemContainerStyle="{StaticResource ListViewFullStretchStyle}" />
 
         <RelativePanel
             VerticalAlignment="Center"
@@ -184,7 +178,6 @@
                        x:Uid="NoticeBoardPlaceholder" FontSize="36" VerticalAlignment="Center"
                        HorizontalAlignment="Center" />
         </RelativePanel>
-
 
     </Grid>
 </UserControl>
