@@ -50,11 +50,9 @@
 
 
         <RelativePanel Grid.Row="0" Margin="0,16,0,16">
-
             <TextBlock x:Name="TextTitolo" x:Uid="AbsencesTitle"
                        Style="{StaticResource TitleLargeTextBlockStyle}" VerticalAlignment="Top"
                        Margin="32,0,0,0" />
-
 
             <muxc:ProgressRing IsActive="True" x:Name="ProgressRingBacheca"
                                RelativePanel.RightOf="TextTitolo"
@@ -88,7 +86,7 @@
                     HorizontalAlignment="Stretch"
                     RowSpacing="12"
                     ColumnSpacing="12"
-                    Margin="18,16,18,18">
+                    Margin="0,0,0,0">
 
                 <Grid
                     Margin="18,0,8,16"
@@ -105,7 +103,6 @@
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*" />
-
                     </Grid.ColumnDefinitions>
 
                     <controls:AbsencesListView x:Name="AbsencesToJustifyListView" Grid.Row="2"
