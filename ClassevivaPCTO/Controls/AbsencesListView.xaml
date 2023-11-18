@@ -113,7 +113,7 @@
             <FontIcon x:Name="AssenzePlaceholderIcon" FontFamily="{StaticResource FluentIcons}" Glyph="&#xe7c1;"
                       Foreground="{ThemeResource TextFillColorDisabledBrush}"
                       RelativePanel.AlignHorizontalCenterWithPanel="True"
-                      FontSize="124"
+                      FontSize="100"
                       Margin="0,0,0,0" />
 
             <TextBlock

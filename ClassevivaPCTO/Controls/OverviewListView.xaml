@@ -101,7 +101,7 @@
             <FontIcon x:Name="OverviewPlaceholderIcon" FontFamily="{StaticResource FluentIcons}" Glyph="&#xE787;"
                       Foreground="{ThemeResource TextFillColorDisabledBrush}"
                       RelativePanel.AlignHorizontalCenterWithPanel="True"
-                      FontSize="124"
+                      FontSize="100"
                       Margin="0,0,0,0" />
 
             <TextBlock RelativePanel.Below="OverviewPlaceholderIcon"

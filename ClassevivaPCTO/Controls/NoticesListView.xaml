@@ -173,7 +173,7 @@
             <FontIcon x:Name="BachecaPlaceholderIcon" FontFamily="{StaticResource FluentIcons}" Glyph="&#xe718;"
                       Foreground="{ThemeResource TextFillColorDisabledBrush}"
                       RelativePanel.AlignHorizontalCenterWithPanel="True"
-                      FontSize="124"
+                      FontSize="100"
                       Margin="0,0,0,0" />
 
             <TextBlock RelativePanel.Below="BachecaPlaceholderIcon"
