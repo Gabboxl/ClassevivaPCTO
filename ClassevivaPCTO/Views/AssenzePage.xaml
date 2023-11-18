@@ -111,7 +111,6 @@
                                                HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
                     </controls:AbsencesListView>
 
-
                 </Grid>
 
                 <Grid
@@ -150,13 +149,10 @@
                             RelativePanel.AlignLeftWithPanel="True"
                             FirstDayOfWeek="Monday"
                             CalendarViewDayItemChanging="MyCalendarView_CalendarViewDayItemChanging" />
-
                     </RelativePanel>
                 </Grid>
-
             </comToolkit:StaggeredPanel>
             </Grid>
-
         </ScrollViewer>
     </Grid>
 </Page>
