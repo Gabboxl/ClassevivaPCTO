@@ -34,6 +34,25 @@ namespace ClassevivaPCTO.Views
             set { Set(ref _elementTheme, value); }
         }
 
+        public void paletteCustomPaletteSelectionDesabled(int selectedpaletteindex)
+        {
+            selectedpaletteindex = PaletteComboBox.SelectedIndex;
+
+            if (selectedpaletteindex <= 4)
+            {
+                CustomPaletteColorCardBlue.IsEnabled = false;
+                CustomPaletteColorCardGreen.IsEnabled = false;
+                CustomPaletteColorCardOrange.IsEnabled = false;
+                CustomPaletteColorCardRed.IsEnabled = false;
+            }
+            else
+            {
+                CustomPaletteColorCardBlue.IsEnabled = true;
+                CustomPaletteColorCardGreen.IsEnabled = true;
+                CustomPaletteColorCardOrange.IsEnabled = true;
+                CustomPaletteColorCardRed.IsEnabled = true;
+            }
+        }
 
         private PaletteType _paletteType = PaletteSelectorService.PaletteEnum;
 
@@ -196,7 +215,9 @@ namespace ClassevivaPCTO.Views
             }
         }
 
-        private async void ButtonChangelog_OnClick(object sender, RoutedEventArgs e)
+
+
+    private async void ButtonChangelog_OnClick(object sender, RoutedEventArgs e)
         {
             var dialog = new WhatsNewDialog();
             await dialog.ShowAsync();

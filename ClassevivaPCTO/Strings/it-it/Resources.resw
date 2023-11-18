@@ -735,4 +735,7 @@ Errore: </value>
   <data name="ScrutiniSaveFileButton.ToolTipService.ToolTip" xml:space="preserve">
     <value>Salva il file dello scrutinio sul PC</value>
   </data>
+  <data name="PALETTE_CUS" xml:space="preserve">
+    <value>Personalizzato</value>
+  </data>
 </root>
