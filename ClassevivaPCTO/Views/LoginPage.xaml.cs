@@ -83,6 +83,14 @@ namespace ClassevivaPCTO.Views
             }
         }
 
+        private async void demoAccountClick(object sender, RoutedEventArgs e)
+        {
+            EdittextUsername.Text = "test";
+            EdittextPassword.Password = "test";
+            
+            await Task.Run(async () => { await DoLoginAsync(); });
+        }
+
         private async void Button_Click(object sender, RoutedEventArgs e)
         {
             await Task.Run(async () => { await DoLoginAsync(); });

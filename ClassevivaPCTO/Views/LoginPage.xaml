@@ -39,49 +39,68 @@
                            VerticalAlignment="Center"
                            Margin="40,0,0,4" />
             </Grid>
-
         </Grid>
 
         <RelativePanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch"> 
         
             <Image x:Name="Logo" Source="/Assets/mainlogo.png" Stretch="Uniform" HorizontalAlignment="Stretch"
-                   VerticalAlignment="Top" Margin="0,120,0,0" Height="60" Width="280" RelativePanel.AlignHorizontalCenterWithPanel="True">
+                   VerticalAlignment="Top" Margin="0,180,0,0" Height="60" Width="280" RelativePanel.AlignHorizontalCenterWithPanel="True">
             </Image>
 
-            <Image x:Name="Hero" Source="/Assets/storescreenshot.png" Stretch="Uniform" HorizontalAlignment="Stretch"
-                   VerticalAlignment="Stretch" Margin="50,-100,0,0" Height="750" Width="700" RelativePanel.Below="Logo">
-            </Image>
-            
-        </RelativePanel>
+            <RelativePanel RelativePanel.AlignLeftWithPanel="True"
+                           RelativePanel.AlignVerticalCenterWith="LoginStackPanel"
+                           RelativePanel.Below="Logo" RelativePanel.LeftOf="LoginStackPanel" Height="330" Width="Auto"
+                           CornerRadius="8"
+                           Padding="12"
+                           Margin="40,-18,40,0"
+                           BorderThickness="1"
+                           BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}" >
 
-        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Right" Height="380" Width="340" Margin="0,0,100,0"
-                    CornerRadius="8"
-                    Padding="12" x:Name="LoginStackPanel"
-                    BorderThickness="0"
-                    Background="Transparent">
+                <RelativePanel.Background>
+                    <ImageBrush ImageSource="/Assets/LoginBrush1.png" Stretch="UniformToFill" />
+                </RelativePanel.Background>
 
-            <TextBlock x:Uid="TextBenvenutoLogin" FontSize="28" TextAlignment="Left" Height="60"
-                       Margin="0,8,0,0" Foreground="{ThemeResource TextFillColorTertiaryBrush}" FontFamily="Segoe UI Variable Semibold" FontWeight="Normal" />
+                <Image x:Name="Hero" Source="/Assets/storescreenshot.png" Stretch="Uniform" HorizontalAlignment="Stretch" 
+                   VerticalAlignment="Stretch" Margin="0,180,0,0" Height="550" Width="500" RelativePanel.AlignRightWithPanel="True">
+                </Image>
 
-            <Rectangle Height="1" Width="Auto" Fill="{ThemeResource TextFillColorDisabledBrush}"  Margin="0,-40,0,0"/>
+                <TextBlock x:Name="TextHeader" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignTopWithPanel="True" Margin="12,8,0,0"
+                           Text="Fai di più con ClassevivaPCTO" FontWeight="SemiBold" FontSize="24"/>
+                <TextBlock RelativePanel.Below="TextHeader" RelativePanel.AlignLeftWithPanel="True" Margin="12,8,0,0"
+                           Text="Scopri come massimizzare la tua produttività scolastica" FontWeight="Medium" FontSize="16" Foreground="{ThemeResource TextFillColorSecondaryBrush}"/>
 
-            <TextBox x:Name="EdittextUsername" x:Uid="EdittextUsername"
-                     Margin="0,0,0,20" />
-            <PasswordBox x:Name="EdittextPassword" x:Uid="EdittextPassword"
+                <Button x:Name="moreinfo" Height="32" MinWidth="90" RenderTransformOrigin="2.13,0.797" HorizontalAlignment="Left" Margin="12,8,0,20" 
+                        RelativePanel.AlignBottomWithPanel="True" Content="Scopri come" />
+
+            </RelativePanel>
+
+            <StackPanel RelativePanel.AlignVerticalCenterWithPanel="True" RelativePanel.AlignRightWithPanel="True" Height="380" Width="340" Margin="0,0,100,0"
+                        CornerRadius="8"
+                        Padding="12" x:Name="LoginStackPanel"
+                        BorderThickness="0"
+                        Background="Transparent">
+
+                <TextBlock x:Uid="TextBenvenutoLogin" FontSize="28" TextAlignment="Left" Height="60"
+                           Margin="0,8,0,0" Foreground="{ThemeResource TextFillColorTertiaryBrush}" FontFamily="Segoe UI Variable Semibold" FontWeight="Normal" />
+
+                <Rectangle Height="1" Width="Auto" Fill="{ThemeResource TextFillColorDisabledBrush}"  Margin="0,-40,0,0"/>
+
+                <TextBox x:Name="EdittextUsername" x:Uid="EdittextUsername"
                          Margin="0,0,0,20" />
-            <CheckBox x:Name="CheckboxCredenziali" x:Uid="CheckboxCredenziali"
-                      Margin="0,0,0,20" />
+                <PasswordBox x:Name="EdittextPassword" x:Uid="EdittextPassword"
+                             Margin="0,0,0,20" />
+                <CheckBox x:Name="CheckboxCredenziali" x:Uid="CheckboxCredenziali"
+                          Margin="0,0,0,20" />
 
-            <Button x:Name="buttonLogin" Style="{StaticResource AccentButtonStyle}" x:Uid="LoginButton" Height="32"
-                    MinWidth="90" RenderTransformOrigin="2.13,0.797" HorizontalAlignment="Left" Margin="0,12,0,0"
-                    Click="Button_Click" />
+                <Button x:Name="buttonLogin" Style="{StaticResource AccentButtonStyle}" x:Uid="LoginButton" Height="32"
+                        MinWidth="90" RenderTransformOrigin="2.13,0.797" HorizontalAlignment="Left" Margin="0,8,0,0"
+                        Click="Button_Click" />
+
+                <muxc:ProgressBar x:Name="progresslogin" Width="340" IsIndeterminate="True" Visibility="Collapsed" Margin="0,0,0,0" HorizontalAlignment="Left" />
             
-            <muxc:ProgressRing x:Name="progresslogin" IsActive="True" Visibility="Collapsed" Margin="0,12,0,0" HorizontalAlignment="Left" />
-        </StackPanel>
+            </StackPanel>
 
-
-
-        <StackPanel Orientation="Horizontal" Spacing="8" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,120">
+        <StackPanel Orientation="Horizontal" Spacing="8" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.AlignBottomWithPanel="True" Margin="0,0,0,120">
 
             <HyperlinkButton NavigateUri="http://github.com/Gabboxl/ClassevivaPCTO">
                 <StackPanel Orientation="Horizontal" Spacing="10">
@@ -91,8 +110,8 @@
                                                 Stretch="Uniform"
                                                 Fill="{ThemeResource AccentTextFillColorPrimaryBrush}" />
                     </Grid>
-
                     <TextBlock Text="Aiuto nel Login" />
+                    
                 </StackPanel>
             </HyperlinkButton>
 
@@ -104,7 +123,6 @@
                                                 Stretch="Uniform"
                                                 Fill="{ThemeResource AccentTextFillColorPrimaryBrush}" />
                     </Grid>
-
                     <TextBlock Text="Modifiche recenti" />
                 </StackPanel>
             </HyperlinkButton>
@@ -117,18 +135,19 @@
                                                 Stretch="Uniform"
                                                 Fill="{ThemeResource AccentTextFillColorPrimaryBrush}" />
                     </Grid>
-
                     <TextBlock Text="GitHub" />
                 </StackPanel>
             </HyperlinkButton>
 
         </StackPanel>
-        
-        
+
+        </RelativePanel>
+
         <TextBlock x:Name="VersionTextBlock" Style="{ThemeResource BodyStrongTextBlockStyle}"
                    Foreground="{ThemeResource TextFillColorTertiaryBrush}" VerticalAlignment="Bottom"
-                   HorizontalAlignment="Left" Margin="24,0,0,16" />
+                   HorizontalAlignment="Left" Margin="16" />
 
-        <!--<Button Style="{StaticResource AccentButtonStyle}" Content="Usa account demo" Margin="16" VerticalAlignment="Bottom" HorizontalAlignment="Left"/>-->
+        <Button Content="Account test" Margin="16" VerticalAlignment="Bottom" HorizontalAlignment="Right" Click="demoAccountClick"/>
+        
     </Grid>
 </Page>
