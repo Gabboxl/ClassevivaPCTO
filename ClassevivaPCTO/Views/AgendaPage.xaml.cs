@@ -193,7 +193,6 @@ namespace ClassevivaPCTO.Views
             {
                 var dates = VariousUtils.GetLessonsStartEndDates();
 
-
                 _lessons = await apiWrapper.GetLessons(
                     cardResult.usrId.ToString(),
                     VariousUtils.ToApiDateTime(dates.startDate),

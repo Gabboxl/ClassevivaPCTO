@@ -82,7 +82,7 @@ namespace ClassevivaPCTO.Utils
         public string periodDesc { get; set; }
         public long? componentPos { get; set; }
         public string componentDesc { get; set; }
-        public long? weightFactor { get; set; }
+        public double? weightFactor { get; set; } //todo: tenere conto di questo valore nel calcolo della media?
         public long? skillId { get; set; }
         public long? gradeMasterId { get; set; }
         public string skillDesc { get; set; }
@@ -92,6 +92,7 @@ namespace ClassevivaPCTO.Utils
         public string skillValueShortDesc { get; set; }
         public long? oldskillId { get; set; }
         public string oldskillDesc { get; set; }
+
     }
 
     public class Grades2Result
@@ -129,12 +130,18 @@ namespace ClassevivaPCTO.Utils
         [JsonProperty("expire")] public DateTime expire { get; set; }
     }
 
+    public enum LessonEventCode
+    {
+        LSF0,
+        LSC0,
+        LSS0 
+    }
 
     public class Lesson
     {
         public long? evtId { get; set; }
         public DateTime evtDate { get; set; }
-        public string evtCode { get; set; }
+        public LessonEventCode evtCode { get; set; }
         public long? evtHPos { get; set; }
         public long? evtDuration { get; set; }
         public string classDesc { get; set; }
