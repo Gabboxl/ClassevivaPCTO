@@ -292,7 +292,7 @@ namespace ClassevivaPCTO.Controls
 
                 ContentDialog dialog = new()
                 {
-                    Title = currentNote.evtCode.ToString().GetLocalized("sing") + "AbsenceEventOnDayPreposition".GetLocalizedStr() + currentNote.evtDate.ToString("dd/MM/yyyy"),
+                    Title = currentNote.evtCode.ToString().GetLocalizedStr("sing") + "AbsenceEventOnDayPreposition".GetLocalizedStr() + currentNote.evtDate.ToString("dd/MM/yyyy"),
                     PrimaryButtonText = "CloseDialogButtonText".GetLocalizedStr(),
                     DefaultButton = ContentDialogButton.Primary,
                     RequestedTheme = ((FrameworkElement) Window.Current.Content).RequestedTheme,
