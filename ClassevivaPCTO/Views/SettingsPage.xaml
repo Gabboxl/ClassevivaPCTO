@@ -8,6 +8,7 @@
     xmlns:palette="using:ClassevivaPCTO.Helpers.Palettes"
     xmlns:controls="using:Microsoft.UI.Xaml.Controls"
     xmlns:adapters="using:ClassevivaPCTO.Adapters"
+    xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
     xmlns:converters="using:ClassevivaPCTO.Converters"
     xmlns:controls1="using:CommunityToolkit.WinUI.Controls"
     xmlns:views="using:ClassevivaPCTO.Views"
@@ -174,79 +175,190 @@
                     </ComboBox>
                 </controls1:SettingsCard>
 
-                <controls1:SettingsCard x:Name="ColorSchemeExpander"
+                <controls1:SettingsExpander x:Name="ColorSchemeExpander"
                                    x:Uid="SettingsCardPalette" MinHeight="70">
 
-                    <controls1:SettingsCard.HeaderIcon>
+                    <controls1:SettingsExpander.HeaderIcon>
                         <FontIcon Glyph="&#xE790;" />
-                    </controls1:SettingsCard.HeaderIcon>
+                    </controls1:SettingsExpander.HeaderIcon>
 
-                    <ComboBox SelectedIndex="{x:Bind PaletteType.GetHashCode()}"
-                              x:Name="PaletteComboBox" MinWidth="200"
-                              ItemsSource="{x:Bind ComboPalettes}"
-                              SelectionChanged="PaletteComboBox_OnSelectionChanged">
-                        <ComboBox.ItemTemplate>
-                            <DataTemplate x:DataType="adapters:ComboPaletteAdapter">
-                                <Grid>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="*"></ColumnDefinition>
-                                    </Grid.ColumnDefinitions>
+                    <controls1:SettingsExpander.Items>
+                        <controls1:SettingsCard Header="Scegli palette" Description="Utilizza palette predefinite" MinHeight="50">
+                            <controls1:SettingsCard.HeaderIcon>
+                                <FontIcon Glyph="&#xE790;" />
+                            </controls1:SettingsCard.HeaderIcon>
+                            
+                        <ComboBox SelectedIndex="{x:Bind PaletteType.GetHashCode()}"
+                                  x:Name="PaletteComboBox" MinWidth="200"
+                                  ItemsSource="{x:Bind ComboPalettes}"
+                                  SelectionChanged="PaletteComboBox_OnSelectionChanged">
+                                <ComboBox.ItemTemplate>
+                                    <DataTemplate x:DataType="adapters:ComboPaletteAdapter">
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                            </Grid.ColumnDefinitions>
 
-                                    <Grid>
-                                        <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="Auto"></ColumnDefinition>
-                                            <ColumnDefinition Width="*"></ColumnDefinition>
-                                        </Grid.ColumnDefinitions>
+                                            <Grid>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                                </Grid.ColumnDefinitions>
 
-                                        <TextBlock Text="{x:Bind PaletteNameTranslatedResource}"
-                                                   HorizontalAlignment="Left"
-                                                   VerticalAlignment="Center"
+                                                <TextBlock Text="{x:Bind PaletteNameTranslatedResource}"
+                                                       HorizontalAlignment="Left"
+                                                       VerticalAlignment="Center"
+                                                       Margin="0,0,0,0" />
 
-                                                   Margin="0,0,0,0" />
+                                                <StackPanel Orientation="Horizontal"
+                                                        HorizontalAlignment="Right"
+                                                        Grid.Column="1"
+                                                        VerticalAlignment="Center" Spacing="8"
+                                                        Margin="12,4,0,0">
 
-                                        <StackPanel Orientation="Horizontal"
-                                                    HorizontalAlignment="Right"
-                                                    Grid.Column="1"
-                                                    VerticalAlignment="Center" Spacing="8"
-                                                    Margin="12,4,0,0">
+                                                    <Border Width="20"
+                                                        Height="20"
+                                                        Background="{x:Bind CurrentPalette.ColorRed, Converter={StaticResource ColorToBrushConverter}, Mode=OneWay}"
+                                                        CornerRadius="26"
+                                                        IsTapEnabled="False"
+                                                        x:Uid="SettingsPaletteColorRed" />
 
-                                            <Border Width="20"
-                                                    Height="20"
-                                                    Background="{x:Bind CurrentPalette.ColorRed, Converter={StaticResource ColorToBrushConverter}, Mode=OneWay}"
-                                                    CornerRadius="26"
-                                                    IsTapEnabled="False"
-                                                    x:Uid="SettingsPaletteColorRed" />
+                                                    <Border Width="20"
+                                                        Height="20"
+                                                        Background="{x:Bind CurrentPalette.ColorOrange, Converter={StaticResource ColorToBrushConverter}, Mode=OneWay}"
+                                                        CornerRadius="26"
+                                                        IsTapEnabled="False"
+                                                        x:Uid="SettingsPaletteColorOrange" />
 
-                                            <Border Width="20"
-                                                    Height="20"
-                                                    Background="{x:Bind CurrentPalette.ColorOrange, Converter={StaticResource ColorToBrushConverter}, Mode=OneWay}"
-                                                    CornerRadius="26"
-                                                    IsTapEnabled="False"
-                                                    x:Uid="SettingsPaletteColorOrange" />
+                                                    <Border Width="20"
+                                                        Height="20"
+                                                        Background="{x:Bind CurrentPalette.ColorGreen, Converter={StaticResource ColorToBrushConverter}, Mode=OneWay}"
+                                                        CornerRadius="26"
+                                                        IsTapEnabled="False"
+                                                        x:Uid="SettingsPaletteColorGreen" />
 
-                                            <Border Width="20"
-                                                    Height="20"
-                                                    Background="{x:Bind CurrentPalette.ColorGreen, Converter={StaticResource ColorToBrushConverter}, Mode=OneWay}"
-                                                    CornerRadius="26"
-                                                    IsTapEnabled="False"
-                                                    x:Uid="SettingsPaletteColorGreen" />
+                                                    <Border Width="20"
+                                                        Height="20"
+                                                        Background="{x:Bind CurrentPalette.ColorBlue, Converter={StaticResource ColorToBrushConverter}, Mode=OneWay}"
+                                                        CornerRadius="26"
+                                                        IsTapEnabled="False"
+                                                        x:Uid="SettingsPaletteColorBlue" />
 
-                                            <Border Width="20"
-                                                    Height="20"
-                                                    Background="{x:Bind CurrentPalette.ColorBlue, Converter={StaticResource ColorToBrushConverter}, Mode=OneWay}"
-                                                    CornerRadius="26"
-                                                    IsTapEnabled="False"
-                                                    x:Uid="SettingsPaletteColorBlue" />
+                                                </StackPanel>
 
+                                            </Grid>
+                                        </Grid>
+                                    </DataTemplate>
+                                </ComboBox.ItemTemplate>
+                            </ComboBox>
+                        </controls1:SettingsCard>
+
+                        <controls1:SettingsCard Header="Colore rosso" x:Name="CustomPaletteColorCardRed">
+
+                            <SplitButton CornerRadius="4,4,4,4" BorderThickness="1" Background="Transparent">
+                                <Border Width="20" Height="20" Background="#0000FF"
+                                        CornerRadius="4,4,4,4" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,2,0,0"/>
+                                <SplitButton.Flyout>
+                                    <Flyout Placement="Bottom">
+                                        <!-- flyout content -->
+                                        <StackPanel Orientation="Vertical">
+                                            <ColorPicker
+                                          ColorSpectrumShape="Box"
+                                          IsMoreButtonVisible="False"
+                                          IsColorSliderVisible="True"
+                                          IsColorChannelTextInputVisible="True"
+                                          IsHexInputVisible="True"
+                                          IsAlphaEnabled="False"
+                                          IsAlphaSliderVisible="True"
+                                          IsAlphaTextInputVisible="True" />
+
+                                            <Button Content="Salva" HorizontalAlignment="Right" Margin="0,0,0,20"/>
                                         </StackPanel>
+                                    </Flyout>
+                                </SplitButton.Flyout>
+                            </SplitButton>
+                        </controls1:SettingsCard>
 
-                                    </Grid>
-                                </Grid>
-                            </DataTemplate>
-                        </ComboBox.ItemTemplate>
+                        <controls1:SettingsCard Header="Colore arancione" x:Name="CustomPaletteColorCardOrange">
 
-                    </ComboBox>
-                </controls1:SettingsCard>
+                            <SplitButton CornerRadius="4,4,4,4" BorderThickness="1" Background="Transparent">
+                                <Border Width="20" Height="20" Background="#0000FF"
+                                        CornerRadius="4,4,4,4" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,2,0,0"/>
+                                <SplitButton.Flyout>
+                                    <Flyout Placement="Bottom">
+                                        <!-- flyout content -->
+                                        <StackPanel Orientation="Vertical">
+                                            <ColorPicker
+                                          ColorSpectrumShape="Box"
+                                          IsMoreButtonVisible="False"
+                                          IsColorSliderVisible="True"
+                                          IsColorChannelTextInputVisible="True"
+                                          IsHexInputVisible="True"
+                                          IsAlphaEnabled="False"
+                                          IsAlphaSliderVisible="True"
+                                          IsAlphaTextInputVisible="True" />
+
+                                            <Button Content="Salva" HorizontalAlignment="Right" Margin="0,0,0,20"/>
+                                        </StackPanel>
+                                    </Flyout>
+                                </SplitButton.Flyout>
+                            </SplitButton>
+                        </controls1:SettingsCard>
+
+                        <controls1:SettingsCard Header="Colore verde" x:Name="CustomPaletteColorCardGreen">
+
+                            <SplitButton CornerRadius="4,4,4,4" BorderThickness="1" Background="Transparent">
+                                <Border Width="20" Height="20" Background="#0000FF"
+                                        CornerRadius="4,4,4,4" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,2,0,0"/>
+                                <SplitButton.Flyout>
+                                    <Flyout Placement="Bottom">
+                                        <!-- flyout content -->
+                                        <StackPanel Orientation="Vertical">
+                                            <ColorPicker
+                                          ColorSpectrumShape="Box"
+                                          IsMoreButtonVisible="False"
+                                          IsColorSliderVisible="True"
+                                          IsColorChannelTextInputVisible="True"
+                                          IsHexInputVisible="True"
+                                          IsAlphaEnabled="False"
+                                          IsAlphaSliderVisible="True"
+                                          IsAlphaTextInputVisible="True" />
+                                            <Button Content="Salva" HorizontalAlignment="Right" Margin="0,0,0,20"/>
+                                        </StackPanel>
+                                    </Flyout>
+                                </SplitButton.Flyout>
+                            </SplitButton>
+                        </controls1:SettingsCard>
+
+                        <controls1:SettingsCard Header="Colore blu" x:Name="CustomPaletteColorCardBlue">
+
+                            <SplitButton CornerRadius="4,4,4,4" BorderThickness="1" Background="Transparent">
+                                <Border Width="20" Height="20" Background="#0000FF"
+                                        CornerRadius="4,4,4,4" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,2,0,0"/>
+                                <SplitButton.Flyout>
+                                    <Flyout Placement="Bottom">
+                                        <!-- flyout content -->
+                                        <StackPanel Orientation="Vertical">
+                                            <ColorPicker
+                                          ColorSpectrumShape="Box"
+                                          IsMoreButtonVisible="False"
+                                          IsColorSliderVisible="True"
+                                          IsColorChannelTextInputVisible="True"
+                                          IsHexInputVisible="True"
+                                          IsAlphaEnabled="False"
+                                          IsAlphaSliderVisible="True"
+                                          IsAlphaTextInputVisible="True" />
+
+                                            <Button Content="Salva" HorizontalAlignment="Right" Margin="0,0,0,20"/>
+                                        </StackPanel>
+                                    </Flyout>
+                                </SplitButton.Flyout>
+                            </SplitButton>
+                        </controls1:SettingsCard>
+
+                    </controls1:SettingsExpander.Items>
+                
+                </controls1:SettingsExpander>
 
 
                 <TextBlock Style="{StaticResource SettingsSectionHeaderTextBlockStyle}"

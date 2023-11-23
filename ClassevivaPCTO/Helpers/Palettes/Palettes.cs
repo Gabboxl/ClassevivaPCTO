@@ -50,5 +50,14 @@ namespace ClassevivaPCTO.Helpers.Palettes
             public Color ColorBlue => ColorHelper.ToColor("#1491D3");
             public Color ColorYellow => ColorHelper.ToColor("#EE9B4C");
         }
+
+        public class PaletteCus : IPalette
+        {
+            public Color ColorRed => Colors.DarkSlateGray;
+            public Color ColorOrange => Colors.DarkSlateGray;
+            public Color ColorGreen => Colors.DarkSlateGray;
+            public Color ColorBlue => Colors.DarkSlateGray;
+            public Color ColorYellow => Colors.DarkSlateGray;
+        }
     }
 }
