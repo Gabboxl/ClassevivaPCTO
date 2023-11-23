@@ -62,6 +62,15 @@ namespace ClassevivaPCTO.Utils
         [JsonPropertyName("events")] public List<AbsenceEvent> AbsenceEvents { get; set; }
     }
 
+    public enum GradeEventCode
+    {
+        GRV0, //
+        GRV1, //
+        GRT1, // mai usato
+        GRA1, // mai usato
+        GRV2 // una skill
+
+    }
 
     public class Grade
     {
@@ -69,7 +78,7 @@ namespace ClassevivaPCTO.Utils
         public string subjectCode { get; set; }
         public string subjectDesc { get; set; }
         public long? evtId { get; set; }
-        public string evtCode { get; set; }
+        public GradeEventCode evtCode { get; set; }
         public DateTime evtDate { get; set; }
         public float? decimalValue { get; set; }
         public string displayValue { get; set; }
