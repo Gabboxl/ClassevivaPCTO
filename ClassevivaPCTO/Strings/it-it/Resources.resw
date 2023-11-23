@@ -745,4 +745,10 @@ Gli account studente hanno l'username che inizia con le lettere S, G o X.</value
   <data name="ContinueDialogButton" xml:space="preserve">
     <value>Continua</value>
   </data>
+  <data name="LoginHeroDescription.Text" xml:space="preserve">
+    <value>Scopri come massimizzare la tua produttività scolastica</value>
+  </data>
+  <data name="LoginHeroTitle.Text" xml:space="preserve">
+    <value>Fai di più con ClassevivaPCTO</value>
+  </data>
 </root>

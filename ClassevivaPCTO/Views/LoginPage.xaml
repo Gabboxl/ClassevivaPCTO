@@ -7,12 +7,10 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
     mc:Ignorable="d"
-
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
     muxc:BackdropMaterial.ApplyToRootOrPageBackground="True">
 
     <Grid x:Name="loginGrid">
-
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="48" />
@@ -65,9 +63,9 @@
                 </Image>
 
                 <TextBlock x:Name="TextHeader" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignTopWithPanel="True" Margin="12,8,0,0"
-                           Text="Fai di più con ClassevivaPCTO" FontWeight="SemiBold" FontSize="24"/>
-                <TextBlock RelativePanel.Below="TextHeader" RelativePanel.AlignLeftWithPanel="True" Margin="12,8,0,0"
-                           Text="Scopri come massimizzare la tua produttività scolastica" FontWeight="Medium" FontSize="16" Foreground="{ThemeResource TextFillColorSecondaryBrush}"/>
+                           x:Uid="LoginHeroTitle" FontWeight="SemiBold" FontSize="24" TextWrapping="WrapWholeWords"/>
+                <TextBlock RelativePanel.Below="TextHeader" RelativePanel.AlignLeftWithPanel="True" Margin="12,8,0,0" TextWrapping="WrapWholeWords"
+                           x:Uid="LoginHeroDescription" FontWeight="Medium" FontSize="16" Foreground="{ThemeResource TextFillColorSecondaryBrush}"/>
 
                 <Button x:Name="moreinfo" Height="32" MinWidth="90" RenderTransformOrigin="2.13,0.797" HorizontalAlignment="Left" Margin="12,8,0,20" 
                         RelativePanel.AlignBottomWithPanel="True" Content="Scopri come" />
@@ -83,7 +81,7 @@
                 <TextBlock x:Uid="TextBenvenutoLogin" FontSize="28" TextAlignment="Left" Height="60"
                            Margin="0,8,0,0" Foreground="{ThemeResource TextFillColorTertiaryBrush}" FontFamily="Segoe UI Variable Semibold" FontWeight="Normal" />
 
-                <Rectangle Height="1" Width="Auto" Fill="{ThemeResource TextFillColorDisabledBrush}"  Margin="0,-40,0,0"/>
+                <Rectangle Height="1" Width="Auto" Fill="{ThemeResource TextFillColorDisabledBrush}" Margin="0,-40,0,0"/>
 
                 <TextBox x:Name="EdittextUsername" x:Uid="EdittextUsername"
                          Margin="0,0,0,20" />
@@ -115,7 +113,7 @@
                 </StackPanel>
             </HyperlinkButton>
 
-            <HyperlinkButton NavigateUri="https://github.com/Gabboxl/ClassevivaPCTO/releases">
+            <HyperlinkButton NavigateUri="https://github.com/Gabboxl/ClassevivaPCTO/releases/latest">
                 <StackPanel Orientation="Horizontal" Spacing="10">
                     <Grid Width="18" Height="18">
                         <Path
