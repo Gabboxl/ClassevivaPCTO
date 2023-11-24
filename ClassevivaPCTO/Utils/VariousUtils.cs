@@ -55,11 +55,11 @@ namespace ClassevivaPCTO.Utils
 
             foreach (Grade voto in voti)
             {
-                float? valoreDaSommare = VariousUtils.GradeToFloat(voto);
+                float? valoreDaSommare = GradeToFloat(voto);
 
-                if (valoreDaSommare != null)
+                if (valoreDaSommare != null && voto.evtCode is GradeEventCode.GRV0 or GradeEventCode.GRV1 or GradeEventCode.GRV2)
                 {
-                    somma += (float) valoreDaSommare;
+                    somma += (float) valoreDaSommare * (float) voto.weightFactor!;
 
                     numVoti++;
                 }
