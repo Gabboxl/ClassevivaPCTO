@@ -91,11 +91,11 @@
                             <TextBlock x:Name="NomeCognome" Text="{Binding FirstName}" FontSize="32"
                                        FontWeight="SemiBold"
                                        RelativePanel.AlignTopWithPanel="True"
-                                       Margin="0,0,0,0" />
+                                       Margin="0,0,0,0" TextWrapping="WrapWholeWords" />
 
                             <TextBlock x:Name="CodiceStudente"
                                        RelativePanel.Below="NomeCognome"
-                                       FontSize="14"
+                                       FontSize="14" TextWrapping="WrapWholeWords"
                                        FontWeight="Medium"
                                        Margin="0,10,0,0" Foreground="{ThemeResource TextFillColorTertiaryBrush}">
                                 <Run x:Uid="SettingsAccountStudentCode" /><Run Text="{Binding Codice}" />
@@ -103,7 +103,7 @@
 
                             <TextBlock x:Name="Scuola"
                                        RelativePanel.Below="CodiceStudente"
-                                       FontSize="14"
+                                       FontSize="14" TextWrapping="WrapWholeWords"
                                        FontWeight="Medium"
                                        Margin="0,8,0,0" Foreground="{ThemeResource TextFillColorTertiaryBrush}">
                                 <Run x:Uid="SettingsAccountSchool" /> <Run Text="{Binding Scuola}" />
