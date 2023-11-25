@@ -160,32 +160,9 @@ If you encounter bugs or have an idea for the app, open an issue on GitHub by cl
   </data>
   <data name="WhatsNewDialog.PrimaryButtonText" xml:space="preserve">
     <value>Close</value>
-    <comment>What's new prompt message primary button text</comment>
   </data>
   <data name="WhatsNewDialog.Title" xml:space="preserve">
     <value>What’s new in this version</value>
-    <comment>What's new prompt message title</comment>
-  </data>
-  <data name="WhatsNew_Body_Main.Text" xml:space="preserve">
-    <value>• Improved the Login page interface
-• Fixed some errors related to language switching and optimized translations
-• Notes will now appear in today's events
-• Updated the design of the Notice Board widget in the Dashboard
-• Updated the design of category titles on the Notice board, Absences, Notes and Ballots pages
-• Added the ability to view GitHub contributors and licenses in the Tips section</value>
-    <comment>What's new prompt message body for highlights section</comment>
-  </data>
-  <data name="WhatsNew_Body_1.Text" xml:space="preserve">
-    <value>• The account section is now integrated into Settings
-• Added the ability to view the app changelog
-• From now on the initial experience will also be visible from Settings - this will be changed in the future to include tips and advice on how to use the app at your best
-• Added a section for Github contributors and Licences</value>
-    <comment>What's new prompt message body for first section (General)</comment>
-  </data>
-  <data name="WhatsNew_Body_2.Text" xml:space="preserve">
-    <value>• Added the ability to change and move widgets displayed in the dashboard
-• New widget: Quick Links - allows you to save up to 5 Internet links that you can quickly open from the app, such as your school website, Classroom or your school email</value>
-    <comment>What's new prompt message body for second section (Dashboard)</comment>
   </data>
   <data name="SettingsAccountHeader.Text" xml:space="preserve">
     <value>Account</value>
@@ -389,22 +366,6 @@ Error: </value>
   <data name="PALETTE_NAT" xml:space="preserve">
     <value>Nature</value>
   </data>
-  <data name="WhatsNew_Body_3.Text" xml:space="preserve">
-    <value>• Added ability to resize popups
-• Events in the "Agenda" section and in the "Tasks" section are now distinguishable by a specific icon
-• Interface improvements</value>
-    <comment>What's new prompt message body for third section (Agenda)</comment>
-  </data>
-  <data name="WhatsNew_Body_4.Text" xml:space="preserve">
-    <value>• Updated the design of the averages sections
-• Subjects / teaching periods without grades will now have the N/A placeholder
-• Added a distinction between the first and second quarter in the selection of the teaching period; this only applies to schools that do not use the quarter/five-month system</value>
-    <comment>What's new prompt message body for fourth section (Valutazioni)</comment>
-  </data>
-  <data name="WhatsNew_Body_5.Text" xml:space="preserve">
-    <value>•  Added a filter for read/unread notices</value>
-    <comment>What's new prompt message body for fifth section (Bacheca)</comment>
-  </data>
   <data name="SettingsAccountChangePhoto.Text" xml:space="preserve">
     <value>Change photo</value>
   </data>
@@ -442,7 +403,7 @@ Error: </value>
     <value>Highlights</value>
   </data>
   <data name="WhatsNewDialogRelease.Text" xml:space="preserve">
-    <value>v1.1.0, 21 October 2023</value>
+    <value>v1.2.0, 25 Novembre 2023</value>
   </data>
   <data name="AgendaTomorrowButton.ToolTipService.ToolTip" xml:space="preserve">
     <value>Next day</value>
@@ -509,9 +470,6 @@ Error: </value>
   </data>
   <data name="NoticeAdapter_StatusText_Scaduta" xml:space="preserve">
     <value>Expired</value>
-  </data>
-  <data name="NoticeBoardNotAvailableStatusButton" xml:space="preserve">
-    <value>Not available</value>
   </data>
   <data name="AreYouSure" xml:space="preserve">
     <value>Are you sure?</value>
@@ -734,5 +692,8 @@ Error: </value>
   </data>
   <data name="ScrutiniSaveFileButton.ToolTipService.ToolTip" xml:space="preserve">
     <value>Save ballot file on your PC</value>
+  </data>
+  <data name="NoticeBoardNotAvailableButton.Text" xml:space="preserve">
+    <value>Non disponibile</value>
   </data>
 </root>
