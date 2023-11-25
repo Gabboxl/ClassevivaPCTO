@@ -55,7 +55,7 @@
                             Maximum="100"
                             Width="45"
                             Height="45"
-                            Background="{ThemeResource ControlFillColorSecondaryBrush}" />
+                            Background="#545454" />
 
                         <TextBlock
                             Text="{x:Bind Average, Converter={StaticResource NanToNdConverter}}"
@@ -207,7 +207,7 @@
                             Maximum="100"
                             Width="80"
                             Height="80"
-                            Background="{ThemeResource ControlFillColorSecondaryBrush}" />
+                            Background="#545454" />
 
                         <labs:Shimmer Visibility="{x:Bind ValutazioniViewModel.ShowShimmers, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" 
                                       Width="30" Height="20" Margin="0,2,0,0" />
@@ -277,7 +277,7 @@
                             Maximum="100"
                             Width="80"
                             Height="80"
-                            Background="{ThemeResource ControlFillColorSecondaryBrush}" />
+                            Background="#545454" />
 
                         <labs:Shimmer Visibility="{x:Bind ValutazioniViewModel.ShowShimmers, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" 
                                       Width="30" Height="20" Margin="0,2,0,0" />
@@ -346,7 +346,7 @@
                             Maximum="100"
                             Width="80"
                             Height="80"
-                            Background="{ThemeResource ControlFillColorSecondaryBrush}" />
+                            Background="#545454" />
 
                         <labs:Shimmer Visibility="{x:Bind ValutazioniViewModel.ShowShimmers, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" 
                                       Width="30" Height="20" Margin="0,2,0,0" />
