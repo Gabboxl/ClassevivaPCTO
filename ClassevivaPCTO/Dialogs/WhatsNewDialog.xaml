@@ -29,10 +29,10 @@
     </ContentDialog.TitleTemplate>
     
     <ScrollViewer Height="350" Width="720">
+
         <StackPanel>
-
-            <Image Source="/Assets/storescreenshot.png" Stretch="Uniform" Height="350" Width="750" Margin="-20,-50,0,-70"/>
-
+            
+            <Image Source="/Assets/storescreenshot.png" Stretch="Uniform" Height="350" Width="770" Margin="-24,-50,0,-70"/>
 
             <TextBlock Margin="0,4,0,0" x:Uid="WhatsNewDialogHighlights" TextWrapping="WrapWholeWords" FontSize="24"
                        FontWeight="SemiBold" /> <!--In evidenza-->
