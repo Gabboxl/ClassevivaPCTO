@@ -117,4 +117,44 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="ChangelogAbsencesSection" xml:space="preserve">
+    <value>•  Rifatta l'UI da zero</value>
+    <comment>Sezione  "Assenze" del changelog</comment>
+  </data>
+  <data name="ChangelogAgendaSection" xml:space="preserve">
+    <value>•  Aggiunta la possibilità di ridimensionare i popup
+•  Gli eventi nella sezione "Agenda" e nella sezione "Compiti" sono da adesso distinguibili tramite un'icona apposita
+•  Miglioramenti all'interfaccia</value>
+    <comment>Sezione "Agenda" del changelog</comment>
+  </data>
+  <data name="ChangelogDashboardSection" xml:space="preserve">
+    <value>•  Aggiunta la possibilità di cambiare e spostare i widget visualizzati nella dashboard
+•  Nuovo widget: Collegamenti rapidi - permette di salvare fino a 5 collegamenti Internet da poter aprire rapidamente dall'app, come il sito della tua scuola, Classroom o la tua posta elettronica d'istituto</value>
+    <comment>Sezione "Dashboard" del changelog</comment>
+  </data>
+  <data name="ChangelogGeneralSection" xml:space="preserve">
+    <value>•  La sezione account è adesso integrata nelle Impostazioni
+•  Aggiunta la possibilità di visualizzare le modifiche recenti apportate all'app
+•  Da adesso il tutorial iniziale sarà visibile anche dalle Impostazioni - questo verrà modificato in futuro per includere suggerimenti e consigli su come usare al meglio l'app
+•  Aggiunta una sezione per i contributors di Github</value>
+    <comment>Sezione "Generali" del changelog</comment>
+  </data>
+  <data name="ChangelogGradesSection" xml:space="preserve">
+    <value>•  Aggiornato il design della sezione medie
+•  Le materie / periodi didattici senza voti da adesso presenteranno il placeholder N/D
+•  Aggiunta una distizione tra primo e secondo quadrimestre nella selezione del periodo didattico; ciò vale solo per le scuole che non utilizzano il sistema trimestre/pentamestre</value>
+    <comment>Sezione "Valutazioni" del changelog</comment>
+  </data>
+  <data name="ChangelogHighlighsSection" xml:space="preserve">
+    <value>•  Migliorata la dimensione dei widget nella Dashboard
+•  Aggiornato il design della pagina Valutazioni
+•  Corretti alcuni errori che causavano il crash dell'App
+•  Miglioramenti generali all'interfaccia
+•  Aggiornate le traduzioni</value>
+    <comment>Sezione "In evidenza" del changelog</comment>
+  </data>
+  <data name="ChangelogNoticeBoardSection" xml:space="preserve">
+    <value>•  Aggiunto un filtro per le comunicazioni lette/non lette</value>
+    <comment>Sezione "Bacheca" del changelog</comment>
+  </data>
 </root>

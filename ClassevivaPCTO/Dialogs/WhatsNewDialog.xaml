@@ -36,40 +36,48 @@
 
             <TextBlock Margin="0,4,0,0" x:Uid="WhatsNewDialogHighlights" TextWrapping="WrapWholeWords" FontSize="24"
                        FontWeight="SemiBold" /> <!--In evidenza-->
-            <TextBlock Margin="0,12,15,0" x:Uid="WhatsNew_Body_Main" TextWrapping="WrapWholeWords" FontSize="15"
+            <TextBlock Margin="0,12,15,0" x:Name="Highlights"  TextWrapping="WrapWholeWords" FontSize="15"
                        IsTextSelectionEnabled="True" Foreground="{ThemeResource TextFillColorTertiaryBrush}"
                        FontWeight="SemiBold" LineHeight="26" />
             
-            <!--<TextBlock Margin="0,0,0,0" x:Uid="SettingsGeneralHeader" TextWrapping="WrapWholeWords" FontSize="24"
-                       FontWeight="SemiBold" /> --><!--Generali--><!--
-            <TextBlock Margin="0,15,15,0" x:Uid="WhatsNew_Body_1" TextWrapping="WrapWholeWords" FontSize="15"
+            <RelativePanel Visibility="Collapsed">
+            <TextBlock Margin="0,0,0,0" x:Uid="SettingsGeneralHeader" TextWrapping="WrapWholeWords" FontSize="24"
+                       FontWeight="SemiBold" /> <!--Generali-->
+            <TextBlock Margin="0,15,15,0" x:Name="General" TextWrapping="WrapWholeWords" FontSize="15"
                        IsTextSelectionEnabled="True" Foreground="{ThemeResource TextFillColorTertiaryBrush}"
-                       FontWeight="SemiBold" LineHeight="26" />-->
+                       FontWeight="SemiBold" LineHeight="26" />
             
-            <!-- <TextBlock Margin="0,0,0,0" Text="Dashboard" TextWrapping="WrapWholeWords" FontSize="24"
-                       FontWeight="SemiBold" /> -->
-            <!-- <TextBlock Margin="0,15,15,0" x:Uid="WhatsNew_Body_2" TextWrapping="WrapWholeWords" FontSize="15"
+            <TextBlock Margin="0,0,0,0" Text="Dashboard" TextWrapping="WrapWholeWords" FontSize="24"
+                       FontWeight="SemiBold" /> <!--Dashboard-->
+            <TextBlock Margin="0,15,15,0" x:Name="Dashboard" TextWrapping="WrapWholeWords" FontSize="15"
                        IsTextSelectionEnabled="True" Foreground="{ThemeResource TextFillColorTertiaryBrush}"
-                       FontWeight="SemiBold" LineHeight="26" /> -->
+                       FontWeight="SemiBold" LineHeight="26" />
             
-            <!--<TextBlock Margin="0,20,0,0" x:Uid="AgendaTitle" TextWrapping="WrapWholeWords" FontSize="24"
-                       FontWeight="SemiBold" /> --><!--Agenda--><!--
-            <TextBlock Margin="0,15,15,0" x:Uid="WhatsNew_Body_3" TextWrapping="WrapWholeWords" FontSize="15"
+            <TextBlock Margin="0,20,0,0" x:Uid="AgendaTitle" TextWrapping="WrapWholeWords" FontSize="24"
+                       FontWeight="SemiBold" /> <!--Agenda-->
+            <TextBlock Margin="0,15,15,0" x:Name="Agenda" TextWrapping="WrapWholeWords" FontSize="15"
                        IsTextSelectionEnabled="True" Foreground="{ThemeResource TextFillColorTertiaryBrush}"
                        FontWeight="SemiBold" LineHeight="26" />
             
             <TextBlock Margin="0,20,0,0" x:Uid="GradesTitle" TextWrapping="WrapWholeWords" FontSize="24"
-                       FontWeight="SemiBold" /> --><!--Valutazioni--><!--
-            <TextBlock Margin="0,15,15,0" x:Uid="WhatsNew_Body_4" TextWrapping="WrapWholeWords" FontSize="15"
+                       FontWeight="SemiBold" /> <!--Valutazioni-->
+            <TextBlock Margin="0,15,15,0" x:Name="Grades" TextWrapping="WrapWholeWords" FontSize="15"
+                       IsTextSelectionEnabled="True" Foreground="{ThemeResource TextFillColorTertiaryBrush}"
+                       FontWeight="SemiBold" LineHeight="26" />
+
+            <TextBlock Margin="0,20,0,0" x:Uid="AbsencesTitle" TextWrapping="WrapWholeWords" FontSize="24"
+                       FontWeight="SemiBold" /> <!--Bacheca-->
+            <TextBlock Margin="0,15,15,20" x:Name="Absences" TextWrapping="WrapWholeWords" FontSize="15"
                        IsTextSelectionEnabled="True" Foreground="{ThemeResource TextFillColorTertiaryBrush}"
                        FontWeight="SemiBold" LineHeight="26" />
 
             <TextBlock Margin="0,20,0,0" x:Uid="NoticeBoardTitle" TextWrapping="WrapWholeWords" FontSize="24"
-                       FontWeight="SemiBold" /> 
-            <TextBlock Margin="0,15,15,20" x:Uid="WhatsNew_Body_5" TextWrapping="WrapWholeWords" FontSize="15"
+                       FontWeight="SemiBold" /> <!--Bacheca-->
+            <TextBlock Margin="0,15,15,20" x:Name="NoticeBoard" TextWrapping="WrapWholeWords" FontSize="15"
                        IsTextSelectionEnabled="True" Foreground="{ThemeResource TextFillColorTertiaryBrush}"
-                       FontWeight="SemiBold" LineHeight="26" />-->
-
+                       FontWeight="SemiBold" LineHeight="26" />
+            </RelativePanel>
+        
             <HyperlinkButton x:Name="WhatsNewHyperlink" Margin="0,12,0,0"
                              NavigateUri="https://github.com/Gabboxl/ClassevivaPCTO/releases/latest">
                 <StackPanel Orientation="Horizontal" Spacing="10">
