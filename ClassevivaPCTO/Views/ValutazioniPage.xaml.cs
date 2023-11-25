@@ -196,9 +196,9 @@ namespace ClassevivaPCTO.Views
             else
             {
                 SegmentedLayout.IsEnabled = false;
+                SegmentedLayout.SelectedIndex = 1;
                 MainListView.Visibility = Visibility.Visible;
                 GradesOnlyListView.Visibility = Visibility.Collapsed;
-
 
                 var periodGrades = _mergedPeriodList[periodIndex - 1].Subjects;
 
