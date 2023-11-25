@@ -199,7 +199,6 @@ namespace ClassevivaPCTO.Views
                 MainListView.Visibility = Visibility.Visible;
                 GradesOnlyListView.Visibility = Visibility.Collapsed;
 
-
                 var periodGrades = _mergedPeriodList[periodIndex - 1].Subjects;
 
                 //create a list of SubjectAdapter for every subject in periodGrades
