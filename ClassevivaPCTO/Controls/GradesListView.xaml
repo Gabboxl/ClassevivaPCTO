@@ -159,13 +159,13 @@
             <FontIcon x:Name="VotiPlaceholderIcon" FontFamily="{StaticResource FluentIcons}" Glyph="&#xe9f9;"
                       Foreground="{ThemeResource TextFillColorDisabledBrush}"
                       RelativePanel.AlignHorizontalCenterWithPanel="True"
-                      FontSize="100"
+                      FontSize="112"
                       Margin="0,0,0,0" />
 
             <TextBlock RelativePanel.Below="VotiPlaceholderIcon"
                        RelativePanel.AlignHorizontalCenterWithPanel="True"
                        Foreground="{ThemeResource TextFillColorDisabledBrush}"
-                       Margin="0,0,0,0"
+                       Margin="0,0,0,0" TextWrapping="WrapWholeWords"
                        FontWeight="SemiBold"
                        x:Uid="GradesPlaceholder" FontSize="36" VerticalAlignment="Center"
                        HorizontalAlignment="Center" />

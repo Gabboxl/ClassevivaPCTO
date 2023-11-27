@@ -168,13 +168,13 @@
             <FontIcon x:Name="LezioniPlaceholderIcon" FontFamily="{StaticResource FluentIcons}" Glyph="&#xe7be;"
                       Foreground="{ThemeResource TextFillColorDisabledBrush}"
                       RelativePanel.AlignHorizontalCenterWithPanel="True"
-                      FontSize="100"
+                      FontSize="112"
                       Margin="0,0,0,0" />
 
             <TextBlock RelativePanel.Below="LezioniPlaceholderIcon"
                        RelativePanel.AlignHorizontalCenterWithPanel="True"
                        Foreground="{ThemeResource TextFillColorDisabledBrush}"
-                       Margin="0,0,0,0"
+                       Margin="0,0,0,0" TextWrapping="WrapWholeWords"
                        FontWeight="SemiBold"
                        x:Uid="AgendaLessonsPlaceholder" FontSize="36" VerticalAlignment="Center"
                        HorizontalAlignment="Center" />
