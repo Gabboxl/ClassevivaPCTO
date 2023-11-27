@@ -229,7 +229,7 @@ namespace ClassevivaPCTO.Views
 
             //wait for all tasks to complete (also useful to get and rethrow exceptions that happened inside the tasks)
             Task taskall = Task.WhenAll(task1, task2, task3, task4);
-
+            
             try
             {
                 await taskall;
