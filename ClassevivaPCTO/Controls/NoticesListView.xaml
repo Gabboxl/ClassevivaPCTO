@@ -131,18 +131,14 @@
                         Style="{ThemeResource TextButtonStyle}">
                         <Button.Content>
                             <StackPanel Orientation="Horizontal">
-                                <FontIcon FontFamily="{StaticResource FluentIcons}" Glyph="&#xE894;" />
+                                <FontIcon FontFamily="{StaticResource FluentIcons}" Glyph="&#xE894;" Margin="0,3,0,0" />
                                 <TextBlock x:Uid="NoticeBoardNotAvailableButton" Margin="6,0,0,0" />
                             </StackPanel>
                         </Button.Content>
                     </Button>
 
-
                 </RelativePanel>
-
             </Grid>
-
-
         </DataTemplate>
     </UserControl.Resources>
 
@@ -159,9 +155,7 @@
                   HorizontalAlignment="Stretch"
                   HorizontalContentAlignment="Stretch"
                   ItemTemplate="{StaticResource NoticeListViewDataTemplate}"
-                  ItemContainerStyle="{StaticResource ListViewFullStretchStyle}">
-
-        </ListView>
+                  ItemContainerStyle="{StaticResource ListViewFullStretchStyle}" />
 
         <RelativePanel
             VerticalAlignment="Center"
@@ -171,18 +165,17 @@
             <FontIcon x:Name="BachecaPlaceholderIcon" FontFamily="{StaticResource FluentIcons}" Glyph="&#xe718;"
                       Foreground="{ThemeResource TextFillColorDisabledBrush}"
                       RelativePanel.AlignHorizontalCenterWithPanel="True"
-                      FontSize="124"
+                      FontSize="112"
                       Margin="0,0,0,0" />
 
             <TextBlock RelativePanel.Below="BachecaPlaceholderIcon"
                        RelativePanel.AlignHorizontalCenterWithPanel="True"
                        Foreground="{ThemeResource TextFillColorDisabledBrush}"
-                       Margin="0,8,0,0"
+                       Margin="0,8,0,0" TextWrapping="WrapWholeWords"
                        FontWeight="SemiBold"
                        x:Uid="NoticeBoardPlaceholder" FontSize="36" VerticalAlignment="Center"
                        HorizontalAlignment="Center" />
         </RelativePanel>
-
 
     </Grid>
 </UserControl>

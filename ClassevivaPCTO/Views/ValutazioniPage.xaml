@@ -43,7 +43,7 @@
                                         HorizontalContentAlignment="Stretch"
                                         Header="{x:Bind Subject.description}"
                                         Description="{x:Bind Teachers}"
-                                        HeaderIcon="{x:Bind AverageVariationIcon}">
+                                        HeaderIcon="{x:Bind AverageVariationIcon}" >
                     <Grid>
                         <muxc:ProgressRing
                             HorizontalAlignment="Center"
@@ -66,6 +66,7 @@
                             Margin="0,0,0,0" />
 
                     </Grid>
+                    
                     <controls:SettingsExpander.Items>
                         <controls:SettingsCard HorizontalContentAlignment="Stretch"
                                             ContentAlignment="Vertical"
@@ -73,26 +74,22 @@
 
                             <Grid
                                 HorizontalAlignment="Stretch">
-                                <Grid.ColumnDefinitions> 
+                                <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="*"></ColumnDefinition>
                                 </Grid.ColumnDefinitions>
 
                                 <controls2:GradesListView x:Name="ListViewVoti"
                                                           EnableEmptyAlert="True"
                                                           ItemsSource="{x:Bind SubjectGrades}"
-                                                          HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-
-                                </controls2:GradesListView>
+                                                          HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
 
                             </Grid>
                         </controls:SettingsCard>
                     </controls:SettingsExpander.Items>
                 </controls:SettingsExpander>
+                
             </Grid>
-
         </DataTemplate>
-
-
     </Page.Resources>
 
     <Grid>
@@ -131,7 +128,6 @@
                     x:Uid="RefreshButton">
                 <FontIcon Glyph="&#xE72C;" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" />
             </Button>
-
 
             <Rectangle x:Name="Separatore_Bacheca" RelativePanel.LeftOf="SegmentedLayout"
                        RelativePanel.AlignVerticalCenterWithPanel="True"
@@ -189,7 +185,6 @@
                     <ColumnDefinition Width="*"></ColumnDefinition>
                     <ColumnDefinition Width="*"></ColumnDefinition>
                     <ColumnDefinition Width="*"></ColumnDefinition>
-
                 </Grid.ColumnDefinitions>
 
                 <Grid
@@ -197,7 +192,6 @@
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto"></ColumnDefinition>
                         <ColumnDefinition Width="*"></ColumnDefinition>
-
                     </Grid.ColumnDefinitions>
 
                     <Grid 
@@ -216,7 +210,7 @@
                             Background="#545454" />
 
                         <labs:Shimmer Visibility="{x:Bind ValutazioniViewModel.ShowShimmers, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" 
-                                      Width="30" Height="24" Margin="0,2,0,0" />
+                                      Width="30" Height="20" Margin="0,2,0,0" />
 
                         <TextBlock
                             x:Name="MediaTotText"
@@ -267,7 +261,6 @@
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto"></ColumnDefinition>
                         <ColumnDefinition Width="*"></ColumnDefinition>
-
                     </Grid.ColumnDefinitions>
 
                     <Grid
@@ -287,7 +280,7 @@
                             Background="#545454" />
 
                         <labs:Shimmer Visibility="{x:Bind ValutazioniViewModel.ShowShimmers, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" 
-                                      Width="30" Height="24" Margin="0,2,0,0" />
+                                      Width="30" Height="20" Margin="0,2,0,0" />
 
                         <TextBlock
                             x:Name="MediaPrimoPeriodoText"
@@ -337,7 +330,6 @@
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto"></ColumnDefinition>
                         <ColumnDefinition Width="*"></ColumnDefinition>
-
                     </Grid.ColumnDefinitions>
 
                     <Grid
@@ -357,7 +349,7 @@
                             Background="#545454" />
 
                         <labs:Shimmer Visibility="{x:Bind ValutazioniViewModel.ShowShimmers, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" 
-                                      Width="30" Height="24" Margin="0,2,0,0" />
+                                      Width="30" Height="20" Margin="0,2,0,0" />
 
                         <TextBlock
                             x:Name="MediaSecondoPeriodoText"

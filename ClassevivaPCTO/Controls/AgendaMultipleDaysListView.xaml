@@ -191,13 +191,13 @@
             <FontIcon x:Name="CompitiPlaceholderIcon" FontFamily="{StaticResource FluentIcons}" Glyph="&#xEA98;"
                       Foreground="{ThemeResource TextFillColorDisabledBrush}"
                       RelativePanel.AlignHorizontalCenterWithPanel="True"
-                      FontSize="124"
+                      FontSize="112"
                       Margin="0,0,0,0" />
 
             <TextBlock RelativePanel.Below="CompitiPlaceholderIcon"
                        RelativePanel.AlignHorizontalCenterWithPanel="True"
                        Foreground="{ThemeResource TextFillColorDisabledBrush}"
-                       Margin="0,0,0,0"
+                       Margin="0,0,0,0" TextWrapping="WrapWholeWords"
                        FontWeight="SemiBold"
                        x:Uid="AgendaTasksPlaceholder" FontSize="36" VerticalAlignment="Center"
                        HorizontalAlignment="Center" />

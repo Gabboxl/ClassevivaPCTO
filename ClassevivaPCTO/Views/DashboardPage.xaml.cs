@@ -88,7 +88,6 @@ namespace ClassevivaPCTO.Views
                         };
 
                         OverviewListView.ItemsSource = overviewData;
-
                         DashboardPageViewModel.IsLoadingAgenda = false;
                     }
                 );
@@ -117,7 +116,7 @@ namespace ClassevivaPCTO.Views
                     .GetGrades(cardResult.usrId.ToString())
                     .ConfigureAwait(false);
 
-                var fiveMostRecent = result1.Grades.OrderByDescending(x => x.evtDate).Take(4);
+                var fiveMostRecent = result1.Grades.OrderByDescending(x => x.evtDate).Take(5);
 
                 //update UI on UI thread
                 await CoreApplication.MainView.Dispatcher.RunAsync(
@@ -163,7 +162,6 @@ namespace ClassevivaPCTO.Views
                         // Stampiamo la media dei voti
                         TextBlockMedia.Text = media.ToString("0.00");
                         TextBlockMedia.Visibility = Visibility.Visible;
-
                         DashboardPageViewModel.IsLoadingMedia = false;
                     }
                 );
@@ -196,7 +194,7 @@ namespace ClassevivaPCTO.Views
                 var fiveMostRecent = resultNotices.Notices
                     .Where(x => x.cntValidInRange)
                     .OrderByDescending(x => x.cntValidFrom)
-                    .Take(4);
+                    .Take(5);
 
                 //update UI on UI thread
                 await CoreApplication.MainView.Dispatcher.RunAsync(
