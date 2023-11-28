@@ -2,7 +2,6 @@
     x:Class="ClassevivaPCTO.Views.AssenzePage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:ClassevivaPCTO"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:controls="using:ClassevivaPCTO.Controls"
@@ -33,7 +32,6 @@
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
                         <Setter Target="MyUniformGrid.Columns" Value="2" />
-
                     </VisualState.Setters>
                 </VisualState>
                 <VisualState x:Name="NarrowState">
@@ -42,116 +40,93 @@
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
                         <Setter Target="MyUniformGrid.Columns" Value="1" />
-
                     </VisualState.Setters>
                 </VisualState>
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
 
-
         <RelativePanel Grid.Row="0" Margin="0,16,0,16">
+            
             <TextBlock x:Name="TextTitolo" x:Uid="AbsencesTitle"
-                       Style="{StaticResource TitleLargeTextBlockStyle}" VerticalAlignment="Top"
-                       Margin="32,0,0,0" />
+                       Margin="32,0,0,0" VerticalAlignment="Top"
+                       Style="{StaticResource TitleLargeTextBlockStyle}" />
 
-            <muxc:ProgressRing IsActive="True" x:Name="ProgressRingBacheca"
+            <muxc:ProgressRing x:Name="ProgressRingBacheca" Width="28"
+                               Height="28" Margin="16,0,0,0"
+                               IsActive="True" RelativePanel.AlignVerticalCenterWith="TextTitolo"
                                RelativePanel.RightOf="TextTitolo"
-                               RelativePanel.AlignVerticalCenterWith="TextTitolo"
-                               Margin="16,0,0,0" Width="28" Height="28"
                                Visibility="{x:Bind AssenzeViewModel.IsLoadingAssenze, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" />
 
-            <Button x:Name="AggiornaCommand" Click="AggiornaCommand_Click"
-                    RelativePanel.AlignVerticalCenterWith="TextTitolo" 
-                    RelativePanel.AlignRightWithPanel="True"
-                    Margin="0,0,20,0"
-                    Height="32" Width="48" x:Uid="RefreshButton">
-                <FontIcon Glyph="&#xE72C;" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" />
+            <Button x:Name="AggiornaCommand" x:Uid="RefreshButton"
+                    Width="48" Height="32"
+                    Margin="0,0,20,0" Click="AggiornaCommand_Click"
+                    RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignVerticalCenterWith="TextTitolo">
+                
+                <FontIcon HorizontalAlignment="Center" VerticalAlignment="Center"
+                          FontSize="16" Glyph="&#xE72C;" />
             </Button>
+            
         </RelativePanel>
 
-
-        <ScrollViewer
-            Grid.Row="1">
+        <ScrollViewer Grid.Row="1">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
-            
-                <comToolkit:StaggeredPanel
-                    DesiredColumnWidth="500"
-                    ScrollViewer.VerticalScrollMode="Enabled"
-                    HorizontalAlignment="Stretch"
-                    RowSpacing="12"
-                    ColumnSpacing="12"
-                    Margin="0,0,0,0">
 
-                <Grid
-                    Margin="18,0,8,16"
-                    x:Name="CardPanel"
-                    CornerRadius="8"
-                    Padding="12"
-                    BorderThickness="1"
-                    BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
-                    Background="{ThemeResource CardBackgroundFillColorDefaultBrush}">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="*" />
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*" />
-                    </Grid.ColumnDefinitions>
+                <comToolkit:StaggeredPanel Margin="0,0,0,0" HorizontalAlignment="Stretch"
+                                           ColumnSpacing="12" DesiredColumnWidth="500"
+                                           RowSpacing="12" ScrollViewer.VerticalScrollMode="Enabled">
 
-                    <controls:AbsencesListView x:Name="AbsencesToJustifyListView" Grid.Row="2"
-                                               EnableStickyHeader="True"
-                                               EnableEmptyAlert="True"
-                                               HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-                    </controls:AbsencesListView>
+                    <Grid x:Name="CardPanel" Margin="18,0,8,16"
+                          Padding="12"
+                          Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
+                          BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
+                          BorderThickness="1" CornerRadius="8">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
 
-                </Grid>
+                        <controls:AbsencesListView x:Name="AbsencesToJustifyListView" Grid.Row="2"
+                                                   HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+                                                   EnableEmptyAlert="True" EnableStickyHeader="True" />
 
-                <Grid
-                    HorizontalAlignment="Left"
-                    Margin="0,0,8,24">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto"></ColumnDefinition>
-                    </Grid.ColumnDefinitions>
+                    </Grid>
 
-                    <RelativePanel
-                        Margin="0,0,0,0"
-                        x:Name="CalendarPanel"
-                        CornerRadius="8"
-                        VerticalAlignment="Top"
-                        Padding="12"
-                        BorderThickness="1"
-                        BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
-                        Background="{ThemeResource CardBackgroundFillColorDefaultBrush}">
+                    <Grid Margin="0,0,8,24" HorizontalAlignment="Left">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
 
+                        <RelativePanel x:Name="CalendarPanel" Margin="0,0,0,0"
+                                       Padding="12" VerticalAlignment="Top"
+                                       Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
+                                       BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
+                                       BorderThickness="1" CornerRadius="8">
 
-                        <TextBlock x:Name="TextBlockCalendarioEventi"
-                                   x:Uid="AbsencesEventsCalendar"
-                                   Margin="8,4,0,0"
-                                   Style="{ThemeResource BodyStrongTextBlockStyle}" />
+                            <TextBlock x:Name="TextBlockCalendarioEventi" x:Uid="AbsencesEventsCalendar"
+                                       Margin="8,4,0,0"
+                                       Style="{ThemeResource BodyStrongTextBlockStyle}" />
 
-                        <Button
-                            x:Name="TodayButton"
-                            x:Uid="AbsencesTodayButton"
-                            RelativePanel.AlignRightWithPanel="True"
-                            Click="TodayButton_OnClick"
-                            Margin="0,4,2,12" />
+                            <Button x:Name="TodayButton" x:Uid="AbsencesTodayButton"
+                                    Margin="0,4,2,12" Click="TodayButton_OnClick"
+                                    RelativePanel.AlignRightWithPanel="True" />
 
-                        <CalendarView
-                            x:Name="ColoredCalendarView"
-                            RelativePanel.Below="TodayButton"
-                            RelativePanel.AlignLeftWithPanel="True"
-                            FirstDayOfWeek="Monday"
-                            CalendarViewDayItemChanging="MyCalendarView_CalendarViewDayItemChanging" />
-                    </RelativePanel>
-                </Grid>
-            </comToolkit:StaggeredPanel>
+                            <CalendarView x:Name="ColoredCalendarView" CalendarViewDayItemChanging="MyCalendarView_CalendarViewDayItemChanging"
+                                          FirstDayOfWeek="Monday" RelativePanel.AlignLeftWithPanel="True"
+                                          RelativePanel.Below="TodayButton" />
+
+                        </RelativePanel>
+                    </Grid>
+                </comToolkit:StaggeredPanel>
             </Grid>
         </ScrollViewer>
     </Grid>
