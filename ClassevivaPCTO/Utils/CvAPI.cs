@@ -22,7 +22,6 @@ namespace ClassevivaPCTO.Utils
         public string message { get; set; }
     }
 
-
     public class LoginData
     {
         [AliasAs("uid")] public string Uid { get; init; }
@@ -55,7 +54,6 @@ namespace ClassevivaPCTO.Utils
         public string justifReasonDesc { get; set; }
         public List<int?> hoursAbsence { get; set; }
     }
-
 
     public class AbsencesResult
     {
@@ -180,7 +178,6 @@ namespace ClassevivaPCTO.Utils
         [JsonPropertyName("agenda")] public List<AgendaEvent> AgendaEvents { get; set; }
     }
 
-
     public class OverviewResult
     {
         [JsonPropertyName("lessons")] public List<Lesson> Lessons { get; set; }
@@ -196,12 +193,10 @@ namespace ClassevivaPCTO.Utils
         public List<Note> Notes { get; set; }
     }
 
-
     public class SingleCardResult
     {
         [JsonPropertyName("card")] public Card Card { get; set; }
     }
-
 
     public class Card
     {
@@ -221,12 +216,10 @@ namespace ClassevivaPCTO.Utils
         public string schProv { get; set; }
     }
 
-
     public class CardsResult
     {
         [JsonPropertyName("cards")] public List<Card> Cards { get; set; }
     }
-
 
     public class Period
     {
@@ -308,7 +301,6 @@ namespace ClassevivaPCTO.Utils
         public bool? replSign { get; set; }
     }
 
-
     public enum NoteEventCode
     {
         NTTE, // annotazioni
@@ -331,7 +323,6 @@ namespace ClassevivaPCTO.Utils
         public bool? toUpload { get; set; }
         public string? warningType { get; set; }
     }
-
 
     public class NotesResult
     {
@@ -407,7 +398,6 @@ namespace ClassevivaPCTO.Utils
     {
         public ScrutiniDocumentCheckStatus document { get; set; }
     }
-
 
     //calendar
 

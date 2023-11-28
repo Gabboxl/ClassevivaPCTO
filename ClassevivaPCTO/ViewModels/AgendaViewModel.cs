@@ -12,7 +12,6 @@ namespace ClassevivaPCTO.ViewModels
             set { SetProperty(ref _isLoadingAgenda, value); }
         }
 
-
         public AgendaViewModel()
         {
         }

@@ -42,7 +42,6 @@ namespace ClassevivaPCTO.Utils
             }
         }
 
-
         public static float CalcolaMedia(List<Grade> voti)
         {
             if (voti.Count == 0)
@@ -86,7 +85,6 @@ namespace ClassevivaPCTO.Utils
             return char.ToUpper(s[0]) + s.Substring(1);
         }
 
-
         public static string ToApiDateTime(DateTime dateTime)
         {
             return dateTime.ToString("yyyyMMdd");
@@ -103,7 +101,6 @@ namespace ClassevivaPCTO.Utils
                 1
             );
 
-
             //var EndDate is max +366 days from the start date (this is an api limitation)
             DateTime endDate = startDate.AddDays(366);
 
@@ -119,7 +116,6 @@ namespace ClassevivaPCTO.Utils
                 9,
                 1
             );
-
 
             //var EndDate of next year + june 30th
             DateTime endDate = new DateTime(
@@ -173,7 +169,6 @@ namespace ClassevivaPCTO.Utils
             {
                 valoreFinale = (float) value;
             }
-
 
             return valoreFinale;
         }

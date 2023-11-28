@@ -16,11 +16,9 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="ButtonBase">
-                    <Grid
-                        Margin="{TemplateBinding Padding}"
-                        Background="{TemplateBinding Background}"
-                        CornerRadius="4">
-
+                    <Grid Margin="{TemplateBinding Padding}"
+                          Background="{TemplateBinding Background}"
+                          CornerRadius="4">
 
                         <ContentPresenter
                             x:Name="Text"
