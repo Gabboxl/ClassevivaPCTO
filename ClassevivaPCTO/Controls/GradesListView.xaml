@@ -12,33 +12,28 @@
     d:DesignWidth="400">
 
     <UserControl.Resources>
-
         <converters:DateTimeToNormalDateConverter x:Key="DateTimeToNormalDateConverter" />
         <converters:GradeToColorConverter x:Key="GradeToColorConverter" />
         <converters:BetterBoolToVisibilityConverter x:Key="BetterBoolToVisibilityConverter" />
 
-
         <DataTemplate x:Key="VotiListViewDataTemplateStandard"
                       x:DataType="adapters:GradeAdapter">
+            
             <RelativePanel>
-
+                
                 <Grid RelativePanel.AlignVerticalCenterWithPanel="True" x:Name="gridVoto">
                     <Ellipse x:Name="Ellipse"
                              Grid.RowSpan="2"
                              Width="42"
                              Height="42"
                              Margin="6"
-
                              Fill="{x:Bind CurrentObject,Converter={StaticResource GradeToColorConverter}}"
-
                              VerticalAlignment="Center"
-                             HorizontalAlignment="Center">
-                        <!-- ="{ThemeResource SystemControlBackgroundBaseMediumBrush}" -->
-                    </Ellipse>
+                             HorizontalAlignment="Center" />
+
                     <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center"
                                Text="{x:Bind CurrentObject.displayValue}" FontSize="16" Foreground="#FFFFFF"
                                FontWeight="Medium" />
-
                 </Grid>
 
                 <RelativePanel RelativePanel.AlignVerticalCenterWithPanel="True" RelativePanel.RightOf="gridVoto"
@@ -53,7 +48,6 @@
 
                     <TextBlock RelativePanel.Below="textMateria"
                                TextWrapping="Wrap"
-
                                Text="{x:Bind CurrentObject.notesForFamily}"
                                IsTextSelectionEnabled="True"
                                Style="{ThemeResource BodyTextBlockStyle}"
@@ -81,6 +75,7 @@
 
         <DataTemplate x:Key="VotiListViewDataTemplateCompact"
                       x:DataType="adapters:GradeAdapter">
+            
             <RelativePanel>
 
                 <Grid RelativePanel.AlignVerticalCenterWithPanel="True" x:Name="gridVoto">
@@ -91,12 +86,10 @@
                              Margin="2"
                              Fill="{x:Bind CurrentObject, Converter={StaticResource GradeToColorConverter}}"
                              VerticalAlignment="Center"
-                             HorizontalAlignment="Center">
-                        <!-- ="{ThemeResource SystemControlBackgroundBaseMediumBrush}" -->
-                    </Ellipse>
+                             HorizontalAlignment="Center" />
+
                     <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center"
                                Text="{x:Bind CurrentObject.displayValue}" FontSize="14" Foreground="#FFFFFF" />
-
                 </Grid>
 
                 <RelativePanel RelativePanel.AlignVerticalCenterWithPanel="True" RelativePanel.RightOf="gridVoto">
@@ -128,17 +121,14 @@
                                IsTextSelectionEnabled="True"
                                Margin="12,0,0,6" />
 
-
                 </RelativePanel>
-
             </RelativePanel>
         </DataTemplate>
-
     </UserControl.Resources>
 
-    <Grid
-        HorizontalAlignment="Stretch"
-        VerticalAlignment="Stretch">
+    <Grid HorizontalAlignment="Stretch"
+          VerticalAlignment="Stretch">
+
         <Grid.RowDefinitions>
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
@@ -147,15 +137,13 @@
                   ScrollViewer.VerticalScrollMode="Enabled"
                   HorizontalAlignment="Stretch"
                   HorizontalContentAlignment="Stretch"
-                  ItemTemplate="{StaticResource VotiListViewDataTemplateStandard}">
+                  ItemTemplate="{StaticResource VotiListViewDataTemplateStandard}" />
 
-        </ListView>
+        <RelativePanel VerticalAlignment="Center"
+                       HorizontalAlignment="Center"
+                       Grid.Row="0"
+                       Visibility="{x:Bind ShowEmptyAlert, Mode=OneWay, Converter={StaticResource BetterBoolToVisibilityConverter}, ConverterParameter=True}">
 
-        <RelativePanel
-            VerticalAlignment="Center"
-            HorizontalAlignment="Center"
-            Grid.Row="0"
-            Visibility="{x:Bind ShowEmptyAlert, Mode=OneWay, Converter={StaticResource BetterBoolToVisibilityConverter}, ConverterParameter=True}">
             <FontIcon x:Name="VotiPlaceholderIcon" FontFamily="{StaticResource FluentIcons}" Glyph="&#xe9f9;"
                       Foreground="{ThemeResource TextFillColorDisabledBrush}"
                       RelativePanel.AlignHorizontalCenterWithPanel="True"
@@ -169,7 +157,7 @@
                        FontWeight="SemiBold"
                        x:Uid="GradesPlaceholder" FontSize="36" VerticalAlignment="Center"
                        HorizontalAlignment="Center" />
-        </RelativePanel>
 
+        </RelativePanel>
     </Grid>
 </UserControl>

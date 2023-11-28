@@ -39,7 +39,6 @@ namespace ClassevivaPCTO.Controls
             set { SetField(ref _showEmptyAlert, value); }
         }
 
-
         private readonly IClassevivaAPI apiWrapper;
 
 
@@ -171,7 +170,6 @@ namespace ClassevivaPCTO.Controls
             });
         }
 
-
         private async Task<(byte[], string)> GetScrutinioFileAsBytes(ScrutiniDocument document)
         {
             Card? cardResult = ViewModelHolder.GetViewModel().SingleCardResult;
@@ -203,7 +201,6 @@ namespace ClassevivaPCTO.Controls
             //open link in browser
             Windows.System.Launcher.LaunchUriAsync(new Uri(link));
         }
-
 
         public event PropertyChangedEventHandler PropertyChanged;
 

@@ -41,7 +41,6 @@ namespace ClassevivaPCTO.Controls
                 typeof(NoticesListView),
                 new PropertyMetadata(null, null));
 
-
         public List<Notice> ItemsSource
         {
             get { return (List<Notice>) GetValue(ItemsSourceProperty); }
@@ -71,10 +70,8 @@ namespace ClassevivaPCTO.Controls
             double horizontalOffset = scrollViewer.HorizontalOffset;
             double verticalOffset = scrollViewer.VerticalOffset;
 
-
             //update the listview contents
             currentInstance.listView.ItemsSource = eventAdapters;
-
 
             //restore the scroll position
             scrollViewer.ChangeView(horizontalOffset, verticalOffset, null);
@@ -98,7 +95,6 @@ namespace ClassevivaPCTO.Controls
             var senderbutton = sender as Button;
             var currentNotice = (senderbutton.DataContext as NoticeAdapter).CurrentObject;
 
-
             //check whether the notice needs to be read, if yes create a flyout and with a text and button to confirm and display it on the button
             //if the user clicks the button, the flyout will be closed and the attachment will be read
 
@@ -112,7 +108,6 @@ namespace ClassevivaPCTO.Controls
                 textBlock.TextWrapping = TextWrapping.WrapWholeWords;
                 textBlock.Margin = new Thickness(0, 0, 0, 12);
 
-
                 //create a flyoutpresenterstyle with the SystemFillColorCautionBackgroundBrush color and set it to the flyout
                 var flyoutPresenterStyle = new Style(typeof(FlyoutPresenter));
 
@@ -125,23 +120,18 @@ namespace ClassevivaPCTO.Controls
                 flyoutPresenterStyle.Setters.Add(new Setter(ScrollViewer.HorizontalScrollBarVisibilityProperty,
                     ScrollBarVisibility.Disabled));
 
-
                 //make the flyoutPresenterStyle based on the default one
                 flyoutPresenterStyle.BasedOn = (Style) Application.Current.Resources["CautionFlyoutStyle"];
-
-
                 flyout.FlyoutPresenterStyle = flyoutPresenterStyle;
-
 
                 //create a button
                 var button = new Button();
                 button.Content = "ReadAndOpenFlyoutText".GetLocalizedStr();
                 button.Click += async delegate
                 {
-                    //close the flyout
+                    //chiudo il flyout e apro la comunicazione in background
                     flyout.Hide();
 
-                    //apro la comunicazione in background
                     await Task.Run(() => ReadAndOpenNoticeDialog(currentNotice));
                 };
 
@@ -165,11 +155,9 @@ namespace ClassevivaPCTO.Controls
             }
         }
 
-
         private async void ReadAndOpenNoticeDialog(Notice currentNotice)
         {
             Card? cardResult = ViewModelHolder.GetViewModel().SingleCardResult;
-
 
             //we need to read the notice first
             NoticeReadResult noticeReadResult =
@@ -187,9 +175,6 @@ namespace ClassevivaPCTO.Controls
                 dialog.DefaultButton = ContentDialogButton.Primary;
                 dialog.RequestedTheme = ((FrameworkElement) Window.Current.Content).RequestedTheme;
                 dialog.Content = noticeDialogContent;
-
-
-                //dialog.FullSizeDesired = true;
                 dialog.Width = 1200;
 
                 try

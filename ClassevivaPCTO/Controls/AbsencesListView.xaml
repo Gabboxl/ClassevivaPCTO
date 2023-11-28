@@ -12,31 +12,24 @@
     d:DesignWidth="400">
 
     <UserControl.Resources>
-
         <converters:DateTimeToHourConverter x:Key="DateTimeToHourConverter" />
         <converters:AbsenceTypeToColorConverter x:Key="AbsenceTypeToColorConverter" />
         <converters:BetterBoolToVisibilityConverter x:Key="BetterBoolToVisibilityConverter" />
 
-
         <DataTemplate x:Key="AbsenceEventListViewDataTemplateCompact"
-
                       x:DataType="adapters:AbsenceEventAdapter">
-
             <RelativePanel>
-
                 <Grid RelativePanel.AlignVerticalCenterWithPanel="True" x:Name="gridVoto">
+
                     <Ellipse x:Name="Ellipse"
                              Grid.RowSpan="2"
                              Width="42"
                              Height="42"
                              Margin="6"
-
                              Fill="{x:Bind CurrentObject.evtCode,Converter={StaticResource AbsenceTypeToColorConverter}}"
-
                              VerticalAlignment="Center"
-                             HorizontalAlignment="Center">
-                        <!-- ="{ThemeResource SystemControlBackgroundBaseMediumBrush}" -->
-                    </Ellipse>
+                             HorizontalAlignment="Center" />
+
                     <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center"
                                Text="{x:Bind ShortEventName}" FontSize="16" Foreground="#FFFFFF" FontWeight="Medium" />
 
@@ -45,13 +38,11 @@
                 <RelativePanel RelativePanel.AlignVerticalCenterWithPanel="True" RelativePanel.RightOf="gridVoto">
                     <RelativePanel>
 
-
                         <TextBlock x:Name="titoloEvento" TextWrapping="Wrap"
                                    MaxWidth="500"
                                    Text="{x:Bind EventTitle}"
                                    Style="{ThemeResource BaseTextBlockStyle}"
                                    Margin="10,8,0,0" />
-
 
                         <TextBlock RelativePanel.Below="titoloEvento" x:Name="justifiedText" TextWrapping="Wrap"
                                    MaxWidth="500"
@@ -59,21 +50,17 @@
                                    Style="{ThemeResource BaseTextBlockStyle}"
                                    Foreground="{ThemeResource TextFillColorTertiaryBrush}"
                                    FontStyle="Italic"
-
                                    Margin="10,0,0,8" />
 
-
                     </RelativePanel>
-
                 </RelativePanel>
             </RelativePanel>
         </DataTemplate>
-
     </UserControl.Resources>
 
-    <Grid
-        HorizontalAlignment="Stretch"
-        VerticalAlignment="Stretch">
+    <Grid HorizontalAlignment="Stretch"
+          VerticalAlignment="Stretch">
+        
         <Grid.RowDefinitions>
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
@@ -95,36 +82,33 @@
                     <GroupStyle.HeaderTemplate>
                         <DataTemplate x:DataType="local:GroupInfoList">
                             <Border AutomationProperties.Name="{x:Bind Key}">
-
                                 <TextBlock Text="{x:Bind Key}" FontWeight="SemiBold" FontSize="18" />
                             </Border>
                         </DataTemplate>
                     </GroupStyle.HeaderTemplate>
                 </GroupStyle>
             </ListView.GroupStyle>
-
         </ListView>
 
-        <RelativePanel
-            VerticalAlignment="Center"
-            HorizontalAlignment="Center"
-            Grid.Row="0"
-            Visibility="{x:Bind ShowEmptyAlert, Mode=OneWay, Converter={StaticResource BetterBoolToVisibilityConverter}, ConverterParameter=True}">
+        <RelativePanel VerticalAlignment="Center"
+                       HorizontalAlignment="Center"
+                       Grid.Row="0"
+                       Visibility="{x:Bind ShowEmptyAlert, Mode=OneWay, Converter={StaticResource BetterBoolToVisibilityConverter}, ConverterParameter=True}">
+            
             <FontIcon x:Name="AssenzePlaceholderIcon" FontFamily="{StaticResource FluentIcons}" Glyph="&#xe7c1;"
                       Foreground="{ThemeResource TextFillColorDisabledBrush}"
                       RelativePanel.AlignHorizontalCenterWithPanel="True"
                       FontSize="112"
                       Margin="0,0,0,0" />
 
-            <TextBlock
-                RelativePanel.Below="AssenzePlaceholderIcon"
+            <TextBlock RelativePanel.Below="AssenzePlaceholderIcon"
                        RelativePanel.AlignHorizontalCenterWithPanel="True"
                        Foreground="{ThemeResource TextFillColorDisabledBrush}"
                        Margin="0,10,0,0" TextWrapping="WrapWholeWords"
                        FontWeight="SemiBold"
                        x:Uid="AbsencesPlaceholder" FontSize="36" VerticalAlignment="Center"
                        HorizontalAlignment="Center" />
+            
         </RelativePanel>
-
     </Grid>
 </UserControl>

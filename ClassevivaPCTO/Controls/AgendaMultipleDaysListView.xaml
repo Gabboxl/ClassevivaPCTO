@@ -12,18 +12,15 @@
     d:DesignWidth="400">
 
     <UserControl.Resources>
-
         <converters:DateTimeToHourConverter x:Key="DateTimeToHourConverter" />
         <converters:DateTimeToNormalDateConverter x:Key="DateTimeToNormalDateConverter" />
         <converters:BetterBoolToVisibilityConverter x:Key="BetterBoolToVisibilityConverter" />
 
-
         <DataTemplate x:Key="AgendaEventListViewDataTemplate"
-
                       x:DataType="adapters:AgendaEventAdapter">
+
             <RelativePanel>
 
-                <!-- icon calendar -->
                 <FontIcon x:Name="IconCalendar" FontFamily="{StaticResource FluentIcons}"
                           Glyph="{x:Bind EventTypeIcon}"
                           RelativePanel.AlignVerticalCenterWithPanel="True"
@@ -40,13 +37,12 @@
 
                 <TextBlock RelativePanel.RightOf="dataEnd" RelativePanel.AlignVerticalCenterWith="titoloEvento"
                            x:Name="dataStart"
-
                            Text="{x:Bind  CurrentObject.evtDatetimeBegin, Converter={StaticResource DateTimeToHourConverter}}"
                            FontWeight="Medium"
                            Style="{ThemeResource BodyTextBlockStyle}"
                            Foreground="{ThemeResource TextFillColorTertiaryBrush}"
                            Margin="12,12,0,0" />
-                <!-- trattino -->
+
                 <TextBlock RelativePanel.RightOf="dataStart" RelativePanel.AlignVerticalCenterWith="titoloEvento"
                            x:Name="placeholderData"
                            Text="-"
@@ -54,7 +50,6 @@
                            Style="{ThemeResource BodyTextBlockStyle}"
                            Foreground="{ThemeResource TextFillColorTertiaryBrush}"
                            Margin="6,12,6,0" />
-
 
                 <TextBlock RelativePanel.RightOf="placeholderData" RelativePanel.AlignVerticalCenterWith="titoloEvento"
                            x:Name="dataEnd"
@@ -74,23 +69,19 @@
                            IsTextSelectionEnabled="True"
                            Margin="6,4,0,12" />
 
-
             </RelativePanel>
         </DataTemplate>
 
-
         <DataTemplate x:Key="AgendaEventExpressiveListViewDataTemplate"
-
                       x:DataType="adapters:AgendaEventAdapter">
+
             <RelativePanel>
 
-                <!-- icon calendar -->
                 <FontIcon x:Name="IconCalendar" FontFamily="{StaticResource FluentIcons}"
                           Glyph="{x:Bind EventTypeIcon}"
                           RelativePanel.AlignVerticalCenterWithPanel="True"
                           Foreground="{ThemeResource TextFillColorTertiaryBrush}"
                           Margin="4,0,8,0" />
-
 
                 <TextBlock x:Name="titoloEvento" TextWrapping="Wrap"
                            RelativePanel.RightOf="IconCalendar"
@@ -100,7 +91,6 @@
                            Style="{ThemeResource BaseTextBlockStyle}"
                            Margin="6,12,0,0" />
 
-                <!-- date of the lesson -->
                 <TextBlock RelativePanel.RightOf="titoloEvento" x:Name="date"
                            Text="{x:Bind CurrentObject.evtDatetimeBegin, Converter={StaticResource DateTimeToNormalDateConverter}}"
                            Style="{ThemeResource BodyTextBlockStyle}"
@@ -110,14 +100,12 @@
 
                 <TextBlock RelativePanel.RightOf="titoloEvento" RelativePanel.AlignVerticalCenterWith="titoloEvento"
                            x:Name="dataStart"
-
                            Text="{x:Bind  CurrentObject.evtDatetimeBegin, Converter={StaticResource DateTimeToHourConverter}}"
                            FontWeight="Medium"
                            Style="{ThemeResource BodyTextBlockStyle}"
                            Foreground="{ThemeResource TextFillColorTertiaryBrush}"
                            Margin="12,12,0,0" />
 
-                <!-- trattino -->
                 <TextBlock RelativePanel.RightOf="dataStart" RelativePanel.AlignVerticalCenterWith="titoloEvento"
                            x:Name="placeholderData"
                            Text="-"
@@ -144,16 +132,13 @@
                            IsTextSelectionEnabled="True"
                            Margin="6,4,0,12" />
 
-
             </RelativePanel>
         </DataTemplate>
-
     </UserControl.Resources>
 
+    <Grid HorizontalAlignment="Stretch"
+          VerticalAlignment="Stretch">
 
-    <Grid
-        HorizontalAlignment="Stretch"
-        VerticalAlignment="Stretch">
         <Grid.RowDefinitions>
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
@@ -174,7 +159,6 @@
                     <GroupStyle.HeaderTemplate>
                         <DataTemplate x:DataType="local:GroupInfoList">
                             <Border AutomationProperties.Name="{x:Bind Key}">
-
                                 <TextBlock Text="{x:Bind Key}" />
                             </Border>
                         </DataTemplate>
@@ -183,11 +167,11 @@
             </ListView.GroupStyle>
         </ListView>
 
-        <RelativePanel
-            VerticalAlignment="Center"
-            HorizontalAlignment="Center"
-            Grid.Row="0"
-            Visibility="{x:Bind ShowEmptyAlert, Mode=OneWay, Converter={StaticResource BetterBoolToVisibilityConverter}, ConverterParameter=True}">
+        <RelativePanel VerticalAlignment="Center"
+                       HorizontalAlignment="Center"
+                       Grid.Row="0"
+                       Visibility="{x:Bind ShowEmptyAlert, Mode=OneWay, Converter={StaticResource BetterBoolToVisibilityConverter}, ConverterParameter=True}">
+            
             <FontIcon x:Name="CompitiPlaceholderIcon" FontFamily="{StaticResource FluentIcons}" Glyph="&#xEA98;"
                       Foreground="{ThemeResource TextFillColorDisabledBrush}"
                       RelativePanel.AlignHorizontalCenterWithPanel="True"
@@ -201,7 +185,7 @@
                        FontWeight="SemiBold"
                        x:Uid="AgendaTasksPlaceholder" FontSize="36" VerticalAlignment="Center"
                        HorizontalAlignment="Center" />
-        </RelativePanel>
 
+        </RelativePanel>
     </Grid>
 </UserControl>

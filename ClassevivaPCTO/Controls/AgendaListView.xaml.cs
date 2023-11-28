@@ -33,7 +33,6 @@ namespace ClassevivaPCTO.Controls
             currentInstance.listView.ItemsSource = eventAdapters;
         }
 
-
         public AgendaListView()
         {
             this.InitializeComponent();

@@ -64,7 +64,6 @@ namespace ClassevivaPCTO.Controls
                 //filteredOverviewResults.Lessons = overviewResult.Lessons.Where(les => les.evtDate == newValue.FilterDate.Date).ToList();
             }
 
-
             //set the data to the listviews
 
             currentInstance.AbsencesListView.ItemsSource = filteredOverviewResults.AbsenceEvents;
@@ -72,8 +71,6 @@ namespace ClassevivaPCTO.Controls
             currentInstance.LessonsListView.ItemsSource = filteredOverviewResults.Lessons;
             currentInstance.AgendaListView.ItemsSource = filteredOverviewResults.AgendaEvents;
             currentInstance.NotesListView.ItemsSource = filteredOverviewResults.Notes;
-
-
             currentInstance.OverviewControlViewModel.FilteredOverviewResult = filteredOverviewResults;
 
             currentInstance.OverviewControlViewModel.ShowEmptyAlert =
@@ -83,7 +80,6 @@ namespace ClassevivaPCTO.Controls
                 filteredOverviewResults.Lessons.Count == 0 &&
                 filteredOverviewResults.Notes.Count == 0;
         }
-
 
         public OverviewListView()
         {

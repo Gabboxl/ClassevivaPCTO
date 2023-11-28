@@ -15,7 +15,6 @@
     d:DesignWidth="400">
 
     <UserControl.Resources>
-
         <converters:DateTimeToNormalDateConverter x:Key="DateTimeToNormalDateConverter" />
         <converters1:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" />
         <converters:BetterBoolToVisibilityConverter x:Key="BetterBoolToVisibilityConverter" />
@@ -67,44 +66,37 @@
 
                 </RelativePanel>
 
-                <RelativePanel
-                    Grid.Column="1"
-                    Padding="0,6,0,6">
+                <RelativePanel Grid.Column="1" Padding="0,6,0,6">
 
-                    <Button
-                        x:Name="ButtonOpenScrutinio" x:Uid="ScrutiniOpenFileButton" RelativePanel.LeftOf="ButtonSaveScrutinio"
-                        Click="ButtonOpen_Click"
-                        Visibility="{x:Bind CurrentObject.checkStatus.available, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}"
-                        RelativePanel.AlignVerticalCenterWithPanel="True"
-                        Margin="0,0,14,0" MinWidth="70">
+                    <Button x:Name="ButtonOpenScrutinio" x:Uid="ScrutiniOpenFileButton" RelativePanel.LeftOf="ButtonSaveScrutinio"
+                            Click="ButtonOpen_Click" Margin="0,0,14,0" MinWidth="70"
+                            Visibility="{x:Bind CurrentObject.checkStatus.available, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}"
+                            RelativePanel.AlignVerticalCenterWithPanel="True">
+
                         <Button.Content>
                             <StackPanel Orientation="Vertical" Padding="6,0,6,0" VerticalAlignment="Center">
-                                <FontIcon FontFamily="{StaticResource FluentIcons}" Glyph="&#xE8E5;"
-                                          FontSize="16" />
+                                <FontIcon FontFamily="{StaticResource FluentIcons}" Glyph="&#xE8E5;" FontSize="16" />
                                 <TextBlock FontSize="12" x:Uid="GenericOpenButton" Margin="0,0,0,0" />
                             </StackPanel>
                         </Button.Content>
+
                     </Button>
 
-                    <Button
-                        x:Name="ButtonSaveScrutinio" x:Uid="ScrutiniSaveFileButton" Click="ButtonSave_Click"
-                        RelativePanel.AlignRightWithPanel="True"
-                        Visibility="{x:Bind CurrentObject.checkStatus.available, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}"
-                        RelativePanel.AlignVerticalCenterWithPanel="True"
-                        Margin="0,0,12,0" MinWidth="70">
+                    <Button x:Name="ButtonSaveScrutinio" x:Uid="ScrutiniSaveFileButton" Click="ButtonSave_Click"
+                            RelativePanel.AlignRightWithPanel="True" Margin="0,0,12,0" MinWidth="70"
+                            Visibility="{x:Bind CurrentObject.checkStatus.available, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}"
+                            RelativePanel.AlignVerticalCenterWithPanel="True">
+
                         <Button.Content>
                             <StackPanel Orientation="Vertical" Padding="6,0,6,0">
-                                <FontIcon FontFamily="{StaticResource FluentIcons}" Glyph="&#xE74E;"
-                                          FontSize="16" />
-                                <TextBlock FontSize="12" x:Uid="GenericSaveButton"  Margin="0,0,0,0" />
+                                <FontIcon FontFamily="{StaticResource FluentIcons}" Glyph="&#xE74E;" FontSize="16" />
+                                <TextBlock FontSize="12" x:Uid="GenericSaveButton" Margin="0,0,0,0" />
                             </StackPanel>
                         </Button.Content>
+
                     </Button>
-
                 </RelativePanel>
-
             </Grid>
-
         </DataTemplate>
 
         <DataTemplate x:Key="SchoolReportListViewDataTemplate"
@@ -133,12 +125,10 @@
                                Text="{x:Bind CurrentObject.desc}"
                                Style="{ThemeResource BaseTextBlockStyle}"
                                Margin="12,0,0,0" />
-                    
+
                 </RelativePanel>
 
-                <RelativePanel
-                    Grid.Column="1"
-                    Padding="0,6,0,6">
+                <RelativePanel Grid.Column="1" Padding="0,6,0,6">
 
                     <Button winUi:FrameworkElementExtensions.Cursor="Hand"
                             x:Name="ButtonOpenReport"
@@ -146,6 +136,7 @@
                             Click="ButtonOpenReport_OnClick"
                             RelativePanel.AlignVerticalCenterWithPanel="True"
                             Margin="0,0,12,0" MinWidth="70">
+
                         <Button.Content>
                             <StackPanel Orientation="Vertical" Padding="6,0,6,0">
                                 <FontIcon FontFamily="{StaticResource FluentIcons}" Glyph="&#xE71B;"
@@ -156,15 +147,11 @@
                     </Button>
 
                 </RelativePanel>
-
             </Grid>
-
         </DataTemplate>
     </UserControl.Resources>
 
-    <Grid
-        HorizontalAlignment="Stretch"
-        VerticalAlignment="Stretch">
+    <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
         <Grid.RowDefinitions>
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
@@ -183,14 +170,11 @@
                            Visibility="{x:Bind ItemsSource.Documents, Mode=OneWay, FallbackValue=Collapsed, Converter={StaticResource EmptyListToVisibilityConverter}}" />
 
                 <ListView x:Name="listViewScrutini"
-
                           ScrollViewer.VerticalScrollMode="Enabled"
                           HorizontalAlignment="Stretch"
                           HorizontalContentAlignment="Stretch"
                           ItemTemplate="{StaticResource ScrutiniListViewDataTemplate}"
-                          ItemContainerStyle="{StaticResource ListViewFullStretchStyle}">
-
-                </ListView>
+                          ItemContainerStyle="{StaticResource ListViewFullStretchStyle}" />
 
                 <TextBlock x:Name="ReportsTitle"
                            x:Uid="ScrutiniReportsHeader"
@@ -202,24 +186,20 @@
                            Visibility="{x:Bind ItemsSource.Documents, Mode=OneWay, FallbackValue=Collapsed, Converter={StaticResource EmptyListToVisibilityConverter}}" />
 
                 <ListView x:Name="listViewSchoolReports"
-
                           ScrollViewer.VerticalScrollMode="Enabled"
                           HorizontalAlignment="Stretch"
                           HorizontalContentAlignment="Stretch"
                           ItemTemplate="{StaticResource SchoolReportListViewDataTemplate}"
-                          ItemContainerStyle="{StaticResource ListViewFullStretchStyle}">
-
-                </ListView>
+                          ItemContainerStyle="{StaticResource ListViewFullStretchStyle}" />
 
             </StackPanel>
-
         </ScrollViewer>
 
-        <RelativePanel
-            VerticalAlignment="Center"
-            HorizontalAlignment="Center"
-            Grid.Row="0"
-            Visibility="{x:Bind ShowEmptyAlert, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}">
+        <RelativePanel VerticalAlignment="Center"
+                       HorizontalAlignment="Center"
+                       Grid.Row="0"
+                       Visibility="{x:Bind ShowEmptyAlert, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}">
+
             <FontIcon x:Name="ScrutiniPlaceholderIcon" FontFamily="{StaticResource FluentIcons}" Glyph="&#xf180;"
                       Foreground="{ThemeResource TextFillColorDisabledBrush}"
                       RelativePanel.AlignHorizontalCenterWithPanel="True"
@@ -230,10 +210,9 @@
                        RelativePanel.AlignHorizontalCenterWithPanel="True"
                        Foreground="{ThemeResource TextFillColorDisabledBrush}"
                        Margin="0,10,0,0" TextWrapping="WrapWholeWords"
-                       FontWeight="SemiBold"
-                       x:Uid="ScrutiniPlaceholder" FontSize="36" VerticalAlignment="Center"
-                       HorizontalAlignment="Center" />
-        </RelativePanel>
+                       FontWeight="SemiBold" HorizontalAlignment="Center" 
+                       x:Uid="ScrutiniPlaceholder" FontSize="36" VerticalAlignment="Center" />
 
+        </RelativePanel>
     </Grid>
 </UserControl>
