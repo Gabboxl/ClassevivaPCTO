@@ -75,7 +75,6 @@ namespace ClassevivaPCTO.Views
                     caldate,
                     caldate);
 
-
                 //update UI on UI thread
                 await CoreApplication.MainView.Dispatcher.RunAsync(
                     CoreDispatcherPriority.Normal,

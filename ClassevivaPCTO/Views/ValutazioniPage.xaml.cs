@@ -13,7 +13,6 @@ using Windows.UI.Xaml.Navigation;
 using ClassevivaPCTO.Adapters;
 using ClassevivaPCTO.Helpers;
 
-
 namespace ClassevivaPCTO.Views
 {
     public struct PeriodList
@@ -36,7 +35,6 @@ namespace ClassevivaPCTO.Views
 
         private List<Grade> _sortedGrades;
 
-
         private ValutazioniViewModel ValutazioniViewModel { get; } = new();
 
         public ValutazioniPage()
@@ -58,7 +56,6 @@ namespace ClassevivaPCTO.Views
 
             await Task.Run(async () => { await LoadData(); });
         }
-
 
         private async Task LoadData()
         {
@@ -93,7 +90,6 @@ namespace ClassevivaPCTO.Views
 
                 var subjects = resultSubjects.Subjects;
 
-
                 //find all periods with same periodDesc value
                 var samePeriods = resultPeriods.Periods
                     .GroupBy(p => p.periodDesc)
@@ -103,7 +99,6 @@ namespace ClassevivaPCTO.Views
                     .ToList();
 
                 samePeriods.ForEach(p => p.periodDesc = (samePeriods.IndexOf(p) + 1) + "° " + p.periodDesc);
-
 
                 // Select unique Periods from Grade list
                 _mergedPeriodList = resultPeriods.Periods
@@ -121,7 +116,6 @@ namespace ClassevivaPCTO.Views
                                     .ToList()
                             }).ToList()
                     }).ToList();
-
 
                 //update UI on UI thread
                 await CoreApplication.MainView.Dispatcher.RunAsync(
@@ -155,7 +149,6 @@ namespace ClassevivaPCTO.Views
 
                 TitleFirstPerVal.Text = VariousUtils.UppercaseFirst(_mergedPeriodList[0].Period.periodDesc);
                 TitleSecondPerVal.Text = VariousUtils.UppercaseFirst(_mergedPeriodList[1].Period.periodDesc);
-
                 SegmentedVoti.SelectedIndex = 0;
                 SegmentedVoti.IsEnabled = true;
 
@@ -214,7 +207,6 @@ namespace ClassevivaPCTO.Views
         {
             //update main UI
             UpdateUi();
-
 
             //update statistics
 

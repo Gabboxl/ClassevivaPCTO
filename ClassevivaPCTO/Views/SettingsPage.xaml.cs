@@ -34,7 +34,6 @@ namespace ClassevivaPCTO.Views
             set { Set(ref _elementTheme, value); }
         }
 
-
         private PaletteType _paletteType = PaletteSelectorService.PaletteEnum;
 
         public PaletteType PaletteType
@@ -68,7 +67,6 @@ namespace ClassevivaPCTO.Views
             }
         }
 
-
         private static int CurrentLanguage
         {
             get
@@ -77,7 +75,6 @@ namespace ClassevivaPCTO.Views
             }
             set { }
         }
-
 
         public static string AppName
         {
@@ -355,10 +352,8 @@ namespace ClassevivaPCTO.Views
                 }
             }
 
-
             //update values
             ChangeLanguage(selectedIndex);
-
 
             ContentDialog dialog = new()
             {

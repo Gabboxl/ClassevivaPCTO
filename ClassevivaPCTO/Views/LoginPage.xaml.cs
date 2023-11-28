@@ -168,7 +168,6 @@ namespace ClassevivaPCTO.Views
                         return;
                     }
 
-
                     GetUserDataAndGoAhead(loginResult, measurement, checkboxCredenzialiChecked);
                 }
                 else if (resLogin is LoginResultChoices loginResultChoices)
@@ -301,7 +300,6 @@ namespace ClassevivaPCTO.Views
                 }
             );
         }
-
 
         private async Task<(ContentDialogResult, ChoiceDialogContent)> ShowChoicesDialog(
             LoginResultChoices loginResultChoices
