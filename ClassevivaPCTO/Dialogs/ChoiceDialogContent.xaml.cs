@@ -13,7 +13,6 @@ namespace ClassevivaPCTO.Dialogs
         {
             this.InitializeComponent();
 
-
             //make a list of string from each Name propety of loginChoices
             var choices = loginChoices.Select(x => x.name).ToList();
             ComboChoice.ItemsSource = choices;

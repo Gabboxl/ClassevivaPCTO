@@ -2,7 +2,6 @@
     x:Class="ClassevivaPCTO.Dialogs.NoticeDialogContent"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:ClassevivaPCTO.Dialogs"
     xmlns:utils="using:ClassevivaPCTO.Utils"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -29,6 +28,7 @@
                 </Grid.ColumnDefinitions>
 
                 <RelativePanel Grid.Column="0">
+
                     <FontIcon Glyph="&#xe7c3;"
                               FontFamily="{StaticResource FluentIcons}"
                               Foreground="{ThemeResource TextFillColorTertiaryBrush}"
@@ -49,6 +49,7 @@
                 </RelativePanel>
 
                 <RelativePanel Grid.Column="1" HorizontalAlignment="Right">
+
                     <AppBarButton x:Name="ButtonOpen" x:Uid="NoticeDialogOpenAttachmentButton" RelativePanel.LeftOf="ButtonSave" Click="ButtonOpen_Click"
                                   RelativePanel.AlignVerticalCenterWithPanel="True" Icon="OpenFile" />
 
@@ -58,7 +59,6 @@
                 </RelativePanel>
 
             </Grid>
-
         </DataTemplate>
     </Page.Resources>
 
@@ -66,17 +66,18 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
+        
         <ScrollViewer Grid.Row="0">
         <StackPanel  HorizontalAlignment="Stretch">
 
             <TextBlock x:Name="noticeBodyText"
-                        TextWrapping="Wrap"
-                        FontWeight="SemiBold"
-                        Style="{ThemeResource BodyTextBlockStyle}"
-                        IsTextSelectionEnabled="True"
-                        Foreground="{ThemeResource TextFillColorSecondaryBrush}"
-                        Text="{x:Bind CurrentReadResult.item.text}"
-                        Margin="0,12,0,8" />
+                       TextWrapping="Wrap"
+                       FontWeight="SemiBold"
+                       Style="{ThemeResource BodyTextBlockStyle}"
+                       IsTextSelectionEnabled="True"
+                       Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                       Text="{x:Bind CurrentReadResult.item.text}"
+                       Margin="0,12,0,8" />
 
             <TextBlock x:Name="TitoloAttachments"
                        TextWrapping="Wrap"
@@ -86,8 +87,8 @@
                        Margin="8,16,0,8" />
 
             <ListView x:Name="AttachmentsListView"
-                        ItemContainerStyle="{StaticResource ListViewFullStretchStyle}"
-                        ItemTemplate="{StaticResource AttachmentListViewDataTemplate}" />
+                      ItemContainerStyle="{StaticResource ListViewFullStretchStyle}"
+                      ItemTemplate="{StaticResource AttachmentListViewDataTemplate}" />
 
             </StackPanel>
         </ScrollViewer>

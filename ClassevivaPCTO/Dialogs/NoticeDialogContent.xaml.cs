@@ -17,7 +17,6 @@ namespace ClassevivaPCTO.Dialogs
 
         private readonly IClassevivaAPI apiWrapper;
 
-
         private string AllegatiText
         {
             get
@@ -60,7 +59,6 @@ namespace ClassevivaPCTO.Dialogs
             {
                 byte[] bytes = await GetAttachmentAsBytes(currentAttachment);
 
-
                 //run on ui thread
                 await Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, async () =>
                 {
@@ -79,7 +77,6 @@ namespace ClassevivaPCTO.Dialogs
         {
             var senderbutton = sender as AppBarButton;
             var currentAttachment = senderbutton.DataContext as NoticeAttachment;
-
 
             await Task.Run(async () =>
             {
@@ -122,7 +119,6 @@ namespace ClassevivaPCTO.Dialogs
                 });
             });
         }
-
 
         private async Task<byte[]> GetAttachmentAsBytes(NoticeAttachment attachment)
         {
