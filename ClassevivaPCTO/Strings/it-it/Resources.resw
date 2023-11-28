@@ -236,7 +236,7 @@ Se riscontri bug o hai un'idea per l'app apri un issue su GitHub cliccando sul l
   <data name="LoginKeepCredentialsCheckbox.Content" xml:space="preserve">
     <value>Mantieni le credenziali</value>
   </data>
-  <data name="TitoloDashboardText" xml:space="preserve">
+  <data name="DashboardTitleText" xml:space="preserve">
     <value>Dashboard di {0}</value>
   </data>
   <data name="DashboardTodaysEvents.Text" xml:space="preserve">
@@ -312,10 +312,10 @@ Errore: </value>
   <data name="NoticeDialogNoAttachmentsSubtitle" xml:space="preserve">
     <value>Nessun allegato</value>
   </data>
-  <data name="ComboChoiceSelectProfile.Header" xml:space="preserve">
+  <data name="ProfileChoiceDialogCombobox.Header" xml:space="preserve">
     <value>Seleziona un profilo:</value>
   </data>
-  <data name="ProfileChoiceDialogInfoTextBlock.Text" xml:space="preserve">
+  <data name="ProfileChoiceDialogBody.Text" xml:space="preserve">
     <value>Più profili sono associati a questo account.</value>
   </data>
   <data name="AgendaLessonsPopupTitle.Text" xml:space="preserve">
@@ -654,7 +654,7 @@ Errore: </value>
   <data name="SelectFileDialogButton" xml:space="preserve">
     <value>Seleziona file</value>
   </data>
-  <data name="UntranslatedLanguage" xml:space="preserve">
+  <data name="DialogUntranslatedLanguageBody" xml:space="preserve">
     <value>L'app non è stata ancora tradotta nella lingua che hai scelto.</value>
   </data>
   <data name="GenericEventOnDayPreposition" xml:space="preserve">

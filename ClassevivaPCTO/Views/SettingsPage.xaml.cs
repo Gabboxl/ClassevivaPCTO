@@ -302,7 +302,7 @@ namespace ClassevivaPCTO.Views
                 var langProgressPerc = languageProgressObj.Data[0].TranslationProgress;
 
 
-                if (langProgressPerc != 100)
+                if (langProgressPerc != 100 && langProgressPerc != 0)
                 {
                     ContentDialog dialogtrans = new()
                     {
@@ -339,9 +339,9 @@ namespace ClassevivaPCTO.Views
                 {
                     ContentDialog dialogtrans = new()
                     {
-                        Title = "Attenzione",
-                        Content = "L'app non è stata ancora tradotta nella lingua che hai scelto.",
-                        PrimaryButtonText = "Ok",
+                        Title = "CautionDialogTitle".GetLocalizedStr(),
+                        Content = "DialogUntranslatedLanguageBody".GetLocalizedStr(),
+                        PrimaryButtonText = "OkDialogButton".GetLocalizedStr(),
                         RequestedTheme = ((FrameworkElement) Window.Current.Content).RequestedTheme,
                         DefaultButton = ContentDialogButton.Primary
                     };
