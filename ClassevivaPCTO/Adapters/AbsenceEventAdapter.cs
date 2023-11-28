@@ -16,7 +16,7 @@ namespace ClassevivaPCTO.Adapters
         {
             get
             {
-                return CurrentObject.evtCode.ToString().GetLocalizedStr("sing") + "AbsenceEventOnDayPreposition".GetLocalizedStr() +
+                return CurrentObject.evtCode.ToString().GetLocalizedStr("sing") + "GenericEventOnDayPreposition".GetLocalizedStr() +
                        CurrentObject.evtDate.ToString("dd/MM/yyyy");
             }
         }
@@ -31,7 +31,7 @@ namespace ClassevivaPCTO.Adapters
                 }
                 else
                 {
-                    return "ToBeJustifiedText".GetLocalizedStr();
+                    return "AbsencesToBeJustifiedText".GetLocalizedStr();
                 }
             }
         }
