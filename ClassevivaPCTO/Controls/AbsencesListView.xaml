@@ -63,7 +63,8 @@
         </Grid.RowDefinitions>
 
         <ListView x:Name="listView" Grid.Row="0"
-                  HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch"
+                  HorizontalAlignment="Stretch" 
+                  HorizontalContentAlignment="Stretch"
                   ItemTemplate="{StaticResource AbsenceEventListViewDataTemplateCompact}">
 
             <ListView.ItemsPanel>
@@ -77,13 +78,13 @@
                     <GroupStyle.HeaderTemplate>
                         <DataTemplate x:DataType="local:GroupInfoList">
                             <Border AutomationProperties.Name="{x:Bind Key}">
-                                <TextBlock FontSize="18" FontWeight="SemiBold"
-                                           Text="{x:Bind Key}" />
+                                <TextBlock FontSize="18" FontWeight="SemiBold" Text="{x:Bind Key}" />
                             </Border>
                         </DataTemplate>
                     </GroupStyle.HeaderTemplate>
                 </GroupStyle>
             </ListView.GroupStyle>
+            
         </ListView>
 
         <RelativePanel Grid.Row="0" HorizontalAlignment="Center"
@@ -100,7 +101,8 @@
                        HorizontalAlignment="Center" VerticalAlignment="Center"
                        FontSize="36" FontWeight="SemiBold"
                        Foreground="{ThemeResource TextFillColorDisabledBrush}"
-                       RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.Below="AssenzePlaceholderIcon"
+                       RelativePanel.AlignHorizontalCenterWithPanel="True"
+                       RelativePanel.Below="AssenzePlaceholderIcon"
                        TextWrapping="WrapWholeWords" />
 
         </RelativePanel>

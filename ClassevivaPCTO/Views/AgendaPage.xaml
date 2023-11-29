@@ -45,10 +45,14 @@
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
 
-        <Popup x:Name="LezioniPopup" Width="800"
-               IsLightDismissEnabled="True" IsOpen="False"
-               LightDismissOverlayMode="On" RelativePanel.AlignBottomWithPanel="True"
-               RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignTopWithPanel="True"
+        <Popup x:Name="LezioniPopup" 
+               Width="800"
+               IsLightDismissEnabled="True" 
+               IsOpen="False"
+               LightDismissOverlayMode="On" 
+               RelativePanel.AlignBottomWithPanel="True"
+               RelativePanel.AlignRightWithPanel="True" 
+               RelativePanel.AlignTopWithPanel="True"
                ShouldConstrainToRootBounds="True">
             
             <Popup.ChildTransitions>
@@ -60,9 +64,11 @@
             <!--  con il grid mi prendo lo spazio con il binding, poi ci posiziono come voglio gli elementi all'interno  -->
             <Grid Width="{Binding ElementName=LezioniPopup, Path=Width}"
                   Height="{Binding ElementName=LezioniPopup, Path=Height}"
-                  HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+                  HorizontalAlignment="Stretch" 
+                  VerticalAlignment="Stretch"
                   Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
                   BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}">
+                
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto" />
                     <ColumnDefinition Width="*" />
@@ -73,7 +79,8 @@
                 </Grid.RowDefinitions>
 
                 <controls:PropertySizer Grid.RowSpan="2" Grid.Column="0"
-                                        HorizontalAlignment="Left" VerticalAlignment="Stretch"
+                                        HorizontalAlignment="Left" 
+                                        VerticalAlignment="Stretch"
                                         Binding="{x:Bind LezioniPopup.Width, Mode=TwoWay}"
                                         IsDragInverted="True" Minimum="100" />
 
@@ -97,10 +104,14 @@
             </Grid>
         </Popup>
 
-        <Popup x:Name="AgendaPopup" Width="800"
-               IsLightDismissEnabled="True" IsOpen="False"
-               LightDismissOverlayMode="On" RelativePanel.AlignBottomWithPanel="True"
-               RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignTopWithPanel="True"
+        <Popup x:Name="AgendaPopup" 
+               Width="800"
+               IsLightDismissEnabled="True" 
+               IsOpen="False"
+               LightDismissOverlayMode="On" 
+               RelativePanel.AlignBottomWithPanel="True"
+               RelativePanel.AlignRightWithPanel="True" 
+               RelativePanel.AlignTopWithPanel="True"
                ShouldConstrainToRootBounds="True">
             
             <Popup.ChildTransitions>
@@ -112,9 +123,11 @@
             <!--  con il grid mi prendo lo spazio con il binding, poi ci posiziono come voglio gli elementi all'interno  -->
             <Grid Width="{Binding ElementName=AgendaPopup, Path=Width}"
                   Height="{Binding ElementName=AgendaPopup, Path=Height}"
-                  HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+                  HorizontalAlignment="Stretch" 
+                  VerticalAlignment="Stretch"
                   Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
                   BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}">
+                
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto" />
                     <ColumnDefinition Width="*" />
@@ -125,7 +138,8 @@
                 </Grid.RowDefinitions>
 
                 <controls:PropertySizer Grid.RowSpan="2" Grid.Column="0"
-                                        HorizontalAlignment="Left" VerticalAlignment="Stretch"
+                                        HorizontalAlignment="Left" 
+                                        VerticalAlignment="Stretch"
                                         Binding="{x:Bind AgendaPopup.Width, Mode=TwoWay}"
                                         IsDragInverted="True" Minimum="100" />
 
@@ -280,7 +294,8 @@
 
             <RelativePanel x:Name="CardPanel" Grid.Row="2"
                            Margin="18" Padding="12"
-                           HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+                           HorizontalAlignment="Stretch" 
+                           VerticalAlignment="Stretch"
                            winUi:FrameworkElementExtensions.EnableActualSizeBinding="true"
                            Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
                            BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"

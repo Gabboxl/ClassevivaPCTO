@@ -69,7 +69,8 @@
                            Visibility="{x:Bind OverviewControlViewModel.FilteredOverviewResult.AgendaEvents, Mode=OneWay, FallbackValue=Collapsed, Converter={StaticResource EmptyListToVisibilityConverter}}" />
 
 
-                <controls2:AgendaListView x:Name="AgendaListView" HorizontalAlignment="Stretch"
+                <controls2:AgendaListView x:Name="AgendaListView" 
+                                          HorizontalAlignment="Stretch"
                                           VerticalAlignment="Stretch" />
 
             </StackPanel>
