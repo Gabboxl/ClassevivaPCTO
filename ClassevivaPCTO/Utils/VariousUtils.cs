@@ -43,7 +43,7 @@ namespace ClassevivaPCTO.Utils
         }
 
 
-        public static float CalcolaMedia(List<Grade> voti)
+        public static float CalcolaMedia(List<Grade> voti) //media ponderata
         {
             if (voti.Count == 0)
             {
@@ -51,7 +51,7 @@ namespace ClassevivaPCTO.Utils
             }
 
             float somma = 0;
-            float numVoti = 0;
+            float sommaPesi = 0;
 
             foreach (Grade voto in voti)
             {
@@ -61,11 +61,11 @@ namespace ClassevivaPCTO.Utils
                 {
                     somma += (float) valoreDaSommare * (float) voto.weightFactor!;
 
-                    numVoti++;
+                    sommaPesi += (float) voto.weightFactor;
                 }
             }
 
-            return somma / numVoti;
+            return somma / sommaPesi;
         }
 
         public static string ToTitleCase(string s)
