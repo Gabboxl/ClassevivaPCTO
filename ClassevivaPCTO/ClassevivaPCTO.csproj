@@ -181,8 +181,9 @@
     <Compile Include="Converters\DateTimeToHourConverter.cs" />
     <Compile Include="Converters\AbsenceTypeToColorConverter.cs" />
     <Compile Include="Converters\BetterBoolToVisibilityConverter.cs" />
-    <Compile Include="Converters\NanToNdConverter.cs" />
     <Compile Include="Converters\EmptyListToVisibilityConverter.cs" />
+    <Compile Include="Converters\NanToNdConverter.cs" />
+    <Compile Include="Converters\EmptyListToBoolConverter.cs" />
     <Compile Include="Converters\ColorToBrushConverter.cs" />
     <Compile Include="Deserializers\NoteDeserializerNet.cs" />
     <Compile Include="Dialogs\NoteDialogContent.xaml.cs">

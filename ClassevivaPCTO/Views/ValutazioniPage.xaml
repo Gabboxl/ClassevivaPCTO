@@ -21,6 +21,8 @@
         <converters1:GradeToColorConverter x:Key="GradeToColorConverter" />
         <converters1:NanToNdConverter x:Key="NanToNdConverter" />
         <converters1:BetterBoolToVisibilityConverter x:Key="BetterBoolToVisibilityConverter" />
+        <converters1:EmptyListToBoolConverter x:Key="EmptyListToBoolConverter" />
+        <converters1:EmptyListToVisibilityConverter x:Key="EmptyListToVisibilityConverter" />
 
         <Style x:Key="ListViewFullStretchStyle" TargetType="ListViewItem"
                BasedOn="{StaticResource DefaultListViewItemStyle}">
@@ -39,32 +41,53 @@
                 </Grid.ColumnDefinitions>
 
                 <controls:SettingsExpander x:Name="MateriaExpander" IsExpanded="False"
-                                        HorizontalAlignment="Stretch"
-                                        HorizontalContentAlignment="Stretch"
-                                        Header="{x:Bind Subject.description}"
-                                        Description="{x:Bind Teachers}"
-                                        HeaderIcon="{x:Bind AverageVariationIcon}" >
+                                           IsEnabled="{x:Bind SubjectGrades, Converter={StaticResource EmptyListToBoolConverter}}"
+                                           HorizontalAlignment="Stretch"
+                                           HorizontalContentAlignment="Stretch"
+                                           Header="{x:Bind Subject.description}"
+                                           Description="{x:Bind Teachers}"
+                                           HeaderIcon="{x:Bind AverageVariationIcon}" >
                     <Grid>
-                        <muxc:ProgressRing
-                            HorizontalAlignment="Center"
-                            VerticalAlignment="Center"
-                            Value="{x:Bind Progress}"
-                            Foreground="{x:Bind Average, Converter={StaticResource GradeToColorConverter}}"
-                            IsIndeterminate="False"
-                            Minimum="0"
-                            Maximum="100"
-                            Width="45"
-                            Height="45"
-                            Background="#545454" />
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="Auto"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
 
+                        <!-- textblock no valutazioni -->
                         <TextBlock
-                            Text="{x:Bind Average, Converter={StaticResource NanToNdConverter}}"
+                            x:Name="NoValutazioniTextBlock"
+                            Grid.Column="0"
+                            Text="Nessuna valutazione"
                             Style="{StaticResource BodyStrongTextBlockStyle}"
-                            Foreground="{x:Bind Average, Converter={StaticResource GradeToColorConverter}}"
+                            Foreground="{ThemeResource TextFillColorTertiaryBrush}"
                             HorizontalAlignment="Center"
                             VerticalAlignment="Center"
-                            Margin="0,0,0,0" />
+                            Margin="0,0,16,0"
+                            Visibility="{x:Bind SubjectGrades, Converter={StaticResource EmptyListToVisibilityConverter}, ConverterParameter=False}" />
 
+                        <Grid
+                            Grid.Column="1">
+                            <muxc:ProgressRing
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Value="{x:Bind Progress}"
+                                Foreground="{x:Bind Average, Converter={StaticResource GradeToColorConverter}}"
+                                IsIndeterminate="False"
+                                Minimum="0"
+                                Maximum="100"
+                                Width="45"
+                                Height="45"
+                                Background="#545454" />
+
+                            <TextBlock
+                                Text="{x:Bind Average, Converter={StaticResource NanToNdConverter}}"
+                                Style="{StaticResource BodyStrongTextBlockStyle}"
+                                Foreground="{x:Bind Average, Converter={StaticResource GradeToColorConverter}}"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Margin="0,0,0,0" />
+
+                        </Grid>
                     </Grid>
                     
                     <controls:SettingsExpander.Items>
