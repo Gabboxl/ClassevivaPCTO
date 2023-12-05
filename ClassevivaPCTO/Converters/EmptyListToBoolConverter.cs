@@ -9,6 +9,7 @@ namespace ClassevivaPCTO.Converters
     {
         public object Convert(object value, Type targetType, object parameter, string language)
         {
+            //parametro per invertire il risultato
             bool param = true;
 
             if (parameter != null)
@@ -16,7 +17,7 @@ namespace ClassevivaPCTO.Converters
 
             IList list = (IList) value;
 
-            return (list != null && list.Count != 0) && param;
+            return (list != null && list.Count != 0) == param;
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, string language)
