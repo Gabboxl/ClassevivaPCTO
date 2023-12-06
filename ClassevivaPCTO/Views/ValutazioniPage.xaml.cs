@@ -126,7 +126,7 @@ namespace ClassevivaPCTO.Views
                 //update UI on UI thread
                 await CoreApplication.MainView.Dispatcher.RunAsync(
                     CoreDispatcherPriority.Normal,
-                    async () => { UpdateUi(_sortedGrades, subjects); }
+                    async () => { UpdateUi(_sortedGrades); }
                 );
             }
             finally
@@ -144,9 +144,9 @@ namespace ClassevivaPCTO.Views
 
         private void UpdateUi()
         {
-            var periodIndex = SegmentedVoti.SelectedIndex;
+            var selectedPeriodIndex = SegmentedVoti.SelectedIndex;
 
-            if (periodIndex == -1)
+            if (selectedPeriodIndex == -1)
             {
                 foreach (var period in _mergedPeriodList)
                 {
@@ -159,65 +159,64 @@ namespace ClassevivaPCTO.Views
                 SegmentedVoti.SelectedIndex = 0;
                 SegmentedVoti.IsEnabled = true;
 
+                return;
+
             }
-            else if (periodIndex == 0)
+
+            List<SubjectWithGrades> mergedPeriodsSubjectsWithGrades;
+
+            if (selectedPeriodIndex == 0)
             {
-                SegmentedLayout.IsEnabled = true;
+                //create a list of SubjectAdapter from periodGrades by merging periods together and count subjects as one distinct subject
+                mergedPeriodsSubjectsWithGrades = _mergedPeriodList
+                    .SelectMany(p => p.Subjects)
+                    .GroupBy(s => s.Subject.id)
+                    .Select(g => new SubjectWithGrades
+                    {
+                        Subject = g.First().Subject,
+                        Grades = g.SelectMany(s => s.Grades).ToList()
+                    })
+                    .ToList();
 
-                if (SegmentedLayout.SelectedIndex == 1)
-                {
-                    MainListView.Visibility = Visibility.Visible;
-                    GradesOnlyListView.Visibility = Visibility.Collapsed;
-
-                    //create a list of SubjectAdapter from periodGrades by merging periods together and count subjects as one distinct subject
-                    var mergetdPeriodsSubjects = _mergedPeriodList
-                        .SelectMany(p => p.Subjects)
-                        .GroupBy(s => s.Subject.id)
-                        .Select(g => new SubjectWithGrades
-                        {
-                            Subject = g.First().Subject,
-                            Grades = g.SelectMany(s => s.Grades).ToList()
-                        })
-                        .ToList();
-
-                    var subjectAdapters = mergetdPeriodsSubjects.Select(subject =>
-                        new SubjectAdapter(subject.Subject, subject.Grades)
-                    ).ToList();
-
-                    MainListView.ItemsSource = subjectAdapters;
-                }
-                else
-                {
-                    MainListView.Visibility = Visibility.Collapsed;
-                    GradesOnlyListView.Visibility = Visibility.Visible;
-                    GradesOnlyListView.ItemsSource = _sortedGrades;
-                }
             }
             else
             {
-                SegmentedLayout.IsEnabled = false;
-                MainListView.Visibility = Visibility.Visible;
-                GradesOnlyListView.Visibility = Visibility.Collapsed;
+                mergedPeriodsSubjectsWithGrades = _mergedPeriodList[selectedPeriodIndex - 1].Subjects;
 
-                var periodGrades = _mergedPeriodList[periodIndex - 1].Subjects;
+            }
 
-                //create a list of SubjectAdapter for every subject in periodGrades
-                var subjectAdapters = periodGrades.Select(subject =>
+            if (SegmentedLayout.SelectedIndex == 1)
+            {
+                var subjectAdapters = mergedPeriodsSubjectsWithGrades.Select(subject =>
                     new SubjectAdapter(subject.Subject, subject.Grades)
                 ).ToList();
 
+                MainListView.Visibility = Visibility.Visible;
+                GradesOnlyListView.Visibility = Visibility.Collapsed;
+
                 MainListView.ItemsSource = subjectAdapters;
             }
+            else
+            {
+                MainListView.Visibility = Visibility.Collapsed;
+                GradesOnlyListView.Visibility = Visibility.Visible;
+
+                //if selected period is not the first one (all grades), filter grades by periodPos
+                var sortedGradesForPeriod = selectedPeriodIndex != 0 ? _sortedGrades
+                    .Where(g => g.periodPos == _mergedPeriodList[selectedPeriodIndex - 1].Period.periodPos)
+                    .ToList() : _sortedGrades;
+
+                GradesOnlyListView.ItemsSource = sortedGradesForPeriod;
+            }
+
         }
 
-        private void UpdateUi(List<Grade> grades, List<Subject> subjects)
+        private void UpdateUi(List<Grade> grades)
         {
             //update main UI
             UpdateUi();
 
-
             //update statistics
-
             var firstPeriodGrades = _mergedPeriodList[0].Subjects.SelectMany(s => s.Grades).ToList();
             var secondPeriodGrades = _mergedPeriodList[1].Subjects.SelectMany(s => s.Grades).ToList();
 
