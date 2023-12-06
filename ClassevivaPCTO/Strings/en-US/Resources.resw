@@ -403,7 +403,7 @@ Error: </value>
     <value>Highlights</value>
   </data>
   <data name="WhatsNewDialogRelease.Text" xml:space="preserve">
-    <value>v1.2.0, 25 Novembre 2023</value>
+    <value>v1.2.0, 25 November 2023</value>
   </data>
   <data name="AgendaTomorrowButton.ToolTipService.ToolTip" xml:space="preserve">
     <value>Next day</value>
@@ -415,7 +415,7 @@ Error: </value>
     <value>Go to today's events</value>
   </data>
   <data name="NoticeBoardShowInactiveNoticesCheckbox.Content" xml:space="preserve">
-    <value>Show inactive notices</value>
+    <value>Includi comunicazioni scadute</value>
   </data>
   <data name="DashboardEditWidgetsButton.Text" xml:space="preserve">
     <value>Edit widgets</value>
@@ -694,6 +694,6 @@ Error: </value>
     <value>Save ballot file on your PC</value>
   </data>
   <data name="NoticeBoardNotAvailableButton.Text" xml:space="preserve">
-    <value>Non disponibile</value>
+    <value>Not available</value>
   </data>
 </root>
