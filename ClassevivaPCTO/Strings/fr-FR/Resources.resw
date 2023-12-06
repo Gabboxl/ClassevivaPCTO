@@ -237,8 +237,8 @@ Si vous rencontrez des bugs ou avez une idée pour l'application, ouvrez un tick
   <data name="LoginKeepCredentialsCheckbox.Content" xml:space="preserve">
     <value>Conserver les informations d'identification</value>
   </data>
-  <data name="TitoloDashboardText" xml:space="preserve">
-    <value>Le panneau de bord de {0}</value>
+  <data name="DashboardTitleText" xml:space="preserve">
+    <value>Dashboard di {0}</value>
   </data>
   <data name="DashboardTodaysEvents.Text" xml:space="preserve">
     <value>Événements de la journée</value>
@@ -313,11 +313,11 @@ Erreur: </value>
   <data name="NoticeDialogNoAttachmentsSubtitle" xml:space="preserve">
     <value>Pas de pièces jointes</value>
   </data>
-  <data name="ComboChoiceSelectProfile.Header" xml:space="preserve">
-    <value>Selectionnez un profil:</value>
+  <data name="ProfileChoiceDialogCombobox.Header" xml:space="preserve">
+    <value>Seleziona un profilo:</value>
   </data>
-  <data name="ProfileChoiceDialogInfoTextBlock.Text" xml:space="preserve">
-    <value>Plusieurs profils sont associés à ce compte.</value>
+  <data name="ProfileChoiceDialogBody.Text" xml:space="preserve">
+    <value>Più profili sono associati a questo account.</value>
   </data>
   <data name="AgendaLessonsPopupTitle.Text" xml:space="preserve">
     <value>Leçons</value>
@@ -416,7 +416,7 @@ Erreur: </value>
     <value>Accédez aux événements d'aujourd'hui</value>
   </data>
   <data name="NoticeBoardShowInactiveNoticesCheckbox.Content" xml:space="preserve">
-    <value>Afficher les communications inactives</value>
+    <value>Includi comunicazioni scadute</value>
   </data>
   <data name="DashboardEditWidgetsButton.Text" xml:space="preserve">
     <value>Personnaliser les widgets</value>
@@ -463,14 +463,14 @@ Erreur: </value>
   <data name="SettingsPaletteColorRed.ToolTipService.ToolTip" xml:space="preserve">
     <value>Insuffisance grave, absence, communication non lue</value>
   </data>
-  <data name="NoticeAdapter_FromToValidDate" xml:space="preserve">
-    <value>Valable du {0} au {1}</value>
+  <data name="NoticeBoardValidFromToDateText" xml:space="preserve">
+    <value>Valida dal {0} al {1}</value>
   </data>
-  <data name="NoticeAdapter_StatusText_Eliminata" xml:space="preserve">
-    <value>Supprimé</value>
+  <data name="NoticeBoardDeletedStatusText" xml:space="preserve">
+    <value>Eliminata</value>
   </data>
-  <data name="NoticeAdapter_StatusText_Scaduta" xml:space="preserve">
-    <value>Expirée</value>
+  <data name="NoticeBoardExpiredStatusText" xml:space="preserve">
+    <value>Scaduta</value>
   </data>
   <data name="AreYouSure" xml:space="preserve">
     <value>Etes-vous sûr?</value>
@@ -643,8 +643,8 @@ Erreur: </value>
   <data name="ChangeProfilePhotoTitle" xml:space="preserve">
     <value>Modifier la photo de profil</value>
   </data>
-  <data name="ToBeJustifiedText" xml:space="preserve">
-    <value>Être justifié</value>
+  <data name="AbsencesToBeJustifiedText" xml:space="preserve">
+    <value>Da giustificare</value>
   </data>
   <data name="OkDialogButton" xml:space="preserve">
     <value>Ok</value>
@@ -655,11 +655,11 @@ Erreur: </value>
   <data name="SelectFileDialogButton" xml:space="preserve">
     <value>Sélectionner un fichier</value>
   </data>
-  <data name="UntranslatedLanguage" xml:space="preserve">
-    <value>L'application n'a pas encore été traduite dans la langue que vous avez choisie.</value>
+  <data name="DialogUntranslatedLanguageBody" xml:space="preserve">
+    <value>L'app non è stata ancora tradotta nella lingua che hai scelto.</value>
   </data>
   <data name="GenericEventOnDayPreposition" xml:space="preserve">
-    <value> des </value>
+    <value> del </value>
   </data>
   <data name="AbsencesTodayButton.Content" xml:space="preserve">
     <value>Aujourd'hui</value>
@@ -696,5 +696,8 @@ Erreur: </value>
   </data>
   <data name="NoticeBoardNotAvailableButton.Text" xml:space="preserve">
     <value>Indisponible</value>
+  </data>
+  <data name="ScrutiniNotAvailableStatusText" xml:space="preserve">
+    <value>Non disponibile</value>
   </data>
 </root>
