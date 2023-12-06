@@ -302,7 +302,7 @@ namespace ClassevivaPCTO.Views
                 var langProgressPerc = languageProgressObj.Data[0].TranslationProgress;
 
 
-                if (langProgressPerc != 100 && langProgressPerc != 0)
+                if (langProgressPerc != 100)
                 {
                     ContentDialog dialogtrans = new()
                     {
