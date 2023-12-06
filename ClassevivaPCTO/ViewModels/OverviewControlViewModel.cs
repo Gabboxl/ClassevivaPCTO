@@ -29,9 +29,5 @@ namespace ClassevivaPCTO.ViewModels
             get { return _showEmptyAlert; }
             set { SetProperty(ref _showEmptyAlert, value); }
         }
-
-        public OverviewControlViewModel()
-        {
-        }
     }
 }

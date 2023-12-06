@@ -57,7 +57,7 @@ namespace ClassevivaPCTO.Controls
                 nameof(ItemsSource),
                 typeof(List<AbsenceEvent>),
                 typeof(GradesListView),
-                new PropertyMetadata(null, new PropertyChangedCallback(OnItemsSourceChanged)));
+                new PropertyMetadata(null, OnItemsSourceChanged));
 
         private CollectionViewSource GroupedItems { get; set; }
 

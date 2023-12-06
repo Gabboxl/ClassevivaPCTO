@@ -11,9 +11,5 @@ namespace ClassevivaPCTO.ViewModels
             get { return _isLoadingScrutini; }
             set { SetProperty(ref _isLoadingScrutini, value); }
         }
-
-        public ScrutiniViewModel()
-        {
-        }
     }
 }

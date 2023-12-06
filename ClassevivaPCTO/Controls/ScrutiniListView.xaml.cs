@@ -52,7 +52,7 @@ namespace ClassevivaPCTO.Controls
             nameof(ItemsSource),
             typeof(ScrutiniDocumentsResult),
             typeof(ScrutiniListView),
-            new PropertyMetadata(null, new PropertyChangedCallback(OnItemsSourceChanged))
+            new PropertyMetadata(null, OnItemsSourceChanged)
         );
 
         private static void OnItemsSourceChanged(

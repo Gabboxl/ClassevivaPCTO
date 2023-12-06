@@ -11,9 +11,5 @@ namespace ClassevivaPCTO.ViewModels
             get { return _isLoadingAssenze; }
             set { SetProperty(ref _isLoadingAssenze, value); }
         }
-
-        public AssenzeViewModel()
-        {
-        }
     }
 }

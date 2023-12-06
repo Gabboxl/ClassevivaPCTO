@@ -29,9 +29,5 @@ namespace ClassevivaPCTO.ViewModels
             get { return _mostraComInattive; }
             set { SetProperty(ref _mostraComInattive, value); }
         }
-
-        public BachecaViewModel()
-        {
-        }
     }
 }

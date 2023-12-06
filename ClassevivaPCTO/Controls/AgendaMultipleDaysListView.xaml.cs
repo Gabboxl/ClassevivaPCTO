@@ -52,7 +52,7 @@ namespace ClassevivaPCTO.Controls
                 nameof(ItemsSource),
                 typeof(List<AgendaEvent>),
                 typeof(AgendaMultipleDaysListView),
-                new PropertyMetadata(null, new PropertyChangedCallback(OnItemsSourceChanged)));
+                new PropertyMetadata(null, OnItemsSourceChanged));
 
         private static async void OnItemsSourceChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {

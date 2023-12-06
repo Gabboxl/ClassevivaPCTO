@@ -22,7 +22,7 @@ namespace ClassevivaPCTO.Controls
                 nameof(ItemsSource),
                 typeof(OverviewDataModel),
                 typeof(GradesListView),
-                new PropertyMetadata(null, new PropertyChangedCallback(OnItemsSourceChanged)));
+                new PropertyMetadata(null, OnItemsSourceChanged));
 
         private static void OnItemsSourceChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
