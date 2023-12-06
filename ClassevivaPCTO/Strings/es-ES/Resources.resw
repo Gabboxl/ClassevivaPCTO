@@ -657,7 +657,7 @@ Errore: </value>
   <data name="UntranslatedLanguage" xml:space="preserve">
     <value>L'app non è stata ancora tradotta nella lingua che hai scelto.</value>
   </data>
-  <data name="AbsenceEventOnDayPreposition" xml:space="preserve">
+  <data name="GenericEventOnDayPreposition" xml:space="preserve">
     <value> del </value>
   </data>
   <data name="AbsencesTodayButton.Content" xml:space="preserve">
