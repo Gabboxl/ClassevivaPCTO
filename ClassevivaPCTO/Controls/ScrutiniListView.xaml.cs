@@ -172,7 +172,7 @@ namespace ClassevivaPCTO.Controls
 
         private async Task<(byte[], string)> GetScrutinioFileAsBytes(ScrutiniDocument document)
         {
-            Card? cardResult = ViewModelHolder.GetViewModel().SingleCardResult;
+            Card? cardResult = AppViewModelHolder.GetViewModel().SingleCardResult;
 
             var attachmentBinary = await apiWrapper.GetScrutinioDocumentFile(
                 cardResult.usrId.ToString(),

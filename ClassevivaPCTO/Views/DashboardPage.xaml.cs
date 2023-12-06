@@ -37,7 +37,7 @@ namespace ClassevivaPCTO.Views
         {
             base.OnNavigatedTo(e);
 
-            Card? cardResult = ViewModelHolder.GetViewModel().SingleCardResult;
+            Card? cardResult = AppViewModelHolder.GetViewModel().SingleCardResult;
 
             TextTitolo.Text = string.Format("DashboardTitleText".GetLocalizedStr(),
                 VariousUtils.ToTitleCase(cardResult.firstName));
@@ -67,7 +67,7 @@ namespace ClassevivaPCTO.Views
                     async () => { DashboardPageViewModel.IsLoadingAgenda = true; }
                 );
 
-                Card? cardResult = ViewModelHolder.GetViewModel().SingleCardResult;
+                Card? cardResult = AppViewModelHolder.GetViewModel().SingleCardResult;
 
                 string caldate = VariousUtils.ToApiDateTime(DateTime.Now);
                 OverviewResult overviewResult = await apiWrapper.GetOverview(
@@ -109,7 +109,7 @@ namespace ClassevivaPCTO.Views
                     async () => { DashboardPageViewModel.IsLoadingGrades = true; }
                 );
 
-                Card? cardResult = ViewModelHolder.GetViewModel().SingleCardResult;
+                Card? cardResult = AppViewModelHolder.GetViewModel().SingleCardResult;
 
                 var result1 = await apiWrapper
                     .GetGrades(cardResult.usrId.ToString())
@@ -141,7 +141,7 @@ namespace ClassevivaPCTO.Views
                     async () => { DashboardPageViewModel.IsLoadingMedia = true; }
                 );
 
-                Card? cardResult = ViewModelHolder.GetViewModel().SingleCardResult;
+                Card? cardResult = AppViewModelHolder.GetViewModel().SingleCardResult;
 
                 Grades2Result? result1 = await apiWrapper
                     .GetGrades(cardResult.usrId.ToString())
@@ -183,7 +183,7 @@ namespace ClassevivaPCTO.Views
                     async () => { DashboardPageViewModel.IsLoadingNotices = true; }
                 );
 
-                Card? cardResult = ViewModelHolder.GetViewModel().SingleCardResult;
+                Card? cardResult = AppViewModelHolder.GetViewModel().SingleCardResult;
 
                 var resultNotices = await apiWrapper
                     .GetNotices(cardResult.usrId.ToString())

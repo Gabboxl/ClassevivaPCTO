@@ -43,7 +43,7 @@ namespace ClassevivaPCTO.Views
                     async () => { NoteViewModel.IsLoadingNote = true; }
                 );
 
-                Card? cardResult = ViewModelHolder.GetViewModel().SingleCardResult;
+                Card? cardResult = AppViewModelHolder.GetViewModel().SingleCardResult;
 
 
                 List<Note> notesResult = await apiWrapper.GetAllNotes(

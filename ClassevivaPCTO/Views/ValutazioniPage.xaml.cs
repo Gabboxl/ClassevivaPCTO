@@ -66,7 +66,7 @@ namespace ClassevivaPCTO.Views
                     async () => { ValutazioniViewModel.IsLoadingValutazioni = true; }
                 );
 
-                Card? cardResult = ViewModelHolder.GetViewModel().SingleCardResult;
+                Card? cardResult = AppViewModelHolder.GetViewModel().SingleCardResult;
 
 
                 Grades2Result grades2Result = await _apiWrapper.GetGrades(

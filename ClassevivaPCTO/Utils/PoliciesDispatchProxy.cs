@@ -98,7 +98,7 @@ namespace ClassevivaPCTO.Utils
                                         .RetrievePassword(); //dobbiamo per forza chiamare questo metodo per fare sì che la proprietà loginCredential.Password non sia vuota
 
                                     //get app viewmodel from holder
-                                    var appViewModel = ViewModelHolder.GetViewModel();
+                                    var appViewModel = AppViewModelHolder.GetViewModel();
 
                                     var refreshLoginData = new LoginData
                                     {
@@ -116,7 +116,7 @@ namespace ClassevivaPCTO.Utils
                                             );
 
                                         //salvo il nuovo token
-                                        ViewModelHolder.GetViewModel().LoginResult = loginResult;
+                                        AppViewModelHolder.GetViewModel().LoginResult = loginResult;
                                     }
                                     catch (Exception e)
                                     {

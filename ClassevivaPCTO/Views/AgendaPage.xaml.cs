@@ -88,7 +88,7 @@ namespace ClassevivaPCTO.Views
                     async () => { AgendaViewModel.IsLoadingAgenda = true; }
                 );
 
-                Card? cardResult = ViewModelHolder.GetViewModel().SingleCardResult;
+                Card? cardResult = AppViewModelHolder.GetViewModel().SingleCardResult;
 
                 string apiDate = VariousUtils.ToApiDateTime(dateToLoad);
 
@@ -173,8 +173,8 @@ namespace ClassevivaPCTO.Views
                     LezioniPopup.IsOpen = true;
                 });
 
-            LoginResultComplete? loginResult = ViewModelHolder.GetViewModel().LoginResult;
-            Card? cardResult = ViewModelHolder.GetViewModel().SingleCardResult;
+            LoginResultComplete? loginResult = AppViewModelHolder.GetViewModel().LoginResult;
+            Card? cardResult = AppViewModelHolder.GetViewModel().SingleCardResult;
 
 
             if (_subjects == null)
@@ -256,8 +256,8 @@ namespace ClassevivaPCTO.Views
                     AgendaPopup.IsOpen = true;
                 });
 
-            LoginResultComplete? loginResult = ViewModelHolder.GetViewModel().LoginResult;
-            Card? cardResult = ViewModelHolder.GetViewModel().SingleCardResult;
+            LoginResultComplete? loginResult = AppViewModelHolder.GetViewModel().LoginResult;
+            Card? cardResult = AppViewModelHolder.GetViewModel().SingleCardResult;
 
             var dates = VariousUtils.GetAgendaStartEndDates();
 

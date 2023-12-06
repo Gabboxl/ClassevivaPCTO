@@ -263,7 +263,7 @@
     <Compile Include="Utils\CvAPI.cs" />
     <Compile Include="Utils\CredUtils.cs" />
     <Compile Include="Utils\VariousUtils.cs" />
-    <Compile Include="ViewModels\ViewModelHolder.cs" />
+    <Compile Include="ViewModels\AppViewModelHolder.cs" />
     <Compile Include="ViewModels\AppViewModel.cs" />
     <Compile Include="Utils\PoliciesDispatchProxy.cs" />
     <Compile Include="Views\SettingsPage.xaml.cs">

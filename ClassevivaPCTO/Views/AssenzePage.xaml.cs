@@ -62,7 +62,7 @@ namespace ClassevivaPCTO.Views
                     async () => { AssenzeViewModel.IsLoadingAssenze = true; }
                 );
 
-                Card? cardResult = ViewModelHolder.GetViewModel().SingleCardResult;
+                Card? cardResult = AppViewModelHolder.GetViewModel().SingleCardResult;
 
                 AbsencesResult absencesResult = await apiWrapper.GetAbsences(
                     cardResult.usrId.ToString()
