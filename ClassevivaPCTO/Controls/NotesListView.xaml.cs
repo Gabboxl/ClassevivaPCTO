@@ -15,6 +15,7 @@ using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Data;
 using ClassevivaPCTO.Helpers;
 using CommunityToolkit.WinUI;
+using CommunityToolkit.WinUI.Controls;
 
 namespace ClassevivaPCTO.Controls
 {
@@ -272,9 +273,20 @@ namespace ClassevivaPCTO.Controls
             {
                 var noteDialogContent = new NoteDialogContent(currentNote, readNoteResult);
 
+                MetadataControl metadataControlTitle = new()
+                {
+                    Separator = " • ",
+                    AccessibleSeparator = ",",
+                    Items = new[]
+                    {
+                        new MetadataItem { Label = currentNote.authorName },
+                        new MetadataItem { Label = currentNote.evtCode.ToString().GetLocalizedStr("sing") + "GenericEventOnDayPreposition".GetLocalizedStr() + currentNote.evtDate.ToString("dd/MM/yyyy"), },
+                    }
+                };
+
                 ContentDialog dialog = new()
                 {
-                    Title = currentNote.evtCode.ToString().GetLocalizedStr("sing") + "GenericEventOnDayPreposition".GetLocalizedStr() + currentNote.evtDate.ToString("dd/MM/yyyy"),
+                    Title = metadataControlTitle,
                     PrimaryButtonText = "CloseDialogButtonText".GetLocalizedStr(),
                     DefaultButton = ContentDialogButton.Primary,
                     RequestedTheme = ((FrameworkElement) Window.Current.Content).RequestedTheme,
