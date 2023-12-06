@@ -37,7 +37,6 @@ namespace ClassevivaPCTO.Views
             CheckboxEliminati.Unchecked +=
                 async (sender, args) => { await Task.Run(async () => { await LoadData(); }); };
 
-
             await Task.Run(async () => { await LoadData(); });
         }
 
@@ -75,7 +74,6 @@ namespace ClassevivaPCTO.Views
                     document.checkStatus = scrutiniCheckResult.document;
                 }
 
-
                 //we take only available documents if the checkbox isnt checked, after we have checked them via the API
                 if (!showDeletedDocuments)
                 {
@@ -102,7 +100,6 @@ namespace ClassevivaPCTO.Views
                 }
             }
         }
-
 
         private async void AggiornaCommand_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {

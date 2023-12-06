@@ -39,7 +39,7 @@ namespace ClassevivaPCTO.Views
 
             Card? cardResult = ViewModelHolder.GetViewModel().SingleCardResult;
 
-            TextTitolo.Text = string.Format("TitoloDashboardText".GetLocalizedStr(),
+            TextTitolo.Text = string.Format("DashboardTitleText".GetLocalizedStr(),
                 VariousUtils.ToTitleCase(cardResult.firstName));
 
             /*
@@ -74,7 +74,6 @@ namespace ClassevivaPCTO.Views
                     cardResult.usrId.ToString(),
                     caldate,
                     caldate);
-
 
                 //update UI on UI thread
                 await CoreApplication.MainView.Dispatcher.RunAsync(

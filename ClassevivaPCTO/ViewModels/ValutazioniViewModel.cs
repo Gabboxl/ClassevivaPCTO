@@ -28,7 +28,6 @@ namespace ClassevivaPCTO.ViewModels
             set { SetProperty(ref _averageTot, value); }
         }
 
-
         private float _averageFirstPeriodo;
 
         public float AverageFirstPeriodo
@@ -36,7 +35,6 @@ namespace ClassevivaPCTO.ViewModels
             get { return _averageFirstPeriodo; }
             set { SetProperty(ref _averageFirstPeriodo, value); }
         }
-
 
         private float _averageSecondPeriodo;
 

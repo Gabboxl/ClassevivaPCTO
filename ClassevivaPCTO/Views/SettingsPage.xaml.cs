@@ -34,7 +34,6 @@ namespace ClassevivaPCTO.Views
             set { Set(ref _elementTheme, value); }
         }
 
-
         private PaletteType _paletteType = PaletteSelectorService.PaletteEnum;
 
         public PaletteType PaletteType
@@ -68,7 +67,6 @@ namespace ClassevivaPCTO.Views
             }
         }
 
-
         private static int CurrentLanguage
         {
             get
@@ -77,7 +75,6 @@ namespace ClassevivaPCTO.Views
             }
             set { }
         }
-
 
         public static string AppName
         {
@@ -342,9 +339,9 @@ namespace ClassevivaPCTO.Views
                 {
                     ContentDialog dialogtrans = new()
                     {
-                        Title = "Attenzione",
-                        Content = "L'app non è stata ancora tradotta nella lingua che hai scelto.",
-                        PrimaryButtonText = "Ok",
+                        Title = "CautionDialogTitle".GetLocalizedStr(),
+                        Content = "DialogUntranslatedLanguageBody".GetLocalizedStr(),
+                        PrimaryButtonText = "OkDialogButton".GetLocalizedStr(),
                         RequestedTheme = ((FrameworkElement) Window.Current.Content).RequestedTheme,
                         DefaultButton = ContentDialogButton.Primary
                     };
@@ -355,10 +352,8 @@ namespace ClassevivaPCTO.Views
                 }
             }
 
-
             //update values
             ChangeLanguage(selectedIndex);
-
 
             ContentDialog dialog = new()
             {

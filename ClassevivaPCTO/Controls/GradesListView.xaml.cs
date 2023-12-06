@@ -55,11 +55,9 @@ namespace ClassevivaPCTO.Controls
 
             currentInstance.listView.ItemsSource = eventAdapters;
 
-
             currentInstance.ShowEmptyAlert =
                 (newValue == null || newValue.Count == 0) && currentInstance.EnableEmptyAlert;
         }
-
 
         public GradesListView()
         {

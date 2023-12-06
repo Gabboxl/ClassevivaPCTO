@@ -21,10 +21,8 @@ namespace ClassevivaPCTO.Views
 
         private readonly IClassevivaAPI apiWrapper;
 
-
         private SubjectsResult _subjects;
         private LessonsResult _lessons;
-
 
         public AgendaPage()
         {
@@ -90,7 +88,6 @@ namespace ClassevivaPCTO.Views
                     async () => { AgendaViewModel.IsLoadingAgenda = true; }
                 );
 
-
                 Card? cardResult = ViewModelHolder.GetViewModel().SingleCardResult;
 
                 string apiDate = VariousUtils.ToApiDateTime(dateToLoad);
@@ -149,7 +146,6 @@ namespace ClassevivaPCTO.Views
             await Task.Run(async () => { await LoadData(agendaSelectedDate.Value.Date); });
         }
 
-
         private async void PopupAgendaButton_OnClick(object sender, RoutedEventArgs e)
         {
             //this.StatusPane.IsPaneOpen = !this.StatusPane.IsPaneOpen;
@@ -160,7 +156,6 @@ namespace ClassevivaPCTO.Views
         {
             await Task.Run(async () => { await LoadLessonsPopup(); });
         }
-
 
         private async Task LoadLessonsPopup()
         {
@@ -234,7 +229,6 @@ namespace ClassevivaPCTO.Views
                     });
             }
 
-
             await CoreApplication.MainView.Dispatcher.RunAsync(
                 CoreDispatcherPriority.Normal,
                 async () =>
@@ -245,7 +239,6 @@ namespace ClassevivaPCTO.Views
                     LezioniPopupProgressRing.IsActive = false;
                 });
         }
-
 
         private async Task LoadAgendaPopup()
         {
@@ -266,7 +259,6 @@ namespace ClassevivaPCTO.Views
             LoginResultComplete? loginResult = ViewModelHolder.GetViewModel().LoginResult;
             Card? cardResult = ViewModelHolder.GetViewModel().SingleCardResult;
 
-
             var dates = VariousUtils.GetAgendaStartEndDates();
 
             AgendaResult agendaEvents = await apiWrapper.GetAgendaEvents(
@@ -274,7 +266,6 @@ namespace ClassevivaPCTO.Views
                 VariousUtils.ToApiDateTime(dates.startDate),
                 VariousUtils.ToApiDateTime(dates.endDate)
             );
-
 
             await CoreApplication.MainView.Dispatcher.RunAsync(
                 CoreDispatcherPriority.Normal,
@@ -289,7 +280,6 @@ namespace ClassevivaPCTO.Views
 
                     AgendaPopupListviewContainer.Children.Add(agendaListView);
                 });
-
 
             await CoreApplication.MainView.Dispatcher.RunAsync(
                 CoreDispatcherPriority.Normal,

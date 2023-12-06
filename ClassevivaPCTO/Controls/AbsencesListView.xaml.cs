@@ -28,7 +28,6 @@ namespace ClassevivaPCTO.Controls
                 typeof(AbsencesListView),
                 new PropertyMetadata(false, null));
 
-
         public bool EnableStickyHeader
         {
             get { return (bool) GetValue(EnableStickyHeaderProperty); }
@@ -38,7 +37,6 @@ namespace ClassevivaPCTO.Controls
         private static readonly DependencyProperty EnableStickyHeaderProperty =
             DependencyProperty.Register(nameof(EnableStickyHeader), typeof(bool), typeof(AbsencesListView),
                 new PropertyMetadata(false, null));
-
 
         private bool _showEmptyAlert;
 
@@ -62,7 +60,6 @@ namespace ClassevivaPCTO.Controls
                 new PropertyMetadata(null, new PropertyChangedCallback(OnItemsSourceChanged)));
 
         private CollectionViewSource GroupedItems { get; set; }
-
 
         private static async Task<ObservableCollection<GroupInfoList>> GetAbsenceEventsGroupedAsync(
             List<AbsenceEventAdapter> absenceEventAdapters)
@@ -90,7 +87,6 @@ namespace ClassevivaPCTO.Controls
 
             var eventAdapters = newValue?.Select(evt => new AbsenceEventAdapter(evt)).ToList();
 
-
             currentInstance.GroupedItems = new CollectionViewSource
             {
                 IsSourceGrouped = currentInstance.EnableStickyHeader, //TODO: settare proprietà da dependencyproperty
@@ -101,7 +97,6 @@ namespace ClassevivaPCTO.Controls
                     : eventAdapters
             };
 
-
             //update the listview contents
             currentInstance.listView.ItemsSource = currentInstance.GroupedItems.View;
             
@@ -111,7 +106,6 @@ namespace ClassevivaPCTO.Controls
             currentInstance.ShowEmptyAlert =
                 (newValue == null || newValue.Count == 0) && currentInstance.EnableEmptyAlert;
         }
-
 
         public AbsencesListView()
         {

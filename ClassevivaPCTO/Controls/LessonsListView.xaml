@@ -12,173 +12,153 @@
     d:DesignWidth="400">
 
     <UserControl.Resources>
-
         <converters:DateTimeToNormalDateConverter x:Key="DateTimeToNormalDateConverter" />
         <converters:BetterBoolToVisibilityConverter x:Key="BetterBoolToVisibilityConverter" />
 
+        <DataTemplate x:Key="LessonListViewDataTemplate" x:DataType="adapters:LessonAdapter">
 
-        <DataTemplate x:Key="LessonListViewDataTemplate"
-                      x:DataType="adapters:LessonAdapter">
             <RelativePanel>
 
-                <!-- vertical colored line with 3px width with rounded tips-->
-                <Rectangle RadiusX="2" RadiusY="2" Margin="0,6,0,6" x:Name="verticalLine" Width="3" Height="Auto"
-                           Fill="{x:Bind ColorBrush}" RelativePanel.AlignLeftWithPanel="True"
-                           RelativePanel.AlignTopWithPanel="True" RelativePanel.AlignBottomWithPanel="True" />
-
+                <Rectangle x:Name="verticalLine" Width="3"
+                           Height="Auto" Margin="0,6,0,6"
+                           Fill="{x:Bind ColorBrush}"
+                           RadiusX="2" RadiusY="2"
+                           RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignLeftWithPanel="True"
+                           RelativePanel.AlignTopWithPanel="True" />
 
                 <RelativePanel RelativePanel.AlignVerticalCenterWithPanel="True">
 
-                    <TextBlock x:Name="textMateria" TextWrapping="WrapWholeWords"
-                               MaxWidth="500"
+                    <TextBlock x:Name="textMateria" MaxWidth="500"
+                               Margin="12,6,0,0" IsTextSelectionEnabled="True"
+                               Style="{ThemeResource BaseTextBlockStyle}"
                                Text="{x:Bind CurrentObject.subjectDesc}"
-                               IsTextSelectionEnabled="True"
-                               Style="{ThemeResource BaseTextBlockStyle}"
-                               Margin="12,6,0,0" />
+                               TextWrapping="WrapWholeWords" />
 
-                    <TextBlock x:Name="durationHours" TextWrapping="NoWrap" RelativePanel.RightOf="textMateria"
-                               MaxWidth="500"
-                               Style="{ThemeResource BaseTextBlockStyle}"
+                    <TextBlock x:Name="durationHours" MaxWidth="500"
+                               Margin="6,6,0,0"
                                Foreground="{ThemeResource TextFillColorTertiaryBrush}"
-                               Margin="6,6,0,0">
+                               RelativePanel.RightOf="textMateria"
+                               Style="{ThemeResource BaseTextBlockStyle}"
+                               TextWrapping="NoWrap">
                         <Run Text="(" /><Run Text="{x:Bind Durata}" /><Run Text=")" />
                     </TextBlock>
 
-                    <TextBlock RelativePanel.Below="textMateria" x:Name="nomeAutore"
-                               Text="{x:Bind CurrentObject.authorName}"
-                               Foreground="{ThemeResource TextFillColorTertiaryBrush}"
+                    <TextBlock x:Name="nomeAutore" Margin="12,0,0,0"
                                FontStyle="Italic" FontWeight="Medium"
-                               IsTextSelectionEnabled="True"
+                               Foreground="{ThemeResource TextFillColorTertiaryBrush}"
+                               IsTextSelectionEnabled="True" RelativePanel.Below="textMateria"
                                Style="{ThemeResource BodyTextBlockStyle}"
-                               Margin="12,0,0,0" />
+                               Text="{x:Bind CurrentObject.authorName}" />
 
-                    <TextBlock RelativePanel.Below="nomeAutore" x:Name="tipoLezione"
-                               Text="{x:Bind CurrentObject.lessonType}"
-                               Style="{ThemeResource BodyTextBlockStyle}"
+                    <TextBlock x:Name="tipoLezione" Margin="12,0,0,0"
                                FontStyle="Italic"
                                Foreground="{x:Bind ColorBrush}"
-                               Margin="12,0,0,0" />
-
-                    <TextBlock RelativePanel.Below="nomeAutore" RelativePanel.RightOf="tipoLezione"
-                               TextWrapping="WrapWholeWords"
-                               Text="{x:Bind CurrentObject.lessonArg}"
+                               RelativePanel.Below="nomeAutore"
                                Style="{ThemeResource BodyTextBlockStyle}"
+                               Text="{x:Bind CurrentObject.lessonType}" />
+
+                    <TextBlock Margin="12,0,0,6" FontWeight="SemiBold"
                                Foreground="{ThemeResource TextFillColorSecondaryBrush}"
-                               FontWeight="SemiBold"
-                               IsTextSelectionEnabled="True"
-                               Margin="12,0,0,6" />
+                               IsTextSelectionEnabled="True" RelativePanel.Below="nomeAutore"
+                               RelativePanel.RightOf="tipoLezione"
+                               Style="{ThemeResource BodyTextBlockStyle}"
+                               Text="{x:Bind CurrentObject.lessonArg}"
+                               TextWrapping="WrapWholeWords" />
 
                 </RelativePanel>
-
-
             </RelativePanel>
         </DataTemplate>
 
+        <DataTemplate x:Key="LessonListViewExpressiveDataTemplate" x:DataType="adapters:LessonAdapter">
 
-        <DataTemplate x:Key="LessonListViewExpressiveDataTemplate"
-
-                      x:DataType="adapters:LessonAdapter">
             <RelativePanel>
 
-                <!-- vertical colored line with 3px width with rounded tips-->
-                <Rectangle RadiusX="2" RadiusY="2" Margin="0,6,0,6" x:Name="verticalLine" Width="3" Height="Auto"
-                           Fill="{x:Bind ColorBrush}" RelativePanel.AlignLeftWithPanel="True"
-                           RelativePanel.AlignTopWithPanel="True" RelativePanel.AlignBottomWithPanel="True" />
-
+                <Rectangle x:Name="verticalLine" Width="3"
+                           Height="Auto" Margin="0,6,0,6"
+                           Fill="{x:Bind ColorBrush}"
+                           RadiusX="2" RadiusY="2"
+                           RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignLeftWithPanel="True"
+                           RelativePanel.AlignTopWithPanel="True" />
 
                 <RelativePanel RelativePanel.AlignVerticalCenterWithPanel="True">
 
-
-                    <TextBlock x:Name="textMateria" TextWrapping="WrapWholeWords"
-                               MaxWidth="500"
+                    <TextBlock x:Name="textMateria" MaxWidth="500"
+                               Margin="12,6,0,0" IsTextSelectionEnabled="True"
+                               Style="{ThemeResource BaseTextBlockStyle}"
                                Text="{x:Bind CurrentObject.subjectDesc}"
-                               IsTextSelectionEnabled="True"
-                               Style="{ThemeResource BaseTextBlockStyle}"
-                               Margin="12,6,0,0" />
+                               TextWrapping="WrapWholeWords" />
 
-                    <TextBlock x:Name="durationHours" TextWrapping="NoWrap" RelativePanel.RightOf="textMateria"
-                               MaxWidth="500"
-                               Style="{ThemeResource BaseTextBlockStyle}"
-                               FontWeight="SemiBold"
+                    <TextBlock x:Name="durationHours" MaxWidth="500"
+                               Margin="10,6,0,0" FontWeight="SemiBold"
                                Foreground="{ThemeResource TextFillColorTertiaryBrush}"
-                               Margin="10,6,0,0">
+                               RelativePanel.RightOf="textMateria"
+                               Style="{ThemeResource BaseTextBlockStyle}"
+                               TextWrapping="NoWrap">
                         <Run Text="(" /><Run Text="{x:Bind Durata}" /><Run Text=")" />
                     </TextBlock>
 
-                    <!-- date of the lesson -->
-                    <TextBlock RelativePanel.RightOf="durationHours" x:Name="date"
-                               Text="{x:Bind CurrentObject.evtDate, Converter={StaticResource DateTimeToNormalDateConverter}}"
-                               Style="{ThemeResource BodyTextBlockStyle}"
+                    <TextBlock x:Name="date" Margin="12,6,0,0"
                                FontWeight="SemiBold"
                                Foreground="{ThemeResource TextFillColorTertiaryBrush}"
-                               IsTextSelectionEnabled="True"
-                               Margin="12,6,0,0" />
+                               IsTextSelectionEnabled="True" RelativePanel.RightOf="durationHours"
+                               Style="{ThemeResource BodyTextBlockStyle}"
+                               Text="{x:Bind CurrentObject.evtDate, Converter={StaticResource DateTimeToNormalDateConverter}}" />
 
-                    <TextBlock RelativePanel.Below="textMateria" x:Name="nomeAutore"
-                               Text="{x:Bind CurrentObject.authorName}"
-                               Foreground="{ThemeResource TextFillColorTertiaryBrush}"
+                    <TextBlock x:Name="nomeAutore" Margin="12,0,0,0"
                                FontStyle="Italic" FontWeight="Medium"
-                               IsTextSelectionEnabled="True"
+                               Foreground="{ThemeResource TextFillColorTertiaryBrush}"
+                               IsTextSelectionEnabled="True" RelativePanel.Below="textMateria"
                                Style="{ThemeResource BodyTextBlockStyle}"
-                               Margin="12,0,0,0" />
+                               Text="{x:Bind CurrentObject.authorName}" />
 
-                    <TextBlock RelativePanel.Below="nomeAutore" x:Name="tipoLezione"
-                               Text="{x:Bind CurrentObject.lessonType}"
-                               Style="{ThemeResource BodyTextBlockStyle}"
+                    <TextBlock x:Name="tipoLezione" Margin="12,0,0,0"
                                FontStyle="Italic"
                                Foreground="{x:Bind ColorBrush}"
-                               Margin="12,0,0,0" />
-
-                    <TextBlock RelativePanel.Below="nomeAutore" RelativePanel.RightOf="tipoLezione"
-                               TextWrapping="WrapWholeWords"
-                               Text="{x:Bind CurrentObject.lessonArg}"
+                               RelativePanel.Below="nomeAutore"
                                Style="{ThemeResource BodyTextBlockStyle}"
+                               Text="{x:Bind CurrentObject.lessonType}" />
+
+                    <TextBlock Margin="12,0,0,6" FontWeight="SemiBold"
                                Foreground="{ThemeResource TextFillColorSecondaryBrush}"
-                               FontWeight="SemiBold"
-                               IsTextSelectionEnabled="True"
-                               Margin="12,0,0,6" />
+                               IsTextSelectionEnabled="True" RelativePanel.Below="nomeAutore"
+                               RelativePanel.RightOf="tipoLezione"
+                               Style="{ThemeResource BodyTextBlockStyle}"
+                               Text="{x:Bind CurrentObject.lessonArg}"
+                               TextWrapping="WrapWholeWords" />
 
                 </RelativePanel>
-
-
             </RelativePanel>
         </DataTemplate>
     </UserControl.Resources>
 
-    <Grid
-        HorizontalAlignment="Stretch"
-        VerticalAlignment="Stretch">
+    <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+
         <Grid.RowDefinitions>
-            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
-        <ListView x:Name="listView"
-                  ScrollViewer.VerticalScrollMode="Enabled"
-                  HorizontalAlignment="Stretch"
+        <ListView x:Name="listView" HorizontalAlignment="Stretch"
                   HorizontalContentAlignment="Stretch"
-                  ItemTemplate="{StaticResource LessonListViewDataTemplate}">
+                  ItemTemplate="{StaticResource LessonListViewDataTemplate}"
+                  ScrollViewer.VerticalScrollMode="Enabled" />
 
-        </ListView>
+        <RelativePanel Grid.Row="0" HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       Visibility="{x:Bind ShowEmptyAlert, Mode=OneWay, Converter={StaticResource BetterBoolToVisibilityConverter}, ConverterParameter=True}">
 
-        <RelativePanel
-            VerticalAlignment="Center"
-            HorizontalAlignment="Center"
-            Grid.Row="0"
-            Visibility="{x:Bind ShowEmptyAlert, Mode=OneWay, Converter={StaticResource BetterBoolToVisibilityConverter}, ConverterParameter=True}">
-            <FontIcon x:Name="LezioniPlaceholderIcon" FontFamily="{StaticResource FluentIcons}" Glyph="&#xe7be;"
-                      Foreground="{ThemeResource TextFillColorDisabledBrush}"
-                      RelativePanel.AlignHorizontalCenterWithPanel="True"
+            <FontIcon x:Name="LezioniPlaceholderIcon" Margin="0,0,0,0"
+                      FontFamily="{StaticResource FluentIcons}"
                       FontSize="112"
-                      Margin="0,0,0,0" />
+                      Foreground="{ThemeResource TextFillColorDisabledBrush}"
+                      Glyph="&#xe7be;" RelativePanel.AlignHorizontalCenterWithPanel="True" />
 
-            <TextBlock RelativePanel.Below="LezioniPlaceholderIcon"
-                       RelativePanel.AlignHorizontalCenterWithPanel="True"
+            <TextBlock x:Uid="AgendaLessonsPlaceholder" Margin="0,0,0,0"
+                       HorizontalAlignment="Center" VerticalAlignment="Center"
+                       FontSize="36" FontWeight="SemiBold"
                        Foreground="{ThemeResource TextFillColorDisabledBrush}"
-                       Margin="0,0,0,0" TextWrapping="WrapWholeWords"
-                       FontWeight="SemiBold"
-                       x:Uid="AgendaLessonsPlaceholder" FontSize="36" VerticalAlignment="Center"
-                       HorizontalAlignment="Center" />
-        </RelativePanel>
+                       RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.Below="LezioniPlaceholderIcon"
+                       TextWrapping="WrapWholeWords" />
 
+        </RelativePanel>
     </Grid>
 </UserControl>

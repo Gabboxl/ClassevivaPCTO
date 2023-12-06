@@ -36,7 +36,6 @@ namespace ClassevivaPCTO
             return loginResult.token;
         }
 
-
         public IServiceProvider Container { get; }
 
         private IServiceProvider ConfigureDependencyInjection()

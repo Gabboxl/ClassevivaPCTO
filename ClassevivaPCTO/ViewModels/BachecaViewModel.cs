@@ -14,7 +14,6 @@ namespace ClassevivaPCTO.ViewModels
             set { SetProperty(ref _noticesToShow, value); }
         }
 
-
         private bool _isLoadingBacheca = true;
 
         public bool IsLoadingBacheca

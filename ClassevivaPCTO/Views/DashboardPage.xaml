@@ -27,18 +27,18 @@
 
         <RelativePanel Grid.Row="0" Margin="0,18,0,0">
 
-            <TextBlock x:Name="TextTitolo" Style="{StaticResource TitleLargeTextBlockStyle}"
+            <TextBlock x:Name="TextTitolo" Margin="32,0,0,0"
                        VerticalAlignment="Top"
-                       Margin="32,0,0,0" />
+                       Style="{StaticResource TitleLargeTextBlockStyle}" />
 
-            <Button RelativePanel.AlignRightWithPanel="True" Name="AggiornaCommand"
-                    RelativePanel.AlignVerticalCenterWithPanel="True"
-                    Width="48"
-                    Height="32"
-                    Margin="16,0,20,0" Click="AggiornaButton_Click" x:Uid="RefreshButton">
-                <FontIcon Glyph="&#xE72C;" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" />
+            <Button Name="AggiornaCommand" x:Uid="RefreshButton"
+                    Width="48" Height="32"
+                    Margin="16,0,20,0" Click="AggiornaButton_Click"
+                    RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignVerticalCenterWithPanel="True">
+
+                <FontIcon HorizontalAlignment="Center" VerticalAlignment="Center"
+                          FontSize="16" Glyph="&#xE72C;" />
             </Button>
-
 
             <!--  <Rectangle x:Name="SeparatorDashboard" RelativePanel.AlignRightWithPanel="True"
                        RelativePanel.AlignVerticalCenterWithPanel="True"
@@ -54,192 +54,165 @@
                     <TextBlock Text="&#xE70F;" VerticalAlignment="Center" FontFamily="{StaticResource FluentIcons}" />
                     <TextBlock x:Uid="DashboardEditWidgetsButton" />
                 </StackPanel>
-            </Button> -->
+            </Button>-->
 
         </RelativePanel>
 
-        <ScrollViewer
-            Grid.Row="1">
+        <ScrollViewer Grid.Row="1">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
-            
-            <comToolkit:StaggeredPanel
-                DesiredColumnWidth="500"
-                ScrollViewer.VerticalScrollMode="Enabled"
-                HorizontalAlignment="Stretch"
-                RowSpacing="12"
-                ColumnSpacing="12"
-                Margin="18,16,18,18">
 
-                <!-- agenda grid -->
-                <Grid
-                    MinHeight="500"
-                    CornerRadius="8"
-                    Padding="12"
-                    BorderThickness="1"
-                    BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
-                    Background="{ThemeResource CardBackgroundFillColorDefaultBrush}">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="*" />
-                        <RowDefinition Height="Auto" />
-                    </Grid.RowDefinitions>
+                <comToolkit:StaggeredPanel Margin="18,16,18,18" HorizontalAlignment="Stretch"
+                                           ColumnSpacing="12" DesiredColumnWidth="500"
+                                           RowSpacing="12" ScrollViewer.VerticalScrollMode="Enabled">
 
-                    <RelativePanel Grid.Row="0">
+                    <!--  agenda grid  -->
+                    <Grid MinHeight="500" Padding="12"
+                          Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
+                          BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
+                          BorderThickness="1" CornerRadius="8">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
 
-                        <TextBlock x:Name="TextOggiAgenda" x:Uid="DashboardTodaysEvents"
-                                   FontSize="20"
-                                   VerticalAlignment="Top"
-                                   HorizontalAlignment="Left" Margin="8,4,0,8" FontWeight="Medium" />
+                        <RelativePanel Grid.Row="0">
 
-                        <muxc:ProgressRing IsActive="True" x:Name="ProgressRingAgenda"
-                                           RelativePanel.RightOf="TextOggiAgenda"
-                                           Margin="12,0,0,0" Width="18" Height="18"
-                                           RelativePanel.AlignVerticalCenterWith="TextOggiAgenda"
-                                           Visibility="{x:Bind DashboardPageViewModel.IsLoadingAgenda, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" />
-                    </RelativePanel>
+                            <TextBlock x:Name="TextOggiAgenda" x:Uid="DashboardTodaysEvents"
+                                       Margin="8,4,0,8" HorizontalAlignment="Left"
+                                       VerticalAlignment="Top" FontSize="20"
+                                       FontWeight="Medium" />
 
+                            <muxc:ProgressRing x:Name="ProgressRingAgenda" Width="18"
+                                               Height="18" Margin="12,0,0,0"
+                                               IsActive="True" RelativePanel.AlignVerticalCenterWith="TextOggiAgenda"
+                                               RelativePanel.RightOf="TextOggiAgenda"
+                                               Visibility="{x:Bind DashboardPageViewModel.IsLoadingAgenda, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" />
+                        </RelativePanel>
 
-                    <controls2:OverviewListView Grid.Row="1" x:Name="OverviewListView"
-                                                HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-                    </controls2:OverviewListView>
+                        <controls2:OverviewListView x:Name="OverviewListView" Grid.Row="1"
+                                                    HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
 
-                    <HyperlinkButton Grid.Row="2"
-                                     VerticalAlignment="Bottom"
-                                     HorizontalAlignment="Right"
-                                     Click="HyperlinkButton_Click_Agenda">
+                        <HyperlinkButton Grid.Row="2" HorizontalAlignment="Right"
+                                         VerticalAlignment="Bottom" Click="HyperlinkButton_Click_Agenda">
+                            <StackPanel Orientation="Horizontal" Spacing="4">
+                                <TextBlock x:Uid="DashboardOpenAgendaButton" />
+                                <FontIcon VerticalAlignment="Center" FontSize="12" Glyph="&#xE76C;" />
+                            </StackPanel>
+                        </HyperlinkButton>
 
-                        <StackPanel Orientation="Horizontal" Spacing="4">
-                            <TextBlock x:Uid="DashboardOpenAgendaButton" />
-                            <FontIcon FontSize="12" Glyph="&#xE76C;" VerticalAlignment="Center" />
-                        </StackPanel>
-                    </HyperlinkButton>
+                    </Grid>
 
-                </Grid>
+                    <!--  grades grid  -->
+                    <Grid Margin="0,0,0,0" Padding="12"
+                          Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
+                          BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
+                          BorderThickness="1" CornerRadius="8">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
 
-                <!-- grades grid -->
-                <Grid
-                    CornerRadius="8"
-                      Padding="12"
-                      Margin="0,0,0,0"
-                      BorderThickness="1"
-                      BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
-                      Background="{ThemeResource CardBackgroundFillColorDefaultBrush}">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="*" />
-                        <RowDefinition Height="Auto" />
-                    </Grid.RowDefinitions>
+                        <RelativePanel Grid.Row="0">
 
+                            <TextBlock x:Name="TitleRecentGrades" x:Uid="DashboardRecentGrades"
+                                       Margin="8,4,0,8" HorizontalAlignment="Left"
+                                       VerticalAlignment="Top" FontSize="20"
+                                       FontWeight="Medium" />
 
-                    <RelativePanel Grid.Row="0">
+                            <muxc:ProgressRing x:Name="ProgressRingRecentGrades" Width="18"
+                                               Height="18" Margin="12,0,0,0"
+                                               IsActive="True" RelativePanel.AlignVerticalCenterWith="TitleRecentGrades"
+                                               RelativePanel.RightOf="TitleRecentGrades"
+                                               Visibility="{x:Bind DashboardPageViewModel.IsLoadingGrades, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" />
 
-                        <TextBlock x:Name="TitleRecentGrades" x:Uid="DashboardRecentGrades" FontSize="20"
-                                   VerticalAlignment="Top"
-                                   HorizontalAlignment="Left" Margin="8,4,0,8" FontWeight="Medium" />
+                            <TextBlock x:Name="TitleMedia" x:Uid="DashboardGradesAverage"
+                                       Margin="0,9,6,0" FontSize="16"
+                                       Foreground="{ThemeResource TextFillColorTertiaryBrush}"
+                                       RelativePanel.LeftOf="TextBlockMedia" TextAlignment="Center"
+                                       TextWrapping="Wrap" />
 
-                        <muxc:ProgressRing IsActive="True" x:Name="ProgressRingRecentGrades"
-                                           RelativePanel.RightOf="TitleRecentGrades"
-                                           Margin="12,0,0,0" Width="18" Height="18"
-                                           RelativePanel.AlignVerticalCenterWith="TitleRecentGrades"
-                                           Visibility="{x:Bind DashboardPageViewModel.IsLoadingGrades, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" />
+                            <muxc:ProgressRing x:Name="ProgressRingMedia" Margin="8,0,0,0"
+                                               IsActive="False" RelativePanel.RightOf="TitleMedia"
+                                               Visibility="{x:Bind DashboardPageViewModel.IsLoadingMedia, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" />
 
-                        <TextBlock TextWrapping="Wrap"
-                                   x:Name="TitleMedia"
-                                   TextAlignment="Center" x:Uid="DashboardGradesAverage" FontSize="16"
-                                   RelativePanel.LeftOf="TextBlockMedia"
-                                   Foreground="{ThemeResource TextFillColorTertiaryBrush}"
-                                   Margin="0,9,6,0" />
+                            <TextBlock x:Name="TextBlockMedia" Margin="0,9,4,0"
+                                       FontSize="18" FontWeight="ExtraBold"
+                                       RelativePanel.AlignRightWithPanel="True" Text="test"
+                                       Visibility="Collapsed" />
 
-                        <muxc:ProgressRing IsActive="False" x:Name="ProgressRingMedia"
-                                           Margin="8,0,0,0"
-                                           RelativePanel.RightOf="TitleMedia"
-                                           Visibility="{x:Bind DashboardPageViewModel.IsLoadingMedia, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" />
+                        </RelativePanel>
 
-                        <TextBlock x:Name="TextBlockMedia" Text="test" Visibility="Collapsed"
-                                   RelativePanel.AlignRightWithPanel="True" Margin="0,9,4,0"
-                                   FontSize="18" FontWeight="ExtraBold" />
+                        <ScrollViewer Grid.Row="1" HorizontalScrollBarVisibility="Hidden"
+                                      HorizontalScrollMode="Disabled" IsTabStop="False"
+                                      IsVerticalScrollChainingEnabled="False" VerticalScrollBarVisibility="Auto"
+                                      VerticalScrollMode="Enabled" ZoomMode="Disabled">
 
-                    </RelativePanel>
+                            <controls2:GradesListView x:Name="ListRecentGrades" HorizontalAlignment="Stretch"
+                                                      EnableEmptyAlert="True" />
 
-                    <ScrollViewer Grid.Row="1" ZoomMode="Disabled"
-                                  IsTabStop="False" IsVerticalScrollChainingEnabled="False"
-                                  HorizontalScrollMode="Disabled" HorizontalScrollBarVisibility="Hidden"
-                                  VerticalScrollMode="Enabled" VerticalScrollBarVisibility="Auto">
+                        </ScrollViewer>
 
-                        <controls2:GradesListView x:Name="ListRecentGrades"
-                                                  EnableEmptyAlert="True"
-                                                  HorizontalAlignment="Stretch" />
+                        <HyperlinkButton Grid.Row="2" HorizontalAlignment="Right"
+                                         VerticalAlignment="Bottom" Click="HyperlinkButton_Click_Valutazioni">
+                            <StackPanel Orientation="Horizontal" Spacing="4">
+                                <TextBlock x:Uid="DashboardOpenGradesButton" />
+                                <FontIcon VerticalAlignment="Center" FontSize="12" Glyph="&#xE76C;" />
+                            </StackPanel>
+                        </HyperlinkButton>
 
-                    </ScrollViewer>
+                    </Grid>
 
-                    <HyperlinkButton Grid.Row="2"
-                                     Click="HyperlinkButton_Click_Valutazioni" VerticalAlignment="Bottom"
-                                     HorizontalAlignment="Right">
-                        
-                        <StackPanel Orientation="Horizontal" Spacing="4">
-                            <TextBlock x:Uid="DashboardOpenGradesButton" />
-                            <FontIcon FontSize="12" Glyph="&#xE76C;" VerticalAlignment="Center" />
-                        </StackPanel>
+                    <Grid Margin="0,0,0,0" Padding="12"
+                          HorizontalAlignment="Stretch"
+                          Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
+                          BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
+                          BorderThickness="1" CornerRadius="8">
 
-                    </HyperlinkButton>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
 
-                </Grid>
+                        <RelativePanel Grid.Row="0">
 
+                            <TextBlock x:Name="TextBachecaRecenti" x:Uid="DashboardRecentNotices"
+                                       Margin="8,4,0,8" HorizontalAlignment="Left"
+                                       VerticalAlignment="Top" FontSize="20"
+                                       FontWeight="Medium" />
 
-                <Grid
-                    HorizontalAlignment="Stretch"
-                    CornerRadius="8"
-                    Margin="0,0,0,0"
-                    Padding="12"
-                    BorderThickness="1"
-                    BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
-                    Background="{ThemeResource CardBackgroundFillColorDefaultBrush}">
+                            <muxc:ProgressRing x:Name="ProgressRingRecentNotices" Width="18"
+                                               Height="18" Margin="12,0,0,0"
+                                               IsActive="True" RelativePanel.AlignVerticalCenterWith="TextBachecaRecenti"
+                                               RelativePanel.RightOf="TextBachecaRecenti"
+                                               Visibility="{x:Bind DashboardPageViewModel.IsLoadingNotices, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" />
+                        </RelativePanel>
 
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="*" />
-                        <RowDefinition Height="Auto" />
-                    </Grid.RowDefinitions>
+                        <controls2:NoticesListView x:Name="ListRecentNotices" Grid.Row="1"
+                                                   HorizontalAlignment="Stretch" />
 
-                    <RelativePanel Grid.Row="0">
+                        <HyperlinkButton x:Name="ButtonApriBacheca" Grid.Row="2"
+                                         HorizontalAlignment="Right" VerticalAlignment="Bottom"
+                                         Click="ButtonApriBacheca_Click">
 
-                        <TextBlock x:Name="TextBachecaRecenti" x:Uid="DashboardRecentNotices" FontSize="20"
-                                   VerticalAlignment="Top"
-                                   HorizontalAlignment="Left" Margin="8,4,0,8" FontWeight="Medium" />
+                            <StackPanel Orientation="Horizontal" Spacing="4">
+                                <TextBlock x:Uid="DashboardOpenNoticeBoardButton" />
+                                <FontIcon VerticalAlignment="Center" FontSize="12" Glyph="&#xE76C;" />
+                            </StackPanel>
 
-                        <muxc:ProgressRing IsActive="True" x:Name="ProgressRingRecentNotices"
-                                           RelativePanel.RightOf="TextBachecaRecenti"
-                                           Margin="12,0,0,0" Width="18" Height="18"
-                                           RelativePanel.AlignVerticalCenterWith="TextBachecaRecenti"
-                                           Visibility="{x:Bind DashboardPageViewModel.IsLoadingNotices, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" />
-                    </RelativePanel>
+                        </HyperlinkButton>
 
-
-                    <controls2:NoticesListView x:Name="ListRecentNotices" Grid.Row="1"
-                                               HorizontalAlignment="Stretch" />
-
-                    <HyperlinkButton Grid.Row="2" x:Name="ButtonApriBacheca"
-                                     Click="ButtonApriBacheca_Click" VerticalAlignment="Bottom"
-                                     HorizontalAlignment="Right">
-
-                        <StackPanel Orientation="Horizontal" Spacing="4">
-                            <TextBlock x:Uid="DashboardOpenNoticeBoardButton" />
-                            <FontIcon FontSize="12" Glyph="&#xE76C;" VerticalAlignment="Center" />
-                        </StackPanel>
-
-                    </HyperlinkButton>
-
-                </Grid>
-
-            </comToolkit:StaggeredPanel>
+                    </Grid>
+                </comToolkit:StaggeredPanel>
             </Grid>
         </ScrollViewer>
-
     </Grid>
 </Page>

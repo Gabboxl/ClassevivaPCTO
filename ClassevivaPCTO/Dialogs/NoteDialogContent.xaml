@@ -2,30 +2,24 @@
     x:Class="ClassevivaPCTO.Dialogs.NoteDialogContent"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:ClassevivaPCTO.Dialogs"
-    xmlns:utils="using:ClassevivaPCTO.Utils"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Page.Resources>
-
-    </Page.Resources>
-
+    <Page.Resources />
 
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
+
         <RelativePanel Grid.Row="0" HorizontalAlignment="Stretch">
 
-            <TextBlock x:Name="noteBodyText"
-                       TextWrapping="Wrap"
-                       Style="{ThemeResource BodyTextBlockStyle}"
+            <TextBlock x:Name="noteBodyText" Margin="2,8,0,8"
                        IsTextSelectionEnabled="True"
+                       Style="{ThemeResource BodyTextBlockStyle}"
                        Text="{x:Bind CurrentReadResult.Note.evtText}"
-                       Margin="2,8,0,8" />
-
+                       TextWrapping="Wrap" />
 
         </RelativePanel>
     </Grid>

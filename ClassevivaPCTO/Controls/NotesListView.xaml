@@ -12,106 +12,92 @@
     d:DesignWidth="400">
 
     <UserControl.Resources>
-
         <converters:DateTimeToNormalDateConverter x:Key="DateTimeToNormalDateConverter" />
         <converters:BetterBoolToVisibilityConverter x:Key="BetterBoolToVisibilityConverter" />
 
-        <!-- being "BasedOn" the DefaultListViewItemStyle style, it removes the highlight effect of windows 10  -->
-        <Style x:Key="ListViewFullStretchStyle" TargetType="ListViewItem"
-               BasedOn="{StaticResource DefaultListViewItemStyle}">
+        <!--  being "BasedOn" the DefaultListViewItemStyle style, it removes the highlight effect of windows 10  -->
+        <Style x:Key="ListViewFullStretchStyle"
+               BasedOn="{StaticResource DefaultListViewItemStyle}"
+               TargetType="ListViewItem">
             <Setter Property="HorizontalContentAlignment" Value="Stretch" />
             <Setter Property="VerticalContentAlignment" Value="Stretch" />
         </Style>
 
-        <DataTemplate x:Key="NotesListViewDataTemplate"
-                      x:DataType="adapters:NoteAdapter">
+        <DataTemplate x:Key="NotesListViewDataTemplate" x:DataType="adapters:NoteAdapter">
 
             <Grid>
                 <Grid.RowDefinitions>
-                    <RowDefinition MinHeight="60"></RowDefinition>
+                    <RowDefinition MinHeight="60" />
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="Auto" />
                 </Grid.ColumnDefinitions>
 
+                <RelativePanel Grid.Row="0" Grid.Column="0"
+                               ScrollViewer.HorizontalScrollMode="Disabled">
 
-                <RelativePanel ScrollViewer.HorizontalScrollMode="Disabled" Grid.Row="0" Grid.Column="0">
+                    <FontIcon x:Name="NoteIcon" Margin="8,0,0,0"
+                              FontFamily="{StaticResource FluentIcons}"
+                              FontSize="24"
+                              Foreground="{ThemeResource TextFillColorTertiaryBrush}"
+                              Glyph="&#xe91c;" RelativePanel.AlignVerticalCenterWithPanel="True" />
 
-                    <FontIcon x:Name="NoteIcon"
-                              FontSize="24" Margin="8,0,0,0"
-                              RelativePanel.AlignVerticalCenterWithPanel="True"
-                              FontFamily="{StaticResource FluentIcons}" Glyph="&#xe91c;"
-                              Foreground="{ThemeResource TextFillColorTertiaryBrush}" />
-
-
-                    <TextBlock x:Name="titoloEvento" TextWrapping="WrapWholeWords"
+                    <TextBlock x:Name="titoloEvento" Margin="18,8,0,0"
                                RelativePanel.RightOf="NoteIcon"
-
-                               Text="{x:Bind CurrentObject.authorName}"
                                Style="{ThemeResource BaseTextBlockStyle}"
-                               Margin="18,8,0,0" />
+                               Text="{x:Bind CurrentObject.authorName}"
+                               TextWrapping="WrapWholeWords" />
 
-                    <!-- data pubblicazione -->
-                    <TextBlock RelativePanel.RightOf="titoloEvento" x:Name="dataPubblicazione" TextWrapping="NoWrap"
-                               TextTrimming="None"
-                               Text="{x:Bind  CurrentObject.evtDate, Converter={StaticResource DateTimeToNormalDateConverter}}"
-                               Style="{ThemeResource BodyStrongTextBlockStyle}"
+                    <TextBlock x:Name="dataPubblicazione" Margin="12,8,0,0"
                                Foreground="{ThemeResource TextFillColorTertiaryBrush}"
-                               Margin="12,8,0,0" />
+                               RelativePanel.RightOf="titoloEvento"
+                               Style="{ThemeResource BodyStrongTextBlockStyle}"
+                               Text="{x:Bind CurrentObject.evtDate, Converter={StaticResource DateTimeToNormalDateConverter}}"
+                               TextTrimming="None" TextWrapping="NoWrap" />
 
-                    <TextBlock x:Name="bodyText" RelativePanel.Below="titoloEvento" TextWrapping="Wrap"
-                               RelativePanel.RightOf="NoteIcon"
-                               MaxWidth="300"
-                               Text="{x:Bind  CurrentObject.evtText}"
-                               FontStyle="Italic"
+                    <TextBlock x:Name="bodyText" MaxWidth="300"
+                               Margin="18,6,0,6" FontStyle="Italic"
+                               IsTextSelectionEnabled="True" MaxLines="1"
+                               RelativePanel.Below="titoloEvento" RelativePanel.RightOf="NoteIcon"
                                Style="{ThemeResource CaptionTextBlockStyle}"
-                               IsTextSelectionEnabled="True"
-                               TextTrimming="WordEllipsis"
-                               MaxLines="1"
-                               Margin="18,6,0,6">
-                    </TextBlock>
+                               Text="{x:Bind CurrentObject.evtText}"
+                               TextTrimming="WordEllipsis" TextWrapping="Wrap" />
 
                 </RelativePanel>
 
-                <RelativePanel
-                    Grid.Column="1">
+                <RelativePanel Grid.Column="1">
 
-                    <Button
-                        RelativePanel.AlignVerticalCenterWithPanel="True"
-                        RelativePanel.AlignRightWithPanel="True"
-                        x:Name="ReadButton"
-                        MinWidth="70"
-                        Click="ReadButton_Click"
-                        Margin="0,0,16,0">
+                    <Button x:Name="ReadButton" MinWidth="70"
+                            Margin="0,0,16,0" Click="ReadButton_Click"
+                            RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignVerticalCenterWithPanel="True">
+
                         <Button.Content>
-                            <StackPanel Orientation="Vertical" Padding="6,0,6,0">
-                                <FontIcon FontFamily="{StaticResource FluentIcons}" Glyph="&#xE890;"
-                                          FontSize="16" />
-                                <TextBlock FontSize="12" x:Uid="GenericReadButton" Margin="0,0,0,0" />
+                            <StackPanel Padding="6,0,6,0" Orientation="Vertical">
+                                <FontIcon FontFamily="{StaticResource FluentIcons}"
+                                          FontSize="16" Glyph="&#xE890;" />
+                                <TextBlock x:Uid="GenericReadButton" Margin="0,0,0,0"
+                                           FontSize="12" />
                             </StackPanel>
                         </Button.Content>
+
                     </Button>
 
                 </RelativePanel>
-
             </Grid>
-
         </DataTemplate>
     </UserControl.Resources>
 
-    <Grid
-        HorizontalAlignment="Stretch"
-        VerticalAlignment="Stretch">
+    <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+
         <Grid.RowDefinitions>
-            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
-        <ListView x:Name="listView"
-                  HorizontalAlignment="Stretch"
+        <ListView x:Name="listView" HorizontalAlignment="Stretch"
                   HorizontalContentAlignment="Stretch"
-                  ItemTemplate="{StaticResource NotesListViewDataTemplate}"
-                  ItemContainerStyle="{StaticResource ListViewFullStretchStyle}">
+                  ItemContainerStyle="{StaticResource ListViewFullStretchStyle}"
+                  ItemTemplate="{StaticResource NotesListViewDataTemplate}">
 
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
@@ -124,8 +110,8 @@
                     <GroupStyle.HeaderTemplate>
                         <DataTemplate x:DataType="local:GroupInfoList">
                             <Border AutomationProperties.Name="{x:Bind Key}">
-
-                                <TextBlock Text="{x:Bind Key}" FontWeight="SemiBold" FontSize="18" />
+                                <TextBlock FontSize="18" FontWeight="SemiBold"
+                                           Text="{x:Bind Key}" />
                             </Border>
                         </DataTemplate>
                     </GroupStyle.HeaderTemplate>
@@ -134,25 +120,24 @@
 
         </ListView>
 
-        <RelativePanel
-            VerticalAlignment="Center"
-            HorizontalAlignment="Center"
-            Grid.Row="0"
-            Visibility="{x:Bind ShowEmptyAlert, Mode=OneWay, Converter={StaticResource BetterBoolToVisibilityConverter}, ConverterParameter=True}">
-            <FontIcon x:Name="NotePlaceholderIcon" FontFamily="{StaticResource FluentIcons}" Glyph="&#xe91c;"
-                      Foreground="{ThemeResource TextFillColorDisabledBrush}"
-                      RelativePanel.AlignHorizontalCenterWithPanel="True"
+        <RelativePanel Grid.Row="0"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       Visibility="{x:Bind ShowEmptyAlert, Mode=OneWay, Converter={StaticResource BetterBoolToVisibilityConverter}, ConverterParameter=True}">
+
+            <FontIcon x:Name="NotePlaceholderIcon" Margin="0,0,0,0"
+                      FontFamily="{StaticResource FluentIcons}"
                       FontSize="112"
-                      Margin="0,0,0,0" />
+                      Foreground="{ThemeResource TextFillColorDisabledBrush}"
+                      Glyph="&#xe91c;" RelativePanel.AlignHorizontalCenterWithPanel="True" />
 
-            <TextBlock RelativePanel.Below="NotePlaceholderIcon"
-                       RelativePanel.AlignHorizontalCenterWithPanel="True"
+            <TextBlock x:Uid="NotesPlaceholder" Margin="0,6,0,0"
+                       HorizontalAlignment="Center" VerticalAlignment="Center"
+                       FontSize="36" FontWeight="SemiBold"
                        Foreground="{ThemeResource TextFillColorDisabledBrush}"
-                       Margin="0,6,0,0" TextWrapping="WrapWholeWords"
-                       FontWeight="SemiBold"
-                       x:Uid="NotesPlaceholder" FontSize="36" VerticalAlignment="Center"
-                       HorizontalAlignment="Center" />
-        </RelativePanel>
+                       RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.Below="NotePlaceholderIcon"
+                       TextWrapping="WrapWholeWords" />
 
+        </RelativePanel>
     </Grid>
 </UserControl>

@@ -51,7 +51,6 @@ namespace ClassevivaPCTO.Utils
 
                                 Debug.WriteLine("Test retry n.{0} policy ok ", retryCount);
 
-
                                 var loginCredentials = new CredUtils().GetCredentialFromLocker();
 
                                 if (loginCredentials == null)
@@ -81,7 +80,6 @@ namespace ClassevivaPCTO.Utils
                                                 null,
                                                 new DrillInNavigationTransitionInfo()
                                             );
-
 
                                             isSomethingLoading.SetResult(true);
                                         }
@@ -165,7 +163,6 @@ namespace ClassevivaPCTO.Utils
                     }
                 );
 
-
             var policyResult = retryPolicy
                 .ExecuteAndCaptureAsync(async (ct) =>
                 {
@@ -179,7 +176,6 @@ namespace ClassevivaPCTO.Utils
 
                     return result; //if no exception occur then we return the result of the method call
                 }, cancellationTokenSource.Token).Result;
-
 
             if (policyResult.Outcome == OutcomeType.Failure)
             {
@@ -197,7 +193,6 @@ namespace ClassevivaPCTO.Utils
 
                     TaskCompletionSource<bool> isSomethingLoading =
                         new TaskCompletionSource<bool>();
-
 
                     CoreApplication.MainView.Dispatcher.RunAsync(
                         CoreDispatcherPriority.Normal,
@@ -229,7 +224,6 @@ namespace ClassevivaPCTO.Utils
                     );
 
                     var task = isSomethingLoading.Task;
-
 
                     var result = targetMethod.Invoke(Target, args);
 

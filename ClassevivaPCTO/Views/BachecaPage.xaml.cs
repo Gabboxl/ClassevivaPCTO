@@ -67,7 +67,6 @@ namespace ClassevivaPCTO.Views
 
                 Card? cardResult = ViewModelHolder.GetViewModel().SingleCardResult;
 
-
                 NoticeboardResult noticeboardResult = await apiWrapper.GetNotices(
                     cardResult.usrId.ToString()
                 );

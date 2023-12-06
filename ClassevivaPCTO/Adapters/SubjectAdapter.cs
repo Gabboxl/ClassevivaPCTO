@@ -79,7 +79,6 @@ namespace ClassevivaPCTO.Adapters
             }
         }
 
-
         public SubjectAdapter(Subject subject, List<Grade> subjectSubjectGrades)
         {
             SubjectGrades = subjectSubjectGrades;

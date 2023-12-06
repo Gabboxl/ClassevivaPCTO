@@ -2,7 +2,6 @@
     x:Class="ClassevivaPCTO.Views.NotePage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:ClassevivaPCTO"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:controls="using:ClassevivaPCTO.Controls"
@@ -28,57 +27,46 @@
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
 
-
         <RelativePanel Grid.Row="0" Margin="0,16,0,0">
 
             <TextBlock x:Name="TextTitolo" x:Uid="NotesTitle"
-                       Style="{StaticResource TitleLargeTextBlockStyle}"
-                       VerticalAlignment="Top"
-                       Margin="32,0,0,0" />
+                       Margin="32,0,0,0" VerticalAlignment="Top"
+                       Style="{StaticResource TitleLargeTextBlockStyle}" />
 
-            <muxc:ProgressRing IsActive="True" x:Name="ProgressRingNote"
-                               RelativePanel.AlignVerticalCenterWith="TextTitolo"
+            <muxc:ProgressRing x:Name="ProgressRingNote" Width="28"
+                               Height="28" Margin="16,0,0,0"
+                               IsActive="True" RelativePanel.AlignVerticalCenterWith="TextTitolo"
                                RelativePanel.RightOf="TextTitolo"
-                               Margin="16,0,0,0" Width="28" Height="28"
                                Visibility="{x:Bind NoteViewModel.IsLoadingNote, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" />
 
-            <Button x:Name="AggiornaCommand"
-                    HorizontalAlignment="Right"
-                    Width="48"
-                    Height="32"
-                    Margin="26,0,20,0" Click="AggiornaCommand_Click" RelativePanel.AlignRightWithPanel="True"
-                    RelativePanel.AlignVerticalCenterWith="TextTitolo" x:Uid="RefreshButton">
-                <FontIcon Glyph="&#xE72C;" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" />
+            <Button x:Name="AggiornaCommand" x:Uid="RefreshButton"
+                    Width="48" Height="32"
+                    Margin="26,0,20,0" HorizontalAlignment="Right"
+                    Click="AggiornaCommand_Click" RelativePanel.AlignRightWithPanel="True"
+                    RelativePanel.AlignVerticalCenterWith="TextTitolo">
+                
+                <FontIcon HorizontalAlignment="Center" VerticalAlignment="Center"
+                          FontSize="16" Glyph="&#xE72C;" />
             </Button>
 
         </RelativePanel>
 
-        <RelativePanel Grid.Row="2"
-                       Margin="18"
-                       VerticalAlignment="Stretch" HorizontalAlignment="Stretch"
-                       x:Name="CardPanel"
-                       CornerRadius="8"
-                       Padding="12"
-                       BorderThickness="1"
+        <RelativePanel x:Name="CardPanel" Grid.Row="2"
+                       Margin="18" Padding="12"
+                       HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+                       Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
                        BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
-                       Background="{ThemeResource CardBackgroundFillColorDefaultBrush}">
+                       BorderThickness="1" CornerRadius="8">
 
-            <Grid
-                RelativePanel.AlignTopWithPanel="True"
-                RelativePanel.AlignBottomWithPanel="True"
-                RelativePanel.AlignRightWithPanel="True"
-                RelativePanel.AlignLeftWithPanel="True">
+            <Grid RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignLeftWithPanel="True"
+                  RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignTopWithPanel="True">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
 
-                <controls:NotesListView
-                    EnableEmptyAlert="True"
-                    HorizontalAlignment="Stretch"
-                    VerticalAlignment="Stretch"
-                    EnableStickyHeader="True"
-                    x:Name="NotesListView"
-                    Margin="0,0,0,0" />
+                <controls:NotesListView x:Name="NotesListView" Margin="0,0,0,0"
+                                        HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+                                        EnableEmptyAlert="True" EnableStickyHeader="True" />
 
             </Grid>
         </RelativePanel>

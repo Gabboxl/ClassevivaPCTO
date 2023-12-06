@@ -2,7 +2,6 @@
     x:Class="ClassevivaPCTO.Controls.OverviewListView"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:ClassevivaPCTO.Controls"
     xmlns:controls2="using:ClassevivaPCTO.Controls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -17,102 +16,83 @@
         <converters:EmptyListToVisibilityConverter x:Key="EmptyListToVisibilityConverter" />
     </UserControl.Resources>
 
-    <Grid
-        HorizontalAlignment="Stretch"
-        VerticalAlignment="Stretch">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="*"></RowDefinition>
-        </Grid.RowDefinitions>
+    <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
 
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
 
         <ScrollViewer Grid.Row="0">
 
             <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
 
-                <TextBlock x:Name="AbsencesTitle"
-                           x:Uid="AbsencesTitle"
-                           Margin="14,12,0,8"
-                           Visibility="{x:Bind OverviewControlViewModel.FilteredOverviewResult.AbsenceEvents, Mode=OneWay, FallbackValue=Collapsed, Converter={StaticResource EmptyListToVisibilityConverter}}"
-                           Style="{ThemeResource BodyStrongTextBlockStyle}" FontSize="18" FontWeight="SemiBold" />
+                <TextBlock x:Name="AbsencesTitle" x:Uid="AbsencesTitle"
+                           Margin="14,12,0,8" FontSize="18"
+                           FontWeight="SemiBold"
+                           Style="{ThemeResource BodyStrongTextBlockStyle}"
+                           Visibility="{x:Bind OverviewControlViewModel.FilteredOverviewResult.AbsenceEvents, Mode=OneWay, FallbackValue=Collapsed, Converter={StaticResource EmptyListToVisibilityConverter}}" />
 
-                <controls2:AbsencesListView x:Name="AbsencesListView"
-                                            EnableEmptyAlert="False"
-                                            HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                <controls2:AbsencesListView x:Name="AbsencesListView" HorizontalAlignment="Stretch"
+                                            VerticalAlignment="Stretch" EnableEmptyAlert="False" />
 
-                </controls2:AbsencesListView>
+                <TextBlock x:Name="NotesTitle" x:Uid="NotesTitle"
+                           Margin="14,12,0,8" FontSize="18"
+                           FontWeight="SemiBold"
+                           Style="{ThemeResource BodyStrongTextBlockStyle}"
+                           Visibility="{x:Bind OverviewControlViewModel.FilteredOverviewResult.Notes, Mode=OneWay, FallbackValue=Collapsed, Converter={StaticResource EmptyListToVisibilityConverter}}" />
 
-                <TextBlock x:Name="NotesTitle"
-                           x:Uid="NotesTitle"
-                           Margin="14,12,0,8"
-                           Visibility="{x:Bind OverviewControlViewModel.FilteredOverviewResult.Notes, Mode=OneWay, FallbackValue=Collapsed, Converter={StaticResource EmptyListToVisibilityConverter}}"
-                           Style="{ThemeResource BodyStrongTextBlockStyle}" FontSize="18" FontWeight="SemiBold" />
+                <controls2:NotesListView x:Name="NotesListView" HorizontalAlignment="Stretch"
+                                         VerticalAlignment="Stretch" EnableEmptyAlert="False" />
 
-                <controls2:NotesListView x:Name="NotesListView"
-                                         EnableEmptyAlert="False"
-                                         HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-                </controls2:NotesListView>
+                <TextBlock x:Name="GradesTitle" x:Uid="GradesTitle"
+                           Margin="14,12,0,8" FontSize="18"
+                           FontWeight="SemiBold"
+                           Style="{ThemeResource BodyStrongTextBlockStyle}"
+                           Visibility="{x:Bind OverviewControlViewModel.FilteredOverviewResult.Grades, Mode=OneWay, FallbackValue=Collapsed, Converter={StaticResource EmptyListToVisibilityConverter}}" />
 
+                <controls2:GradesListView x:Name="GradesListView" HorizontalAlignment="Stretch"
+                                          VerticalAlignment="Stretch" EnableEmptyAlert="False" />
 
-                <TextBlock x:Name="GradesTitle"
-                           x:Uid="GradesTitle"
-                           Margin="14,12,0,8"
-                           Visibility="{x:Bind OverviewControlViewModel.FilteredOverviewResult.Grades, Mode=OneWay, FallbackValue=Collapsed, Converter={StaticResource EmptyListToVisibilityConverter}}"
-                           Style="{ThemeResource BodyStrongTextBlockStyle}" FontSize="18" FontWeight="SemiBold" />
+                <TextBlock x:Name="LessonsTitle" x:Uid="AgendaLessonsPopupTitle"
+                           Margin="14,12,0,8" FontSize="18"
+                           FontWeight="SemiBold"
+                           Style="{ThemeResource BodyStrongTextBlockStyle}"
+                           Visibility="{x:Bind OverviewControlViewModel.FilteredOverviewResult.Lessons, Mode=OneWay, FallbackValue=Collapsed, Converter={StaticResource EmptyListToVisibilityConverter}}" />
 
-                <controls2:GradesListView x:Name="GradesListView"
-                                          EnableEmptyAlert="False"
-                                          HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                <controls2:LessonsListView x:Name="LessonsListView" HorizontalAlignment="Stretch"
+                                           VerticalAlignment="Stretch" EnableEmptyAlert="False" />
 
-                </controls2:GradesListView>
-
-                <TextBlock x:Name="LessonsTitle"
-                           x:Uid="AgendaLessonsPopupTitle"
-                           Margin="14,12,0,8"
-                           Visibility="{x:Bind OverviewControlViewModel.FilteredOverviewResult.Lessons, Mode=OneWay, FallbackValue=Collapsed, Converter={StaticResource EmptyListToVisibilityConverter}}"
-                           Style="{ThemeResource BodyStrongTextBlockStyle}" FontSize="18" FontWeight="SemiBold" />
-
-                <controls2:LessonsListView x:Name="LessonsListView"
-                                           EnableEmptyAlert="False"
-                                           HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-
-                </controls2:LessonsListView>
-
-                <TextBlock x:Name="AgendaTitle"
-                           x:Uid="AgendaTasksPopupTitle"
-                           Margin="14,12,0,8"
-                           Visibility="{x:Bind OverviewControlViewModel.FilteredOverviewResult.AgendaEvents, Mode=OneWay, FallbackValue=Collapsed, Converter={StaticResource EmptyListToVisibilityConverter}}"
-                           Style="{ThemeResource BodyStrongTextBlockStyle}" FontSize="18" FontWeight="SemiBold" />
+                <TextBlock x:Name="AgendaTitle" x:Uid="AgendaTasksPopupTitle"
+                           Margin="14,12,0,8" FontSize="18"
+                           FontWeight="SemiBold"
+                           Style="{ThemeResource BodyStrongTextBlockStyle}"
+                           Visibility="{x:Bind OverviewControlViewModel.FilteredOverviewResult.AgendaEvents, Mode=OneWay, FallbackValue=Collapsed, Converter={StaticResource EmptyListToVisibilityConverter}}" />
 
 
-                <controls2:AgendaListView x:Name="AgendaListView"
-                                          HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-
-                </controls2:AgendaListView>
+                <controls2:AgendaListView x:Name="AgendaListView" 
+                                          HorizontalAlignment="Stretch"
+                                          VerticalAlignment="Stretch" />
 
             </StackPanel>
-
         </ScrollViewer>
 
-        <RelativePanel
-            VerticalAlignment="Center"
-            HorizontalAlignment="Center"
-            Grid.Row="0"
-            Visibility="{x:Bind OverviewControlViewModel.ShowEmptyAlert, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}">
-            <FontIcon x:Name="OverviewPlaceholderIcon" FontFamily="{StaticResource FluentIcons}" Glyph="&#xE787;"
-                      Foreground="{ThemeResource TextFillColorDisabledBrush}"
-                      RelativePanel.AlignHorizontalCenterWithPanel="True"
+        <RelativePanel Grid.Row="0" HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       Visibility="{x:Bind OverviewControlViewModel.ShowEmptyAlert, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}">
+
+            <FontIcon x:Name="OverviewPlaceholderIcon" Margin="0,0,0,0"
+                      FontFamily="{StaticResource FluentIcons}"
                       FontSize="112"
-                      Margin="0,0,0,0" />
+                      Foreground="{ThemeResource TextFillColorDisabledBrush}"
+                      Glyph="&#xE787;" RelativePanel.AlignHorizontalCenterWithPanel="True" />
 
-            <TextBlock RelativePanel.Below="OverviewPlaceholderIcon"
-                       RelativePanel.AlignHorizontalCenterWithPanel="True"
+            <TextBlock x:Uid="AgendaPlaceholder" Margin="0,0,0,0"
+                       HorizontalAlignment="Center" VerticalAlignment="Center"
+                       FontSize="36" FontWeight="SemiBold"
                        Foreground="{ThemeResource TextFillColorDisabledBrush}"
-                       Margin="0,0,0,0" TextWrapping="WrapWholeWords"
-                       FontWeight="SemiBold"
-                       x:Uid="AgendaPlaceholder" FontSize="36" VerticalAlignment="Center"
-                       HorizontalAlignment="Center" />
+                       RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.Below="OverviewPlaceholderIcon"
+                       TextWrapping="WrapWholeWords" />
+
         </RelativePanel>
-
-
     </Grid>
 </UserControl>
