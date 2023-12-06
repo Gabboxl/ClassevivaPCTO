@@ -19,7 +19,7 @@
 
             <RelativePanel>
 
-                <Grid x:Name="gridVoto" RelativePanel.AlignVerticalCenterWithPanel="True">
+                <Grid x:Name="gridVoto" RelativePanel.AlignTopWithPanel="True">
                     <Ellipse x:Name="Ellipse" Grid.RowSpan="2"
                              Width="42" Height="42"
                              Margin="6" HorizontalAlignment="Center"
