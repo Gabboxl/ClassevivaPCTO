@@ -415,7 +415,7 @@ Errore: </value>
     <value>Vai agli eventi di oggi</value>
   </data>
   <data name="NoticeBoardShowInactiveNoticesCheckbox.Content" xml:space="preserve">
-    <value>Mostra comunicazioni inattive</value>
+    <value>Includi comunicazioni scadute</value>
   </data>
   <data name="DashboardEditWidgetsButton.Text" xml:space="preserve">
     <value>Personalizar widget</value>
