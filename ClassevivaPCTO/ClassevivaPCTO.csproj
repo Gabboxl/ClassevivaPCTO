@@ -181,8 +181,9 @@
     <Compile Include="Converters\DateTimeToHourConverter.cs" />
     <Compile Include="Converters\AbsenceTypeToColorConverter.cs" />
     <Compile Include="Converters\BetterBoolToVisibilityConverter.cs" />
-    <Compile Include="Converters\NanToNdConverter.cs" />
     <Compile Include="Converters\EmptyListToVisibilityConverter.cs" />
+    <Compile Include="Converters\NanToNdConverter.cs" />
+    <Compile Include="Converters\EmptyListToBoolConverter.cs" />
     <Compile Include="Converters\ColorToBrushConverter.cs" />
     <Compile Include="Deserializers\NoteDeserializerNet.cs" />
     <Compile Include="Dialogs\NoteDialogContent.xaml.cs">
@@ -509,13 +510,13 @@
       <Version>5.0.3</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.Extensions.DependencyInjection">
-      <Version>7.0.0</Version>
+      <Version>8.0.0</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions">
-      <Version>7.0.0</Version>
+      <Version>8.0.0</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.Extensions.Http.Polly">
-      <Version>7.0.13</Version>
+      <Version>8.0.0</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
       <Version>6.2.14</Version>
@@ -530,13 +531,13 @@
       <Version>13.0.3</Version>
     </PackageReference>
     <PackageReference Include="Polly">
-      <Version>8.1.0</Version>
+      <Version>8.2.0</Version>
     </PackageReference>
     <PackageReference Include="Polly.Extensions.Http">
       <Version>3.0.0</Version>
     </PackageReference>
     <PackageReference Include="PolySharp">
-      <Version>1.13.2</Version>
+      <Version>1.14.0</Version>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
@@ -550,7 +551,7 @@
       <Version>7.0.0</Version>
     </PackageReference>
     <PackageReference Include="System.Runtime.Caching">
-      <Version>7.0.0</Version>
+      <Version>8.0.0</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
