@@ -195,6 +195,9 @@
     <Compile Include="Dialogs\ChoiceDialogContent.xaml.cs">
       <DependentUpon>ChoiceDialogContent.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ExtendedSplash.xaml.cs">
+      <DependentUpon>ExtendedSplash.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Helpers\EnumToBooleanConverter.cs" />
     <Compile Include="Helpers\NavHelper.cs" />
     <Compile Include="Helpers\Palettes\IPalette.cs" />
@@ -409,6 +412,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Dialogs\ChoiceDialogContent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ExtendedSplash.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
