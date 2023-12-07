@@ -250,7 +250,7 @@
                 <controls1:SettingsCard x:Uid="SettingsCardWhatsNew">
 
                     <controls1:SettingsCard.HeaderIcon>
-                        <FontIcon Glyph="&#xE762;" />
+                        <FontIcon Glyph="&#xE789;" />
                     </controls1:SettingsCard.HeaderIcon>
 
                     <Button x:Uid="SettingsCardWhatsNewButton" MinWidth="130"
