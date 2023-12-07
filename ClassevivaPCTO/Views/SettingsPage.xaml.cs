@@ -50,6 +50,11 @@ namespace ClassevivaPCTO.Views
             set { Set(ref _comboPalettes, value); }
         }
 
+        public void crowdinLink()
+        {
+            Windows.System.Launcher.LaunchUriAsync(new Uri("https://crowdin.com/project/classevivapcto/invite/public?h=2b7340ff29ea44873bdef53dc5f7b6871790557&show_welcome"));
+        }
+
         private List<string> ComboLanguages
         {
             get
@@ -103,7 +108,6 @@ namespace ClassevivaPCTO.Views
             await InitializeAsync();
         }
 
-
         private async Task InitializeAsync()
         {
             Version = GetVersionDescription();
@@ -115,7 +119,6 @@ namespace ClassevivaPCTO.Views
                 ComboPalettes.Add(new ComboPaletteAdapter(PaletteSelectorService.GetPaletteClass(paletteType),
                     paletteType));
             }
-
 
             await Task.CompletedTask;
         }
@@ -276,7 +279,6 @@ namespace ClassevivaPCTO.Views
             {
                 string langcode = ApplicationLanguages.ManifestLanguages[selectedIndex].ToLower();
 
-
                 var credentials = new CrowdinCredentials
                 {
                     AccessToken = "60bf870634938d9ef6f0dfb831748dfced1fb6000452405fc3df563f94d2942ec98454c90a524674"
@@ -286,33 +288,31 @@ namespace ClassevivaPCTO.Views
                 var projectexecutor = new ProjectsGroupsApiExecutor(client);
                 var projectBase = await projectexecutor.GetProject<ProjectBase>(605451);
 
-
                 //from the TargetLanguages property of the projectBase object, create a list only of the Locale property of each object
 
                 //var localelist = projectBase.TargetLanguages.Select(x => x.Locale).ToList();
 
-
                 var selectedCrowdingLangId = projectBase.TargetLanguages.Where(x => x.Locale.ToLower() == langcode)
                     .Select(x => x.Id).FirstOrDefault();
-
 
                 var languageProgressObj =
                     await new TranslationStatusApiExecutor(client).GetLanguageProgress(605451, selectedCrowdingLangId);
 
                 var langProgressPerc = languageProgressObj.Data[0].TranslationProgress;
 
-
                 if (langProgressPerc != 100)
                 {
                     ContentDialog dialogtrans = new()
                     {
                         Title = "CautionDialogTitle".GetLocalizedStr(),
-                        Content = "AppTranslationStatus1".GetLocalizedStr() + langProgressPerc + "% " +
-                                  "AppTranslationStatus2".GetLocalizedStr() + "\n\n" +
-                                  "AreYouSureLanguageDialogText".GetLocalizedStr(),
+                        Content = "DialogUntranslatedLanguageStatus1".GetLocalizedStr() + langProgressPerc + "% " +
+                                  "DialogUntranslatedLanguageStatus2".GetLocalizedStr() + "\n\n" +
+                                  "DialogUntranslatedLanguageBody1".GetLocalizedStr() + "\n\n" +
+                                  "DialogUntranslatedLanguageBody2".GetLocalizedStr(),
                         PrimaryButtonText = "ContinueDialogButton".GetLocalizedStr(),
+                        SecondaryButtonText = "DialogUntranlatedLanguageInvite".GetLocalizedStr(),
                         CloseButtonText = "CancelDialogButton".GetLocalizedStr(),
-                        RequestedTheme = ((FrameworkElement) Window.Current.Content).RequestedTheme,
+                        RequestedTheme = ((FrameworkElement)Window.Current.Content).RequestedTheme,
                         DefaultButton = ContentDialogButton.Primary
                     };
 
@@ -321,7 +321,14 @@ namespace ClassevivaPCTO.Views
                     if (resTransChoice == ContentDialogResult.Primary)
                     {
                     }
-                    else
+                    else if (resTransChoice == ContentDialogResult.Secondary)
+                    {
+                        crowdinLink();
+                        LanguageComboBox.SelectionChanged -= LanguageComboBox_OnSelectionChanged;
+                        LanguageComboBox.SelectedIndex = CurrentLanguage;
+                        LanguageComboBox.SelectionChanged += LanguageComboBox_OnSelectionChanged;
+                        return;
+                    }
                     {
                         //do not trigger this event again
                         LanguageComboBox.SelectionChanged -= LanguageComboBox_OnSelectionChanged;
@@ -334,21 +341,6 @@ namespace ClassevivaPCTO.Views
 
                         return;
                     }
-                }
-                else if (langProgressPerc == 0)
-                {
-                    ContentDialog dialogtrans = new()
-                    {
-                        Title = "CautionDialogTitle".GetLocalizedStr(),
-                        Content = "DialogUntranslatedLanguageBody".GetLocalizedStr(),
-                        PrimaryButtonText = "OkDialogButton".GetLocalizedStr(),
-                        RequestedTheme = ((FrameworkElement) Window.Current.Content).RequestedTheme,
-                        DefaultButton = ContentDialogButton.Primary
-                    };
-
-                    await dialogtrans.ShowAsync();
-
-                    return;
                 }
             }
 
