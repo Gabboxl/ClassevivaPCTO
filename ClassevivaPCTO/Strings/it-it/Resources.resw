@@ -702,4 +702,7 @@ Errore: </value>
   <data name="DialogUntranslatedLanguageBody2" xml:space="preserve">
     <value>Se desideri puoi tradurre tu stesso l'app tramite Crowdin</value>
   </data>
+  <data name="RestartLater" xml:space="preserve">
+    <value>Riavvia più tardi</value>
+  </data>
 </root>

@@ -50,7 +50,7 @@ namespace ClassevivaPCTO.Views
             set { Set(ref _comboPalettes, value); }
         }
 
-        public void crowdinLink()
+        public void OpenCrowdinLink()
         {
             Windows.System.Launcher.LaunchUriAsync(new Uri("https://crowdin.com/project/classevivapcto/invite/public?h=2b7340ff29ea44873bdef53dc5f7b6871790557&show_welcome"));
         }
@@ -323,22 +323,14 @@ namespace ClassevivaPCTO.Views
                     }
                     else if (resTransChoice == ContentDialogResult.Secondary)
                     {
-                        crowdinLink();
-                        LanguageComboBox.SelectionChanged -= LanguageComboBox_OnSelectionChanged;
-                        LanguageComboBox.SelectedIndex = CurrentLanguage;
-                        LanguageComboBox.SelectionChanged += LanguageComboBox_OnSelectionChanged;
+                        OpenCrowdinLink();
+
+                        RestoreLanguageSelection();
                         return;
                     }
+                    else
                     {
-                        //do not trigger this event again
-                        LanguageComboBox.SelectionChanged -= LanguageComboBox_OnSelectionChanged;
-
-                        //set previous selected value
-                        LanguageComboBox.SelectedIndex = CurrentLanguage;
-
-                        //re-add listener
-                        LanguageComboBox.SelectionChanged += LanguageComboBox_OnSelectionChanged;
-
+                        RestoreLanguageSelection();
                         return;
                     }
                 }
@@ -352,7 +344,7 @@ namespace ClassevivaPCTO.Views
                 Title = "RestartRequired".GetLocalizedStr(),
                 Content = "RestartRequiredLanguageChange".GetLocalizedStr(),
                 PrimaryButtonText = "Restart".GetLocalizedStr(),
-                CloseButtonText = "CancelDialogButton".GetLocalizedStr(),
+                CloseButtonText = "RestartLater".GetLocalizedStr(),
                 RequestedTheme = ((FrameworkElement) Window.Current.Content).RequestedTheme,
                 DefaultButton = ContentDialogButton.Primary
             };
@@ -363,6 +355,18 @@ namespace ClassevivaPCTO.Views
             {
                 CoreApplication.RequestRestartAsync("LanguageChangeRestart");
             }
+        }
+
+        private void RestoreLanguageSelection()
+        {
+            //do not trigger this event again
+            LanguageComboBox.SelectionChanged -= LanguageComboBox_OnSelectionChanged;
+
+            //set previous selected value
+            LanguageComboBox.SelectedIndex = CurrentLanguage;
+
+            //re-add listener
+            LanguageComboBox.SelectionChanged += LanguageComboBox_OnSelectionChanged;
         }
     }
 }
