@@ -415,7 +415,7 @@ Error: </value>
     <value>Go to today's events</value>
   </data>
   <data name="NoticeBoardShowInactiveNoticesCheckbox.Content" xml:space="preserve">
-    <value>Includi comunicazioni scadute</value>
+    <value>Include missed communications</value>
   </data>
   <data name="DashboardEditWidgetsButton.Text" xml:space="preserve">
     <value>Edit widgets</value>
@@ -463,13 +463,13 @@ Error: </value>
     <value>Insufficient grade, absence, unread notice</value>
   </data>
   <data name="NoticeBoardValidFromToDateText" xml:space="preserve">
-    <value>Valida dal {0} al {1}</value>
+    <value>Valid from {0} to {1}</value>
   </data>
   <data name="NoticeBoardDeletedStatusText" xml:space="preserve">
-    <value>Eliminata</value>
+    <value>Deleted</value>
   </data>
   <data name="NoticeBoardExpiredStatusText" xml:space="preserve">
-    <value>Scaduta</value>
+    <value>Overdue</value>
   </data>
   <data name="AreYouSure" xml:space="preserve">
     <value>Are you sure?</value>
@@ -643,7 +643,7 @@ Error: </value>
     <value>Change profile picture</value>
   </data>
   <data name="AbsencesToBeJustifiedText" xml:space="preserve">
-    <value>Da giustificare</value>
+    <value>To justify</value>
   </data>
   <data name="OkDialogButton" xml:space="preserve">
     <value>Ok</value>
@@ -655,10 +655,10 @@ Error: </value>
     <value>Select file</value>
   </data>
   <data name="DialogUntranslatedLanguageBody" xml:space="preserve">
-    <value>L'app non è stata ancora tradotta nella lingua che hai scelto.</value>
+    <value>The app has not yet been translated in the language you have chosen.</value>
   </data>
   <data name="GenericEventOnDayPreposition" xml:space="preserve">
-    <value> del </value>
+    <value> of </value>
   </data>
   <data name="AbsencesTodayButton.Content" xml:space="preserve">
     <value>Today</value>
@@ -697,6 +697,6 @@ Error: </value>
     <value>Not available</value>
   </data>
   <data name="ScrutiniNotAvailableStatusText" xml:space="preserve">
-    <value>Non disponibile</value>
+    <value>Not available</value>
   </data>
 </root>
