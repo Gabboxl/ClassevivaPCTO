@@ -237,7 +237,7 @@ If you encounter bugs or have an idea for the app, open an issue on GitHub by cl
     <value>Keep me logged in</value>
   </data>
   <data name="DashboardTitleText" xml:space="preserve">
-    <value>Dashboard di {0}</value>
+    <value>Dashboard of {0}</value>
   </data>
   <data name="DashboardTodaysEvents.Text" xml:space="preserve">
     <value>Today's events</value>
@@ -313,10 +313,10 @@ Error: </value>
     <value>No attachments</value>
   </data>
   <data name="ProfileChoiceDialogCombobox.Header" xml:space="preserve">
-    <value>Seleziona un profilo:</value>
+    <value>Select a profile:</value>
   </data>
   <data name="ProfileChoiceDialogBody.Text" xml:space="preserve">
-    <value>Più profili sono associati a questo account.</value>
+    <value>Multiple profiles are associated with this account.</value>
   </data>
   <data name="AgendaLessonsPopupTitle.Text" xml:space="preserve">
     <value>Lessons</value>
@@ -415,7 +415,7 @@ Error: </value>
     <value>Go to today's events</value>
   </data>
   <data name="NoticeBoardShowInactiveNoticesCheckbox.Content" xml:space="preserve">
-    <value>Includi comunicazioni scadute</value>
+    <value>Include missed communications</value>
   </data>
   <data name="DashboardEditWidgetsButton.Text" xml:space="preserve">
     <value>Edit widgets</value>
@@ -463,13 +463,13 @@ Error: </value>
     <value>Insufficient grade, absence, unread notice</value>
   </data>
   <data name="NoticeBoardValidFromToDateText" xml:space="preserve">
-    <value>Valida dal {0} al {1}</value>
+    <value>Valid from {0} to {1}</value>
   </data>
   <data name="NoticeBoardDeletedStatusText" xml:space="preserve">
-    <value>Eliminata</value>
+    <value>Deleted</value>
   </data>
   <data name="NoticeBoardExpiredStatusText" xml:space="preserve">
-    <value>Scaduta</value>
+    <value>Overdue</value>
   </data>
   <data name="AreYouSure" xml:space="preserve">
     <value>Are you sure?</value>
@@ -643,7 +643,7 @@ Error: </value>
     <value>Change profile picture</value>
   </data>
   <data name="AbsencesToBeJustifiedText" xml:space="preserve">
-    <value>Da giustificare</value>
+    <value>To justify</value>
   </data>
   <data name="OkDialogButton" xml:space="preserve">
     <value>Ok</value>
@@ -655,10 +655,10 @@ Error: </value>
     <value>Select file</value>
   </data>
   <data name="DialogUntranslatedLanguageBody" xml:space="preserve">
-    <value>L'app non è stata ancora tradotta nella lingua che hai scelto.</value>
+    <value>The app has not yet been translated in the language you have chosen.</value>
   </data>
   <data name="GenericEventOnDayPreposition" xml:space="preserve">
-    <value> del </value>
+    <value> of </value>
   </data>
   <data name="AbsencesTodayButton.Content" xml:space="preserve">
     <value>Today</value>
@@ -697,6 +697,6 @@ Error: </value>
     <value>Not available</value>
   </data>
   <data name="ScrutiniNotAvailableStatusText" xml:space="preserve">
-    <value>Non disponibile</value>
+    <value>Not available</value>
   </data>
 </root>

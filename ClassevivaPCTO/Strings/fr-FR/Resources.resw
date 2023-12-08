@@ -238,7 +238,7 @@ Si vous rencontrez des bugs ou avez une idée pour l'application, ouvrez un tick
     <value>Conserver les informations d'identification</value>
   </data>
   <data name="DashboardTitleText" xml:space="preserve">
-    <value>Dashboard di {0}</value>
+    <value>Le panneau de bord de {0}</value>
   </data>
   <data name="DashboardTodaysEvents.Text" xml:space="preserve">
     <value>Événements de la journée</value>
@@ -314,10 +314,10 @@ Erreur: </value>
     <value>Pas de pièces jointes</value>
   </data>
   <data name="ProfileChoiceDialogCombobox.Header" xml:space="preserve">
-    <value>Seleziona un profilo:</value>
+    <value>Selectionnez un profil:</value>
   </data>
   <data name="ProfileChoiceDialogBody.Text" xml:space="preserve">
-    <value>Più profili sono associati a questo account.</value>
+    <value>Plusieurs profils sont associés à ce compte.</value>
   </data>
   <data name="AgendaLessonsPopupTitle.Text" xml:space="preserve">
     <value>Leçons</value>
@@ -416,7 +416,7 @@ Erreur: </value>
     <value>Accédez aux événements d'aujourd'hui</value>
   </data>
   <data name="NoticeBoardShowInactiveNoticesCheckbox.Content" xml:space="preserve">
-    <value>Includi comunicazioni scadute</value>
+    <value>Inclure les communications expirées</value>
   </data>
   <data name="DashboardEditWidgetsButton.Text" xml:space="preserve">
     <value>Personnaliser les widgets</value>
@@ -464,13 +464,13 @@ Erreur: </value>
     <value>Insuffisance grave, absence, communication non lue</value>
   </data>
   <data name="NoticeBoardValidFromToDateText" xml:space="preserve">
-    <value>Valida dal {0} al {1}</value>
+    <value>Valable du {0} au {1}</value>
   </data>
   <data name="NoticeBoardDeletedStatusText" xml:space="preserve">
-    <value>Eliminata</value>
+    <value>Supprimé</value>
   </data>
   <data name="NoticeBoardExpiredStatusText" xml:space="preserve">
-    <value>Scaduta</value>
+    <value>En retard</value>
   </data>
   <data name="AreYouSure" xml:space="preserve">
     <value>Etes-vous sûr?</value>
@@ -644,7 +644,7 @@ Erreur: </value>
     <value>Modifier la photo de profil</value>
   </data>
   <data name="AbsencesToBeJustifiedText" xml:space="preserve">
-    <value>Da giustificare</value>
+    <value>Être justifié</value>
   </data>
   <data name="OkDialogButton" xml:space="preserve">
     <value>Ok</value>
@@ -656,10 +656,10 @@ Erreur: </value>
     <value>Sélectionner un fichier</value>
   </data>
   <data name="DialogUntranslatedLanguageBody" xml:space="preserve">
-    <value>L'app non è stata ancora tradotta nella lingua che hai scelto.</value>
+    <value>L'application n'a pas encore été traduite dans la langue que vous avez choisie.</value>
   </data>
   <data name="GenericEventOnDayPreposition" xml:space="preserve">
-    <value> del </value>
+    <value> des </value>
   </data>
   <data name="AbsencesTodayButton.Content" xml:space="preserve">
     <value>Aujourd'hui</value>
@@ -698,6 +698,6 @@ Erreur: </value>
     <value>Indisponible</value>
   </data>
   <data name="ScrutiniNotAvailableStatusText" xml:space="preserve">
-    <value>Non disponibile</value>
+    <value>Indisponible</value>
   </data>
 </root>
