@@ -31,6 +31,16 @@
     <HoursBetweenUpdateChecks>0</HoursBetweenUpdateChecks>
     <GenerateTemporaryStoreCertificate>True</GenerateTemporaryStoreCertificate>
     <PackageCertificateThumbprint>18570B497CA9C7DC0E52DE999CEA050062FBD51B</PackageCertificateThumbprint>
+	<!-- Enable Build Acceleration in Visual Studio. -->
+    <AccelerateBuildsInVisualStudio>true</AccelerateBuildsInVisualStudio>
+
+    <!--
+      If you target a framework earlier than .NET 5 (including .NET Framework and .NET Standard),
+      you should set ProduceReferenceAssembly to true in order to speed incremental builds.
+      If you multi-target and any target is before .NET 5, you need this.
+      Even if you target .NET 5 or later, having this property is fine.
+    -->
+    <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
     <DebugSymbols>true</DebugSymbols>
