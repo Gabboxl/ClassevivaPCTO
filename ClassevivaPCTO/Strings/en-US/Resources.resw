@@ -237,7 +237,7 @@ If you encounter bugs or have an idea for the app, open an issue on GitHub by cl
     <value>Keep me logged in</value>
   </data>
   <data name="DashboardTitleText" xml:space="preserve">
-    <value>Dashboard di {0}</value>
+    <value>Dashboard of {0}</value>
   </data>
   <data name="DashboardTodaysEvents.Text" xml:space="preserve">
     <value>Today's events</value>
@@ -313,10 +313,10 @@ Error: </value>
     <value>No attachments</value>
   </data>
   <data name="ProfileChoiceDialogCombobox.Header" xml:space="preserve">
-    <value>Seleziona un profilo:</value>
+    <value>Select a profile:</value>
   </data>
   <data name="ProfileChoiceDialogBody.Text" xml:space="preserve">
-    <value>Più profili sono associati a questo account.</value>
+    <value>Multiple profiles are associated with this account.</value>
   </data>
   <data name="AgendaLessonsPopupTitle.Text" xml:space="preserve">
     <value>Lessons</value>
