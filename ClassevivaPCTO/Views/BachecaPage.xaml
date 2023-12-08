@@ -1,4 +1,4 @@
-<Page
+<controls:CustomAppPage
     x:Class="ClassevivaPCTO.Views.BachecaPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -11,15 +11,16 @@
     xmlns:converters="using:ClassevivaPCTO.Converters"
     xmlns:converters1="using:CommunityToolkit.WinUI.Converters"
     xmlns:winUi="using:CommunityToolkit.WinUI"
+    xmlns:helpers="using:ClassevivaPCTO.Helpers"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
     muxc:BackdropMaterial.ApplyToRootOrPageBackground="True">
 
-    <Page.Resources>
+    <controls:CustomAppPage.Resources>
         <ResourceDictionary>
             <converters1:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" />
             <converters:EmptyListToVisibilityConverter x:Key="EmptyListToVisibilityConverter" />
         </ResourceDictionary>
-    </Page.Resources>
+    </controls:CustomAppPage.Resources>
 
     <Grid>
         <Grid.RowDefinitions>
@@ -147,4 +148,4 @@
             </Grid>
         </RelativePanel>
     </Grid>
-</Page>
+</controls:CustomAppPage>

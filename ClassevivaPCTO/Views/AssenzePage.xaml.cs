@@ -11,12 +11,13 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using ClassevivaPCTO.Controls;
 using ClassevivaPCTO.Services;
 using CommunityToolkit.WinUI;
 
 namespace ClassevivaPCTO.Views
 {
-    public sealed partial class AssenzePage : Page
+    public sealed partial class AssenzePage : CustomAppPage
     {
         public AssenzeViewModel AssenzeViewModel { get; } = new();
 
@@ -199,6 +200,11 @@ namespace ClassevivaPCTO.Views
         {
             //select the current day of the calendar
             ColoredCalendarView.SetDisplayDate(DateTime.Now.Date);
+        }
+
+        public override void AggiornaAction()
+        {
+            Task.Run(async () => { await LoadData(); });
         }
     }
 }

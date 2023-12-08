@@ -8,10 +8,11 @@ using Windows.ApplicationModel.Core;
 using Windows.UI.Core;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
+using ClassevivaPCTO.Controls;
 
 namespace ClassevivaPCTO.Views
 {
-    public sealed partial class ScrutiniPage : Page
+    public sealed partial class ScrutiniPage : CustomAppPage
     {
         public ScrutiniViewModel ScrutiniViewModel { get; } = new();
 
@@ -101,7 +102,12 @@ namespace ClassevivaPCTO.Views
             }
         }
 
-        private async void AggiornaCommand_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        private void AggiornaCommand_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+            AggiornaAction();
+        }
+
+        public override async void AggiornaAction()
         {
             await Task.Run(async () => { await LoadData(); });
         }

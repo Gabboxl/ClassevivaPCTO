@@ -8,10 +8,11 @@ using Windows.ApplicationModel.Core;
 using Windows.UI.Core;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
+using ClassevivaPCTO.Controls;
 
 namespace ClassevivaPCTO.Views
 {
-    public sealed partial class BachecaPage : Page
+    public sealed partial class BachecaPage : CustomAppPage
     {
         public BachecaViewModel BachecaViewModel { get; } = new();
 
@@ -43,7 +44,7 @@ namespace ClassevivaPCTO.Views
 
         private async void OnShouldUpdate(object sender, EventArgs args)
         {
-            await Task.Run(async () => { await LoadData(); });
+            AggiornaAction();
         }
 
         private async Task LoadData()
@@ -116,12 +117,17 @@ namespace ClassevivaPCTO.Views
 
         private async void AggiornaCommand_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
+            AggiornaAction();
+        }
+
+        public override async void AggiornaAction()
+        {
             await Task.Run(async () => { await LoadData(); });
         }
 
         private async void ReadUnreadSegmented_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            await Task.Run(async () => { await LoadData(); });
+            AggiornaAction();
         }
     }
 }

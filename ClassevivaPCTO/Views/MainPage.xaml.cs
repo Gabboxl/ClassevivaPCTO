@@ -5,19 +5,22 @@ using ClassevivaPCTO.ViewModels;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Runtime.CompilerServices;
+using System.Threading.Tasks;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Core;
+using Windows.System;
 using Windows.UI;
 using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Input;
 using WinUI = Microsoft.UI.Xaml.Controls;
 
 namespace ClassevivaPCTO.Views
 {
     public sealed partial class MainPage : Page
     {
-        private AppViewModel AppViewModel { get; }
+        private AppViewModel AppViewModel;
 
         public NavigationViewViewModel NavigationViewViewModel { get; } = new();
 
@@ -80,7 +83,10 @@ namespace ClassevivaPCTO.Views
                  + VariousUtils.ToTitleCase(loginResult.lastName); */
 
             //pagina di default
-            NavigationService.Navigate(typeof(Views.DashboardPage));
+            NavigationService.Navigate(typeof(DashboardPage));
+            
+            // intercetta il tasto F5 per il refresh della pagina corrente
+            this.KeyDown += MainPage_KeyDown;
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -102,6 +108,18 @@ namespace ClassevivaPCTO.Views
         private async void ButtonLogout_Click(object sender, RoutedEventArgs e)
         {
             VariousUtils.DoLogout();
+        }
+
+        private async void MainPage_KeyDown(object sender, KeyRoutedEventArgs args)
+        {
+            switch (args.Key)
+            {
+                case VirtualKey.F5:
+
+                    NavigationViewViewModel.RefreshCurrentPageData();
+
+                    break;
+            }
         }
     }
 }

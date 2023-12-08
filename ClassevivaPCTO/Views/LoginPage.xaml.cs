@@ -156,14 +156,13 @@ namespace ClassevivaPCTO.Views
 
                                 try
                                 {
-                                    var result = await dialog.ShowAsync();
+                                    await dialog.ShowAsync();
                                 }
                                 catch (Exception e)
                                 {
                                     Console.WriteLine(e.ToString());
                                 }
                             });
-
 
                         return;
                     }

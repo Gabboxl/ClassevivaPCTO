@@ -195,6 +195,7 @@
     <Compile Include="Dialogs\ChoiceDialogContent.xaml.cs">
       <DependentUpon>ChoiceDialogContent.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\CustomAppPage.cs" />
     <Compile Include="Helpers\EnumToBooleanConverter.cs" />
     <Compile Include="Helpers\NavHelper.cs" />
     <Compile Include="Helpers\Palettes\IPalette.cs" />

@@ -11,6 +11,7 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
 using ClassevivaPCTO.Adapters;
+using ClassevivaPCTO.Controls;
 using ClassevivaPCTO.Helpers;
 
 namespace ClassevivaPCTO.Views
@@ -27,7 +28,7 @@ namespace ClassevivaPCTO.Views
         public List<Grade> Grades { get; set; }
     }
 
-    public sealed partial class ValutazioniPage : Page
+    public sealed partial class ValutazioniPage : CustomAppPage
     {
         private readonly IClassevivaAPI _apiWrapper;
 
@@ -261,6 +262,11 @@ namespace ClassevivaPCTO.Views
         }
 
         private async void ReloadButton_OnClick(object sender, RoutedEventArgs e)
+        {
+            AggiornaAction();
+        }
+
+        public override async void AggiornaAction()
         {
             await Task.Run(async () => { await LoadData(); });
         }

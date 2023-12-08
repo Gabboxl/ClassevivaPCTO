@@ -12,6 +12,7 @@ using Windows.System;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Navigation;
+using ClassevivaPCTO.Controls;
 using WinUI = Microsoft.UI.Xaml.Controls;
 
 namespace ClassevivaPCTO.ViewModels
@@ -160,6 +161,17 @@ namespace ClassevivaPCTO.ViewModels
         {
             var result = NavigationService.GoBack();
             args.Handled = result;
+        }
+
+        public static void RefreshCurrentPageData()
+        {
+            //current page
+            var currentPage = NavigationService.Frame.Content;
+
+            if (currentPage is CustomAppPage customAppPage)
+            {
+                customAppPage.AggiornaAction();
+            }
         }
     }
 }

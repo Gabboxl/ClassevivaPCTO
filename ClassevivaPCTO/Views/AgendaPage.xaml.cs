@@ -15,7 +15,7 @@ using Expander = Microsoft.UI.Xaml.Controls.Expander;
 
 namespace ClassevivaPCTO.Views
 {
-    public sealed partial class AgendaPage : Page
+    public sealed partial class AgendaPage : CustomAppPage
     {
         public AgendaViewModel AgendaViewModel { get; } = new();
 
@@ -140,6 +140,11 @@ namespace ClassevivaPCTO.Views
         }
 
         private async void AggiornaCommand_Click(object sender, RoutedEventArgs e)
+        {
+            AggiornaAction();
+        }
+
+        public override async void AggiornaAction()
         {
             var agendaSelectedDate = CalendarAgenda.Date;
 

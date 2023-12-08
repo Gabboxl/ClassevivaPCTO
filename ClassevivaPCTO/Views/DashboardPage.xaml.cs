@@ -12,12 +12,13 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using ClassevivaPCTO.Controls;
 using ClassevivaPCTO.DataModels;
 using ClassevivaPCTO.Helpers;
 
 namespace ClassevivaPCTO.Views
 {
-    public sealed partial class DashboardPage : Page
+    public sealed partial class DashboardPage : CustomAppPage
     {
         private readonly IClassevivaAPI apiWrapper;
 
@@ -245,12 +246,12 @@ namespace ClassevivaPCTO.Views
         private void HyperlinkButton_Click_Valutazioni(object sender, RoutedEventArgs e)
         {
             //NavigationService.Navigate(typeof(Views.DettaglioVoti), null);
-            NavigationService.Navigate(typeof(Views.ValutazioniPage));
+            NavigationService.Navigate(typeof(ValutazioniPage));
         }
 
         private async void HyperlinkButton_Click_Agenda(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(typeof(Views.AgendaPage));
+            NavigationService.Navigate(typeof(AgendaPage));
         }
 
         private async void AggiornaButton_Click(object sender, RoutedEventArgs e)
@@ -258,9 +259,14 @@ namespace ClassevivaPCTO.Views
             await LoadEverything();
         }
 
+        public override void AggiornaAction()
+        {
+            Task.Run(async () => { await LoadEverything(); });
+        }
+
         private void ButtonApriBacheca_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(typeof(Views.BachecaPage));
+            NavigationService.Navigate(typeof(BachecaPage));
         }
     }
 }
