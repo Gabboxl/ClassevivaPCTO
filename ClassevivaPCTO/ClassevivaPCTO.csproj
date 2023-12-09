@@ -31,9 +31,8 @@
     <HoursBetweenUpdateChecks>0</HoursBetweenUpdateChecks>
     <GenerateTemporaryStoreCertificate>True</GenerateTemporaryStoreCertificate>
     <PackageCertificateThumbprint>18570B497CA9C7DC0E52DE999CEA050062FBD51B</PackageCertificateThumbprint>
-	<!-- Enable Build Acceleration in Visual Studio. -->
+    <!-- Enable Build Acceleration in Visual Studio. -->
     <AccelerateBuildsInVisualStudio>true</AccelerateBuildsInVisualStudio>
-
     <!--
       If you target a framework earlier than .NET 5 (including .NET Framework and .NET Standard),
       you should set ProduceReferenceAssembly to true in order to speed incremental builds.
