@@ -212,21 +212,19 @@ namespace ClassevivaPCTO.Views
                         var expander = new Expander
                         {
                             Header = currentSubject.description,
+                            HorizontalAlignment = HorizontalAlignment.Stretch,
+                            HorizontalContentAlignment = HorizontalAlignment.Stretch
                             //Content = "yoyo" 
                         };
 
-                        expander.HorizontalAlignment = HorizontalAlignment.Stretch;
-                        expander.HorizontalContentAlignment = HorizontalAlignment.Stretch;
 
-
-                        var listviewlessons = new LessonsListView()
+                        var listviewlessons = new LessonsListView
                         {
                             EnableEmptyAlert = true,
                             IsSingleSubjectList = true,
                             ItemsSource = subjectLessons,
+                            HorizontalAlignment = HorizontalAlignment.Stretch
                         };
-
-                        listviewlessons.HorizontalAlignment = HorizontalAlignment.Stretch;
 
                         expander.Content = listviewlessons;
 
@@ -276,12 +274,11 @@ namespace ClassevivaPCTO.Views
                 CoreDispatcherPriority.Normal,
                 async () =>
                 {
-                    var agendaListView = new AgendaMultipleDaysListView()
+                    var agendaListView = new AgendaMultipleDaysListView
                     {
                         ItemsSource = agendaEvents.AgendaEvents,
+                        HorizontalAlignment = HorizontalAlignment.Stretch
                     };
-
-                    agendaListView.HorizontalAlignment = HorizontalAlignment.Stretch;
 
                     AgendaPopupListviewContainer.Children.Add(agendaListView);
                 });

@@ -224,13 +224,14 @@ namespace ClassevivaPCTO.Views
                     CoreDispatcherPriority.Normal,
                     async () =>
                     {
-                        ContentDialog dialog = new ContentDialog();
-                        dialog.Title = "ErroreText".GetLocalizedStr();
-                        dialog.PrimaryButtonText = "OKCapsText".GetLocalizedStr();
-                        dialog.DefaultButton = ContentDialogButton.Primary;
-                        dialog.Content =
-                            "ErrorDialogBody".GetLocalizedStr()
-                            + ex.Content;
+                        ContentDialog dialog = new()
+                        {
+                            Title = "ErroreText".GetLocalizedStr(),
+                            PrimaryButtonText = "OKCapsText".GetLocalizedStr(),
+                            DefaultButton = ContentDialogButton.Primary,
+                            Content = "ErrorDialogBody".GetLocalizedStr()
+                                      + ex.Content
+                        };
 
                         try
                         {
@@ -307,7 +308,7 @@ namespace ClassevivaPCTO.Views
             ContentDialogResult? result = null;
             ChoiceDialogContent contentDialogContent = null;
 
-            TaskCompletionSource<bool> isSomethingLoading = new TaskCompletionSource<bool>();
+            TaskCompletionSource<bool> isSomethingLoading = new();
 
             //make sure we are executing it on the main thread
             await CoreApplication.MainView.Dispatcher.RunAsync(
