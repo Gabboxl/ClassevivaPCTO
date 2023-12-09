@@ -98,7 +98,7 @@
                 </RelativePanel>
 
                 <ScrollViewer Grid.Row="1" Grid.Column="1">
-                    <StackPanel x:Name="LezioniPopupStackPanel" Margin="4,0,16,0" />
+                    <StackPanel x:Name="LezioniPopupStackPanel" Margin="4,0,16,16" />
                 </ScrollViewer>
                 
             </Grid>
@@ -157,7 +157,7 @@
                 </RelativePanel>
 
                 <Grid x:Name="AgendaPopupListviewContainer" Grid.Row="1"
-                      Grid.Column="1" Margin="4,0,12,0"
+                      Grid.Column="1" Margin="4,0,12,12"
                       HorizontalAlignment="Stretch" />
                 
             </Grid>

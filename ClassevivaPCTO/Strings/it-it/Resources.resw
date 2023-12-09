@@ -448,7 +448,7 @@ Errore: </value>
     <value>Scrutini</value>
   </data>
   <data name="RefreshButton.ToolTipService.ToolTip" xml:space="preserve">
-    <value>Aggiorna</value>
+    <value>Aggiorna (F5)</value>
   </data>
   <data name="SettingsPaletteColorBlue.ToolTipService.ToolTip" xml:space="preserve">
     <value>Non fa media, assenza parziale</value>
