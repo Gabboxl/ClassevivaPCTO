@@ -39,16 +39,6 @@
                                RelativePanel.RightOf="TextTitolo"
                                Visibility="{x:Bind NoteViewModel.IsLoadingNote, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" />
 
-            <Button x:Name="AggiornaCommand" x:Uid="RefreshButton"
-                    Width="48" Height="32"
-                    Margin="26,0,20,0" HorizontalAlignment="Right"
-                    Click="AggiornaCommand_Click" RelativePanel.AlignRightWithPanel="True"
-                    RelativePanel.AlignVerticalCenterWith="TextTitolo">
-                
-                <FontIcon HorizontalAlignment="Center" VerticalAlignment="Center"
-                          FontSize="16" Glyph="&#xE72C;" />
-            </Button>
-
         </RelativePanel>
 
         <RelativePanel x:Name="CardPanel" Grid.Row="2"

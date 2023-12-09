@@ -139,11 +139,6 @@ namespace ClassevivaPCTO.Views
             CalendarAgenda.Date = CalendarAgenda.Date.Value.AddDays(1);
         }
 
-        private async void AggiornaCommand_Click(object sender, RoutedEventArgs e)
-        {
-            AggiornaAction();
-        }
-
         public override async void AggiornaAction()
         {
             var agendaSelectedDate = CalendarAgenda.Date;

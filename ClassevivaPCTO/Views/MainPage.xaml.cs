@@ -1,11 +1,8 @@
-﻿using System;
-using ClassevivaPCTO.Services;
+﻿using ClassevivaPCTO.Services;
 using ClassevivaPCTO.Utils;
 using ClassevivaPCTO.ViewModels;
 using System.ComponentModel;
-using System.Diagnostics;
 using System.Runtime.CompilerServices;
-using System.Threading.Tasks;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Core;
 using Windows.System;
@@ -14,7 +11,6 @@ using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Input;
-using WinUI = Microsoft.UI.Xaml.Controls;
 
 namespace ClassevivaPCTO.Views
 {
@@ -120,6 +116,11 @@ namespace ClassevivaPCTO.Views
 
                     break;
             }
+        }
+
+        private void MainRefreshButton_OnClick(object sender, RoutedEventArgs e)
+        {
+            NavigationViewViewModel.RefreshCurrentPageData();
         }
     }
 }

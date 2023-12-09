@@ -31,20 +31,7 @@
                        VerticalAlignment="Top"
                        Style="{StaticResource TitleLargeTextBlockStyle}" />
 
-            <Button Name="AggiornaCommand" x:Uid="RefreshButton"
-                    Width="48" Height="32"
-                    Margin="16,0,20,0" Click="AggiornaButton_Click"
-                    RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignVerticalCenterWithPanel="True">
-
-                <FontIcon HorizontalAlignment="Center" VerticalAlignment="Center"
-                          FontSize="16" Glyph="&#xE72C;" />
-            </Button>
-
-            <!--  <Rectangle x:Name="SeparatorDashboard" RelativePanel.AlignRightWithPanel="True"
-                       RelativePanel.AlignVerticalCenterWithPanel="True"
-                       Fill="{ThemeResource ControlStrokeColorDefaultBrush}"
-                       Width="2" Height="48" Margin="0,0,20,0" />
-
+            <!--
             <Button
                 RelativePanel.AlignVerticalCenterWithPanel="True"
                 x:Name="EditWidgetsButton"

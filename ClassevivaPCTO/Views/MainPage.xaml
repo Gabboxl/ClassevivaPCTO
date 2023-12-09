@@ -133,6 +133,16 @@
                 </Grid>
             </Grid>
 
+            <Grid Grid.Row="0" HorizontalAlignment="Stretch">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="140" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="260" />
+                </Grid.ColumnDefinitions>
+
+                <AppBarButton x:Name="MainRefreshButton" Grid.Column="1" Icon="Refresh" IsCompact="False" Width="52" Click="MainRefreshButton_OnClick" x:Uid="RefreshButton"></AppBarButton>
+            </Grid>
+
             <!--
             <Button Grid.Row="0" Style="{StaticResource ProfileButtonStyle}" HorizontalAlignment="Right"
                     Margin="0,0,200,0">

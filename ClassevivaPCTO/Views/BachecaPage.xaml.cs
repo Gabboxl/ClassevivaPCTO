@@ -36,8 +36,8 @@ namespace ClassevivaPCTO.Views
 
             this.NoticesListView.OnShouldUpdate += OnShouldUpdate;
 
-            CheckboxAttive.Checked += AggiornaCommand_Click;
-            CheckboxAttive.Unchecked += AggiornaCommand_Click;
+            CheckboxAttive.Checked += (sender, args) => { AggiornaAction(); }; 
+            CheckboxAttive.Unchecked += (sender, args) => { AggiornaAction(); };
 
             await Task.Run(async () => { await LoadData(); });
         }
@@ -113,11 +113,6 @@ namespace ClassevivaPCTO.Views
                     );
                 }
             }
-        }
-
-        private async void AggiornaCommand_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
-        {
-            AggiornaAction();
         }
 
         public override async void AggiornaAction()

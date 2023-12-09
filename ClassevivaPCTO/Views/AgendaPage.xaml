@@ -214,20 +214,6 @@
                     <RelativePanel Grid.Row="0" Grid.Column="0"
                                    Margin="0,16,0,0" VerticalAlignment="Center">
 
-                        <Button x:Name="AggiornaCommand" x:Uid="RefreshButton"
-                                Width="48" Height="32"
-                                Margin="16,0,0,0" Click="AggiornaCommand_Click"
-                                RelativePanel.AlignVerticalCenterWithPanel="True" RelativePanel.LeftOf="Separator0">
-                            <FontIcon HorizontalAlignment="Center" VerticalAlignment="Center"
-                                      FontSize="16" Glyph="&#xE72C;" />
-
-                        </Button>
-
-                        <Rectangle x:Name="Separator0" Width="1"
-                                   Height="48" Margin="12,0,0,0"
-                                   Fill="{ThemeResource ControlStrokeColorDefaultBrush}"
-                                   RelativePanel.LeftOf="ButtonYesterday" />
-
                         <Button x:Name="ButtonYesterday" x:Uid="AgendaYesterdayButton"
                                 Width="48" Height="32"
                                 Margin="12,0,0,0" winUi:FrameworkElementExtensions.Cursor="Hand"

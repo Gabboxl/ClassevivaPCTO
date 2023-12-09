@@ -254,11 +254,6 @@ namespace ClassevivaPCTO.Views
             NavigationService.Navigate(typeof(AgendaPage));
         }
 
-        private async void AggiornaButton_Click(object sender, RoutedEventArgs e)
-        {
-            await LoadEverything();
-        }
-
         public override void AggiornaAction()
         {
             Task.Run(async () => { await LoadEverything(); });

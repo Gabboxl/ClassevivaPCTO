@@ -116,11 +116,6 @@ namespace ClassevivaPCTO.Views
             }
         }
 
-        private async void AggiornaCommand_Click(object sender, RoutedEventArgs e)
-        {
-            await Task.Run(async () => { await LoadData(); });
-        }
-
         private async Task UpdateCalendar()
         {
             var displayedDays = ColoredCalendarView.FindDescendants().OfType<CalendarViewDayItem>();

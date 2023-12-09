@@ -56,15 +56,6 @@
                                IsActive="True" RelativePanel.AlignVerticalCenterWith="TextTitolo"
                                RelativePanel.RightOf="TextTitolo"
                                Visibility="{x:Bind AssenzeViewModel.IsLoadingAssenze, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" />
-
-            <Button x:Name="AggiornaCommand" x:Uid="RefreshButton"
-                    Width="48" Height="32"
-                    Margin="0,0,20,0" Click="AggiornaCommand_Click"
-                    RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignVerticalCenterWith="TextTitolo">
-                
-                <FontIcon HorizontalAlignment="Center" VerticalAlignment="Center"
-                          FontSize="16" Glyph="&#xE72C;" />
-            </Button>
             
         </RelativePanel>
 

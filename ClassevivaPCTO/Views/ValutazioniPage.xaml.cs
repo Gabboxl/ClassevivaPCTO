@@ -261,11 +261,6 @@ namespace ClassevivaPCTO.Views
             UpdateUi();
         }
 
-        private async void ReloadButton_OnClick(object sender, RoutedEventArgs e)
-        {
-            AggiornaAction();
-        }
-
         public override async void AggiornaAction()
         {
             await Task.Run(async () => { await LoadData(); });

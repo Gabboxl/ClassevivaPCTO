@@ -48,19 +48,6 @@
 
         <RelativePanel Grid.Row="0" Margin="0,18,0,0">
 
-            <Button x:Name="AggiornaCommand" x:Uid="RefreshButton"
-                    Width="48" Height="32"
-                    Margin="16,0,0,0" Click="AggiornaCommand_Click"
-                    RelativePanel.AlignVerticalCenterWithPanel="True" RelativePanel.LeftOf="SeparatoreBacheca1">
-                <FontIcon HorizontalAlignment="Center" VerticalAlignment="Center"
-                          FontSize="16" Glyph="&#xE72C;" />
-            </Button>
-
-            <Rectangle x:Name="SeparatoreBacheca1" Width="1"
-                       Height="48" Margin="16,0,16,0"
-                       Fill="{ThemeResource ControlStrokeColorDefaultBrush}"
-                       RelativePanel.AlignVerticalCenterWithPanel="True" RelativePanel.LeftOf="ReadUnreadSegmented" />
-
             <controls1:Segmented x:Name="ReadUnreadSegmented" Width="310"
                                  Margin="0,0,0,0" HorizontalAlignment="Stretch"
                                  RelativePanel.AlignVerticalCenterWithPanel="True" RelativePanel.LeftOf="SeparatoreBacheca2"
