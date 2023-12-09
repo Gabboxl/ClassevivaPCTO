@@ -449,7 +449,7 @@ Erreur: </value>
     <value>Sondage</value>
   </data>
   <data name="RefreshButton.ToolTipService.ToolTip" xml:space="preserve">
-    <value>Actualiser</value>
+    <value>Aggiorna (F5)</value>
   </data>
   <data name="SettingsPaletteColorBlue.ToolTipService.ToolTip" xml:space="preserve">
     <value>Pas de moyenne, absence partielle</value>
@@ -616,14 +616,14 @@ Erreur: </value>
   <data name="ABU0_sing" xml:space="preserve">
     <value>Sortie anticipée</value>
   </data>
-  <data name="AppTranslationStatus1" xml:space="preserve">
-    <value>L'application a été traduite en </value>
+  <data name="DialogUntranslatedLanguageStatus1" xml:space="preserve">
+    <value>L'app è stata tradotta al </value>
   </data>
-  <data name="AppTranslationStatus2" xml:space="preserve">
-    <value>dans la langue que vous avez choisie. Certaines parties de l'application ne sont peut-être pas encore traduites.</value>
+  <data name="DialogUntranslatedLanguageStatus2" xml:space="preserve">
+    <value>nella lingua che hai scelto. Alcune parti dell'app potrebbero non essere stare ancora tradotte.</value>
   </data>
-  <data name="AreYouSureLanguageDialogText" xml:space="preserve">
-    <value>Voulez-vous vraiment changer la langue?</value>
+  <data name="DialogUntranslatedLanguageBody1" xml:space="preserve">
+    <value>Vuoi veramente cambiare la lingua?</value>
   </data>
   <data name="CautionDialogTitle" xml:space="preserve">
     <value>Attention</value>
@@ -654,9 +654,6 @@ Erreur: </value>
   </data>
   <data name="SelectFileDialogButton" xml:space="preserve">
     <value>Sélectionner un fichier</value>
-  </data>
-  <data name="DialogUntranslatedLanguageBody" xml:space="preserve">
-    <value>L'application n'a pas encore été traduite dans la langue que vous avez choisie.</value>
   </data>
   <data name="GenericEventOnDayPreposition" xml:space="preserve">
     <value> des </value>
@@ -699,5 +696,14 @@ Erreur: </value>
   </data>
   <data name="ScrutiniNotAvailableStatusText" xml:space="preserve">
     <value>Indisponible</value>
+  </data>
+  <data name="DialogUntranlatedLanguageInvite" xml:space="preserve">
+    <value>Traduci su Crowdin</value>
+  </data>
+  <data name="DialogUntranslatedLanguageBody2" xml:space="preserve">
+    <value>Se desideri puoi tradurre tu stesso l'app tramite Crowdin</value>
+  </data>
+  <data name="RestartLater" xml:space="preserve">
+    <value>Riavvia più tardi</value>
   </data>
 </root>
