@@ -46,11 +46,22 @@
                                Visibility="{x:Bind BachecaViewModel.IsLoadingBacheca, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" />
         </RelativePanel>
 
-        <RelativePanel Grid.Row="0" Margin="0,18,0,0">
+        <StackPanel Grid.Row="0" Margin="0,18,0,0" Orientation="Horizontal" HorizontalAlignment="Right">
 
-            <controls1:Segmented x:Name="ReadUnreadSegmented" Width="310"
+            <ComboBox MinWidth="140"
+                VerticalAlignment="Center"
+                PlaceholderText="Categoria..."
+                HorizontalContentAlignment="Stretch"
+                SelectionChanged="CategoryComboBox_OnSelectionChanged"
+                controls:KeepOldItemsSourceDecorator.ItemsSource="{x:Bind BachecaViewModel.Categories, Mode=OneWay}"
+                x:Name="CategoryComboBox" IsTextSearchEnabled="True" IsEditable="True" LightDismissOverlayMode="Off"></ComboBox>
+
+            <Rectangle Width="1"
+                       Height="48" Margin="16,0,16,0"
+                       Fill="{ThemeResource ControlStrokeColorDefaultBrush}" />
+
+            <controls1:Segmented x:Name="ReadUnreadSegmented" MinWidth="310"
                                  Margin="0,0,0,0" HorizontalAlignment="Stretch"
-                                 RelativePanel.AlignVerticalCenterWithPanel="True" RelativePanel.LeftOf="SeparatoreBacheca2"
                                  SelectedIndex="0" SelectionChanged="ReadUnreadSegmented_OnSelectionChanged">
                 
                 <controls1:SegmentedItem>
@@ -88,17 +99,15 @@
 
             </controls1:Segmented>
 
-            <Rectangle x:Name="SeparatoreBacheca2" Width="1"
+            <Rectangle Width="1"
                        Height="48" Margin="16,0,16,0"
-                       Fill="{ThemeResource ControlStrokeColorDefaultBrush}"
-                       RelativePanel.AlignVerticalCenterWithPanel="True" RelativePanel.LeftOf="CheckboxAttive" />
+                       Fill="{ThemeResource ControlStrokeColorDefaultBrush}" />
 
             <CheckBox x:Name="CheckboxAttive" x:Uid="NoticeBoardShowInactiveNoticesCheckbox"
                       Margin="0,0,24,0"
-                      IsChecked="{x:Bind BachecaViewModel.MostraComInattive, Mode=TwoWay}"
-                      RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignVerticalCenterWithPanel="True" />
+                      IsChecked="{x:Bind BachecaViewModel.MostraComInattive, Mode=TwoWay}" />
 
-        </RelativePanel>
+        </StackPanel>
 
         <RelativePanel x:Name="CardPanel" Grid.Row="2"
                        Margin="18" Padding="12"

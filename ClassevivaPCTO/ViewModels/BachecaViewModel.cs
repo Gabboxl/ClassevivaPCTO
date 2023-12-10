@@ -14,6 +14,14 @@ namespace ClassevivaPCTO.ViewModels
             set { SetProperty(ref _noticesToShow, value); }
         }
 
+        private List<string> _categories;
+
+        public List<string> Categories
+        {
+            get { return _categories; }
+            set { SetProperty(ref _categories, value); }
+        }
+
         private bool _isLoadingBacheca = true;
 
         public bool IsLoadingBacheca
