@@ -144,7 +144,7 @@
                     <!--  the combobox selected index is bound to the current theme enum value  -->
 
                     <ComboBox MinWidth="200"
-                              SelectedIndex="{x:Bind ElementTheme.GetHashCode()}"
+                              SelectedIndex="{x:Bind SettingsViewModel.ElementTheme.GetHashCode()}"
                               SelectionChanged="ThemeSelector_OnSelectionChanged">
                         <ComboBoxItem x:Uid="SettingsCardThemeDefaultComboboxItem" />
                         <ComboBoxItem x:Uid="SettingsCardThemeLightComboboxItem" />
@@ -160,8 +160,8 @@
                     </controls1:SettingsCard.HeaderIcon>
 
                     <ComboBox x:Name="PaletteComboBox" MinWidth="200"
-                              ItemsSource="{x:Bind ComboPalettes}"
-                              SelectedIndex="{x:Bind PaletteType.GetHashCode()}"
+                              ItemsSource="{x:Bind SettingsViewModel.ComboPalettes}"
+                              SelectedIndex="{x:Bind SettingsViewModel.PaletteType.GetHashCode()}"
                               SelectionChanged="PaletteComboBox_OnSelectionChanged">
                         <ComboBox.ItemTemplate>
                             <DataTemplate x:DataType="adapters:ComboPaletteAdapter">
@@ -292,7 +292,7 @@
                     <TextBlock Foreground="{ThemeResource TextFillColorSecondaryBrush}"
                                IsTextSelectionEnabled="True"
                                Style="{StaticResource BodyTextBlockStyle}">
-                        <Run x:Uid="SettingsAboutExpanderVersion" /><Run Text="{x:Bind Version}" />
+                        <Run x:Uid="SettingsAboutExpanderVersion" /><Run Text="{x:Bind SettingsViewModel.Version}" />
                     </TextBlock>
                     <controls1:SettingsExpander.Items>
                         <controls1:SettingsCard HorizontalContentAlignment="Left" ContentAlignment="Left">

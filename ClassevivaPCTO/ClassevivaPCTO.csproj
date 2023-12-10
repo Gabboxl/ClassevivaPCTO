@@ -227,6 +227,7 @@
     <Compile Include="Utils\IClassevivaAPI.cs" />
     <Compile Include="DataModels\OverviewDataModel.cs" />
     <Compile Include="ViewModels\AssenzeViewModel.cs" />
+    <Compile Include="ViewModels\SettingsViewModel.cs" />
     <Compile Include="ViewModels\ValutazioniViewModel.cs" />
     <Compile Include="ViewModels\NoteViewModel.cs" />
     <Compile Include="ViewModels\ScrutiniViewModel.cs" />

@@ -22,34 +22,13 @@ using Crowdin.Api;
 using Crowdin.Api.ProjectsGroups;
 using Crowdin.Api.TranslationStatus;
 using Windows.Storage;
+using ClassevivaPCTO.ViewModels;
 
 namespace ClassevivaPCTO.Views
 {
-    public sealed partial class SettingsPage : Page, INotifyPropertyChanged
+    public sealed partial class SettingsPage : Page
     {
-        private ElementTheme _elementTheme = ThemeSelectorService.Theme;
-
-        public ElementTheme ElementTheme
-        {
-            get { return _elementTheme; }
-            set { Set(ref _elementTheme, value); }
-        }
-
-        private PaletteType _paletteType = PaletteSelectorService.PaletteEnum;
-
-        public PaletteType PaletteType
-        {
-            get { return _paletteType; }
-            private set { Set(ref _paletteType, value); }
-        }
-
-        private List<ComboPaletteAdapter> _comboPalettes;
-
-        public List<ComboPaletteAdapter> ComboPalettes
-        {
-            get { return _comboPalettes; }
-            private set { Set(ref _comboPalettes, value); }
-        }
+        private SettingsViewModel SettingsViewModel = new();
 
         public bool AskNoticeOpenEventValue { get; set; }
 
@@ -89,14 +68,6 @@ namespace ClassevivaPCTO.Views
             get { return "AppDisplayName".GetLocalizedStr(); }
         }
 
-        private string _version;
-
-        public string Version
-        {
-            get { return _version; }
-            private set { Set(ref _version, value); }
-        }
-
         public SettingsPage()
         {
             InitializeComponent();
@@ -113,13 +84,13 @@ namespace ClassevivaPCTO.Views
 
         private async Task InitializeAsync()
         {
-            Version = GetVersionDescription();
+            SettingsViewModel.Version = GetVersionDescription();
 
             //create combo palette adapters for each palette of the enum PaletteType
-            ComboPalettes = new List<ComboPaletteAdapter>();
+            SettingsViewModel.ComboPalettes = new List<ComboPaletteAdapter>();
             foreach (PaletteType paletteType in Enum.GetValues(typeof(PaletteType)))
             {
-                ComboPalettes.Add(new ComboPaletteAdapter(PaletteSelectorService.GetPaletteClass(paletteType),
+                SettingsViewModel.ComboPalettes.Add(new ComboPaletteAdapter(PaletteSelectorService.GetPaletteClass(paletteType),
                     paletteType));
             }
 
@@ -136,22 +107,6 @@ namespace ClassevivaPCTO.Views
 
             return $"{version.Major}.{version.Minor}.{version.Build}.{version.Revision}";
         }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        private void Set<T>(ref T storage, T value, [CallerMemberName] string propertyName = null)
-        {
-            if (Equals(storage, value))
-            {
-                return;
-            }
-
-            storage = value;
-            OnPropertyChanged(propertyName);
-        }
-
-        private void OnPropertyChanged(string propertyName) =>
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
 
         private async void HyperlinkVote_Click(object sender, RoutedEventArgs e)
         {
@@ -237,8 +192,8 @@ namespace ClassevivaPCTO.Views
             ComboBox paletteSelector = (ComboBox) sender;
 
             //change theme based on selected index of the combobox sender
-            PaletteType = (PaletteType) paletteSelector.SelectedIndex;
-            await PaletteSelectorService.SetCurrentPalette(PaletteType);
+            SettingsViewModel.PaletteType = (PaletteType) paletteSelector.SelectedIndex;
+            await PaletteSelectorService.SetCurrentPalette(SettingsViewModel.PaletteType);
         }
 
         private async void ButtonLogout_Click(object sender, RoutedEventArgs e)
