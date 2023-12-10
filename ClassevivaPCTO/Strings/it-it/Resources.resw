@@ -198,7 +198,7 @@ Se riscontri bug o hai un'idea per l'app apri un issue su GitHub cliccando sul l
     <value>Informazioni di base</value>
   </data>
   <data name="SettingsCardTutorial.Description" xml:space="preserve">
-    <value>Visualizza informazioni utilii e suggerimenti sul funzionamento dell'app</value>
+    <value>Visualizza informazioni utili e suggerimenti sul funzionamento dell'app</value>
   </data>
   <data name="SettingsCardTutorialButton.Content" xml:space="preserve">
     <value>Apri tips</value>

@@ -50,7 +50,7 @@ namespace ClassevivaPCTO.Views
             set { Set(ref _comboPalettes, value); }
         }
 
-        public void OpenCrowdinLink()
+        private static void OpenCrowdinLink()
         {
             Windows.System.Launcher.LaunchUriAsync(new Uri("https://crowdin.com/project/classevivapcto/invite/public?h=2b7340ff29ea44873bdef53dc5f7b6871790557&show_welcome"));
         }
@@ -62,7 +62,7 @@ namespace ClassevivaPCTO.Views
                 //for every language of the manifest create a new string list with full names of the languages
                 //ApplicationLanguages.ManifestLanguages.ToList();
 
-                List<string> languages = new List<string>();
+                List<string> languages = new();
                 foreach (string language in ApplicationLanguages.ManifestLanguages)
                 {
                     languages.Add(new Language(language).DisplayName);
@@ -123,7 +123,7 @@ namespace ClassevivaPCTO.Views
             await Task.CompletedTask;
         }
 
-        private string GetVersionDescription()
+        private static string GetVersionDescription()
         {
             var package = Package.Current;
             var packageId = package.Id;
