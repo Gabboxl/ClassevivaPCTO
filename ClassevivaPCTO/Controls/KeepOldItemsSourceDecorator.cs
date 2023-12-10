@@ -7,7 +7,8 @@ namespace ClassevivaPCTO.Controls
     public static class KeepOldItemsSourceDecorator
     {
         public static readonly DependencyProperty ItemsSourceProperty = DependencyProperty.RegisterAttached(
-            "ItemsSource", typeof(IEnumerable), typeof(KeepOldItemsSourceDecorator), new PropertyMetadata(null, ItemsSourcePropertyChanged)
+            "ItemsSource", typeof(IEnumerable), typeof(KeepOldItemsSourceDecorator),
+            new PropertyMetadata(null, ItemsSourcePropertyChanged)
         );
 
         public static void SetItemsSource(UIElement element, IEnumerable value)
@@ -17,18 +18,17 @@ namespace ClassevivaPCTO.Controls
 
         public static IEnumerable GetItemsSource(UIElement element)
         {
-            return (IEnumerable)element.GetValue(ItemsSourceProperty);
+            return (IEnumerable) element.GetValue(ItemsSourceProperty);
         }
 
-        static void ItemsSourcePropertyChanged(DependencyObject element, 
-                        DependencyPropertyChangedEventArgs e)
+        private static void ItemsSourcePropertyChanged(DependencyObject element,
+            DependencyPropertyChangedEventArgs e)
         {
-            var target = element as Selector;
-            if (target == null)
+            if (element is not Selector target)
                 return;
 
             var oldSelectedItem = target.SelectedItem;
-            
+
             try
             {
                 // we set the new itemssource...
