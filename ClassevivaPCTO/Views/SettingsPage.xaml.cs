@@ -39,7 +39,7 @@ namespace ClassevivaPCTO.Views
         public PaletteType PaletteType
         {
             get { return _paletteType; }
-            set { Set(ref _paletteType, value); }
+            private set { Set(ref _paletteType, value); }
         }
 
         private List<ComboPaletteAdapter> _comboPalettes;
@@ -47,7 +47,7 @@ namespace ClassevivaPCTO.Views
         public List<ComboPaletteAdapter> ComboPalettes
         {
             get { return _comboPalettes; }
-            set { Set(ref _comboPalettes, value); }
+            private set { Set(ref _comboPalettes, value); }
         }
 
         private static void OpenCrowdinLink()
@@ -55,7 +55,7 @@ namespace ClassevivaPCTO.Views
             Windows.System.Launcher.LaunchUriAsync(new Uri("https://crowdin.com/project/classevivapcto/invite/public?h=2b7340ff29ea44873bdef53dc5f7b6871790557&show_welcome"));
         }
 
-        private List<string> ComboLanguages
+        private static List<string> ComboLanguages
         {
             get
             {
