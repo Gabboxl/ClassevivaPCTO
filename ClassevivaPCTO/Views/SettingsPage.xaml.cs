@@ -318,20 +318,18 @@ namespace ClassevivaPCTO.Views
 
                     var resTransChoice = await dialogtrans.ShowAsync();
 
-                    if (resTransChoice == ContentDialogResult.Primary)
+                    switch (resTransChoice)
                     {
-                    }
-                    else if (resTransChoice == ContentDialogResult.Secondary)
-                    {
-                        OpenCrowdinLink();
+                        case ContentDialogResult.Primary:
+                            break;
+                        case ContentDialogResult.Secondary:
+                            OpenCrowdinLink();
 
-                        RestoreLanguageSelection();
-                        return;
-                    }
-                    else
-                    {
-                        RestoreLanguageSelection();
-                        return;
+                            RestoreLanguageSelection();
+                            return;
+                        default:
+                            RestoreLanguageSelection();
+                            return;
                     }
                 }
             }
