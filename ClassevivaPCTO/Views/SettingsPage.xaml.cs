@@ -21,6 +21,7 @@ using Windows.Globalization;
 using Crowdin.Api;
 using Crowdin.Api.ProjectsGroups;
 using Crowdin.Api.TranslationStatus;
+using Windows.Storage;
 
 namespace ClassevivaPCTO.Views
 {
@@ -39,7 +40,7 @@ namespace ClassevivaPCTO.Views
         public PaletteType PaletteType
         {
             get { return _paletteType; }
-            set { Set(ref _paletteType, value); }
+            private set { Set(ref _paletteType, value); }
         }
 
         private List<ComboPaletteAdapter> _comboPalettes;
@@ -47,22 +48,24 @@ namespace ClassevivaPCTO.Views
         public List<ComboPaletteAdapter> ComboPalettes
         {
             get { return _comboPalettes; }
-            set { Set(ref _comboPalettes, value); }
+            private set { Set(ref _comboPalettes, value); }
         }
 
-        public void OpenCrowdinLink()
+        public bool AskNoticeOpenEventValue { get; set; }
+
+        private static void OpenCrowdinLink()
         {
             Windows.System.Launcher.LaunchUriAsync(new Uri("https://crowdin.com/project/classevivapcto/invite/public?h=2b7340ff29ea44873bdef53dc5f7b6871790557&show_welcome"));
         }
 
-        private List<string> ComboLanguages
+        private static List<string> ComboLanguages
         {
             get
             {
                 //for every language of the manifest create a new string list with full names of the languages
                 //ApplicationLanguages.ManifestLanguages.ToList();
 
-                List<string> languages = new List<string>();
+                List<string> languages = new();
                 foreach (string language in ApplicationLanguages.ManifestLanguages)
                 {
                     languages.Add(new Language(language).DisplayName);
@@ -91,7 +94,7 @@ namespace ClassevivaPCTO.Views
         public string Version
         {
             get { return _version; }
-            set { Set(ref _version, value); }
+            private set { Set(ref _version, value); }
         }
 
         public SettingsPage()
@@ -120,10 +123,12 @@ namespace ClassevivaPCTO.Views
                     paletteType));
             }
 
+            AskNoticeOpenEventValue = !await ApplicationData.Current.LocalSettings.ReadAsync<bool>("SkipAskNoticeOpenEvent");
+
             await Task.CompletedTask;
         }
 
-        private string GetVersionDescription()
+        private static string GetVersionDescription()
         {
             var package = Package.Current;
             var packageId = package.Id;
@@ -238,7 +243,7 @@ namespace ClassevivaPCTO.Views
 
         private async void ButtonLogout_Click(object sender, RoutedEventArgs e)
         {
-            ContentDialog dialog = new ContentDialog
+            ContentDialog dialog = new()
             {
                 Title = "AreYouSure".GetLocalizedStr(),
                 Content = "AreYouSureToExit".GetLocalizedStr(),
@@ -318,20 +323,18 @@ namespace ClassevivaPCTO.Views
 
                     var resTransChoice = await dialogtrans.ShowAsync();
 
-                    if (resTransChoice == ContentDialogResult.Primary)
+                    switch (resTransChoice)
                     {
-                    }
-                    else if (resTransChoice == ContentDialogResult.Secondary)
-                    {
-                        OpenCrowdinLink();
+                        case ContentDialogResult.Primary:
+                            break;
+                        case ContentDialogResult.Secondary:
+                            OpenCrowdinLink();
 
-                        RestoreLanguageSelection();
-                        return;
-                    }
-                    else
-                    {
-                        RestoreLanguageSelection();
-                        return;
+                            RestoreLanguageSelection();
+                            return;
+                        default:
+                            RestoreLanguageSelection();
+                            return;
                     }
                 }
             }
@@ -367,6 +370,11 @@ namespace ClassevivaPCTO.Views
 
             //re-add listener
             LanguageComboBox.SelectionChanged += LanguageComboBox_OnSelectionChanged;
+        }
+
+        private async void AskNoticeOpenEvent_OnToggled(object sender, RoutedEventArgs e)
+        {
+            await ApplicationData.Current.LocalSettings.SaveAsync("SkipAskNoticeOpenEvent", !AskNoticeOpenEventToggle.IsOn);
         }
     }
 }

@@ -213,6 +213,18 @@
                     </ComboBox>
                 </controls1:SettingsCard>
 
+                <TextBlock Text="Opzioni pagine" Style="{StaticResource SettingsSectionHeaderTextBlockStyle}" />
+
+                <controls1:SettingsCard x:Uid="SettingsCardAskConfirm">
+
+                    <controls1:SettingsCard.HeaderIcon>
+                        <FontIcon Glyph="&#xE705;" />
+                    </controls1:SettingsCard.HeaderIcon>
+
+                    <ToggleSwitch x:Name="AskNoticeOpenEventToggle" Toggled="AskNoticeOpenEvent_OnToggled" IsOn="{x:Bind AskNoticeOpenEventValue, Mode=TwoWay}" />
+
+                </controls1:SettingsCard>
+
                 <TextBlock x:Uid="SettingsGeneralHeader" Style="{StaticResource SettingsSectionHeaderTextBlockStyle}" />
 
                 <!-- <controls1:SettingsCard x:Uid="SettingsCardSchoolYear">
