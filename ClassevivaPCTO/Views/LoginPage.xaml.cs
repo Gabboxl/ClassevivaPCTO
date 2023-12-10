@@ -78,6 +78,12 @@ namespace ClassevivaPCTO.Views
             await dialog.ShowAsync();
         }
 
+        private async void TutorialButton_Click(object sender, RoutedEventArgs e)
+        {
+            var dialog = new FirstRunDialog();
+            await dialog.ShowAsync();
+        }
+
         private async void Grid_KeyDown(object sender, KeyRoutedEventArgs args)
         {
             switch (args.Key)

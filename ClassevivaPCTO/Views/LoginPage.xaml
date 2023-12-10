@@ -100,7 +100,7 @@
 
         <StackPanel Orientation="Horizontal" Spacing="8" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.AlignBottomWithPanel="True" Margin="0,0,0,120">
 
-            <HyperlinkButton NavigateUri="http://github.com/Gabboxl/ClassevivaPCTO">
+            <HyperlinkButton Click="TutorialButton_Click">
                 <StackPanel Orientation="Horizontal" Spacing="10">
                     <Grid Width="18" Height="18">
                         <Path
@@ -108,7 +108,7 @@
                                                 Stretch="Uniform"
                                                 Fill="{ThemeResource AccentTextFillColorPrimaryBrush}" />
                     </Grid>
-                    <TextBlock Text="Aiuto nel Login" />
+                    <TextBlock Text="Get Started" />
                     
                 </StackPanel>
             </HyperlinkButton>
