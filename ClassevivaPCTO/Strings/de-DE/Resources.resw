@@ -448,7 +448,7 @@ Errore: </value>
     <value>Scrutini</value>
   </data>
   <data name="RefreshButton.ToolTipService.ToolTip" xml:space="preserve">
-    <value>Aggiorna</value>
+    <value>Aggiorna (F5)</value>
   </data>
   <data name="SettingsPaletteColorBlue.ToolTipService.ToolTip" xml:space="preserve">
     <value>Non fa media, assenza parziale</value>
@@ -615,13 +615,13 @@ Errore: </value>
   <data name="ABU0_sing" xml:space="preserve">
     <value>Uscita anticipata</value>
   </data>
-  <data name="AppTranslationStatus1" xml:space="preserve">
+  <data name="DialogUntranslatedLanguageStatus1" xml:space="preserve">
     <value>L'app è stata tradotta al </value>
   </data>
-  <data name="AppTranslationStatus2" xml:space="preserve">
+  <data name="DialogUntranslatedLanguageStatus2" xml:space="preserve">
     <value>nella lingua che hai scelto. Alcune parti dell'app potrebbero non essere stare ancora tradotte.</value>
   </data>
-  <data name="AreYouSureLanguageDialogText" xml:space="preserve">
+  <data name="DialogUntranslatedLanguageBody1" xml:space="preserve">
     <value>Vuoi veramente cambiare la lingua?</value>
   </data>
   <data name="CautionDialogTitle" xml:space="preserve">
@@ -653,9 +653,6 @@ Errore: </value>
   </data>
   <data name="SelectFileDialogButton" xml:space="preserve">
     <value>Seleziona file</value>
-  </data>
-  <data name="DialogUntranslatedLanguageBody" xml:space="preserve">
-    <value>L'app non è stata ancora tradotta nella lingua che hai scelto.</value>
   </data>
   <data name="GenericEventOnDayPreposition" xml:space="preserve">
     <value> del </value>
@@ -698,5 +695,14 @@ Errore: </value>
   </data>
   <data name="ScrutiniNotAvailableStatusText" xml:space="preserve">
     <value>Non disponibile</value>
+  </data>
+  <data name="DialogUntranlatedLanguageInvite" xml:space="preserve">
+    <value>Traduci su Crowdin</value>
+  </data>
+  <data name="DialogUntranslatedLanguageBody2" xml:space="preserve">
+    <value>Se desideri puoi tradurre tu stesso l'app tramite Crowdin</value>
+  </data>
+  <data name="RestartLater" xml:space="preserve">
+    <value>Riavvia più tardi</value>
   </data>
 </root>
