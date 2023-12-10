@@ -631,7 +631,7 @@ Errore: </value>
     <value>Continua</value>
   </data>
   <data name="SettingsCardAskConfirm.Description" xml:space="preserve">
-    <value>Chiedi conferma prima di aprire una comunicazione per evitare di contrassegnarla erroneamente come letta</value>
+    <value>Chiedi conferma prima di aprire una comunicazione</value>
   </data>
   <data name="SettingsCardAskConfirm.Header" xml:space="preserve">
     <value>Conferma apertura comunicazioni</value>
