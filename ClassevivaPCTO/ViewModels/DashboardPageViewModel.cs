@@ -35,9 +35,5 @@ namespace ClassevivaPCTO.ViewModels
             get { return _isLoadingNotices; }
             set { SetProperty(ref _isLoadingNotices, value); }
         }
-
-        public DashboardPageViewModel()
-        {
-        }
     }
 }

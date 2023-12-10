@@ -9,9 +9,15 @@ namespace ClassevivaPCTO.Converters
     {
         public object Convert(object value, Type targetType, object parameter, string language)
         {
+            //parametro per invertire il risultato
+            bool param = true;
+
+            if (parameter != null)
+                param = System.Convert.ToBoolean(parameter);
+
             IList list = (IList) value;
 
-            return (list != null && list.Count != 0) ? Visibility.Visible : Visibility.Collapsed;
+            return (list != null && list.Count != 0) == param ? Visibility.Visible : Visibility.Collapsed;
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, string language)

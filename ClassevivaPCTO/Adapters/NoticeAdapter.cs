@@ -47,11 +47,11 @@ namespace ClassevivaPCTO.Adapters
             {
                 if (CurrentObject.cntStatus == "deleted")
                 {
-                    return "NoticeAdapter_StatusText_Eliminata".GetLocalized();
+                    return "NoticeBoardDeletedStatusText".GetLocalizedStr();
                 }
                 else if (!CurrentObject.cntValidInRange)
                 {
-                    return "NoticeAdapter_StatusText_Scaduta".GetLocalized();
+                    return "NoticeBoardExpiredStatusText".GetLocalizedStr();
                 }
 
                 return "";
@@ -96,7 +96,7 @@ namespace ClassevivaPCTO.Adapters
         {
             get
             {
-                return string.Format("NoticeAdapter_FromToValidDate".GetLocalized(),
+                return string.Format("NoticeBoardValidFromToDateText".GetLocalizedStr(),
                                      CurrentObject.cntValidFrom.ToString("dd/MM/yyyy"),CurrentObject.cntValidTo.ToString("dd/MM/yyyy"));
             }
         }
@@ -115,7 +115,6 @@ namespace ClassevivaPCTO.Adapters
                 }
             }
         }
-
 
         public NoticeAdapter(Notice ev)
         {

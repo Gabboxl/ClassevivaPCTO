@@ -34,7 +34,6 @@ namespace ClassevivaPCTO.Views
             set { Set(ref _elementTheme, value); }
         }
 
-
         private PaletteType _paletteType = PaletteSelectorService.PaletteEnum;
 
         public PaletteType PaletteType
@@ -49,6 +48,11 @@ namespace ClassevivaPCTO.Views
         {
             get { return _comboPalettes; }
             set { Set(ref _comboPalettes, value); }
+        }
+
+        public void OpenCrowdinLink()
+        {
+            Windows.System.Launcher.LaunchUriAsync(new Uri("https://crowdin.com/project/classevivapcto/invite/public?h=2b7340ff29ea44873bdef53dc5f7b6871790557&show_welcome"));
         }
 
         private List<string> ComboLanguages
@@ -68,7 +72,6 @@ namespace ClassevivaPCTO.Views
             }
         }
 
-
         private static int CurrentLanguage
         {
             get
@@ -78,10 +81,9 @@ namespace ClassevivaPCTO.Views
             set { }
         }
 
-
         public static string AppName
         {
-            get { return "AppDisplayName".GetLocalized(); }
+            get { return "AppDisplayName".GetLocalizedStr(); }
         }
 
         private string _version;
@@ -106,7 +108,6 @@ namespace ClassevivaPCTO.Views
             await InitializeAsync();
         }
 
-
         private async Task InitializeAsync()
         {
             Version = GetVersionDescription();
@@ -118,7 +119,6 @@ namespace ClassevivaPCTO.Views
                 ComboPalettes.Add(new ComboPaletteAdapter(PaletteSelectorService.GetPaletteClass(paletteType),
                     paletteType));
             }
-
 
             await Task.CompletedTask;
         }
@@ -240,10 +240,10 @@ namespace ClassevivaPCTO.Views
         {
             ContentDialog dialog = new ContentDialog
             {
-                Title = "AreYouSure".GetLocalized(),
-                Content = "AreYouSureToExit".GetLocalized(),
-                PrimaryButtonText = "Exit".GetLocalized(),
-                CloseButtonText = "CancelDialogButton".GetLocalized(),
+                Title = "AreYouSure".GetLocalizedStr(),
+                Content = "AreYouSureToExit".GetLocalizedStr(),
+                PrimaryButtonText = "Exit".GetLocalizedStr(),
+                CloseButtonText = "CancelDialogButton".GetLocalizedStr(),
                 RequestedTheme = ((FrameworkElement) Window.Current.Content).RequestedTheme,
                 DefaultButton = ContentDialogButton.Primary
             };
@@ -279,7 +279,6 @@ namespace ClassevivaPCTO.Views
             {
                 string langcode = ApplicationLanguages.ManifestLanguages[selectedIndex].ToLower();
 
-
                 var credentials = new CrowdinCredentials
                 {
                     AccessToken = "60bf870634938d9ef6f0dfb831748dfced1fb6000452405fc3df563f94d2942ec98454c90a524674"
@@ -289,33 +288,31 @@ namespace ClassevivaPCTO.Views
                 var projectexecutor = new ProjectsGroupsApiExecutor(client);
                 var projectBase = await projectexecutor.GetProject<ProjectBase>(605451);
 
-
                 //from the TargetLanguages property of the projectBase object, create a list only of the Locale property of each object
 
                 //var localelist = projectBase.TargetLanguages.Select(x => x.Locale).ToList();
 
-
                 var selectedCrowdingLangId = projectBase.TargetLanguages.Where(x => x.Locale.ToLower() == langcode)
                     .Select(x => x.Id).FirstOrDefault();
-
 
                 var languageProgressObj =
                     await new TranslationStatusApiExecutor(client).GetLanguageProgress(605451, selectedCrowdingLangId);
 
                 var langProgressPerc = languageProgressObj.Data[0].TranslationProgress;
 
-
                 if (langProgressPerc != 100)
                 {
                     ContentDialog dialogtrans = new()
                     {
-                        Title = "CautionDialogTitle".GetLocalized(),
-                        Content = "AppTranslationStatus1".GetLocalized() + langProgressPerc + "% " +
-                                  "AppTranslationStatus2".GetLocalized() + "\n\n" +
-                                  "AreYouSureLanguageDialogText".GetLocalized(),
-                        PrimaryButtonText = "ContinueDialogButton".GetLocalized(),
-                        CloseButtonText = "CancelDialogButton".GetLocalized(),
-                        RequestedTheme = ((FrameworkElement) Window.Current.Content).RequestedTheme,
+                        Title = "CautionDialogTitle".GetLocalizedStr(),
+                        Content = "DialogUntranslatedLanguageStatus1".GetLocalizedStr() + langProgressPerc + "% " +
+                                  "DialogUntranslatedLanguageStatus2".GetLocalizedStr() + "\n\n" +
+                                  "DialogUntranslatedLanguageBody1".GetLocalizedStr() + "\n\n" +
+                                  "DialogUntranslatedLanguageBody2".GetLocalizedStr(),
+                        PrimaryButtonText = "ContinueDialogButton".GetLocalizedStr(),
+                        SecondaryButtonText = "DialogUntranlatedLanguageInvite".GetLocalizedStr(),
+                        CloseButtonText = "CancelDialogButton".GetLocalizedStr(),
+                        RequestedTheme = ((FrameworkElement)Window.Current.Content).RequestedTheme,
                         DefaultButton = ContentDialogButton.Primary
                     };
 
@@ -324,48 +321,30 @@ namespace ClassevivaPCTO.Views
                     if (resTransChoice == ContentDialogResult.Primary)
                     {
                     }
+                    else if (resTransChoice == ContentDialogResult.Secondary)
+                    {
+                        OpenCrowdinLink();
+
+                        RestoreLanguageSelection();
+                        return;
+                    }
                     else
                     {
-                        //do not trigger this event again
-                        LanguageComboBox.SelectionChanged -= LanguageComboBox_OnSelectionChanged;
-
-                        //set previous selected value
-                        LanguageComboBox.SelectedIndex = CurrentLanguage;
-
-                        //re-add listener
-                        LanguageComboBox.SelectionChanged += LanguageComboBox_OnSelectionChanged;
-
+                        RestoreLanguageSelection();
                         return;
                     }
                 }
-                else if (langProgressPerc == 0)
-                {
-                    ContentDialog dialogtrans = new()
-                    {
-                        Title = "Attenzione",
-                        Content = "L'app non è stata ancora tradotta nella lingua che hai scelto.",
-                        PrimaryButtonText = "Ok",
-                        RequestedTheme = ((FrameworkElement) Window.Current.Content).RequestedTheme,
-                        DefaultButton = ContentDialogButton.Primary
-                    };
-
-                    await dialogtrans.ShowAsync();
-
-                    return;
-                }
             }
-
 
             //update values
             ChangeLanguage(selectedIndex);
 
-
             ContentDialog dialog = new()
             {
-                Title = "RestartRequired".GetLocalized(),
-                Content = "RestartRequiredLanguageChange".GetLocalized(),
-                PrimaryButtonText = "Restart".GetLocalized(),
-                CloseButtonText = "CancelDialogButton".GetLocalized(),
+                Title = "RestartRequired".GetLocalizedStr(),
+                Content = "RestartRequiredLanguageChange".GetLocalizedStr(),
+                PrimaryButtonText = "Restart".GetLocalizedStr(),
+                CloseButtonText = "RestartLater".GetLocalizedStr(),
                 RequestedTheme = ((FrameworkElement) Window.Current.Content).RequestedTheme,
                 DefaultButton = ContentDialogButton.Primary
             };
@@ -376,6 +355,18 @@ namespace ClassevivaPCTO.Views
             {
                 CoreApplication.RequestRestartAsync("LanguageChangeRestart");
             }
+        }
+
+        private void RestoreLanguageSelection()
+        {
+            //do not trigger this event again
+            LanguageComboBox.SelectionChanged -= LanguageComboBox_OnSelectionChanged;
+
+            //set previous selected value
+            LanguageComboBox.SelectedIndex = CurrentLanguage;
+
+            //re-add listener
+            LanguageComboBox.SelectionChanged += LanguageComboBox_OnSelectionChanged;
         }
     }
 }

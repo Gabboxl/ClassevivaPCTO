@@ -31,11 +31,10 @@ namespace ClassevivaPCTO
 
         private async Task<string> GetTokenAsync()
         {
-            LoginResultComplete? loginResult = ViewModelHolder.GetViewModel().LoginResult;
+            LoginResultComplete? loginResult = AppViewModelHolder.GetViewModel().LoginResult;
 
             return loginResult.token;
         }
-
 
         public IServiceProvider Container { get; }
 
@@ -157,7 +156,7 @@ namespace ClassevivaPCTO
 
             try
             {
-                var dataLogin = ViewModelHolder.GetViewModel().LoginResult;
+                var dataLogin = AppViewModelHolder.GetViewModel().LoginResult;
 
                 var serializedLogin = JsonConvert.SerializeObject(
                     dataLogin,

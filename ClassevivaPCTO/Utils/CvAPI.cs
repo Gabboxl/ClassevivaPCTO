@@ -22,7 +22,6 @@ namespace ClassevivaPCTO.Utils
         public string message { get; set; }
     }
 
-
     public class LoginData
     {
         [AliasAs("uid")] public string Uid { get; init; }
@@ -56,12 +55,19 @@ namespace ClassevivaPCTO.Utils
         public List<int?> hoursAbsence { get; set; }
     }
 
-
     public class AbsencesResult
     {
         [JsonPropertyName("events")] public List<AbsenceEvent> AbsenceEvents { get; set; }
     }
 
+    public enum GradeEventCode
+    {
+        GRV0, //
+        GRV1, //
+        GRT1, // hanno tipo: "displayValue": "35/50" come valore, non si deve applicare il weightFactor
+        GRA1, // mai usato
+        GRV2 // una skill
+    }
 
     public class Grade
     {
@@ -69,7 +75,7 @@ namespace ClassevivaPCTO.Utils
         public string subjectCode { get; set; }
         public string subjectDesc { get; set; }
         public long? evtId { get; set; }
-        public string evtCode { get; set; }
+        public GradeEventCode evtCode { get; set; }
         public DateTime evtDate { get; set; }
         public float? decimalValue { get; set; }
         public string displayValue { get; set; }
@@ -78,11 +84,11 @@ namespace ClassevivaPCTO.Utils
         public string color { get; set; }
         public bool canceled { get; set; }
         public bool underlined { get; set; }
-        public long? periodPos { get; set; }
+        public int? periodPos { get; set; }
         public string periodDesc { get; set; }
-        public long? componentPos { get; set; }
+        public int? componentPos { get; set; }
         public string componentDesc { get; set; }
-        public long? weightFactor { get; set; }
+        public float? weightFactor { get; set; } //tenere conto di questo valore nel calcolo della media per GRV0 e GRV1
         public long? skillId { get; set; }
         public long? gradeMasterId { get; set; }
         public string skillDesc { get; set; }
@@ -129,12 +135,18 @@ namespace ClassevivaPCTO.Utils
         [JsonProperty("expire")] public DateTime expire { get; set; }
     }
 
+    public enum LessonEventCode
+    {
+        LSF0,
+        LSC0,
+        LSS0 
+    }
 
     public class Lesson
     {
         public long? evtId { get; set; }
         public DateTime evtDate { get; set; }
-        public string evtCode { get; set; }
+        public LessonEventCode evtCode { get; set; }
         public long? evtHPos { get; set; }
         public long? evtDuration { get; set; }
         public string classDesc { get; set; }
@@ -166,7 +178,6 @@ namespace ClassevivaPCTO.Utils
         [JsonPropertyName("agenda")] public List<AgendaEvent> AgendaEvents { get; set; }
     }
 
-
     public class OverviewResult
     {
         [JsonPropertyName("lessons")] public List<Lesson> Lessons { get; set; }
@@ -182,12 +193,10 @@ namespace ClassevivaPCTO.Utils
         public List<Note> Notes { get; set; }
     }
 
-
     public class SingleCardResult
     {
         [JsonPropertyName("card")] public Card Card { get; set; }
     }
-
 
     public class Card
     {
@@ -207,12 +216,10 @@ namespace ClassevivaPCTO.Utils
         public string schProv { get; set; }
     }
 
-
     public class CardsResult
     {
         [JsonPropertyName("cards")] public List<Card> Cards { get; set; }
     }
-
 
     public class Period
     {
@@ -294,9 +301,6 @@ namespace ClassevivaPCTO.Utils
         public bool? replSign { get; set; }
     }
 
-
-    //notes
-
     public enum NoteEventCode
     {
         NTTE, // annotazioni
@@ -319,7 +323,6 @@ namespace ClassevivaPCTO.Utils
         public bool? toUpload { get; set; }
         public string? warningType { get; set; }
     }
-
 
     public class NotesResult
     {
@@ -395,7 +398,6 @@ namespace ClassevivaPCTO.Utils
     {
         public ScrutiniDocumentCheckStatus document { get; set; }
     }
-
 
     //calendar
 

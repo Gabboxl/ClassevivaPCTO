@@ -43,7 +43,7 @@ namespace ClassevivaPCTO.Controls
                 nameof(ItemsSource),
                 typeof(List<Grade>),
                 typeof(GradesListView),
-                new PropertyMetadata(null, new PropertyChangedCallback(OnItemsSourceChanged)));
+                new PropertyMetadata(null, OnItemsSourceChanged));
 
         private static void OnItemsSourceChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
@@ -55,11 +55,9 @@ namespace ClassevivaPCTO.Controls
 
             currentInstance.listView.ItemsSource = eventAdapters;
 
-
             currentInstance.ShowEmptyAlert =
                 (newValue == null || newValue.Count == 0) && currentInstance.EnableEmptyAlert;
         }
-
 
         public GradesListView()
         {

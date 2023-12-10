@@ -27,7 +27,6 @@ namespace ClassevivaPCTO.Services
             PaletteClass = GetPaletteClass(PaletteEnum);
         }
 
-
         public static async Task SetCurrentPalette(PaletteType palette)
         {
             PaletteEnum = palette;
@@ -35,7 +34,6 @@ namespace ClassevivaPCTO.Services
 
             await ApplicationData.Current.LocalSettings.SaveAsync(SettingsKey, palette.ToString());
         }
-
 
         public static IPalette GetPaletteClass(PaletteType classType)
         {

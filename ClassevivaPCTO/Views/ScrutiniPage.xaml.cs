@@ -8,10 +8,11 @@ using Windows.ApplicationModel.Core;
 using Windows.UI.Core;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
+using ClassevivaPCTO.Controls;
 
 namespace ClassevivaPCTO.Views
 {
-    public sealed partial class ScrutiniPage : Page
+    public sealed partial class ScrutiniPage : CustomAppPage
     {
         public ScrutiniViewModel ScrutiniViewModel { get; } = new();
 
@@ -37,7 +38,6 @@ namespace ClassevivaPCTO.Views
             CheckboxEliminati.Unchecked +=
                 async (sender, args) => { await Task.Run(async () => { await LoadData(); }); };
 
-
             await Task.Run(async () => { await LoadData(); });
         }
 
@@ -59,7 +59,7 @@ namespace ClassevivaPCTO.Views
                     }
                 );
 
-                Card? cardResult = ViewModelHolder.GetViewModel().SingleCardResult;
+                Card? cardResult = AppViewModelHolder.GetViewModel().SingleCardResult;
 
 
                 ScrutiniDocumentsResult scrutiniDocumentsResult = await apiWrapper.GetScrutiniDocuments(
@@ -74,7 +74,6 @@ namespace ClassevivaPCTO.Views
 
                     document.checkStatus = scrutiniCheckResult.document;
                 }
-
 
                 //we take only available documents if the checkbox isnt checked, after we have checked them via the API
                 if (!showDeletedDocuments)
@@ -103,8 +102,7 @@ namespace ClassevivaPCTO.Views
             }
         }
 
-
-        private async void AggiornaCommand_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        public override async void AggiornaAction()
         {
             await Task.Run(async () => { await LoadData(); });
         }

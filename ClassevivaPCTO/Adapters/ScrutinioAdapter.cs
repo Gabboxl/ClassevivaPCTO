@@ -38,13 +38,12 @@ namespace ClassevivaPCTO.Adapters
             {
                 if (CurrentObject.checkStatus.available)
                 {
-                    return " ";
+                    return "";
                 }
 
-                return "StatusText_NotAvailable".GetLocalized();
+                return "ScrutiniNotAvailableStatusText".GetLocalizedStr();
             }
         }
-
 
         public ScrutinioAdapter(ScrutiniDocument ev)
         {

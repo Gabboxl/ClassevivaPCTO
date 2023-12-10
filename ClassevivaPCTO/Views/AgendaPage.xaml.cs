@@ -15,16 +15,14 @@ using Expander = Microsoft.UI.Xaml.Controls.Expander;
 
 namespace ClassevivaPCTO.Views
 {
-    public sealed partial class AgendaPage : Page
+    public sealed partial class AgendaPage : CustomAppPage
     {
         public AgendaViewModel AgendaViewModel { get; } = new();
 
         private readonly IClassevivaAPI apiWrapper;
 
-
         private SubjectsResult _subjects;
         private LessonsResult _lessons;
-
 
         public AgendaPage()
         {
@@ -90,8 +88,7 @@ namespace ClassevivaPCTO.Views
                     async () => { AgendaViewModel.IsLoadingAgenda = true; }
                 );
 
-
-                Card? cardResult = ViewModelHolder.GetViewModel().SingleCardResult;
+                Card? cardResult = AppViewModelHolder.GetViewModel().SingleCardResult;
 
                 string apiDate = VariousUtils.ToApiDateTime(dateToLoad);
 
@@ -142,13 +139,12 @@ namespace ClassevivaPCTO.Views
             CalendarAgenda.Date = CalendarAgenda.Date.Value.AddDays(1);
         }
 
-        private async void AggiornaCommand_Click(object sender, RoutedEventArgs e)
+        public override async void AggiornaAction()
         {
             var agendaSelectedDate = CalendarAgenda.Date;
 
             await Task.Run(async () => { await LoadData(agendaSelectedDate.Value.Date); });
         }
-
 
         private async void PopupAgendaButton_OnClick(object sender, RoutedEventArgs e)
         {
@@ -160,7 +156,6 @@ namespace ClassevivaPCTO.Views
         {
             await Task.Run(async () => { await LoadLessonsPopup(); });
         }
-
 
         private async Task LoadLessonsPopup()
         {
@@ -178,8 +173,8 @@ namespace ClassevivaPCTO.Views
                     LezioniPopup.IsOpen = true;
                 });
 
-            LoginResultComplete? loginResult = ViewModelHolder.GetViewModel().LoginResult;
-            Card? cardResult = ViewModelHolder.GetViewModel().SingleCardResult;
+            LoginResultComplete? loginResult = AppViewModelHolder.GetViewModel().LoginResult;
+            Card? cardResult = AppViewModelHolder.GetViewModel().SingleCardResult;
 
 
             if (_subjects == null)
@@ -192,7 +187,6 @@ namespace ClassevivaPCTO.Views
             if (_lessons == null)
             {
                 var dates = VariousUtils.GetLessonsStartEndDates();
-
 
                 _lessons = await apiWrapper.GetLessons(
                     cardResult.usrId.ToString(),
@@ -213,28 +207,25 @@ namespace ClassevivaPCTO.Views
                         var expander = new Expander
                         {
                             Header = currentSubject.description,
+                            HorizontalAlignment = HorizontalAlignment.Stretch,
+                            HorizontalContentAlignment = HorizontalAlignment.Stretch
                             //Content = "yoyo" 
                         };
 
-                        expander.HorizontalAlignment = HorizontalAlignment.Stretch;
-                        expander.HorizontalContentAlignment = HorizontalAlignment.Stretch;
 
-
-                        var listviewlessons = new LessonsListView()
+                        var listviewlessons = new LessonsListView
                         {
                             EnableEmptyAlert = true,
                             IsSingleSubjectList = true,
                             ItemsSource = subjectLessons,
+                            HorizontalAlignment = HorizontalAlignment.Stretch
                         };
-
-                        listviewlessons.HorizontalAlignment = HorizontalAlignment.Stretch;
 
                         expander.Content = listviewlessons;
 
                         LezioniPopupStackPanel.Children.Add(expander);
                     });
             }
-
 
             await CoreApplication.MainView.Dispatcher.RunAsync(
                 CoreDispatcherPriority.Normal,
@@ -246,7 +237,6 @@ namespace ClassevivaPCTO.Views
                     LezioniPopupProgressRing.IsActive = false;
                 });
         }
-
 
         private async Task LoadAgendaPopup()
         {
@@ -264,9 +254,8 @@ namespace ClassevivaPCTO.Views
                     AgendaPopup.IsOpen = true;
                 });
 
-            LoginResultComplete? loginResult = ViewModelHolder.GetViewModel().LoginResult;
-            Card? cardResult = ViewModelHolder.GetViewModel().SingleCardResult;
-
+            LoginResultComplete? loginResult = AppViewModelHolder.GetViewModel().LoginResult;
+            Card? cardResult = AppViewModelHolder.GetViewModel().SingleCardResult;
 
             var dates = VariousUtils.GetAgendaStartEndDates();
 
@@ -276,21 +265,18 @@ namespace ClassevivaPCTO.Views
                 VariousUtils.ToApiDateTime(dates.endDate)
             );
 
-
             await CoreApplication.MainView.Dispatcher.RunAsync(
                 CoreDispatcherPriority.Normal,
                 async () =>
                 {
-                    var agendaListView = new AgendaMultipleDaysListView()
+                    var agendaListView = new AgendaMultipleDaysListView
                     {
                         ItemsSource = agendaEvents.AgendaEvents,
+                        HorizontalAlignment = HorizontalAlignment.Stretch
                     };
-
-                    agendaListView.HorizontalAlignment = HorizontalAlignment.Stretch;
 
                     AgendaPopupListviewContainer.Children.Add(agendaListView);
                 });
-
 
             await CoreApplication.MainView.Dispatcher.RunAsync(
                 CoreDispatcherPriority.Normal,

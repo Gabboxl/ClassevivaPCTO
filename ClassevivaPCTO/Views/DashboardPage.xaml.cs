@@ -12,12 +12,13 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using ClassevivaPCTO.Controls;
 using ClassevivaPCTO.DataModels;
 using ClassevivaPCTO.Helpers;
 
 namespace ClassevivaPCTO.Views
 {
-    public sealed partial class DashboardPage : Page
+    public sealed partial class DashboardPage : CustomAppPage
     {
         private readonly IClassevivaAPI apiWrapper;
 
@@ -37,9 +38,9 @@ namespace ClassevivaPCTO.Views
         {
             base.OnNavigatedTo(e);
 
-            Card? cardResult = ViewModelHolder.GetViewModel().SingleCardResult;
+            Card? cardResult = AppViewModelHolder.GetViewModel().SingleCardResult;
 
-            TextTitolo.Text = string.Format("TitoloDashboardText".GetLocalized(),
+            TextTitolo.Text = string.Format("DashboardTitleText".GetLocalizedStr(),
                 VariousUtils.ToTitleCase(cardResult.firstName));
 
             /*
@@ -67,14 +68,13 @@ namespace ClassevivaPCTO.Views
                     async () => { DashboardPageViewModel.IsLoadingAgenda = true; }
                 );
 
-                Card? cardResult = ViewModelHolder.GetViewModel().SingleCardResult;
+                Card? cardResult = AppViewModelHolder.GetViewModel().SingleCardResult;
 
                 string caldate = VariousUtils.ToApiDateTime(DateTime.Now);
                 OverviewResult overviewResult = await apiWrapper.GetOverview(
                     cardResult.usrId.ToString(),
                     caldate,
                     caldate);
-
 
                 //update UI on UI thread
                 await CoreApplication.MainView.Dispatcher.RunAsync(
@@ -88,7 +88,6 @@ namespace ClassevivaPCTO.Views
                         };
 
                         OverviewListView.ItemsSource = overviewData;
-
                         DashboardPageViewModel.IsLoadingAgenda = false;
                     }
                 );
@@ -111,13 +110,13 @@ namespace ClassevivaPCTO.Views
                     async () => { DashboardPageViewModel.IsLoadingGrades = true; }
                 );
 
-                Card? cardResult = ViewModelHolder.GetViewModel().SingleCardResult;
+                Card? cardResult = AppViewModelHolder.GetViewModel().SingleCardResult;
 
                 var result1 = await apiWrapper
                     .GetGrades(cardResult.usrId.ToString())
                     .ConfigureAwait(false);
 
-                var fiveMostRecent = result1.Grades.OrderByDescending(x => x.evtDate).Take(4);
+                var fiveMostRecent = result1.Grades.OrderByDescending(x => x.evtDate).Take(5);
 
                 //update UI on UI thread
                 await CoreApplication.MainView.Dispatcher.RunAsync(
@@ -143,7 +142,7 @@ namespace ClassevivaPCTO.Views
                     async () => { DashboardPageViewModel.IsLoadingMedia = true; }
                 );
 
-                Card? cardResult = ViewModelHolder.GetViewModel().SingleCardResult;
+                Card? cardResult = AppViewModelHolder.GetViewModel().SingleCardResult;
 
                 Grades2Result? result1 = await apiWrapper
                     .GetGrades(cardResult.usrId.ToString())
@@ -163,7 +162,6 @@ namespace ClassevivaPCTO.Views
                         // Stampiamo la media dei voti
                         TextBlockMedia.Text = media.ToString("0.00");
                         TextBlockMedia.Visibility = Visibility.Visible;
-
                         DashboardPageViewModel.IsLoadingMedia = false;
                     }
                 );
@@ -186,7 +184,7 @@ namespace ClassevivaPCTO.Views
                     async () => { DashboardPageViewModel.IsLoadingNotices = true; }
                 );
 
-                Card? cardResult = ViewModelHolder.GetViewModel().SingleCardResult;
+                Card? cardResult = AppViewModelHolder.GetViewModel().SingleCardResult;
 
                 var resultNotices = await apiWrapper
                     .GetNotices(cardResult.usrId.ToString())
@@ -196,7 +194,7 @@ namespace ClassevivaPCTO.Views
                 var fiveMostRecent = resultNotices.Notices
                     .Where(x => x.cntValidInRange)
                     .OrderByDescending(x => x.cntValidFrom)
-                    .Take(4);
+                    .Take(5);
 
                 //update UI on UI thread
                 await CoreApplication.MainView.Dispatcher.RunAsync(
@@ -231,7 +229,7 @@ namespace ClassevivaPCTO.Views
 
             //wait for all tasks to complete (also useful to get and rethrow exceptions that happened inside the tasks)
             Task taskall = Task.WhenAll(task1, task2, task3, task4);
-
+            
             try
             {
                 await taskall;
@@ -248,22 +246,22 @@ namespace ClassevivaPCTO.Views
         private void HyperlinkButton_Click_Valutazioni(object sender, RoutedEventArgs e)
         {
             //NavigationService.Navigate(typeof(Views.DettaglioVoti), null);
-            NavigationService.Navigate(typeof(Views.ValutazioniPage));
+            NavigationService.Navigate(typeof(ValutazioniPage));
         }
 
         private async void HyperlinkButton_Click_Agenda(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(typeof(Views.AgendaPage));
+            NavigationService.Navigate(typeof(AgendaPage));
         }
 
-        private async void AggiornaButton_Click(object sender, RoutedEventArgs e)
+        public override void AggiornaAction()
         {
-            await LoadEverything();
+            Task.Run(async () => { await LoadEverything(); });
         }
 
         private void ButtonApriBacheca_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(typeof(Views.BachecaPage));
+            NavigationService.Navigate(typeof(BachecaPage));
         }
     }
 }

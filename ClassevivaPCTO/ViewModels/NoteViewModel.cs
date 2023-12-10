@@ -11,9 +11,5 @@ namespace ClassevivaPCTO.ViewModels
             get { return _isLoadingNote; }
             set { SetProperty(ref _isLoadingNote, value); }
         }
-
-        public NoteViewModel()
-        {
-        }
     }
 }

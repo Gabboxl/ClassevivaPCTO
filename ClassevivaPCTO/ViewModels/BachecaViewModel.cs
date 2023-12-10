@@ -14,7 +14,6 @@ namespace ClassevivaPCTO.ViewModels
             set { SetProperty(ref _noticesToShow, value); }
         }
 
-
         private bool _isLoadingBacheca = true;
 
         public bool IsLoadingBacheca
@@ -29,10 +28,6 @@ namespace ClassevivaPCTO.ViewModels
         {
             get { return _mostraComInattive; }
             set { SetProperty(ref _mostraComInattive, value); }
-        }
-
-        public BachecaViewModel()
-        {
         }
     }
 }

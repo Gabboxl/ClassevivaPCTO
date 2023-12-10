@@ -10,7 +10,7 @@ using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Microsoft.Toolkit.Uwp.UI;
+using CommunityToolkit.WinUI;
 using ScrutinioAdapter = ClassevivaPCTO.Adapters.ScrutinioAdapter;
 
 
@@ -39,7 +39,6 @@ namespace ClassevivaPCTO.Controls
             set { SetField(ref _showEmptyAlert, value); }
         }
 
-
         private readonly IClassevivaAPI apiWrapper;
 
 
@@ -53,7 +52,7 @@ namespace ClassevivaPCTO.Controls
             nameof(ItemsSource),
             typeof(ScrutiniDocumentsResult),
             typeof(ScrutiniListView),
-            new PropertyMetadata(null, new PropertyChangedCallback(OnItemsSourceChanged))
+            new PropertyMetadata(null, OnItemsSourceChanged)
         );
 
         private static void OnItemsSourceChanged(
@@ -171,10 +170,9 @@ namespace ClassevivaPCTO.Controls
             });
         }
 
-
         private async Task<(byte[], string)> GetScrutinioFileAsBytes(ScrutiniDocument document)
         {
-            Card? cardResult = ViewModelHolder.GetViewModel().SingleCardResult;
+            Card? cardResult = AppViewModelHolder.GetViewModel().SingleCardResult;
 
             var attachmentBinary = await apiWrapper.GetScrutinioDocumentFile(
                 cardResult.usrId.ToString(),
@@ -203,7 +201,6 @@ namespace ClassevivaPCTO.Controls
             //open link in browser
             Windows.System.Launcher.LaunchUriAsync(new Uri(link));
         }
-
 
         public event PropertyChangedEventHandler PropertyChanged;
 

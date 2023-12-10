@@ -17,7 +17,6 @@ namespace ClassevivaPCTO.Controls
     {
         private CollectionViewSource GroupedItems { get; set; }
 
-
         private static async Task<ObservableCollection<GroupInfoList>> GetEventsGroupedAsync(
             List<AgendaEventAdapter> agendaEvents)
         {
@@ -33,7 +32,6 @@ namespace ClassevivaPCTO.Controls
 
             return new ObservableCollection<GroupInfoList>(query);
         }
-
 
         private bool _showEmptyAlert = true;
 
@@ -54,7 +52,7 @@ namespace ClassevivaPCTO.Controls
                 nameof(ItemsSource),
                 typeof(List<AgendaEvent>),
                 typeof(AgendaMultipleDaysListView),
-                new PropertyMetadata(null, new PropertyChangedCallback(OnItemsSourceChanged)));
+                new PropertyMetadata(null, OnItemsSourceChanged));
 
         private static async void OnItemsSourceChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
@@ -63,7 +61,6 @@ namespace ClassevivaPCTO.Controls
             var newValue = e.NewValue as List<AgendaEvent>;
 
             var orderedAgendaEvents = newValue;
-
 
             {
                 //repeat days whose startdate and enddate span multiple days in the list
@@ -100,7 +97,6 @@ namespace ClassevivaPCTO.Controls
                 orderedAgendaEvents = repeatedDays.ToList(); //we need to reorder the lissttt
             }
 
-
             var eventAdapters = orderedAgendaEvents.Select(evt => new AgendaEventAdapter(evt)).ToList();
 
             var groupedAgendaEvents = await GetEventsGroupedAsync(eventAdapters);
@@ -111,13 +107,13 @@ namespace ClassevivaPCTO.Controls
                 Source = groupedAgendaEvents
             };
 
-
             currentInstance.listView.ItemsSource = currentInstance.GroupedItems.View;
 
+            //reset the selection
+            currentInstance.listView.SelectedIndex = -1;
 
             currentInstance.ShowEmptyAlert = newValue == null || newValue.Count == 0;
         }
-
 
         public AgendaMultipleDaysListView()
         {

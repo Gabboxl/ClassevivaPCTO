@@ -70,7 +70,7 @@
                         BorderThickness="0" CornerRadius="8"
                         RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.AlignVerticalCenterWithPanel="True">
 
-                <TextBlock x:Uid="TextBenvenutoLogin" Height="60"
+                <TextBlock x:Uid="LoginWelcome" Height="60"
                            Margin="0,8,0,0" FontFamily="Segoe UI Variable Semibold"
                            FontSize="28" FontWeight="Normal"
                            Foreground="{ThemeResource TextFillColorTertiaryBrush}"
@@ -80,11 +80,11 @@
                            Margin="0,-40,0,0"
                            Fill="{ThemeResource TextFillColorDisabledBrush}" />
 
-                <TextBox x:Name="EdittextUsername" x:Uid="EdittextUsername" Margin="0,0,0,20" />
+                <TextBox x:Name="EdittextUsername" x:Uid="LoginUsernameField" Margin="0,0,0,20" />
                 
-                <PasswordBox x:Name="EdittextPassword" x:Uid="EdittextPassword" Margin="0,0,0,20" />
+                <PasswordBox x:Name="EdittextPassword" x:Uid="LoginPasswordField" Margin="0,0,0,20" />
                 
-                <CheckBox x:Name="CheckboxCredenziali" x:Uid="CheckboxCredenziali" Margin="0,0,0,20" />
+                <CheckBox x:Name="CheckboxCredenziali" x:Uid="LoginKeepCredentialsCheckbox" Margin="0,0,0,20" />
 
                 <Button x:Name="buttonLogin" x:Uid="LoginButton"
                         Height="32" MinWidth="100"

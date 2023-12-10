@@ -12,6 +12,13 @@ namespace ClassevivaPCTO.ViewModels
             set { SetProperty(ref _isLoadingValutazioni, value); }
         }
 
+        private bool _showShimmers = true;
+
+        public bool ShowShimmers
+        {
+            get { return _showShimmers; }
+            set { SetProperty(ref _showShimmers, value); }
+        }
 
         private float _averageTot;
 
@@ -21,7 +28,6 @@ namespace ClassevivaPCTO.ViewModels
             set { SetProperty(ref _averageTot, value); }
         }
 
-
         private float _averageFirstPeriodo;
 
         public float AverageFirstPeriodo
@@ -29,7 +35,6 @@ namespace ClassevivaPCTO.ViewModels
             get { return _averageFirstPeriodo; }
             set { SetProperty(ref _averageFirstPeriodo, value); }
         }
-
 
         private float _averageSecondPeriodo;
 

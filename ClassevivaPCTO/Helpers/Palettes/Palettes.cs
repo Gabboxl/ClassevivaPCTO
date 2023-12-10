@@ -1,6 +1,6 @@
 ﻿using Windows.UI;
 using Color = Windows.UI.Color;
-using ColorHelper = Microsoft.Toolkit.Uwp.Helpers.ColorHelper;
+using ColorHelper = CommunityToolkit.WinUI.Helpers.ColorHelper;
 
 namespace ClassevivaPCTO.Helpers.Palettes
 {

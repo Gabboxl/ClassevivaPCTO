@@ -14,8 +14,8 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Data;
 using ClassevivaPCTO.Helpers;
-using Microsoft.Toolkit.Uwp.UI;
-
+using CommunityToolkit.WinUI;
+using CommunityToolkit.WinUI.Controls;
 
 namespace ClassevivaPCTO.Controls
 {
@@ -33,7 +33,6 @@ namespace ClassevivaPCTO.Controls
     //    Sticky
     //}
 
-
     public sealed partial class NotesListView : UserControl, INotifyPropertyChanged
     {
         private readonly IClassevivaAPI apiWrapper;
@@ -49,7 +48,6 @@ namespace ClassevivaPCTO.Controls
                 typeof(EventHandler),
                 typeof(NotesListView),
                 new PropertyMetadata(null, null));
-
 
         public DisplayMode Mode
         {
@@ -99,7 +97,6 @@ namespace ClassevivaPCTO.Controls
             // Update your UserControl UI based on the new mode
         }
 
-
         private bool _showEmptyAlert;
 
         public bool ShowEmptyAlert
@@ -107,7 +104,6 @@ namespace ClassevivaPCTO.Controls
             get { return _showEmptyAlert; }
             set { SetField(ref _showEmptyAlert, value); }
         }
-
 
         public List<Note> ItemsSource
         {
@@ -119,12 +115,10 @@ namespace ClassevivaPCTO.Controls
             nameof(ItemsSource),
             typeof(List<Note>),
             typeof(NotesListView),
-            new PropertyMetadata(null, new PropertyChangedCallback(OnItemsSourceChanged))
+            new PropertyMetadata(null, OnItemsSourceChanged)
         );
 
-
         private CollectionViewSource GroupedItems { get; set; }
-
 
         private static async Task<ObservableCollection<GroupInfoList>> GetNotesGroupedAsync(
             List<NoteAdapter> noteAdapters)
@@ -139,7 +133,7 @@ namespace ClassevivaPCTO.Controls
                 //TODO: forse ordinare ulteriormente ogni gruppo per data?
 
                 //prendo il long name dell'enum con attributo ApiValueAttribute
-                select new GroupInfoList(g) {Key = g.Key.ToString().GetLocalized("plur")};
+                select new GroupInfoList(g) {Key = g.Key.ToString().GetLocalizedStr("plur")};
 
             return new ObservableCollection<GroupInfoList>(query);
         }
@@ -165,18 +159,17 @@ namespace ClassevivaPCTO.Controls
                 ? await GetNotesGroupedAsync(noteAdapters)
                 : noteAdapters;
 
-
             currentInstance.GroupedItems = new CollectionViewSource
             {
                 IsSourceGrouped = currentInstance.EnableStickyHeader, //TODO: settare proprietà da dependencyproperty
                 Source = finalNotesObject //in base al valore di IsSourceGrouped, Source può essere un IEnumerable oppure un IList
             };
 
-
             //update the listview contents
             currentInstance.listView.ItemsSource = currentInstance.GroupedItems.View;
-            ;
-
+            
+            //reset the selection
+            currentInstance.listView.SelectedIndex = -1;
 
             //restore the scroll position
             scrollViewer.ChangeView(horizontalOffset, verticalOffset, null);
@@ -196,12 +189,10 @@ namespace ClassevivaPCTO.Controls
             apiWrapper = PoliciesDispatchProxy<IClassevivaAPI>.CreateProxy(apiClient);
         }
 
-
         private async void ReadButton_Click(object sender, RoutedEventArgs e)
         {
             var senderbutton = (Button) sender;
             var currentNote = ((NoteAdapter) senderbutton.DataContext).CurrentObject;
-
 
             //check whether the notice needs to be read, if yes create a flyout and with a text and button to confirm and display it on the button
             //if the user clicks the button, the flyout will be closed and the attachment will be read
@@ -213,11 +204,10 @@ namespace ClassevivaPCTO.Controls
 
                 var textBlock = new TextBlock
                 {
-                    Text = "InfoNoteFlyoutText".GetLocalized(),
+                    Text = "InfoNoteFlyoutText".GetLocalizedStr(),
                     TextWrapping = TextWrapping.WrapWholeWords,
                     Margin = new Thickness(0, 0, 0, 12)
                 };
-
 
                 //create a flyoutpresenterstyle with the SystemFillColorCautionBackgroundBrush color and set it to the flyout
                 var flyoutPresenterStyle = new Style(typeof(FlyoutPresenter));
@@ -231,26 +221,21 @@ namespace ClassevivaPCTO.Controls
                 flyoutPresenterStyle.Setters.Add(new Setter(ScrollViewer.HorizontalScrollBarVisibilityProperty,
                     ScrollBarVisibility.Disabled));
 
-
                 //make the flyoutPresenterStyle based on the default one
                 flyoutPresenterStyle.BasedOn = (Style) Application.Current.Resources["CautionFlyoutStyle"];
-
-
                 flyout.FlyoutPresenterStyle = flyoutPresenterStyle;
-
 
                 //create a button
                 var button = new Button
                 {
-                    Content = "ReadAndOpenFlyoutText".GetLocalized()
+                    Content = "ReadAndOpenFlyoutText".GetLocalizedStr()
                 };
 
                 button.Click += async delegate
                 {
-                    //close the flyout
+                    //chiudo il flyout e apro la comunicazione in background
                     flyout.Hide();
 
-                    //apro la comunicazione in background
                     await Task.Run(() => ReadAndOpenNoteDialog(currentNote));
                 };
 
@@ -274,11 +259,9 @@ namespace ClassevivaPCTO.Controls
             }
         }
 
-
         private async void ReadAndOpenNoteDialog(Note currentNote)
         {
-            Card? cardResult = ViewModelHolder.GetViewModel().SingleCardResult;
-
+            Card? cardResult = AppViewModelHolder.GetViewModel().SingleCardResult;
 
             //we need to read the notice first
             ReadNoteResult readNoteResult =
@@ -290,15 +273,24 @@ namespace ClassevivaPCTO.Controls
             {
                 var noteDialogContent = new NoteDialogContent(currentNote, readNoteResult);
 
+                MetadataControl metadataControlTitle = new()
+                {
+                    Separator = " • ",
+                    AccessibleSeparator = ",",
+                    Items = new[]
+                    {
+                        new MetadataItem { Label = currentNote.authorName },
+                        new MetadataItem { Label = currentNote.evtCode.ToString().GetLocalizedStr("sing") + "GenericEventOnDayPreposition".GetLocalizedStr() + currentNote.evtDate.ToString("dd/MM/yyyy"), },
+                    }
+                };
+
                 ContentDialog dialog = new()
                 {
-                    Title = currentNote.evtCode.ToString().GetLocalized("sing") + " del " +
-                            currentNote.evtDate.ToString("dd/MM/yyyy"),
-                    PrimaryButtonText = "CloseDialogButtonText".GetLocalized(),
+                    Title = metadataControlTitle,
+                    PrimaryButtonText = "CloseDialogButtonText".GetLocalizedStr(),
                     DefaultButton = ContentDialogButton.Primary,
                     RequestedTheme = ((FrameworkElement) Window.Current.Content).RequestedTheme,
                     Content = noteDialogContent,
-                    //dialog.FullSizeDesired = true;
                     Width = 1200
                 };
 

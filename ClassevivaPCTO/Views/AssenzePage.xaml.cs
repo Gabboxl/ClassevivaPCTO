@@ -11,12 +11,13 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using ClassevivaPCTO.Controls;
 using ClassevivaPCTO.Services;
-using Microsoft.Toolkit.Uwp.UI;
+using CommunityToolkit.WinUI;
 
 namespace ClassevivaPCTO.Views
 {
-    public sealed partial class AssenzePage : Page
+    public sealed partial class AssenzePage : CustomAppPage
     {
         public AssenzeViewModel AssenzeViewModel { get; } = new();
 
@@ -42,7 +43,6 @@ namespace ClassevivaPCTO.Views
             ColoredCalendarView.MaxDate = agedaDates.endDate;
         }
 
-
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
@@ -52,7 +52,6 @@ namespace ClassevivaPCTO.Views
 
             await Task.Run(async () => { await LoadData(); });
         }
-
 
         private async Task LoadData()
         {
@@ -64,9 +63,7 @@ namespace ClassevivaPCTO.Views
                     async () => { AssenzeViewModel.IsLoadingAssenze = true; }
                 );
 
-
-                Card? cardResult = ViewModelHolder.GetViewModel().SingleCardResult;
-
+                Card? cardResult = AppViewModelHolder.GetViewModel().SingleCardResult;
 
                 AbsencesResult absencesResult = await apiWrapper.GetAbsences(
                     cardResult.usrId.ToString()
@@ -74,13 +71,11 @@ namespace ClassevivaPCTO.Views
 
                 _absencesResult = absencesResult;
 
-
                 //create list based on isjustified bool value
                 var justifiedAbsences = absencesResult.AbsenceEvents
                     .OrderByDescending(n => n.evtDate)
                     .Where(n => n.isJustified)
                     .ToList();
-
 
                 //not justified absences
                 var notJustifiedAbsences = absencesResult.AbsenceEvents
@@ -88,14 +83,12 @@ namespace ClassevivaPCTO.Views
                     .Where(n => !n.isJustified)
                     .ToList();
 
-
                 //calendar thigs
                 CalendarResult calendarResult = await apiWrapper.GetCalendar(
                     cardResult.usrId.ToString()
                 );
 
                 _apiCalendarResult = calendarResult;
-
 
                 //update UI on UI thread
                 await CoreApplication.MainView.Dispatcher.RunAsync(
@@ -123,13 +116,6 @@ namespace ClassevivaPCTO.Views
             }
         }
 
-
-        private async void AggiornaCommand_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
-        {
-            await Task.Run(async () => { await LoadData(); });
-        }
-
-
         private async Task UpdateCalendar()
         {
             var displayedDays = ColoredCalendarView.FindDescendants().OfType<CalendarViewDayItem>();
@@ -142,14 +128,12 @@ namespace ClassevivaPCTO.Views
             }
         }
 
-
         private async void MyCalendarView_CalendarViewDayItemChanging(CalendarView sender,
             CalendarViewDayItemChangingEventArgs args)
         {
             /*// Check if the day item is being added to the calendar
             if (args.Phase == 0)
             {
-
                     // Register for the next phase to set the background color
                     args.RegisterUpdateCallback(MyCalendarView_CalendarViewDayItemChanging);
 
@@ -211,6 +195,11 @@ namespace ClassevivaPCTO.Views
         {
             //select the current day of the calendar
             ColoredCalendarView.SetDisplayDate(DateTime.Now.Date);
+        }
+
+        public override void AggiornaAction()
+        {
+            Task.Run(async () => { await LoadData(); });
         }
     }
 }
