@@ -21,6 +21,7 @@ using Windows.Globalization;
 using Crowdin.Api;
 using Crowdin.Api.ProjectsGroups;
 using Crowdin.Api.TranslationStatus;
+using Windows.Storage;
 
 namespace ClassevivaPCTO.Views
 {
@@ -49,6 +50,8 @@ namespace ClassevivaPCTO.Views
             get { return _comboPalettes; }
             private set { Set(ref _comboPalettes, value); }
         }
+
+        public bool AskNoticeOpenEventValue { get; set; }
 
         private static void OpenCrowdinLink()
         {
@@ -91,7 +94,7 @@ namespace ClassevivaPCTO.Views
         public string Version
         {
             get { return _version; }
-            set { Set(ref _version, value); }
+            private set { Set(ref _version, value); }
         }
 
         public SettingsPage()
@@ -119,6 +122,8 @@ namespace ClassevivaPCTO.Views
                 ComboPalettes.Add(new ComboPaletteAdapter(PaletteSelectorService.GetPaletteClass(paletteType),
                     paletteType));
             }
+
+            AskNoticeOpenEventValue = !await ApplicationData.Current.LocalSettings.ReadAsync<bool>("SkipAskNoticeOpenEvent");
 
             await Task.CompletedTask;
         }
@@ -238,7 +243,7 @@ namespace ClassevivaPCTO.Views
 
         private async void ButtonLogout_Click(object sender, RoutedEventArgs e)
         {
-            ContentDialog dialog = new ContentDialog
+            ContentDialog dialog = new()
             {
                 Title = "AreYouSure".GetLocalizedStr(),
                 Content = "AreYouSureToExit".GetLocalizedStr(),
@@ -365,6 +370,11 @@ namespace ClassevivaPCTO.Views
 
             //re-add listener
             LanguageComboBox.SelectionChanged += LanguageComboBox_OnSelectionChanged;
+        }
+
+        private async void AskNoticeOpenEvent_OnToggled(object sender, RoutedEventArgs e)
+        {
+            await ApplicationData.Current.LocalSettings.SaveAsync("SkipAskNoticeOpenEvent", !AskNoticeOpenEventToggle.IsOn);
         }
     }
 }

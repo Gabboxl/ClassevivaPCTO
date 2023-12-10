@@ -13,6 +13,7 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using ClassevivaPCTO.Helpers;
 using CommunityToolkit.WinUI;
+using Windows.Storage;
 
 
 namespace ClassevivaPCTO.Controls
@@ -98,7 +99,7 @@ namespace ClassevivaPCTO.Controls
             //check whether the notice needs to be read, if yes create a flyout and with a text and button to confirm and display it on the button
             //if the user clicks the button, the flyout will be closed and the attachment will be read
 
-            if (currentNotice.readStatus == false)
+            if (currentNotice.readStatus == false && !await ApplicationData.Current.LocalSettings.ReadAsync<bool>("SkipAskNoticeOpenEvent"))
             {
                 //create a flyout
                 var flyout = new Flyout();
@@ -125,8 +126,11 @@ namespace ClassevivaPCTO.Controls
                 flyout.FlyoutPresenterStyle = flyoutPresenterStyle;
 
                 //create a button
-                var button = new Button();
-                button.Content = "ReadAndOpenFlyoutText".GetLocalizedStr();
+                var button = new Button
+                {
+                    Content = "ReadAndOpenFlyoutText".GetLocalizedStr()
+                };
+
                 button.Click += async delegate
                 {
                     //chiudo il flyout e apro la comunicazione in background

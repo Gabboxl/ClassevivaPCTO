@@ -221,7 +221,7 @@
                         <FontIcon Glyph="&#xE705;" />
                     </controls1:SettingsCard.HeaderIcon>
 
-                    <ToggleSwitch IsOn="True" />
+                    <ToggleSwitch x:Name="AskNoticeOpenEventToggle" Toggled="AskNoticeOpenEvent_OnToggled" IsOn="{x:Bind AskNoticeOpenEventValue, Mode=TwoWay}" />
 
                 </controls1:SettingsCard>
 
