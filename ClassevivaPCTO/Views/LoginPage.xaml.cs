@@ -2,6 +2,7 @@
 using ClassevivaPCTO.Helpers;
 using ClassevivaPCTO.Services;
 using ClassevivaPCTO.Utils;
+using ClassevivaPCTO.Dialogs;
 using ClassevivaPCTO.ViewModels;
 using Microsoft.Extensions.DependencyInjection;
 using Refit;
@@ -69,6 +70,12 @@ namespace ClassevivaPCTO.Views
             }
 
             loginGrid.KeyDown += Grid_KeyDown;
+        }
+
+        private async void ChangelogButton_Click(object sender, RoutedEventArgs e)
+        {
+            var dialog = new WhatsNewDialog();
+            await dialog.ShowAsync();
         }
 
         private async void Grid_KeyDown(object sender, KeyRoutedEventArgs args)

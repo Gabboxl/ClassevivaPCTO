@@ -58,7 +58,7 @@
                     <ImageBrush ImageSource="/Assets/LoginBrush1.png" Stretch="UniformToFill" />
                 </RelativePanel.Background>
 
-                <Image x:Name="Hero" Source="/Assets/storescreenshot.png" Stretch="Uniform" HorizontalAlignment="Stretch" 
+                <Image x:Name="Hero" Source="/Assets/loginhero.png" Stretch="Uniform" HorizontalAlignment="Stretch" 
                    VerticalAlignment="Stretch" Margin="0,180,0,0" Height="550" Width="500" RelativePanel.AlignRightWithPanel="True">
                 </Image>
 
@@ -94,7 +94,7 @@
                         MinWidth="90" RenderTransformOrigin="2.13,0.797" HorizontalAlignment="Left" Margin="0,8,0,0"
                         Click="Button_Click" />
 
-                <muxc:ProgressBar x:Name="progresslogin" Width="340" IsIndeterminate="True" Visibility="Collapsed" Margin="0,0,0,0" HorizontalAlignment="Left" />
+                <muxc:ProgressBar x:Name="progresslogin" Width="340" IsIndeterminate="True" Visibility="Collapsed" Margin="0,20,0,0" HorizontalAlignment="Left" />
             
             </StackPanel>
 
@@ -113,7 +113,7 @@
                 </StackPanel>
             </HyperlinkButton>
 
-            <HyperlinkButton NavigateUri="https://github.com/Gabboxl/ClassevivaPCTO/releases/latest">
+            <HyperlinkButton Click="ChangelogButton_Click">
                 <StackPanel Orientation="Horizontal" Spacing="10">
                     <Grid Width="18" Height="18">
                         <Path
