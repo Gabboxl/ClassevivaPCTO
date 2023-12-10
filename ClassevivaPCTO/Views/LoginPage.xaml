@@ -42,7 +42,7 @@
                RelativePanel.AlignHorizontalCenterWithPanel="True" Source="/Assets/mainlogo.png"
                Stretch="Uniform" />
 
-        <RelativePanel Width="Auto" Height="500"
+        <RelativePanel Width="Auto" Height="450"
                        Margin="40,-18,40,0" Padding="12"
                        HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
                        BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
@@ -80,15 +80,14 @@
                            Margin="0,-40,0,0"
                            Fill="{ThemeResource TextFillColorDisabledBrush}" />
 
-                <TextBox x:Name="EdittextUsername" x:Uid="EdittextUsername"
-                         Margin="0,0,0,20" />
-                <PasswordBox x:Name="EdittextPassword" x:Uid="EdittextPassword"
-                             Margin="0,0,0,20" />
-                <CheckBox x:Name="CheckboxCredenziali" x:Uid="CheckboxCredenziali"
-                          Margin="0,0,0,20" />
+                <TextBox x:Name="EdittextUsername" x:Uid="EdittextUsername" Margin="0,0,0,20" />
+                
+                <PasswordBox x:Name="EdittextPassword" x:Uid="EdittextPassword" Margin="0,0,0,20" />
+                
+                <CheckBox x:Name="CheckboxCredenziali" x:Uid="CheckboxCredenziali" Margin="0,0,0,20" />
 
                 <Button x:Name="buttonLogin" x:Uid="LoginButton"
-                        Height="32" MinWidth="90"
+                        Height="32" MinWidth="100"
                         Margin="0,8,0,0" HorizontalAlignment="Left"
                         Click="Button_Click" RenderTransformOrigin="2.13,0.797"
                         Style="{StaticResource AccentButtonStyle}" />
