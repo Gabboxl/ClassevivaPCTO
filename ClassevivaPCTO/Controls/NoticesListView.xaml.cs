@@ -104,10 +104,12 @@ namespace ClassevivaPCTO.Controls
                 //create a flyout
                 var flyout = new Flyout();
                 //create a textblock
-                var textBlock = new TextBlock();
-                textBlock.Text = "InfoNoticeFlyoutText".GetLocalizedStr();
-                textBlock.TextWrapping = TextWrapping.WrapWholeWords;
-                textBlock.Margin = new Thickness(0, 0, 0, 12);
+                var textBlock = new TextBlock
+                {
+                    Text = "InfoNoticeFlyoutText".GetLocalizedStr(),
+                    TextWrapping = TextWrapping.WrapWholeWords,
+                    Margin = new Thickness(0, 0, 0, 12)
+                };
 
                 //create a flyoutpresenterstyle with the SystemFillColorCautionBackgroundBrush color and set it to the flyout
                 var flyoutPresenterStyle = new Style(typeof(FlyoutPresenter));
@@ -173,13 +175,15 @@ namespace ClassevivaPCTO.Controls
             {
                 var noticeDialogContent = new NoticeDialogContent(currentNotice, noticeReadResult);
 
-                ContentDialog dialog = new ContentDialog();
-                dialog.Title = currentNotice.cntTitle;
-                dialog.PrimaryButtonText = "CloseDialogButtonText".GetLocalizedStr();
-                dialog.DefaultButton = ContentDialogButton.Primary;
-                dialog.RequestedTheme = ((FrameworkElement) Window.Current.Content).RequestedTheme;
-                dialog.Content = noticeDialogContent;
-                dialog.Width = 1200;
+                ContentDialog dialog = new()
+                {
+                    Title = currentNotice.cntTitle,
+                    PrimaryButtonText = "CloseDialogButtonText".GetLocalizedStr(),
+                    DefaultButton = ContentDialogButton.Primary,
+                    RequestedTheme = ((FrameworkElement) Window.Current.Content).RequestedTheme,
+                    Content = noticeDialogContent,
+                    Width = 1200
+                };
 
                 try
                 {
