@@ -195,13 +195,13 @@ If you encounter bugs or have an idea for the app, open an issue on GitHub by cl
     <value>Report an issue</value>
   </data>
   <data name="SettingsCardTutorial.Header" xml:space="preserve">
-    <value>Tips</value>
+    <value>Informazioni di base</value>
   </data>
   <data name="SettingsCardTutorial.Description" xml:space="preserve">
-    <value>View tips on how to use this app</value>
+    <value>Visualizza informazioni utili e suggerimenti sul funzionamento dell'app</value>
   </data>
   <data name="SettingsCardTutorialButton.Content" xml:space="preserve">
-    <value>Show Tips</value>
+    <value>Apri tips</value>
   </data>
   <data name="SettingsCardWhatsNew.Header" xml:space="preserve">
     <value>What’s new in this version</value>
@@ -631,7 +631,7 @@ Error: </value>
     <value>Continue</value>
   </data>
   <data name="SettingsCardAskConfirm.Description" xml:space="preserve">
-    <value>Ask confirmation before opening a notice to avoid opening it unintentionally</value>
+    <value>Chiedi conferma prima di aprire una comunicazione</value>
   </data>
   <data name="SettingsCardAskConfirm.Header" xml:space="preserve">
     <value>Open notice confirmation</value>
