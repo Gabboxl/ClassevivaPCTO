@@ -196,13 +196,13 @@ Si vous rencontrez des bugs ou avez une idée pour l'application, ouvrez un tick
     <value>Signaler un problème</value>
   </data>
   <data name="SettingsCardTutorial.Header" xml:space="preserve">
-    <value>Conseils</value>
+    <value>Informazioni di base</value>
   </data>
   <data name="SettingsCardTutorial.Description" xml:space="preserve">
-    <value>Afficher des conseils sur le fonctionnement de l'application</value>
+    <value>Visualizza informazioni utili e suggerimenti sul funzionamento dell'app</value>
   </data>
   <data name="SettingsCardTutorialButton.Content" xml:space="preserve">
-    <value>Montre des conseils</value>
+    <value>Apri tips</value>
   </data>
   <data name="SettingsCardWhatsNew.Header" xml:space="preserve">
     <value>Nouveautés de cette version </value>
@@ -632,7 +632,7 @@ Erreur: </value>
     <value>Continuer</value>
   </data>
   <data name="SettingsCardAskConfirm.Description" xml:space="preserve">
-    <value>Demandez une confirmation avant d'ouvrir une communication pour éviter de la marquer par erreur comme lue</value>
+    <value>Chiedi conferma prima di aprire una comunicazione</value>
   </data>
   <data name="SettingsCardAskConfirm.Header" xml:space="preserve">
     <value>Confirmer l'ouverture des communications</value>
