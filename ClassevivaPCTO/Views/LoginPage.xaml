@@ -6,8 +6,13 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
     mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+    
     muxc:BackdropMaterial.ApplyToRootOrPageBackground="True">
+    <!-- ="{ThemeResource ApplicationPageBackgroundThemeBrush}" -->
+    
+    <Page.Background>
+        <ImageBrush ImageSource="/Assets/LoginBrush1.png" Stretch="UniformToFill" />
+    </Page.Background>
 
     <Grid x:Name="loginGrid">
         <Grid>
@@ -37,8 +42,8 @@
         </Grid>
 
         <Image x:Name="Logo" Width="280"
-               Height="60" Margin="0,140,0,0"
-               HorizontalAlignment="Stretch" VerticalAlignment="Top"
+               Height="60" Margin="0,0,0,500"
+               HorizontalAlignment="Stretch" VerticalAlignment="Center"
                RelativePanel.AlignHorizontalCenterWithPanel="True" Source="/Assets/mainlogo.png"
                Stretch="Uniform" />
 
@@ -48,9 +53,9 @@
                        BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
                        BorderThickness="1" CornerRadius="8">
 
-            <RelativePanel.Background>
-                <ImageBrush ImageSource="/Assets/LoginBrush1.png" Stretch="UniformToFill" />
-            </RelativePanel.Background>
+            <!--<RelativePanel.Background>
+
+            </RelativePanel.Background>-->
 
             <!--<Image x:Name="Hero" Source="/Assets/loginhero.png" Stretch="Uniform" HorizontalAlignment="Stretch"
                    VerticalAlignment="Stretch" Margin="0,180,0,0" Height="550" Width="500" RelativePanel.AlignRightWithPanel="True">
@@ -65,16 +70,22 @@
                         RelativePanel.AlignBottomWithPanel="True" Content="Scopri come" />-->
 
             <StackPanel x:Name="LoginStackPanel" Width="340"
-                        Height="380" Margin="0,20,0,0"
+                        Height="370" Margin="0,20,0,0"
                         Padding="12" Background="Transparent"
-                        BorderThickness="0" CornerRadius="8"
+                        BorderThickness="1" 
+                        BorderBrush="{ThemeResource AccentTextFillColorTertiaryBrush}"
+                        CornerRadius="8"
                         RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.AlignVerticalCenterWithPanel="True">
 
+                <StackPanel.ChildrenTransitions>
+                    <EntranceThemeTransition FromVerticalOffset="300" IsStaggeringEnabled="True" />
+                    <RepositionThemeTransition IsStaggeringEnabled="False" />
+                </StackPanel.ChildrenTransitions>
+
                 <TextBlock x:Uid="LoginWelcome" Height="60"
-                           Margin="0,8,0,0" FontFamily="Segoe UI Variable Semibold"
-                           FontSize="28" FontWeight="Normal"
+                           Margin="0,8,0,8" FontSize="28" FontWeight="Medium"
                            Foreground="{ThemeResource TextFillColorTertiaryBrush}"
-                           TextAlignment="Left" />
+                           TextAlignment="Center" />
 
                 <Rectangle Width="Auto" Height="1"
                            Margin="0,-40,0,0"
@@ -87,8 +98,8 @@
                 <CheckBox x:Name="CheckboxCredenziali" x:Uid="LoginKeepCredentialsCheckbox" Margin="0,0,0,20" />
 
                 <Button x:Name="buttonLogin" x:Uid="LoginButton"
-                        Height="32" MinWidth="100"
-                        Margin="0,8,0,0" HorizontalAlignment="Left"
+                        Height="32" MinWidth="120"
+                        Margin="0,4,0,0" HorizontalAlignment="Center"
                         Click="Button_Click" RenderTransformOrigin="2.13,0.797"
                         Style="{StaticResource AccentButtonStyle}" />
 
@@ -103,6 +114,11 @@
         <StackPanel Margin="0,0,0,120" HorizontalAlignment="Center"
                     VerticalAlignment="Bottom" Orientation="Horizontal"
                     Spacing="8">
+
+            <StackPanel.ChildrenTransitions>
+                <EntranceThemeTransition FromVerticalOffset="300" FromHorizontalOffset="300" IsStaggeringEnabled="True" />
+                <RepositionThemeTransition IsStaggeringEnabled="False" />
+            </StackPanel.ChildrenTransitions>
 
             <HyperlinkButton Click="TutorialButton_Click">
                 <StackPanel Orientation="Horizontal" Spacing="10">
