@@ -72,7 +72,7 @@
             <StackPanel x:Name="LoginStackPanel" Width="340"
                         Height="370" Margin="0,20,0,0"
                         Padding="12" Background="Transparent"
-                        BorderThickness="2" 
+                        BorderThickness="1.5" 
                         BorderBrush="{ThemeResource AccentTextFillColorTertiaryBrush}"
                         CornerRadius="8"
                         RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.AlignVerticalCenterWithPanel="True">
