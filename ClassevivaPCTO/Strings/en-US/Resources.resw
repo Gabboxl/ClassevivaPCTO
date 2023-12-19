@@ -195,13 +195,13 @@ If you encounter bugs or have an idea for the app, open an issue on GitHub by cl
     <value>Report an issue</value>
   </data>
   <data name="SettingsCardTutorial.Header" xml:space="preserve">
-    <value>Informazioni di base</value>
+    <value>Basic Information</value>
   </data>
   <data name="SettingsCardTutorial.Description" xml:space="preserve">
-    <value>Visualizza informazioni utili e suggerimenti sul funzionamento dell'app</value>
+    <value>View tips on how to use this app</value>
   </data>
   <data name="SettingsCardTutorialButton.Content" xml:space="preserve">
-    <value>Apri tips</value>
+    <value>Open suggestions</value>
   </data>
   <data name="SettingsCardWhatsNew.Header" xml:space="preserve">
     <value>What’s new in this version</value>
@@ -448,7 +448,7 @@ Error: </value>
     <value>Ballots</value>
   </data>
   <data name="RefreshButton.ToolTipService.ToolTip" xml:space="preserve">
-    <value>Aggiorna (F5)</value>
+    <value>Refresh (F5)</value>
   </data>
   <data name="SettingsPaletteColorBlue.ToolTipService.ToolTip" xml:space="preserve">
     <value>Doesn't average, partial absence</value>
@@ -616,13 +616,13 @@ Error: </value>
     <value>Early release</value>
   </data>
   <data name="DialogUntranslatedLanguageStatus1" xml:space="preserve">
-    <value>L'app è stata tradotta al </value>
+    <value>The app has been translated at </value>
   </data>
   <data name="DialogUntranslatedLanguageStatus2" xml:space="preserve">
-    <value>nella lingua che hai scelto. Alcune parti dell'app potrebbero non essere stare ancora tradotte.</value>
+    <value>in the language you have chosen. Some sections of the app may not be translated yet.</value>
   </data>
   <data name="DialogUntranslatedLanguageBody1" xml:space="preserve">
-    <value>Vuoi veramente cambiare la lingua?</value>
+    <value>Are you sure you really want to change the app language?</value>
   </data>
   <data name="CautionDialogTitle" xml:space="preserve">
     <value>Warning</value>
@@ -631,7 +631,7 @@ Error: </value>
     <value>Continue</value>
   </data>
   <data name="SettingsCardAskConfirm.Description" xml:space="preserve">
-    <value>Chiedi conferma prima di aprire una comunicazione</value>
+    <value>Ask for confirmation before opening a communication</value>
   </data>
   <data name="SettingsCardAskConfirm.Header" xml:space="preserve">
     <value>Open notice confirmation</value>
@@ -697,12 +697,12 @@ Error: </value>
     <value>Not available</value>
   </data>
   <data name="DialogUntranlatedLanguageInvite" xml:space="preserve">
-    <value>Traduci su Crowdin</value>
+    <value>Translate on Crowdin</value>
   </data>
   <data name="DialogUntranslatedLanguageBody2" xml:space="preserve">
-    <value>Se desideri puoi tradurre tu stesso l'app tramite Crowdin</value>
+    <value>If you want you can translate the app yourself via Crowdin</value>
   </data>
   <data name="RestartLater" xml:space="preserve">
-    <value>Riavvia più tardi</value>
+    <value>Restart Later</value>
   </data>
 </root>
