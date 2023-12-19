@@ -196,10 +196,10 @@ Si vous rencontrez des bugs ou avez une idée pour l'application, ouvrez un tick
     <value>Signaler un problème</value>
   </data>
   <data name="SettingsCardTutorial.Header" xml:space="preserve">
-    <value>Informazioni di base</value>
+    <value>Informations générales</value>
   </data>
   <data name="SettingsCardTutorial.Description" xml:space="preserve">
-    <value>Visualizza informazioni utili e suggerimenti sul funzionamento dell'app</value>
+    <value>Afficher des conseils sur le fonctionnement de l'application</value>
   </data>
   <data name="SettingsCardTutorialButton.Content" xml:space="preserve">
     <value>Apri tips</value>
