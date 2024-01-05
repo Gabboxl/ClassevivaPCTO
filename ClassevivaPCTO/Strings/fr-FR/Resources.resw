@@ -196,13 +196,13 @@ Si vous rencontrez des bugs ou avez une idée pour l'application, ouvrez un tick
     <value>Signaler un problème</value>
   </data>
   <data name="SettingsCardTutorial.Header" xml:space="preserve">
-    <value>Conseils</value>
+    <value>Informations générales</value>
   </data>
   <data name="SettingsCardTutorial.Description" xml:space="preserve">
     <value>Afficher des conseils sur le fonctionnement de l'application</value>
   </data>
   <data name="SettingsCardTutorialButton.Content" xml:space="preserve">
-    <value>Montre des conseils</value>
+    <value>Conseils d'avril</value>
   </data>
   <data name="SettingsCardWhatsNew.Header" xml:space="preserve">
     <value>Nouveautés de cette version </value>
@@ -449,7 +449,7 @@ Erreur: </value>
     <value>Sondage</value>
   </data>
   <data name="RefreshButton.ToolTipService.ToolTip" xml:space="preserve">
-    <value>Aggiorna (F5)</value>
+    <value>Actualiser (F5)</value>
   </data>
   <data name="SettingsPaletteColorBlue.ToolTipService.ToolTip" xml:space="preserve">
     <value>Pas de moyenne, absence partielle</value>
@@ -617,13 +617,13 @@ Erreur: </value>
     <value>Sortie anticipée</value>
   </data>
   <data name="DialogUntranslatedLanguageStatus1" xml:space="preserve">
-    <value>L'app è stata tradotta al </value>
+    <value>L'application a été traduite en </value>
   </data>
   <data name="DialogUntranslatedLanguageStatus2" xml:space="preserve">
-    <value>nella lingua che hai scelto. Alcune parti dell'app potrebbero non essere stare ancora tradotte.</value>
+    <value>dans la langue que vous avez choisie. Certaines parties de l'application ne sont peut-être pas encore traduites.</value>
   </data>
   <data name="DialogUntranslatedLanguageBody1" xml:space="preserve">
-    <value>Vuoi veramente cambiare la lingua?</value>
+    <value>Voulez-vous vraiment changer la langue?</value>
   </data>
   <data name="CautionDialogTitle" xml:space="preserve">
     <value>Attention</value>
@@ -632,7 +632,7 @@ Erreur: </value>
     <value>Continuer</value>
   </data>
   <data name="SettingsCardAskConfirm.Description" xml:space="preserve">
-    <value>Demandez une confirmation avant d'ouvrir une communication pour éviter de la marquer par erreur comme lue</value>
+    <value>Demander une confirmation avant d'ouvrir une communication</value>
   </data>
   <data name="SettingsCardAskConfirm.Header" xml:space="preserve">
     <value>Confirmer l'ouverture des communications</value>
@@ -698,12 +698,12 @@ Erreur: </value>
     <value>Indisponible</value>
   </data>
   <data name="DialogUntranlatedLanguageInvite" xml:space="preserve">
-    <value>Traduci su Crowdin</value>
+    <value>Traduire sur Crowdin</value>
   </data>
   <data name="DialogUntranslatedLanguageBody2" xml:space="preserve">
-    <value>Se desideri puoi tradurre tu stesso l'app tramite Crowdin</value>
+    <value>Si vous le souhaitez, vous pouvez traduire l'application vous-même via Crowdin</value>
   </data>
   <data name="RestartLater" xml:space="preserve">
-    <value>Riavvia più tardi</value>
+    <value>Redémarrer plus tard</value>
   </data>
 </root>
