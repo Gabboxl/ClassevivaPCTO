@@ -34,8 +34,6 @@
                 </Grid>
 
                 <RelativePanel RelativePanel.AlignVerticalCenterWithPanel="True" RelativePanel.RightOf="gridVoto">
-                    <RelativePanel>
-
                         <TextBlock x:Name="titoloEvento" MaxWidth="500"
                                    Margin="10,8,0,0"
                                    Style="{ThemeResource BaseTextBlockStyle}"
@@ -50,7 +48,6 @@
                                    Text="{x:Bind JustifiedText}"
                                    TextWrapping="Wrap" />
 
-                    </RelativePanel>
                 </RelativePanel>
             </RelativePanel>
         </DataTemplate>

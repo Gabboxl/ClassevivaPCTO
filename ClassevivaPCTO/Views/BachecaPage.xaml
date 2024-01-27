@@ -32,19 +32,18 @@
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
 
-        <RelativePanel Grid.Row="0" Margin="0,16,0,0">
+        <StackPanel Orientation="Horizontal" Grid.Row="0" Margin="0,16,0,0">
             
             <TextBlock x:Name="TextTitolo" x:Uid="NoticeBoardTitle"
                        Grid.Row="0" Margin="32,0,0,0"
-                       VerticalAlignment="Top"
+                       VerticalAlignment="Center"
                        Style="{StaticResource TitleLargeTextBlockStyle}" />
 
             <muxc:ProgressRing x:Name="ProgressRingBacheca" Width="28"
                                Height="28" Margin="16,0,0,0"
-                               IsActive="True" RelativePanel.AlignVerticalCenterWith="TextTitolo"
-                               RelativePanel.RightOf="TextTitolo"
+                               IsActive="True" VerticalAlignment="Center"
                                Visibility="{x:Bind BachecaViewModel.IsLoadingBacheca, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" />
-        </RelativePanel>
+        </StackPanel>
 
         <StackPanel Grid.Row="0" Margin="0,18,0,0" Orientation="Horizontal" HorizontalAlignment="Right">
 

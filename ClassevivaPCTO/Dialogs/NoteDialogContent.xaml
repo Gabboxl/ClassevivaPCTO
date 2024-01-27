@@ -13,14 +13,12 @@
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
-        <RelativePanel Grid.Row="0" HorizontalAlignment="Stretch">
+        <TextBlock x:Name="noteBodyText" Margin="2,8,0,8"
+                   HorizontalAlignment="Stretch"
+                   IsTextSelectionEnabled="True"
+                   Style="{ThemeResource BodyTextBlockStyle}"
+                   Text="{x:Bind CurrentReadResult.Note.evtText}"
+                   TextWrapping="Wrap" />
 
-            <TextBlock x:Name="noteBodyText" Margin="2,8,0,8"
-                       IsTextSelectionEnabled="True"
-                       Style="{ThemeResource BodyTextBlockStyle}"
-                       Text="{x:Bind CurrentReadResult.Note.evtText}"
-                       TextWrapping="Wrap" />
-
-        </RelativePanel>
     </Grid>
 </Page>
