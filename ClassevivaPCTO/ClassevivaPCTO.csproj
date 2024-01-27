@@ -164,7 +164,6 @@
       <DependentUpon>AgendaMultipleDaysListView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\KeepOldItemsSourceDecorator.cs" />
-    <Compile Include="Controls\CustomStaggeredPanel.cs" />
     <Compile Include="Controls\GroupInfoList.cs" />
     <Compile Include="Controls\NiceNavigationView\CustomNavigationViewItem.cs" />
     <Compile Include="Controls\NotesListView.xaml.cs">

@@ -99,7 +99,11 @@ namespace ClassevivaPCTO.Views
                 await CoreApplication.MainView.Dispatcher.RunAsync(
                     CoreDispatcherPriority.Normal, () =>
                     {
+                        CategoryComboBox.SelectionChanged -= CategoryComboBox_OnSelectionChanged;
+
                         BachecaViewModel.Categories = noticeCategories;
+
+                        CategoryComboBox.SelectionChanged += CategoryComboBox_OnSelectionChanged;
 
                         //set the notices to show
                         BachecaViewModel.NoticesToShow = noticesToShow;
@@ -133,7 +137,7 @@ namespace ClassevivaPCTO.Views
 
         private void CategoryComboBox_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            var asd = (string) CategoryComboBox.SelectionBoxItem;
+            AggiornaAction();
         }
     }
 }
