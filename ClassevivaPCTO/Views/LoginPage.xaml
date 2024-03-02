@@ -9,10 +9,6 @@
     
     muxc:BackdropMaterial.ApplyToRootOrPageBackground="True">
     <!-- ="{ThemeResource ApplicationPageBackgroundThemeBrush}" -->
-    
-    <Page.Background>
-        <ImageBrush ImageSource="/Assets/LoginBrush1.png" Stretch="UniformToFill" />
-    </Page.Background>
 
     <Grid x:Name="loginGrid">
         <Grid>
