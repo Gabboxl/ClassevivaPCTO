@@ -1,7 +1,6 @@
 ﻿using ClassevivaPCTO.Helpers.Palettes;
 using ClassevivaPCTO.Services;
 using ClassevivaPCTO.Utils;
-using Windows.UI;
 using Windows.UI.Xaml.Media;
 using ClassevivaPCTO.Helpers;
 

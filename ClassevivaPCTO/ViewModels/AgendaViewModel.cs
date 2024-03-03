@@ -2,14 +2,9 @@
 
 namespace ClassevivaPCTO.ViewModels
 {
-    public class AgendaViewModel : ObservableObject
+    public partial class AgendaViewModel : ObservableObject
     {
+        [ObservableProperty]
         private bool _isLoadingAgenda = true;
-
-        public bool IsLoadingAgenda
-        {
-            get { return _isLoadingAgenda; }
-            set { SetProperty(ref _isLoadingAgenda, value); }
-        }
     }
 }

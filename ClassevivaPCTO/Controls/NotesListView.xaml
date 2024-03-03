@@ -66,11 +66,11 @@
 
                 </RelativePanel>
 
-                <RelativePanel Grid.Column="1">
+                <Grid Grid.Column="1">
 
                     <Button x:Name="ReadButton" MinWidth="70"
                             Margin="0,0,16,0" Click="ReadButton_Click"
-                            RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignVerticalCenterWithPanel="True">
+                            HorizontalAlignment="Right" VerticalAlignment="Center">
 
                         <Button.Content>
                             <StackPanel Padding="6,0,6,0" Orientation="Vertical">
@@ -83,7 +83,7 @@
 
                     </Button>
 
-                </RelativePanel>
+                </Grid>
             </Grid>
         </DataTemplate>
     </UserControl.Resources>

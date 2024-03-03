@@ -135,9 +135,10 @@ namespace ClassevivaPCTO.Controls
                 //run on ui thread
                 await Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, async () =>
                 {
-                    var savePicker = new Windows.Storage.Pickers.FileSavePicker();
-                    savePicker.SuggestedStartLocation =
-                        Windows.Storage.Pickers.PickerLocationId.DocumentsLibrary;
+                    var savePicker = new Windows.Storage.Pickers.FileSavePicker
+                    {
+                        SuggestedStartLocation = Windows.Storage.Pickers.PickerLocationId.DocumentsLibrary
+                    };
 
                     savePicker.FileTypeChoices.Add("Allegato", new List<string>() {"."});
                     savePicker.SuggestedFileName = getFileResult.Item2;

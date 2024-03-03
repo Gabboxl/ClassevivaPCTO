@@ -8,6 +8,7 @@
     mc:Ignorable="d"
     xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
     xmlns:converters="using:CommunityToolkit.WinUI.Converters"
+    xmlns:controls1="using:CommunityToolkit.WinUI.Controls"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
     muxc:BackdropMaterial.ApplyToRootOrPageBackground="True">
 
@@ -27,28 +28,27 @@
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
 
-        <RelativePanel Grid.Row="0" Margin="0,16,0,0">
+        <StackPanel Orientation="Horizontal" Grid.Row="0" Margin="0,16,0,0">
             <TextBlock x:Name="TextTitolo" x:Uid="ScrutiniTitle"
                        Grid.Row="0" Margin="32,0,0,0"
-                       VerticalAlignment="Top"
+                       VerticalAlignment="Center"
                        Style="{StaticResource TitleLargeTextBlockStyle}" />
 
             <muxc:ProgressRing x:Name="ProgressRingScrutini" Width="28"
                                Height="28" Margin="16,0,0,0"
-                               IsActive="True" RelativePanel.AlignVerticalCenterWith="TextTitolo"
-                               RelativePanel.RightOf="TextTitolo"
+                               IsActive="True" VerticalAlignment="Center"
                                Visibility="{x:Bind ScrutiniViewModel.IsLoadingScrutini, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" />
 
-        </RelativePanel>
+        </StackPanel>
 
-        <RelativePanel Grid.Row="0" Width="1500"
+        <controls1:WrapPanel Grid.Row="0"
                        Margin="0,16,0,0" HorizontalAlignment="Right">
 
             <CheckBox x:Name="CheckboxEliminati" x:Uid="ScrutiniShowDeletedDocumentsCheckbox"
                       Margin="0,0,24,0" RelativePanel.AlignRightWithPanel="True"
                       RelativePanel.AlignVerticalCenterWithPanel="True" />
 
-        </RelativePanel>
+        </controls1:WrapPanel>
 
         <RelativePanel x:Name="CardPanel" Grid.Row="2"
                        Margin="18" Padding="12"
