@@ -4,6 +4,7 @@ using ClassevivaPCTO.Utils;
 using ClassevivaPCTO.ViewModels;
 using Microsoft.Extensions.DependencyInjection;
 using System;
+using Windows.Storage;
 using System.Linq;
 using System.Threading.Tasks;
 using Windows.ApplicationModel.Core;
@@ -103,6 +104,35 @@ namespace ClassevivaPCTO.Views
 
         private async Task CaricaRecentGradesCard()
         {
+            int SelectedGradesIndex = await ApplicationData.Current.LocalSettings.ReadAsync<int>("GradesRecordWidgetValue");
+
+            int GradesRecord;
+
+            switch (SelectedGradesIndex)
+            {
+                case 0:
+                    GradesRecord = 3;
+                    break;
+                case 1:
+                    GradesRecord = 4;
+                    break;
+                case 2:
+                    GradesRecord = 5;
+                    break;
+                case 3:
+                    GradesRecord = 6;
+                    break;
+                case 4:
+                    GradesRecord = 7;
+                    break;
+                case 5:
+                    GradesRecord = 8;
+                    break;
+                default:
+                    GradesRecord = 5;
+                    break;
+            }
+
             try
             {
                 await CoreApplication.MainView.Dispatcher.RunAsync(
@@ -116,7 +146,7 @@ namespace ClassevivaPCTO.Views
                     .GetGrades(cardResult.usrId.ToString())
                     .ConfigureAwait(false);
 
-                var fiveMostRecent = result1.Grades.OrderByDescending(x => x.evtDate).Take(5);
+                var fiveMostRecent = result1.Grades.OrderByDescending(x => x.evtDate).Take(GradesRecord);
 
                 //update UI on UI thread
                 await CoreApplication.MainView.Dispatcher.RunAsync(

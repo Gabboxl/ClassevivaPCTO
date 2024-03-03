@@ -31,6 +31,7 @@ namespace ClassevivaPCTO.Views
         private SettingsViewModel SettingsViewModel = new();
 
         public bool AskNoticeOpenEventValue { get; set; }
+        public int GradesWidgetRecordValue { get; set; }
 
         private static void OpenCrowdinLink()
         {
@@ -95,6 +96,7 @@ namespace ClassevivaPCTO.Views
             }
 
             AskNoticeOpenEventValue = !await ApplicationData.Current.LocalSettings.ReadAsync<bool>("SkipAskNoticeOpenEvent");
+            GradesWidgetRecordValue = await ApplicationData.Current.LocalSettings.ReadAsync<int>("GradesRecordWidgetValue");
 
             await Task.CompletedTask;
         }
@@ -330,6 +332,11 @@ namespace ClassevivaPCTO.Views
         private async void AskNoticeOpenEvent_OnToggled(object sender, RoutedEventArgs e)
         {
             await ApplicationData.Current.LocalSettings.SaveAsync("SkipAskNoticeOpenEvent", !AskNoticeOpenEventToggle.IsOn);
+        }
+
+        private async void GradesRecordComboBox_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            await ApplicationData.Current.LocalSettings.SaveAsync("GradesRecordWidgetValue", GradesRecordCombobox.SelectedIndex);
         }
     }
 }

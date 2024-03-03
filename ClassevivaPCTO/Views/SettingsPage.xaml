@@ -225,7 +225,7 @@
 
                         <controls1:SettingsCard Header="Numero di valutazioni recenti da visualizzare">
 
-                            <ComboBox SelectedIndex="2">
+                            <ComboBox SelectedIndex="{x:Bind GradesWidgetRecordValue}" x:Name="GradesRecordCombobox" SelectionChanged="GradesRecordComboBox_OnSelectionChanged">
                                 <ComboBoxItem Content="3" />
                                 <ComboBoxItem Content="4" />
                                 <ComboBoxItem Content="5" />
@@ -238,7 +238,7 @@
 
                         <controls1:SettingsCard Header="Numero di comunicazioni recenti da visualizzare">
 
-                            <ComboBox SelectedIndex="2">
+                            <ComboBox SelectedIndex="2" x:Name="NoticesRecordCombobox">
                                 <ComboBoxItem Content="3" />
                                 <ComboBoxItem Content="4" />
                                 <ComboBoxItem Content="5" />
