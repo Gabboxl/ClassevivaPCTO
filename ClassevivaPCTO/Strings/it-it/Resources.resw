@@ -195,13 +195,13 @@ Se riscontri bug o hai un'idea per l'app apri un issue su GitHub cliccando sul l
     <value>Segnala un problema</value>
   </data>
   <data name="SettingsCardTutorial.Header" xml:space="preserve">
-    <value>Tips</value>
+    <value>Informazioni di base</value>
   </data>
   <data name="SettingsCardTutorial.Description" xml:space="preserve">
-    <value>Visualizza suggerimenti sul funzionamento dell'app</value>
+    <value>Visualizza informazioni utili e suggerimenti sul funzionamento dell'app</value>
   </data>
   <data name="SettingsCardTutorialButton.Content" xml:space="preserve">
-    <value>Mostra Tips</value>
+    <value>Apri tips</value>
   </data>
   <data name="SettingsCardWhatsNew.Header" xml:space="preserve">
     <value>Novità in questa versione</value>
@@ -631,7 +631,7 @@ Errore: </value>
     <value>Continua</value>
   </data>
   <data name="SettingsCardAskConfirm.Description" xml:space="preserve">
-    <value>Chiedi conferma prima di aprire una comunicazione per evitare di contrassegnarla erroneamente come letta</value>
+    <value>Chiedi conferma prima di aprire una comunicazione</value>
   </data>
   <data name="SettingsCardAskConfirm.Header" xml:space="preserve">
     <value>Conferma apertura comunicazioni</value>
@@ -716,5 +716,7 @@ Errore: </value>
   </data>
   <data name="LoginText" xml:space="preserve">
     <value>Login</value>
+  <data name="NoticeBoardCategoryCombobox.PlaceholderText" xml:space="preserve">
+    <value>Filtra per categoria...</value>
   </data>
 </root>

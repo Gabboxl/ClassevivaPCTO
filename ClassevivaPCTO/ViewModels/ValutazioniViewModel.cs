@@ -2,50 +2,21 @@
 
 namespace ClassevivaPCTO.ViewModels
 {
-    public class ValutazioniViewModel : ObservableObject
+    public partial class ValutazioniViewModel : ObservableObject
     {
+        [ObservableProperty]
         private bool _isLoadingValutazioni = true;
 
-        public bool IsLoadingValutazioni
-        {
-            get { return _isLoadingValutazioni; }
-            set { SetProperty(ref _isLoadingValutazioni, value); }
-        }
-
+        [ObservableProperty]
         private bool _showShimmers = true;
 
-        public bool ShowShimmers
-        {
-            get { return _showShimmers; }
-            set { SetProperty(ref _showShimmers, value); }
-        }
-
+        [ObservableProperty]
         private float _averageTot;
 
-        public float AverageTot
-        {
-            get { return _averageTot; }
-            set { SetProperty(ref _averageTot, value); }
-        }
-
+        [ObservableProperty]
         private float _averageFirstPeriodo;
 
-        public float AverageFirstPeriodo
-        {
-            get { return _averageFirstPeriodo; }
-            set { SetProperty(ref _averageFirstPeriodo, value); }
-        }
-
+        [ObservableProperty]
         private float _averageSecondPeriodo;
-
-        public float AverageSecondPeriodo
-        {
-            get { return _averageSecondPeriodo; }
-            set { SetProperty(ref _averageSecondPeriodo, value); }
-        }
-
-        public ValutazioniViewModel()
-        {
-        }
     }
 }

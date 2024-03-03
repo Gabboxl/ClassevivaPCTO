@@ -146,7 +146,7 @@
     <comment>Sezione "Valutazioni" del changelog</comment>
   </data>
   <data name="ChangelogHighlighsSection" xml:space="preserve">
-    <value>•  Migliorata la dimensione dei widget nella Dashboard
+    <value>•  [Bacheca] Aggiunta la possibilità di filtrare le comunicazioni per categoria
 •  Aggiornato il design della pagina Valutazioni
 •  Corretti alcuni errori che causavano il crash dell'App
 •  Miglioramenti generali all'interfaccia

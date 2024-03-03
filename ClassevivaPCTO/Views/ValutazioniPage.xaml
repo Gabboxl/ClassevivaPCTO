@@ -120,19 +120,18 @@
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
 
-        <RelativePanel Grid.Row="0" Margin="0,16,0,0">
+        <StackPanel Orientation="Horizontal" Grid.Row="0" Margin="0,16,0,0">
 
             <TextBlock x:Name="MainTitleTextBox" x:Uid="GradesTitle"
-                       Margin="32,0,0,0" VerticalAlignment="Top"
+                       Margin="32,0,0,0" VerticalAlignment="Center"
                        Style="{StaticResource TitleLargeTextBlockStyle}" />
 
             <muxc:ProgressRing x:Name="ProgressRingVoti" Width="28"
                                Height="28" Margin="16,0,0,0"
-                               IsActive="True" RelativePanel.AlignVerticalCenterWith="MainTitleTextBox"
-                               RelativePanel.RightOf="MainTitleTextBox"
+                               IsActive="True" VerticalAlignment="Center"
                                Visibility="{x:Bind ValutazioniViewModel.IsLoadingValutazioni, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" />
 
-        </RelativePanel>
+        </StackPanel>
 
         <RelativePanel Grid.Row="0" Margin="0,18,0,0">
 

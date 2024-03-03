@@ -45,19 +45,18 @@
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
 
-        <RelativePanel Grid.Row="0" Margin="0,16,0,16">
+        <StackPanel Orientation="Horizontal" Grid.Row="0" Margin="0,16,0,16">
             
             <TextBlock x:Name="TextTitolo" x:Uid="AbsencesTitle"
-                       Margin="32,0,0,0" VerticalAlignment="Top"
+                       Margin="32,0,0,0" VerticalAlignment="Center"
                        Style="{StaticResource TitleLargeTextBlockStyle}" />
 
             <muxc:ProgressRing x:Name="ProgressRingBacheca" Width="28"
                                Height="28" Margin="16,0,0,0"
-                               IsActive="True" RelativePanel.AlignVerticalCenterWith="TextTitolo"
-                               RelativePanel.RightOf="TextTitolo"
+                               IsActive="True" VerticalAlignment="Center"
                                Visibility="{x:Bind AssenzeViewModel.IsLoadingAssenze, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" />
             
-        </RelativePanel>
+        </StackPanel>
 
         <ScrollViewer Grid.Row="1">
             <Grid>

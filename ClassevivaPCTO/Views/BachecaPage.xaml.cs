@@ -42,23 +42,20 @@ namespace ClassevivaPCTO.Views
             await Task.Run(async () => { await LoadData(); });
         }
 
-        private async void OnShouldUpdate(object sender, EventArgs args)
-        {
-            AggiornaAction();
-        }
-
         private async Task LoadData()
         {
             try
             {
                 bool showInactiveNotices = false;
                 int readUnreadSegmentedIndex = 0;
+                string? selectedCategory = null;
 
                 await CoreApplication.MainView.Dispatcher.RunAsync(
-                    CoreDispatcherPriority.Normal,
-                    async () =>
+                    CoreDispatcherPriority.Normal, () =>
                     {
                         BachecaViewModel.IsLoadingBacheca = true;
+
+                        selectedCategory = (string) CategoryComboBox.SelectionBoxItem;
 
                         readUnreadSegmentedIndex = ReadUnreadSegmented.SelectedIndex;
 
@@ -90,15 +87,24 @@ namespace ClassevivaPCTO.Views
                     case 2:
                         noticesToShow = noticesToShow.Where(n => n.readStatus).ToList();
                         break;
+                }
 
-                    default:
-                        break;
+                var noticeCategories = noticesToShow.Select(n => n.cntCategory).Distinct().OrderBy(o => o).ToList();
+
+                if (!string.IsNullOrEmpty(selectedCategory))
+                {
+                    noticesToShow = noticesToShow.Where(n => n.cntCategory == selectedCategory).ToList();
                 }
 
                 await CoreApplication.MainView.Dispatcher.RunAsync(
-                    CoreDispatcherPriority.Normal,
-                    async () =>
+                    CoreDispatcherPriority.Normal, () =>
                     {
+                        CategoryComboBox.SelectionChanged -= CategoryComboBox_OnSelectionChanged;
+
+                        BachecaViewModel.Categories = noticeCategories;
+
+                        CategoryComboBox.SelectionChanged += CategoryComboBox_OnSelectionChanged;
+
                         //set the notices to show
                         BachecaViewModel.NoticesToShow = noticesToShow;
                     }
@@ -108,11 +114,20 @@ namespace ClassevivaPCTO.Views
             {
                 {
                     await CoreApplication.MainView.Dispatcher.RunAsync(
-                        CoreDispatcherPriority.Normal,
-                        async () => { BachecaViewModel.IsLoadingBacheca = false; }
+                        CoreDispatcherPriority.Normal, () => { BachecaViewModel.IsLoadingBacheca = false; }
                     );
                 }
             }
+        }
+
+        private void OnShouldUpdate(object sender, EventArgs args)
+        {
+            AggiornaAction();
+        }
+
+        private void ReadUnreadSegmented_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            AggiornaAction();
         }
 
         public override async void AggiornaAction()
@@ -120,7 +135,7 @@ namespace ClassevivaPCTO.Views
             await Task.Run(async () => { await LoadData(); });
         }
 
-        private async void ReadUnreadSegmented_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void CategoryComboBox_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             AggiornaAction();
         }

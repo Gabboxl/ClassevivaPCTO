@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using Windows.UI.Xaml.Controls;
 using ClassevivaPCTO.Utils;
 using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Media.Imaging;
 using ClassevivaPCTO.Helpers.Palettes;
 using ClassevivaPCTO.Services;
 

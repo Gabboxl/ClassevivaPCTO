@@ -21,48 +21,30 @@ using Windows.Globalization;
 using Crowdin.Api;
 using Crowdin.Api.ProjectsGroups;
 using Crowdin.Api.TranslationStatus;
+using Windows.Storage;
+using ClassevivaPCTO.ViewModels;
 
 namespace ClassevivaPCTO.Views
 {
-    public sealed partial class SettingsPage : Page, INotifyPropertyChanged
+    public sealed partial class SettingsPage : Page
     {
-        private ElementTheme _elementTheme = ThemeSelectorService.Theme;
+        private SettingsViewModel SettingsViewModel = new();
 
-        public ElementTheme ElementTheme
-        {
-            get { return _elementTheme; }
-            set { Set(ref _elementTheme, value); }
-        }
+        public bool AskNoticeOpenEventValue { get; set; }
 
-        private PaletteType _paletteType = PaletteSelectorService.PaletteEnum;
-
-        public PaletteType PaletteType
-        {
-            get { return _paletteType; }
-            set { Set(ref _paletteType, value); }
-        }
-
-        private List<ComboPaletteAdapter> _comboPalettes;
-
-        public List<ComboPaletteAdapter> ComboPalettes
-        {
-            get { return _comboPalettes; }
-            set { Set(ref _comboPalettes, value); }
-        }
-
-        public void OpenCrowdinLink()
+        private static void OpenCrowdinLink()
         {
             Windows.System.Launcher.LaunchUriAsync(new Uri("https://crowdin.com/project/classevivapcto/invite/public?h=2b7340ff29ea44873bdef53dc5f7b6871790557&show_welcome"));
         }
 
-        private List<string> ComboLanguages
+        private static List<string> ComboLanguages
         {
             get
             {
                 //for every language of the manifest create a new string list with full names of the languages
                 //ApplicationLanguages.ManifestLanguages.ToList();
 
-                List<string> languages = new List<string>();
+                List<string> languages = new();
                 foreach (string language in ApplicationLanguages.ManifestLanguages)
                 {
                     languages.Add(new Language(language).DisplayName);
@@ -86,14 +68,6 @@ namespace ClassevivaPCTO.Views
             get { return "AppDisplayName".GetLocalizedStr(); }
         }
 
-        private string _version;
-
-        public string Version
-        {
-            get { return _version; }
-            set { Set(ref _version, value); }
-        }
-
         public SettingsPage()
         {
             InitializeComponent();
@@ -110,20 +84,22 @@ namespace ClassevivaPCTO.Views
 
         private async Task InitializeAsync()
         {
-            Version = GetVersionDescription();
+            SettingsViewModel.Version = GetVersionDescription();
 
             //create combo palette adapters for each palette of the enum PaletteType
-            ComboPalettes = new List<ComboPaletteAdapter>();
+            SettingsViewModel.ComboPalettes = new List<ComboPaletteAdapter>();
             foreach (PaletteType paletteType in Enum.GetValues(typeof(PaletteType)))
             {
-                ComboPalettes.Add(new ComboPaletteAdapter(PaletteSelectorService.GetPaletteClass(paletteType),
+                SettingsViewModel.ComboPalettes.Add(new ComboPaletteAdapter(PaletteSelectorService.GetPaletteClass(paletteType),
                     paletteType));
             }
+
+            AskNoticeOpenEventValue = !await ApplicationData.Current.LocalSettings.ReadAsync<bool>("SkipAskNoticeOpenEvent");
 
             await Task.CompletedTask;
         }
 
-        private string GetVersionDescription()
+        private static string GetVersionDescription()
         {
             var package = Package.Current;
             var packageId = package.Id;
@@ -131,22 +107,6 @@ namespace ClassevivaPCTO.Views
 
             return $"{version.Major}.{version.Minor}.{version.Build}.{version.Revision}";
         }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        private void Set<T>(ref T storage, T value, [CallerMemberName] string propertyName = null)
-        {
-            if (Equals(storage, value))
-            {
-                return;
-            }
-
-            storage = value;
-            OnPropertyChanged(propertyName);
-        }
-
-        private void OnPropertyChanged(string propertyName) =>
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
 
         private async void HyperlinkVote_Click(object sender, RoutedEventArgs e)
         {
@@ -232,13 +192,13 @@ namespace ClassevivaPCTO.Views
             ComboBox paletteSelector = (ComboBox) sender;
 
             //change theme based on selected index of the combobox sender
-            PaletteType = (PaletteType) paletteSelector.SelectedIndex;
-            await PaletteSelectorService.SetCurrentPalette(PaletteType);
+            SettingsViewModel.PaletteType = (PaletteType) paletteSelector.SelectedIndex;
+            await PaletteSelectorService.SetCurrentPalette(SettingsViewModel.PaletteType);
         }
 
         private async void ButtonLogout_Click(object sender, RoutedEventArgs e)
         {
-            ContentDialog dialog = new ContentDialog
+            ContentDialog dialog = new()
             {
                 Title = "AreYouSure".GetLocalizedStr(),
                 Content = "AreYouSureToExit".GetLocalizedStr(),
@@ -318,20 +278,18 @@ namespace ClassevivaPCTO.Views
 
                     var resTransChoice = await dialogtrans.ShowAsync();
 
-                    if (resTransChoice == ContentDialogResult.Primary)
+                    switch (resTransChoice)
                     {
-                    }
-                    else if (resTransChoice == ContentDialogResult.Secondary)
-                    {
-                        OpenCrowdinLink();
+                        case ContentDialogResult.Primary:
+                            break;
+                        case ContentDialogResult.Secondary:
+                            OpenCrowdinLink();
 
-                        RestoreLanguageSelection();
-                        return;
-                    }
-                    else
-                    {
-                        RestoreLanguageSelection();
-                        return;
+                            RestoreLanguageSelection();
+                            return;
+                        default:
+                            RestoreLanguageSelection();
+                            return;
                     }
                 }
             }
@@ -367,6 +325,11 @@ namespace ClassevivaPCTO.Views
 
             //re-add listener
             LanguageComboBox.SelectionChanged += LanguageComboBox_OnSelectionChanged;
+        }
+
+        private async void AskNoticeOpenEvent_OnToggled(object sender, RoutedEventArgs e)
+        {
+            await ApplicationData.Current.LocalSettings.SaveAsync("SkipAskNoticeOpenEvent", !AskNoticeOpenEventToggle.IsOn);
         }
     }
 }
