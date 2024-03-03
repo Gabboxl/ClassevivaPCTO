@@ -49,7 +49,7 @@
 
             <ComboBox MinWidth="200"
                 VerticalAlignment="Center"
-                PlaceholderText="Categoria..."
+                x:Uid="NoticeBoardCategoryCombobox"
                 HorizontalContentAlignment="Stretch"
                 SelectionChanged="CategoryComboBox_OnSelectionChanged"
                 controls:KeepOldItemsSourceDecorator.ItemsSource="{x:Bind BachecaViewModel.Categories, Mode=OneWay}"
