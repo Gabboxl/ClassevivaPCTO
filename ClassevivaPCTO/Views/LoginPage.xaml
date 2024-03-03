@@ -157,9 +157,8 @@
                    Foreground="{ThemeResource TextFillColorTertiaryBrush}"
                    Style="{ThemeResource BodyStrongTextBlockStyle}" />
 
-        <Button Margin="16" HorizontalAlignment="Right"
+        <!--<Button Margin="16" HorizontalAlignment="Right"
                 VerticalAlignment="Bottom" Click="demoAccountClick"
-                Content="Account test" Visibility="Collapsed" />
-
+                Content="Account test" Visibility="Collapsed" />-->
     </Grid>
 </Page>

@@ -228,7 +228,7 @@ Se riscontri bug o hai un'idea per l'app apri un issue su GitHub cliccando sul l
     <value>Benvenuto</value>
   </data>
   <data name="LoginUsernameField.Header" xml:space="preserve">
-    <value>Codice studente:</value>
+    <value>Nome utente:</value>
   </data>
   <data name="LoginPasswordField.Header" xml:space="preserve">
     <value>Password:</value>
@@ -424,7 +424,7 @@ Errore: </value>
     <value>Password</value>
   </data>
   <data name="LoginUsernameField.PlaceholderText" xml:space="preserve">
-    <value>Codice studente</value>
+    <value>Nome utente</value>
   </data>
   <data name="NavigationViewAgenda.Content" xml:space="preserve">
     <value>Agenda</value>
