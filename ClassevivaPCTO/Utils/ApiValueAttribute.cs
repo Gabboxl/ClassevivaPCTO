@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Reflection;
+using ClassevivaPCTO.Helpers;
 
 namespace ClassevivaPCTO.Utils
 {
@@ -40,7 +41,28 @@ namespace ClassevivaPCTO.Utils
 
         public static string GetShortName(this Enum enumValue)
         {
-            return enumValue.GetAttributeValue((ApiValueAttribute attr) => attr.ShortName);
+            if(enumValue.GetAttributeValue((ApiValueAttribute attr) => attr.ShortName) == "A")
+            {
+                return "AbsencesAbsenceShortEventCode".GetLocalizedStr();
+            }
+            if (enumValue.GetAttributeValue((ApiValueAttribute attr) => attr.ShortName) == "R")
+            {
+                return "AbsencesDelayShortEventCode".GetLocalizedStr();
+            }
+            if (enumValue.GetAttributeValue((ApiValueAttribute attr) => attr.ShortName) == "Rb")
+            {
+                return "AbsencesShortDelayShortEventCode".GetLocalizedStr();
+            }
+            if (enumValue.GetAttributeValue((ApiValueAttribute attr) => attr.ShortName) == "U")
+            {
+                return "AbsencesEarlyReleaseShortEventCode".GetLocalizedStr();
+            }
+            else
+            {
+                return enumValue.GetAttributeValue((ApiValueAttribute attr) => attr.ShortName);
+            }
+
+            
         }
 
         public static string GetLongName(this Enum enumValue)
