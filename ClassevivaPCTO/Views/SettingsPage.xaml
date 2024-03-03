@@ -215,6 +215,44 @@
 
                 <TextBlock Text="Opzioni pagine" Style="{StaticResource SettingsSectionHeaderTextBlockStyle}" />
 
+                <controls1:SettingsExpander Header="Numero di elementi nei widget" Description="Imposta il numero di elementi recendi da visualizzare nei widget della dasboard">
+
+                    <controls1:SettingsExpander.HeaderIcon>
+                        <FontIcon Glyph="&#xE705;" />
+                    </controls1:SettingsExpander.HeaderIcon>
+
+                    <controls1:SettingsExpander.Items>
+
+                        <controls1:SettingsCard Header="Numero di valutazioni recenti da visualizzare">
+
+                            <ComboBox SelectedIndex="2">
+                                <ComboBoxItem Content="3" />
+                                <ComboBoxItem Content="4" />
+                                <ComboBoxItem Content="5" />
+                                <ComboBoxItem Content="6" />
+                                <ComboBoxItem Content="7" />
+                                <ComboBoxItem Content="8" />
+                            </ComboBox>
+
+                        </controls1:SettingsCard>
+
+                        <controls1:SettingsCard Header="Numero di comunicazioni recenti da visualizzare">
+
+                            <ComboBox SelectedIndex="2">
+                                <ComboBoxItem Content="3" />
+                                <ComboBoxItem Content="4" />
+                                <ComboBoxItem Content="5" />
+                                <ComboBoxItem Content="6" />
+                                <ComboBoxItem Content="7" />
+                                <ComboBoxItem Content="8" />
+                            </ComboBox>
+
+                        </controls1:SettingsCard>
+
+                    </controls1:SettingsExpander.Items>
+
+                </controls1:SettingsExpander>
+
                 <controls1:SettingsCard x:Uid="SettingsCardAskConfirm">
 
                     <controls1:SettingsCard.HeaderIcon>
