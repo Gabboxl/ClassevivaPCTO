@@ -706,4 +706,7 @@ Erreur: </value>
   <data name="RestartLater" xml:space="preserve">
     <value>Redémarrer plus tard</value>
   </data>
+  <data name="NoticeBoardCategoryCombobox.PlaceholderText" xml:space="preserve">
+    <value>Filtra per categoria...</value>
+  </data>
 </root>
