@@ -719,5 +719,7 @@ Errore: </value>
   </data>
   <data name="ScrutiniShowDeletedDocumentsCheckbox.ToolTipService.ToolTip" xml:space="preserve">
     <value>Mostra anche i documenti che sono stati eliminati</value>
+  <data name="NoticeBoardCategoryCombobox.PlaceholderText" xml:space="preserve">
+    <value>Filtra per categoria...</value>
   </data>
 </root>
