@@ -12,6 +12,8 @@ using Windows.UI.Xaml.Navigation;
 using ClassevivaPCTO.Controls;
 using ClassevivaPCTO.DataModels;
 using Expander = Microsoft.UI.Xaml.Controls.Expander;
+using Windows.Storage;
+using ClassevivaPCTO.Helpers;
 
 namespace ClassevivaPCTO.Views
 {
@@ -32,6 +34,8 @@ namespace ClassevivaPCTO.Views
             var apiClient = app.Container.GetService<IClassevivaAPI>();
 
             apiWrapper = PoliciesDispatchProxy<IClassevivaAPI>.CreateProxy(apiClient);
+
+            
         }
 
         protected override async void OnNavigatedTo(NavigationEventArgs e)
@@ -46,6 +50,7 @@ namespace ClassevivaPCTO.Views
             //imposto la data di oggi del picker, e aziono il listener per il cambiamento della data
             CalendarAgenda.Date = DateTime.Now;
 
+            PageTransitions.FromVerticalOffset = await ApplicationData.Current.LocalSettings.ReadAsync<double>("AnimationsValue");
 
             //set the min and max date of the calendaragenda
             var agedaDates = VariousUtils.GetAgendaStartEndDates();

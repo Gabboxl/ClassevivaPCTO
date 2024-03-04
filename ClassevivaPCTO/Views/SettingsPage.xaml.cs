@@ -94,7 +94,11 @@ namespace ClassevivaPCTO.Views
                     paletteType));
             }
 
+
             AskNoticeOpenEventValue = !await ApplicationData.Current.LocalSettings.ReadAsync<bool>("SkipAskNoticeOpenEvent");
+
+            TransitionSlider.Value = await ApplicationData.Current.LocalSettings.ReadAsync<double>("AnimationsValue");
+
 
             await Task.CompletedTask;
         }
@@ -330,6 +334,11 @@ namespace ClassevivaPCTO.Views
         private async void AskNoticeOpenEvent_OnToggled(object sender, RoutedEventArgs e)
         {
             await ApplicationData.Current.LocalSettings.SaveAsync("SkipAskNoticeOpenEvent", !AskNoticeOpenEventToggle.IsOn);
+        }
+
+        private async void TransitionSlider_OnValueChanged(object sender, RoutedEventArgs e)
+        {
+            await ApplicationData.Current.LocalSettings.SaveAsync("AnimationsValue", TransitionSlider.Value);
         }
     }
 }

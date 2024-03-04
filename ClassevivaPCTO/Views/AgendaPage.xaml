@@ -214,6 +214,11 @@
                     <RelativePanel Grid.Row="0" Grid.Column="0"
                                    Margin="0,16,0,0" VerticalAlignment="Center">
 
+                        <RelativePanel.ChildrenTransitions>
+                            <EntranceThemeTransition x:Name="PageTransitions" IsStaggeringEnabled="True" />
+                            <RepositionThemeTransition IsStaggeringEnabled="False" />
+                        </RelativePanel.ChildrenTransitions>
+
                         <Button x:Name="ButtonYesterday" x:Uid="AgendaYesterdayButton"
                                 Width="48" Height="32"
                                 Margin="12,0,0,0" winUi:FrameworkElementExtensions.Cursor="Hand"
