@@ -104,34 +104,7 @@ namespace ClassevivaPCTO.Views
 
         private async Task CaricaRecentGradesCard()
         {
-            int SelectedGradesIndex = await ApplicationData.Current.LocalSettings.ReadAsync<int>("GradesRecordWidgetValue");
-
-            int GradesRecord;
-
-            switch (SelectedGradesIndex)
-            {
-                case 0:
-                    GradesRecord = 3;
-                    break;
-                case 1:
-                    GradesRecord = 4;
-                    break;
-                case 2:
-                    GradesRecord = 5;
-                    break;
-                case 3:
-                    GradesRecord = 6;
-                    break;
-                case 4:
-                    GradesRecord = 7;
-                    break;
-                case 5:
-                    GradesRecord = 8;
-                    break;
-                default:
-                    GradesRecord = 5;
-                    break;
-            }
+            int GradesRecord = await ApplicationData.Current.LocalSettings.ReadAsync<int>("GradesWidgetRecordIndex") + 3;
 
             try
             {
@@ -146,7 +119,9 @@ namespace ClassevivaPCTO.Views
                     .GetGrades(cardResult.usrId.ToString())
                     .ConfigureAwait(false);
 
-                var fiveMostRecent = result1.Grades.OrderByDescending(x => x.evtDate).Take(GradesRecord);
+                var fiveMostRecent = result1.Grades
+                    .OrderByDescending(x => x.evtDate)
+                    .Take(GradesRecord);
 
                 //update UI on UI thread
                 await CoreApplication.MainView.Dispatcher.RunAsync(
@@ -207,6 +182,9 @@ namespace ClassevivaPCTO.Views
 
         private async Task CaricaNoticesCard()
         {
+
+            int NoticesRecord = await ApplicationData.Current.LocalSettings.ReadAsync<int>("NoticesWidgetRecordIndex") + 3;
+
             try
             {
                 await CoreApplication.MainView.Dispatcher.RunAsync(
@@ -224,7 +202,7 @@ namespace ClassevivaPCTO.Views
                 var fiveMostRecent = resultNotices.Notices
                     .Where(x => x.cntValidInRange)
                     .OrderByDescending(x => x.cntValidFrom)
-                    .Take(5);
+                    .Take(NoticesRecord);
 
                 //update UI on UI thread
                 await CoreApplication.MainView.Dispatcher.RunAsync(

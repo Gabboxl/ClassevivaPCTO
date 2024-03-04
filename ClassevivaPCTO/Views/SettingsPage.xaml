@@ -218,14 +218,18 @@
                 <controls1:SettingsExpander Header="Numero di elementi nei widget" Description="Imposta il numero di elementi recendi da visualizzare nei widget della dasboard">
 
                     <controls1:SettingsExpander.HeaderIcon>
-                        <FontIcon Glyph="&#xE705;" />
+                        <FontIcon Glyph="&#xE80F;" />
                     </controls1:SettingsExpander.HeaderIcon>
 
                     <controls1:SettingsExpander.Items>
 
                         <controls1:SettingsCard Header="Numero di valutazioni recenti da visualizzare">
 
-                            <ComboBox SelectedIndex="{x:Bind GradesWidgetRecordValue}" x:Name="GradesRecordCombobox" SelectionChanged="GradesRecordComboBox_OnSelectionChanged">
+                            <controls1:SettingsCard.HeaderIcon>
+                                <FontIcon Glyph="&#xe9f9;" />
+                            </controls1:SettingsCard.HeaderIcon>
+
+                            <ComboBox x:Name="GradesRecordCombobox" SelectionChanged="GradesRecordComboBox_OnSelectionChanged">
                                 <ComboBoxItem Content="3" />
                                 <ComboBoxItem Content="4" />
                                 <ComboBoxItem Content="5" />
@@ -238,7 +242,11 @@
 
                         <controls1:SettingsCard Header="Numero di comunicazioni recenti da visualizzare">
 
-                            <ComboBox SelectedIndex="2" x:Name="NoticesRecordCombobox">
+                            <controls1:SettingsCard.HeaderIcon>
+                                <FontIcon Glyph="&#xE718;" />
+                            </controls1:SettingsCard.HeaderIcon>
+
+                            <ComboBox x:Name="NoticesRecordCombobox" SelectionChanged="NoticesRecordCombobox_OnSelectionChanged">
                                 <ComboBoxItem Content="3" />
                                 <ComboBoxItem Content="4" />
                                 <ComboBoxItem Content="5" />

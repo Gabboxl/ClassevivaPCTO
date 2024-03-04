@@ -31,7 +31,6 @@ namespace ClassevivaPCTO.Views
         private SettingsViewModel SettingsViewModel = new();
 
         public bool AskNoticeOpenEventValue { get; set; }
-        public int GradesWidgetRecordValue { get; set; }
 
         private static void OpenCrowdinLink()
         {
@@ -96,7 +95,8 @@ namespace ClassevivaPCTO.Views
             }
 
             AskNoticeOpenEventValue = !await ApplicationData.Current.LocalSettings.ReadAsync<bool>("SkipAskNoticeOpenEvent");
-            GradesWidgetRecordValue = await ApplicationData.Current.LocalSettings.ReadAsync<int>("GradesRecordWidgetValue");
+            GradesRecordCombobox.SelectedIndex = await ApplicationData.Current.LocalSettings.ReadAsync<int>("GradesWidgetRecordIndex");
+            NoticesRecordCombobox.SelectedIndex = await ApplicationData.Current.LocalSettings.ReadAsync<int>("NoticesWidgetRecordIndex");
 
             await Task.CompletedTask;
         }
@@ -336,7 +336,12 @@ namespace ClassevivaPCTO.Views
 
         private async void GradesRecordComboBox_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            await ApplicationData.Current.LocalSettings.SaveAsync("GradesRecordWidgetValue", GradesRecordCombobox.SelectedIndex);
+            await ApplicationData.Current.LocalSettings.SaveAsync("GradesWidgetRecordIndex", GradesRecordCombobox.SelectedIndex);
+        }
+
+        private async void NoticesRecordCombobox_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            await ApplicationData.Current.LocalSettings.SaveAsync("NoticesWidgetRecordIndex", NoticesRecordCombobox.SelectedIndex);
         }
     }
 }
