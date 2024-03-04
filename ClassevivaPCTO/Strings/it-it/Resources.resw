@@ -716,6 +716,7 @@ Errore: </value>
   </data>
   <data name="LoginText" xml:space="preserve">
     <value>Login</value>
+  </data>
   <data name="NoticeBoardCategoryCombobox.PlaceholderText" xml:space="preserve">
     <value>Filtra per categoria...</value>
   </data>
