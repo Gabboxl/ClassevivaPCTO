@@ -47,7 +47,7 @@ namespace ClassevivaPCTO.Services
         private static async Task<PaletteType> GetCurrentPaletteEnum()
         {
             PaletteType cacheTheme = PaletteType.PALETTE_CVV; //default palette
-            string themeName = await ApplicationData.Current.LocalSettings.ReadAsync<string>(SettingsKey);
+            string? themeName = await ApplicationData.Current.LocalSettings.ReadAsync<string>(SettingsKey);
 
             if (!string.IsNullOrEmpty(themeName))
             {

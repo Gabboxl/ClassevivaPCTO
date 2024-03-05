@@ -215,6 +215,52 @@
 
                 <TextBlock Text="Opzioni pagine" Style="{StaticResource SettingsSectionHeaderTextBlockStyle}" />
 
+                <controls1:SettingsExpander Header="Numero di elementi nei widget" Description="Imposta il numero di elementi recendi da visualizzare nei widget della dasboard">
+
+                    <controls1:SettingsExpander.HeaderIcon>
+                        <FontIcon Glyph="&#xE80F;" />
+                    </controls1:SettingsExpander.HeaderIcon>
+
+                    <controls1:SettingsExpander.Items>
+
+                        <controls1:SettingsCard Header="Numero di valutazioni recenti da visualizzare">
+
+                            <controls1:SettingsCard.HeaderIcon>
+                                <FontIcon Glyph="&#xe9f9;" />
+                            </controls1:SettingsCard.HeaderIcon>
+
+                            <ComboBox x:Name="GradesRecordCombobox" SelectionChanged="GradesRecordComboBox_OnSelectionChanged">
+                                <x:Int32>3</x:Int32>
+                                <x:Int32>4</x:Int32>
+                                <x:Int32>5</x:Int32>
+                                <x:Int32>6</x:Int32>
+                                <x:Int32>7</x:Int32>
+                                <x:Int32>8</x:Int32>
+                            </ComboBox>
+
+                        </controls1:SettingsCard>
+
+                        <controls1:SettingsCard Header="Numero di comunicazioni recenti da visualizzare">
+
+                            <controls1:SettingsCard.HeaderIcon>
+                                <FontIcon Glyph="&#xE718;" />
+                            </controls1:SettingsCard.HeaderIcon>
+
+                            <ComboBox x:Name="NoticesRecordCombobox" SelectionChanged="NoticesRecordCombobox_OnSelectionChanged">
+                                <x:Int32>3</x:Int32>
+                                <x:Int32>4</x:Int32>
+                                <x:Int32>5</x:Int32>
+                                <x:Int32>6</x:Int32>
+                                <x:Int32>7</x:Int32>
+                                <x:Int32>8</x:Int32>
+                            </ComboBox>
+
+                        </controls1:SettingsCard>
+
+                    </controls1:SettingsExpander.Items>
+
+                </controls1:SettingsExpander>
+
                 <controls1:SettingsCard x:Uid="SettingsCardAskConfirm">
 
                     <controls1:SettingsCard.HeaderIcon>
