@@ -95,8 +95,8 @@ namespace ClassevivaPCTO.Views
             }
 
             AskNoticeOpenEventValue = !await ApplicationData.Current.LocalSettings.ReadAsync<bool>("SkipAskNoticeOpenEvent");
-            GradesRecordCombobox.SelectedIndex = await ApplicationData.Current.LocalSettings.ReadAsync<int>("GradesWidgetRecordIndex");
-            NoticesRecordCombobox.SelectedIndex = await ApplicationData.Current.LocalSettings.ReadAsync<int>("NoticesWidgetRecordIndex");
+            GradesRecordCombobox.SelectedValue = await ApplicationData.Current.LocalSettings.ReadAsync<int>("MaxGradesWidgetRecord");
+            NoticesRecordCombobox.SelectedValue = await ApplicationData.Current.LocalSettings.ReadAsync<int>("MaxNoticesWidgetRecord");
 
             await Task.CompletedTask;
         }
@@ -336,12 +336,12 @@ namespace ClassevivaPCTO.Views
 
         private async void GradesRecordComboBox_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            await ApplicationData.Current.LocalSettings.SaveAsync("GradesWidgetRecordIndex", GradesRecordCombobox.SelectedIndex);
+            await ApplicationData.Current.LocalSettings.SaveAsync("MaxGradesWidgetRecord", GradesRecordCombobox.SelectedValue);
         }
 
         private async void NoticesRecordCombobox_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            await ApplicationData.Current.LocalSettings.SaveAsync("NoticesWidgetRecordIndex", NoticesRecordCombobox.SelectedIndex);
+            await ApplicationData.Current.LocalSettings.SaveAsync("MaxNoticesWidgetRecord", NoticesRecordCombobox.SelectedValue);
         }
     }
 }

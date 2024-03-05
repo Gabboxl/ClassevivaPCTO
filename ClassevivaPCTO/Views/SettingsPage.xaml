@@ -230,12 +230,12 @@
                             </controls1:SettingsCard.HeaderIcon>
 
                             <ComboBox x:Name="GradesRecordCombobox" SelectionChanged="GradesRecordComboBox_OnSelectionChanged">
-                                <ComboBoxItem Content="3" />
-                                <ComboBoxItem Content="4" />
-                                <ComboBoxItem Content="5" />
-                                <ComboBoxItem Content="6" />
-                                <ComboBoxItem Content="7" />
-                                <ComboBoxItem Content="8" />
+                                <x:Int32>3</x:Int32>
+                                <x:Int32>4</x:Int32>
+                                <x:Int32>5</x:Int32>
+                                <x:Int32>6</x:Int32>
+                                <x:Int32>7</x:Int32>
+                                <x:Int32>8</x:Int32>
                             </ComboBox>
 
                         </controls1:SettingsCard>
@@ -247,12 +247,12 @@
                             </controls1:SettingsCard.HeaderIcon>
 
                             <ComboBox x:Name="NoticesRecordCombobox" SelectionChanged="NoticesRecordCombobox_OnSelectionChanged">
-                                <ComboBoxItem Content="3" />
-                                <ComboBoxItem Content="4" />
-                                <ComboBoxItem Content="5" />
-                                <ComboBoxItem Content="6" />
-                                <ComboBoxItem Content="7" />
-                                <ComboBoxItem Content="8" />
+                                <x:Int32>3</x:Int32>
+                                <x:Int32>4</x:Int32>
+                                <x:Int32>5</x:Int32>
+                                <x:Int32>6</x:Int32>
+                                <x:Int32>7</x:Int32>
+                                <x:Int32>8</x:Int32>
                             </ComboBox>
 
                         </controls1:SettingsCard>

@@ -104,7 +104,7 @@ namespace ClassevivaPCTO.Views
 
         private async Task CaricaRecentGradesCard()
         {
-            int GradesRecord = await ApplicationData.Current.LocalSettings.ReadAsync<int>("GradesWidgetRecordIndex") + 3;
+            int maxGradeRecords = await ApplicationData.Current.LocalSettings.ReadAsync<int?>("MaxGradesWidgetRecord") ?? 3;
 
             try
             {
@@ -121,7 +121,7 @@ namespace ClassevivaPCTO.Views
 
                 var fiveMostRecent = result1.Grades
                     .OrderByDescending(x => x.evtDate)
-                    .Take(GradesRecord);
+                    .Take(maxGradeRecords);
 
                 //update UI on UI thread
                 await CoreApplication.MainView.Dispatcher.RunAsync(
@@ -183,7 +183,7 @@ namespace ClassevivaPCTO.Views
         private async Task CaricaNoticesCard()
         {
 
-            int NoticesRecord = await ApplicationData.Current.LocalSettings.ReadAsync<int>("NoticesWidgetRecordIndex") + 3;
+            int maxNoticesRecords = await ApplicationData.Current.LocalSettings.ReadAsync<int?>("MaxNoticesWidgetRecord") ?? 3;
 
             try
             {
@@ -202,7 +202,7 @@ namespace ClassevivaPCTO.Views
                 var fiveMostRecent = resultNotices.Notices
                     .Where(x => x.cntValidInRange)
                     .OrderByDescending(x => x.cntValidFrom)
-                    .Take(NoticesRecord);
+                    .Take(maxNoticesRecords);
 
                 //update UI on UI thread
                 await CoreApplication.MainView.Dispatcher.RunAsync(
