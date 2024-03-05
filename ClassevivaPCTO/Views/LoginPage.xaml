@@ -45,9 +45,7 @@
 
         <RelativePanel Width="Auto" Height="450"
                        Margin="40,-18,40,0" Padding="12"
-                       HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
-                       BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
-                       BorderThickness="1" CornerRadius="8">
+                       HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
 
             <!--<RelativePanel.Background>
 
@@ -67,10 +65,11 @@
 
             <StackPanel x:Name="LoginStackPanel" Width="340"
                         Height="370" Margin="0,20,0,0"
-                        Padding="12" Background="Transparent"
-                        BorderThickness="1.5" 
-                        BorderBrush="{ThemeResource AccentTextFillColorTertiaryBrush}"
+                        Padding="12"
                         CornerRadius="8"
+                        BorderThickness="0"
+                        Background="{ThemeResource CardBackgroundFillColorSecondaryBrush}"
+                        BorderBrush="{ThemeResource AccentTextFillColorTertiaryBrush}"
                         RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.AlignVerticalCenterWithPanel="True">
 
                 <StackPanel.ChildrenTransitions>
