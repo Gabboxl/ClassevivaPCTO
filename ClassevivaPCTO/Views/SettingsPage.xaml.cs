@@ -96,6 +96,8 @@ namespace ClassevivaPCTO.Views
 
 
             AskNoticeOpenEventValue = !await ApplicationData.Current.LocalSettings.ReadAsync<bool>("SkipAskNoticeOpenEvent");
+            GradesRecordCombobox.SelectedValue = await ApplicationData.Current.LocalSettings.ReadAsync<int>("MaxGradesWidgetRecord");
+            NoticesRecordCombobox.SelectedValue = await ApplicationData.Current.LocalSettings.ReadAsync<int>("MaxNoticesWidgetRecord");
 
             TransitionSlider.Value = await ApplicationData.Current.LocalSettings.ReadAsync<double>("AnimationsValue");
 
@@ -335,10 +337,19 @@ namespace ClassevivaPCTO.Views
         {
             await ApplicationData.Current.LocalSettings.SaveAsync("SkipAskNoticeOpenEvent", !AskNoticeOpenEventToggle.IsOn);
         }
-
+        
         private async void TransitionSlider_OnValueChanged(object sender, RoutedEventArgs e)
         {
             await ApplicationData.Current.LocalSettings.SaveAsync("AnimationsValue", TransitionSlider.Value);
+            
+        private async void GradesRecordComboBox_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            await ApplicationData.Current.LocalSettings.SaveAsync("MaxGradesWidgetRecord", GradesRecordCombobox.SelectedValue);
+        }
+
+        private async void NoticesRecordCombobox_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            await ApplicationData.Current.LocalSettings.SaveAsync("MaxNoticesWidgetRecord", NoticesRecordCombobox.SelectedValue);
         }
     }
 }

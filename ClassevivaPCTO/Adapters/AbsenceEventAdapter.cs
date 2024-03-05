@@ -27,12 +27,17 @@ namespace ClassevivaPCTO.Adapters
             {
                 if (CurrentObject.isJustified)
                 {
-                    return CurrentObject.justifReasonDesc + " (" + CurrentObject.justifReasonCode + ")";
+                    if (string.IsNullOrEmpty(CurrentObject.justifReasonCode))
+                    {
+                        return CurrentObject.justifReasonDesc;
+                    }
+                    else
+                    {
+                        return CurrentObject.justifReasonDesc + " (" + CurrentObject.justifReasonCode + ")";
+                    }
                 }
-                else
-                {
-                    return "AbsencesToBeJustifiedText".GetLocalizedStr();
-                }
+
+                return "AbsencesToBeJustifiedText".GetLocalizedStr();
             }
         }
 

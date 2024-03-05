@@ -8,9 +8,9 @@ namespace ClassevivaPCTO.Services
     {
         private const string SettingsKey = "AppLoginChoiceIdent";
 
-        public static async Task<string> LoadChoiceIdentAsync()
+        public static async Task<string?> LoadChoiceIdentAsync()
         {
-            string ident = await ApplicationData.Current.LocalSettings.ReadAsync<string>(SettingsKey);
+            string? ident = await ApplicationData.Current.LocalSettings.ReadAsync<string>(SettingsKey);
 
             return ident;
         }
