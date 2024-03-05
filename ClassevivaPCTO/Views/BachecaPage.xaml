@@ -11,7 +11,6 @@
     xmlns:converters="using:ClassevivaPCTO.Converters"
     xmlns:converters1="using:CommunityToolkit.WinUI.Converters"
     xmlns:winUi="using:CommunityToolkit.WinUI"
-    xmlns:helpers="using:ClassevivaPCTO.Helpers"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
     muxc:BackdropMaterial.ApplyToRootOrPageBackground="True">
 
@@ -62,8 +61,8 @@
             <controls1:Segmented x:Name="ReadUnreadSegmented" MinWidth="310"
                                  Margin="0,0,0,0" HorizontalAlignment="Stretch"
                                  SelectedIndex="0" SelectionChanged="ReadUnreadSegmented_OnSelectionChanged">
-                
-                <controls1:SegmentedItem>
+
+                <controls1:SegmentedItem x:Uid="NoticeBoardFilterAllNoticesItem">
                     <controls1:SegmentedItem.Content>
                         <StackPanel Orientation="Horizontal">
                             <FontIcon Margin="0,0,6,0"
@@ -74,7 +73,7 @@
                     </controls1:SegmentedItem.Content>
                 </controls1:SegmentedItem>
 
-                <controls1:SegmentedItem>
+                <controls1:SegmentedItem x:Uid="NoticeBoardFilterUnreadNoticesItem">
                     <controls1:SegmentedItem.Content>
                         <StackPanel Orientation="Horizontal">
                             <FontIcon Margin="0,0,6,0"
@@ -85,7 +84,7 @@
                     </controls1:SegmentedItem.Content>
                 </controls1:SegmentedItem>
 
-                <controls1:SegmentedItem>
+                <controls1:SegmentedItem x:Uid="NoticeBoardFilterReadNoticesItem">
                     <controls1:SegmentedItem.Content>
                         <StackPanel Orientation="Horizontal">
                             <FontIcon Margin="0,0,6,0"

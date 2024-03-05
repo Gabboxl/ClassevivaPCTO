@@ -42,7 +42,7 @@
         </StackPanel>
 
         <controls1:WrapPanel Grid.Row="0"
-                       Margin="0,16,0,0" HorizontalAlignment="Right">
+                       Margin="0,32,0,0" HorizontalAlignment="Right">
 
             <CheckBox x:Name="CheckboxEliminati" x:Uid="ScrutiniShowDeletedDocumentsCheckbox"
                       Margin="0,0,24,0" RelativePanel.AlignRightWithPanel="True"
