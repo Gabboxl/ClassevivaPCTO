@@ -3,12 +3,7 @@ using ClassevivaPCTO.Helpers.Palettes;
 using System;
 using System.Reflection;
 using System.Threading.Tasks;
-using Windows.ApplicationModel.Core;
 using Windows.Storage;
-using Windows.UI;
-using Windows.UI.Core;
-using Windows.UI.ViewManagement;
-using Windows.UI.Xaml;
 
 namespace ClassevivaPCTO.Services
 {

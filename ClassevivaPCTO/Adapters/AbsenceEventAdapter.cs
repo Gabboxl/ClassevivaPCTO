@@ -25,18 +25,19 @@ namespace ClassevivaPCTO.Adapters
         {
             get
             {
-                if (CurrentObject.isJustified && CurrentObject.evtCode.GetShortName() != "Rb")
+                if (CurrentObject.isJustified)
                 {
-                    return CurrentObject.justifReasonDesc + " (" + CurrentObject.justifReasonCode + ")";
+                    if (string.IsNullOrEmpty(CurrentObject.justifReasonCode))
+                    {
+                        return CurrentObject.justifReasonDesc;
+                    }
+                    else
+                    {
+                        return CurrentObject.justifReasonDesc + " (" + CurrentObject.justifReasonCode + ")";
+                    }
                 }
-                if (CurrentObject.isJustified && CurrentObject.evtCode.GetShortName() == "Rb")
-                {
-                    return "ABR1_sing".GetLocalizedStr();
-                }
-                else
-                {
-                    return "AbsencesToBeJustifiedText".GetLocalizedStr();
-                }
+
+                return "AbsencesToBeJustifiedText".GetLocalizedStr();
             }
         }
 
