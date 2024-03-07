@@ -187,7 +187,7 @@ Si vous rencontrez des bugs ou avez une idée pour l'application, ouvrez un tick
     <value>Choisir la langue de l'app</value>
   </data>
   <data name="SettingsAboutExpander.Description" xml:space="preserve">
-    <value>© 2024. Tutti i diritti riservati.</value>
+    <value>© 2024. Tous droits réservés.</value>
   </data>
   <data name="SettingsAboutExpanderRateHyperlink.Text" xml:space="preserve">
     <value>Noter sur l'App Store</value>
@@ -199,10 +199,10 @@ Si vous rencontrez des bugs ou avez une idée pour l'application, ouvrez un tick
     <value>Informations générales</value>
   </data>
   <data name="SettingsCardTutorial.Description" xml:space="preserve">
-    <value>Afficher des conseils sur le fonctionnement de l'application</value>
+    <value>Montrer des conseils sur le fonctionnement de l'application</value>
   </data>
   <data name="SettingsCardTutorialButton.Content" xml:space="preserve">
-    <value>Visualizza</value>
+    <value>Montrer</value>
   </data>
   <data name="SettingsCardWhatsNew.Header" xml:space="preserve">
     <value>Nouveautés de cette version </value>
@@ -217,7 +217,7 @@ Si vous rencontrez des bugs ou avez une idée pour l'application, ouvrez un tick
     <value>Sondage</value>
   </data>
   <data name="ScrutiniShowDeletedDocumentsCheckbox.Content" xml:space="preserve">
-    <value>Includi documenti eliminati</value>
+    <value>Inclure documents supprimés</value>
   </data>
   <data name="ScrutiniDocumentsHeader.Text" xml:space="preserve">
     <value>Documents</value>
@@ -416,7 +416,7 @@ Erreur: </value>
     <value>Accédez aux événements d'aujourd'hui</value>
   </data>
   <data name="NoticeBoardShowInactiveNoticesCheckbox.Content" xml:space="preserve">
-    <value>Includi comunicazioni inattive</value>
+    <value>Inclure communications expirées</value>
   </data>
   <data name="DashboardEditWidgetsButton.Text" xml:space="preserve">
     <value>Personnaliser les widgets</value>
@@ -662,10 +662,10 @@ Erreur: </value>
     <value>Aujourd'hui</value>
   </data>
   <data name="GradesListLayout.Text" xml:space="preserve">
-    <value>Lista</value>
+    <value>Liste</value>
   </data>
   <data name="GradesSubjectsLayout.Text" xml:space="preserve">
-    <value>Materie</value>
+    <value>Sujets</value>
   </data>
   <data name="GenericOpenButton.Text" xml:space="preserve">
     <value>Ouvrir</value>
@@ -707,21 +707,21 @@ Erreur: </value>
     <value>Redémarrer plus tard</value>
   </data>
   <data name="NoticeBoardFilterAllNoticesItem.ToolTipService.ToolTip" xml:space="preserve">
-    <value>Mostra tutte le comunicazioni</value>
+    <value>Afficher toutes les communications</value>
   </data>
   <data name="NoticeBoardFilterReadNoticesItem.ToolTipService.ToolTip" xml:space="preserve">
-    <value>Mostra solo le comunicazioni lette</value>
+    <value>Afficher uniquement les communications lues</value>
   </data>
   <data name="NoticeBoardFilterUnreadNoticesItem.ToolTipService.ToolTip" xml:space="preserve">
-    <value>Mostra solo le comunicazioni non lette</value>
+    <value>Afficher uniquement les communications non lues</value>
   </data>
   <data name="NoticeBoardShowInactiveNoticesCheckbox.ToolTipService.ToolTip" xml:space="preserve">
-    <value>Mostra anche le comunicazioni scadute e quelle eliminate</value>
+    <value>Il affiche également les communications expirées et supprimées</value>
   </data>
   <data name="ScrutiniShowDeletedDocumentsCheckbox.ToolTipService.ToolTip" xml:space="preserve">
-    <value>Mostra anche i documenti che sono stati eliminati</value>
+    <value>Il montre également les documents qui ont été supprimés</value>
   </data>
   <data name="NoticeBoardCategoryCombobox.PlaceholderText" xml:space="preserve">
-    <value>Filtra per categoria...</value>
+    <value>Filtrer par catégorie...</value>
   </data>
 </root>
