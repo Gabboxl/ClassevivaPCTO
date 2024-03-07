@@ -186,7 +186,7 @@ If you encounter bugs or have an idea for the app, open an issue on GitHub by cl
     <value>Choose the displayed app language</value>
   </data>
   <data name="SettingsAboutExpander.Description" xml:space="preserve">
-    <value>© 2024. Tutti i diritti riservati.</value>
+    <value>© 2024. All rights reserved.</value>
   </data>
   <data name="SettingsAboutExpanderRateHyperlink.Text" xml:space="preserve">
     <value>Rate on the Store</value>
@@ -201,7 +201,7 @@ If you encounter bugs or have an idea for the app, open an issue on GitHub by cl
     <value>View tips on how to use this app</value>
   </data>
   <data name="SettingsCardTutorialButton.Content" xml:space="preserve">
-    <value>Visualizza</value>
+    <value>View</value>
   </data>
   <data name="SettingsCardWhatsNew.Header" xml:space="preserve">
     <value>What’s new in this version</value>
@@ -216,7 +216,7 @@ If you encounter bugs or have an idea for the app, open an issue on GitHub by cl
     <value>Ballots</value>
   </data>
   <data name="ScrutiniShowDeletedDocumentsCheckbox.Content" xml:space="preserve">
-    <value>Includi documenti eliminati</value>
+    <value>Include deleted documents</value>
   </data>
   <data name="ScrutiniDocumentsHeader.Text" xml:space="preserve">
     <value>Documents</value>
@@ -388,7 +388,7 @@ Error: </value>
     <value>Student code: </value>
   </data>
   <data name="SettingsCardPalette.Description" xml:space="preserve">
-    <value>Customize the color palette used in the app to indicate grades and events</value>
+    <value>Customize the color palette used to indicate grades and events</value>
   </data>
   <data name="SettingsCardPalette.Header" xml:space="preserve">
     <value>Color palette</value>
@@ -415,7 +415,7 @@ Error: </value>
     <value>Go to today's events</value>
   </data>
   <data name="NoticeBoardShowInactiveNoticesCheckbox.Content" xml:space="preserve">
-    <value>Includi comunicazioni inattive</value>
+    <value>Include inactive notices</value>
   </data>
   <data name="DashboardEditWidgetsButton.Text" xml:space="preserve">
     <value>Edit widgets</value>
@@ -661,10 +661,10 @@ Error: </value>
     <value>Today</value>
   </data>
   <data name="GradesListLayout.Text" xml:space="preserve">
-    <value>Lista</value>
+    <value>List</value>
   </data>
   <data name="GradesSubjectsLayout.Text" xml:space="preserve">
-    <value>Materie</value>
+    <value>Subjects</value>
   </data>
   <data name="GenericOpenButton.Text" xml:space="preserve">
     <value>Open</value>
@@ -706,21 +706,21 @@ Error: </value>
     <value>Restart Later</value>
   </data>
   <data name="NoticeBoardFilterAllNoticesItem.ToolTipService.ToolTip" xml:space="preserve">
-    <value>Mostra tutte le comunicazioni</value>
+    <value>Show all notices</value>
   </data>
   <data name="NoticeBoardFilterReadNoticesItem.ToolTipService.ToolTip" xml:space="preserve">
-    <value>Mostra solo le comunicazioni lette</value>
+    <value>Show only read notices</value>
   </data>
   <data name="NoticeBoardFilterUnreadNoticesItem.ToolTipService.ToolTip" xml:space="preserve">
-    <value>Mostra solo le comunicazioni non lette</value>
+    <value>Show only unread notices</value>
   </data>
   <data name="NoticeBoardShowInactiveNoticesCheckbox.ToolTipService.ToolTip" xml:space="preserve">
-    <value>Mostra anche le comunicazioni scadute e quelle eliminate</value>
+    <value>Show also expired and deleted notices</value>
   </data>
   <data name="ScrutiniShowDeletedDocumentsCheckbox.ToolTipService.ToolTip" xml:space="preserve">
-    <value>Mostra anche i documenti che sono stati eliminati</value>
+    <value>Show also deleted documents</value>
   </data>
   <data name="NoticeBoardCategoryCombobox.PlaceholderText" xml:space="preserve">
-    <value>Filtra per categoria...</value>
+    <value>Filter by category...</value>
   </data>
 </root>
