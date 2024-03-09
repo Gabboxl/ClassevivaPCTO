@@ -135,7 +135,7 @@
                 </Grid.RowDefinitions>
 
                 <Rectangle Height="1" Margin="14,0,14,0"
-                           VerticalAlignment="Top" Fill="#5B5B5B"
+                           VerticalAlignment="Top" Fill="{ThemeResource ControlStrongStrokeColorDisabledBrush}"
                            Visibility="{x:Bind BachecaViewModel.NoticesToShow, Mode=OneWay, FallbackValue=Collapsed, Converter={StaticResource EmptyListToVisibilityConverter}}" />
 
                 <controls:NoticesListView x:Name="NoticesListView" Margin="0,8,0,0"
