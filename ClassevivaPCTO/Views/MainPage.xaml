@@ -82,10 +82,10 @@
                 -->
 
                 <Image Grid.Column="1" Width="24"
-                       Height="24" Margin="14,0,0,0"
+                       Height="24" Margin="14,2,0,0"
                        HorizontalAlignment="Left" Source="/Assets/Square44x44Logo.png" />
                 <TextBlock x:Name="AppTitleTextBlock" Grid.Column="1"
-                           Margin="44,0,0,4" VerticalAlignment="Center"
+                           Margin="44,2,0,4" VerticalAlignment="Center"
                            Style="{StaticResource CaptionTextBlockStyle}"
                            Text="test" />
 
@@ -140,8 +140,17 @@
                     <ColumnDefinition Width="260" />
                 </Grid.ColumnDefinitions>
 
-                <AppBarButton x:Name="MainRefreshButton" Grid.Column="1" Icon="Refresh" IsCompact="False" Width="52" Click="MainRefreshButton_OnClick" x:Uid="RefreshButton" />
-
+                <Button x:Name="MainRefreshButton" Grid.Column="1" Width="40" Height="26" 
+                        Click="MainRefreshButton_OnClick" x:Uid="RefreshButton" Margin="0,2,0,2" >
+                    <Button.Transitions>
+                        <TransitionCollection>
+                            <EntranceThemeTransition FromHorizontalOffset="50" FromVerticalOffset="50"/>
+                        </TransitionCollection>
+                    </Button.Transitions>
+                    
+                    <FontIcon HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="12" Glyph="&#xE72C;" />
+                </Button>
+                
             </Grid>
 
             <!--
