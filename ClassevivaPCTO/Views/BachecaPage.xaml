@@ -121,6 +121,9 @@
                        Style="{ThemeResource BodyStrongTextBlockStyle}"
                        Visibility="{x:Bind BachecaViewModel.NoticesToShow, Mode=OneWay, FallbackValue=Collapsed, Converter={StaticResource EmptyListToVisibilityConverter}}" />
 
+            <Button Style="{StaticResource AccentButtonStyle}" RelativePanel.AlignRightWithPanel="True"
+                    Content="Resetta tutti i filtri" x:Name="ClearAllFiltersButton" Margin="0,0,14,0" Click="ClearAllFiltersButton_Click"/>
+
             <Grid Margin="0,8,0,0" RelativePanel.AlignBottomWithPanel="True"
                   RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True"
                   RelativePanel.Below="TextComunicazioni">

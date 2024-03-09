@@ -139,5 +139,12 @@ namespace ClassevivaPCTO.Views
         {
             AggiornaAction();
         }
+
+        private void ClearAllFiltersButton_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+            ReadUnreadSegmented.SelectedIndex = 0;
+            CategoryComboBox.SelectedIndex = -1;
+            ClearAllFiltersButton.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
+        }
     }
 }
