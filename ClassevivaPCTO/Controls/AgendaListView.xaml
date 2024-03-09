@@ -33,21 +33,21 @@
                            TextWrapping="Wrap" />
 
                 <TextBlock x:Name="dataStart" Margin="10,12,0,0"
-                           FontWeight="Medium"
+                           FontWeight="SemiBold"
                            Foreground="{ThemeResource TextFillColorTertiaryBrush}"
                            RelativePanel.AlignVerticalCenterWith="titoloEvento" RelativePanel.RightOf="titoloEvento"
                            Style="{ThemeResource BodyTextBlockStyle}"
                            Text="{x:Bind CurrentObject.evtDatetimeBegin, Converter={StaticResource DateTimeToHourConverter}}" />
 
                 <TextBlock x:Name="placeholderData" Margin="6,12,6,0"
-                           FontWeight="Medium"
+                           FontWeight="SemiBold"
                            Foreground="{ThemeResource TextFillColorTertiaryBrush}"
                            RelativePanel.AlignVerticalCenterWith="titoloEvento" RelativePanel.RightOf="dataStart"
                            Style="{ThemeResource BodyTextBlockStyle}"
                            Text="-" />
 
                 <TextBlock x:Name="dataEnd" Margin="0,12,0,0"
-                           FontWeight="Medium"
+                           FontWeight="SemiBold"
                            Foreground="{ThemeResource TextFillColorTertiaryBrush}"
                            RelativePanel.AlignVerticalCenterWith="titoloEvento" RelativePanel.RightOf="placeholderData"
                            Style="{ThemeResource BodyTextBlockStyle}"
