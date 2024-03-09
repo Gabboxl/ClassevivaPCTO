@@ -104,7 +104,7 @@ namespace ClassevivaPCTO.Views
 
             NoticesRecordCombobox.SelectedValue = await ApplicationData.Current.LocalSettings.ReadAsync<int>("MaxNoticesWidgetRecord");
 
-            AccountAnimations.FromVerticalOffset = await AnimationService.GetAnimationValue();
+            AccountAnimations.FromHorizontalOffset = await AnimationService.GetAnimationValue();
 
             PageAnimations.FromVerticalOffset = await AnimationService.GetAnimationValue();
 
