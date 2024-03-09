@@ -8,6 +8,7 @@ using Windows.ApplicationModel.Core;
 using Windows.UI.Core;
 using Windows.UI.Xaml.Navigation;
 using ClassevivaPCTO.Controls;
+using ClassevivaPCTO.Services;
 
 namespace ClassevivaPCTO.Views
 {
@@ -37,9 +38,10 @@ namespace ClassevivaPCTO.Views
             CheckboxEliminati.Unchecked +=
                 async (sender, args) => { await Task.Run(async () => { await LoadData(); }); };
 
+            PageAnimations.FromHorizontalOffset = await AnimationService.GetAnimationValue();
+
             await Task.Run(async () => { await LoadData(); });
         }
-
 
         private async Task LoadData()
         {
