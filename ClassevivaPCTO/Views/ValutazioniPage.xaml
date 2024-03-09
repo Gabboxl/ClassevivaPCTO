@@ -43,9 +43,14 @@
                                            IsEnabled="{x:Bind SubjectGrades, Converter={StaticResource EmptyListToBoolConverter}}"
                                            HorizontalAlignment="Stretch"
                                            HorizontalContentAlignment="Stretch"
-                                           Header="{x:Bind Subject.description}"
-                                           Description="{x:Bind Teachers}"
                                            HeaderIcon="{x:Bind AverageVariationIcon}" >
+                    <controls:SettingsExpander.Header>
+                        <TextBlock Text="{x:Bind Subject.description}" FontWeight="Medium" FontSize="14" Margin="0,-4,0,0"/>
+                    </controls:SettingsExpander.Header>
+                    <controls:SettingsExpander.Description>
+                        <TextBlock Text="{x:Bind Teachers}" FontSize="12" Margin="0,0,0,-4"/>
+                    </controls:SettingsExpander.Description>
+                    
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*"></ColumnDefinition>
@@ -56,7 +61,8 @@
                         <TextBlock
                             x:Name="NoValutazioniTextBlock"
                             Grid.Column="0"
-                            Text="Nessuna valutazione"
+                            x:Uid="GradesPlaceholder"
+                            TextWrapping="WrapWholeWords"
                             Style="{StaticResource BodyStrongTextBlockStyle}"
                             Foreground="{ThemeResource TextFillColorTertiaryBrush}"
                             HorizontalAlignment="Center"
@@ -65,7 +71,7 @@
                             Visibility="{x:Bind SubjectGrades, Converter={StaticResource EmptyListToVisibilityConverter}, ConverterParameter=False}" />
 
                         <Grid
-                            Grid.Column="1">
+                            Grid.Column="1" Margin="0,-4,0,-4">
                             <muxc:ProgressRing
                                 HorizontalAlignment="Center"
                                 VerticalAlignment="Center"
@@ -166,7 +172,7 @@
                        BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
                        BorderThickness="1" CornerRadius="8">
 
-            <Grid x:Name="GridMedie" Padding="12"
+            <Grid x:Name="GridMedie" Padding="12" Margin="2,0,4,0"
                   Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
                   BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
                   BorderThickness="1" CornerRadius="8"
@@ -198,7 +204,7 @@
 
                         <TextBlock x:Name="MediaTotText" Margin="0,0,0,0"
                                    HorizontalAlignment="Center" VerticalAlignment="Center"
-                                   FontSize="24"
+                                   FontSize="24" TextWrapping="WrapWholeWords"
                                    Foreground="{x:Bind ValutazioniViewModel.AverageTot, Mode=OneWay, Converter={StaticResource GradeToColorConverter}}"
                                    Style="{StaticResource TitleTextBlockStyle}"
                                    Text="{x:Bind ValutazioniViewModel.AverageTot, Mode=OneWay, Converter={StaticResource NanToNdConverter}}"
@@ -255,7 +261,7 @@
 
                         <TextBlock x:Name="MediaPrimoPeriodoText" Margin="0,0,0,0"
                                    HorizontalAlignment="Center" VerticalAlignment="Center"
-                                   FontSize="24"
+                                   FontSize="24" TextWrapping="WrapWholeWords"
                                    Foreground="{x:Bind ValutazioniViewModel.AverageFirstPeriodo, Mode=OneWay, Converter={StaticResource GradeToColorConverter}}"
                                    Style="{StaticResource TitleTextBlockStyle}"
                                    Text="{x:Bind ValutazioniViewModel.AverageFirstPeriodo, Mode=OneWay, Converter={StaticResource NanToNdConverter}}"
@@ -312,7 +318,7 @@
 
                         <TextBlock x:Name="MediaSecondoPeriodoText" Margin="0,0,0,0"
                                    HorizontalAlignment="Center" VerticalAlignment="Center"
-                                   FontSize="24"
+                                   FontSize="24" TextWrapping="WrapWholeWords"
                                    Foreground="{x:Bind ValutazioniViewModel.AverageSecondPeriodo, Mode=OneWay, Converter={StaticResource GradeToColorConverter}}"
                                    Style="{StaticResource TitleTextBlockStyle}"
                                    Text="{x:Bind ValutazioniViewModel.AverageSecondPeriodo, Mode=OneWay, Converter={StaticResource NanToNdConverter}}"
@@ -354,7 +360,7 @@
                           RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True"
                           Visibility="{x:Bind ValutazioniViewModel.ShowShimmers, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" />
 
-            <controls:Segmented x:Name="SegmentedVoti" Margin="0,16,0,0"
+            <controls:Segmented x:Name="SegmentedVoti" Margin="4,16,4,0"
                                 HorizontalAlignment="Stretch" IsEnabled="False"
                                 RelativePanel.Below="GridMedie" SelectionChanged="SegmentedVoti_OnSelectionChanged"
                                 Visibility="{x:Bind ValutazioniViewModel.ShowShimmers, Mode=OneWay, Converter={StaticResource BetterBoolToVisibilityConverter}, ConverterParameter=False}">
@@ -363,13 +369,13 @@
 
             </controls:Segmented>
 
-            <controls2:GradesListView x:Name="GradesOnlyListView" Margin="0,32,0,0"
+            <controls2:GradesListView x:Name="GradesOnlyListView" Margin="0,24,0,0"
                                       HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch"
                                       EnableEmptyAlert="True" RelativePanel.AlignBottomWithPanel="True"
                                       RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True"
                                       RelativePanel.Below="SegmentedVoti" />
 
-            <ListView x:Name="MainListView" Margin="0,32,0,0"
+            <ListView x:Name="MainListView" Margin="0,24,0,0"
                       HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch"
                       ItemContainerStyle="{StaticResource ListViewFullStretchStyle}"
                       ItemTemplate="{StaticResource VotiListViewDataTemplateStandard}"
