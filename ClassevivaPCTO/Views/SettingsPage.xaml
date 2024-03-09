@@ -76,6 +76,11 @@
 
                         <RelativePanel Grid.Column="1" VerticalAlignment="Center">
 
+                            <RelativePanel.ChildrenTransitions>
+                                <EntranceThemeTransition x:Name="AccountAnimations" IsStaggeringEnabled="True" />
+                                <RepositionThemeTransition IsStaggeringEnabled="False" />
+                            </RelativePanel.ChildrenTransitions>
+
                             <TextBlock x:Name="NomeCognome" Margin="0,0,0,0"
                                        FontSize="32" FontWeight="SemiBold"
                                        RelativePanel.AlignTopWithPanel="True"
@@ -219,8 +224,13 @@
                         <FontIcon Glyph="&#xE81E;" />
                     </controls1:SettingsCard.HeaderIcon>
 
-                    <Slider x:Name="TransitionSlider" Width="200" Minimum="50" Maximum="500" StepFrequency="50" SmallChange="50" ValueChanged="TransitionSlider_OnValueChanged" />
-                    
+                    <ComboBox x:Name="AnimationsCombobox" SelectionChanged="AnimationsComboBox_OnSelectionChanged">
+                        <TextBlock Text="Disattivate" />
+                        <TextBlock Text="Basiche" />
+                        <TextBlock Text="Fluide" />
+                        <TextBlock Text="Ancora fluide" />
+                    </ComboBox>
+
                 </controls1:SettingsCard>
 
                 <TextBlock Text="Opzioni pagine" Style="{StaticResource SettingsSectionHeaderTextBlockStyle}" />

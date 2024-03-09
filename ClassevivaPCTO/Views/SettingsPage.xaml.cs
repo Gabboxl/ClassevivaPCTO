@@ -23,6 +23,7 @@ using Crowdin.Api.ProjectsGroups;
 using Crowdin.Api.TranslationStatus;
 using Windows.Storage;
 using ClassevivaPCTO.ViewModels;
+using Windows.UI.Xaml.Controls.Primitives;
 
 namespace ClassevivaPCTO.Views
 {
@@ -31,6 +32,7 @@ namespace ClassevivaPCTO.Views
         private SettingsViewModel SettingsViewModel = new();
 
         public bool AskNoticeOpenEventValue { get; set; }
+        public double TransitionSliderValue { get; set; }
 
         private static void OpenCrowdinLink()
         {
@@ -94,13 +96,17 @@ namespace ClassevivaPCTO.Views
                     paletteType));
             }
 
-
             AskNoticeOpenEventValue = !await ApplicationData.Current.LocalSettings.ReadAsync<bool>("SkipAskNoticeOpenEvent");
+
+            AnimationsCombobox.SelectedIndex = await ApplicationData.Current.LocalSettings.ReadAsync<int>("TransitionIndex");
+
             GradesRecordCombobox.SelectedValue = await ApplicationData.Current.LocalSettings.ReadAsync<int>("MaxGradesWidgetRecord");
+
             NoticesRecordCombobox.SelectedValue = await ApplicationData.Current.LocalSettings.ReadAsync<int>("MaxNoticesWidgetRecord");
 
-            TransitionSlider.Value = await ApplicationData.Current.LocalSettings.ReadAsync<double>("AnimationsValue");
+            AccountAnimations.FromVerticalOffset = await AnimationService.GetAnimationValue();
 
+            PageAnimations.FromVerticalOffset = await AnimationService.GetAnimationValue();
 
             await Task.CompletedTask;
         }
@@ -337,11 +343,12 @@ namespace ClassevivaPCTO.Views
         {
             await ApplicationData.Current.LocalSettings.SaveAsync("SkipAskNoticeOpenEvent", !AskNoticeOpenEventToggle.IsOn);
         }
-        
-        private async void TransitionSlider_OnValueChanged(object sender, RoutedEventArgs e)
+
+        private async void AnimationsComboBox_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            await ApplicationData.Current.LocalSettings.SaveAsync("AnimationsValue", TransitionSlider.Value);
-            
+            await ApplicationData.Current.LocalSettings.SaveAsync("TransitionIndex", AnimationsCombobox.SelectedIndex);
+        }
+
         private async void GradesRecordComboBox_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             await ApplicationData.Current.LocalSettings.SaveAsync("MaxGradesWidgetRecord", GradesRecordCombobox.SelectedValue);
