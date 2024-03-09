@@ -120,6 +120,18 @@ namespace ClassevivaPCTO.Views
             return $"{version.Major}.{version.Minor}.{version.Build}.{version.Revision}";
         }
 
+        private void InfoBarVisibility(int value)
+        {
+            if(value == 3)
+            {
+                AnimationsInfobar.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                AnimationsInfobar.Visibility = Visibility.Collapsed;
+            }
+        }
+
         private async void HyperlinkVote_Click(object sender, RoutedEventArgs e)
         {
             //https://learn.microsoft.com/en-us/windows/uwp/monetize/request-ratings-and-reviews
@@ -347,6 +359,7 @@ namespace ClassevivaPCTO.Views
         private async void AnimationsComboBox_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             await ApplicationData.Current.LocalSettings.SaveAsync("TransitionIndex", AnimationsCombobox.SelectedIndex);
+            InfoBarVisibility(AnimationsCombobox.SelectedIndex);
         }
 
         private async void GradesRecordComboBox_OnSelectionChanged(object sender, SelectionChangedEventArgs e)

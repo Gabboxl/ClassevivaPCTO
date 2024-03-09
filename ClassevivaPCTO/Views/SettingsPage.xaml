@@ -12,9 +12,9 @@
     xmlns:controls1="using:CommunityToolkit.WinUI.Controls"
     xmlns:views="using:ClassevivaPCTO.Views"
     mc:Ignorable="d">
-    
+
     <Page.Resources>
-        
+
         <x:Double x:Key="SettingsCardSpacing">3</x:Double>
 
         <!--  Style (inc. the correct spacing) of a section header  -->
@@ -47,8 +47,10 @@
                         Spacing="{StaticResource SettingsCardSpacing}">
 
                 <StackPanel.ChildrenTransitions>
-                    <EntranceThemeTransition x:Name="PageAnimations" IsStaggeringEnabled="True" />
-                    <RepositionThemeTransition IsStaggeringEnabled="False" />
+                    <TransitionCollection>
+                        <EntranceThemeTransition x:Name="PageAnimations" IsStaggeringEnabled="True" />
+                        <RepositionThemeTransition IsStaggeringEnabled="False" />
+                    </TransitionCollection>
                 </StackPanel.ChildrenTransitions>
 
                 <TextBlock x:Uid="SettingsAccountHeader" Style="{StaticResource SettingsSectionHeaderTextBlockStyle}" />
@@ -77,8 +79,10 @@
                         <RelativePanel Grid.Column="1" VerticalAlignment="Center">
 
                             <RelativePanel.ChildrenTransitions>
-                                <EntranceThemeTransition x:Name="AccountAnimations" IsStaggeringEnabled="True" />
-                                <RepositionThemeTransition IsStaggeringEnabled="False" />
+                                <TransitionCollection>
+                                    <EntranceThemeTransition x:Name="AccountAnimations" />
+                                    <RepositionThemeTransition IsStaggeringEnabled="False" />
+                                </TransitionCollection>
                             </RelativePanel.ChildrenTransitions>
 
                             <TextBlock x:Name="NomeCognome" Margin="0,0,0,0"
@@ -218,20 +222,24 @@
                     </ComboBox>
                 </controls1:SettingsCard>
 
-                <controls1:SettingsCard Header="Fluidita animazioni" Description="Modifica la fluidita delle animazioni dell'interfaccia">
+                <controls1:SettingsCard Header="Animazioni" Description="Modifica la fluidita delle animazioni dell'interfaccia">
 
                     <controls1:SettingsCard.HeaderIcon>
-                        <FontIcon Glyph="&#xE81E;" />
+                        <FontIcon Glyph="&#xE794;" />
                     </controls1:SettingsCard.HeaderIcon>
 
-                    <ComboBox x:Name="AnimationsCombobox" SelectionChanged="AnimationsComboBox_OnSelectionChanged">
+                    <ComboBox x:Name="AnimationsCombobox" SelectionChanged="AnimationsComboBox_OnSelectionChanged" MinWidth="150">
                         <TextBlock Text="Disattivate" />
-                        <TextBlock Text="Basiche" />
+                        <TextBlock Text="Basilari" />
                         <TextBlock Text="Fluide" />
-                        <TextBlock Text="Ancora fluide" />
+                        <TextBlock Text="Superfluide" />
                     </ComboBox>
 
                 </controls1:SettingsCard>
+
+                <controls:InfoBar IsOpen="True" Severity="Informational" 
+                                  x:Name="AnimationsInfobar"
+                                  Title="Avviso" Message="Questa impostazione potrebbe influire sulle prestazioni dell'app se si utilizza un dispositivo non ottimizzato" />
 
                 <TextBlock Text="Opzioni pagine" Style="{StaticResource SettingsSectionHeaderTextBlockStyle}" />
 
@@ -331,7 +339,7 @@
                         <FontIcon Glyph="&#xE789;" />
                     </controls1:SettingsCard.HeaderIcon>
 
-                    <Button x:Uid="SettingsCardWhatsNewButton" MinWidth="130"
+                    <Button x:Uid="SettingsCardWhatsNewButton" MinWidth="120"
                             Click="ButtonChangelog_OnClick" />
 
                 </controls1:SettingsCard>
@@ -342,7 +350,7 @@
                         <FontIcon Glyph="&#xEA80;" />
                     </controls1:SettingsCard.HeaderIcon>
 
-                    <Button x:Uid="SettingsCardTutorialButton" MinWidth="130"
+                    <Button x:Uid="SettingsCardTutorialButton" MinWidth="120"
                             Click="ButtonTutorial_OnClick" />
 
                 </controls1:SettingsCard>

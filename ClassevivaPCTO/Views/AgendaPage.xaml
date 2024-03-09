@@ -215,8 +215,10 @@
                                    Margin="0,16,0,0" VerticalAlignment="Center">
 
                         <RelativePanel.ChildrenTransitions>
-                            <EntranceThemeTransition x:Name="PageTransitions" IsStaggeringEnabled="True" />
-                            <RepositionThemeTransition IsStaggeringEnabled="False" />
+                            <TransitionCollection>
+                                <EntranceThemeTransition x:Name="PageTransitions" IsStaggeringEnabled="True" />
+                                <RepositionThemeTransition IsStaggeringEnabled="False" />
+                            </TransitionCollection>
                         </RelativePanel.ChildrenTransitions>
 
                         <Button x:Name="ButtonYesterday" x:Uid="AgendaYesterdayButton"

@@ -11,28 +11,19 @@ namespace ClassevivaPCTO.Services
         {
             int value = await ApplicationData.Current.LocalSettings.ReadAsync<int>("TransitionIndex");
 
-            double result;
-
             switch (value)
             {
                 case 0:
-                    result = 0;
-                    break;
+                    return 0;
                 case 1:
-                    result = 100;
-                    break;
+                    return 100;
                 case 2:
-                    result = 250;
-                    break;
+                    return 250;
                 case 3:
-                    result = 500;
-                    break;
+                    return 400;
                 default:
-                    result = 0;
-                    break;
+                    return 0;
             }
-
-            return result;
         }
     }
 }

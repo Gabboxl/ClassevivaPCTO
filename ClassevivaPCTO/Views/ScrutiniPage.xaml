@@ -45,8 +45,10 @@
                        Margin="0,32,0,0" HorizontalAlignment="Right">
 
             <controls1:WrapPanel.ChildrenTransitions>
-                <EntranceThemeTransition x:Name="PageAnimations" IsStaggeringEnabled="True" />
-                <RepositionThemeTransition IsStaggeringEnabled="False" />
+                <TransitionCollection>
+                    <EntranceThemeTransition x:Name="PageAnimations" IsStaggeringEnabled="True" />
+                    <RepositionThemeTransition IsStaggeringEnabled="False" />
+                </TransitionCollection>
             </controls1:WrapPanel.ChildrenTransitions>
             
             <CheckBox x:Name="CheckboxEliminati" x:Uid="ScrutiniShowDeletedDocumentsCheckbox"
