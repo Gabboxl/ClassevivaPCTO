@@ -72,15 +72,18 @@
                         <StackPanel Orientation="Horizontal" Grid.Row="0">
 
                             <TextBlock x:Name="TextOggiAgenda" x:Uid="DashboardTodaysEvents"
-                                       Margin="8,4,0,8" HorizontalAlignment="Left"
+                                       Margin="6,0,0,8" HorizontalAlignment="Left"
                                        VerticalAlignment="Center" FontSize="20"
                                        FontWeight="Medium" />
 
                             <muxc:ProgressRing x:Name="ProgressRingAgenda" Width="18"
-                                               Height="18" Margin="12,0,0,0"
+                                               Height="18" Margin="12,0,0,4"
                                                IsActive="True" VerticalAlignment="Center"
                                                Visibility="{x:Bind DashboardPageViewModel.IsLoadingAgenda, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" />
+
                         </StackPanel>
+
+                        <Rectangle Height="1" Margin="6,36,6,0" Fill="{ThemeResource ControlStrongStrokeColorDisabledBrush}" />
 
                         <controls2:OverviewListView x:Name="OverviewListView" Grid.Row="1"
                                                     HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
@@ -109,18 +112,18 @@
                         <RelativePanel Grid.Row="0">
 
                             <TextBlock x:Name="TitleRecentGrades" x:Uid="DashboardRecentGrades"
-                                       Margin="8,4,0,8" HorizontalAlignment="Left"
+                                       Margin="6,0,0,8" HorizontalAlignment="Left"
                                        VerticalAlignment="Top" FontSize="20"
                                        FontWeight="Medium" />
 
                             <muxc:ProgressRing x:Name="ProgressRingRecentGrades" Width="18"
-                                               Height="18" Margin="12,0,0,0"
+                                               Height="18" Margin="12,0,0,8"
                                                IsActive="True" RelativePanel.AlignVerticalCenterWith="TitleRecentGrades"
                                                RelativePanel.RightOf="TitleRecentGrades"
                                                Visibility="{x:Bind DashboardPageViewModel.IsLoadingGrades, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" />
 
                             <TextBlock x:Name="TitleMedia" x:Uid="DashboardGradesAverage"
-                                       Margin="0,9,6,0" FontSize="16"
+                                       Margin="0,3,6,0" FontSize="16"
                                        Foreground="{ThemeResource TextFillColorTertiaryBrush}"
                                        RelativePanel.LeftOf="TextBlockMedia" TextAlignment="Center"
                                        TextWrapping="Wrap" />
@@ -129,12 +132,14 @@
                                                IsActive="False" RelativePanel.RightOf="TitleMedia"
                                                Visibility="{x:Bind DashboardPageViewModel.IsLoadingMedia, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" />
 
-                            <TextBlock x:Name="TextBlockMedia" Margin="0,9,4,0"
+                            <TextBlock x:Name="TextBlockMedia" Margin="0,3,6,0"
                                        FontSize="18" FontWeight="ExtraBold"
                                        RelativePanel.AlignRightWithPanel="True" Text="test"
                                        Visibility="Collapsed" />
 
                         </RelativePanel>
+
+                        <Rectangle Height="1" Margin="6,36,0,0" RelativePanel.Below="TitleRecentGrades" Fill="{ThemeResource ControlStrongStrokeColorDisabledBrush}" />
 
                         <ScrollViewer Grid.Row="1" HorizontalScrollBarVisibility="Hidden"
                                       HorizontalScrollMode="Disabled" IsTabStop="False"
@@ -142,7 +147,7 @@
                                       VerticalScrollMode="Enabled" ZoomMode="Disabled">
 
                             <controls2:GradesListView x:Name="ListRecentGrades" HorizontalAlignment="Stretch"
-                                                      EnableEmptyAlert="True" />
+                                                      EnableEmptyAlert="True" Margin="0,6,0,0" />
 
                         </ScrollViewer>
 
@@ -171,18 +176,21 @@
                         <StackPanel Orientation="Horizontal" Grid.Row="0">
 
                             <TextBlock x:Name="TextBachecaRecenti" x:Uid="DashboardRecentNotices"
-                                       Margin="8,4,0,8" HorizontalAlignment="Left"
+                                       Margin="6,0,0,8" HorizontalAlignment="Left"
                                        VerticalAlignment="Center" FontSize="20"
                                        FontWeight="Medium" />
 
                             <muxc:ProgressRing x:Name="ProgressRingRecentNotices" Width="18"
-                                               Height="18" Margin="12,0,0,0"
+                                               Height="18" Margin="12,0,0,4"
                                                IsActive="True" VerticalAlignment="Center"
                                                Visibility="{x:Bind DashboardPageViewModel.IsLoadingNotices, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" />
+                            
                         </StackPanel>
 
+                        <Rectangle Height="1" Margin="6,36,0,0" RelativePanel.Below="TitleRecentGrades" Fill="{ThemeResource ControlStrongStrokeColorDisabledBrush}" />
+
                         <controls2:NoticesListView x:Name="ListRecentNotices" Grid.Row="1"
-                                                   HorizontalAlignment="Stretch" />
+                                                   HorizontalAlignment="Stretch" Margin="0,6,0,0"/>
 
                         <HyperlinkButton x:Name="ButtonApriBacheca" Grid.Row="2"
                                          HorizontalAlignment="Right" VerticalAlignment="Bottom"
