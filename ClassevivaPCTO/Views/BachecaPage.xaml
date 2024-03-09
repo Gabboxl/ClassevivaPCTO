@@ -46,6 +46,11 @@
 
         <StackPanel Grid.Row="0" Margin="0,18,0,0" Orientation="Horizontal" HorizontalAlignment="Right">
 
+            <StackPanel.ChildrenTransitions>
+                <EntranceThemeTransition x:Name="PageAnimations" IsStaggeringEnabled="True" />
+                <RepositionThemeTransition IsStaggeringEnabled="False" />
+            </StackPanel.ChildrenTransitions>
+
             <ComboBox MinWidth="200"
                 VerticalAlignment="Center"
                 x:Uid="NoticeBoardCategoryCombobox"
