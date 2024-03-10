@@ -114,10 +114,10 @@
 
                         <Button.Content>
                             <StackPanel Orientation="Horizontal">
-                                <FontIcon Margin="0,3,0,0"
+                                <FontIcon Margin="0,4,2,0"
                                           FontFamily="{StaticResource FluentIcons}"
                                           Glyph="&#xE894;" />
-                                <TextBlock x:Uid="NoticeBoardNotAvailableButton" Margin="6,0,0,0" />
+                                <TextBlock x:Uid="NoticeBoardNotAvailableButton" Margin="6,2,0,0" />
                             </StackPanel>
                         </Button.Content>
 

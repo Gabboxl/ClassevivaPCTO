@@ -187,7 +187,7 @@ Si vous rencontrez des bugs ou avez une idée pour l'application, ouvrez un tick
     <value>Choisir la langue de l'app</value>
   </data>
   <data name="SettingsAboutExpander.Description" xml:space="preserve">
-    <value>© 2023. Tous droits réservés.</value>
+    <value>© 2024. Tous droits réservés.</value>
   </data>
   <data name="SettingsAboutExpanderRateHyperlink.Text" xml:space="preserve">
     <value>Noter sur l'App Store</value>
@@ -199,10 +199,10 @@ Si vous rencontrez des bugs ou avez une idée pour l'application, ouvrez un tick
     <value>Informations générales</value>
   </data>
   <data name="SettingsCardTutorial.Description" xml:space="preserve">
-    <value>Afficher des conseils sur le fonctionnement de l'application</value>
+    <value>Montrer des conseils sur le fonctionnement de l'application</value>
   </data>
   <data name="SettingsCardTutorialButton.Content" xml:space="preserve">
-    <value>Conseils d'avril</value>
+    <value>Montrer</value>
   </data>
   <data name="SettingsCardWhatsNew.Header" xml:space="preserve">
     <value>Nouveautés de cette version </value>
@@ -217,7 +217,7 @@ Si vous rencontrez des bugs ou avez une idée pour l'application, ouvrez un tick
     <value>Sondage</value>
   </data>
   <data name="ScrutiniShowDeletedDocumentsCheckbox.Content" xml:space="preserve">
-    <value>Afficher les éléments supprimés</value>
+    <value>Inclure documents supprimés</value>
   </data>
   <data name="ScrutiniDocumentsHeader.Text" xml:space="preserve">
     <value>Documents</value>
@@ -416,7 +416,7 @@ Erreur: </value>
     <value>Accédez aux événements d'aujourd'hui</value>
   </data>
   <data name="NoticeBoardShowInactiveNoticesCheckbox.Content" xml:space="preserve">
-    <value>Inclure les communications expirées</value>
+    <value>Inclure communications expirées</value>
   </data>
   <data name="DashboardEditWidgetsButton.Text" xml:space="preserve">
     <value>Personnaliser les widgets</value>
@@ -661,10 +661,10 @@ Erreur: </value>
   <data name="AbsencesTodayButton.Content" xml:space="preserve">
     <value>Aujourd'hui</value>
   </data>
-  <data name="GradesListLayoutSegmentedItem.Text" xml:space="preserve">
+  <data name="GradesListLayout.Text" xml:space="preserve">
     <value>Liste</value>
   </data>
-  <data name="GradesSubjectsLayoutSegmentedItem.Text" xml:space="preserve">
+  <data name="GradesSubjectsLayout.Text" xml:space="preserve">
     <value>Sujets</value>
   </data>
   <data name="GenericOpenButton.Text" xml:space="preserve">
@@ -705,5 +705,23 @@ Erreur: </value>
   </data>
   <data name="RestartLater" xml:space="preserve">
     <value>Redémarrer plus tard</value>
+  </data>
+  <data name="NoticeBoardFilterAllNoticesItem.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Afficher toutes les communications</value>
+  </data>
+  <data name="NoticeBoardFilterReadNoticesItem.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Afficher uniquement les communications lues</value>
+  </data>
+  <data name="NoticeBoardFilterUnreadNoticesItem.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Afficher uniquement les communications non lues</value>
+  </data>
+  <data name="NoticeBoardShowInactiveNoticesCheckbox.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Il affiche également les communications expirées et supprimées</value>
+  </data>
+  <data name="ScrutiniShowDeletedDocumentsCheckbox.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Il montre également les documents qui ont été supprimés</value>
+  </data>
+  <data name="NoticeBoardCategoryCombobox.PlaceholderText" xml:space="preserve">
+    <value>Filtrer par catégorie...</value>
   </data>
 </root>

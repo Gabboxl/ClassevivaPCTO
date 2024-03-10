@@ -60,7 +60,7 @@ namespace ClassevivaPCTO.Services
         private static async Task<ElementTheme> LoadThemeFromSettingsAsync()
         {
             ElementTheme cacheTheme = ElementTheme.Default;
-            string themeName = await ApplicationData.Current.LocalSettings.ReadAsync<string>(SettingsKey);
+            string? themeName = await ApplicationData.Current.LocalSettings.ReadAsync<string>(SettingsKey);
 
             if (!string.IsNullOrEmpty(themeName))
             {

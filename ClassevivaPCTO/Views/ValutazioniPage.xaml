@@ -139,20 +139,20 @@
                                 RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignVerticalCenterWithPanel="True"
                                 SelectedIndex="0">
 
-                <controls:SegmentedItem>
+                <controls:SegmentedItem ToolTipService.ToolTip="Visualizza i voti come lista">
                     <controls:SegmentedItem.Content>
                         <StackPanel Orientation="Horizontal">
                             <FontIcon Margin="0,0,6,0" FontFamily="{StaticResource FluentIcons}" FontSize="14" Glyph="&#xE14C;" />
-                            <TextBlock x:Uid="GradesListLayoutSegmentedItem" />
+                            <TextBlock x:Uid="GradesListLayout" />
                         </StackPanel>
                     </controls:SegmentedItem.Content>
                 </controls:SegmentedItem>
 
-                <controls:SegmentedItem>
+                <controls:SegmentedItem ToolTipService.ToolTip="Visualizza i voti raggruppati in base alla materia">
                     <controls:SegmentedItem.Content>
                         <StackPanel Orientation="Horizontal">
                             <FontIcon Margin="0,0,6,0" FontFamily="{StaticResource FluentIcons}" FontSize="14" Glyph="&#xE169;" />
-                            <TextBlock x:Uid="GradesSubjectsLayoutSegmentedItem" />
+                            <TextBlock x:Uid="GradesSubjectsLayout" />
                         </StackPanel>
                     </controls:SegmentedItem.Content>
                 </controls:SegmentedItem>
