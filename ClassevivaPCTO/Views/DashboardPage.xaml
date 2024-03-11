@@ -58,7 +58,7 @@
                                            ColumnSpacing="12" DesiredColumnWidth="500"
                                            RowSpacing="12" ScrollViewer.VerticalScrollMode="Enabled">
 
-                    <!--  agenda grid  -->
+                    <!--  agenda widget  -->
                     <Grid MinHeight="500" Padding="12"
                           Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
                           BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
@@ -98,7 +98,7 @@
 
                     </Grid>
 
-                    <!--  grades grid  -->
+                    <!--  grades widget  -->
                     <Grid Margin="0,0,0,0" Padding="12"
                           Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
                           BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
@@ -139,7 +139,7 @@
 
                         </RelativePanel>
 
-                        <Rectangle Height="1" Margin="6,36,0,0" RelativePanel.Below="TitleRecentGrades" Fill="{ThemeResource ControlStrongStrokeColorDisabledBrush}" />
+                        <Rectangle Height="1" Margin="6,36,6,0" RelativePanel.Below="TitleRecentGrades" Fill="{ThemeResource ControlStrongStrokeColorDisabledBrush}" />
 
                         <ScrollViewer Grid.Row="1" HorizontalScrollBarVisibility="Hidden"
                                       HorizontalScrollMode="Disabled" IsTabStop="False"
@@ -161,6 +161,7 @@
 
                     </Grid>
 
+                    <!--  notices widget  -->
                     <Grid Margin="0,0,0,0" Padding="12"
                           HorizontalAlignment="Stretch"
                           Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
@@ -187,7 +188,7 @@
                             
                         </StackPanel>
 
-                        <Rectangle Height="1" Margin="6,36,0,0" RelativePanel.Below="TitleRecentGrades" Fill="{ThemeResource ControlStrongStrokeColorDisabledBrush}" />
+                        <Rectangle Height="1" Margin="6,36,6,0" RelativePanel.Below="TitleRecentGrades" Fill="{ThemeResource ControlStrongStrokeColorDisabledBrush}" />
 
                         <controls2:NoticesListView x:Name="ListRecentNotices" Grid.Row="1"
                                                    HorizontalAlignment="Stretch" Margin="0,6,0,0"/>

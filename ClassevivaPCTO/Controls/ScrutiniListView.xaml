@@ -164,12 +164,12 @@
             <StackPanel>
 
                 <TextBlock x:Name="DocumentsTitle" x:Uid="ScrutiniDocumentsHeader"
-                           Margin="14,12,0,8" FontSize="18"
+                           Margin="6,0,0,8" FontSize="20"
                            FontWeight="SemiBold"
                            Style="{ThemeResource BodyStrongTextBlockStyle}"
                            Visibility="{x:Bind ItemsSource.Documents, Mode=OneWay, FallbackValue=Collapsed, Converter={StaticResource EmptyListToVisibilityConverter}}" />
 
-                <Rectangle Height="1" Margin="14,2,14,8"
+                <Rectangle Height="1" Margin="6,2,6,8"
                            Fill="{ThemeResource ControlStrongStrokeColorDisabledBrush}"
                            Visibility="{x:Bind ItemsSource.Documents, Mode=OneWay, FallbackValue=Collapsed, Converter={StaticResource EmptyListToVisibilityConverter}}" />
 
@@ -180,12 +180,12 @@
                           ScrollViewer.VerticalScrollMode="Enabled" />
 
                 <TextBlock x:Name="ReportsTitle" x:Uid="ScrutiniReportsHeader"
-                           Margin="14,12,0,8" FontSize="18"
+                           Margin="6,12,0,8" FontSize="20"
                            FontWeight="SemiBold"
                            Style="{ThemeResource BodyStrongTextBlockStyle}"
                            Visibility="{x:Bind ItemsSource.SchoolReports, Mode=OneWay, FallbackValue=Collapsed, Converter={StaticResource EmptyListToVisibilityConverter}}" />
 
-                <Rectangle Height="1" Margin="14,2,14,8"
+                <Rectangle Height="1" Margin="6,2,6,8"
                            Fill="{ThemeResource ControlStrongStrokeColorDisabledBrush}"
                            Visibility="{x:Bind ItemsSource.Documents, Mode=OneWay, FallbackValue=Collapsed, Converter={StaticResource EmptyListToVisibilityConverter}}" />
 

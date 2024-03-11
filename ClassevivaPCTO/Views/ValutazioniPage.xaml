@@ -44,11 +44,17 @@
                                            HorizontalAlignment="Stretch"
                                            HorizontalContentAlignment="Stretch"
                                            HeaderIcon="{x:Bind AverageVariationIcon}" >
+                    <controls:SettingsExpander.Transitions>
+                        <TransitionCollection>
+                            <ContentThemeTransition />
+                        </TransitionCollection>
+                    </controls:SettingsExpander.Transitions>
+                    
                     <controls:SettingsExpander.Header>
-                        <TextBlock Text="{x:Bind Subject.description}" FontWeight="Medium" FontSize="14" Margin="0,-4,0,0"/>
+                        <TextBlock Text="{x:Bind Subject.description}" FontWeight="Medium" FontSize="14" Margin="0,0,0,0"/>
                     </controls:SettingsExpander.Header>
                     <controls:SettingsExpander.Description>
-                        <TextBlock Text="{x:Bind Teachers}" FontSize="12" Margin="0,0,0,-4"/>
+                        <TextBlock Text="{x:Bind Teachers}" FontSize="12" Margin="0,0,0,0"/>
                     </controls:SettingsExpander.Description>
                     
                     <Grid>
@@ -356,7 +362,7 @@
             </Grid>
 
             <labs:Shimmer Width="Auto" Height="32"
-                          Margin="0,122,0,0" HorizontalAlignment="Stretch"
+                          Margin="4,122,4,0" HorizontalAlignment="Stretch"
                           RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True"
                           Visibility="{x:Bind ValutazioniViewModel.ShowShimmers, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" />
 
