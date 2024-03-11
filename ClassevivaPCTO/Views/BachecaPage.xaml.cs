@@ -105,6 +105,15 @@ namespace ClassevivaPCTO.Views
 
                         CategoryComboBox.SelectionChanged += CategoryComboBox_OnSelectionChanged;
 
+                        if(ReadUnreadSegmented.SelectedIndex != 0 || CategoryComboBox.SelectedIndex != -1)
+                        {
+                            ClearAllFiltersButton.Visibility = Windows.UI.Xaml.Visibility.Visible;
+                        }
+                        else
+                        {
+                            ClearAllFiltersButton.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
+                        }
+
                         //set the notices to show
                         BachecaViewModel.NoticesToShow = noticesToShow;
                     }
@@ -137,6 +146,13 @@ namespace ClassevivaPCTO.Views
 
         private void CategoryComboBox_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            AggiornaAction();
+        }
+
+        private void ClearAllFiltersButton_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+            ReadUnreadSegmented.SelectedIndex = 0;
+            CategoryComboBox.SelectedIndex = -1;
             AggiornaAction();
         }
     }
