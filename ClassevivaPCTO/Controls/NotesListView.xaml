@@ -76,7 +76,7 @@
                             <StackPanel Padding="6,0,6,0" Orientation="Vertical">
                                 <FontIcon FontFamily="{StaticResource FluentIcons}"
                                           FontSize="16" Glyph="&#xE890;" />
-                                <TextBlock x:Uid="GenericReadButton" Margin="0,0,0,0"
+                                <TextBlock Text="{CustomResource GenericReadButton}" Margin="0,0,0,0"
                                            FontSize="12" />
                             </StackPanel>
                         </Button.Content>
@@ -131,7 +131,7 @@
                       Foreground="{ThemeResource TextFillColorDisabledBrush}"
                       Glyph="&#xe91c;" RelativePanel.AlignHorizontalCenterWithPanel="True" />
 
-            <TextBlock x:Uid="NotesPlaceholder" Margin="0,6,0,0"
+            <TextBlock Text="{CustomResource NotesPlaceholder}" Margin="0,6,0,0"
                        HorizontalAlignment="Center" VerticalAlignment="Center"
                        FontSize="36" FontWeight="SemiBold"
                        Foreground="{ThemeResource TextFillColorDisabledBrush}"

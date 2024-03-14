@@ -47,7 +47,7 @@
 
         <StackPanel Orientation="Horizontal" Grid.Row="0" Margin="0,16,0,16">
             
-            <TextBlock x:Name="TextTitolo" x:Uid="AbsencesTitle"
+            <TextBlock x:Name="TextTitolo" Text="{CustomResource AbsencesTitle}"
                        Margin="32,0,0,0" VerticalAlignment="Center"
                        Style="{StaticResource TitleLargeTextBlockStyle}" />
 
@@ -102,11 +102,11 @@
                                        BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
                                        BorderThickness="1" CornerRadius="8">
 
-                            <TextBlock x:Name="TextBlockCalendarioEventi" x:Uid="AbsencesEventsCalendar"
+                            <TextBlock x:Name="TextBlockCalendarioEventi" Text="{CustomResource AbsencesEventsCalendar}"
                                        Margin="8,4,0,0"
                                        Style="{ThemeResource BodyStrongTextBlockStyle}" />
 
-                            <Button x:Name="TodayButton" x:Uid="AbsencesTodayButton"
+                            <Button x:Name="TodayButton" Content="{CustomResource AbsencesTodayButton}"
                                     Margin="0,4,2,12" Click="TodayButton_OnClick"
                                     RelativePanel.AlignRightWithPanel="True" />
 
