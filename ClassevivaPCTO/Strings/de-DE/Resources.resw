@@ -405,13 +405,13 @@ Errore: </value>
   <data name="WhatsNewDialogRelease" xml:space="preserve">
     <value>v1.2.0, 25 Novembre 2023</value>
   </data>
-  <data name="AgendaTomorrowButtonTooltip" xml:space="preserve">
+  <data name="AgendaTomorrowButtonToolTip" xml:space="preserve">
     <value>Giorno successivo</value>
   </data>
-  <data name="AgendaYesterdayButtonTooltip" xml:space="preserve">
+  <data name="AgendaYesterdayButtonToolTip" xml:space="preserve">
     <value>Giorno precedente</value>
   </data>
-  <data name="AgendaTodayButtonTooltip" xml:space="preserve">
+  <data name="AgendaTodayButtonToolTip" xml:space="preserve">
     <value>Vai agli eventi di oggi</value>
   </data>
   <data name="NoticeBoardShowInactiveNoticesCheckbox" xml:space="preserve">
@@ -447,19 +447,19 @@ Errore: </value>
   <data name="NavigationViewScrutini" xml:space="preserve">
     <value>Scrutini</value>
   </data>
-  <data name="RefreshButtonTooltip" xml:space="preserve">
+  <data name="RefreshButtonToolTip" xml:space="preserve">
     <value>Aggiorna (F5)</value>
   </data>
-  <data name="SettingsPaletteColorBlueTooltip" xml:space="preserve">
+  <data name="SettingsPaletteColorBlueToolTip" xml:space="preserve">
     <value>Non fa media, assenza parziale</value>
   </data>
-  <data name="SettingsPaletteColorGreenTooltip" xml:space="preserve">
+  <data name="SettingsPaletteColorGreenToolTip" xml:space="preserve">
     <value>Sufficienza, presenza, comunicazione letta</value>
   </data>
-  <data name="SettingsPaletteColorOrangeTooltip" xml:space="preserve">
+  <data name="SettingsPaletteColorOrangeToolTip" xml:space="preserve">
     <value>Insufficienza lieve, ritardo, comunicazione scaduta</value>
   </data>
-  <data name="SettingsPaletteColorRedTooltip" xml:space="preserve">
+  <data name="SettingsPaletteColorRedToolTip" xml:space="preserve">
     <value>Insufficienza grave, assenza, comunicazione non letta</value>
   </data>
   <data name="NoticeBoardValidFromToDateText" xml:space="preserve">
@@ -552,7 +552,7 @@ Errore: </value>
   <data name="GradesAllPeriodsSegmentedItem" xml:space="preserve">
     <value>Tutti i periodi</value>
   </data>
-  <data name="AgendaCalendarDatePickerTooltip" xml:space="preserve">
+  <data name="AgendaCalendarDatePickerToolTip" xml:space="preserve">
     <value>Seleziona una data</value>
   </data>
   <data name="NoticeBoardFilterAllNotices" xml:space="preserve">
@@ -681,13 +681,13 @@ Errore: </value>
   <data name="NoticeDialogSaveAttachmentButton" xml:space="preserve">
     <value>Salva</value>
   </data>
-  <data name="ScrutiniOpenFileButtonTooltip" xml:space="preserve">
+  <data name="ScrutiniOpenFileButtonToolTip" xml:space="preserve">
     <value>Visualizza scrutinio</value>
   </data>
-  <data name="ScrutiniOpenReportButtonTooltip" xml:space="preserve">
+  <data name="ScrutiniOpenReportButtonToolTip" xml:space="preserve">
     <value>Apri report nel browser</value>
   </data>
-  <data name="ScrutiniSaveFileButtonTooltip" xml:space="preserve">
+  <data name="ScrutiniSaveFileButtonToolTip" xml:space="preserve">
     <value>Salva il file dello scrutinio sul PC</value>
   </data>
   <data name="NoticeBoardNotAvailableButton" xml:space="preserve">
@@ -705,19 +705,19 @@ Errore: </value>
   <data name="RestartLater" xml:space="preserve">
     <value>Riavvia più tardi</value>
   </data>
-  <data name="NoticeBoardFilterAllNoticesItemTooltip" xml:space="preserve">
+  <data name="NoticeBoardFilterAllNoticesItemToolTip" xml:space="preserve">
     <value>Mostra tutte le comunicazioni</value>
   </data>
-  <data name="NoticeBoardFilterReadNoticesItemTooltip" xml:space="preserve">
+  <data name="NoticeBoardFilterReadNoticesItemToolTip" xml:space="preserve">
     <value>Mostra solo le comunicazioni lette</value>
   </data>
-  <data name="NoticeBoardFilterUnreadNoticesItemTooltip" xml:space="preserve">
+  <data name="NoticeBoardFilterUnreadNoticesItemToolTip" xml:space="preserve">
     <value>Mostra solo le comunicazioni non lette</value>
   </data>
-  <data name="NoticeBoardShowInactiveNoticesCheckboxTooltip" xml:space="preserve">
+  <data name="NoticeBoardShowInactiveNoticesCheckboxToolTip" xml:space="preserve">
     <value>Mostra anche le comunicazioni scadute e quelle eliminate</value>
   </data>
-  <data name="ScrutiniShowDeletedDocumentsCheckboxTooltip" xml:space="preserve">
+  <data name="ScrutiniShowDeletedDocumentsCheckboxToolTip" xml:space="preserve">
     <value>Mostra anche i documenti che sono stati eliminati</value>
   </data>
   <data name="NoticeBoardCategoryComboboxPlaceholderText" xml:space="preserve">
