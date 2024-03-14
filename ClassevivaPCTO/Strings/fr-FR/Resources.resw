@@ -126,158 +126,157 @@
     <comment>Application description</comment>
   </data>
   <data name="Shell_Main" xml:space="preserve">
-    <value>Principal</value>
+    <value>Main</value>
     <comment>Navigation view item name for Main</comment>
   </data>
   <data name="SettingsCardThemeDarkComboboxItem" xml:space="preserve">
-    <value>Sombre</value>
+    <value>Scuro</value>
   </data>
   <data name="SettingsCardThemeDefaultComboboxItem" xml:space="preserve">
-    <value>Valeur par défaut du système</value>
+    <value>Predefinito di Sistema</value>
   </data>
   <data name="SettingsCardThemeLightComboboxItem" xml:space="preserve">
-    <value>Clair</value>
+    <value>Chiaro</value>
   </data>
   <data name="SettingsAboutHeader" xml:space="preserve">
-    <value>Informations sur l'application</value>
+    <value>Informazioni app</value>
   </data>
   <data name="SettingsPersonalizationHeader" xml:space="preserve">
-    <value>Apparence</value>
+    <value>Aspetto</value>
   </data>
   <data name="FirstRunDialogBody" xml:space="preserve">
-    <value>Avec ClassevivaPCTO vous pourrez visualiser les données de votre registre électronique Classeviva de manière intuitive et sous couvert d'un design innovant.
+    <value>Con ClassevivaPCTO potrai visualizzare i tuoi dati del registro elettronico Classeviva in maniera intuitiva e sotto le vesti di un design innovativo.
 
-Cette application est réservée aux comptes étudiants.
+Quest'app è rivolta soltanto agli account studente.
 
-Veuillez noter que cette application est encore en développement et que certaines fonctionnalités ne sont pas disponibles pour le moment.
-
-Si vous rencontrez des bugs ou avez une idée pour l'application, ouvrez un ticket sur GitHub en cliquant sur le lien « Signaler un problème » dans la section Informations sur l'application.</value>
+Ricorda che quest'app è ancora in fase di sviluppo e alcune funzionalità non sono disponibili al momento. 
+Se riscontri bug o hai un'idea per l'app apri un issue su GitHub cliccando sul link "Segnala un problema" nella sezione Informazioni app.</value>
   </data>
   <data name="FirstRunDialogTitle" xml:space="preserve">
-    <value>Bienvenue chez ClassevivaPCTO</value>
+    <value>Benvenuto in ClassevivaPCTO</value>
   </data>
   <data name="FirstRunDialogPrimaryButtonText" xml:space="preserve">
     <value>Ok</value>
   </data>
   <data name="WhatsNewDialogPrimaryButtonText" xml:space="preserve">
-    <value>Fermer</value>
+    <value>Chiudi</value>
   </data>
   <data name="WhatsNewDialogTitle" xml:space="preserve">
-    <value>Nouveautés de cette version </value>
+    <value>Novità in questa versione</value>
   </data>
   <data name="SettingsAccountHeader" xml:space="preserve">
-    <value>Comptes</value>
+    <value>Account</value>
   </data>
   <data name="SettingsGeneralHeader" xml:space="preserve">
-    <value>Général</value>
+    <value>Generali</value>
   </data>
   <data name="SettingsTitle" xml:space="preserve">
-    <value>Paramètres</value>
+    <value>Impostazioni</value>
   </data>
   <data name="SettingsCardThemeDescription" xml:space="preserve">
-    <value>Sélectionner le thème de l'application</value>
+    <value>Scegli il tema dell'app</value>
   </data>
   <data name="SettingsCardThemeHeader" xml:space="preserve">
-    <value>Thème</value>
+    <value>Tema</value>
   </data>
   <data name="SettingsCardLanguageHeader" xml:space="preserve">
-    <value>Langue</value>
+    <value>Lingua</value>
   </data>
   <data name="SettingsCardLanguageDescription" xml:space="preserve">
-    <value>Choisir la langue de l'app</value>
+    <value>Scegli la lingua dell'app</value>
   </data>
   <data name="SettingsAboutExpanderDescription" xml:space="preserve">
-    <value>© 2024. Tous droits réservés.</value>
+    <value>© 2024. Tutti i diritti riservati.</value>
   </data>
   <data name="SettingsAboutExpanderRateHyperlink" xml:space="preserve">
-    <value>Noter sur l'App Store</value>
+    <value>Vota nello Store</value>
   </data>
   <data name="SettingsAboutExpanderIssueHyperlink" xml:space="preserve">
-    <value>Signaler un problème</value>
+    <value>Segnala un problema</value>
   </data>
   <data name="SettingsCardTutorialHeader" xml:space="preserve">
-    <value>Informations générales</value>
+    <value>Informazioni di base</value>
   </data>
   <data name="SettingsCardTutorialDescription" xml:space="preserve">
-    <value>Montrer des conseils sur le fonctionnement de l'application</value>
+    <value>Visualizza informazioni utili e suggerimenti sul funzionamento dell'app</value>
   </data>
   <data name="SettingsCardTutorialButton" xml:space="preserve">
-    <value>Montrer</value>
+    <value>Visualizza</value>
   </data>
   <data name="SettingsCardWhatsNewHeader" xml:space="preserve">
-    <value>Nouveautés de cette version </value>
+    <value>Novità in questa versione</value>
   </data>
   <data name="SettingsCardWhatsNewDescription" xml:space="preserve">
-    <value>Afficher les modifications envisagées</value>
+    <value>Visualizza le modifiche recenti</value>
   </data>
   <data name="SettingsCardWhatsNewButton" xml:space="preserve">
-    <value>Afficher les actualités</value>
+    <value>Mostra novità</value>
   </data>
   <data name="ScrutiniTitle" xml:space="preserve">
-    <value>Sondage</value>
+    <value>Scrutini</value>
   </data>
   <data name="ScrutiniShowDeletedDocumentsCheckbox" xml:space="preserve">
-    <value>Inclure documents supprimés</value>
+    <value>Includi documenti eliminati</value>
   </data>
   <data name="ScrutiniDocumentsHeader" xml:space="preserve">
-    <value>Documents</value>
+    <value>Documenti</value>
   </data>
   <data name="NotesTitle" xml:space="preserve">
-    <value>Notes</value>
+    <value>Note</value>
   </data>
   <data name="LoginWelcome" xml:space="preserve">
-    <value>Bienvenue</value>
+    <value>Benvenuto</value>
   </data>
   <data name="LoginUsernameFieldHeader" xml:space="preserve">
-    <value>Nom utilisateur :</value>
+    <value>Nome utente:</value>
   </data>
   <data name="LoginPasswordFieldHeader" xml:space="preserve">
-    <value>Mot de passe :</value>
+    <value>Password:</value>
   </data>
   <data name="LoginKeepCredentialsCheckbox" xml:space="preserve">
-    <value>Conserver les informations d'identification</value>
+    <value>Mantieni le credenziali</value>
   </data>
   <data name="DashboardTitleText" xml:space="preserve">
     <value>Le panneau de bord de {0}</value>
   </data>
   <data name="DashboardTodaysEvents" xml:space="preserve">
-    <value>Événements de la journée</value>
+    <value>Eventi del giorno</value>
   </data>
   <data name="DashboardOpenAgendaButton" xml:space="preserve">
-    <value>Agenda ouverte</value>
+    <value>Apri agenda</value>
   </data>
   <data name="DashboardRecentGrades" xml:space="preserve">
-    <value>Évaluations récentes</value>
+    <value>Valutazioni recenti</value>
   </data>
   <data name="DashboardGradesAverage" xml:space="preserve">
-    <value>Moyenne totale :</value>
+    <value>Media totale:</value>
   </data>
   <data name="DashboardOpenGradesButton" xml:space="preserve">
-    <value>Montrer toutes les saisons</value>
+    <value>Visualizza tutte le valutazioni</value>
   </data>
   <data name="DashboardRecentNotices" xml:space="preserve">
-    <value>Évaluations récentes</value>
+    <value>Comunicazioni recenti</value>
   </data>
   <data name="DashboardOpenNoticeBoardButton" xml:space="preserve">
-    <value>Tableau d'affichage ouvert</value>
+    <value>Apri bacheca</value>
   </data>
   <data name="NoticeBoardNotices" xml:space="preserve">
-    <value>Communications</value>
+    <value>Comunicazioni</value>
   </data>
   <data name="AbsencesEventsCalendar" xml:space="preserve">
-    <value>Calendrier des événements</value>
+    <value>Calendario eventi</value>
   </data>
   <data name="AgendaTasksPopupTitle" xml:space="preserve">
-    <value>Devoirs</value>
+    <value>Compiti</value>
   </data>
   <data name="AgendaTodayButton" xml:space="preserve">
-    <value>Aujourd'hui</value>
+    <value>Oggi</value>
   </data>
   <data name="AgendaAllTasksButton" xml:space="preserve">
-    <value>Toutes les tâches</value>
+    <value>Tutti i compiti</value>
   </data>
   <data name="AgendaAllLessonsButton" xml:space="preserve">
-    <value>Toutes les leçons</value>
+    <value>Tutte le lezioni</value>
   </data>
   <data name="AccountNonSupportato" xml:space="preserve">
     <value>Compte enseignant non pris en charge</value>
@@ -302,7 +301,7 @@ Erreur: </value>
     <value>Choisir un autre profil</value>
   </data>
   <data name="LoginButton" xml:space="preserve">
-    <value>S'enregistrer</value>
+    <value>Accedi</value>
   </data>
   <data name="CancelDialogButton" xml:space="preserve">
     <value>Annuler</value>
@@ -314,25 +313,25 @@ Erreur: </value>
     <value>Pas de pièces jointes</value>
   </data>
   <data name="ProfileChoiceDialogComboboxHeader" xml:space="preserve">
-    <value>Selectionnez un profil:</value>
+    <value>Seleziona un profilo:</value>
   </data>
   <data name="ProfileChoiceDialogBody" xml:space="preserve">
-    <value>Plusieurs profils sont associés à ce compte.</value>
+    <value>Più profili sono associati a questo account.</value>
   </data>
   <data name="AgendaLessonsPopupTitle" xml:space="preserve">
-    <value>Leçons</value>
+    <value>Lezioni</value>
   </data>
   <data name="GradesTitle" xml:space="preserve">
-    <value>Notes</value>
+    <value>Valutazioni</value>
   </data>
   <data name="AbsencesTitle" xml:space="preserve">
-    <value>Absences</value>
+    <value>Assenze</value>
   </data>
   <data name="AgendaTitle" xml:space="preserve">
     <value>Agenda</value>
   </data>
   <data name="AgendaPlaceholder" xml:space="preserve">
-    <value>Aucun événement</value>
+    <value>Nessun evento</value>
   </data>
   <data name="CloseDialogButtonText" xml:space="preserve">
     <value>Fermer</value>
@@ -347,16 +346,16 @@ Erreur: </value>
     <value>La note sera marquée comme lue sur le serveur. Continuer?</value>
   </data>
   <data name="SettingsAccountExitButton" xml:space="preserve">
-    <value>Quitter</value>
+    <value>Esci</value>
   </data>
   <data name="NoticeBoardPlaceholder" xml:space="preserve">
-    <value>Pas de communication</value>
+    <value>Nessuna comunicazione</value>
   </data>
   <data name="NotesPlaceholder" xml:space="preserve">
-    <value>Aucune notes de conservation</value>
+    <value>Nessuna nota</value>
   </data>
   <data name="SettingsAboutExpanderCrowdinHyperlink" xml:space="preserve">
-    <value>Traduire sur Crowdin</value>
+    <value>Traduci su Crowdin</value>
   </data>
   <data name="PALETTE_CVV" xml:space="preserve">
     <value>Classeviva</value>
@@ -368,100 +367,100 @@ Erreur: </value>
     <value>Nature</value>
   </data>
   <data name="SettingsAccountChangePhoto" xml:space="preserve">
-    <value>Changer de photo</value>
+    <value>Cambia foto</value>
   </data>
   <data name="AutoSuggestBoxSearchPlaceholderText" xml:space="preserve">
-    <value>Rechercher...</value>
+    <value>Cerca...</value>
   </data>
   <data name="SettingsAboutExpanderGitHubHyperlink" xml:space="preserve">
-    <value>Projet sur Github</value>
+    <value>Progetto su GitHub</value>
   </data>
   <data name="WhatsNewDialogHyperlinkAllChanges" xml:space="preserve">
-    <value>Voir tous les raccourcis</value>
+    <value>Visualizza tutti i cambiamenti</value>
   </data>
   <data name="SettingsAboutExpanderVersion" xml:space="preserve">
-    <value>Version </value>
+    <value>Versione </value>
   </data>
   <data name="SettingsAccountSchool" xml:space="preserve">
-    <value>Etablissement:</value>
+    <value>Istituto:</value>
   </data>
   <data name="SettingsAccountStudentCode" xml:space="preserve">
-    <value>Code étudiant: </value>
+    <value>Codice studente: </value>
   </data>
   <data name="SettingsCardPaletteDescription" xml:space="preserve">
-    <value>Personnalisez la palette de couleurs utilisée dans l'application pour indiquer les notes et les événements</value>
+    <value>Personalizza lo schema dei colori utilizzato nell'app per indicare voti ed eventi</value>
   </data>
   <data name="SettingsCardPaletteHeader" xml:space="preserve">
-    <value>Schéma de couleurs</value>
+    <value>Schema colori</value>
   </data>
   <data name="SettingsCardSchoolYearDescription" xml:space="preserve">
-    <value>Sélectionner l'année scolaire à consulter / revenir à l'année précédente</value>
+    <value>Seleziona l'anno scolastico da consultare / torna all'anno precedente</value>
   </data>
   <data name="SettingsCardSchoolYearHeader" xml:space="preserve">
-    <value>Année scolaire</value>
+    <value>Anno scolastico</value>
   </data>
   <data name="WhatsNewDialogHighlights" xml:space="preserve">
-    <value>En vedette</value>
+    <value>In evidenza</value>
   </data>
   <data name="WhatsNewDialogRelease" xml:space="preserve">
-    <value>v1.2.0, 25 octobre 2023</value>
+    <value>v1.2.0, 25 Novembre 2023</value>
   </data>
-  <data name="AgendaTomorrowButtonTooltip" xml:space="preserve">
-    <value>Jour suivant</value>
+  <data name="AgendaTomorrowButtonToolTip" xml:space="preserve">
+    <value>Giorno successivo</value>
   </data>
-  <data name="AgendaYesterdayButtonTooltip" xml:space="preserve">
-    <value>Jour précedent</value>
+  <data name="AgendaYesterdayButtonToolTip" xml:space="preserve">
+    <value>Giorno precedente</value>
   </data>
-  <data name="AgendaTodayButtonTooltip" xml:space="preserve">
-    <value>Accédez aux événements d'aujourd'hui</value>
+  <data name="AgendaTodayButtonToolTip" xml:space="preserve">
+    <value>Vai agli eventi di oggi</value>
   </data>
   <data name="NoticeBoardShowInactiveNoticesCheckbox" xml:space="preserve">
-    <value>Inclure communications expirées</value>
+    <value>Includi comunicazioni inattive</value>
   </data>
   <data name="DashboardEditWidgetsButton" xml:space="preserve">
-    <value>Personnaliser les widgets</value>
+    <value>Personalizza widget</value>
   </data>
   <data name="LoginPasswordFieldPlaceholderText" xml:space="preserve">
-    <value>Mot de passe</value>
+    <value>Password</value>
   </data>
   <data name="LoginUsernameFieldPlaceholderText" xml:space="preserve">
-    <value>Nom d'utilisateur</value>
+    <value>Nome utente</value>
   </data>
   <data name="NavigationViewAgenda" xml:space="preserve">
     <value>Agenda</value>
   </data>
   <data name="NavigationViewAssenze" xml:space="preserve">
-    <value>Absences</value>
+    <value>Assenze</value>
   </data>
   <data name="NavigationViewBacheca" xml:space="preserve">
-    <value>Tableau</value>
+    <value>Bacheca</value>
   </data>
   <data name="NavigationViewDashboard" xml:space="preserve">
-    <value>Tableau de bord</value>
+    <value>Dashboard</value>
   </data>
   <data name="NavigationViewGrades" xml:space="preserve">
-    <value>Notes</value>
+    <value>Valutazioni</value>
   </data>
   <data name="NavigationViewNote" xml:space="preserve">
-    <value>Remarques</value>
+    <value>Note</value>
   </data>
   <data name="NavigationViewScrutini" xml:space="preserve">
-    <value>Sondage</value>
+    <value>Scrutini</value>
   </data>
-  <data name="RefreshButtonTooltip" xml:space="preserve">
-    <value>Actualiser (F5)</value>
+  <data name="RefreshButtonToolTip" xml:space="preserve">
+    <value>Aggiorna (F5)</value>
   </data>
-  <data name="SettingsPaletteColorBlueTooltip" xml:space="preserve">
-    <value>Pas de moyenne, absence partielle</value>
+  <data name="SettingsPaletteColorBlueToolTip" xml:space="preserve">
+    <value>Non fa media, assenza parziale</value>
   </data>
-  <data name="SettingsPaletteColorGreenTooltip" xml:space="preserve">
-    <value>Suffisance, présence, communication lue</value>
+  <data name="SettingsPaletteColorGreenToolTip" xml:space="preserve">
+    <value>Sufficienza, presenza, comunicazione letta</value>
   </data>
-  <data name="SettingsPaletteColorOrangeTooltip" xml:space="preserve">
-    <value>Légère insuffisance, retard, communication expirée</value>
+  <data name="SettingsPaletteColorOrangeToolTip" xml:space="preserve">
+    <value>Insufficienza lieve, ritardo, comunicazione scaduta</value>
   </data>
-  <data name="SettingsPaletteColorRedTooltip" xml:space="preserve">
-    <value>Insuffisance grave, absence, communication non lue</value>
+  <data name="SettingsPaletteColorRedToolTip" xml:space="preserve">
+    <value>Insufficienza grave, assenza, comunicazione non letta</value>
   </data>
   <data name="NoticeBoardValidFromToDateText" xml:space="preserve">
     <value>Valable du {0} au {1}</value>
@@ -491,19 +490,19 @@ Erreur: </value>
     <value>Redémarrer</value>
   </data>
   <data name="NoticeBoardTitle" xml:space="preserve">
-    <value>Tableau</value>
+    <value>Bacheca</value>
   </data>
   <data name="AbsencesPlaceholder" xml:space="preserve">
-    <value>Aucune absence</value>
+    <value>Nessuna assenza</value>
   </data>
   <data name="AgendaTasksPlaceholder" xml:space="preserve">
-    <value>Pas de tâche</value>
+    <value>Nessun compito</value>
   </data>
   <data name="ScrutiniPlaceholder" xml:space="preserve">
-    <value>Bulletins de vote non disponibles</value>
+    <value>Scrutini non disponibili</value>
   </data>
   <data name="ScrutiniReportsHeader" xml:space="preserve">
-    <value>Bulletins scolaires</value>
+    <value>Report scolastici</value>
   </data>
   <data name="SessionExpired" xml:space="preserve">
     <value>La session a expiré</value>
@@ -530,7 +529,7 @@ Erreur: </value>
     <value>notes</value>
   </data>
   <data name="GradesPlaceholder" xml:space="preserve">
-    <value>Aucune note</value>
+    <value>Nessuna valutazione</value>
   </data>
   <data name="PALETTE_FLO" xml:space="preserve">
     <value>Flore</value>
@@ -539,31 +538,31 @@ Erreur: </value>
     <value>Retro</value>
   </data>
   <data name="AgendaLessonsPlaceholder" xml:space="preserve">
-    <value>Aucune leçon</value>
+    <value>Nessuna lezione</value>
   </data>
   <data name="FirstRunDialogContributorsHyperlink" xml:space="preserve">
-    <value>Contributeurs</value>
+    <value>Contributors</value>
   </data>
   <data name="GradesGlobalAverage" xml:space="preserve">
-    <value>Moyenne totale</value>
+    <value>Media totale</value>
   </data>
   <data name="FirstRunDialogLicensesHyperlink" xml:space="preserve">
-    <value>Licences</value>
+    <value>Licenze</value>
   </data>
   <data name="GradesAllPeriodsSegmentedItem" xml:space="preserve">
-    <value>Toutes les périodes</value>
+    <value>Tutti i periodi</value>
   </data>
-  <data name="AgendaCalendarDatePickerTooltip" xml:space="preserve">
-    <value>Choisir une date</value>
+  <data name="AgendaCalendarDatePickerToolTip" xml:space="preserve">
+    <value>Seleziona una data</value>
   </data>
   <data name="NoticeBoardFilterAllNotices" xml:space="preserve">
-    <value>Tous</value>
+    <value>Tutte</value>
   </data>
   <data name="NoticeBoardFilterReadNotices" xml:space="preserve">
-    <value>Poids léger</value>
+    <value>Lette</value>
   </data>
   <data name="NoticeBoardFilterUnreadNotices" xml:space="preserve">
-    <value>Pas lu</value>
+    <value>Non lette</value>
   </data>
   <data name="GradesNotAvailable" xml:space="preserve">
     <value>N/D</value>
@@ -632,10 +631,10 @@ Erreur: </value>
     <value>Continuer</value>
   </data>
   <data name="SettingsCardAskConfirmDescription" xml:space="preserve">
-    <value>Demander une confirmation avant d'ouvrir une communication</value>
+    <value>Chiedi conferma prima di aprire una comunicazione</value>
   </data>
   <data name="SettingsCardAskConfirmHeader" xml:space="preserve">
-    <value>Confirmer l'ouverture des communications</value>
+    <value>Conferma apertura comunicazioni</value>
   </data>
   <data name="ChangePhotoDialogContent" xml:space="preserve">
     <value>Modifiez votre photo de profil localement, visible dans les comptes ClassevivaPCTO et dans les paramètres de l'application.</value>
@@ -659,40 +658,40 @@ Erreur: </value>
     <value> des </value>
   </data>
   <data name="AbsencesTodayButton" xml:space="preserve">
-    <value>Aujourd'hui</value>
+    <value>Oggi</value>
   </data>
   <data name="GradesListLayout" xml:space="preserve">
-    <value>Liste</value>
+    <value>Lista</value>
   </data>
   <data name="GradesSubjectsLayout" xml:space="preserve">
-    <value>Sujets</value>
+    <value>Materie</value>
   </data>
   <data name="GenericOpenButton" xml:space="preserve">
-    <value>Ouvrir</value>
+    <value>Apri</value>
   </data>
   <data name="GenericReadButton" xml:space="preserve">
-    <value>Lire</value>
+    <value>Leggi</value>
   </data>
   <data name="GenericSaveButton" xml:space="preserve">
-    <value>Sauver</value>
+    <value>Salva</value>
   </data>
   <data name="NoticeDialogOpenAttachmentButton" xml:space="preserve">
-    <value>Ouvrir</value>
+    <value>Apri</value>
   </data>
   <data name="NoticeDialogSaveAttachmentButton" xml:space="preserve">
-    <value>Sauver</value>
+    <value>Salva</value>
   </data>
-  <data name="ScrutiniOpenFileButtonTooltip" xml:space="preserve">
-    <value>Voir le bulletin de vote</value>
+  <data name="ScrutiniOpenFileButtonToolTip" xml:space="preserve">
+    <value>Visualizza scrutinio</value>
   </data>
-  <data name="ScrutiniOpenReportButtonTooltip" xml:space="preserve">
-    <value>Ouvrir le rapport dans le navigateur</value>
+  <data name="ScrutiniOpenReportButtonToolTip" xml:space="preserve">
+    <value>Apri report nel browser</value>
   </data>
-  <data name="ScrutiniSaveFileButtonTooltip" xml:space="preserve">
-    <value>Enregistrez le fichier de vote sur votre PC</value>
+  <data name="ScrutiniSaveFileButtonToolTip" xml:space="preserve">
+    <value>Salva il file dello scrutinio sul PC</value>
   </data>
   <data name="NoticeBoardNotAvailableButton" xml:space="preserve">
-    <value>Indisponible</value>
+    <value>Non disponibile</value>
   </data>
   <data name="ScrutiniNotAvailableStatusText" xml:space="preserve">
     <value>Indisponible</value>
@@ -706,22 +705,22 @@ Erreur: </value>
   <data name="RestartLater" xml:space="preserve">
     <value>Redémarrer plus tard</value>
   </data>
-  <data name="NoticeBoardFilterAllNoticesItemTooltip" xml:space="preserve">
-    <value>Afficher toutes les communications</value>
+  <data name="NoticeBoardFilterAllNoticesItemToolTip" xml:space="preserve">
+    <value>Mostra tutte le comunicazioni</value>
   </data>
-  <data name="NoticeBoardFilterReadNoticesItemTooltip" xml:space="preserve">
-    <value>Afficher uniquement les communications lues</value>
+  <data name="NoticeBoardFilterReadNoticesItemToolTip" xml:space="preserve">
+    <value>Mostra solo le comunicazioni lette</value>
   </data>
-  <data name="NoticeBoardFilterUnreadNoticesItemTooltip" xml:space="preserve">
-    <value>Afficher uniquement les communications non lues</value>
+  <data name="NoticeBoardFilterUnreadNoticesItemToolTip" xml:space="preserve">
+    <value>Mostra solo le comunicazioni non lette</value>
   </data>
-  <data name="NoticeBoardShowInactiveNoticesCheckboxTooltip" xml:space="preserve">
-    <value>Il affiche également les communications expirées et supprimées</value>
+  <data name="NoticeBoardShowInactiveNoticesCheckboxToolTip" xml:space="preserve">
+    <value>Mostra anche le comunicazioni scadute e quelle eliminate</value>
   </data>
-  <data name="ScrutiniShowDeletedDocumentsCheckboxTooltip" xml:space="preserve">
-    <value>Il montre également les documents qui ont été supprimés</value>
+  <data name="ScrutiniShowDeletedDocumentsCheckboxToolTip" xml:space="preserve">
+    <value>Mostra anche i documenti che sono stati eliminati</value>
   </data>
   <data name="NoticeBoardCategoryComboboxPlaceholderText" xml:space="preserve">
-    <value>Filtrer par catégorie...</value>
+    <value>Filtra per categoria...</value>
   </data>
 </root>
