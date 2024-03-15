@@ -39,7 +39,7 @@
                 Margin="0,0,20,0">
                 <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Spacing="8">
                     <TextBlock Text="&#xE70F;" VerticalAlignment="Center" FontFamily="{StaticResource FluentIcons}" />
-                    <TextBlock x:Uid="DashboardEditWidgetsButton" />
+                    <TextBlock ="DashboardEditWidgetsButton" />
                 </StackPanel>
             </Button>-->
 
@@ -71,7 +71,7 @@
 
                         <StackPanel Orientation="Horizontal" Grid.Row="0">
 
-                            <TextBlock x:Name="TextOggiAgenda" x:Uid="DashboardTodaysEvents"
+                            <TextBlock x:Name="TextOggiAgenda" Text="{CustomResource DashboardTodaysEvents}"
                                        Margin="6,0,0,8" HorizontalAlignment="Left"
                                        VerticalAlignment="Center" FontSize="20"
                                        FontWeight="Medium" />
@@ -91,7 +91,7 @@
                         <HyperlinkButton Grid.Row="2" HorizontalAlignment="Right"
                                          VerticalAlignment="Bottom" Click="HyperlinkButton_Click_Agenda">
                             <StackPanel Orientation="Horizontal" Spacing="4">
-                                <TextBlock x:Uid="DashboardOpenAgendaButton" />
+                                <TextBlock Text="{CustomResource DashboardOpenAgendaButton}" />
                                 <FontIcon VerticalAlignment="Center" FontSize="12" Glyph="&#xE76C;" />
                             </StackPanel>
                         </HyperlinkButton>
@@ -111,7 +111,7 @@
 
                         <RelativePanel Grid.Row="0">
 
-                            <TextBlock x:Name="TitleRecentGrades" x:Uid="DashboardRecentGrades"
+                            <TextBlock x:Name="TitleRecentGrades" Text="{CustomResource DashboardRecentGrades}"
                                        Margin="6,0,0,8" HorizontalAlignment="Left"
                                        VerticalAlignment="Top" FontSize="20"
                                        FontWeight="Medium" />
@@ -122,7 +122,7 @@
                                                RelativePanel.RightOf="TitleRecentGrades"
                                                Visibility="{x:Bind DashboardPageViewModel.IsLoadingGrades, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" />
 
-                            <TextBlock x:Name="TitleMedia" x:Uid="DashboardGradesAverage"
+                            <TextBlock x:Name="TitleMedia" Text="{CustomResource DashboardGradesAverage}"
                                        Margin="0,3,6,0" FontSize="16"
                                        Foreground="{ThemeResource TextFillColorTertiaryBrush}"
                                        RelativePanel.LeftOf="TextBlockMedia" TextAlignment="Center"
@@ -154,7 +154,7 @@
                         <HyperlinkButton Grid.Row="2" HorizontalAlignment="Right"
                                          VerticalAlignment="Bottom" Click="HyperlinkButton_Click_Valutazioni">
                             <StackPanel Orientation="Horizontal" Spacing="4">
-                                <TextBlock x:Uid="DashboardOpenGradesButton" />
+                                <TextBlock Text="{CustomResource DashboardOpenGradesButton}" />
                                 <FontIcon VerticalAlignment="Center" FontSize="12" Glyph="&#xE76C;" />
                             </StackPanel>
                         </HyperlinkButton>
@@ -176,7 +176,7 @@
 
                         <StackPanel Orientation="Horizontal" Grid.Row="0">
 
-                            <TextBlock x:Name="TextBachecaRecenti" x:Uid="DashboardRecentNotices"
+                            <TextBlock x:Name="TextBachecaRecenti" Text="{CustomResource DashboardRecentNotices}"
                                        Margin="6,0,0,8" HorizontalAlignment="Left"
                                        VerticalAlignment="Center" FontSize="20"
                                        FontWeight="Medium" />
@@ -198,7 +198,7 @@
                                          Click="ButtonApriBacheca_Click">
 
                             <StackPanel Orientation="Horizontal" Spacing="4">
-                                <TextBlock x:Uid="DashboardOpenNoticeBoardButton" />
+                                <TextBlock Text="{CustomResource DashboardOpenNoticeBoardButton}" />
                                 <FontIcon VerticalAlignment="Center" FontSize="12" Glyph="&#xE76C;" />
                             </StackPanel>
 

@@ -29,7 +29,7 @@
 
         <StackPanel Orientation="Horizontal" Grid.Row="0" Margin="0,16,0,0">
 
-            <TextBlock x:Name="TextTitolo" x:Uid="NotesTitle"
+            <TextBlock x:Name="TextTitolo" Text="{CustomResource NotesTitle}"
                        Margin="32,0,0,0" VerticalAlignment="Center"
                        Style="{StaticResource TitleLargeTextBlockStyle}" />
 

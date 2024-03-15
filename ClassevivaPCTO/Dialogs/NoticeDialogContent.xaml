@@ -47,11 +47,11 @@
 
                 <StackPanel Orientation="Horizontal" Grid.Column="1"  HorizontalAlignment="Right">
 
-                    <AppBarButton x:Name="ButtonOpen" x:Uid="NoticeDialogOpenAttachmentButton"
+                    <AppBarButton x:Name="ButtonOpen" Label="{CustomResource NoticeDialogOpenAttachmentButton}"
                                   Click="ButtonOpen_Click" Icon="OpenFile"
                                   VerticalAlignment="Center" />
 
-                    <AppBarButton x:Name="ButtonSave" x:Uid="NoticeDialogSaveAttachmentButton"
+                    <AppBarButton x:Name="ButtonSave" Label="{CustomResource NoticeDialogSaveAttachmentButton}"
                                   Click="ButtonSave_Click" Icon="Save"
                                   RelativePanel.AlignRightWithPanel="True" VerticalAlignment="Center" />
 

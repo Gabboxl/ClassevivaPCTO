@@ -4,7 +4,8 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    x:Uid="FirstRunDialog"
+    Title="{CustomResource FirstRunDialogTitle}"
+    PrimaryButtonText="{CustomResource FirstRunDialogPrimaryButtonText}"
     d:DesignHeight="345"
     d:DesignWidth="550"
     mc:Ignorable="d">
@@ -30,7 +31,7 @@
     <ScrollViewer MaxWidth="800">
         <StackPanel>
 
-            <TextBlock x:Uid="FirstRunDialogBody" Margin="0,25"
+            <TextBlock Text="{CustomResource FirstRunDialogBody}" Margin="0,25"
                        FontSize="15" FontWeight="SemiBold"
                        Foreground="{ThemeResource TextFillColorSecondaryBrush}"
                        TextWrapping="WrapWholeWords" />
@@ -44,7 +45,7 @@
                               Stretch="Uniform" />
                     </Grid>
 
-                    <TextBlock x:Uid="FirstRunDialogContributorsHyperlink" />
+                    <TextBlock Text="{CustomResource FirstRunDialogContributorsHyperlink}" />
 
                 </StackPanel>
             </HyperlinkButton>
@@ -58,7 +59,7 @@
                               Stretch="Uniform" />
                     </Grid>
 
-                    <TextBlock x:Uid="FirstRunDialogLicensesHyperlink" />
+                    <TextBlock Text="{CustomResource FirstRunDialogLicensesHyperlink}" />
 
                 </StackPanel>
             </HyperlinkButton>

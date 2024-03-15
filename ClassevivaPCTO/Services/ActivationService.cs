@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 using Windows.ApplicationModel.Activation;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using Crowdin.Net;
+using ClassevivaPCTO.Helpers;
+using Windows.Globalization;
 
 namespace ClassevivaPCTO.Services
 {
@@ -60,6 +63,7 @@ namespace ClassevivaPCTO.Services
 
         private async Task InitializeAsync()
         {
+            await LocalizationResourcesService.InitializeAsync().ConfigureAwait(false);
             await ThemeSelectorService.InitializeAsync().ConfigureAwait(false);
             await PaletteSelectorService.InitializeAsync().ConfigureAwait(false);
         }

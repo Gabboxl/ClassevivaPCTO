@@ -54,17 +54,19 @@
                     BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
                     Background="{ThemeResource CardBackgroundFillColorDefaultBrush}">
 
-            <TextBlock x:Uid="LoginWelcome" FontSize="26" FontWeight="Medium" TextAlignment="Center" Height="60"
+            <TextBlock Text="{CustomResource LoginWelcome}" FontSize="26" FontWeight="Medium" TextAlignment="Center" Height="60"
                        Margin="0,8,0,0" />
 
-            <TextBox x:Name="EdittextUsername" x:Uid="LoginUsernameField"
+            <TextBox x:Name="EdittextUsername" Header="{CustomResource LoginUsernameFieldHeader}"
+                     PlaceholderText="{CustomResource LoginUsernameFieldPlaceholderText}"
                      Margin="0,0,0,20" />
-            <PasswordBox x:Name="EdittextPassword" x:Uid="LoginPasswordField"
+            <PasswordBox x:Name="EdittextPassword" Header="{CustomResource LoginPasswordFieldHeader}"
+                         PlaceholderText="{CustomResource LoginPasswordFieldPlaceholderText}"
                          Margin="0,0,0,20" />
-            <CheckBox x:Name="CheckboxCredenziali" x:Uid="LoginKeepCredentialsCheckbox"
+            <CheckBox x:Name="CheckboxCredenziali" Content="{CustomResource LoginKeepCredentialsCheckbox}"
                       Margin="0,0,0,20" />
 
-            <Button x:Name="buttonLogin" Style="{StaticResource AccentButtonStyle}" x:Uid="LoginButton" Height="32"
+            <Button x:Name="buttonLogin" Style="{StaticResource AccentButtonStyle}" Content="{CustomResource LoginButton}" Height="32"
                     MinWidth="90" RenderTransformOrigin="2.13,0.797" HorizontalAlignment="Center" Margin="0,12,0,0"
                     Click="Button_Click" />
             <muxc:ProgressRing x:Name="progresslogin" IsActive="True" Visibility="Collapsed" Margin="0,12,0,0" />

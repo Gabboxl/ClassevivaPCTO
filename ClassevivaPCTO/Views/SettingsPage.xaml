@@ -37,7 +37,7 @@
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
 
-            <TextBlock x:Name="TextTitolo" x:Uid="SettingsTitle"
+            <TextBlock x:Name="TextTitolo" Text="{CustomResource SettingsTitle}"
                        Grid.Row="0" Margin="32,16,0,0"
                        VerticalAlignment="Top"
                        Style="{StaticResource TitleLargeTextBlockStyle}" />
@@ -51,7 +51,7 @@
                     <RepositionThemeTransition IsStaggeringEnabled="False" />
                 </StackPanel.ChildrenTransitions>
 
-                <TextBlock x:Uid="SettingsAccountHeader" Style="{StaticResource SettingsSectionHeaderTextBlockStyle}" />
+                <TextBlock Text="{CustomResource SettingsAccountHeader}" Style="{StaticResource SettingsSectionHeaderTextBlockStyle}" />
 
                 <Grid Margin="0,0,0,0" Padding="12"
                       Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
@@ -86,14 +86,14 @@
                                        FontSize="14" FontWeight="Medium"
                                        Foreground="{ThemeResource TextFillColorTertiaryBrush}"
                                        RelativePanel.Below="NomeCognome" TextWrapping="WrapWholeWords">
-                                <Run x:Uid="SettingsAccountStudentCode" /><Run Text="{Binding Codice}" />
+                                <Run Text="{CustomResource SettingsAccountStudentCode}" /><Run Text="{Binding Codice}" />
                             </TextBlock>
 
                             <TextBlock x:Name="Scuola" Margin="0,8,0,0"
                                        FontSize="14" FontWeight="Medium"
                                        Foreground="{ThemeResource TextFillColorTertiaryBrush}"
                                        RelativePanel.Below="CodiceStudente" TextWrapping="WrapWholeWords">
-                                <Run x:Uid="SettingsAccountSchool" /> <Run Text="{Binding Scuola}" />
+                                <Run Text="{CustomResource SettingsAccountSchool}" /> <Run Text="{Binding Scuola}" />
                             </TextBlock>
 
                         </RelativePanel>
@@ -110,7 +110,7 @@
                                     <TextBlock Text="&#xE722;" VerticalAlignment="Center"
                                                FontFamily="{StaticResource FluentIcons}" />
 
-                                    <TextBlock x:Uid="SettingsAccountChangePhotoButton" />
+                                    <TextBlock ="SettingsAccountChangePhotoButton" />
 
                                 </StackPanel>
 
@@ -124,7 +124,7 @@
                                 <StackPanel VerticalAlignment="Center" Orientation="Horizontal"
                                             Spacing="8">
                                     <TextBlock VerticalAlignment="Center" FontFamily="{StaticResource FluentIcons}" Text="&#xF3B1;" />
-                                    <TextBlock x:Uid="SettingsAccountExitButton" />
+                                    <TextBlock Text="{CustomResource SettingsAccountExitButton}" />
                                 </StackPanel>
 
                             </Button>
@@ -133,9 +133,10 @@
                     </Grid>
                 </Grid>
 
-                <TextBlock x:Uid="SettingsPersonalizationHeader" Style="{StaticResource SettingsSectionHeaderTextBlockStyle}" />
+                <TextBlock Text="{CustomResource SettingsPersonalizationHeader}" Style="{StaticResource SettingsSectionHeaderTextBlockStyle}" />
 
-                <controls1:SettingsCard x:Uid="SettingsCardTheme">
+                <controls1:SettingsCard Header="{CustomResource SettingsCardThemeHeader}"
+                                        Description="{CustomResource SettingsCardDescription}">
 
                     <controls1:SettingsCard.HeaderIcon>
                         <FontIcon Glyph="&#xE793;" />
@@ -146,13 +147,14 @@
                     <ComboBox MinWidth="200"
                               SelectedIndex="{x:Bind SettingsViewModel.ElementTheme.GetHashCode()}"
                               SelectionChanged="ThemeSelector_OnSelectionChanged">
-                        <ComboBoxItem x:Uid="SettingsCardThemeDefaultComboboxItem" />
-                        <ComboBoxItem x:Uid="SettingsCardThemeLightComboboxItem" />
-                        <ComboBoxItem x:Uid="SettingsCardThemeDarkComboboxItem" />
+                        <ComboBoxItem Content="{CustomResource SettingsCardThemeDefaultComboboxItem}" />
+                        <ComboBoxItem Content="{CustomResource SettingsCardThemeLightComboboxItem}" />
+                        <ComboBoxItem Content="{CustomResource SettingsCardThemeDarkComboboxItem}" />
                     </ComboBox>
                 </controls1:SettingsCard>
 
-                <controls1:SettingsCard x:Name="ColorSchemeExpander" x:Uid="SettingsCardPalette"
+                <controls1:SettingsCard x:Name="ColorSchemeExpander" Header="{CustomResource SettingsCardPaletteHeader}"
+                                        Description="{CustomResource SettingsCardPaletteDescription}"
                                         MinHeight="70">
 
                     <controls1:SettingsCard.HeaderIcon>
@@ -184,22 +186,22 @@
                                                     HorizontalAlignment="Right" VerticalAlignment="Center"
                                                     Orientation="Horizontal" Spacing="8">
 
-                                            <Border x:Uid="SettingsPaletteColorRed" Width="20"
+                                            <Border ToolTipService.ToolTip="{CustomResource SettingsPaletteColorRedTooltip}" Width="20"
                                                     Height="20"
                                                     Background="{x:Bind CurrentPalette.ColorRed, Converter={StaticResource ColorToBrushConverter}, Mode=OneWay}"
                                                     CornerRadius="26" IsTapEnabled="False" />
 
-                                            <Border x:Uid="SettingsPaletteColorOrange" Width="20"
+                                            <Border ToolTipService.ToolTip="{CustomResource SettingsPaletteColorOrangeTooltip}" Width="20"
                                                     Height="20"
                                                     Background="{x:Bind CurrentPalette.ColorOrange, Converter={StaticResource ColorToBrushConverter}, Mode=OneWay}"
                                                     CornerRadius="26" IsTapEnabled="False" />
 
-                                            <Border x:Uid="SettingsPaletteColorGreen" Width="20"
+                                            <Border ToolTipService.ToolTip="{CustomResource SettingsPaletteColorGreenTooltip}" Width="20"
                                                     Height="20"
                                                     Background="{x:Bind CurrentPalette.ColorGreen, Converter={StaticResource ColorToBrushConverter}, Mode=OneWay}"
                                                     CornerRadius="26" IsTapEnabled="False" />
 
-                                            <Border x:Uid="SettingsPaletteColorBlue" Width="20"
+                                            <Border ToolTipService.ToolTip="{CustomResource SettingsPaletteColorBlueTooltip}" Width="20"
                                                     Height="20"
                                                     Background="{x:Bind CurrentPalette.ColorBlue, Converter={StaticResource ColorToBrushConverter}, Mode=OneWay}"
                                                     CornerRadius="26" IsTapEnabled="False" />
@@ -261,7 +263,8 @@
 
                 </controls1:SettingsExpander>
 
-                <controls1:SettingsCard x:Uid="SettingsCardAskConfirm">
+                <controls1:SettingsCard Header="{CustomResource SettingsCardAskConfirmHeader}"
+                                        Description="{CustomResource SettingsCardAskConfirmDescription}">
 
                     <controls1:SettingsCard.HeaderIcon>
                         <FontIcon Glyph="&#xE705;" />
@@ -271,9 +274,9 @@
 
                 </controls1:SettingsCard>
 
-                <TextBlock x:Uid="SettingsGeneralHeader" Style="{StaticResource SettingsSectionHeaderTextBlockStyle}" />
+                <TextBlock Text="{CustomResource SettingsGeneralHeader}" Style="{StaticResource SettingsSectionHeaderTextBlockStyle}" />
 
-                <!-- <controls1:SettingsCard x:Uid="SettingsCardSchoolYear">
+                <!-- <controls1:SettingsCard ="SettingsCardSchoolYear">
 
                      <controls1:SettingsCard.HeaderIcon>
                         <FontIcon Glyph="&#xE97A;" />
@@ -295,7 +298,8 @@
 
                 -->
 
-                <controls1:SettingsCard x:Uid="SettingsCardLanguage">
+                <controls1:SettingsCard Header="{CustomResource SettingsCardLanguageHeader}"
+                                        Description="{CustomResource SettingsCardLanguageDescription}">
 
                     <controls1:SettingsCard.HeaderIcon>
                         <FontIcon Glyph="&#xE8C1;" />
@@ -305,31 +309,34 @@
 
                 </controls1:SettingsCard>
 
-                <controls1:SettingsCard x:Uid="SettingsCardWhatsNew">
+                <controls1:SettingsCard
+                    Header="{CustomResource SettingsCardWhatsNewHeader}"
+                    Description="{CustomResource SettingsCardWhatsNewDescription}">
 
                     <controls1:SettingsCard.HeaderIcon>
                         <FontIcon Glyph="&#xE789;" />
                     </controls1:SettingsCard.HeaderIcon>
 
-                    <Button x:Uid="SettingsCardWhatsNewButton" MinWidth="130"
+                    <Button Content="{CustomResource SettingsCardWhatsNewButton}" MinWidth="130"
                             Click="ButtonChangelog_OnClick" />
 
                 </controls1:SettingsCard>
 
-                <controls1:SettingsCard x:Uid="SettingsCardTutorial">
+                <controls1:SettingsCard  Header="{CustomResource SettingsCardTutorialHeader}"
+                                         Description="{CustomResource SettingsCardTutorialDescription}">
 
                     <controls1:SettingsCard.HeaderIcon>
                         <FontIcon Glyph="&#xEA80;" />
                     </controls1:SettingsCard.HeaderIcon>
 
-                    <Button x:Uid="SettingsCardTutorialButton" MinWidth="130"
+                    <Button Content="{CustomResource SettingsCardTutorialButton}" MinWidth="130"
                             Click="ButtonTutorial_OnClick" />
 
                 </controls1:SettingsCard>
 
-                <TextBlock x:Uid="SettingsAboutHeader" Style="{StaticResource SettingsSectionHeaderTextBlockStyle}" />
+                <TextBlock Text="{CustomResource SettingsAboutHeader}" Style="{StaticResource SettingsSectionHeaderTextBlockStyle}" />
 
-                <controls1:SettingsExpander x:Uid="SettingsAboutExpander"
+                <controls1:SettingsExpander Description="{CustomResource SettingsAboutExpanderDescription}"
                                             Header="{x:Bind views:SettingsPage.AppName}"
                                             IsExpanded="True">
                     <controls1:SettingsExpander.HeaderIcon>
@@ -338,7 +345,7 @@
                     <TextBlock Foreground="{ThemeResource TextFillColorSecondaryBrush}"
                                IsTextSelectionEnabled="True"
                                Style="{StaticResource BodyTextBlockStyle}">
-                        <Run x:Uid="SettingsAboutExpanderVersion" /><Run Text="{x:Bind SettingsViewModel.Version}" />
+                        <Run Text="{CustomResource SettingsAboutExpanderVersion}" /><Run Text="{x:Bind SettingsViewModel.Version}" />
                     </TextBlock>
                     <controls1:SettingsExpander.Items>
                         <controls1:SettingsCard HorizontalContentAlignment="Left" ContentAlignment="Left">
@@ -353,7 +360,7 @@
                                                   Fill="{ThemeResource AccentTextFillColorPrimaryBrush}"
                                                   Stretch="Uniform" />
                                         </Grid>
-                                        <TextBlock x:Uid="SettingsAboutExpanderGitHubHyperlink" />
+                                        <TextBlock Text="{CustomResource SettingsAboutExpanderGitHubHyperlink}" />
                                     </StackPanel>
                                 </HyperlinkButton>
 
@@ -365,7 +372,7 @@
                                                   Fill="{ThemeResource AccentTextFillColorPrimaryBrush}"
                                                   Stretch="Uniform" />
                                         </Grid>
-                                        <TextBlock x:Uid="SettingsAboutExpanderRateHyperlink" />
+                                        <TextBlock Text="{CustomResource SettingsAboutExpanderRateHyperlink}" />
                                     </StackPanel>
                                 </HyperlinkButton>
 
@@ -378,7 +385,7 @@
                                                   Fill="{ThemeResource AccentTextFillColorPrimaryBrush}"
                                                   Stretch="Uniform" />
                                         </Grid>
-                                        <TextBlock x:Uid="SettingsAboutExpanderCrowdinHyperlink" />
+                                        <TextBlock Text="{CustomResource SettingsAboutExpanderCrowdinHyperlink}" />
                                     </StackPanel>
                                 </HyperlinkButton>
 
@@ -391,7 +398,7 @@
                                                   Fill="{ThemeResource AccentTextFillColorPrimaryBrush}"
                                                   Stretch="Uniform" />
                                         </Grid>
-                                        <TextBlock x:Uid="SettingsAboutExpanderIssueHyperlink" />
+                                        <TextBlock Text="{CustomResource SettingsAboutExpanderIssueHyperlink}" />
                                     </StackPanel>
                                 </HyperlinkButton>
 
