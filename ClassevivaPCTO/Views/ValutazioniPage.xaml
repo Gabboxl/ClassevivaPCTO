@@ -44,12 +44,7 @@
                                            HorizontalAlignment="Stretch"
                                            HorizontalContentAlignment="Stretch"
                                            HeaderIcon="{x:Bind AverageVariationIcon}" >
-                    <controls:SettingsExpander.Transitions>
-                        <TransitionCollection>
-                            <ContentThemeTransition />
-                        </TransitionCollection>
-                    </controls:SettingsExpander.Transitions>
-                    
+
                     <controls:SettingsExpander.Header>
                         <TextBlock Text="{x:Bind Subject.description}" FontWeight="Medium" FontSize="14" Margin="0,0,0,0"/>
                     </controls:SettingsExpander.Header>
@@ -63,7 +58,7 @@
                             <ColumnDefinition Width="Auto"></ColumnDefinition>
                         </Grid.ColumnDefinitions>
 
-                        <!-- textblock no valutazioni -->
+                        <!-- textblock nessuna valutazione -->
                         <TextBlock
                             x:Name="NoValutazioniTextBlock"
                             Grid.Column="0"
