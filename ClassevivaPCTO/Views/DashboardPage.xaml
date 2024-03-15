@@ -72,9 +72,9 @@
                         <StackPanel Orientation="Horizontal" Grid.Row="0">
 
                             <TextBlock x:Name="TextOggiAgenda" Text="{CustomResource DashboardTodaysEvents}"
-                                       Margin="6,0,0,8" HorizontalAlignment="Left"
-                                       VerticalAlignment="Center" FontSize="20"
-                                       FontWeight="Medium" />
+                                       Margin="6,0,0,6" HorizontalAlignment="Left"
+                                       VerticalAlignment="Center" FontSize="18"
+                                       FontWeight="SemiBold" />
 
                             <muxc:ProgressRing x:Name="ProgressRingAgenda" Width="18"
                                                Height="18" Margin="12,0,0,4"
@@ -83,7 +83,7 @@
 
                         </StackPanel>
 
-                        <Rectangle Height="1" Margin="6,36,6,0" Fill="{ThemeResource ControlStrongStrokeColorDisabledBrush}" />
+                        <Rectangle Height="1" Margin="6,32,6,0" Fill="{ThemeResource ControlStrongStrokeColorDisabledBrush}" />
 
                         <controls2:OverviewListView x:Name="OverviewListView" Grid.Row="1"
                                                     HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
@@ -109,18 +109,21 @@
                             <RowDefinition Height="Auto" />
                         </Grid.RowDefinitions>
 
-                        <RelativePanel Grid.Row="0">
+                        <StackPanel Orientation="Horizontal" Grid.Row="0">
 
                             <TextBlock x:Name="TitleRecentGrades" Text="{CustomResource DashboardRecentGrades}"
-                                       Margin="6,0,0,8" HorizontalAlignment="Left"
-                                       VerticalAlignment="Top" FontSize="20"
-                                       FontWeight="Medium" />
+                                       Margin="6,0,0,6" HorizontalAlignment="Left"
+                                       VerticalAlignment="Center" FontSize="18"
+                                       FontWeight="SemiBold" />
 
                             <muxc:ProgressRing x:Name="ProgressRingRecentGrades" Width="18"
                                                Height="18" Margin="12,0,0,8"
-                                               IsActive="True" RelativePanel.AlignVerticalCenterWith="TitleRecentGrades"
-                                               RelativePanel.RightOf="TitleRecentGrades"
+                                               IsActive="True" VerticalAlignment="Center"
                                                Visibility="{x:Bind DashboardPageViewModel.IsLoadingGrades, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" />
+
+                        </StackPanel>
+
+                        <RelativePanel Grid.Row="0">
 
                             <TextBlock x:Name="TitleMedia" Text="{CustomResource DashboardGradesAverage}"
                                        Margin="0,3,6,0" FontSize="16"
@@ -134,22 +137,15 @@
 
                             <TextBlock x:Name="TextBlockMedia" Margin="0,3,6,0"
                                        FontSize="18" FontWeight="ExtraBold"
-                                       RelativePanel.AlignRightWithPanel="True" Text="test"
+                                       RelativePanel.AlignRightWithPanel="True"
                                        Visibility="Collapsed" />
 
                         </RelativePanel>
 
-                        <Rectangle Height="1" Margin="6,36,6,0" RelativePanel.Below="TitleRecentGrades" Fill="{ThemeResource ControlStrongStrokeColorDisabledBrush}" />
+                        <Rectangle Height="1" Margin="6,32,6,0" RelativePanel.Below="TitleRecentGrades" Fill="{ThemeResource ControlStrongStrokeColorDisabledBrush}" />
 
-                        <ScrollViewer Grid.Row="1" HorizontalScrollBarVisibility="Hidden"
-                                      HorizontalScrollMode="Disabled" IsTabStop="False"
-                                      IsVerticalScrollChainingEnabled="False" VerticalScrollBarVisibility="Auto"
-                                      VerticalScrollMode="Enabled" ZoomMode="Disabled">
-
-                            <controls2:GradesListView x:Name="ListRecentGrades" HorizontalAlignment="Stretch"
-                                                      EnableEmptyAlert="True" Margin="0,6,0,0" />
-
-                        </ScrollViewer>
+                        <controls2:GradesListView x:Name="ListRecentGrades" HorizontalAlignment="Stretch"
+                                                  EnableEmptyAlert="True" Margin="0,6,0,0" Grid.Row="1" />
 
                         <HyperlinkButton Grid.Row="2" HorizontalAlignment="Right"
                                          VerticalAlignment="Bottom" Click="HyperlinkButton_Click_Valutazioni">
@@ -177,9 +173,9 @@
                         <StackPanel Orientation="Horizontal" Grid.Row="0">
 
                             <TextBlock x:Name="TextBachecaRecenti" Text="{CustomResource DashboardRecentNotices}"
-                                       Margin="6,0,0,8" HorizontalAlignment="Left"
-                                       VerticalAlignment="Center" FontSize="20"
-                                       FontWeight="Medium" />
+                                       Margin="6,0,0,6" HorizontalAlignment="Left"
+                                       VerticalAlignment="Center" FontSize="18"
+                                       FontWeight="SemiBold" />
 
                             <muxc:ProgressRing x:Name="ProgressRingRecentNotices" Width="18"
                                                Height="18" Margin="12,0,0,4"
@@ -188,7 +184,7 @@
                             
                         </StackPanel>
 
-                        <Rectangle Height="1" Margin="6,36,6,0" RelativePanel.Below="TitleRecentGrades" Fill="{ThemeResource ControlStrongStrokeColorDisabledBrush}" />
+                        <Rectangle Height="1" Margin="6,32,6,0" RelativePanel.Below="TitleRecentGrades" Fill="{ThemeResource ControlStrongStrokeColorDisabledBrush}" />
 
                         <controls2:NoticesListView x:Name="ListRecentNotices" Grid.Row="1"
                                                    HorizontalAlignment="Stretch" Margin="0,6,0,0"/>

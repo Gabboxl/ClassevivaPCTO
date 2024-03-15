@@ -116,8 +116,8 @@
                        BorderThickness="1" CornerRadius="8">
 
             <TextBlock x:Name="TextComunicazioni" Text="{CustomResource NoticeBoardNotices}"
-                       Margin="6,0,0,0" FontSize="20"
-                       FontWeight="Medium" 
+                       Margin="6,0,0,0" FontSize="18"
+                       FontWeight="SemiBold" 
                        Style="{ThemeResource BodyStrongTextBlockStyle}"
                        Visibility="{x:Bind BachecaViewModel.NoticesToShow, Mode=OneWay, FallbackValue=Collapsed, Converter={StaticResource EmptyListToVisibilityConverter}}" />
 
@@ -141,7 +141,7 @@
 
             </HyperlinkButton>
 
-            <Grid Margin="0,8,0,0" RelativePanel.AlignBottomWithPanel="True"
+            <Grid Margin="0,6,0,0" RelativePanel.AlignBottomWithPanel="True"
                   RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True"
                   RelativePanel.Below="TextComunicazioni">
                 <Grid.ColumnDefinitions>
