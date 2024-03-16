@@ -66,7 +66,7 @@
                         BorderBrush="{ThemeResource AccentTextFillColorTertiaryBrush}"
                         RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.AlignVerticalCenterWithPanel="True">
 
-                <TextBlock x:Uid="LoginWelcome" Height="60"
+                <TextBlock Text="{CustomResource LoginWelcome}" Height="60"
                            Margin="0,8,0,8" FontSize="28" FontWeight="Medium"
                            Foreground="{ThemeResource TextFillColorTertiaryBrush}"
                            TextAlignment="Center" />
@@ -106,7 +106,7 @@
                               Fill="{ThemeResource AccentTextFillColorPrimaryBrush}"
                               Stretch="Uniform" />
                     </Grid>
-                    <TextBlock x:Uid="LoginGetStartedHyperlink" />
+                    <TextBlock Text="{CustomResource LoginGetStartedHyperlink}" />
 
                 </StackPanel>
             </HyperlinkButton>
@@ -118,7 +118,7 @@
                               Fill="{ThemeResource AccentTextFillColorPrimaryBrush}"
                               Stretch="Uniform" />
                     </Grid>
-                    <TextBlock x:Uid="LoginChangelogHyperlink" />
+                    <TextBlock Text="{CustomResource LoginChangelogHyperlink}"/>
                 </StackPanel>
             </HyperlinkButton>
 
@@ -129,7 +129,7 @@
                               Fill="{ThemeResource AccentTextFillColorPrimaryBrush}"
                               Stretch="Uniform" />
                     </Grid>
-                    <TextBlock x:Uid="LoginGitHubHyperlink" />
+                    <TextBlock Text="{CustomResource LoginGitHubHyperlink}" />
                 </StackPanel>
             </HyperlinkButton>
 
