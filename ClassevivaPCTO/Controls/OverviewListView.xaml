@@ -26,7 +26,7 @@
 
             <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
 
-                <TextBlock x:Name="AbsencesTitle" x:Uid="AbsencesTitle"
+                <TextBlock x:Name="AbsencesTitle" Text="{CustomResource AbsencesTitle}"
                            Margin="14,12,0,8" FontSize="18"
                            FontWeight="SemiBold"
                            Style="{ThemeResource BodyStrongTextBlockStyle}"
@@ -35,7 +35,7 @@
                 <controls2:AbsencesListView x:Name="AbsencesListView" HorizontalAlignment="Stretch"
                                             VerticalAlignment="Stretch" EnableEmptyAlert="False" />
 
-                <TextBlock x:Name="NotesTitle" x:Uid="NotesTitle"
+                <TextBlock x:Name="NotesTitle" Text="{CustomResource NotesTitle}"
                            Margin="14,12,0,8" FontSize="18"
                            FontWeight="SemiBold"
                            Style="{ThemeResource BodyStrongTextBlockStyle}"
@@ -44,7 +44,7 @@
                 <controls2:NotesListView x:Name="NotesListView" HorizontalAlignment="Stretch"
                                          VerticalAlignment="Stretch" EnableEmptyAlert="False" />
 
-                <TextBlock x:Name="GradesTitle" x:Uid="GradesTitle"
+                <TextBlock x:Name="GradesTitle" Text="{CustomResource GradesTitle}"
                            Margin="14,12,0,8" FontSize="18"
                            FontWeight="SemiBold"
                            Style="{ThemeResource BodyStrongTextBlockStyle}"
@@ -53,7 +53,7 @@
                 <controls2:GradesListView x:Name="GradesListView" HorizontalAlignment="Stretch"
                                           VerticalAlignment="Stretch" EnableEmptyAlert="False" />
 
-                <TextBlock x:Name="LessonsTitle" x:Uid="AgendaLessonsPopupTitle"
+                <TextBlock x:Name="LessonsTitle" Text="{CustomResource AgendaLessonsPopupTitle}"
                            Margin="14,12,0,8" FontSize="18"
                            FontWeight="SemiBold"
                            Style="{ThemeResource BodyStrongTextBlockStyle}"
@@ -62,7 +62,7 @@
                 <controls2:LessonsListView x:Name="LessonsListView" HorizontalAlignment="Stretch"
                                            VerticalAlignment="Stretch" EnableEmptyAlert="False" />
 
-                <TextBlock x:Name="AgendaTitle" x:Uid="AgendaTasksPopupTitle"
+                <TextBlock x:Name="AgendaTitle" Text="{CustomResource AgendaTasksPopupTitle}"
                            Margin="14,12,0,8" FontSize="18"
                            FontWeight="SemiBold"
                            Style="{ThemeResource BodyStrongTextBlockStyle}"
@@ -86,7 +86,7 @@
                       Foreground="{ThemeResource TextFillColorDisabledBrush}"
                       Glyph="&#xE787;" RelativePanel.AlignHorizontalCenterWithPanel="True" />
 
-            <TextBlock x:Uid="AgendaPlaceholder" Margin="0,0,0,0"
+            <TextBlock Text="{CustomResource AgendaPlaceholder}" Margin="0,0,0,0"
                        HorizontalAlignment="Center" VerticalAlignment="Center"
                        FontSize="36" FontWeight="SemiBold"
                        Foreground="{ThemeResource TextFillColorDisabledBrush}"

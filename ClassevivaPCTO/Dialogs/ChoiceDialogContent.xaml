@@ -4,8 +4,8 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
     <StackPanel VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
-        <TextBlock x:Uid="ProfileChoiceDialogBody" TextWrapping="Wrap" Margin="0,0,0,12" />
-        <ComboBox x:Name="ComboChoice" x:Uid="ProfileChoiceDialogCombobox" Width="350" SelectedIndex="{x:Bind chosenIndex, Mode=TwoWay}" />
+        <TextBlock Text="{CustomResource ProfileChoiceDialogBody}" TextWrapping="Wrap" Margin="0,0,0,12" />
+        <ComboBox x:Name="ComboChoice" Header="{CustomResource ProfileChoiceDialogComboboxHeader}" Width="350" SelectedIndex="{x:Bind chosenIndex, Mode=TwoWay}" />
     </StackPanel>
 
 </Page>

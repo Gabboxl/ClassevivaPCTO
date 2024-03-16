@@ -122,7 +122,7 @@
 
         <StackPanel Orientation="Horizontal" Grid.Row="0" Margin="0,16,0,0">
 
-            <TextBlock x:Name="MainTitleTextBox" x:Uid="GradesTitle"
+            <TextBlock x:Name="MainTitleTextBox" Text="{CustomResource GradesTitle}"
                        Margin="32,0,0,0" VerticalAlignment="Center"
                        Style="{StaticResource TitleLargeTextBlockStyle}" />
 
@@ -143,7 +143,7 @@
                     <controls:SegmentedItem.Content>
                         <StackPanel Orientation="Horizontal">
                             <FontIcon Margin="0,0,6,0" FontFamily="{StaticResource FluentIcons}" FontSize="14" Glyph="&#xE14C;" />
-                            <TextBlock x:Uid="GradesListLayout" />
+                            <TextBlock Text="{CustomResource GradesListLayout}" />
                         </StackPanel>
                     </controls:SegmentedItem.Content>
                 </controls:SegmentedItem>
@@ -152,7 +152,7 @@
                     <controls:SegmentedItem.Content>
                         <StackPanel Orientation="Horizontal">
                             <FontIcon Margin="0,0,6,0" FontFamily="{StaticResource FluentIcons}" FontSize="14" Glyph="&#xE169;" />
-                            <TextBlock x:Uid="GradesSubjectsLayout" />
+                            <TextBlock Text="{CustomResource GradesSubjectsLayout}" />
                         </StackPanel>
                     </controls:SegmentedItem.Content>
                 </controls:SegmentedItem>
@@ -218,7 +218,7 @@
                                           Margin="0,38,0,0"
                                           Visibility="{x:Bind ValutazioniViewModel.ShowShimmers, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" />
 
-                            <TextBlock x:Name="TitleTotVal" x:Uid="GradesGlobalAverage"
+                            <TextBlock x:Name="TitleTotVal" Text="{CustomResource GradesGlobalAverage}"
                                        Margin="0,0,0,0" HorizontalAlignment="Center"
                                        FontSize="26"
                                        Style="{StaticResource TitleTextBlockStyle}"
@@ -359,7 +359,7 @@
                                 RelativePanel.Below="GridMedie" SelectionChanged="SegmentedVoti_OnSelectionChanged"
                                 Visibility="{x:Bind ValutazioniViewModel.ShowShimmers, Mode=OneWay, Converter={StaticResource BetterBoolToVisibilityConverter}, ConverterParameter=False}">
 
-                <controls:SegmentedItem x:Uid="GradesAllPeriodsSegmentedItem" />
+                <controls:SegmentedItem Content="{CustomResource GradesAllPeriodsSegmentedItem}" />
 
             </controls:Segmented>
 

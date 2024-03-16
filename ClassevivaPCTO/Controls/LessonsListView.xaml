@@ -152,7 +152,7 @@
                       Foreground="{ThemeResource TextFillColorDisabledBrush}"
                       Glyph="&#xe7be;" RelativePanel.AlignHorizontalCenterWithPanel="True" />
 
-            <TextBlock x:Uid="AgendaLessonsPlaceholder" Margin="0,0,0,0"
+            <TextBlock Text="{CustomResource AgendaLessonsPlaceholder}" Margin="0,0,0,0"
                        HorizontalAlignment="Center" VerticalAlignment="Center"
                        FontSize="36" FontWeight="SemiBold"
                        Foreground="{ThemeResource TextFillColorDisabledBrush}"

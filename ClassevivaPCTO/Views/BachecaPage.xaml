@@ -33,7 +33,7 @@
 
         <StackPanel Orientation="Horizontal" Grid.Row="0" Margin="0,16,0,0">
             
-            <TextBlock x:Name="TextTitolo" x:Uid="NoticeBoardTitle"
+            <TextBlock x:Name="TextTitolo" Text="{CustomResource NoticeBoardTitle}"
                        Grid.Row="0" Margin="32,0,0,0"
                        VerticalAlignment="Center"
                        Style="{StaticResource TitleLargeTextBlockStyle}" />
@@ -48,7 +48,7 @@
 
             <ComboBox MinWidth="200"
                 VerticalAlignment="Center"
-                x:Uid="NoticeBoardCategoryCombobox"
+                PlaceholderText="{CustomResource NoticeBoardCategoryComboboxPlaceholderText}"
                 HorizontalContentAlignment="Stretch"
                 SelectionChanged="CategoryComboBox_OnSelectionChanged"
                 controls:KeepOldItemsSourceDecorator.ItemsSource="{x:Bind BachecaViewModel.Categories, Mode=OneWay}"
@@ -62,35 +62,35 @@
                                  Margin="0,0,0,0" HorizontalAlignment="Stretch"
                                  SelectedIndex="0" SelectionChanged="ReadUnreadSegmented_OnSelectionChanged">
 
-                <controls1:SegmentedItem x:Uid="NoticeBoardFilterAllNoticesItem">
+                <controls1:SegmentedItem ToolTipService.ToolTip="{CustomResource NoticeBoardFilterAllNoticesItemTooltip}">
                     <controls1:SegmentedItem.Content>
                         <StackPanel Orientation="Horizontal">
                             <FontIcon Margin="0,0,6,0"
                                       FontFamily="{StaticResource FluentIcons}"
                                       FontSize="14" Glyph="&#xE138;" />
-                            <TextBlock x:Uid="NoticeBoardFilterAllNotices" />
+                            <TextBlock Text="{CustomResource NoticeBoardFilterAllNotices}" />
                         </StackPanel>
                     </controls1:SegmentedItem.Content>
                 </controls1:SegmentedItem>
 
-                <controls1:SegmentedItem x:Uid="NoticeBoardFilterUnreadNoticesItem">
+                <controls1:SegmentedItem ToolTipService.ToolTip="{CustomResource NoticeBoardFilterUnreadNoticesItemTooltip}">
                     <controls1:SegmentedItem.Content>
                         <StackPanel Orientation="Horizontal">
                             <FontIcon Margin="0,0,6,0"
                                       FontFamily="{StaticResource FluentIcons}"
                                       FontSize="14" Glyph="&#xE119;" />
-                            <TextBlock x:Uid="NoticeBoardFilterUnreadNotices" />
+                            <TextBlock Text="{CustomResource NoticeBoardFilterUnreadNotices}" />
                         </StackPanel>
                     </controls1:SegmentedItem.Content>
                 </controls1:SegmentedItem>
 
-                <controls1:SegmentedItem x:Uid="NoticeBoardFilterReadNoticesItem">
+                <controls1:SegmentedItem ToolTipService.ToolTip="{CustomResource NoticeBoardFilterReadNoticesItemTooltip}">
                     <controls1:SegmentedItem.Content>
                         <StackPanel Orientation="Horizontal">
                             <FontIcon Margin="0,0,6,0"
                                       FontFamily="{StaticResource FluentIcons}"
                                       FontSize="14" Glyph="&#xE166;" />
-                            <TextBlock x:Uid="NoticeBoardFilterReadNotices" />
+                            <TextBlock Text="{CustomResource NoticeBoardFilterReadNotices}" />
                         </StackPanel>
                     </controls1:SegmentedItem.Content>
                 </controls1:SegmentedItem>
@@ -101,7 +101,8 @@
                        Height="48" Margin="16,0,16,0"
                        Fill="{ThemeResource ControlStrokeColorDefaultBrush}" />
 
-            <CheckBox x:Name="CheckboxAttive" x:Uid="NoticeBoardShowInactiveNoticesCheckbox"
+            <CheckBox x:Name="CheckboxAttive" Content="{CustomResource NoticeBoardShowInactiveNoticesCheckbox}"
+                      ToolTipService.ToolTip="{CustomResource NoticeBoardShowInactiveNoticesCheckboxTooltip}"
                       Margin="0,0,24,0"
                       IsChecked="{x:Bind BachecaViewModel.MostraComInattive, Mode=TwoWay}" />
 
@@ -115,7 +116,7 @@
                        BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
                        BorderThickness="1" CornerRadius="8">
 
-            <TextBlock x:Name="TextComunicazioni" x:Uid="NoticeBoardNotices"
+            <TextBlock x:Name="TextComunicazioni" Text="{CustomResource NoticeBoardNotices}"
                        Margin="14,6,0,0" FontSize="18"
                        FontWeight="SemiBold"
                        Style="{ThemeResource BodyStrongTextBlockStyle}"
