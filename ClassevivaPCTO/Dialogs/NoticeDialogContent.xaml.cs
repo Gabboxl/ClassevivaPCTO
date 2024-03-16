@@ -40,12 +40,12 @@ namespace ClassevivaPCTO.Dialogs
             CurrentReadResult = noticeReadResult;
 
             AttachmentsListView.ItemsSource = notice.attachments;
-
+            
             App app = (App) App.Current;
             var apiClient = app.Container.GetService<IClassevivaAPI>();
 
             apiWrapper = PoliciesDispatchProxy<IClassevivaAPI>.CreateProxy(apiClient);
-
+            
             MaxWidth = 800;
             MinWidth = 600;
         }

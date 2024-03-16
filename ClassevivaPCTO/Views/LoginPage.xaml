@@ -27,10 +27,10 @@
                     <ColumnDefinition x:Name="RightPaddingColumn" Width="0" />
                 </Grid.ColumnDefinitions>
                 <Image Grid.Column="1" Width="24"
-                       Height="24" Margin="12,0,0,0"
+                       Height="24" Margin="14,2,0,0"
                        HorizontalAlignment="Left" Source="/Assets/Square44x44Logo.png" />
                 <TextBlock x:Name="AppTitleTextBlock" Grid.Column="1"
-                           Margin="40,0,0,4" VerticalAlignment="Center"
+                           Margin="40,2,0,4" VerticalAlignment="Center"
                            Style="{StaticResource CaptionTextBlockStyle}" />
             </Grid>
         </Grid>
@@ -44,18 +44,6 @@
         <RelativePanel Width="Auto" Height="450"
                        Margin="40,-18,40,0" Padding="12"
                        HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-
-            <!--<Image x:Name="Hero" Source="/Assets/loginhero.png" Stretch="Uniform" HorizontalAlignment="Stretch"
-                   VerticalAlignment="Stretch" Margin="0,180,0,0" Height="550" Width="500" RelativePanel.AlignRightWithPanel="True">
-                </Image>-->
-
-            <!--<TextBlock x:Name="TextHeader" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignTopWithPanel="True" Margin="12,8,0,0"
-                           Text="Titolo" FontWeight="SemiBold" FontSize="24" TextWrapping="WrapWholeWords"/>
-                <TextBlock RelativePanel.Below="TextHeader" RelativePanel.AlignLeftWithPanel="True" Margin="12,8,0,0" TextWrapping="WrapWholeWords"
-                           Text="LoginHeroDescription" FontWeight="Medium" FontSize="16" Foreground="{ThemeResource TextFillColorSecondaryBrush}"/>
-
-                <Button x:Name="moreinfo" Height="32" MinWidth="90" RenderTransformOrigin="2.13,0.797" HorizontalAlignment="Left" Margin="12,8,0,20"
-                        RelativePanel.AlignBottomWithPanel="True" Content="Scopri come" />-->
 
             <StackPanel x:Name="LoginStackPanel" Width="340"
                         Height="370" Margin="0,20,0,0"
@@ -75,13 +63,13 @@
                            Margin="0,-40,0,0"
                            Fill="{ThemeResource TextFillColorDisabledBrush}" />
 
-                <TextBox x:Name="EdittextUsername" x:Uid="LoginUsernameField" Margin="0,0,0,20" />
-                
-                <PasswordBox x:Name="EdittextPassword" x:Uid="LoginPasswordField" Margin="0,0,0,20" />
-                
-                <CheckBox x:Name="CheckboxCredenziali" x:Uid="LoginKeepCredentialsCheckbox" Margin="0,0,0,20" />
+                <TextBox x:Name="EdittextUsername" Header="{CustomResource LoginUsernameFieldHeader}" PlaceholderText="{CustomResource LoginUsernameFieldPlaceholderText}" Margin="0,0,0,20" />
 
-                <Button x:Name="buttonLogin" x:Uid="LoginButton"
+                <PasswordBox x:Name="EdittextPassword" Header="{CustomResource LoginPasswordFieldHeader}" PlaceholderText="{CustomResource LoginPasswordFieldPlaceholderText}" Margin="0,0,0,20" />
+
+                <CheckBox x:Name="CheckboxCredenziali" Content="{CustomResource LoginKeepCredentialsCheckbox}" Margin="0,0,0,20" />
+
+                <Button x:Name="buttonLogin" Content="{CustomResource LoginButton}"
                         Height="32" MinWidth="120"
                         Margin="0,4,0,0" HorizontalAlignment="Center"
                         Click="Button_Click" RenderTransformOrigin="2.13,0.797"
