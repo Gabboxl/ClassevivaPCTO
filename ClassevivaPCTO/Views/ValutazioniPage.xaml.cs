@@ -13,6 +13,7 @@ using Windows.UI.Xaml.Navigation;
 using ClassevivaPCTO.Adapters;
 using ClassevivaPCTO.Controls;
 using ClassevivaPCTO.Helpers;
+using Windows.Storage;
 
 namespace ClassevivaPCTO.Views
 {
@@ -54,7 +55,7 @@ namespace ClassevivaPCTO.Views
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
-
+            SegmentedLayout.SelectedIndex = await ApplicationData.Current.LocalSettings.ReadAsync<int>("GradesLayoutIndex");
             await Task.Run(async () => { await LoadData(); });
         }
 
@@ -261,6 +262,11 @@ namespace ClassevivaPCTO.Views
         public override async void AggiornaAction()
         {
             await Task.Run(async () => { await LoadData(); });
+        }
+
+        private async void SegmentedLayout_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            await ApplicationData.Current.LocalSettings.SaveAsync("GradesLayoutIndex", SegmentedLayout.SelectedIndex);
         }
     }
 }
