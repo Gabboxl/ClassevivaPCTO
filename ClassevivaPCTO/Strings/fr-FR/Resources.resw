@@ -705,6 +705,18 @@ Erreur: </value>
   <data name="RestartLater" xml:space="preserve">
     <value>Redémarrer plus tard</value>
   </data>
+  <data name="LoginChangelogHyperlink" xml:space="preserve">
+    <value>Novità recenti</value>
+  </data>
+  <data name="LoginGetStartedHyperlink" xml:space="preserve">
+    <value>Informazioni di base</value>
+  </data>
+  <data name="LoginGitHubHyperlink" xml:space="preserve">
+    <value>GitHub</value>
+  </data>
+  <data name="LoginText" xml:space="preserve">
+    <value>Login</value>
+  </data>
   <data name="NoticeBoardFilterAllNoticesItemToolTip" xml:space="preserve">
     <value>Mostra tutte le comunicazioni</value>
   </data>
