@@ -69,7 +69,7 @@ namespace ClassevivaPCTO.Views
                 Task.Run(async () => { await DoLoginAsync(); });
             }
 
-            loginGrid.KeyDown += Grid_KeyDown;
+            LoginGrid.KeyDown += Grid_KeyDown;
         }
 
         private async void ChangelogButton_Click(object sender, RoutedEventArgs e)
