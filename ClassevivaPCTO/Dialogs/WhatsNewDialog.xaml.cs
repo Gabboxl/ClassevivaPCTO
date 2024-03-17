@@ -8,10 +8,11 @@ namespace ClassevivaPCTO.Dialogs
     {
         public WhatsNewDialog()
         {
-            // TODO: Update the contents of this dialog every time you release a new version of the app
             RequestedTheme = ((FrameworkElement) Window.Current.Content).RequestedTheme;
             InitializeComponent();
 
+            Title = "WhatsNewDialogTitle".GetLocalizedStr();
+            PrimaryButtonText = "WhatsNewDialogPrimaryButtonText".GetLocalizedStr();
             Highlights.Text = "ChangelogHighlighsSection".GetLocalizedStr(true);
             General.Text = "ChangelogGeneralSection".GetLocalizedStr(true);
             Dashboard.Text = "ChangelogDashboardSection".GetLocalizedStr(true);
