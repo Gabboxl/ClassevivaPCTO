@@ -2,6 +2,7 @@
 using ClassevivaPCTO.Helpers;
 using ClassevivaPCTO.Services;
 using ClassevivaPCTO.Utils;
+using ClassevivaPCTO.Dialogs;
 using ClassevivaPCTO.ViewModels;
 using Microsoft.Extensions.DependencyInjection;
 using Refit;
@@ -39,7 +40,7 @@ namespace ClassevivaPCTO.Views
             titleBar.ButtonInactiveBackgroundColor = Colors.Transparent;
 
             //titolo title bar
-            AppTitleTextBlock.Text = "Login" + " - " + AppInfo.Current.DisplayInfo.DisplayName;
+            AppTitleTextBlock.Text = "LoginText".GetLocalizedStr() + " - " + AppInfo.Current.DisplayInfo.DisplayName;
 
             Window.Current.SetTitleBar(AppTitleBar);
 
@@ -68,7 +69,19 @@ namespace ClassevivaPCTO.Views
                 Task.Run(async () => { await DoLoginAsync(); });
             }
 
-            loginGrid.KeyDown += Grid_KeyDown;
+            LoginGrid.KeyDown += Grid_KeyDown;
+        }
+
+        private async void ChangelogButton_Click(object sender, RoutedEventArgs e)
+        {
+            var dialog = new WhatsNewDialog();
+            await dialog.ShowAsync();
+        }
+
+        private async void TutorialButton_Click(object sender, RoutedEventArgs e)
+        {
+            var dialog = new FirstRunDialog();
+            await dialog.ShowAsync();
         }
 
         private async void Grid_KeyDown(object sender, KeyRoutedEventArgs args)
@@ -81,6 +94,14 @@ namespace ClassevivaPCTO.Views
 
                     break;
             }
+        }
+
+        private async void demoAccountClick(object sender, RoutedEventArgs e)
+        {
+            EdittextUsername.Text = "test";
+            EdittextPassword.Password = "test";
+            
+            await Task.Run(async () => { await DoLoginAsync(); });
         }
 
         private async void Button_Click(object sender, RoutedEventArgs e)

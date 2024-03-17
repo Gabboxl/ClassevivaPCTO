@@ -2,26 +2,25 @@
     x:Class="ClassevivaPCTO.Views.LoginPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:ClassevivaPCTO"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
     mc:Ignorable="d"
-
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
     muxc:BackdropMaterial.ApplyToRootOrPageBackground="True">
 
-    <Grid x:Name="loginGrid">
-
+    <Grid x:Name="LoginGrid">
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="48" />
                 <RowDefinition />
             </Grid.RowDefinitions>
             <Grid x:Name="AppTitleBar" Background="Transparent">
-                <!-- Width of the padding columns is set in LayoutMetricsChanged handler. -->
-                <!-- Using padding columns instead of Margin ensures that the background
-             paints the area under the caption control buttons (for transparent buttons). -->
+                <!--  Width of the padding columns is set in LayoutMetricsChanged handler.  -->
+                <!--
+                    Using padding columns instead of Margin ensures that the background
+                    paints the area under the caption control buttons (for transparent buttons).
+                -->
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition x:Name="LeftPaddingColumn" Width="0" />
                     <ColumnDefinition />
@@ -38,43 +37,116 @@
                            VerticalAlignment="Center"
                            Margin="40,0,0,4" />
             </Grid>
-
         </Grid>
 
+        <Grid
+            VerticalAlignment="Center">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+            </Grid.RowDefinitions>
 
-        <Image x:Name="Logo" Source="/Assets/mainlogo.png" Stretch="Uniform" HorizontalAlignment="Stretch"
-               VerticalAlignment="Stretch" Margin="0,-480,0,0" Height="60" Width="300">
-        </Image>
+            <Image x:Name="Logo" Width="280"
+                   Grid.Row="0"
+                   Height="60"
+                   HorizontalAlignment="Stretch"
+                    Source="/Assets/mainlogo.png"
+                   Stretch="Uniform" />
 
-        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Height="380" Width="340"
-                    CornerRadius="8"
-                    Padding="12"
-                    BorderThickness="1"
-                    BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
-                    Background="{ThemeResource CardBackgroundFillColorDefaultBrush}">
+            <StackPanel x:Name="LoginStackPanel" Width="340"
+                        Grid.Row="1"
+                        Height="370" Margin="0,20,0,0"
+                        Padding="12"
+                        CornerRadius="8"
+                        BorderThickness="0"
+                        Background="{ThemeResource CardBackgroundFillColorSecondaryBrush}"
+                        BorderBrush="{ThemeResource AccentTextFillColorTertiaryBrush}">
 
-            <TextBlock Text="{CustomResource LoginWelcome}" FontSize="26" FontWeight="Medium" TextAlignment="Center" Height="60"
-                       Margin="0,8,0,0" />
+                <TextBlock Text="{CustomResource LoginWelcome}" Height="60"
+                           Margin="0,8,0,8" FontSize="28" FontWeight="Medium"
+                           Foreground="{ThemeResource TextFillColorTertiaryBrush}"
+                           TextAlignment="Center" />
 
-            <TextBox x:Name="EdittextUsername" Header="{CustomResource LoginUsernameFieldHeader}"
-                     PlaceholderText="{CustomResource LoginUsernameFieldPlaceholderText}"
-                     Margin="0,0,0,20" />
-            <PasswordBox x:Name="EdittextPassword" Header="{CustomResource LoginPasswordFieldHeader}"
-                         PlaceholderText="{CustomResource LoginPasswordFieldPlaceholderText}"
-                         Margin="0,0,0,20" />
-            <CheckBox x:Name="CheckboxCredenziali" Content="{CustomResource LoginKeepCredentialsCheckbox}"
-                      Margin="0,0,0,20" />
+                <Rectangle Width="Auto" Height="1"
+                           Margin="0,-40,0,0"
+                           Fill="{ThemeResource TextFillColorDisabledBrush}" />
 
-            <Button x:Name="buttonLogin" Style="{StaticResource AccentButtonStyle}" Content="{CustomResource LoginButton}" Height="32"
-                    MinWidth="90" RenderTransformOrigin="2.13,0.797" HorizontalAlignment="Center" Margin="0,12,0,0"
-                    Click="Button_Click" />
-            <muxc:ProgressRing x:Name="progresslogin" IsActive="True" Visibility="Collapsed" Margin="0,12,0,0" />
-        </StackPanel>
+                <TextBox x:Name="EdittextUsername" Header="{CustomResource LoginUsernameFieldHeader}"
+                         PlaceholderText="{CustomResource LoginUsernameFieldPlaceholderText}" Margin="0,0,0,20" />
 
-        <TextBlock x:Name="VersionTextBlock" Style="{ThemeResource BodyStrongTextBlockStyle}"
-                   Foreground="{ThemeResource TextFillColorTertiaryBrush}" VerticalAlignment="Bottom"
-                   HorizontalAlignment="Left" Margin="24,0,0,16" />
+                <PasswordBox x:Name="EdittextPassword" Header="{CustomResource LoginPasswordFieldHeader}"
+                             PlaceholderText="{CustomResource LoginPasswordFieldPlaceholderText}" Margin="0,0,0,20" />
 
-        <!--<Button Style="{StaticResource AccentButtonStyle}" Content="Usa account demo" Margin="16" VerticalAlignment="Bottom" HorizontalAlignment="Left"/>-->
+                <CheckBox x:Name="CheckboxCredenziali" Content="{CustomResource LoginKeepCredentialsCheckbox}"
+                          Margin="0,0,0,20" />
+
+                <Button x:Name="buttonLogin" Content="{CustomResource LoginButton}"
+                        Height="32" MinWidth="120"
+                        Margin="0,4,0,0" HorizontalAlignment="Center"
+                        Click="Button_Click" RenderTransformOrigin="2.13,0.797"
+                        Style="{StaticResource AccentButtonStyle}" />
+
+                <muxc:ProgressBar x:Name="progresslogin" Width="340"
+                                  Margin="0,20,0,0" HorizontalAlignment="Left"
+                                  IsIndeterminate="True" Visibility="Collapsed" />
+
+
+            </StackPanel>
+
+            <StackPanel HorizontalAlignment="Center"
+                        Margin="0,64,0,0"
+                        Grid.Row="2"
+                        Orientation="Horizontal"
+                        Spacing="8">
+
+                <HyperlinkButton Click="TutorialButton_Click">
+                    <StackPanel Orientation="Horizontal" Spacing="10">
+                        <Grid Width="18" Height="18">
+                            <Path
+                                Data="F1 M 0 9.375 C 0 8.509115 0.110677 7.677409 0.332031 6.879883 C 0.553385 6.082357 0.867513 5.335287 1.274414 4.638672 C 1.681315 3.942059 2.169596 3.30892 2.739258 2.739258 C 3.308919 2.169598 3.942057 1.681316 4.638672 1.274414 C 5.335286 0.867514 6.082356 0.553387 6.879883 0.332031 C 7.677409 0.110678 8.509114 0 9.375 0 C 10.234375 0 11.062825 0.112305 11.860352 0.336914 C 12.657877 0.561523 13.404947 0.877279 14.101562 1.28418 C 14.798176 1.691082 15.431314 2.179363 16.000977 2.749023 C 16.570637 3.318686 17.058918 3.951824 17.46582 4.648438 C 17.872721 5.345053 18.188477 6.092123 18.413086 6.889648 C 18.637695 7.687175 18.75 8.515625 18.75 9.375 C 18.75 10.240886 18.637695 11.072592 18.413086 11.870117 C 18.188477 12.667644 17.872721 13.413086 17.46582 14.106445 C 17.058918 14.799805 16.570637 15.431315 16.000977 16.000977 C 15.431314 16.570639 14.799804 17.05892 14.106445 17.46582 C 13.413085 17.872721 12.666015 18.188477 11.865234 18.413086 C 11.064453 18.637695 10.234375 18.75 9.375 18.75 C 8.509114 18.75 7.675781 18.639322 6.875 18.417969 C 6.074219 18.196615 5.327148 17.882486 4.633789 17.475586 C 3.94043 17.068686 3.308919 16.580404 2.739258 16.010742 C 2.169596 15.441081 1.681315 14.80957 1.274414 14.116211 C 0.867513 13.422852 0.553385 12.675781 0.332031 11.875 C 0.110677 11.074219 0 10.240886 0 9.375 Z M 17.5 9.375 C 17.5 8.626303 17.403971 7.905273 17.211914 7.211914 C 17.019855 6.518556 16.746418 5.87077 16.391602 5.268555 C 16.036783 4.666342 15.613606 4.119467 15.12207 3.62793 C 14.630533 3.136395 14.083658 2.713217 13.481445 2.358398 C 12.879231 2.003582 12.231445 1.730145 11.538086 1.538086 C 10.844727 1.346029 10.123697 1.25 9.375 1.25 C 8.626302 1.25 7.905273 1.346029 7.211914 1.538086 C 6.518555 1.730145 5.870768 2.001953 5.268555 2.353516 C 4.666341 2.705078 4.117838 3.128256 3.623047 3.623047 C 3.128255 4.117839 2.705078 4.666342 2.353516 5.268555 C 2.001953 5.87077 1.730143 6.518556 1.538086 7.211914 C 1.346029 7.905273 1.25 8.626303 1.25 9.375 C 1.25 10.123698 1.346029 10.844727 1.538086 11.538086 C 1.730143 12.231445 2.001953 12.879232 2.353516 13.481445 C 2.705078 14.083659 3.128255 14.632162 3.623047 15.126953 C 4.117838 15.621745 4.666341 16.044922 5.268555 16.396484 C 5.870768 16.748047 6.518555 17.019857 7.211914 17.211914 C 7.905273 17.403971 8.626302 17.5 9.375 17.5 C 10.123697 17.5 10.844727 17.403971 11.538086 17.211914 C 12.231445 17.019857 12.879231 16.74642 13.481445 16.391602 C 14.083658 16.036783 14.630533 15.613607 15.12207 15.12207 C 15.613606 14.630534 16.036783 14.083659 16.391602 13.481445 C 16.746418 12.879232 17.019855 12.231445 17.211914 11.538086 C 17.403971 10.844727 17.5 10.123698 17.5 9.375 Z M 11.25 6.875 C 11.25 6.621095 11.201172 6.380209 11.103516 6.152344 C 11.005859 5.924479 10.870768 5.724284 10.698242 5.551758 C 10.525716 5.379232 10.325521 5.244142 10.097656 5.146484 C 9.869791 5.048829 9.628906 5.000001 9.375 5 C 9.121094 5.000001 8.880208 5.048829 8.652344 5.146484 C 8.424479 5.244142 8.224283 5.379232 8.051758 5.551758 C 7.879231 5.724284 7.74414 5.924479 7.646484 6.152344 C 7.548828 6.380209 7.5 6.621095 7.5 6.875 C 7.5 7.044271 7.43815 7.190756 7.314453 7.314453 C 7.190755 7.438151 7.044271 7.5 6.875 7.5 C 6.673177 7.5 6.518555 7.431641 6.411133 7.294922 C 6.303711 7.158203 6.25 6.995443 6.25 6.806641 C 6.25 6.383465 6.334635 5.986329 6.503906 5.615234 C 6.673177 5.244142 6.901042 4.920248 7.1875 4.643555 C 7.473958 4.366862 7.805989 4.148764 8.183594 3.989258 C 8.561197 3.829754 8.958333 3.75 9.375 3.75 C 9.791666 3.75 10.188802 3.829754 10.566406 3.989258 C 10.94401 4.148764 11.276041 4.366862 11.5625 4.643555 C 11.848958 4.920248 12.076822 5.244142 12.246094 5.615234 C 12.415364 5.986329 12.5 6.383465 12.5 6.806641 C 12.5 7.197266 12.434896 7.568359 12.304688 7.919922 C 12.174479 8.271484 11.972656 8.58724 11.699219 8.867188 C 11.490885 9.075521 11.282552 9.285482 11.074219 9.49707 C 10.865885 9.708659 10.657552 9.91862 10.449219 10.126953 C 10.345052 10.23112 10.263672 10.336914 10.205078 10.444336 C 10.146484 10.551758 10.102539 10.660808 10.073242 10.771484 C 10.043945 10.882162 10.024414 10.994467 10.014648 11.108398 C 10.004883 11.222331 10 11.341146 10 11.464844 L 10 11.875 C 10 12.044271 9.93815 12.190756 9.814453 12.314453 C 9.690755 12.438151 9.544271 12.5 9.375 12.5 C 9.238281 12.5 9.127604 12.473959 9.042969 12.421875 C 8.958333 12.369792 8.894856 12.299805 8.852539 12.211914 C 8.810221 12.124023 8.782552 12.02474 8.769531 11.914062 C 8.75651 11.803386 8.75 11.692709 8.75 11.582031 L 8.75 11.25 C 8.75 10.859375 8.811849 10.517578 8.935547 10.224609 C 9.059244 9.931641 9.213867 9.669597 9.399414 9.438477 C 9.584961 9.207357 9.785156 8.995769 10 8.803711 C 10.214844 8.611654 10.415039 8.419597 10.600586 8.227539 C 10.786133 8.035482 10.940755 7.832031 11.064453 7.617188 C 11.18815 7.402344 11.25 7.154948 11.25 6.875 Z M 8.4375 14.375 C 8.4375 14.114584 8.528646 13.893229 8.710938 13.710938 C 8.893229 13.528646 9.114583 13.4375 9.375 13.4375 C 9.635416 13.4375 9.856771 13.528646 10.039062 13.710938 C 10.221354 13.893229 10.3125 14.114584 10.3125 14.375 C 10.3125 14.635417 10.221354 14.856771 10.039062 15.039062 C 9.856771 15.221354 9.635416 15.3125 9.375 15.3125 C 9.114583 15.3125 8.893229 15.221354 8.710938 15.039062 C 8.528646 14.856771 8.4375 14.635417 8.4375 14.375 Z "
+                                Fill="{ThemeResource AccentTextFillColorPrimaryBrush}"
+                                Stretch="Uniform" />
+                        </Grid>
+                        <TextBlock Text="{CustomResource LoginGetStartedHyperlink}" />
+
+                    </StackPanel>
+                </HyperlinkButton>
+
+                <HyperlinkButton Click="ChangelogButton_Click">
+                    <StackPanel Orientation="Horizontal" Spacing="10">
+                        <Grid Width="18" Height="18">
+                            <Path
+                                Data="F1 M 20 3.505859 L 20 16.386719 C 20 16.640625 19.951172 16.883139 19.853516 17.114258 C 19.755859 17.345377 19.622395 17.545572 19.453125 17.714844 C 19.283854 17.884115 19.086914 18.019205 18.862305 18.120117 C 18.637695 18.221029 18.395182 18.271484 18.134766 18.271484 C 18.030598 18.271484 17.926432 18.263346 17.822266 18.24707 C 17.718098 18.230795 17.620441 18.206381 17.529297 18.173828 L 11.591797 16.191406 C 11.442057 16.575521 11.238606 16.923828 10.981445 17.236328 C 10.724283 17.548828 10.42806 17.817383 10.092773 18.041992 C 9.757486 18.266602 9.396158 18.440756 9.008789 18.564453 C 8.621419 18.68815 8.222656 18.75 7.8125 18.75 C 7.272135 18.75 6.756185 18.645834 6.264648 18.4375 C 5.773112 18.229166 5.341797 17.944336 4.970703 17.583008 C 4.599609 17.22168 4.303385 16.800131 4.082031 16.318359 C 3.860677 15.836589 3.75 15.319011 3.75 14.765625 L 3.75 13.574219 L 1.279297 12.753906 C 0.888672 12.623698 0.577799 12.397461 0.34668 12.075195 C 0.11556 11.75293 0 11.386719 0 10.976562 L 0 7.832031 C 0 7.617188 0.03418 7.413737 0.102539 7.22168 C 0.170898 7.029623 0.266927 6.853842 0.390625 6.694336 C 0.514323 6.534831 0.660807 6.396484 0.830078 6.279297 C 0.999349 6.162109 1.188151 6.077475 1.396484 6.025391 L 17.646484 1.689453 C 17.802734 1.650391 17.962238 1.630859 18.125 1.630859 C 18.385416 1.630859 18.629557 1.679688 18.857422 1.777344 C 19.085285 1.875 19.283854 2.008465 19.453125 2.177734 C 19.622395 2.347006 19.755859 2.545574 19.853516 2.773438 C 19.951172 3.001303 20 3.245443 20 3.505859 Z M 18.75 3.505859 C 18.75 3.330078 18.689777 3.181967 18.569336 3.061523 C 18.448893 2.941082 18.300781 2.880859 18.125 2.880859 C 18.085938 2.880859 18.033854 2.887371 17.96875 2.900391 L 1.71875 7.226562 C 1.582031 7.265626 1.469727 7.342123 1.381836 7.456055 C 1.293945 7.569987 1.25 7.695312 1.25 7.832031 L 1.25 10.976562 C 1.25 11.106771 1.29069 11.227214 1.37207 11.337891 C 1.45345 11.448568 1.55599 11.523438 1.679688 11.5625 L 17.929688 16.982422 C 17.988281 17.001953 18.053385 17.011719 18.125 17.011719 C 18.29427 17.011719 18.440754 16.949869 18.564453 16.826172 C 18.68815 16.702475 18.75 16.55599 18.75 16.386719 Z M 10.400391 15.791016 L 5 13.994141 L 5 14.736328 C 5 15.107422 5.07487 15.458984 5.224609 15.791016 C 5.374349 16.123047 5.576172 16.416016 5.830078 16.669922 C 6.083984 16.923828 6.376953 17.12565 6.708984 17.275391 C 7.041015 17.425131 7.392578 17.5 7.763672 17.5 C 8.05013 17.5 8.326822 17.460938 8.59375 17.382812 C 8.860677 17.304688 9.1097 17.192383 9.34082 17.045898 C 9.571939 16.899414 9.777018 16.720377 9.956055 16.508789 C 10.135091 16.297201 10.283203 16.057943 10.400391 15.791016 Z "
+                                Fill="{ThemeResource AccentTextFillColorPrimaryBrush}"
+                                Stretch="Uniform" />
+                        </Grid>
+                        <TextBlock Text="{CustomResource LoginChangelogHyperlink}" />
+                    </StackPanel>
+                </HyperlinkButton>
+
+                <HyperlinkButton NavigateUri="http://github.com/Gabboxl/ClassevivaPCTO">
+                    <StackPanel Orientation="Horizontal" Spacing="10">
+                        <Grid Width="18" Height="18">
+                            <Path
+                                Data="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"
+                                Fill="{ThemeResource AccentTextFillColorPrimaryBrush}"
+                                Stretch="Uniform" />
+                        </Grid>
+                        <TextBlock Text="{CustomResource LoginGitHubHyperlink}" />
+                    </StackPanel>
+                </HyperlinkButton>
+
+            </StackPanel>
+        </Grid>
+
+        <TextBlock x:Name="VersionTextBlock" Margin="16"
+                   HorizontalAlignment="Left" VerticalAlignment="Bottom"
+                   Foreground="{ThemeResource TextFillColorTertiaryBrush}"
+                   Style="{ThemeResource BodyStrongTextBlockStyle}" />
+
+        <!--<Button Margin="16" HorizontalAlignment="Right"
+                VerticalAlignment="Bottom" Click="demoAccountClick"
+                Content="Account test" Visibility="Collapsed" />-->
     </Grid>
 </Page>
