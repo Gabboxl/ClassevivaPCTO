@@ -133,11 +133,6 @@
                     <TextBlock Text="Resetta tutti i filtri" />
                 </StackPanel>
 
-                <HyperlinkButton.Transitions>
-                    <TransitionCollection>
-                        <AddDeleteThemeTransition />
-                    </TransitionCollection>
-                </HyperlinkButton.Transitions>
 
             </HyperlinkButton>
 

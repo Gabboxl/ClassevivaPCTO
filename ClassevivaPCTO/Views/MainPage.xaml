@@ -140,10 +140,8 @@
                     <ColumnDefinition Width="260" />
                 </Grid.ColumnDefinitions>
 
-                <Button x:Name="MainRefreshButton" Grid.Column="1" Width="40" Height="26" ToolTipService.ToolTip="{CustomResource RefreshButtonToolTip}"
-                        Click="MainRefreshButton_OnClick" Margin="0,2,0,2" >
-                    <FontIcon HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="12" Glyph="&#xE72C;" />
-                </Button>
+                <AppBarButton x:Name="MainRefreshButton" Grid.Column="1" Icon="Refresh"
+                              IsCompact="False" Width="52" Click="MainRefreshButton_OnClick" ToolTipService.ToolTip="{CustomResource RefreshButtonToolTip}" />
                 
             </Grid>
 
