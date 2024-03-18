@@ -214,6 +214,7 @@
     <Compile Include="Services\ActivationService.cs" />
     <Compile Include="Services\AnimationService.cs" />
     <Compile Include="Services\FirstRunDisplayService.cs" />
+    <Compile Include="Services\LocalizationResourcesService.cs" />
     <Compile Include="Services\NavigationService.cs" />
     <Compile Include="Services\ChoiceSaverService.cs" />
     <Compile Include="Services\PaletteSelectorService.cs" />
@@ -518,6 +519,9 @@
     <PackageReference Include="Crowdin.Api">
       <Version>2.20.0</Version>
     </PackageReference>
+    <PackageReference Include="Crowdin.Net">
+      <Version>1.1.0</Version>
+    </PackageReference>
     <PackageReference Include="Microsoft.AppCenter.Analytics">
       <Version>5.0.3</Version>
     </PackageReference>
@@ -528,10 +532,10 @@
       <Version>8.0.0</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions">
-      <Version>8.0.0</Version>
+      <Version>8.0.1</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.Extensions.Http.Polly">
-      <Version>8.0.2</Version>
+      <Version>8.0.3</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
       <Version>6.2.14</Version>
@@ -546,7 +550,7 @@
       <Version>13.0.3</Version>
     </PackageReference>
     <PackageReference Include="Polly">
-      <Version>8.3.0</Version>
+      <Version>8.3.1</Version>
     </PackageReference>
     <PackageReference Include="Polly.Extensions.Http">
       <Version>3.0.0</Version>
@@ -575,7 +579,6 @@
       <Name>ClassevivaPCTO.Core</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>

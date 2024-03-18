@@ -64,7 +64,7 @@
 
                 <RelativePanel Grid.Column="1" Padding="0,6,0,6">
 
-                    <Button x:Name="ButtonOpenScrutinio" x:Uid="ScrutiniOpenFileButton"
+                    <Button x:Name="ButtonOpenScrutinio" ToolTipService.ToolTip="{CustomResource ScrutiniOpenFileButtonToolTip}"
                             MinWidth="70" Margin="0,0,14,0"
                             Click="ButtonOpen_Click" RelativePanel.AlignVerticalCenterWithPanel="True"
                             RelativePanel.LeftOf="ButtonSaveScrutinio"
@@ -75,14 +75,14 @@
                                         Orientation="Vertical">
                                 <FontIcon FontFamily="{StaticResource FluentIcons}"
                                           FontSize="16" Glyph="&#xE8E5;" />
-                                <TextBlock x:Uid="GenericOpenButton" Margin="0,0,0,0"
+                                <TextBlock Text="{CustomResource GenericOpenButton}" Margin="0,0,0,0"
                                            FontSize="12" />
                             </StackPanel>
                         </Button.Content>
 
                     </Button>
 
-                    <Button x:Name="ButtonSaveScrutinio" x:Uid="ScrutiniSaveFileButton"
+                    <Button x:Name="ButtonSaveScrutinio" ToolTipService.ToolTip="{CustomResource ScrutiniSaveFileButtonToolTip}"
                             MinWidth="70" Margin="0,0,12,0"
                             Click="ButtonSave_Click" RelativePanel.AlignRightWithPanel="True"
                             RelativePanel.AlignVerticalCenterWithPanel="True"
@@ -92,7 +92,7 @@
                             <StackPanel Padding="6,0,6,0" Orientation="Vertical">
                                 <FontIcon FontFamily="{StaticResource FluentIcons}"
                                           FontSize="16" Glyph="&#xE74E;" />
-                                <TextBlock x:Uid="GenericSaveButton" Margin="0,0,0,0"
+                                <TextBlock Text="{CustomResource GenericSaveButton}" Margin="0,0,0,0"
                                            FontSize="12" />
                             </StackPanel>
                         </Button.Content>
@@ -132,7 +132,7 @@
 
                 <RelativePanel Grid.Column="1" Padding="0,6,0,6">
 
-                    <Button x:Name="ButtonOpenReport" x:Uid="ScrutiniOpenReportButton"
+                    <Button x:Name="ButtonOpenReport" ToolTipService.ToolTip="{CustomResource ScrutiniOpenReportButtonToolTip}"
                             MinWidth="70" Margin="0,0,12,0"
                             winUi:FrameworkElementExtensions.Cursor="Hand" Click="ButtonOpenReport_OnClick"
                             RelativePanel.AlignVerticalCenterWithPanel="True">
@@ -143,7 +143,7 @@
                                           FontSize="16"
                                           Foreground="{ThemeResource AccentTextFillColorPrimaryBrush}"
                                           Glyph="&#xE71B;" />
-                                <TextBlock x:Uid="GenericOpenButton" Margin="0,0,0,0"
+                                <TextBlock Text="{CustomResource GenericOpenButton}" Margin="0,0,0,0"
                                            FontSize="12" />
                             </StackPanel>
                         </Button.Content>
@@ -163,14 +163,14 @@
 
             <StackPanel>
 
-                <TextBlock x:Name="DocumentsTitle" x:Uid="ScrutiniDocumentsHeader"
-                           Margin="14,12,0,8" FontSize="18"
+                <TextBlock x:Name="DocumentsTitle" Text="{CustomResource ScrutiniDocumentsHeader}"
+                           Margin="6,4,0,8" FontSize="18"
                            FontWeight="SemiBold"
                            Style="{ThemeResource BodyStrongTextBlockStyle}"
                            Visibility="{x:Bind ItemsSource.Documents, Mode=OneWay, FallbackValue=Collapsed, Converter={StaticResource EmptyListToVisibilityConverter}}" />
 
-                <Rectangle Height="1" Margin="14,2,14,8"
-                           Fill="#5B5B5B"
+                <Rectangle Height="1" Margin="6,0,6,8"
+                           Fill="{ThemeResource ControlStrongStrokeColorDisabledBrush}"
                            Visibility="{x:Bind ItemsSource.Documents, Mode=OneWay, FallbackValue=Collapsed, Converter={StaticResource EmptyListToVisibilityConverter}}" />
 
                 <ListView x:Name="listViewScrutini" HorizontalAlignment="Stretch"
@@ -178,15 +178,15 @@
                           ItemContainerStyle="{StaticResource ListViewFullStretchStyle}"
                           ItemTemplate="{StaticResource ScrutiniListViewDataTemplate}"
                           ScrollViewer.VerticalScrollMode="Enabled" />
-
-                <TextBlock x:Name="ReportsTitle" x:Uid="ScrutiniReportsHeader"
-                           Margin="14,12,0,8" FontSize="18"
+              
+                <TextBlock x:Name="ReportsTitle" Text="{CustomResource ScrutiniReportsHeader}"
+                            Margin="6,12,0,8" FontSize="18"
                            FontWeight="SemiBold"
                            Style="{ThemeResource BodyStrongTextBlockStyle}"
                            Visibility="{x:Bind ItemsSource.SchoolReports, Mode=OneWay, FallbackValue=Collapsed, Converter={StaticResource EmptyListToVisibilityConverter}}" />
 
-                <Rectangle Height="1" Margin="14,2,14,8"
-                           Fill="#5B5B5B"
+                <Rectangle Height="1" Margin="6,0,6,8"
+                           Fill="{ThemeResource ControlStrongStrokeColorDisabledBrush}"
                            Visibility="{x:Bind ItemsSource.Documents, Mode=OneWay, FallbackValue=Collapsed, Converter={StaticResource EmptyListToVisibilityConverter}}" />
 
                 <ListView x:Name="listViewSchoolReports" HorizontalAlignment="Stretch"
@@ -208,7 +208,7 @@
                       Foreground="{ThemeResource TextFillColorDisabledBrush}"
                       Glyph="&#xf180;" RelativePanel.AlignHorizontalCenterWithPanel="True" />
 
-            <TextBlock x:Uid="ScrutiniPlaceholder" Margin="0,10,0,0"
+            <TextBlock Text="{CustomResource ScrutiniPlaceholder}" Margin="0,10,0,0"
                        HorizontalAlignment="Center" VerticalAlignment="Center"
                        FontSize="36" FontWeight="SemiBold"
                        Foreground="{ThemeResource TextFillColorDisabledBrush}"

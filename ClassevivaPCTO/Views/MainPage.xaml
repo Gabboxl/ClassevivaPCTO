@@ -82,12 +82,12 @@
                 -->
 
                 <Image Grid.Column="1" Width="24"
-                       Height="24" Margin="14,0,0,0"
+                       Height="24" Margin="14,2,0,0"
                        HorizontalAlignment="Left" Source="/Assets/Square44x44Logo.png" />
+                
                 <TextBlock x:Name="AppTitleTextBlock" Grid.Column="1"
-                           Margin="44,0,0,4" VerticalAlignment="Center"
-                           Style="{StaticResource CaptionTextBlockStyle}"
-                           Text="test" />
+                           Margin="44,2,0,4" VerticalAlignment="Center"
+                           Style="{StaticResource CaptionTextBlockStyle}" />
 
             </Grid>
 
@@ -106,7 +106,7 @@
                         VerticalAlignment="Center"
                         AutoMaximizeSuggestionArea="True"
                         MaxSuggestionListHeight="700"
-                        x:Uid="AutoSuggestBoxSearch"
+                        ="AutoSuggestBoxSearch"
                         Style="{ThemeResource DefaultAutoSuggestBoxStyle}"
                         UpdateTextOnSelect="False"
                         TextMemberPath="address"
@@ -140,8 +140,9 @@
                     <ColumnDefinition Width="260" />
                 </Grid.ColumnDefinitions>
 
-                <AppBarButton x:Name="MainRefreshButton" Grid.Column="1" Icon="Refresh" IsCompact="False" Width="52" Click="MainRefreshButton_OnClick" x:Uid="RefreshButton" />
-
+                <AppBarButton x:Name="MainRefreshButton" Grid.Column="1" Icon="Refresh"
+                              IsCompact="False" Width="52" Click="MainRefreshButton_OnClick" ToolTipService.ToolTip="{CustomResource RefreshButtonToolTip}" />
+                
             </Grid>
 
             <!--
@@ -203,7 +204,7 @@
 
             <muxc:NavigationView.MenuItems>
 
-                <custnav:CustomNavigationViewItem x:Uid="NavigationViewDashboard" helpers:NavHelper.NavigateTo="views:DashboardPage">
+                <custnav:CustomNavigationViewItem Content="{CustomResource NavigationViewDashboard}" helpers:NavHelper.NavigateTo="views:DashboardPage">
                     <custnav:CustomNavigationViewItem.IconOutline>
                         <FontIcon FontFamily="{StaticResource FluentIcons}" Glyph="&#xe80f;" />
                     </custnav:CustomNavigationViewItem.IconOutline>
@@ -213,7 +214,7 @@
                     </custnav:CustomNavigationViewItem.IconFilled>
                 </custnav:CustomNavigationViewItem>
 
-                <custnav:CustomNavigationViewItem x:Uid="NavigationViewAgenda" helpers:NavHelper.NavigateTo="views:AgendaPage">
+                <custnav:CustomNavigationViewItem Content="{CustomResource NavigationViewAgenda}" helpers:NavHelper.NavigateTo="views:AgendaPage">
                     <custnav:CustomNavigationViewItem.IconOutline>
                         <FontIcon FontFamily="{StaticResource FluentIcons}" Glyph="&#xe787;" />
                     </custnav:CustomNavigationViewItem.IconOutline>
@@ -224,7 +225,7 @@
 
                 </custnav:CustomNavigationViewItem>
 
-                <custnav:CustomNavigationViewItem x:Uid="NavigationViewGrades" helpers:NavHelper.NavigateTo="views:ValutazioniPage">
+                <custnav:CustomNavigationViewItem Content="{CustomResource NavigationViewGrades}" helpers:NavHelper.NavigateTo="views:ValutazioniPage">
                     <custnav:CustomNavigationViewItem.IconOutline>
                         <FontIcon FontFamily="{StaticResource FluentIcons}" Glyph="&#xe9f9;" />
                     </custnav:CustomNavigationViewItem.IconOutline>
@@ -234,7 +235,7 @@
                     </custnav:CustomNavigationViewItem.IconFilled>
                 </custnav:CustomNavigationViewItem>
 
-                <custnav:CustomNavigationViewItem x:Uid="NavigationViewAssenze" helpers:NavHelper.NavigateTo="views:AssenzePage">
+                <custnav:CustomNavigationViewItem Content="{CustomResource NavigationViewAssenze}" helpers:NavHelper.NavigateTo="views:AssenzePage">
                     <custnav:CustomNavigationViewItem.IconOutline>
                         <FontIcon FontFamily="{StaticResource FluentIcons}" Glyph="&#xe7c1;" />
                     </custnav:CustomNavigationViewItem.IconOutline>
@@ -244,7 +245,7 @@
                     </custnav:CustomNavigationViewItem.IconFilled>
                 </custnav:CustomNavigationViewItem>
 
-                <custnav:CustomNavigationViewItem x:Uid="NavigationViewBacheca" helpers:NavHelper.NavigateTo="views:BachecaPage">
+                <custnav:CustomNavigationViewItem Content="{CustomResource NavigationViewBacheca}" helpers:NavHelper.NavigateTo="views:BachecaPage">
                     <custnav:CustomNavigationViewItem.IconOutline>
                         <FontIcon FontFamily="{StaticResource FluentIcons}" Glyph="&#xe718;" />
                     </custnav:CustomNavigationViewItem.IconOutline>
@@ -254,7 +255,7 @@
                     </custnav:CustomNavigationViewItem.IconFilled>
                 </custnav:CustomNavigationViewItem>
 
-                <custnav:CustomNavigationViewItem x:Uid="NavigationViewNote" helpers:NavHelper.NavigateTo="views:NotePage">
+                <custnav:CustomNavigationViewItem Content="{CustomResource NavigationViewNote}" helpers:NavHelper.NavigateTo="views:NotePage">
                     <custnav:CustomNavigationViewItem.IconOutline>
                         <FontIcon FontFamily="{StaticResource FluentIcons}" Glyph="&#xe91c;" />
                     </custnav:CustomNavigationViewItem.IconOutline>
@@ -264,7 +265,7 @@
                     </custnav:CustomNavigationViewItem.IconFilled>
                 </custnav:CustomNavigationViewItem>
 
-                <custnav:CustomNavigationViewItem x:Uid="NavigationViewScrutini" helpers:NavHelper.NavigateTo="views:ScrutiniPage">
+                <custnav:CustomNavigationViewItem Content="{CustomResource NavigationViewScrutini}" helpers:NavHelper.NavigateTo="views:ScrutiniPage">
                     <custnav:CustomNavigationViewItem.IconOutline>
                         <FontIcon FontFamily="{StaticResource FluentIcons}" Glyph="&#xf180;" />
                     </custnav:CustomNavigationViewItem.IconOutline>

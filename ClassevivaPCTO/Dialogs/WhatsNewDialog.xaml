@@ -4,7 +4,6 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    x:Uid="WhatsNewDialog"
     d:DesignHeight="500"
     d:DesignWidth="750"
     mc:Ignorable="d" Opacity="1">
@@ -18,7 +17,7 @@
                            FontWeight="SemiBold" RelativePanel.AlignLeftWithPanel="True"
                            Text="{x:Bind}" />
 
-                <TextBlock x:Uid="WhatsNewDialogRelease" Margin="0,2,8,0"
+                <TextBlock Text="{CustomResource WhatsNewDialogRelease}" Margin="0,2,8,0"
                            VerticalAlignment="Center" FontSize="16"
                            Foreground="{ThemeResource TextFillColorTertiaryBrush}"
                            IsTextSelectionEnabled="True" RelativePanel.AlignRightWithPanel="True" />
@@ -40,7 +39,7 @@
                    Stretch="Uniform" />
             
             <!--  In evidenza  -->
-            <TextBlock x:Uid="WhatsNewDialogHighlights" Margin="0,4,0,0"
+            <TextBlock Text="{CustomResource WhatsNewDialogHighlights}" Margin="0,4,0,0"
                        FontSize="24" FontWeight="SemiBold"
                        TextWrapping="WrapWholeWords" /> 
 
@@ -53,7 +52,7 @@
             <RelativePanel Visibility="Collapsed">
                 
                 <!--  Generali  -->
-                <TextBlock x:Uid="SettingsGeneralHeader" Margin="0,0,0,0"
+                <TextBlock Text="{CustomResource SettingsGeneralHeader}" Margin="0,0,0,0"
                            FontSize="24" FontWeight="SemiBold"
                            TextWrapping="WrapWholeWords" /> 
 
@@ -75,7 +74,7 @@
                            TextWrapping="WrapWholeWords" />
                 
                 <!--  Agenda  -->
-                <TextBlock x:Uid="AgendaTitle" Margin="0,20,0,0"
+                <TextBlock Text="{CustomResource AgendaTitle}" Margin="0,20,0,0"
                            FontSize="24" FontWeight="SemiBold"
                            TextWrapping="WrapWholeWords" /> 
 
@@ -86,7 +85,7 @@
                            TextWrapping="WrapWholeWords" />
                 
                 <!--  Valutazioni  -->
-                <TextBlock x:Uid="GradesTitle" Margin="0,20,0,0"
+                <TextBlock Text="{CustomResource GradesTitle}" Margin="0,20,0,0"
                            FontSize="24" FontWeight="SemiBold"
                            TextWrapping="WrapWholeWords" /> 
 
@@ -97,7 +96,7 @@
                            TextWrapping="WrapWholeWords" />
                 
                 <!--  Assenze  -->
-                <TextBlock x:Uid="AbsencesTitle" Margin="0,20,0,0"
+                <TextBlock Text="{CustomResource AbsencesTitle}" Margin="0,20,0,0"
                            FontSize="24" FontWeight="SemiBold"
                            TextWrapping="WrapWholeWords" /> 
 
@@ -108,7 +107,7 @@
                            TextWrapping="WrapWholeWords" />
                 
                 <!--  Bacheca  -->
-                <TextBlock x:Uid="NoticeBoardTitle" Margin="0,20,0,0"
+                <TextBlock Text="{CustomResource NoticeBoardTitle}" Margin="0,20,0,0"
                            FontSize="24" FontWeight="SemiBold"
                            TextWrapping="WrapWholeWords" /> 
 
@@ -129,7 +128,7 @@
                               Fill="{ThemeResource AccentTextFillColorPrimaryBrush}"
                               Stretch="Uniform" />
                     </Grid>
-                    <TextBlock x:Uid="WhatsNewDialogHyperlinkAllChanges" />
+                    <TextBlock Text="{CustomResource WhatsNewDialogHyperlinkAllChanges}" />
                 </StackPanel>
 
             </HyperlinkButton>

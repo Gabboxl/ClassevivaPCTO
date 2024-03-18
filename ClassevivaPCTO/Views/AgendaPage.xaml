@@ -87,7 +87,7 @@
                 <RelativePanel Grid.Row="0" Grid.Column="1"
                                Margin="0,0,0,24">
                     
-                    <TextBlock x:Name="TitoloLezioniPopup" x:Uid="AgendaLessonsPopupTitle"
+                    <TextBlock x:Name="TitoloLezioniPopup" Text="{CustomResource AgendaLessonsPopupTitle}"
                                Margin="12,16,0,0" VerticalAlignment="Top"
                                FontSize="42" />
 
@@ -146,7 +146,7 @@
                 <RelativePanel Grid.Row="0" Grid.Column="1"
                                Margin="0,0,0,24">
                     
-                    <TextBlock x:Name="TitoloAgendaPopup" x:Uid="AgendaTasksPopupTitle"
+                    <TextBlock x:Name="TitoloAgendaPopup" Text="{CustomResource AgendaTasksPopupTitle}"
                                Margin="12,16,0,0" VerticalAlignment="Top"
                                FontSize="42" />
 
@@ -188,7 +188,7 @@
 
                 <RelativePanel Grid.Row="0" Margin="0,16,0,0">
 
-                    <TextBlock x:Name="TextTitolo" x:Uid="AgendaTitle"
+                    <TextBlock x:Name="TextTitolo" Text="{CustomResource AgendaTitle}"
                                Margin="32,0,0,0"
                                Style="{StaticResource TitleLargeTextBlockStyle}" />
 
@@ -221,7 +221,7 @@
                             </TransitionCollection>
                         </RelativePanel.ChildrenTransitions>
 
-                        <Button x:Name="ButtonYesterday" x:Uid="AgendaYesterdayButton"
+                        <Button x:Name="ButtonYesterday" ToolTipService.ToolTip="{CustomResource AgendaYesterdayButtonTooltip}"
                                 Width="48" Height="32"
                                 Margin="12,0,0,0" winUi:FrameworkElementExtensions.Cursor="Hand"
                                 Click="ButtonYesterday_Click" RelativePanel.AlignVerticalCenterWithPanel="True"
@@ -232,13 +232,13 @@
 
                         </Button>
 
-                        <CalendarDatePicker x:Name="CalendarAgenda" x:Uid="AgendaCalendarDatePicker"
+                        <CalendarDatePicker x:Name="CalendarAgenda" ToolTipService.ToolTip="{CustomResource AgendaCalendarDatePickerTooltip}"
                                             MinWidth="116" Margin="8,0,8,0"
                                             winUi:FrameworkElementExtensions.Cursor="Hand" FirstDayOfWeek="Monday"
                                             PlaceholderText="Scegli una data" RelativePanel.AlignVerticalCenterWithPanel="True"
                                             RelativePanel.LeftOf="ButtonTomorrow" />
 
-                        <Button x:Name="ButtonTomorrow" x:Uid="AgendaTomorrowButton"
+                        <Button x:Name="ButtonTomorrow" ToolTipService.ToolTip="{CustomResource AgendaTomorrowButtonTooltip}"
                                 Width="48" Height="32"
                                 Margin="0,0,0,0" winUi:FrameworkElementExtensions.Cursor="Hand"
                                 Click="ButtonTomorrow_Click" RelativePanel.AlignVerticalCenterWithPanel="True"
@@ -248,7 +248,8 @@
                                       FontSize="16" Glyph="&#xE76C;" />
                         </Button>
 
-                        <ToggleButton x:Name="ButtonToday" x:Uid="AgendaTodayButton"
+                        <ToggleButton x:Name="ButtonToday" Content="{CustomResource AgendaTodayButton}"
+                                      ToolTipService.ToolTip="{CustomResource AgendaTodayButtonTooltip}"
                                       Margin="8,0,0,0" HorizontalAlignment="Center"
                                       VerticalAlignment="Center" winUi:FrameworkElementExtensions.Cursor="Hand"
                                       Click="ButtonToday_Click" RelativePanel.AlignVerticalCenterWithPanel="True"
@@ -256,7 +257,7 @@
 
                         <Rectangle x:Name="Separator1" Width="1"
                                    Height="48" Margin="12,0,0,0"
-                                   Fill="{ThemeResource ControlStrokeColorDefaultBrush}"
+                                   Fill="{ThemeResource ControlStrongStrokeColorDisabledBrush}"
                                    RelativePanel.LeftOf="TuttiCompitiButton" />
 
                         <Button x:Name="TuttiCompitiButton" MinWidth="110"
@@ -265,7 +266,7 @@
 
                             <StackPanel VerticalAlignment="Center" Orientation="Horizontal" Spacing="8">
                                 <TextBlock VerticalAlignment="Center" FontFamily="{StaticResource FluentIcons}" Text="&#xEA98;" />
-                                <TextBlock x:Uid="AgendaAllTasksButton" />
+                                <TextBlock Text="{CustomResource AgendaAllTasksButton}" />
                             </StackPanel>
 
                         </Button>
@@ -276,7 +277,7 @@
 
                             <StackPanel VerticalAlignment="Center" Orientation="Horizontal" Spacing="8">
                                 <TextBlock VerticalAlignment="Center" FontFamily="{StaticResource FluentIcons}" Text="&#xe7be;" />
-                                <TextBlock x:Uid="AgendaAllLessonsButton" />
+                                <TextBlock Text="{CustomResource AgendaAllLessonsButton}" />
                             </StackPanel>
 
                         </Button>
