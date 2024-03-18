@@ -164,13 +164,13 @@
             <StackPanel>
 
                 <TextBlock x:Name="DocumentsTitle" Text="{CustomResource ScrutiniDocumentsHeader}"
-                           Margin="14,12,0,8" FontSize="18"
+                           Margin="6,4,0,8" FontSize="18"
                            FontWeight="SemiBold"
                            Style="{ThemeResource BodyStrongTextBlockStyle}"
                            Visibility="{x:Bind ItemsSource.Documents, Mode=OneWay, FallbackValue=Collapsed, Converter={StaticResource EmptyListToVisibilityConverter}}" />
 
-                <Rectangle Height="1" Margin="14,2,14,8"
-                           Fill="#5B5B5B"
+                <Rectangle Height="1" Margin="6,0,6,8"
+                           Fill="{ThemeResource ControlStrongStrokeColorDisabledBrush}"
                            Visibility="{x:Bind ItemsSource.Documents, Mode=OneWay, FallbackValue=Collapsed, Converter={StaticResource EmptyListToVisibilityConverter}}" />
 
                 <ListView x:Name="listViewScrutini" HorizontalAlignment="Stretch"
@@ -178,15 +178,15 @@
                           ItemContainerStyle="{StaticResource ListViewFullStretchStyle}"
                           ItemTemplate="{StaticResource ScrutiniListViewDataTemplate}"
                           ScrollViewer.VerticalScrollMode="Enabled" />
-
+              
                 <TextBlock x:Name="ReportsTitle" Text="{CustomResource ScrutiniReportsHeader}"
-                           Margin="14,12,0,8" FontSize="18"
+                            Margin="6,12,0,8" FontSize="18"
                            FontWeight="SemiBold"
                            Style="{ThemeResource BodyStrongTextBlockStyle}"
                            Visibility="{x:Bind ItemsSource.SchoolReports, Mode=OneWay, FallbackValue=Collapsed, Converter={StaticResource EmptyListToVisibilityConverter}}" />
 
-                <Rectangle Height="1" Margin="14,2,14,8"
-                           Fill="#5B5B5B"
+                <Rectangle Height="1" Margin="6,0,6,8"
+                           Fill="{ThemeResource ControlStrongStrokeColorDisabledBrush}"
                            Visibility="{x:Bind ItemsSource.Documents, Mode=OneWay, FallbackValue=Collapsed, Converter={StaticResource EmptyListToVisibilityConverter}}" />
 
                 <ListView x:Name="listViewSchoolReports" HorizontalAlignment="Stretch"

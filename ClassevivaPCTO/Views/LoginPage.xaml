@@ -26,12 +26,16 @@
                     <ColumnDefinition />
                     <ColumnDefinition x:Name="RightPaddingColumn" Width="0" />
                 </Grid.ColumnDefinitions>
-                <Image Grid.Column="1" Width="24"
-                       Height="24" Margin="14,2,0,0"
-                       HorizontalAlignment="Left" Source="/Assets/Square44x44Logo.png" />
-                <TextBlock x:Name="AppTitleTextBlock" Grid.Column="1"
-                           Margin="40,2,0,4" VerticalAlignment="Center"
-                           Style="{StaticResource CaptionTextBlockStyle}" />
+                <Image Source="/Assets/Square44x44Logo.png"
+                       Grid.Column="1"
+                       HorizontalAlignment="Left"
+                       Width="24" Height="24"
+                       Margin="12,0,0,0" />
+                <TextBlock x:Name="AppTitleTextBlock"
+                           Style="{StaticResource CaptionTextBlockStyle}"
+                           Grid.Column="1"
+                           VerticalAlignment="Center"
+                           Margin="40,0,0,4" />
             </Grid>
         </Grid>
 

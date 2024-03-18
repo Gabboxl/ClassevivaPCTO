@@ -56,7 +56,7 @@
 
             <Rectangle Width="1"
                        Height="48" Margin="16,0,16,0"
-                       Fill="{ThemeResource ControlStrokeColorDefaultBrush}" />
+                       Fill="{ThemeResource ControlStrongStrokeColorDisabledBrush}" />
 
             <controls1:Segmented x:Name="ReadUnreadSegmented" MinWidth="310"
                                  Margin="0,0,0,0" HorizontalAlignment="Stretch"
@@ -97,9 +97,8 @@
 
             </controls1:Segmented>
 
-            <Rectangle Width="1"
-                       Height="48" Margin="16,0,16,0"
-                       Fill="{ThemeResource ControlStrokeColorDefaultBrush}" />
+            <Rectangle Width="1" Height="48" Margin="16,0,16,0"
+                       Fill="{ThemeResource ControlStrongStrokeColorDisabledBrush}" />
 
             <CheckBox x:Name="CheckboxAttive" Content="{CustomResource NoticeBoardShowInactiveNoticesCheckbox}"
                       ToolTipService.ToolTip="{CustomResource NoticeBoardShowInactiveNoticesCheckboxTooltip}"
@@ -117,15 +116,27 @@
                        BorderThickness="1" CornerRadius="8">
 
             <TextBlock x:Name="TextComunicazioni" Text="{CustomResource NoticeBoardNotices}"
-                       Margin="14,6,0,0" FontSize="18"
-                       FontWeight="SemiBold"
+                       Margin="6,0,0,0" FontSize="18"
+                       FontWeight="SemiBold" 
                        Style="{ThemeResource BodyStrongTextBlockStyle}"
                        Visibility="{x:Bind BachecaViewModel.NoticesToShow, Mode=OneWay, FallbackValue=Collapsed, Converter={StaticResource EmptyListToVisibilityConverter}}" />
 
-            <Button Style="{StaticResource AccentButtonStyle}" RelativePanel.AlignRightWithPanel="True"
-                    Content="Resetta tutti i filtri" x:Name="ClearAllFiltersButton" Margin="0,0,14,0" Click="ClearAllFiltersButton_Click" />
+            <HyperlinkButton RelativePanel.AlignRightWithPanel="True" Visibility="Collapsed"
+                             x:Name="ClearAllFiltersButton" Margin="0,-4,6,0" Click="ClearAllFiltersButton_Click" >
 
-            <Grid Margin="0,8,0,0" RelativePanel.AlignBottomWithPanel="True"
+                <StackPanel Orientation="Horizontal" Spacing="10">
+                    <Grid Width="18" Height="18">
+                        <Path Data="F1 M 0 3.125 C 0 2.864584 0.048828 2.620443 0.146484 2.392578 C 0.244141 2.164715 0.377604 1.966146 0.546875 1.796875 C 0.716146 1.627605 0.914714 1.494141 1.142578 1.396484 C 1.370443 1.298828 1.614583 1.25 1.875 1.25 L 18.125 1.25 C 18.385416 1.25 18.629557 1.298828 18.857422 1.396484 C 19.085285 1.494141 19.283854 1.627605 19.453125 1.796875 C 19.622395 1.966146 19.755859 2.164715 19.853516 2.392578 C 19.951172 2.620443 20 2.864584 20 3.125 C 20 3.658855 19.804688 4.111328 19.414062 4.482422 L 13.085938 10.517578 C 12.994791 10.608725 12.91341 10.706381 12.841797 10.810547 C 12.770182 10.914714 12.708333 11.022136 12.65625 11.132812 C 12.552083 11.360678 12.5 11.608073 12.5 11.875 L 12.5 19.375 C 12.5 19.544271 12.43815 19.690756 12.314453 19.814453 C 12.190754 19.93815 12.04427 20 11.875 20 C 11.751302 20 11.637369 19.964193 11.533203 19.892578 L 7.783203 17.392578 C 7.5944 17.268881 7.5 17.096354 7.5 16.875 L 7.5 11.875 C 7.5 11.614584 7.451171 11.367188 7.353516 11.132812 C 7.301432 11.015625 7.237956 10.906576 7.163086 10.805664 C 7.088216 10.704753 7.005208 10.608725 6.914062 10.517578 L 0.585938 4.482422 C 0.195312 4.111328 0 3.658855 0 3.125 Z M 18.75 3.115234 C 18.75 2.945965 18.68815 2.801107 18.564453 2.680664 C 18.440754 2.560223 18.29427 2.5 18.125 2.5 L 1.875 2.5 C 1.705729 2.5 1.559245 2.560223 1.435547 2.680664 C 1.311849 2.801107 1.25 2.945965 1.25 3.115234 C 1.25 3.304037 1.315104 3.457031 1.445312 3.574219 L 7.783203 9.609375 C 8.089192 9.902344 8.326822 10.247396 8.496094 10.644531 C 8.665364 11.041667 8.75 11.451823 8.75 11.875 L 8.75 16.542969 L 11.25 18.203125 L 11.25 11.875 C 11.25 11.451823 11.334635 11.041667 11.503906 10.644531 C 11.673177 10.247396 11.910807 9.902344 12.216797 9.609375 L 18.554688 3.574219 C 18.684895 3.457031 18.75 3.304037 18.75 3.115234 Z"
+                                                  Fill="{ThemeResource AccentTextFillColorPrimaryBrush}"
+                                                  Stretch="Uniform" />
+                    </Grid>
+                    <TextBlock Text="Resetta tutti i filtri" />
+                </StackPanel>
+
+
+            </HyperlinkButton>
+
+            <Grid Margin="0,6,0,0" RelativePanel.AlignBottomWithPanel="True"
                   RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True"
                   RelativePanel.Below="TextComunicazioni">
                 <Grid.ColumnDefinitions>
@@ -135,8 +146,8 @@
                     <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
 
-                <Rectangle Height="1" Margin="14,0,14,0"
-                           VerticalAlignment="Top" Fill="#5B5B5B"
+                <Rectangle Height="1" Margin="6,0,6,0"
+                           VerticalAlignment="Top" Fill="{ThemeResource ControlStrongStrokeColorDisabledBrush}"
                            Visibility="{x:Bind BachecaViewModel.NoticesToShow, Mode=OneWay, FallbackValue=Collapsed, Converter={StaticResource EmptyListToVisibilityConverter}}" />
 
                 <controls:NoticesListView x:Name="NoticesListView" Margin="0,8,0,0"
