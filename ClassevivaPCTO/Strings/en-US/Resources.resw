@@ -195,10 +195,10 @@ If you encounter bugs or have an idea for the app, open an issue on GitHub by cl
     <value>Report an issue</value>
   </data>
   <data name="SettingsCardTutorialHeader" xml:space="preserve">
-    <value>Basic Information</value>
+    <value>Get started</value>
   </data>
   <data name="SettingsCardTutorialDescription" xml:space="preserve">
-    <value>View tips on how to use this app</value>
+    <value>View useful information and tips on how to use this app</value>
   </data>
   <data name="SettingsCardTutorialButton" xml:space="preserve">
     <value>View</value>
@@ -210,7 +210,7 @@ If you encounter bugs or have an idea for the app, open an issue on GitHub by cl
     <value>See recent changes</value>
   </data>
   <data name="SettingsCardWhatsNewButton" xml:space="preserve">
-    <value>See changelog</value>
+    <value>Open changelog</value>
   </data>
   <data name="ScrutiniTitle" xml:space="preserve">
     <value>Ballots</value>
@@ -405,13 +405,13 @@ Error: </value>
   <data name="WhatsNewDialogRelease" xml:space="preserve">
     <value>v1.2.0, 25 November 2023</value>
   </data>
-  <data name="AgendaTomorrowButtonTooltip" xml:space="preserve">
+  <data name="AgendaTomorrowButtonToolTip" xml:space="preserve">
     <value>Next day</value>
   </data>
-  <data name="AgendaYesterdayButtonTooltip" xml:space="preserve">
+  <data name="AgendaYesterdayButtonToolTip" xml:space="preserve">
     <value>Previous day</value>
   </data>
-  <data name="AgendaTodayButtonTooltip" xml:space="preserve">
+  <data name="AgendaTodayButtonToolTip" xml:space="preserve">
     <value>Go to today's events</value>
   </data>
   <data name="NoticeBoardShowInactiveNoticesCheckbox" xml:space="preserve">
@@ -447,19 +447,19 @@ Error: </value>
   <data name="NavigationViewScrutini" xml:space="preserve">
     <value>Ballots</value>
   </data>
-  <data name="RefreshButtonTooltip" xml:space="preserve">
+  <data name="RefreshButtonToolTip" xml:space="preserve">
     <value>Refresh (F5)</value>
   </data>
-  <data name="SettingsPaletteColorBlueTooltip" xml:space="preserve">
+  <data name="SettingsPaletteColorBlueToolTip" xml:space="preserve">
     <value>Doesn't average, partial absence</value>
   </data>
-  <data name="SettingsPaletteColorGreenTooltip" xml:space="preserve">
+  <data name="SettingsPaletteColorGreenToolTip" xml:space="preserve">
     <value>Sufficient grade, presence, read notice</value>
   </data>
-  <data name="SettingsPaletteColorOrangeTooltip" xml:space="preserve">
+  <data name="SettingsPaletteColorOrangeToolTip" xml:space="preserve">
     <value>Nearly sufficient grade, delay, expired notice</value>
   </data>
-  <data name="SettingsPaletteColorRedTooltip" xml:space="preserve">
+  <data name="SettingsPaletteColorRedToolTip" xml:space="preserve">
     <value>Insufficient grade, absence, unread notice</value>
   </data>
   <data name="NoticeBoardValidFromToDateText" xml:space="preserve">
@@ -552,7 +552,7 @@ Error: </value>
   <data name="GradesAllPeriodsSegmentedItem" xml:space="preserve">
     <value>All periods</value>
   </data>
-  <data name="AgendaCalendarDatePickerTooltip" xml:space="preserve">
+  <data name="AgendaCalendarDatePickerToolTip" xml:space="preserve">
     <value>Pick a date</value>
   </data>
   <data name="NoticeBoardFilterAllNotices" xml:space="preserve">
@@ -631,7 +631,7 @@ Error: </value>
     <value>Continue</value>
   </data>
   <data name="SettingsCardAskConfirmDescription" xml:space="preserve">
-    <value>Ask for confirmation before opening a communication</value>
+    <value>Ask for confirmation before opening a notice</value>
   </data>
   <data name="SettingsCardAskConfirmHeader" xml:space="preserve">
     <value>Open notice confirmation</value>
@@ -681,13 +681,13 @@ Error: </value>
   <data name="NoticeDialogSaveAttachmentButton" xml:space="preserve">
     <value>Save</value>
   </data>
-  <data name="ScrutiniOpenFileButtonTooltip" xml:space="preserve">
+  <data name="ScrutiniOpenFileButtonToolTip" xml:space="preserve">
     <value>View ballot</value>
   </data>
-  <data name="ScrutiniOpenReportButtonTooltip" xml:space="preserve">
+  <data name="ScrutiniOpenReportButtonToolTip" xml:space="preserve">
     <value>Open report in web browser</value>
   </data>
-  <data name="ScrutiniSaveFileButtonTooltip" xml:space="preserve">
+  <data name="ScrutiniSaveFileButtonToolTip" xml:space="preserve">
     <value>Save ballot file on your PC</value>
   </data>
   <data name="NoticeBoardNotAvailableButton" xml:space="preserve">
@@ -705,19 +705,31 @@ Error: </value>
   <data name="RestartLater" xml:space="preserve">
     <value>Restart Later</value>
   </data>
-  <data name="NoticeBoardFilterAllNoticesItemTooltip" xml:space="preserve">
+  <data name="LoginChangelogHyperlink" xml:space="preserve">
+    <value>Recent changes</value>
+  </data>
+  <data name="LoginGetStartedHyperlink" xml:space="preserve">
+    <value>Get started</value>
+  </data>
+  <data name="LoginGitHubHyperlink" xml:space="preserve">
+    <value>GitHub</value>
+  </data>
+  <data name="LoginText" xml:space="preserve">
+    <value>Login</value>
+  </data>
+  <data name="NoticeBoardFilterAllNoticesItemToolTip" xml:space="preserve">
     <value>Show all notices</value>
   </data>
-  <data name="NoticeBoardFilterReadNoticesItemTooltip" xml:space="preserve">
+  <data name="NoticeBoardFilterReadNoticesItemToolTip" xml:space="preserve">
     <value>Show only read notices</value>
   </data>
-  <data name="NoticeBoardFilterUnreadNoticesItemTooltip" xml:space="preserve">
+  <data name="NoticeBoardFilterUnreadNoticesItemToolTip" xml:space="preserve">
     <value>Show only unread notices</value>
   </data>
-  <data name="NoticeBoardShowInactiveNoticesCheckboxTooltip" xml:space="preserve">
+  <data name="NoticeBoardShowInactiveNoticesCheckboxToolTip" xml:space="preserve">
     <value>Show also expired and deleted notices</value>
   </data>
-  <data name="ScrutiniShowDeletedDocumentsCheckboxTooltip" xml:space="preserve">
+  <data name="ScrutiniShowDeletedDocumentsCheckboxToolTip" xml:space="preserve">
     <value>Show also deleted documents</value>
   </data>
   <data name="NoticeBoardCategoryComboboxPlaceholderText" xml:space="preserve">
