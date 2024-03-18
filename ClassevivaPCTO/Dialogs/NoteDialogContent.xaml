@@ -6,8 +6,6 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Page.Resources />
-
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
@@ -18,7 +16,7 @@
                    IsTextSelectionEnabled="True"
                    Style="{ThemeResource BodyTextBlockStyle}"
                    Text="{x:Bind CurrentReadResult.Note.evtText}"
-                   TextWrapping="Wrap" />
+                   TextWrapping="WrapWholeWords" />
 
     </Grid>
 </Page>
