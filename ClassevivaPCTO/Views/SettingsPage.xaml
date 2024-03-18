@@ -136,7 +136,7 @@
                 <TextBlock Text="{CustomResource SettingsPersonalizationHeader}" Style="{StaticResource SettingsSectionHeaderTextBlockStyle}" />
 
                 <controls1:SettingsCard Header="{CustomResource SettingsCardThemeHeader}"
-                                        Description="{CustomResource SettingsCardDescription}">
+                                        Description="{CustomResource SettingsCardThemeDescription}">
 
                     <controls1:SettingsCard.HeaderIcon>
                         <FontIcon Glyph="&#xE793;" />

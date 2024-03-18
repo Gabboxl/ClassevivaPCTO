@@ -250,7 +250,7 @@
 
                         <Rectangle x:Name="Separator1" Width="1"
                                    Height="48" Margin="12,0,0,0"
-                                   Fill="{ThemeResource ControlStrokeColorDefaultBrush}"
+                                   Fill="{ThemeResource ControlStrongStrokeColorDisabledBrush}"
                                    RelativePanel.LeftOf="TuttiCompitiButton" />
 
                         <Button x:Name="TuttiCompitiButton" MinWidth="110"

@@ -153,6 +153,7 @@ namespace ClassevivaPCTO.Views
         {
             ReadUnreadSegmented.SelectedIndex = 0;
             CategoryComboBox.SelectedIndex = -1;
+            ClearAllFiltersButton.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
             AggiornaAction();
         }
     }

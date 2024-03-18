@@ -49,10 +49,10 @@
 
                     <AppBarButton x:Name="ButtonOpen" Label="{CustomResource NoticeDialogOpenAttachmentButton}"
                                   Click="ButtonOpen_Click" Icon="OpenFile"
-                                  VerticalAlignment="Center" />
+                                  VerticalAlignment="Center" ToolTipService.ToolTip="Apri file nel browser"/>
 
                     <AppBarButton x:Name="ButtonSave" Label="{CustomResource NoticeDialogSaveAttachmentButton}"
-                                  Click="ButtonSave_Click" Icon="Save"
+                                  Click="ButtonSave_Click" Icon="Save" ToolTipService.ToolTip="Salva il file sul tuo PC"
                                   RelativePanel.AlignRightWithPanel="True" VerticalAlignment="Center" />
 
                 </StackPanel>
@@ -77,13 +77,16 @@
                            Text="{x:Bind CurrentReadResult.item.text}"
                            TextWrapping="Wrap" />
 
-                <TextBlock x:Name="TitoloAttachments" Margin="8,16,0,8"
+                <TextBlock x:Name="TitoloAttachments" Margin="8,16,0,0"
                            FontWeight="SemiBold"
+                           FontSize="18"
                            Style="{ThemeResource BodyStrongTextBlockStyle}"
                            Text="{x:Bind AllegatiText}"
                            TextWrapping="Wrap" />
 
-                <ListView x:Name="AttachmentsListView"
+                <Rectangle Height="1" Margin="6,6,6,0" Fill="{ThemeResource ControlStrongStrokeColorDisabledBrush}" />
+
+                <ListView x:Name="AttachmentsListView" Margin="0,6,0,0"
                           ItemContainerStyle="{StaticResource ListViewFullStretchStyle}"
                           ItemTemplate="{StaticResource AttachmentListViewDataTemplate}" />
 

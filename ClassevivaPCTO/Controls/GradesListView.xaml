@@ -39,25 +39,25 @@
                                Margin="12,0,0,2" IsTextSelectionEnabled="True"
                                Style="{ThemeResource BaseTextBlockStyle}"
                                Text="{x:Bind CurrentObject.subjectDesc}"
-                               TextWrapping="Wrap" />
+                               TextWrapping="WrapWholeWords" />
 
                     <TextBlock Margin="12,0,0,0" FontWeight="SemiBold"
-                               Foreground="{ThemeResource TextFillColorTertiaryBrush}"
+                               Foreground="{ThemeResource TextFillColorSecondaryBrush}"
                                IsTextSelectionEnabled="True" RelativePanel.Below="textMateria"
                                Style="{ThemeResource BodyTextBlockStyle}"
                                Text="{x:Bind CurrentObject.notesForFamily}"
-                               TextWrapping="Wrap" />
+                               TextWrapping="WrapWholeWords" />
 
                     <TextBlock x:Name="dataVoto" Margin="12,0,0,0"
-                               FontWeight="SemiBold"
-                               Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                               FontWeight="SemiBold" TextWrapping="WrapWholeWords"
+                               Foreground="{ThemeResource TextFillColorTertiaryBrush}"
                                IsTextSelectionEnabled="True" RelativePanel.RightOf="textMateria"
                                Style="{ThemeResource CaptionTextBlockStyle}"
                                Text="{x:Bind CurrentObject.evtDate, Converter={StaticResource DateTimeToNormalDateConverter}}" />
 
                     <TextBlock Margin="12,0,0,0" FontWeight="SemiBold"
-                               Foreground="{ThemeResource TextFillColorSecondaryBrush}"
-                               RelativePanel.RightOf="dataVoto"
+                               Foreground="{ThemeResource TextFillColorTertiaryBrush}"
+                               RelativePanel.RightOf="dataVoto" TextWrapping="WrapWholeWords"
                                Style="{ThemeResource CaptionTextBlockStyle}"
                                Text="{x:Bind CurrentObject.componentDesc}" />
 

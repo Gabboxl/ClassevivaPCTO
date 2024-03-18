@@ -271,5 +271,20 @@ namespace ClassevivaPCTO.Views
         {
             NavigationService.Navigate(typeof(BachecaPage));
         }
+
+        private void AgendaWidgetRefreshFlyoutItem_Click(object sender, RoutedEventArgs e)
+        {
+            Task.Run(async () => { await LoadOverviewCard(); });
+        }
+
+        private void GradesWidgetRefreshFlyoutItem_Click(object sender, RoutedEventArgs e)
+        {
+            Task.Run(async () => { await CaricaRecentGradesCard(); });
+        }
+
+        private void NoticesWidgetRefreshFlyoutItem_Click(object sender, RoutedEventArgs e)
+        {
+            Task.Run(async () => { await CaricaNoticesCard(); });
+        }
     }
 }
