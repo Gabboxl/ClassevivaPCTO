@@ -59,7 +59,7 @@
                                            RowSpacing="12" ScrollViewer.VerticalScrollMode="Enabled">
 
                     <!--  agenda widget  -->
-                    <Grid MinHeight="500" Padding="12"
+                    <Grid MinHeight="700" Padding="12"
                           Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
                           BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
                           BorderThickness="1" CornerRadius="8">
@@ -99,7 +99,7 @@
                     </Grid>
 
                     <!--  grades widget  -->
-                    <Grid Margin="0,0,0,0" Padding="12"
+                    <Grid MinHeight="300" Margin="0,0,0,0" Padding="12"
                           Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
                           BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
                           BorderThickness="1" CornerRadius="8">
@@ -158,7 +158,7 @@
                     </Grid>
 
                     <!--  notices widget  -->
-                    <Grid Margin="0,0,0,0" Padding="12"
+                    <Grid MinHeight="300" Margin="0,0,0,0" Padding="12"
                           HorizontalAlignment="Stretch"
                           Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
                           BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
