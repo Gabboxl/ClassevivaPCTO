@@ -84,13 +84,11 @@
                 <Button x:Name="buttonLogin" Content="{CustomResource LoginButton}"
                         Height="32" MinWidth="120"
                         Margin="0,4,0,0" HorizontalAlignment="Center"
-                        Click="Button_Click" RenderTransformOrigin="2.13,0.797"
+                        Click="Button_Click" 
                         Style="{StaticResource AccentButtonStyle}" />
 
-                <muxc:ProgressBar x:Name="progresslogin" Width="340"
-                                  Margin="0,20,0,0" HorizontalAlignment="Left"
+                <muxc:ProgressBar Margin="0,20,0,0" x:Name="progresslogin" Width="334"
                                   IsIndeterminate="True" Visibility="Collapsed" />
-
 
             </StackPanel>
 

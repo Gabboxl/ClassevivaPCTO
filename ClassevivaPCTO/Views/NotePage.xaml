@@ -41,7 +41,7 @@
         </StackPanel>
 
         <RelativePanel x:Name="CardPanel" Grid.Row="2"
-                       Margin="18" Padding="12"
+                       Margin="18" Padding="6"
                        HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
                        Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
                        BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"

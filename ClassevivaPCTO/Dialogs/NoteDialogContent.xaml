@@ -13,7 +13,9 @@
 
         <TextBlock x:Name="noteBodyText" Margin="2,8,0,8"
                    HorizontalAlignment="Stretch"
+                   FontWeight="SemiBold"
                    IsTextSelectionEnabled="True"
+                   Foreground="{ThemeResource TextFillColorSecondaryBrush}"
                    Style="{ThemeResource BodyTextBlockStyle}"
                    Text="{x:Bind CurrentReadResult.Note.evtText}"
                    TextWrapping="WrapWholeWords" />

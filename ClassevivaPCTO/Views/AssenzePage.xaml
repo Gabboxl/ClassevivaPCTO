@@ -6,6 +6,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:controls="using:ClassevivaPCTO.Controls"
     mc:Ignorable="d"
+    xmlns:labs="using:CommunityToolkit.Labs.WinUI"
     xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
     xmlns:comToolkit="using:CommunityToolkit.WinUI.Controls"
     xmlns:converters="using:CommunityToolkit.WinUI.Converters"
@@ -72,7 +73,7 @@
                                            RowSpacing="12" ScrollViewer.VerticalScrollMode="Enabled">
 
                     <Grid x:Name="CardPanel" Margin="18,0,8,16"
-                          Padding="12"
+                          Padding="6" MinHeight="700"
                           Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
                           BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
                           BorderThickness="1" CornerRadius="8">
@@ -95,8 +96,9 @@
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="Auto" />
                         </Grid.ColumnDefinitions>
-
-                        <RelativePanel x:Name="CalendarPanel" Margin="0,0,0,0"
+                        
+                        
+                        <RelativePanel x:Name="CalendarPanel" Margin="0,0,0,0" Visibility="Collapsed"
                                        Padding="12" VerticalAlignment="Top"
                                        Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
                                        BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
@@ -113,7 +115,6 @@
                             <CalendarView x:Name="ColoredCalendarView" CalendarViewDayItemChanging="MyCalendarView_CalendarViewDayItemChanging"
                                           FirstDayOfWeek="Monday" RelativePanel.AlignLeftWithPanel="True"
                                           RelativePanel.Below="TodayButton" />
-
                         </RelativePanel>
                     </Grid>
                 </comToolkit:StaggeredPanel>
