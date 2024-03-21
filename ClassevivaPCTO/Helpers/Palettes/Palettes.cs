@@ -45,10 +45,28 @@ namespace ClassevivaPCTO.Helpers.Palettes
         public class PaletteRet : IPalette
         {
             public Color ColorRed => ColorHelper.ToColor("#AA1841");
-            public Color ColorOrange => ColorHelper.ToColor("#FFB208");
+            public Color ColorOrange => ColorHelper.ToColor("#EE9B4C");
             public Color ColorGreen => ColorHelper.ToColor("#689F38");
             public Color ColorBlue => ColorHelper.ToColor("#1491D3");
-            public Color ColorYellow => ColorHelper.ToColor("#EE9B4C");
+            public Color ColorYellow => ColorHelper.ToColor("#FFB208");
+        }
+
+        public class Palette6 : IPalette
+        {
+            public Color ColorRed => ColorHelper.ToColor("#D3212C");
+            public Color ColorOrange => ColorHelper.ToColor("#FF681E");
+            public Color ColorGreen => ColorHelper.ToColor("#069C56");
+            public Color ColorBlue => ColorHelper.ToColor("#1491D3");
+            public Color ColorYellow => ColorHelper.ToColor("#FF980E");
+        }
+
+        public class Palette7 : IPalette
+        {
+            public Color ColorRed => ColorHelper.ToColor("#8A2B13");
+            public Color ColorOrange => ColorHelper.ToColor("#C4501B");
+            public Color ColorGreen => ColorHelper.ToColor("#4E7145");
+            public Color ColorBlue => ColorHelper.ToColor("#48877F");
+            public Color ColorYellow => ColorHelper.ToColor("#CB8325");
         }
     }
 }
