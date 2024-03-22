@@ -12,19 +12,28 @@
         <DataTemplate x:DataType="x:String">
             <RelativePanel Width="720">
 
-                <TextBlock x:Name="AppName" Margin="0,-4,0,0"
-                           VerticalAlignment="Center" FontSize="26"
-                           FontWeight="SemiBold" RelativePanel.AlignLeftWithPanel="True"
+                <TextBlock x:Name="AppName"
+                           Margin="0,-4,0,0"
+                           VerticalAlignment="Center"
+                           FontSize="26"
+                           FontWeight="SemiBold"
+                           RelativePanel.AlignLeftWithPanel="True"
                            Text="{x:Bind}" />
 
-                <TextBlock Text="{CustomResource WhatsNewDialogRelease}" Margin="0,2,8,0"
-                           VerticalAlignment="Center" FontSize="16"
+                <TextBlock Margin="0,2,8,0"
+                           VerticalAlignment="Center"
+                           FontSize="16"
                            Foreground="{ThemeResource TextFillColorTertiaryBrush}"
-                           IsTextSelectionEnabled="True" RelativePanel.AlignRightWithPanel="True" />
+                           IsTextSelectionEnabled="True"
+                           RelativePanel.AlignRightWithPanel="True"
+                           Text="{CustomResource WhatsNewDialogRelease}" />
 
-                <Rectangle Width="712" Height="1"
-                           Margin="0,4,0,4" Fill="#5B5B5B"
-                           RelativePanel.AlignLeftWithPanel="True" RelativePanel.Below="AppName" />
+                <Rectangle Width="712"
+                           Height="1"
+                           Margin="0,4,0,4"
+                           Fill="#5B5B5B"
+                           RelativePanel.AlignLeftWithPanel="True"
+                           RelativePanel.Below="AppName" />
 
             </RelativePanel>
         </DataTemplate>
@@ -34,99 +43,135 @@
 
         <StackPanel>
 
-            <Image Width="770" Height="350"
-                   Margin="-24,-50,0,-70" Source="/Assets/storescreenshot.png"
+            <Image Width="770"
+                   Height="350"
+                   Margin="-24,-50,0,-70"
+                   Source="/Assets/storescreenshot.png"
                    Stretch="Uniform" />
-            
-            <!--  In evidenza  -->
-            <TextBlock Text="{CustomResource WhatsNewDialogHighlights}" Margin="0,4,0,0"
-                       FontSize="24" FontWeight="SemiBold"
-                       TextWrapping="WrapWholeWords" /> 
 
-            <TextBlock x:Name="Highlights" Margin="0,12,15,0"
-                       FontSize="15" FontWeight="SemiBold"
+            <!--  In evidenza  -->
+            <TextBlock Margin="0,4,0,0"
+                       FontSize="24"
+                       FontWeight="SemiBold"
+                       Text="{CustomResource WhatsNewDialogHighlights}"
+                       TextWrapping="WrapWholeWords" />
+
+            <TextBlock x:Name="Highlights"
+                       Margin="0,12,15,0"
+                       FontSize="15"
+                       FontWeight="SemiBold"
                        Foreground="{ThemeResource TextFillColorTertiaryBrush}"
-                       IsTextSelectionEnabled="True" LineHeight="26"
+                       IsTextSelectionEnabled="True"
+                       LineHeight="26"
                        TextWrapping="WrapWholeWords" />
 
             <RelativePanel Visibility="Collapsed">
-                
+
                 <!--  Generali  -->
-                <TextBlock Text="{CustomResource SettingsGeneralHeader}" Margin="0,0,0,0"
-                           FontSize="24" FontWeight="SemiBold"
-                           TextWrapping="WrapWholeWords" /> 
-
-                <TextBlock x:Name="General" Margin="0,15,15,0"
-                           FontSize="15" FontWeight="SemiBold"
-                           Foreground="{ThemeResource TextFillColorTertiaryBrush}"
-                           IsTextSelectionEnabled="True" LineHeight="26"
+                <TextBlock Margin="0,0,0,0"
+                           FontSize="24"
+                           FontWeight="SemiBold"
+                           Text="{CustomResource SettingsGeneralHeader}"
                            TextWrapping="WrapWholeWords" />
-                
+
+                <TextBlock x:Name="General"
+                           Margin="0,15,15,0"
+                           FontSize="15"
+                           FontWeight="SemiBold"
+                           Foreground="{ThemeResource TextFillColorTertiaryBrush}"
+                           IsTextSelectionEnabled="True"
+                           LineHeight="26"
+                           TextWrapping="WrapWholeWords" />
+
                 <!--  Dashboard  -->
-                <TextBlock Margin="0,0,0,0" FontSize="24"
-                           FontWeight="SemiBold" Text="Dashboard"
-                           TextWrapping="WrapWholeWords" /> 
-
-                <TextBlock x:Name="Dashboard" Margin="0,15,15,0"
-                           FontSize="15" FontWeight="SemiBold"
-                           Foreground="{ThemeResource TextFillColorTertiaryBrush}"
-                           IsTextSelectionEnabled="True" LineHeight="26"
+                <TextBlock Margin="0,0,0,0"
+                           FontSize="24"
+                           FontWeight="SemiBold"
+                           Text="Dashboard"
                            TextWrapping="WrapWholeWords" />
-                
+
+                <TextBlock x:Name="Dashboard"
+                           Margin="0,15,15,0"
+                           FontSize="15"
+                           FontWeight="SemiBold"
+                           Foreground="{ThemeResource TextFillColorTertiaryBrush}"
+                           IsTextSelectionEnabled="True"
+                           LineHeight="26"
+                           TextWrapping="WrapWholeWords" />
+
                 <!--  Agenda  -->
-                <TextBlock Text="{CustomResource AgendaTitle}" Margin="0,20,0,0"
-                           FontSize="24" FontWeight="SemiBold"
-                           TextWrapping="WrapWholeWords" /> 
-
-                <TextBlock x:Name="Agenda" Margin="0,15,15,0"
-                           FontSize="15" FontWeight="SemiBold"
-                           Foreground="{ThemeResource TextFillColorTertiaryBrush}"
-                           IsTextSelectionEnabled="True" LineHeight="26"
+                <TextBlock Margin="0,20,0,0"
+                           FontSize="24"
+                           FontWeight="SemiBold"
+                           Text="{CustomResource AgendaTitle}"
                            TextWrapping="WrapWholeWords" />
-                
+
+                <TextBlock x:Name="Agenda"
+                           Margin="0,15,15,0"
+                           FontSize="15"
+                           FontWeight="SemiBold"
+                           Foreground="{ThemeResource TextFillColorTertiaryBrush}"
+                           IsTextSelectionEnabled="True"
+                           LineHeight="26"
+                           TextWrapping="WrapWholeWords" />
+
                 <!--  Valutazioni  -->
-                <TextBlock Text="{CustomResource GradesTitle}" Margin="0,20,0,0"
-                           FontSize="24" FontWeight="SemiBold"
-                           TextWrapping="WrapWholeWords" /> 
-
-                <TextBlock x:Name="Grades" Margin="0,15,15,0"
-                           FontSize="15" FontWeight="SemiBold"
-                           Foreground="{ThemeResource TextFillColorTertiaryBrush}"
-                           IsTextSelectionEnabled="True" LineHeight="26"
+                <TextBlock Margin="0,20,0,0"
+                           FontSize="24"
+                           FontWeight="SemiBold"
+                           Text="{CustomResource GradesTitle}"
                            TextWrapping="WrapWholeWords" />
-                
+
+                <TextBlock x:Name="Grades"
+                           Margin="0,15,15,0"
+                           FontSize="15"
+                           FontWeight="SemiBold"
+                           Foreground="{ThemeResource TextFillColorTertiaryBrush}"
+                           IsTextSelectionEnabled="True"
+                           LineHeight="26"
+                           TextWrapping="WrapWholeWords" />
+
                 <!--  Assenze  -->
-                <TextBlock Text="{CustomResource AbsencesTitle}" Margin="0,20,0,0"
-                           FontSize="24" FontWeight="SemiBold"
-                           TextWrapping="WrapWholeWords" /> 
-
-                <TextBlock x:Name="Absences" Margin="0,15,15,20"
-                           FontSize="15" FontWeight="SemiBold"
-                           Foreground="{ThemeResource TextFillColorTertiaryBrush}"
-                           IsTextSelectionEnabled="True" LineHeight="26"
+                <TextBlock Margin="0,20,0,0"
+                           FontSize="24"
+                           FontWeight="SemiBold"
+                           Text="{CustomResource AbsencesTitle}"
                            TextWrapping="WrapWholeWords" />
-                
+
+                <TextBlock x:Name="Absences"
+                           Margin="0,15,15,20"
+                           FontSize="15"
+                           FontWeight="SemiBold"
+                           Foreground="{ThemeResource TextFillColorTertiaryBrush}"
+                           IsTextSelectionEnabled="True"
+                           LineHeight="26"
+                           TextWrapping="WrapWholeWords" />
+
                 <!--  Bacheca  -->
-                <TextBlock Text="{CustomResource NoticeBoardTitle}" Margin="0,20,0,0"
-                           FontSize="24" FontWeight="SemiBold"
-                           TextWrapping="WrapWholeWords" /> 
-
-                <TextBlock x:Name="NoticeBoard" Margin="0,15,15,20"
-                           FontSize="15" FontWeight="SemiBold"
-                           Foreground="{ThemeResource TextFillColorTertiaryBrush}"
-                           IsTextSelectionEnabled="True" LineHeight="26"
+                <TextBlock Margin="0,20,0,0"
+                           FontSize="24"
+                           FontWeight="SemiBold"
+                           Text="{CustomResource NoticeBoardTitle}"
                            TextWrapping="WrapWholeWords" />
-                
+
+                <TextBlock x:Name="NoticeBoard"
+                           Margin="0,15,15,20"
+                           FontSize="15"
+                           FontWeight="SemiBold"
+                           Foreground="{ThemeResource TextFillColorTertiaryBrush}"
+                           IsTextSelectionEnabled="True"
+                           LineHeight="26"
+                           TextWrapping="WrapWholeWords" />
+
             </RelativePanel>
 
-            <HyperlinkButton x:Name="WhatsNewHyperlink" Margin="0,12,0,0"
+            <HyperlinkButton x:Name="WhatsNewHyperlink"
+                             Margin="0,12,0,0"
                              NavigateUri="https://github.com/Gabboxl/ClassevivaPCTO/releases/latest">
 
                 <StackPanel Orientation="Horizontal" Spacing="10">
                     <Grid Width="18" Height="18">
-                        <Path Data="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"
-                              Fill="{ThemeResource AccentTextFillColorPrimaryBrush}"
-                              Stretch="Uniform" />
+                        <Path Data="{CustomResource GithubIcon}" Style="{StaticResource HyperlinkIconStyle}" />
                     </Grid>
                     <TextBlock Text="{CustomResource WhatsNewDialogHyperlinkAllChanges}" />
                 </StackPanel>
