@@ -127,27 +127,45 @@ namespace ClassevivaPCTO.Controls
                 flyoutPresenterStyle.BasedOn = (Style) Application.Current.Resources["CautionFlyoutStyle"];
                 flyout.FlyoutPresenterStyle = flyoutPresenterStyle;
 
-                //create a button
                 var button = new Button
                 {
-                    Content = "ReadAndOpenFlyoutText".GetLocalizedStr()
+                    Content = "GenericReadButton".GetLocalizedStr()
                 };
 
                 button.Click += async delegate
                 {
-                    //chiudo il flyout e apro la comunicazione in background
                     flyout.Hide();
-
                     await Task.Run(() => ReadAndOpenNoticeDialog(currentNotice));
                 };
 
-                //add the textblock and the button to the flyout
+                var closebutton = new Button
+                {
+                    Content = "GenericCloseButton".GetLocalizedStr()
+                };
+
+                closebutton.Click += delegate
+                {
+                    flyout.Hide();
+                };
+
+                var stackpanel = new StackPanel
+                {
+                    Children =
+                    {
+                        closebutton,
+                        button,
+                    }
+                };
+
+                stackpanel.Orientation = Orientation.Horizontal;
+                stackpanel.Spacing = 10;
+
                 flyout.Content = new StackPanel
                 {
                     Children =
                     {
                         textBlock,
-                        button
+                        stackpanel,
                     }
                 };
 
@@ -178,11 +196,10 @@ namespace ClassevivaPCTO.Controls
                 ContentDialog dialog = new()
                 {
                     Title = currentNotice.cntTitle,
-                    PrimaryButtonText = "CloseDialogButtonText".GetLocalizedStr(),
+                    PrimaryButtonText = "GenericCloseButton".GetLocalizedStr(),
                     DefaultButton = ContentDialogButton.Primary,
                     RequestedTheme = ((FrameworkElement) Window.Current.Content).RequestedTheme,
                     Content = noticeDialogContent,
-                    Width = 1200
                 };
 
                 try

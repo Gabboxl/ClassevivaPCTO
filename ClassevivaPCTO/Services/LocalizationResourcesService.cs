@@ -3,6 +3,7 @@ using Windows.Globalization;
 using Windows.UI.Xaml.Resources;
 using ClassevivaPCTO.Helpers;
 using Crowdin.Net;
+using CommunityToolkit.WinUI;
 
 namespace ClassevivaPCTO.Services
 {
@@ -14,7 +15,7 @@ namespace ClassevivaPCTO.Services
 
             string crowdinFileName;
             if (string.IsNullOrEmpty(ApplicationLanguages.PrimaryLanguageOverride) || ApplicationLanguages.PrimaryLanguageOverride == ApplicationLanguages.ManifestLanguages[0])
-              crowdinFileName = ""; //do not use mapping as values are weird, chiedere sul forum crowdin //   crowdinFileName = $"mapping/main/ClassevivaPCTO/Strings/{ApplicationLanguages.ManifestLanguages[0]}/Resources.resw";
+             crowdinFileName = ""; //do not use mapping as values are weird, chiedere sul forum crowdin //   crowdinFileName = $"mapping/main/ClassevivaPCTO/Strings/{ApplicationLanguages.ManifestLanguages[0]}/Resources.resw";
             else
              crowdinFileName = $"content/main/ClassevivaPCTO/Strings/{ApplicationLanguages.PrimaryLanguageOverride}/Resources.resw";
 
@@ -27,6 +28,11 @@ namespace ClassevivaPCTO.Services
 
         protected override object GetResource(string resourceId, string objectType, string propertyName, string propertyType)
         {
+            if (string.IsNullOrEmpty(resourceId.GetLocalizedStr()))
+            {
+                return resourceId.GetLocalizedStr(true);
+            }
+            
             return resourceId.GetLocalizedStr();
         }
     }

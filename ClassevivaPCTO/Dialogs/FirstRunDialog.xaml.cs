@@ -12,7 +12,7 @@ namespace ClassevivaPCTO.Dialogs
             InitializeComponent();
 
             Title = "FirstRunDialogTitle".GetLocalizedStr();
-            PrimaryButtonText = "FirstRunDialogPrimaryButtonText".GetLocalizedStr();
+            PrimaryButtonText = "GenericOkButton".GetLocalizedStr();
         }
     }
 }

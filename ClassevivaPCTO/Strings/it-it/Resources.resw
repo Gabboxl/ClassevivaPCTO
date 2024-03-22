@@ -155,15 +155,6 @@ Se riscontri bug o hai un'idea per l'app apri un issue su GitHub cliccando sul l
   <data name="FirstRunDialogTitle" xml:space="preserve">
     <value>Benvenuto in ClassevivaPCTO</value>
   </data>
-  <data name="FirstRunDialogPrimaryButtonText" xml:space="preserve">
-    <value>Ok</value>
-  </data>
-  <data name="WhatsNewDialogPrimaryButtonText" xml:space="preserve">
-    <value>Chiudi</value>
-  </data>
-  <data name="WhatsNewDialogTitle" xml:space="preserve">
-    <value>Novità in questa versione</value>
-  </data>
   <data name="SettingsAccountHeader" xml:space="preserve">
     <value>Account</value>
   </data>
@@ -332,12 +323,6 @@ Errore: </value>
   </data>
   <data name="AgendaPlaceholder" xml:space="preserve">
     <value>Nessun evento</value>
-  </data>
-  <data name="CloseDialogButtonText" xml:space="preserve">
-    <value>Chiudi</value>
-  </data>
-  <data name="ReadAndOpenFlyoutText" xml:space="preserve">
-    <value>Leggi e apri</value>
   </data>
   <data name="InfoNoticeFlyoutText" xml:space="preserve">
     <value>La comunicazione verrà contrassegnata come letta sul server. Continuare?</value>
@@ -535,7 +520,7 @@ Errore: </value>
     <value>Flora</value>
   </data>
   <data name="PALETTE_RET" xml:space="preserve">
-    <value>Retro</value>
+    <value>Retrò</value>
   </data>
   <data name="AgendaLessonsPlaceholder" xml:space="preserve">
     <value>Nessuna lezione</value>
@@ -616,10 +601,10 @@ Errore: </value>
     <value>Uscita anticipata</value>
   </data>
   <data name="DialogUntranslatedLanguageStatus1" xml:space="preserve">
-    <value>L'app è stata tradotta al </value>
+    <value>L'app non è stata tradotta completamente nella lingua che hai scelto. Alcune parti dell'app continueranno ad essere mostrate in questa lingua.</value>
   </data>
   <data name="DialogUntranslatedLanguageStatus2" xml:space="preserve">
-    <value>nella lingua che hai scelto. Alcune parti dell'app potrebbero non essere stare ancora tradotte.</value>
+    <value>Stato di traduzione: </value>
   </data>
   <data name="DialogUntranslatedLanguageBody1" xml:space="preserve">
     <value>Vuoi veramente cambiare la lingua?</value>
@@ -645,7 +630,7 @@ Errore: </value>
   <data name="AbsencesToBeJustifiedText" xml:space="preserve">
     <value>Da giustificare</value>
   </data>
-  <data name="OkDialogButton" xml:space="preserve">
+  <data name="GenericOkButton" xml:space="preserve">
     <value>Ok</value>
   </data>
   <data name="RemovePhotoDialogButton" xml:space="preserve">
@@ -675,20 +660,14 @@ Errore: </value>
   <data name="GenericSaveButton" xml:space="preserve">
     <value>Salva</value>
   </data>
-  <data name="NoticeDialogOpenAttachmentButton" xml:space="preserve">
-    <value>Apri</value>
-  </data>
-  <data name="NoticeDialogSaveAttachmentButton" xml:space="preserve">
-    <value>Salva</value>
-  </data>
   <data name="ScrutiniOpenFileButtonToolTip" xml:space="preserve">
     <value>Visualizza scrutinio</value>
   </data>
   <data name="ScrutiniOpenReportButtonToolTip" xml:space="preserve">
-    <value>Apri report nel browser</value>
+    <value>Apri report</value>
   </data>
   <data name="ScrutiniSaveFileButtonToolTip" xml:space="preserve">
-    <value>Salva il file dello scrutinio sul PC</value>
+    <value>Salva questo file dello scrutinio sul PC</value>
   </data>
   <data name="NoticeBoardNotAvailableButton" xml:space="preserve">
     <value>Non disponibile</value>
@@ -700,7 +679,7 @@ Errore: </value>
     <value>Traduci su Crowdin</value>
   </data>
   <data name="DialogUntranslatedLanguageBody2" xml:space="preserve">
-    <value>Se desideri puoi tradurre tu stesso l'app tramite Crowdin</value>
+    <value>Se desideri puoi tradurre tu stesso l'app tramite Crowdin.</value>
   </data>
   <data name="RestartLater" xml:space="preserve">
     <value>Riavvia più tardi</value>
@@ -734,5 +713,47 @@ Errore: </value>
   </data>
   <data name="NoticeBoardCategoryComboboxPlaceholderText" xml:space="preserve">
     <value>Filtra per categoria...</value>
+  </data>
+  <data name="PALETTE_6" xml:space="preserve">
+    <value>Pastello</value>
+  </data>
+  <data name="PALETTE_7" xml:space="preserve">
+    <value>Vintage</value>
+  </data>
+  <data name="SettingsCardWidgetsDescription" xml:space="preserve">
+    <value>Imposta il numero di elementi recendi da visualizzare nei widget della dasboard</value>
+  </data>
+  <data name="SettingsCardWidgetsHeader" xml:space="preserve">
+    <value>Numero di elementi nei widget</value>
+  </data>
+  <data name="SettingsCardWidgetsSubCardGrades" xml:space="preserve">
+    <value>Numero di valutazioni recenti da visualizzare</value>
+  </data>
+  <data name="SettingsCardWidgetsSubCardNotices" xml:space="preserve">
+    <value>Numero di comunicazioni recenti da visualizzare</value>
+  </data>
+  <data name="SettingsPageOptionsHeader" xml:space="preserve">
+    <value>Opzioni pagine</value>
+  </data>
+  <data name="GenericCloseButton" xml:space="preserve">
+    <value>Chiudi</value>
+  </data>
+  <data name="GradesListLayoutToolTip" xml:space="preserve">
+    <value>Visualizza i voti come lista</value>
+  </data>
+  <data name="GradesSubjectsLayoutToolTip" xml:space="preserve">
+    <value>Visualizza i voti raggruppati in base alla materia</value>
+  </data>
+  <data name="NoticeDialogOpenButtonToolTip" xml:space="preserve">
+    <value>Apri file allegato</value>
+  </data>
+  <data name="NoticeDialogSaveButtonToolTip" xml:space="preserve">
+    <value>Salva questo file allegato sul tuo PC</value>
+  </data>
+  <data name="SettingsPaletteColorYellowToolTip" xml:space="preserve">
+    <value>Uscite anticipate, avvisi</value>
+  </data>
+  <data name="NoticeBoardClearAllFiltersText" xml:space="preserve">
+    <value>Resetta tutti i filtri</value>
   </data>
 </root>
