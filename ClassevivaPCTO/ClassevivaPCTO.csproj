@@ -14,7 +14,7 @@
     <DefaultLanguage>it-IT</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
     <TargetPlatformVersion Condition=" '$(TargetPlatformVersion)' == '' ">10.0.22621.0</TargetPlatformVersion>
-    <TargetPlatformMinVersion>10.0.17763.0</TargetPlatformMinVersion>
+    <TargetPlatformMinVersion>10.0.18362.0</TargetPlatformMinVersion>
     <MinimumVisualStudioVersion>14</MinimumVisualStudioVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{A5A43C5B-DE2A-4C0C-9213-0A381AF9435A};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -351,6 +351,11 @@
     <Content Include="Assets\Square44x44Logo.targetsize-24_altform-unplated.png" />
     <Content Include="Assets\Wide310x150Logo.scale-200.png" />
     <PRIResource Include="Strings\it-it\Untranslatable.resw" />
+    <PRIResource Include="Strings\pt-PT\Resources.resw" />
+    <PRIResource Include="Strings\pl-PL\Resources.resw" />
+    <PRIResource Include="Strings\ro-RO\Resources.resw" />
+    <PRIResource Include="Strings\sq-AL\Resources.resw" />
+    <PRIResource Include="Strings\hr-HR\Resources.resw" />
     <PRIResource Include="Strings\es-ES\Resources.resw" />
     <PRIResource Include="Strings\en-US\Resources.resw" />
     <PRIResource Include="Strings\de-DE\Resources.resw" />
