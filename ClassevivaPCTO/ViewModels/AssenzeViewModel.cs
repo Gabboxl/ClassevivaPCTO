@@ -6,8 +6,5 @@ namespace ClassevivaPCTO.ViewModels
     {
         [ObservableProperty]
         private bool _isLoadingAssenze = true;
-
-        [ObservableProperty]
-        private bool _showShimmers = true;
     }
 }

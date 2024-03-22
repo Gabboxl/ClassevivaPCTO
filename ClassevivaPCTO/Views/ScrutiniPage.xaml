@@ -28,44 +28,60 @@
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
 
-        <StackPanel Orientation="Horizontal" Grid.Row="0" Margin="0,16,0,0">
-            <TextBlock x:Name="TextTitolo" Text="{CustomResource ScrutiniTitle}"
-                       Grid.Row="0" Margin="32,0,0,0"
+        <StackPanel Grid.Row="0"
+                    Margin="0,16,0,0"
+                    Orientation="Horizontal">
+            <TextBlock x:Name="TextTitolo"
+                       Grid.Row="0"
+                       Margin="32,0,0,0"
                        VerticalAlignment="Center"
-                       Style="{StaticResource TitleLargeTextBlockStyle}" />
+                       Style="{StaticResource TitleLargeTextBlockStyle}"
+                       Text="{CustomResource ScrutiniTitle}" />
 
-            <muxc:ProgressRing x:Name="ProgressRingScrutini" Width="28"
-                               Height="28" Margin="16,0,0,0"
-                               IsActive="True" VerticalAlignment="Center"
+            <muxc:ProgressRing x:Name="ProgressRingScrutini"
+                               Width="28"
+                               Height="28"
+                               Margin="16,0,0,0"
+                               VerticalAlignment="Center"
+                               IsActive="True"
                                Visibility="{x:Bind ScrutiniViewModel.IsLoadingScrutini, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" />
 
         </StackPanel>
 
         <controls1:WrapPanel Grid.Row="0"
-                       Margin="0,32,0,0" HorizontalAlignment="Right">
+                             Margin="0,32,0,0"
+                             HorizontalAlignment="Right">
 
             <CheckBox x:Name="CheckboxEliminati"
+                      Margin="0,0,24,0"
                       Content="{CustomResource ScrutiniShowDeletedDocumentsCheckbox}"
-                      ToolTipService.ToolTip="{CustomResource ScrutiniShowDeletedDocumentsCheckboxTooltip}"
-                      Margin="0,0,24,0" RelativePanel.AlignRightWithPanel="True"
-                      RelativePanel.AlignVerticalCenterWithPanel="True" />
+                      RelativePanel.AlignRightWithPanel="True"
+                      RelativePanel.AlignVerticalCenterWithPanel="True"
+                      ToolTipService.ToolTip="{CustomResource ScrutiniShowDeletedDocumentsCheckboxTooltip}" />
 
         </controls1:WrapPanel>
 
-        <RelativePanel x:Name="CardPanel" Grid.Row="2"
-                       Margin="18" Padding="12"
-                       HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+        <RelativePanel x:Name="CardPanel"
+                       Grid.Row="2"
+                       Margin="18"
+                       Padding="12"
+                       HorizontalAlignment="Stretch"
+                       VerticalAlignment="Stretch"
                        Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
                        BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
-                       BorderThickness="1" CornerRadius="8">
+                       BorderThickness="1"
+                       CornerRadius="8">
 
-            <Grid RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignLeftWithPanel="True"
-                  RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignTopWithPanel="True">
+            <Grid RelativePanel.AlignBottomWithPanel="True"
+                  RelativePanel.AlignLeftWithPanel="True"
+                  RelativePanel.AlignRightWithPanel="True"
+                  RelativePanel.AlignTopWithPanel="True">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
 
-                <controls:ScrutiniListView x:Name="ScrutiniListView" Margin="0,0,0,0"
+                <controls:ScrutiniListView x:Name="ScrutiniListView"
+                                           Margin="0,0,0,0"
                                            EnableEmptyAlert="True" />
 
             </Grid>
