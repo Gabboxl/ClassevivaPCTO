@@ -135,6 +135,7 @@
                             </DataTemplate>
                         </AutoSuggestBox.ItemTemplate> -xxx>
                     </AutoSuggestBox>-->
+                    
                 </Grid>
             </Grid>
 
@@ -148,7 +149,6 @@
                 <AppBarButton x:Name="MainRefreshButton"
                               Grid.Column="1"
                               Width="52"
-                              Background="{ThemeResource ControlElevationBorderBrush}"
                               Click="MainRefreshButton_OnClick"
                               Icon="Refresh"
                               IsCompact="False"

@@ -24,6 +24,15 @@
                 <Setter Property="Margin" Value="2,24,0,6" />
             </Style.Setters>
         </Style>
+
+        <Style x:Key="PaletteBorderStyle" TargetType="Border">
+            <Style.Setters>
+                <Setter Property="Width" Value="20" />
+                <Setter Property="Height" Value="20" />
+                <Setter Property="CornerRadius" Value="26" />
+                <Setter Property="IsTapEnabled" Value="False" />
+            </Style.Setters>
+        </Style>
         <helper:EnumToBooleanConverter x:Key="EnumToBooleanConverter" EnumType="palette:PaletteType" />
         <converters:ColorToBrushConverter x:Key="ColorToBrushConverter" />
     </Page.Resources>
@@ -147,14 +156,15 @@
                                 <StackPanel VerticalAlignment="Center"
                                             Orientation="Horizontal"
                                             Spacing="8">
+
                                     <TextBlock VerticalAlignment="Center"
                                                FontFamily="{StaticResource FluentIcons}"
                                                Text="&#xF3B1;" />
+
                                     <TextBlock Text="{CustomResource SettingsAccountExitButton}" />
+
                                 </StackPanel>
-
                             </Button>
-
                         </StackPanel>
                     </Grid>
                 </Grid>
@@ -217,39 +227,24 @@
                                                     Orientation="Horizontal"
                                                     Spacing="8">
 
-                                            <Border Width="20"
-                                                    Height="20"
+                                            <Border Style="{StaticResource PaletteBorderStyle}"
                                                     Background="{x:Bind CurrentPalette.ColorRed, Converter={StaticResource ColorToBrushConverter}, Mode=OneWay}"
-                                                    CornerRadius="26"
-                                                    IsTapEnabled="False"
                                                     ToolTipService.ToolTip="{CustomResource SettingsPaletteColorRedTooltip}" />
 
-                                            <Border Width="20"
-                                                    Height="20"
+                                            <Border Style="{StaticResource PaletteBorderStyle}"
                                                     Background="{x:Bind CurrentPalette.ColorOrange, Converter={StaticResource ColorToBrushConverter}, Mode=OneWay}"
-                                                    CornerRadius="26"
-                                                    IsTapEnabled="False"
                                                     ToolTipService.ToolTip="{CustomResource SettingsPaletteColorOrangeTooltip}" />
 
-                                            <Border Width="20"
-                                                    Height="20"
+                                            <Border Style="{StaticResource PaletteBorderStyle}"
                                                     Background="{x:Bind CurrentPalette.ColorYellow, Converter={StaticResource ColorToBrushConverter}, Mode=OneWay}"
-                                                    CornerRadius="26"
-                                                    IsTapEnabled="False"
                                                     ToolTipService.ToolTip="{CustomResource SettingsPaletteColorYellowTooltip}" />
 
-                                            <Border Width="20"
-                                                    Height="20"
+                                            <Border Style="{StaticResource PaletteBorderStyle}"
                                                     Background="{x:Bind CurrentPalette.ColorGreen, Converter={StaticResource ColorToBrushConverter}, Mode=OneWay}"
-                                                    CornerRadius="26"
-                                                    IsTapEnabled="False"
                                                     ToolTipService.ToolTip="{CustomResource SettingsPaletteColorGreenTooltip}" />
 
-                                            <Border Width="20"
-                                                    Height="20"
+                                            <Border Style="{StaticResource PaletteBorderStyle}"
                                                     Background="{x:Bind CurrentPalette.ColorBlue, Converter={StaticResource ColorToBrushConverter}, Mode=OneWay}"
-                                                    CornerRadius="26"
-                                                    IsTapEnabled="False"
                                                     ToolTipService.ToolTip="{CustomResource SettingsPaletteColorBlueTooltip}" />
 
                                         </StackPanel>

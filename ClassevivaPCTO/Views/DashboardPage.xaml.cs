@@ -41,6 +41,8 @@ namespace ClassevivaPCTO.Views
 
             Card? cardResult = AppViewModelHolder.GetViewModel().SingleCardResult;
 
+            this.ListRecentNotices.OnShouldUpdate += OnShouldUpdate;
+
             TextTitolo.Text = string.Format("DashboardTitleText".GetLocalizedStr(),
                 VariousUtils.ToTitleCase(cardResult.firstName));
 
@@ -249,6 +251,11 @@ namespace ClassevivaPCTO.Views
                     throw taskall.Exception;
                 }
             }
+        }
+
+        private void OnShouldUpdate(object sender, EventArgs args)
+        {
+            AggiornaAction();
         }
 
         private void HyperlinkButton_Click_Valutazioni(object sender, RoutedEventArgs e)
