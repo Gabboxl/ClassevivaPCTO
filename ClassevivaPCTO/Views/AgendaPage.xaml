@@ -16,6 +16,18 @@
     <controls2:CustomAppPage.Resources>
         <ResourceDictionary>
             <converters:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" />
+            <Style x:Key="PopupStyle" TargetType="Popup">
+                <Style.Setters>
+                    <Setter Property="Width" Value="800" />
+                    <Setter Property="IsLightDismissEnabled" Value="True" />
+                    <Setter Property="IsOpen" Value="False" />
+                    <Setter Property="LightDismissOverlayMode" Value="On" />
+                    <Setter Property="RelativePanel.AlignBottomWithPanel" Value="True" />
+                    <Setter Property="RelativePanel.AlignTopWithPanel" Value="True" />
+                    <Setter Property="RelativePanel.AlignRightWithPanel" Value="True" />
+                    <Setter Property="ShouldConstrainToRootBounds" Value="True" />
+                </Style.Setters>
+            </Style>
         </ResourceDictionary>
     </controls2:CustomAppPage.Resources>
 
@@ -45,15 +57,7 @@
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>-->
 
-        <Popup x:Name="LezioniPopup"
-               Width="800"
-               IsLightDismissEnabled="True"
-               IsOpen="False"
-               LightDismissOverlayMode="On"
-               RelativePanel.AlignBottomWithPanel="True"
-               RelativePanel.AlignRightWithPanel="True"
-               RelativePanel.AlignTopWithPanel="True"
-               ShouldConstrainToRootBounds="True">
+        <Popup x:Name="LezioniPopup" Style="{StaticResource PopupStyle}">
 
             <Popup.ChildTransitions>
                 <TransitionCollection>
@@ -112,15 +116,7 @@
             </Grid>
         </Popup>
 
-        <Popup x:Name="AgendaPopup"
-               Width="800"
-               IsLightDismissEnabled="True"
-               IsOpen="False"
-               LightDismissOverlayMode="On"
-               RelativePanel.AlignBottomWithPanel="True"
-               RelativePanel.AlignRightWithPanel="True"
-               RelativePanel.AlignTopWithPanel="True"
-               ShouldConstrainToRootBounds="True">
+        <Popup x:Name="AgendaPopup" Style="{StaticResource PopupStyle}">
 
             <Popup.ChildTransitions>
                 <TransitionCollection>
@@ -128,7 +124,6 @@
                 </TransitionCollection>
             </Popup.ChildTransitions>
 
-            <!--  con il grid mi prendo lo spazio con il binding, poi ci posiziono come voglio gli elementi all'interno  -->
             <Grid Width="{Binding ElementName=AgendaPopup, Path=Width}"
                   Height="{Binding ElementName=AgendaPopup, Path=Height}"
                   HorizontalAlignment="Stretch"
