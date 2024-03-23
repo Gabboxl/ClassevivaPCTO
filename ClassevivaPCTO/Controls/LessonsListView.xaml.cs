@@ -74,7 +74,7 @@ namespace ClassevivaPCTO.Controls
 
                 //set the listview dattemplate to 
                 currentInstance.listView.ItemTemplate =
-                    currentInstance.Resources["LessonListViewExpressiveDataTemplate"] as DataTemplate;
+                    currentInstance.Resources["LessonListViewExtendedDataTemplate"] as DataTemplate;
             }
             else
             {

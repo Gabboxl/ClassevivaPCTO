@@ -69,7 +69,7 @@
             </RelativePanel>
         </DataTemplate>
 
-        <DataTemplate x:Key="LessonListViewExpressiveDataTemplate" x:DataType="adapters:LessonAdapter">
+        <DataTemplate x:Key="LessonListViewExtendedDataTemplate" x:DataType="adapters:LessonAdapter">
 
             <RelativePanel>
 
