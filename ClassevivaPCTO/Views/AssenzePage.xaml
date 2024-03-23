@@ -74,16 +74,16 @@
                     <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
 
-                <comToolkit:StaggeredPanel Margin="0,0,0,0"
+                <comToolkit:StaggeredPanel Margin="18,0,18,18"
                                            HorizontalAlignment="Stretch"
-                                           ColumnSpacing="0"
+                                           ColumnSpacing="12"
                                            DesiredColumnWidth="500"
-                                           RowSpacing="0"
+                                           RowSpacing="12"
                                            ScrollViewer.VerticalScrollMode="Enabled">
 
                     <Grid x:Name="CardPanel"
                           MinHeight="700"
-                          Margin="18,0,0,16"
+                          Margin="0,0,0,0"
                           Padding="6"
                           Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
                           BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
@@ -114,7 +114,7 @@
 
 
                         <RelativePanel x:Name="CalendarPanel"
-                                       Margin="18,0,0,0"
+                                       Margin="0,0,0,0"
                                        Padding="12"
                                        VerticalAlignment="Top"
                                        Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
