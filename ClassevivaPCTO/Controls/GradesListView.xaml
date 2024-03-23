@@ -17,9 +17,13 @@
 
         <DataTemplate x:Key="VotiListViewDataTemplateStandard" x:DataType="adapters:GradeAdapter">
 
-            <RelativePanel>
+            <Grid>
+                <Grid.ColumnDefinitions> 
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
 
-                <Grid x:Name="gridVoto" RelativePanel.AlignTopWithPanel="True">
+                <Grid Grid.Column="0" VerticalAlignment="Center">
                     <Ellipse x:Name="Ellipse" Grid.RowSpan="2"
                              Width="42" Height="42"
                              Margin="6" HorizontalAlignment="Center"
@@ -32,8 +36,7 @@
                                Text="{x:Bind CurrentObject.displayValue}" />
                 </Grid>
 
-                <RelativePanel Margin="0,8,0,8" RelativePanel.AlignVerticalCenterWithPanel="True"
-                               RelativePanel.RightOf="gridVoto">
+                <RelativePanel Margin="0,8,0,8" Grid.Column="1" VerticalAlignment="Center">
 
                     <TextBlock x:Name="textMateria" MaxWidth="500"
                                Margin="12,0,0,2" IsTextSelectionEnabled="True"
@@ -62,15 +65,19 @@
                                Text="{x:Bind CurrentObject.componentDesc}" />
 
                 </RelativePanel>
-            </RelativePanel>
+            </Grid>
         </DataTemplate>
 
 
         <DataTemplate x:Key="VotiListViewDataTemplateCompact" x:DataType="adapters:GradeAdapter">
 
-            <RelativePanel>
+            <Grid>
+                <Grid.ColumnDefinitions> 
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
 
-                <Grid x:Name="gridVoto" RelativePanel.AlignVerticalCenterWithPanel="True">
+                <Grid Grid.Column="0" VerticalAlignment="Center">
                     <Ellipse x:Name="Ellipse" Grid.RowSpan="2"
                              Width="42" Height="42"
                              Margin="2" HorizontalAlignment="Center"
@@ -82,7 +89,7 @@
                                Text="{x:Bind CurrentObject.displayValue}" />
                 </Grid>
 
-                <RelativePanel RelativePanel.AlignVerticalCenterWithPanel="True" RelativePanel.RightOf="gridVoto">
+                <RelativePanel Grid.Column="1" VerticalAlignment="Center">
                     <TextBlock x:Name="textMateria" MaxWidth="500"
                                Margin="12,6,0,0" IsTextSelectionEnabled="True"
                                Style="{ThemeResource BaseTextBlockStyle}"
@@ -108,7 +115,7 @@
                                TextWrapping="Wrap" />
 
                 </RelativePanel>
-            </RelativePanel>
+            </Grid>
         </DataTemplate>
     </UserControl.Resources>
 

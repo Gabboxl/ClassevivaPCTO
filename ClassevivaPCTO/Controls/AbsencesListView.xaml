@@ -17,8 +17,13 @@
         <converters:BetterBoolToVisibilityConverter x:Key="BetterBoolToVisibilityConverter" />
 
         <DataTemplate x:Key="AbsenceEventListViewDataTemplateCompact" x:DataType="adapters:AbsenceEventAdapter">
-            <RelativePanel>
-                <Grid x:Name="gridVoto" RelativePanel.AlignVerticalCenterWithPanel="True">
+            <Grid>
+                <Grid.ColumnDefinitions> 
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Grid RelativePanel.AlignVerticalCenterWithPanel="True" VerticalAlignment="Center">
 
                     <Ellipse x:Name="Ellipse" Grid.RowSpan="2"
                              Width="42" Height="42"
@@ -33,7 +38,7 @@
 
                 </Grid>
 
-                <RelativePanel RelativePanel.AlignVerticalCenterWithPanel="True" RelativePanel.RightOf="gridVoto">
+                <RelativePanel Grid.Column="1" VerticalAlignment="Center" >
                         <TextBlock x:Name="titoloEvento" MaxWidth="500"
                                    Margin="10,8,0,0"
                                    Style="{ThemeResource BaseTextBlockStyle}"
@@ -49,7 +54,7 @@
                                    TextWrapping="Wrap" />
 
                 </RelativePanel>
-            </RelativePanel>
+            </Grid>
         </DataTemplate>
     </UserControl.Resources>
 
