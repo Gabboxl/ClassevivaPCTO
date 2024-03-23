@@ -14,9 +14,6 @@ using Windows.UI.Xaml.Controls;
 using ClassevivaPCTO.Helpers;
 using CommunityToolkit.WinUI;
 using Windows.Storage;
-using Windows.UI.Xaml.Media.Animation;
-using ClassevivaPCTO.Views;
-
 
 namespace ClassevivaPCTO.Controls
 {
@@ -195,11 +192,8 @@ namespace ClassevivaPCTO.Controls
             {
                 var noticeDialogContent = new NoticeDialogContent(currentNotice, noticeReadResult);
 
-                PopupThemeTransition transition = new PopupThemeTransition();
-
                 ContentDialog dialog = new()
                 {
-                    Transitions = new TransitionCollection { transition } ,
                     Title = currentNotice.cntTitle,
                     PrimaryButtonText = "GenericCloseButton".GetLocalizedStr(),
                     DefaultButton = ContentDialogButton.Primary,

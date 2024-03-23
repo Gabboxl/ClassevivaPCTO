@@ -356,7 +356,7 @@
                         <FontIcon Glyph="&#xE789;" />
                     </controls1:SettingsCard.HeaderIcon>
 
-                    <Button MinWidth="130"
+                    <Button MinWidth="120"
                             Click="ButtonChangelog_OnClick"
                             Content="{CustomResource SettingsCardWhatsNewButton}" />
 
@@ -368,7 +368,7 @@
                         <FontIcon Glyph="&#xEA80;" />
                     </controls1:SettingsCard.HeaderIcon>
 
-                    <Button MinWidth="130"
+                    <Button MinWidth="120"
                             Click="ButtonTutorial_OnClick"
                             Content="{CustomResource SettingsCardTutorialButton}" />
 
@@ -414,8 +414,7 @@
                                 </HyperlinkButton>
 
                                 <HyperlinkButton x:Name="hyperlinkTranslate"
-                                                 NavigateUri="https://crowdin.com/project/classevivapcto/invite?h=2b7340ff29ea44873bdef53dc5f7b6871790557"
-                                                 RelativePanel.RightOf="hyperlinkVote">
+                                                 NavigateUri="https://crowdin.com/project/classevivapcto/invite?h=2b7340ff29ea44873bdef53dc5f7b6871790557">
 
                                     <StackPanel Orientation="Horizontal" Spacing="10">
                                         <Grid Width="18" Height="18">
@@ -426,8 +425,7 @@
                                 </HyperlinkButton>
 
                                 <HyperlinkButton x:Name="hyperlinkIssue"
-                                                 NavigateUri="http://github.com/Gabboxl/ClassevivaPCTO/issues"
-                                                 RelativePanel.RightOf="hyperlinkVote">
+                                                 NavigateUri="http://github.com/Gabboxl/ClassevivaPCTO/issues">
 
                                     <StackPanel Orientation="Horizontal" Spacing="10">
                                         <Grid Width="18" Height="18">

@@ -119,7 +119,7 @@
                     </Grid>
 
                     <!--  grades widget  -->
-                    <Grid MinHeight="250"
+                    <Grid MinHeight="278"
                           Margin="0,0,0,0"
                           Padding="12"
                           Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
@@ -204,7 +204,7 @@
                     </Grid>
 
                     <!--  notices widget  -->
-                    <Grid MinHeight="250"
+                    <Grid MinHeight="278"
                           Margin="0,0,0,0"
                           Padding="12"
                           HorizontalAlignment="Stretch"
