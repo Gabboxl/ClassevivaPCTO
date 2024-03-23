@@ -696,10 +696,10 @@ Errore: </value>
   <data name="NoticeBoardCategoryComboboxPlaceholderText" xml:space="preserve">
     <value>Filtra per categoria...</value>
   </data>
-  <data name="PALETTE_6" xml:space="preserve">
+  <data name="PALETTE_PAS" xml:space="preserve">
     <value>Pastello</value>
   </data>
-  <data name="PALETTE_7" xml:space="preserve">
+  <data name="PALETTE_VIN" xml:space="preserve">
     <value>Vintage</value>
   </data>
   <data name="SettingsCardWidgetsDescription" xml:space="preserve">

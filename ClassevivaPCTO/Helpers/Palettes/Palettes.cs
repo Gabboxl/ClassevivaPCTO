@@ -51,7 +51,7 @@ namespace ClassevivaPCTO.Helpers.Palettes
             public Color ColorYellow => ColorHelper.ToColor("#FFB208");
         }
 
-        public class Palette6 : IPalette
+        public class PalettePas : IPalette
         {
             public Color ColorRed => ColorHelper.ToColor("#D3212C");
             public Color ColorOrange => ColorHelper.ToColor("#FF681E");
@@ -60,7 +60,7 @@ namespace ClassevivaPCTO.Helpers.Palettes
             public Color ColorYellow => ColorHelper.ToColor("#FF980E");
         }
 
-        public class Palette7 : IPalette
+        public class PaletteVin : IPalette
         {
             public Color ColorRed => ColorHelper.ToColor("#8A2B13");
             public Color ColorOrange => ColorHelper.ToColor("#C4501B");
