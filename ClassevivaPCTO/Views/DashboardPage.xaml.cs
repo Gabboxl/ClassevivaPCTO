@@ -10,7 +10,6 @@ using System.Threading.Tasks;
 using Windows.ApplicationModel.Core;
 using Windows.UI.Core;
 using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using ClassevivaPCTO.Controls;
@@ -255,7 +254,7 @@ namespace ClassevivaPCTO.Views
 
         private void OnShouldUpdate(object sender, EventArgs args)
         {
-            AggiornaAction();
+            Task.Run(async () => { await CaricaNoticesCard(); });
         }
 
         private void HyperlinkButton_Click_Valutazioni(object sender, RoutedEventArgs e)

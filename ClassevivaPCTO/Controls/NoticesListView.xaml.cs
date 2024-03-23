@@ -205,7 +205,7 @@ namespace ClassevivaPCTO.Controls
                 {
                     var result = await dialog.ShowAsync();
 
-                    if (result == ContentDialogResult.Primary)
+                    if (result == ContentDialogResult.Primary && !currentNotice.readStatus)
                     {
                         //raise OnShouldUpdate event
                         OnShouldUpdate?.Invoke(this, EventArgs.Empty);
