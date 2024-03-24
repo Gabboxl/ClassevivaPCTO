@@ -48,8 +48,7 @@ namespace ClassevivaPCTO.Views
                 bool showDeletedDocuments = false;
 
                 await CoreApplication.MainView.Dispatcher.RunAsync(
-                    CoreDispatcherPriority.Normal,
-                    async () =>
+                    CoreDispatcherPriority.Normal, () =>
                     {
                         ScrutiniViewModel.IsLoadingScrutini = true;
 
@@ -84,8 +83,7 @@ namespace ClassevivaPCTO.Views
 
                 //update UI on UI thread
                 await CoreApplication.MainView.Dispatcher.RunAsync(
-                    CoreDispatcherPriority.Normal,
-                    async () => { ScrutiniListView.ItemsSource = scrutiniDocumentsResult; }
+                    CoreDispatcherPriority.Normal, () => { ScrutiniListView.ItemsSource = scrutiniDocumentsResult; }
                 );
             }
             finally
@@ -93,8 +91,7 @@ namespace ClassevivaPCTO.Views
                 {
                     {
                         await CoreApplication.MainView.Dispatcher.RunAsync(
-                            CoreDispatcherPriority.Normal,
-                            async () => { ScrutiniViewModel.IsLoadingScrutini = false; }
+                            CoreDispatcherPriority.Normal, () => { ScrutiniViewModel.IsLoadingScrutini = false; }
                         );
                     }
                 }

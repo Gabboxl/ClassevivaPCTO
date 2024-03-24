@@ -18,7 +18,7 @@ namespace ClassevivaPCTO.Controls
         private CollectionViewSource GroupedItems { get; set; }
 
         private static async Task<ObservableCollection<GroupInfoList>> GetEventsGroupedAsync(
-            List<AgendaEventAdapter> agendaEvents)
+            IEnumerable<AgendaEventAdapter> agendaEvents)
         {
             var query = from item in agendaEvents
 

@@ -29,11 +29,9 @@ namespace ClassevivaPCTO
             get { return _activationService.Value; }
         }
 
-        private async Task<string> GetTokenAsync()
+        private static async Task<string> GetTokenAsync()
         {
-            LoginResultComplete? loginResult = AppViewModelHolder.GetViewModel().LoginResult;
-
-            return loginResult.token;
+            return AppViewModelHolder.GetViewModel().LoginResult?.token;
         }
 
         public IServiceProvider Container { get; }

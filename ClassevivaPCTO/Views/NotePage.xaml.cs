@@ -40,8 +40,7 @@ namespace ClassevivaPCTO.Views
             try
             {
                 await CoreApplication.MainView.Dispatcher.RunAsync(
-                    CoreDispatcherPriority.Normal,
-                    async () => { NoteViewModel.IsLoadingNote = true; }
+                    CoreDispatcherPriority.Normal, () => { NoteViewModel.IsLoadingNote = true; }
                 );
 
                 Card? cardResult = AppViewModelHolder.GetViewModel().SingleCardResult;
@@ -54,15 +53,13 @@ namespace ClassevivaPCTO.Views
 
                 //update UI on UI thread
                 await CoreApplication.MainView.Dispatcher.RunAsync(
-                    CoreDispatcherPriority.Normal,
-                    async () => { NotesListView.ItemsSource = notesResult; }
+                    CoreDispatcherPriority.Normal, () => { NotesListView.ItemsSource = notesResult; }
                 );
             }
             finally
             {
                 await CoreApplication.MainView.Dispatcher.RunAsync(
-                    CoreDispatcherPriority.Normal,
-                    async () => { NoteViewModel.IsLoadingNote = false; }
+                    CoreDispatcherPriority.Normal, () => { NoteViewModel.IsLoadingNote = false; }
                 );
             }
         }

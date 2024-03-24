@@ -62,7 +62,7 @@ namespace ClassevivaPCTO.Controls
         private CollectionViewSource GroupedItems { get; set; }
 
         private static async Task<ObservableCollection<GroupInfoList>> GetAbsenceEventsGroupedAsync(
-            List<AbsenceEventAdapter> absenceEventAdapters)
+            IEnumerable<AbsenceEventAdapter> absenceEventAdapters)
         {
             var query = from item in absenceEventAdapters
 

@@ -59,8 +59,7 @@ namespace ClassevivaPCTO.Views
 
             {
                 await CoreApplication.MainView.Dispatcher.RunAsync(
-                    CoreDispatcherPriority.Normal,
-                    async () => { AssenzeViewModel.IsLoadingAssenze = true; }
+                    CoreDispatcherPriority.Normal, () => { AssenzeViewModel.IsLoadingAssenze = true; }
                 );
 
                 Card? cardResult = AppViewModelHolder.GetViewModel().SingleCardResult;
@@ -109,8 +108,7 @@ namespace ClassevivaPCTO.Views
             {
                 {
                     await CoreApplication.MainView.Dispatcher.RunAsync(
-                        CoreDispatcherPriority.Normal,
-                        async () => { AssenzeViewModel.IsLoadingAssenze = false; }
+                        CoreDispatcherPriority.Normal, () => { AssenzeViewModel.IsLoadingAssenze = false; }
                     );
                 }
             }

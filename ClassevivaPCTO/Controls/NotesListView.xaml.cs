@@ -102,7 +102,7 @@ namespace ClassevivaPCTO.Controls
         public bool ShowEmptyAlert
         {
             get { return _showEmptyAlert; }
-            set { SetField(ref _showEmptyAlert, value); }
+            private set { SetField(ref _showEmptyAlert, value); }
         }
 
         public List<Note> ItemsSource
@@ -121,7 +121,7 @@ namespace ClassevivaPCTO.Controls
         private CollectionViewSource GroupedItems { get; set; }
 
         private static async Task<ObservableCollection<GroupInfoList>> GetNotesGroupedAsync(
-            List<NoteAdapter> noteAdapters)
+            IEnumerable<NoteAdapter> noteAdapters)
         {
             var query = from item in noteAdapters
 

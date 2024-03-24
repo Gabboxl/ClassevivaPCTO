@@ -126,7 +126,7 @@ namespace ClassevivaPCTO.Utils
         public string ident { get; set; }
         public string firstName { get; set; }
         public string lastName { get; set; }
-        public string token { get; set; }
+        public string? token { get; set; }
         public bool showPwdChangeReminder { get; set; }
 
         [JsonProperty("release")] public DateTime release { get; set; }

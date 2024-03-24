@@ -218,7 +218,7 @@ namespace ClassevivaPCTO.Views
             }
         }
 
-        private async void ChangeLanguage(int indexValue)
+        private void ChangeLanguage(int indexValue)
         {
             ApplicationLanguages.PrimaryLanguageOverride = ApplicationLanguages.ManifestLanguages[indexValue];
 

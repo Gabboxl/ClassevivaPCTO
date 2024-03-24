@@ -2,7 +2,6 @@
 using ClassevivaPCTO.Helpers;
 using ClassevivaPCTO.Services;
 using ClassevivaPCTO.Utils;
-using ClassevivaPCTO.Dialogs;
 using ClassevivaPCTO.ViewModels;
 using Microsoft.Extensions.DependencyInjection;
 using Refit;
@@ -116,8 +115,7 @@ namespace ClassevivaPCTO.Views
             bool checkboxCredenzialiChecked = false;
 
             await CoreApplication.MainView.Dispatcher.RunAsync(
-                CoreDispatcherPriority.Normal,
-                async () =>
+                CoreDispatcherPriority.Normal, () =>
                 {
                     buttonLogin.Visibility = Visibility.Collapsed;
                     progresslogin.Visibility = Visibility.Visible;
@@ -268,8 +266,7 @@ namespace ClassevivaPCTO.Views
             finally
             {
                 await CoreApplication.MainView.Dispatcher.RunAsync(
-                    CoreDispatcherPriority.Normal,
-                    async () =>
+                    CoreDispatcherPriority.Normal, () =>
                     {
                         buttonLogin.Visibility = Visibility.Visible;
                         progresslogin.Visibility = Visibility.Collapsed;
@@ -309,8 +306,7 @@ namespace ClassevivaPCTO.Views
             }
 
             await CoreApplication.MainView.Dispatcher.RunAsync(
-                CoreDispatcherPriority.Normal,
-                async () =>
+                CoreDispatcherPriority.Normal, () =>
                 {
                     Frame rootFrame = (Frame) Window.Current.Content;
                     rootFrame.Navigate(

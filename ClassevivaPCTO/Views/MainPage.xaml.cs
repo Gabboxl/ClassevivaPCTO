@@ -101,12 +101,12 @@ namespace ClassevivaPCTO.Views
         private void OnPropertyChanged(string propertyName) =>
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
 
-        private async void ButtonLogout_Click(object sender, RoutedEventArgs e)
-        {
-            VariousUtils.DoLogout();
-        }
+        //private void ButtonLogout_Click(object sender, RoutedEventArgs e)
+        //{
+        //    VariousUtils.DoLogout();
+        //}
 
-        private async void MainPage_KeyDown(object sender, KeyRoutedEventArgs args)
+        private void MainPage_KeyDown(object sender, KeyRoutedEventArgs args)
         {
             switch (args.Key)
             {
