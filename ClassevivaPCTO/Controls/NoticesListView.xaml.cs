@@ -142,7 +142,7 @@ namespace ClassevivaPCTO.Controls
                     Children =
                     {
                         textBlock,
-                        button,
+                        button
                     }
                 };
 
