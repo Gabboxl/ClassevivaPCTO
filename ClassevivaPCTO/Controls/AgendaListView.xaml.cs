@@ -30,7 +30,7 @@ namespace ClassevivaPCTO.Controls
 
             var eventAdapters = newValue?.Select(evt => new AgendaEventAdapter(evt)).ToList();
 
-            currentInstance.listView.ItemsSource = eventAdapters;
+            currentInstance.MainListView.ItemsSource = eventAdapters;
         }
 
         public AgendaListView()

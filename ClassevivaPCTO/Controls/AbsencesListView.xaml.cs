@@ -98,10 +98,10 @@ namespace ClassevivaPCTO.Controls
             };
 
             //update the listview contents
-            currentInstance.listView.ItemsSource = currentInstance.GroupedItems.View;
+            currentInstance.MainListView.ItemsSource = currentInstance.GroupedItems.View;
             
             //reset the selection
-            currentInstance.listView.SelectedIndex = -1;
+            currentInstance.MainListView.SelectedIndex = -1;
 
             currentInstance.ShowEmptyAlert =
                 (newValue == null || newValue.Count == 0) && currentInstance.EnableEmptyAlert;

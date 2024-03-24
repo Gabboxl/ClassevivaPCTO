@@ -150,7 +150,7 @@ namespace ClassevivaPCTO.Controls
             var noteAdapters = newValue?.Select(evt => new NoteAdapter(evt)).ToList();
 
             //save the scroll position
-            var scrollViewer = currentInstance.listView.FindDescendant<ScrollViewer>();
+            var scrollViewer = currentInstance.MainListView.FindDescendant<ScrollViewer>();
             double horizontalOffset = scrollViewer.HorizontalOffset;
             double verticalOffset = scrollViewer.VerticalOffset;
 
@@ -166,10 +166,10 @@ namespace ClassevivaPCTO.Controls
             };
 
             //update the listview contents
-            currentInstance.listView.ItemsSource = currentInstance.GroupedItems.View;
+            currentInstance.MainListView.ItemsSource = currentInstance.GroupedItems.View;
             
             //reset the selection
-            currentInstance.listView.SelectedIndex = -1;
+            currentInstance.MainListView.SelectedIndex = -1;
 
             //restore the scroll position
             scrollViewer.ChangeView(horizontalOffset, verticalOffset, null);

@@ -67,12 +67,12 @@ namespace ClassevivaPCTO.Controls
             var eventAdapters = newValue?.Select(evt => new NoticeAdapter(evt)).ToList();
 
             //save the scroll position
-            var scrollViewer = currentInstance.listView.FindDescendant<ScrollViewer>();
+            var scrollViewer = currentInstance.MainListView.FindDescendant<ScrollViewer>();
             double horizontalOffset = scrollViewer.HorizontalOffset;
             double verticalOffset = scrollViewer.VerticalOffset;
 
             //update the listview contents
-            currentInstance.listView.ItemsSource = eventAdapters;
+            currentInstance.MainListView.ItemsSource = eventAdapters;
 
             //restore the scroll position
             scrollViewer.ChangeView(horizontalOffset, verticalOffset, null);

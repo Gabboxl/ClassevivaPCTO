@@ -66,6 +66,6 @@
         </DataTemplate>
     </UserControl.Resources>
 
-    <ListView x:Name="listView" ItemTemplate="{StaticResource AgendaEventListViewDataTemplate}" />
+    <ListView x:Name="MainListView" ItemTemplate="{StaticResource AgendaEventListViewDataTemplate}" />
 
 </UserControl>
