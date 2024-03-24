@@ -137,34 +137,12 @@ namespace ClassevivaPCTO.Controls
                     await Task.Run(() => ReadAndOpenNoticeDialog(currentNotice));
                 };
 
-                var closebutton = new Button
-                {
-                    Content = "GenericCloseButton".GetLocalizedStr()
-                };
-
-                closebutton.Click += delegate
-                {
-                    flyout.Hide();
-                };
-
-                var stackpanel = new StackPanel
-                {
-                    Children =
-                    {
-                        closebutton,
-                        button,
-                    }
-                };
-
-                stackpanel.Orientation = Orientation.Horizontal;
-                stackpanel.Spacing = 10;
-
                 flyout.Content = new StackPanel
                 {
                     Children =
                     {
                         textBlock,
-                        stackpanel,
+                        button,
                     }
                 };
 
