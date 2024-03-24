@@ -56,6 +56,9 @@ namespace ClassevivaPCTO.Views
                     {
                         BachecaViewModel.IsLoadingBacheca = true;
 
+                        if (CategoryComboBox.SelectedIndex == 0)
+                            CategoryComboBox.SelectedIndex = -1;
+
                         selectedCategory = (string) CategoryComboBox.SelectionBoxItem;
 
                         readUnreadSegmentedIndex = ReadUnreadSegmented.SelectedIndex;
@@ -90,7 +93,9 @@ namespace ClassevivaPCTO.Views
                         break;
                 }
 
-                var noticeCategories = noticesToShow.Select(n => n.cntCategory).Distinct().OrderBy(o => o).ToList();
+                var noticeCategories = noticesToShow.Select(n => n.cntCategory).Distinct().Where(c => !string.IsNullOrEmpty(c)).OrderBy(o => o).ToList();
+
+                noticeCategories.Insert(0, "Tutte le categorie");
 
                 if (!string.IsNullOrEmpty(selectedCategory))
                 {
