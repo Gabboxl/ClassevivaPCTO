@@ -4,6 +4,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:utils="using:ClassevivaPCTO.Utils"
+      xmlns:controls="using:Microsoft.UI.Xaml.Controls"
       mc:Ignorable="d">
 
     <Page.Resources>
@@ -126,12 +127,12 @@
 
                 <Rectangle Fill="{ThemeResource TextFillColorDisabledBrush}" Height="1" Margin="0,8,0,8"/>
 
-                <muxc:InfoBar
+                <controls:InfoBar
                     IsOpen="True"
                     Severity="Informational"
                     Title="Per questa comunicazione è richiesta una conferma di accettazione" IsClosable="False"/>
 
-                <RelativePanel Grid.Column="1" HorizontalAlignment="Stretch">
+                <RelativePanel HorizontalAlignment="Stretch">
                     <AppBarButton x:Name="ButtonConfirm" RelativePanel.AlignRightWithPanel="True"
                                   RelativePanel.AlignVerticalCenterWithPanel="True" Icon="Accept"
                                   Label="Conferma" />
