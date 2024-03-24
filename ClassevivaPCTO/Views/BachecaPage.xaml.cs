@@ -9,6 +9,7 @@ using Windows.UI.Core;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
 using ClassevivaPCTO.Controls;
+using CommunityToolkit.WinUI.Controls;
 
 namespace ClassevivaPCTO.Views
 {
@@ -136,6 +137,9 @@ namespace ClassevivaPCTO.Views
 
         private void ReadUnreadSegmented_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            if (!this.IsLoaded || sender is Segmented {IsLoaded: false})
+                return;
+
             AggiornaAction();
         }
 
