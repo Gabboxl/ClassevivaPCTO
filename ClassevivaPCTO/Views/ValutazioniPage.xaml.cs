@@ -13,6 +13,7 @@ using Windows.UI.Xaml.Navigation;
 using ClassevivaPCTO.Adapters;
 using ClassevivaPCTO.Controls;
 using ClassevivaPCTO.Helpers;
+using ClassevivaPCTO.Services;
 
 namespace ClassevivaPCTO.Views
 {
@@ -54,6 +55,8 @@ namespace ClassevivaPCTO.Views
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
+
+            PageTransitions.FromHorizontalOffset = await AnimationService.GetAnimationValue();
 
             await Task.Run(async () => { await LoadData(); });
         }

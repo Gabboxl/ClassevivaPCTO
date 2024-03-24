@@ -142,6 +142,13 @@
 
         <RelativePanel Grid.Row="0" Margin="0,18,0,0">
 
+            <RelativePanel.ChildrenTransitions>
+                <TransitionCollection>
+                    <EntranceThemeTransition x:Name="PageTransitions" IsStaggeringEnabled="True" />
+                    <RepositionThemeTransition IsStaggeringEnabled="False" />
+                </TransitionCollection>
+            </RelativePanel.ChildrenTransitions>
+
             <controls:Segmented x:Name="SegmentedLayout" Margin="0,0,24,0"
                                 RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignVerticalCenterWithPanel="True"
                                 SelectedIndex="0">

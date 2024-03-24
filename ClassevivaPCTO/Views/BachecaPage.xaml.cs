@@ -9,6 +9,7 @@ using Windows.UI.Core;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
 using ClassevivaPCTO.Controls;
+using ClassevivaPCTO.Services;
 
 namespace ClassevivaPCTO.Views
 {
@@ -38,6 +39,8 @@ namespace ClassevivaPCTO.Views
 
             CheckboxAttive.Checked += (sender, args) => { AggiornaAction(); }; 
             CheckboxAttive.Unchecked += (sender, args) => { AggiornaAction(); };
+
+            PageAnimations.FromHorizontalOffset = await AnimationService.GetAnimationValue();
 
             await Task.Run(async () => { await LoadData(); });
         }

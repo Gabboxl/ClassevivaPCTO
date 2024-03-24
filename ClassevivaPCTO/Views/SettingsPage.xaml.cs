@@ -23,6 +23,7 @@ using Crowdin.Api.ProjectsGroups;
 using Crowdin.Api.TranslationStatus;
 using Windows.Storage;
 using ClassevivaPCTO.ViewModels;
+using Windows.UI.Xaml.Controls.Primitives;
 
 namespace ClassevivaPCTO.Views
 {
@@ -31,6 +32,7 @@ namespace ClassevivaPCTO.Views
         private SettingsViewModel SettingsViewModel = new();
 
         public bool AskNoticeOpenEventValue { get; set; }
+        public double TransitionSliderValue { get; set; }
 
         private static void OpenCrowdinLink()
         {
@@ -95,8 +97,16 @@ namespace ClassevivaPCTO.Views
             }
 
             AskNoticeOpenEventValue = !await ApplicationData.Current.LocalSettings.ReadAsync<bool>("SkipAskNoticeOpenEvent");
+
+            AnimationsCombobox.SelectedIndex = await ApplicationData.Current.LocalSettings.ReadAsync<int>("TransitionIndex");
+
             GradesRecordCombobox.SelectedValue = await ApplicationData.Current.LocalSettings.ReadAsync<int>("MaxGradesWidgetRecord");
+
             NoticesRecordCombobox.SelectedValue = await ApplicationData.Current.LocalSettings.ReadAsync<int>("MaxNoticesWidgetRecord");
+
+            AccountAnimations.FromHorizontalOffset = await AnimationService.GetAnimationValue();
+
+            PageAnimations.FromVerticalOffset = await AnimationService.GetAnimationValue();
 
             await Task.CompletedTask;
         }
@@ -108,6 +118,18 @@ namespace ClassevivaPCTO.Views
             var version = packageId.Version;
 
             return $"{version.Major}.{version.Minor}.{version.Build}.{version.Revision}";
+        }
+
+        private void InfoBarVisibility(int value)
+        {
+            if(value == 3)
+            {
+                AnimationsInfobar.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                AnimationsInfobar.Visibility = Visibility.Collapsed;
+            }
         }
 
         private async void HyperlinkVote_Click(object sender, RoutedEventArgs e)
@@ -332,6 +354,12 @@ namespace ClassevivaPCTO.Views
         private async void AskNoticeOpenEvent_OnToggled(object sender, RoutedEventArgs e)
         {
             await ApplicationData.Current.LocalSettings.SaveAsync("SkipAskNoticeOpenEvent", !AskNoticeOpenEventToggle.IsOn);
+        }
+
+        private async void AnimationsComboBox_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            await ApplicationData.Current.LocalSettings.SaveAsync("TransitionIndex", AnimationsCombobox.SelectedIndex);
+            InfoBarVisibility(AnimationsCombobox.SelectedIndex);
         }
 
         private async void GradesRecordComboBox_OnSelectionChanged(object sender, SelectionChangedEventArgs e)

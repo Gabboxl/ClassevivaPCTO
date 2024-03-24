@@ -21,7 +21,7 @@
 
     <RelativePanel>
 
-        <VisualStateManager.VisualStateGroups>
+        <!--<VisualStateManager.VisualStateGroups>
             <VisualStateGroup>
                 <VisualState x:Name="WideState">
                     <VisualState.StateTriggers>
@@ -43,7 +43,7 @@
                     </VisualState.Setters>
                 </VisualState>
             </VisualStateGroup>
-        </VisualStateManager.VisualStateGroups>
+        </VisualStateManager.VisualStateGroups>-->
 
         <Popup x:Name="LezioniPopup" 
                Width="800"
@@ -213,6 +213,13 @@
 
                     <RelativePanel Grid.Row="0" Grid.Column="0"
                                    Margin="0,16,0,0" VerticalAlignment="Center">
+
+                        <RelativePanel.ChildrenTransitions>
+                            <TransitionCollection>
+                                <EntranceThemeTransition x:Name="PageTransitions" IsStaggeringEnabled="True" />
+                                <RepositionThemeTransition IsStaggeringEnabled="False" />
+                            </TransitionCollection>
+                        </RelativePanel.ChildrenTransitions>
 
                         <Button x:Name="ButtonYesterday" ToolTipService.ToolTip="{CustomResource AgendaYesterdayButtonTooltip}"
                                 Width="48" Height="32"
