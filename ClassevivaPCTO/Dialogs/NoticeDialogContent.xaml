@@ -125,7 +125,7 @@
                           ItemContainerStyle="{StaticResource ListViewFullStretchStyle}"
                           ItemTemplate="{StaticResource AttachmentListViewDataTemplate}" />
 
-                <Rectangle Fill="{ThemeResource TextFillColorDisabledBrush}" Height="1" Margin="0,8,0,8"/>
+                <Rectangle Fill="{ThemeResource ControlStrongStrokeColorDisabledBrush}" Height="1" Margin="0,8,0,8"/>
 
                 <controls:InfoBar
                     IsOpen="True"
