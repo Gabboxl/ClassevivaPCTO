@@ -55,7 +55,7 @@ namespace ClassevivaPCTO.Views
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
-            SegmentedLayout.SelectedIndex = await ApplicationData.Current.LocalSettings.ReadAsync<int>("GradesLayoutIndex");
+            SegmentedLayout.SelectedIndex = await ApplicationData.Current.LocalSettings.ReadAsync<int>("GradesLayoutMode");
             await Task.Run(async () => { await LoadData(); });
         }
 
@@ -68,7 +68,6 @@ namespace ClassevivaPCTO.Views
                 );
 
                 Card? cardResult = AppViewModelHolder.GetViewModel().SingleCardResult;
-
 
                 Grades2Result grades2Result = await _apiWrapper.GetGrades(
                     cardResult.usrId.ToString()
@@ -266,7 +265,7 @@ namespace ClassevivaPCTO.Views
 
         private async void SegmentedLayout_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            await ApplicationData.Current.LocalSettings.SaveAsync("GradesLayoutIndex", SegmentedLayout.SelectedIndex);
+            await ApplicationData.Current.LocalSettings.SaveAsync("GradesLayoutMode", SegmentedLayout.SelectedIndex);
         }
     }
 }
