@@ -154,9 +154,8 @@
 
         <RelativePanel Grid.Row="0" Margin="0,18,0,0">
 
-            <controls:Segmented x:Name="SegmentedLayout" Margin="0,0,24,0" SelectionChanged="SegmentedLayout_OnSelectionChanged"
-                                RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignVerticalCenterWithPanel="True"
-                                SelectedIndex="0">
+            <controls:Segmented x:Name="SegmentedLayout" Margin="0,0,24,0"
+                                RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignVerticalCenterWithPanel="True">
 
                 <controls:SegmentedItem ToolTipService.ToolTip="{CustomResource GradesListLayoutToolTip}">
                     <controls:SegmentedItem.Content>
@@ -437,12 +436,12 @@
                           RelativePanel.AlignRightWithPanel="True"
                           Visibility="{x:Bind ValutazioniViewModel.ShowShimmers, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" />
 
-            <controls:Segmented x:Name="SegmentedVoti"
+            <controls:Segmented x:Name="SegmentedPeriodi"
                                 Margin="4,16,4,0"
                                 HorizontalAlignment="Stretch"
                                 IsEnabled="False"
                                 RelativePanel.Below="GridMedie"
-                                SelectionChanged="SegmentedVoti_OnSelectionChanged"
+                                SelectionChanged="SegmentedPeriodi_OnSelectionChanged"
                                 Visibility="{x:Bind ValutazioniViewModel.ShowShimmers, Mode=OneWay, Converter={StaticResource BetterBoolToVisibilityConverter}, ConverterParameter=False}">
 
                 <controls:SegmentedItem Content="{CustomResource GradesAllPeriodsSegmentedItem}" />
@@ -457,7 +456,7 @@
                                       RelativePanel.AlignBottomWithPanel="True"
                                       RelativePanel.AlignLeftWithPanel="True"
                                       RelativePanel.AlignRightWithPanel="True"
-                                      RelativePanel.Below="SegmentedVoti" />
+                                      RelativePanel.Below="SegmentedPeriodi" />
 
             <ListView x:Name="MainListView"
                       Margin="0,24,0,0"
@@ -468,7 +467,7 @@
                       RelativePanel.AlignBottomWithPanel="True"
                       RelativePanel.AlignLeftWithPanel="True"
                       RelativePanel.AlignRightWithPanel="True"
-                      RelativePanel.Below="SegmentedVoti"
+                      RelativePanel.Below="SegmentedPeriodi"
                       ScrollViewer.VerticalScrollMode="Enabled"
                       SelectionMode="None" />
 
