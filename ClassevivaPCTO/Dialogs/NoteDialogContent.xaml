@@ -10,11 +10,9 @@
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
-        <TextBlock x:Name="noteBodyText"
+        <TextBlock x:Name="NoteBodyText"
                    Margin="2,8,0,8"
                    HorizontalAlignment="Stretch"
-                   FontWeight="SemiBold"
-                   Foreground="{ThemeResource TextFillColorSecondaryBrush}"
                    IsTextSelectionEnabled="True"
                    Style="{ThemeResource BodyTextBlockStyle}"
                    Text="{x:Bind CurrentReadResult.Note.evtText}"
