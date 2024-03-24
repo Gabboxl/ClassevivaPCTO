@@ -16,16 +16,16 @@ namespace ClassevivaPCTO.Views
     {
         private NoteViewModel NoteViewModel { get; } = new();
 
-        private readonly IClassevivaAPI apiWrapper;
+        private readonly IClassevivaAPI _apiWrapper;
 
         public NotePage()
         {
-            this.InitializeComponent();
+            InitializeComponent();
 
             App app = (App) App.Current;
             var apiClient = app.Container.GetService<IClassevivaAPI>();
 
-            apiWrapper = PoliciesDispatchProxy<IClassevivaAPI>.CreateProxy(apiClient);
+            _apiWrapper = PoliciesDispatchProxy<IClassevivaAPI>.CreateProxy(apiClient);
         }
 
         protected override async void OnNavigatedTo(NavigationEventArgs e)
@@ -47,7 +47,7 @@ namespace ClassevivaPCTO.Views
                 Card? cardResult = AppViewModelHolder.GetViewModel().SingleCardResult;
 
 
-                List<Note> notesResult = await apiWrapper.GetAllNotes(
+                List<Note> notesResult = await _apiWrapper.GetAllNotes(
                     cardResult.usrId.ToString()
                 );
 

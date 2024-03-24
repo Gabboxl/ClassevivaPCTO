@@ -15,7 +15,7 @@ namespace ClassevivaPCTO.Dialogs
         Notice CurrentNotice;
         NoticeReadResult CurrentReadResult;
 
-        private readonly IClassevivaAPI apiWrapper;
+        private readonly IClassevivaAPI _apiWrapper;
 
         private string AllegatiText
         {
@@ -44,7 +44,7 @@ namespace ClassevivaPCTO.Dialogs
             App app = (App) App.Current;
             var apiClient = app.Container.GetService<IClassevivaAPI>();
 
-            apiWrapper = PoliciesDispatchProxy<IClassevivaAPI>.CreateProxy(apiClient);
+            _apiWrapper = PoliciesDispatchProxy<IClassevivaAPI>.CreateProxy(apiClient);
             
             MaxWidth = 800;
             MinWidth = 600;
@@ -124,7 +124,7 @@ namespace ClassevivaPCTO.Dialogs
         {
             Card? cardResult = AppViewModelHolder.GetViewModel().SingleCardResult;
 
-            var attachmentBinary = await apiWrapper.GetNoticeAttachment(
+            var attachmentBinary = await _apiWrapper.GetNoticeAttachment(
                 cardResult.usrId.ToString(),
                 CurrentNotice.pubId.ToString(),
                 CurrentNotice.evtCode,

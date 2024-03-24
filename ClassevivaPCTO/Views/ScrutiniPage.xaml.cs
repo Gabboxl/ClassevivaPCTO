@@ -15,7 +15,7 @@ namespace ClassevivaPCTO.Views
     {
         public ScrutiniViewModel ScrutiniViewModel { get; } = new();
 
-        private readonly IClassevivaAPI apiWrapper;
+        private readonly IClassevivaAPI _apiWrapper;
 
         public ScrutiniPage()
         {
@@ -24,7 +24,7 @@ namespace ClassevivaPCTO.Views
             App app = (App) App.Current;
             var apiClient = app.Container.GetService<IClassevivaAPI>();
 
-            apiWrapper = PoliciesDispatchProxy<IClassevivaAPI>.CreateProxy(apiClient);
+            _apiWrapper = PoliciesDispatchProxy<IClassevivaAPI>.CreateProxy(apiClient);
         }
 
         protected override async void OnNavigatedTo(NavigationEventArgs e)
@@ -61,13 +61,13 @@ namespace ClassevivaPCTO.Views
                 Card? cardResult = AppViewModelHolder.GetViewModel().SingleCardResult;
 
 
-                ScrutiniDocumentsResult scrutiniDocumentsResult = await apiWrapper.GetScrutiniDocuments(
+                ScrutiniDocumentsResult scrutiniDocumentsResult = await _apiWrapper.GetScrutiniDocuments(
                     cardResult.usrId.ToString());
 
 
                 foreach (ScrutiniDocument document in scrutiniDocumentsResult.Documents)
                 {
-                    ScrutiniCheckResult scrutiniCheckResult = await apiWrapper.CheckScrutinioDocument(
+                    ScrutiniCheckResult scrutiniCheckResult = await _apiWrapper.CheckScrutinioDocument(
                         cardResult.usrId.ToString(),
                         document.hash);
 

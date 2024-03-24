@@ -21,7 +21,7 @@ namespace ClassevivaPCTO.Views
 {
     public sealed partial class DashboardPage : CustomAppPage
     {
-        private readonly IClassevivaAPI apiWrapper;
+        private readonly IClassevivaAPI _apiWrapper;
 
         public DashboardPageViewModel DashboardPageViewModel { get; } = new();
 
@@ -32,7 +32,7 @@ namespace ClassevivaPCTO.Views
             App app = (App) App.Current;
             var apiClient = app.Container.GetService<IClassevivaAPI>();
 
-            apiWrapper = PoliciesDispatchProxy<IClassevivaAPI>.CreateProxy(apiClient);
+            _apiWrapper = PoliciesDispatchProxy<IClassevivaAPI>.CreateProxy(apiClient);
         }
 
         protected override async void OnNavigatedTo(NavigationEventArgs e)
@@ -72,7 +72,7 @@ namespace ClassevivaPCTO.Views
                 Card? cardResult = AppViewModelHolder.GetViewModel().SingleCardResult;
 
                 string caldate = VariousUtils.ToApiDateTime(DateTime.Now);
-                OverviewResult overviewResult = await apiWrapper.GetOverview(
+                OverviewResult overviewResult = await _apiWrapper.GetOverview(
                     cardResult.usrId.ToString(),
                     caldate,
                     caldate);
@@ -115,7 +115,7 @@ namespace ClassevivaPCTO.Views
 
                 Card? cardResult = AppViewModelHolder.GetViewModel().SingleCardResult;
 
-                var result1 = await apiWrapper
+                var result1 = await _apiWrapper
                     .GetGrades(cardResult.usrId.ToString())
                     .ConfigureAwait(false);
 
@@ -149,7 +149,7 @@ namespace ClassevivaPCTO.Views
 
                 Card? cardResult = AppViewModelHolder.GetViewModel().SingleCardResult;
 
-                Grades2Result? result1 = await apiWrapper
+                Grades2Result? result1 = await _apiWrapper
                     .GetGrades(cardResult.usrId.ToString())
                     .ConfigureAwait(false);
 
@@ -194,7 +194,7 @@ namespace ClassevivaPCTO.Views
 
                 Card? cardResult = AppViewModelHolder.GetViewModel().SingleCardResult;
 
-                var resultNotices = await apiWrapper
+                var resultNotices = await _apiWrapper
                     .GetNotices(cardResult.usrId.ToString())
                     .ConfigureAwait(false);
 

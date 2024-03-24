@@ -35,7 +35,7 @@ namespace ClassevivaPCTO.Controls
 
     public sealed partial class NotesListView : UserControl, INotifyPropertyChanged
     {
-        private readonly IClassevivaAPI apiWrapper;
+        private readonly IClassevivaAPI _apiWrapper;
 
         public EventHandler OnShouldUpdate
         {
@@ -186,7 +186,7 @@ namespace ClassevivaPCTO.Controls
             App app = (App) App.Current;
             var apiClient = app.Container.GetService<IClassevivaAPI>();
 
-            apiWrapper = PoliciesDispatchProxy<IClassevivaAPI>.CreateProxy(apiClient);
+            _apiWrapper = PoliciesDispatchProxy<IClassevivaAPI>.CreateProxy(apiClient);
         }
 
         private async void ReadButton_Click(object sender, RoutedEventArgs e)
@@ -265,7 +265,7 @@ namespace ClassevivaPCTO.Controls
 
             //we need to read the notice first
             ReadNoteResult readNoteResult =
-                await apiWrapper.ReadNote(cardResult.usrId.ToString(), currentNote.evtCode.ToString(),
+                await _apiWrapper.ReadNote(cardResult.usrId.ToString(), currentNote.evtCode.ToString(),
                     currentNote.evtId.ToString());
 
             //execute on main UI thread

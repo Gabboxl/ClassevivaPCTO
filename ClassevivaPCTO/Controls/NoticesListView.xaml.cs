@@ -28,7 +28,7 @@ namespace ClassevivaPCTO.Controls
             set { SetField(ref _showEmptyAlert, value); }
         }
 
-        private readonly IClassevivaAPI apiWrapper;
+        private readonly IClassevivaAPI _apiWrapper;
 
         public EventHandler OnShouldUpdate
         {
@@ -88,7 +88,7 @@ namespace ClassevivaPCTO.Controls
             App app = (App) App.Current;
             var apiClient = app.Container.GetService<IClassevivaAPI>();
 
-            apiWrapper = PoliciesDispatchProxy<IClassevivaAPI>.CreateProxy(apiClient);
+            _apiWrapper = PoliciesDispatchProxy<IClassevivaAPI>.CreateProxy(apiClient);
         }
 
         private async void ReadButton_Click(object sender, RoutedEventArgs e)
@@ -167,7 +167,7 @@ namespace ClassevivaPCTO.Controls
 
             //we need to read the notice first
             NoticeReadResult noticeReadResult =
-                await apiWrapper.ReadNotice(cardResult.usrId.ToString(), currentNotice.pubId.ToString(),
+                await _apiWrapper.ReadNotice(cardResult.usrId.ToString(), currentNotice.pubId.ToString(),
                     currentNotice.evtCode);
 
             //execute on main UI thread

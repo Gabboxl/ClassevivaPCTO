@@ -16,7 +16,7 @@ namespace ClassevivaPCTO.Views
 {
     public sealed partial class MainPage : Page
     {
-        private AppViewModel AppViewModel;
+        private AppViewModel _appViewModel;
 
         public NavigationViewViewModel NavigationViewViewModel { get; } = new();
 
@@ -24,22 +24,22 @@ namespace ClassevivaPCTO.Views
         {
             get
             {
-                return VariousUtils.ToTitleCase(AppViewModel.LoginResult.firstName)
+                return VariousUtils.ToTitleCase(_appViewModel.LoginResult.firstName)
                        + " "
-                       + VariousUtils.ToTitleCase(AppViewModel.LoginResult.lastName);
+                       + VariousUtils.ToTitleCase(_appViewModel.LoginResult.lastName);
             }
         }
 
         public string Codice
         {
-            get { return AppViewModel.LoginResult.ident; }
+            get { return _appViewModel.LoginResult.ident; }
         }
 
         public string Scuola
         {
             get
             {
-                Card? card = AppViewModel.SingleCardResult;
+                Card? card = _appViewModel.SingleCardResult;
 
                 return card.schName + " " + card.schDedication + " [" + card.schCode + "]";
             }
@@ -52,7 +52,7 @@ namespace ClassevivaPCTO.Views
             this.DataContext = this; //DataContext = ViewModel;
             Initialize();
 
-            this.AppViewModel = AppViewModelHolder.GetViewModel();
+            this._appViewModel = AppViewModelHolder.GetViewModel();
         }
 
         private void Initialize()

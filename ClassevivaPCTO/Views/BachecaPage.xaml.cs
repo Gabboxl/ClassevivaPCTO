@@ -17,7 +17,7 @@ namespace ClassevivaPCTO.Views
     {
         public BachecaViewModel BachecaViewModel { get; } = new();
 
-        private readonly IClassevivaAPI apiWrapper;
+        private readonly IClassevivaAPI _apiWrapper;
 
         public BachecaPage()
         {
@@ -26,7 +26,7 @@ namespace ClassevivaPCTO.Views
             App app = (App) App.Current;
             var apiClient = app.Container.GetService<IClassevivaAPI>();
 
-            apiWrapper = PoliciesDispatchProxy<IClassevivaAPI>.CreateProxy(apiClient);
+            _apiWrapper = PoliciesDispatchProxy<IClassevivaAPI>.CreateProxy(apiClient);
         }
 
         protected override async void OnNavigatedTo(NavigationEventArgs e)
@@ -66,7 +66,7 @@ namespace ClassevivaPCTO.Views
 
                 Card? cardResult = AppViewModelHolder.GetViewModel().SingleCardResult;
 
-                NoticeboardResult noticeboardResult = await apiWrapper.GetNotices(
+                NoticeboardResult noticeboardResult = await _apiWrapper.GetNotices(
                     cardResult.usrId.ToString()
                 );
 

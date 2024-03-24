@@ -39,7 +39,7 @@ namespace ClassevivaPCTO.Controls
             set { SetField(ref _showEmptyAlert, value); }
         }
 
-        private readonly IClassevivaAPI apiWrapper;
+        private readonly IClassevivaAPI _apiWrapper;
 
 
         public ScrutiniDocumentsResult ItemsSource
@@ -94,7 +94,7 @@ namespace ClassevivaPCTO.Controls
             App app = (App) App.Current;
             var apiClient = app.Container.GetService<IClassevivaAPI>();
 
-            apiWrapper = PoliciesDispatchProxy<IClassevivaAPI>.CreateProxy(apiClient);
+            _apiWrapper = PoliciesDispatchProxy<IClassevivaAPI>.CreateProxy(apiClient);
         }
 
         private async void ButtonOpen_Click(object sender, RoutedEventArgs e)
@@ -175,7 +175,7 @@ namespace ClassevivaPCTO.Controls
         {
             Card? cardResult = AppViewModelHolder.GetViewModel().SingleCardResult;
 
-            var attachmentBinary = await apiWrapper.GetScrutinioDocumentFile(
+            var attachmentBinary = await _apiWrapper.GetScrutinioDocumentFile(
                 cardResult.usrId.ToString(),
                 document.hash
             );

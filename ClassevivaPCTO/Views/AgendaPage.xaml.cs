@@ -19,7 +19,7 @@ namespace ClassevivaPCTO.Views
     {
         public AgendaViewModel AgendaViewModel { get; } = new();
 
-        private readonly IClassevivaAPI apiWrapper;
+        private readonly IClassevivaAPI _apiWrapper;
 
         private SubjectsResult _subjects;
         private LessonsResult _lessons;
@@ -31,7 +31,7 @@ namespace ClassevivaPCTO.Views
             App app = (App) App.Current;
             var apiClient = app.Container.GetService<IClassevivaAPI>();
 
-            apiWrapper = PoliciesDispatchProxy<IClassevivaAPI>.CreateProxy(apiClient);
+            _apiWrapper = PoliciesDispatchProxy<IClassevivaAPI>.CreateProxy(apiClient);
         }
 
         protected override async void OnNavigatedTo(NavigationEventArgs e)
@@ -92,7 +92,7 @@ namespace ClassevivaPCTO.Views
 
                 string apiDate = VariousUtils.ToApiDateTime(dateToLoad);
 
-                OverviewResult overviewResult = await apiWrapper.GetOverview(
+                OverviewResult overviewResult = await _apiWrapper.GetOverview(
                     cardResult.usrId.ToString(),
                     apiDate,
                     apiDate
@@ -179,7 +179,7 @@ namespace ClassevivaPCTO.Views
 
             if (_subjects == null)
             {
-                _subjects = await apiWrapper.GetSubjects(
+                _subjects = await _apiWrapper.GetSubjects(
                     cardResult.usrId.ToString()
                 );
             }
@@ -188,7 +188,7 @@ namespace ClassevivaPCTO.Views
             {
                 var dates = VariousUtils.GetLessonsStartEndDates();
 
-                _lessons = await apiWrapper.GetLessons(
+                _lessons = await _apiWrapper.GetLessons(
                     cardResult.usrId.ToString(),
                     VariousUtils.ToApiDateTime(dates.startDate),
                     VariousUtils.ToApiDateTime(dates.endDate)
@@ -259,7 +259,7 @@ namespace ClassevivaPCTO.Views
 
             var dates = VariousUtils.GetAgendaStartEndDates();
 
-            AgendaResult agendaEvents = await apiWrapper.GetAgendaEvents(
+            AgendaResult agendaEvents = await _apiWrapper.GetAgendaEvents(
                 cardResult.usrId.ToString(),
                 VariousUtils.ToApiDateTime(dates.startDate),
                 VariousUtils.ToApiDateTime(dates.endDate)
