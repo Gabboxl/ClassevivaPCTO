@@ -27,12 +27,7 @@ namespace ClassevivaPCTO.Services
         }
 
         protected override object GetResource(string resourceId, string objectType, string propertyName, string propertyType)
-        {
-            if (string.IsNullOrEmpty(resourceId.GetLocalizedStr()))
-            {
-                return resourceId.GetLocalizedStr(true);
-            }
-            
+        {   
             return resourceId.GetLocalizedStr();
         }
     }
