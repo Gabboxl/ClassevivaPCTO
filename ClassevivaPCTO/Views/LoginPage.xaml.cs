@@ -28,7 +28,7 @@ namespace ClassevivaPCTO.Views
 
         public LoginPage()
         {
-            this.InitializeComponent();
+            InitializeComponent();
 
             // Hide default title bar.
             var coreTitleBar = CoreApplication.GetCurrentView().TitleBar;

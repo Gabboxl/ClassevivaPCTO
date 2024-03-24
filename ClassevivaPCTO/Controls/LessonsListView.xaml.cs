@@ -118,7 +118,7 @@ namespace ClassevivaPCTO.Controls
 
         public LessonsListView()
         {
-            this.InitializeComponent();
+            InitializeComponent();
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

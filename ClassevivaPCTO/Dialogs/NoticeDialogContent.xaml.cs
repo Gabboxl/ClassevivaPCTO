@@ -34,7 +34,7 @@ namespace ClassevivaPCTO.Dialogs
 
         public NoticeDialogContent(Notice notice, NoticeReadResult noticeReadResult)
         {
-            this.InitializeComponent();
+            InitializeComponent();
 
             CurrentNotice = notice;
             CurrentReadResult = noticeReadResult;

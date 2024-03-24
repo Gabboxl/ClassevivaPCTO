@@ -35,7 +35,7 @@ namespace ClassevivaPCTO.Controls
 
         public AgendaListView()
         {
-            this.InitializeComponent();
+            InitializeComponent();
         }
     }
 }

@@ -11,7 +11,7 @@ namespace ClassevivaPCTO.Dialogs
 
         public ChoiceDialogContent(List<LoginChoice?> loginChoices)
         {
-            this.InitializeComponent();
+            InitializeComponent();
 
             //make a list of string from each Name propety of loginChoices
             var choices = loginChoices.Select(x => x.name).ToList();

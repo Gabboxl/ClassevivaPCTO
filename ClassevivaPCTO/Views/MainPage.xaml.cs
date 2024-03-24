@@ -47,12 +47,12 @@ namespace ClassevivaPCTO.Views
 
         public MainPage()
         {
-            this.InitializeComponent();
+            InitializeComponent();
 
             this.DataContext = this; //DataContext = ViewModel;
             Initialize();
 
-            this._appViewModel = AppViewModelHolder.GetViewModel();
+            _appViewModel = AppViewModelHolder.GetViewModel();
         }
 
         private void Initialize()

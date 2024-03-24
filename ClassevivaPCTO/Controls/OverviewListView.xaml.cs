@@ -83,7 +83,7 @@ namespace ClassevivaPCTO.Controls
 
         public OverviewListView()
         {
-            this.InitializeComponent();
+            InitializeComponent();
         }
     }
 }

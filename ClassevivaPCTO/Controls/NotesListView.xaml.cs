@@ -181,7 +181,7 @@ namespace ClassevivaPCTO.Controls
 
         public NotesListView()
         {
-            this.InitializeComponent();
+            InitializeComponent();
 
             App app = (App) App.Current;
             var apiClient = app.Container.GetService<IClassevivaAPI>();

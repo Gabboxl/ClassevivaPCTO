@@ -61,7 +61,7 @@ namespace ClassevivaPCTO.Controls
 
         public GradesListView()
         {
-            this.InitializeComponent();
+            InitializeComponent();
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

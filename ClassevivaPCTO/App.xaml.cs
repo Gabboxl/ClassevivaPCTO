@@ -80,7 +80,7 @@ namespace ClassevivaPCTO
         /// </summary>
         public App()
         {
-            this.InitializeComponent();
+            InitializeComponent();
             this.Suspending += OnSuspending;
             Container = ConfigureDependencyInjection();
 

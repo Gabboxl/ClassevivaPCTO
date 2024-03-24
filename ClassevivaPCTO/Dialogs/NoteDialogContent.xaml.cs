@@ -13,7 +13,7 @@ namespace ClassevivaPCTO.Dialogs
 
         public NoteDialogContent(Note note, ReadNoteResult readNoteResult)
         {
-            this.InitializeComponent();
+            InitializeComponent();
 
             CurrentNote = note;
             CurrentReadResult = readNoteResult;

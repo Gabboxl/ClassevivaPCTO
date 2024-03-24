@@ -40,7 +40,7 @@ namespace ClassevivaPCTO.Views
 
         public ValutazioniPage()
         {
-            this.InitializeComponent();
+            InitializeComponent();
 
             App app = (App) App.Current;
             var apiClient = app.Container.GetService<IClassevivaAPI>();

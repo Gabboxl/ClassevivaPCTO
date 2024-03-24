@@ -117,7 +117,7 @@ namespace ClassevivaPCTO.Controls
 
         public AgendaMultipleDaysListView()
         {
-            this.InitializeComponent();
+            InitializeComponent();
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

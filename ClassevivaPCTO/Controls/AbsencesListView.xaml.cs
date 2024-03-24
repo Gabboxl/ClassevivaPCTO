@@ -109,7 +109,7 @@ namespace ClassevivaPCTO.Controls
 
         public AbsencesListView()
         {
-            this.InitializeComponent();
+            InitializeComponent();
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
