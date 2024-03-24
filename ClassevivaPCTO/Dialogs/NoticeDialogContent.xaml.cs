@@ -17,21 +17,6 @@ namespace ClassevivaPCTO.Dialogs
 
         private readonly IClassevivaAPI _apiWrapper;
 
-        private string AllegatiText
-        {
-            get
-            {
-                if (CurrentNotice.attachments.Count == 0)
-                {
-                    return "NoticeDialogNoAttachmentsSubtitle".GetLocalizedStr();
-                }
-                else
-                {
-                    return "NoticeDialogAttachmentsSubtitle".GetLocalizedStr();
-                }
-            }
-        }
-
         public NoticeDialogContent(Notice notice, NoticeReadResult noticeReadResult)
         {
             InitializeComponent();
@@ -39,15 +24,27 @@ namespace ClassevivaPCTO.Dialogs
             CurrentNotice = notice;
             CurrentReadResult = noticeReadResult;
 
+            if (CurrentNotice.attachments.Count == 0)
+            {
+                TitoloAttachments.Visibility = Visibility.Collapsed;
+                AttachmentSeparator.Visibility = Visibility.Collapsed;
+                NoAttachmentsPlaceholder.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                TitoloAttachments.Visibility = Visibility.Visible;
+                AttachmentSeparator.Visibility = Visibility.Visible;
+                NoAttachmentsPlaceholder.Visibility = Visibility.Collapsed;
+            }
+
             AttachmentsListView.ItemsSource = notice.attachments;
             
             App app = (App) App.Current;
             var apiClient = app.Container.GetService<IClassevivaAPI>();
-
             _apiWrapper = PoliciesDispatchProxy<IClassevivaAPI>.CreateProxy(apiClient);
             
-            MaxWidth = 800;
-            MinWidth = 600;
+            MinWidth = 500;
+            MaxWidth = 1000;
         }
 
         private async void ButtonOpen_Click(object sender, RoutedEventArgs e)

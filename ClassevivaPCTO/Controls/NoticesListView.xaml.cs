@@ -15,7 +15,6 @@ using ClassevivaPCTO.Helpers;
 using CommunityToolkit.WinUI;
 using Windows.Storage;
 
-
 namespace ClassevivaPCTO.Controls
 {
     public sealed partial class NoticesListView : UserControl, INotifyPropertyChanged
@@ -127,21 +126,17 @@ namespace ClassevivaPCTO.Controls
                 flyoutPresenterStyle.BasedOn = (Style) Application.Current.Resources["CautionFlyoutStyle"];
                 flyout.FlyoutPresenterStyle = flyoutPresenterStyle;
 
-                //create a button
                 var button = new Button
                 {
-                    Content = "ReadAndOpenFlyoutText".GetLocalizedStr()
+                    Content = "GenericReadButton".GetLocalizedStr()
                 };
 
                 button.Click += async delegate
                 {
-                    //chiudo il flyout e apro la comunicazione in background
                     flyout.Hide();
-
                     await Task.Run(() => ReadAndOpenNoticeDialog(currentNotice));
                 };
 
-                //add the textblock and the button to the flyout
                 flyout.Content = new StackPanel
                 {
                     Children =
@@ -178,18 +173,17 @@ namespace ClassevivaPCTO.Controls
                 ContentDialog dialog = new()
                 {
                     Title = currentNotice.cntTitle,
-                    PrimaryButtonText = "CloseDialogButtonText".GetLocalizedStr(),
+                    PrimaryButtonText = "GenericCloseButton".GetLocalizedStr(),
                     DefaultButton = ContentDialogButton.Primary,
                     RequestedTheme = ((FrameworkElement) Window.Current.Content).RequestedTheme,
                     Content = noticeDialogContent,
-                    Width = 1200
                 };
 
                 try
                 {
                     var result = await dialog.ShowAsync();
 
-                    if (result == ContentDialogResult.Primary)
+                    if (result == ContentDialogResult.Primary && !currentNotice.readStatus)
                     {
                         //raise OnShouldUpdate event
                         OnShouldUpdate?.Invoke(this, EventArgs.Empty);

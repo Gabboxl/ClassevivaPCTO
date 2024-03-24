@@ -267,10 +267,9 @@ namespace ClassevivaPCTO.Views
                     ContentDialog dialogtrans = new()
                     {
                         Title = "CautionDialogTitle".GetLocalizedStr(),
-                        Content = "DialogUntranslatedLanguageStatus1".GetLocalizedStr() + langProgressPerc + "% " +
-                                  "DialogUntranslatedLanguageStatus2".GetLocalizedStr() + "\n\n" +
-                                  "DialogUntranslatedLanguageBody1".GetLocalizedStr() + "\n\n" +
-                                  "DialogUntranslatedLanguageBody2".GetLocalizedStr(),
+                        Content = "DialogUntranslatedLanguageStatus1".GetLocalizedStr() + "\n\n" +
+                                  "DialogUntranslatedLanguageStatus2".GetLocalizedStr() + langProgressPerc + "%" + "\n\n" +
+                                  "DialogUntranslatedLanguageBody1".GetLocalizedStr() + " " + "DialogUntranslatedLanguageBody2".GetLocalizedStr(),
                         PrimaryButtonText = "ContinueDialogButton".GetLocalizedStr(),
                         SecondaryButtonText = "DialogUntranlatedLanguageInvite".GetLocalizedStr(),
                         CloseButtonText = "CancelDialogButton".GetLocalizedStr(),

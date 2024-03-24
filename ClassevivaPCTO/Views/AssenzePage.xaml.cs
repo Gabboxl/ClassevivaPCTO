@@ -108,6 +108,7 @@ namespace ClassevivaPCTO.Views
             {
                 {
                     await CoreApplication.MainView.Dispatcher.RunAsync(
+                    
                         CoreDispatcherPriority.Normal, () => { AssenzeViewModel.IsLoadingAssenze = false; }
                     );
                 }
@@ -143,7 +144,6 @@ namespace ClassevivaPCTO.Views
                     ColorDay(args.Item);
                 }
             }*/
-
 
             if (_apiCalendarResult != null)
             {

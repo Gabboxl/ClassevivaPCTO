@@ -11,8 +11,8 @@ namespace ClassevivaPCTO.Dialogs
             RequestedTheme = ((FrameworkElement) Window.Current.Content).RequestedTheme;
             InitializeComponent();
 
-            Title = "WhatsNewDialogTitle".GetLocalizedStr();
-            PrimaryButtonText = "WhatsNewDialogPrimaryButtonText".GetLocalizedStr();
+            Title = "SettingsCardWhatsNewHeader".GetLocalizedStr();
+            PrimaryButtonText = "GenericCloseButton".GetLocalizedStr();
             Highlights.Text = "ChangelogHighlighsSection".GetLocalizedStr(true);
             General.Text = "ChangelogGeneralSection".GetLocalizedStr(true);
             Dashboard.Text = "ChangelogDashboardSection".GetLocalizedStr(true);

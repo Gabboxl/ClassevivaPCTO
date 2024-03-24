@@ -1,11 +1,10 @@
-﻿<Page
-    x:Class="ClassevivaPCTO.Dialogs.NoticeDialogContent"
-    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:utils="using:ClassevivaPCTO.Utils"
-    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d">
+﻿<Page x:Class="ClassevivaPCTO.Dialogs.NoticeDialogContent"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:utils="using:ClassevivaPCTO.Utils"
+      mc:Ignorable="d">
 
     <Page.Resources>
         <Style x:Key="ListViewFullStretchStyle"
@@ -29,31 +28,44 @@
 
                 <RelativePanel Grid.Column="0">
 
-                    <FontIcon x:Name="IconaAttachment" Margin="8"
+                    <FontIcon x:Name="IconaAttachment"
+                              Margin="8"
                               FontFamily="{StaticResource FluentIcons}"
                               Foreground="{ThemeResource TextFillColorTertiaryBrush}"
-                              Glyph="&#xe7c3;" RelativePanel.AlignVerticalCenterWithPanel="True" />
+                              Glyph="&#xe7c3;"
+                              RelativePanel.AlignVerticalCenterWithPanel="True" />
 
-                    <TextBlock x:Name="nomeAllegato" MaxWidth="600"
+                    <TextBlock x:Name="nomeAllegato"
+                               MaxWidth="600"
                                Margin="10,0,0,0"
                                Foreground="{ThemeResource TextFillColorSecondaryBrush}"
-                               IsTextSelectionEnabled="True" RelativePanel.AlignVerticalCenterWithPanel="True"
+                               IsTextSelectionEnabled="True"
+                               RelativePanel.AlignVerticalCenterWithPanel="True"
                                RelativePanel.RightOf="IconaAttachment"
                                Style="{ThemeResource BaseTextBlockStyle}"
                                Text="{x:Bind fileName}"
-                               TextWrapping="Wrap" />
+                               TextWrapping="WrapWholeWords" />
 
                 </RelativePanel>
 
-                <StackPanel Orientation="Horizontal" Grid.Column="1"  HorizontalAlignment="Right">
+                <StackPanel Grid.Column="1"
+                            HorizontalAlignment="Right"
+                            Orientation="Horizontal">
 
-                    <AppBarButton x:Name="ButtonOpen" Label="{CustomResource NoticeDialogOpenAttachmentButton}"
-                                  Click="ButtonOpen_Click" Icon="OpenFile"
-                                  VerticalAlignment="Center" ToolTipService.ToolTip="Apri file nel browser"/>
+                    <AppBarButton x:Name="ButtonOpen"
+                                  VerticalAlignment="Center"
+                                  Click="ButtonOpen_Click"
+                                  Icon="OpenFile"
+                                  Label="{CustomResource GenericOpenButton}"
+                                  ToolTipService.ToolTip="{CustomResource NoticeDialogOpenButtonToolTip}" />
 
-                    <AppBarButton x:Name="ButtonSave" Label="{CustomResource NoticeDialogSaveAttachmentButton}"
-                                  Click="ButtonSave_Click" Icon="Save" ToolTipService.ToolTip="Salva il file sul tuo PC"
-                                  RelativePanel.AlignRightWithPanel="True" VerticalAlignment="Center" />
+                    <AppBarButton x:Name="ButtonSave"
+                                  VerticalAlignment="Center"
+                                  Click="ButtonSave_Click"
+                                  Icon="Save"
+                                  Label="{CustomResource GenericSaveButton}"
+                                  RelativePanel.AlignRightWithPanel="True"
+                                  ToolTipService.ToolTip="{CustomResource NoticeDialogSaveButtonToolTip}" />
 
                 </StackPanel>
 
@@ -69,24 +81,46 @@
         <ScrollViewer Grid.Row="0">
             <StackPanel HorizontalAlignment="Stretch">
 
-                <TextBlock x:Name="noticeBodyText" Margin="0,12,0,8"
+                <TextBlock x:Name="noticeBodyText"
+                           Margin="0,12,0,8"
                            FontWeight="SemiBold"
                            Foreground="{ThemeResource TextFillColorSecondaryBrush}"
                            IsTextSelectionEnabled="True"
                            Style="{ThemeResource BodyTextBlockStyle}"
                            Text="{x:Bind CurrentReadResult.item.text}"
-                           TextWrapping="Wrap" />
+                           TextWrapping="WrapWholeWords" />
 
-                <TextBlock x:Name="TitoloAttachments" Margin="8,16,0,0"
-                           FontWeight="SemiBold"
+                <TextBlock x:Name="TitoloAttachments"
+                           Margin="8,16,0,0"
                            FontSize="18"
+                           FontWeight="SemiBold"
                            Style="{ThemeResource BodyStrongTextBlockStyle}"
-                           Text="{x:Bind AllegatiText}"
-                           TextWrapping="Wrap" />
+                           Text="{CustomResource NoticeDialogAttachmentsSubtitle}" />
 
-                <Rectangle Height="1" Margin="6,6,6,0" Fill="{ThemeResource ControlStrongStrokeColorDisabledBrush}" />
+                <Rectangle x:Name="AttachmentSeparator"
+                           Height="1"
+                           Margin="6,6,6,0"
+                           Fill="{ThemeResource ControlStrongStrokeColorDisabledBrush}" />
 
-                <ListView x:Name="AttachmentsListView" Margin="0,6,0,0"
+                <StackPanel x:Name="NoAttachmentsPlaceholder"
+                            Margin="0,16,0,0"
+                            Orientation="Horizontal"
+                            Spacing="12">
+                    
+                    <FontIcon FontSize="22"
+                              Foreground="{ThemeResource TextFillColorTertiaryBrush}"
+                              Glyph="&#xe7c3;" />
+                    
+                    <TextBlock Margin="0,0,0,2"
+                               FontSize="18"
+                               FontWeight="SemiBold"
+                               Foreground="{ThemeResource TextFillColorTertiaryBrush}"
+                               Text="{CustomResource NoticeDialogNoAttachmentsSubtitle}" />
+                    
+                </StackPanel>
+
+                <ListView x:Name="AttachmentsListView"
+                          Margin="0,6,0,0"
                           ItemContainerStyle="{StaticResource ListViewFullStretchStyle}"
                           ItemTemplate="{StaticResource AttachmentListViewDataTemplate}" />
 

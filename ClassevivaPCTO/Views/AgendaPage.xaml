@@ -21,7 +21,7 @@
 
     <RelativePanel>
 
-        <VisualStateManager.VisualStateGroups>
+        <!--<VisualStateManager.VisualStateGroups>
             <VisualStateGroup>
                 <VisualState x:Name="WideState">
                     <VisualState.StateTriggers>
@@ -43,7 +43,7 @@
                     </VisualState.Setters>
                 </VisualState>
             </VisualStateGroup>
-        </VisualStateManager.VisualStateGroups>
+        </VisualStateManager.VisualStateGroups>-->
 
         <Popup x:Name="LezioniPopup" 
                Width="800"
@@ -64,11 +64,11 @@
             <!--  con il grid mi prendo lo spazio con il binding, poi ci posiziono come voglio gli elementi all'interno  -->
             <Grid Width="{Binding ElementName=LezioniPopup, Path=Width}"
                   Height="{Binding ElementName=LezioniPopup, Path=Height}"
-                  HorizontalAlignment="Stretch" 
+                  HorizontalAlignment="Stretch"
                   VerticalAlignment="Stretch"
                   Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
                   BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}">
-                
+
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto" />
                     <ColumnDefinition Width="*" />
@@ -78,29 +78,37 @@
                     <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
 
-                <controls:PropertySizer Grid.RowSpan="2" Grid.Column="0"
-                                        HorizontalAlignment="Left" 
+                <controls:PropertySizer Grid.RowSpan="2"
+                                        Grid.Column="0"
+                                        HorizontalAlignment="Left"
                                         VerticalAlignment="Stretch"
                                         Binding="{x:Bind LezioniPopup.Width, Mode=TwoWay}"
-                                        IsDragInverted="True" Minimum="100" />
+                                        IsDragInverted="True"
+                                        Minimum="100" />
 
-                <RelativePanel Grid.Row="0" Grid.Column="1"
+                <RelativePanel Grid.Row="0"
+                               Grid.Column="1"
                                Margin="0,0,0,24">
-                    
-                    <TextBlock x:Name="TitoloLezioniPopup" Text="{CustomResource AgendaLessonsPopupTitle}"
-                               Margin="12,16,0,0" VerticalAlignment="Top"
-                               FontSize="42" />
 
-                    <muxc:ProgressRing x:Name="LezioniPopupProgressRing" Width="28"
-                                       Height="28" Margin="16,16,0,0"
-                                       IsActive="True" RelativePanel.AlignVerticalCenterWith="TitoloLezioniPopup"
+                    <TextBlock x:Name="TitoloLezioniPopup"
+                               Margin="12,16,0,0"
+                               VerticalAlignment="Top"
+                               FontSize="42"
+                               Text="{CustomResource AgendaLessonsPopupTitle}" />
+
+                    <muxc:ProgressRing x:Name="LezioniPopupProgressRing"
+                                       Width="28"
+                                       Height="28"
+                                       Margin="16,16,0,0"
+                                       IsActive="True"
+                                       RelativePanel.AlignVerticalCenterWith="TitoloLezioniPopup"
                                        RelativePanel.RightOf="TitoloLezioniPopup" />
                 </RelativePanel>
 
                 <ScrollViewer Grid.Row="1" Grid.Column="1">
                     <StackPanel x:Name="LezioniPopupStackPanel" Margin="4,0,16,16" />
                 </ScrollViewer>
-                
+
             </Grid>
         </Popup>
 
@@ -120,14 +128,13 @@
                 </TransitionCollection>
             </Popup.ChildTransitions>
 
-            <!--  con il grid mi prendo lo spazio con il binding, poi ci posiziono come voglio gli elementi all'interno  -->
             <Grid Width="{Binding ElementName=AgendaPopup, Path=Width}"
                   Height="{Binding ElementName=AgendaPopup, Path=Height}"
-                  HorizontalAlignment="Stretch" 
+                  HorizontalAlignment="Stretch"
                   VerticalAlignment="Stretch"
                   Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
                   BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}">
-                
+
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto" />
                     <ColumnDefinition Width="*" />
@@ -137,35 +144,48 @@
                     <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
 
-                <controls:PropertySizer Grid.RowSpan="2" Grid.Column="0"
-                                        HorizontalAlignment="Left" 
+                <controls:PropertySizer Grid.RowSpan="2"
+                                        Grid.Column="0"
+                                        HorizontalAlignment="Left"
                                         VerticalAlignment="Stretch"
                                         Binding="{x:Bind AgendaPopup.Width, Mode=TwoWay}"
-                                        IsDragInverted="True" Minimum="100" />
+                                        IsDragInverted="True"
+                                        Minimum="100" />
 
-                <RelativePanel Grid.Row="0" Grid.Column="1"
+                <RelativePanel Grid.Row="0"
+                               Grid.Column="1"
                                Margin="0,0,0,24">
-                    
-                    <TextBlock x:Name="TitoloAgendaPopup" Text="{CustomResource AgendaTasksPopupTitle}"
-                               Margin="12,16,0,0" VerticalAlignment="Top"
-                               FontSize="42" />
 
-                    <muxc:ProgressRing x:Name="AgendaPopupProgressRing" Width="28"
-                                       Height="28" Margin="16,16,0,0"
-                                       IsActive="True" RelativePanel.AlignVerticalCenterWith="TitoloAgendaPopup"
+                    <TextBlock x:Name="TitoloAgendaPopup"
+                               Margin="12,16,0,0"
+                               VerticalAlignment="Top"
+                               FontSize="42"
+                               Text="{CustomResource AgendaTasksPopupTitle}" />
+
+                    <muxc:ProgressRing x:Name="AgendaPopupProgressRing"
+                                       Width="28"
+                                       Height="28"
+                                       Margin="16,16,0,0"
+                                       IsActive="True"
+                                       RelativePanel.AlignVerticalCenterWith="TitoloAgendaPopup"
                                        RelativePanel.RightOf="TitoloAgendaPopup" />
                 </RelativePanel>
 
-                <Grid x:Name="AgendaPopupListviewContainer" Grid.Row="1"
-                      Grid.Column="1" Margin="4,0,12,12"
+                <Grid x:Name="AgendaPopupListviewContainer"
+                      Grid.Row="1"
+                      Grid.Column="1"
+                      Margin="4,0,12,12"
                       HorizontalAlignment="Stretch" />
-                
+
             </Grid>
         </Popup>
 
-        <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
-              RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignLeftWithPanel="True"
-              RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignTopWithPanel="True">
+        <Grid HorizontalAlignment="Stretch"
+              VerticalAlignment="Stretch"
+              RelativePanel.AlignBottomWithPanel="True"
+              RelativePanel.AlignLeftWithPanel="True"
+              RelativePanel.AlignRightWithPanel="True"
+              RelativePanel.AlignTopWithPanel="True">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
@@ -188,19 +208,25 @@
 
                 <RelativePanel Grid.Row="0" Margin="0,16,0,0">
 
-                    <TextBlock x:Name="TextTitolo" Text="{CustomResource AgendaTitle}"
+                    <TextBlock x:Name="TextTitolo"
                                Margin="32,0,0,0"
-                               Style="{StaticResource TitleLargeTextBlockStyle}" />
+                               Style="{StaticResource TitleLargeTextBlockStyle}"
+                               Text="{CustomResource AgendaTitle}" />
 
-                    <muxc:ProgressRing x:Name="ProgressRingAgenda" Width="28"
-                                       Height="28" Margin="16,0,0,0"
-                                       IsActive="True" RelativePanel.AlignVerticalCenterWith="TextTitolo"
+                    <muxc:ProgressRing x:Name="ProgressRingAgenda"
+                                       Width="28"
+                                       Height="28"
+                                       Margin="16,0,0,0"
+                                       IsActive="True"
+                                       RelativePanel.AlignVerticalCenterWith="TextTitolo"
                                        RelativePanel.RightOf="TextTitolo"
                                        Visibility="{x:Bind AgendaViewModel.IsLoadingAgenda, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" />
                 </RelativePanel>
 
-                <Grid Grid.Row="0" Grid.Column="1"
-                      Margin="20,0,0,0" HorizontalAlignment="Right"
+                <Grid Grid.Row="0"
+                      Grid.Column="1"
+                      Margin="20,0,0,0"
+                      HorizontalAlignment="Right"
                       VerticalAlignment="Center">
 
                     <Grid.ColumnDefinitions>
@@ -211,65 +237,103 @@
                         <RowDefinition Height="Auto" />
                     </Grid.RowDefinitions>
 
-                    <RelativePanel Grid.Row="0" Grid.Column="0"
-                                   Margin="0,16,0,0" VerticalAlignment="Center">
+                    <RelativePanel Grid.Row="0"
+                                   Grid.Column="0"
+                                   Margin="0,16,0,0"
+                                   VerticalAlignment="Center">
 
-                        <Button x:Name="ButtonYesterday" ToolTipService.ToolTip="{CustomResource AgendaYesterdayButtonTooltip}"
-                                Width="48" Height="32"
-                                Margin="12,0,0,0" winUi:FrameworkElementExtensions.Cursor="Hand"
-                                Click="ButtonYesterday_Click" RelativePanel.AlignVerticalCenterWithPanel="True"
-                                RelativePanel.LeftOf="CalendarAgenda">
+                        <Button x:Name="ButtonYesterday"
+                                Width="48"
+                                Height="32"
+                                Margin="12,0,0,0"
+                                winUi:FrameworkElementExtensions.Cursor="Hand"
+                                Click="ButtonYesterday_Click"
+                                RelativePanel.AlignVerticalCenterWithPanel="True"
+                                RelativePanel.LeftOf="CalendarAgenda"
+                                ToolTipService.ToolTip="{CustomResource AgendaYesterdayButtonTooltip}">
 
-                            <FontIcon HorizontalAlignment="Center" VerticalAlignment="Center"
-                                      FontSize="16" Glyph="&#xE76B;" />
+                            <FontIcon HorizontalAlignment="Center"
+                                      VerticalAlignment="Center"
+                                      FontSize="16"
+                                      Glyph="&#xE76B;" />
 
                         </Button>
 
-                        <CalendarDatePicker x:Name="CalendarAgenda" ToolTipService.ToolTip="{CustomResource AgendaCalendarDatePickerTooltip}"
-                                            MinWidth="116" Margin="8,0,8,0"
-                                            winUi:FrameworkElementExtensions.Cursor="Hand" FirstDayOfWeek="Monday"
-                                            PlaceholderText="Scegli una data" RelativePanel.AlignVerticalCenterWithPanel="True"
-                                            RelativePanel.LeftOf="ButtonTomorrow" />
+                        <CalendarDatePicker x:Name="CalendarAgenda"
+                                            MinWidth="116"
+                                            Margin="8,0,8,0"
+                                            winUi:FrameworkElementExtensions.Cursor="Hand"
+                                            FirstDayOfWeek="Monday"
+                                            PlaceholderText="Scegli una data"
+                                            RelativePanel.AlignVerticalCenterWithPanel="True"
+                                            RelativePanel.LeftOf="ButtonTomorrow"
+                                            ToolTipService.ToolTip="{CustomResource AgendaCalendarDatePickerTooltip}" />
 
-                        <Button x:Name="ButtonTomorrow" ToolTipService.ToolTip="{CustomResource AgendaTomorrowButtonTooltip}"
-                                Width="48" Height="32"
-                                Margin="0,0,0,0" winUi:FrameworkElementExtensions.Cursor="Hand"
-                                Click="ButtonTomorrow_Click" RelativePanel.AlignVerticalCenterWithPanel="True"
-                                RelativePanel.LeftOf="ButtonToday">
+                        <Button x:Name="ButtonTomorrow"
+                                Width="48"
+                                Height="32"
+                                Margin="0,0,0,0"
+                                winUi:FrameworkElementExtensions.Cursor="Hand"
+                                Click="ButtonTomorrow_Click"
+                                RelativePanel.AlignVerticalCenterWithPanel="True"
+                                RelativePanel.LeftOf="ButtonToday"
+                                ToolTipService.ToolTip="{CustomResource AgendaTomorrowButtonTooltip}">
 
-                            <FontIcon HorizontalAlignment="Center" VerticalAlignment="Center"
-                                      FontSize="16" Glyph="&#xE76C;" />
+                            <FontIcon HorizontalAlignment="Center"
+                                      VerticalAlignment="Center"
+                                      FontSize="16"
+                                      Glyph="&#xE76C;" />
                         </Button>
 
-                        <ToggleButton x:Name="ButtonToday" Content="{CustomResource AgendaTodayButton}"
-                                      ToolTipService.ToolTip="{CustomResource AgendaTodayButtonTooltip}"
-                                      Margin="8,0,0,0" HorizontalAlignment="Center"
-                                      VerticalAlignment="Center" winUi:FrameworkElementExtensions.Cursor="Hand"
-                                      Click="ButtonToday_Click" RelativePanel.AlignVerticalCenterWithPanel="True"
-                                      RelativePanel.LeftOf="Separator1" />
+                        <ToggleButton x:Name="ButtonToday"
+                                      Margin="8,0,0,0"
+                                      HorizontalAlignment="Center"
+                                      VerticalAlignment="Center"
+                                      winUi:FrameworkElementExtensions.Cursor="Hand"
+                                      Click="ButtonToday_Click"
+                                      Content="{CustomResource AgendaTodayButton}"
+                                      RelativePanel.AlignVerticalCenterWithPanel="True"
+                                      RelativePanel.LeftOf="Separator1"
+                                      ToolTipService.ToolTip="{CustomResource AgendaTodayButtonTooltip}" />
 
-                        <Rectangle x:Name="Separator1" Width="1"
-                                   Height="48" Margin="12,0,0,0"
+                        <Rectangle x:Name="Separator1"
+                                   Width="1"
+                                   Height="48"
+                                   Margin="12,0,0,0"
                                    Fill="{ThemeResource ControlStrongStrokeColorDisabledBrush}"
                                    RelativePanel.LeftOf="TuttiCompitiButton" />
 
-                        <Button x:Name="TuttiCompitiButton" MinWidth="110"
-                                Margin="12,0,0,0" Click="PopupAgendaButton_OnClick"
-                                RelativePanel.AlignVerticalCenterWithPanel="True" RelativePanel.LeftOf="PopupLessonsButton">
+                        <Button x:Name="TuttiCompitiButton"
+                                MinWidth="110"
+                                Margin="12,0,0,0"
+                                Click="PopupAgendaButton_OnClick"
+                                RelativePanel.AlignVerticalCenterWithPanel="True"
+                                RelativePanel.LeftOf="PopupLessonsButton">
 
-                            <StackPanel VerticalAlignment="Center" Orientation="Horizontal" Spacing="8">
-                                <TextBlock VerticalAlignment="Center" FontFamily="{StaticResource FluentIcons}" Text="&#xEA98;" />
+                            <StackPanel VerticalAlignment="Center"
+                                        Orientation="Horizontal"
+                                        Spacing="8">
+                                <TextBlock VerticalAlignment="Center"
+                                           FontFamily="{StaticResource FluentIcons}"
+                                           Text="&#xEA98;" />
                                 <TextBlock Text="{CustomResource AgendaAllTasksButton}" />
                             </StackPanel>
 
                         </Button>
 
-                        <Button x:Name="PopupLessonsButton" MinWidth="110"
-                                Margin="8,0,20,0" Click="PopupLessonsButton_OnClick"
-                                RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignVerticalCenterWithPanel="True">
+                        <Button x:Name="PopupLessonsButton"
+                                MinWidth="110"
+                                Margin="8,0,20,0"
+                                Click="PopupLessonsButton_OnClick"
+                                RelativePanel.AlignRightWithPanel="True"
+                                RelativePanel.AlignVerticalCenterWithPanel="True">
 
-                            <StackPanel VerticalAlignment="Center" Orientation="Horizontal" Spacing="8">
-                                <TextBlock VerticalAlignment="Center" FontFamily="{StaticResource FluentIcons}" Text="&#xe7be;" />
+                            <StackPanel VerticalAlignment="Center"
+                                        Orientation="Horizontal"
+                                        Spacing="8">
+                                <TextBlock VerticalAlignment="Center"
+                                           FontFamily="{StaticResource FluentIcons}"
+                                           Text="&#xe7be;" />
                                 <TextBlock Text="{CustomResource AgendaAllLessonsButton}" />
                             </StackPanel>
 
@@ -279,19 +343,26 @@
                 </Grid>
             </Grid>
 
-            <RelativePanel x:Name="CardPanel" Grid.Row="2"
-                           Margin="18" Padding="12"
-                           HorizontalAlignment="Stretch" 
+            <RelativePanel x:Name="CardPanel"
+                           Grid.Row="2"
+                           Margin="18"
+                           Padding="6"
+                           HorizontalAlignment="Stretch"
                            VerticalAlignment="Stretch"
                            winUi:FrameworkElementExtensions.EnableActualSizeBinding="true"
                            Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
                            BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
-                           BorderThickness="1" CornerRadius="8">
+                           BorderThickness="1"
+                           CornerRadius="8">
 
-                <controls2:OverviewListView x:Name="OverviewListView" Margin="0,0,0,0"
-                                            HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
-                                            RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignLeftWithPanel="True"
-                                            RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignTopWithPanel="True" />
+                <controls2:OverviewListView x:Name="OverviewListView"
+                                            Margin="0,0,0,0"
+                                            HorizontalAlignment="Stretch"
+                                            VerticalAlignment="Stretch"
+                                            RelativePanel.AlignBottomWithPanel="True"
+                                            RelativePanel.AlignLeftWithPanel="True"
+                                            RelativePanel.AlignRightWithPanel="True"
+                                            RelativePanel.AlignTopWithPanel="True" />
 
             </RelativePanel>
 
