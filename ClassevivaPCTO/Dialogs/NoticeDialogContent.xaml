@@ -132,20 +132,17 @@
                     Severity="Informational"
                     Title="Per questa comunicazione è richiesta una conferma di accettazione" IsClosable="False"/>
 
-                <RelativePanel HorizontalAlignment="Stretch">
-                    <AppBarButton x:Name="ButtonConfirm" RelativePanel.AlignRightWithPanel="True"
-                                  RelativePanel.AlignVerticalCenterWithPanel="True" Icon="Accept"
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch">
+                    <AppBarButton x:Name="ButtonConfirm"  Icon="Accept" VerticalAlignment="Center"
                                   Label="Conferma" />
 
-                    <AppBarButton x:Name="ButtonRefuse" RelativePanel.LeftOf="ButtonConfirm"
-                                  RelativePanel.AlignVerticalCenterWithPanel="True" Icon="Cancel"
+                    <AppBarButton x:Name="ButtonRefuse" VerticalAlignment="Center" Icon="Cancel"
                                   Label="Rifiuta" />
                     
-                    <AppBarButton x:Name="ButtonAderisci" RelativePanel.AlignLeftWithPanel="True"
-                                  RelativePanel.AlignVerticalCenterWithPanel="True" Icon="AddFriend"
+                    <AppBarButton x:Name="ButtonAderisci" VerticalAlignment="Center" Icon="AddFriend"
                                   Label="Aderisci" />
 
-                </RelativePanel>
+                </StackPanel>
 
 
             </StackPanel>
