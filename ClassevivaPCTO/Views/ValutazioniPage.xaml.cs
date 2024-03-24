@@ -13,6 +13,8 @@ using Windows.UI.Xaml.Navigation;
 using ClassevivaPCTO.Adapters;
 using ClassevivaPCTO.Controls;
 using ClassevivaPCTO.Helpers;
+using Windows.Storage;
+using CommunityToolkit.WinUI.Controls;
 
 namespace ClassevivaPCTO.Views
 {
@@ -46,16 +48,15 @@ namespace ClassevivaPCTO.Views
             var apiClient = app.Container.GetService<IClassevivaAPI>();
 
             _apiWrapper = PoliciesDispatchProxy<IClassevivaAPI>.CreateProxy(apiClient!);
-
-            SegmentedLayout.SelectionChanged += SegmentedVoti_OnSelectionChanged;
-
         }
 
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
-
+            SegmentedLayout.SelectedIndex = await ApplicationData.Current.LocalSettings.ReadAsync<int>("GradesLayoutMode");
             await Task.Run(async () => { await LoadData(); });
+
+            SegmentedLayout.SelectionChanged += SegmentedLayout_OnSelectionChanged;
         }
 
         private async Task LoadData()
@@ -67,7 +68,6 @@ namespace ClassevivaPCTO.Views
                 );
 
                 Card? cardResult = AppViewModelHolder.GetViewModel().SingleCardResult;
-
 
                 Grades2Result grades2Result = await _apiWrapper.GetGrades(
                     cardResult.usrId.ToString()
@@ -136,22 +136,21 @@ namespace ClassevivaPCTO.Views
 
         private void UpdateUi()
         {
-            var selectedPeriodIndex = SegmentedVoti.SelectedIndex;
+            var selectedPeriodIndex = SegmentedPeriodi.SelectedIndex;
 
             if (selectedPeriodIndex == -1)
             {
                 foreach (var period in _mergedPeriodList)
                 {
-                    SegmentedVoti.Items.Add(VariousUtils.UppercaseFirst(period.Period.periodDesc));
+                    SegmentedPeriodi.Items.Add(VariousUtils.UppercaseFirst(period.Period.periodDesc));
                 }
 
                 TitleFirstPerVal.Text = VariousUtils.UppercaseFirst(_mergedPeriodList[0].Period.periodDesc);
                 TitleSecondPerVal.Text = VariousUtils.UppercaseFirst(_mergedPeriodList[1].Period.periodDesc);
-                SegmentedVoti.SelectedIndex = 0;
-                SegmentedVoti.IsEnabled = true;
+                SegmentedPeriodi.SelectedIndex = 0;
+                SegmentedPeriodi.IsEnabled = true;
 
                 return;
-
             }
 
             List<SubjectWithGrades> mergedPeriodsSubjectsWithGrades;
@@ -253,7 +252,7 @@ namespace ClassevivaPCTO.Views
         }
 
 
-        private void SegmentedVoti_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void SegmentedPeriodi_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             UpdateUi();
         }
@@ -261,6 +260,15 @@ namespace ClassevivaPCTO.Views
         public override async void AggiornaAction()
         {
             await Task.Run(async () => { await LoadData(); });
+        }
+
+        private async void SegmentedLayout_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if(!IsLoaded || sender is Segmented {IsLoaded: false})
+                return;
+
+            UpdateUi();
+            await ApplicationData.Current.LocalSettings.SaveAsync("GradesLayoutMode", SegmentedLayout.SelectedIndex);
         }
     }
 }
