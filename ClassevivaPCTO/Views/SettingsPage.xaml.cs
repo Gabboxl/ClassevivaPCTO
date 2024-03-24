@@ -28,7 +28,7 @@ namespace ClassevivaPCTO.Views
 {
     public sealed partial class SettingsPage : Page
     {
-        private SettingsViewModel SettingsViewModel = new();
+        private readonly SettingsViewModel _settingsViewModel = new();
 
         public bool AskNoticeOpenEventValue { get; set; }
 
@@ -84,13 +84,13 @@ namespace ClassevivaPCTO.Views
 
         private async Task InitializeAsync()
         {
-            SettingsViewModel.Version = GetVersionDescription();
+            _settingsViewModel.Version = GetVersionDescription();
 
             //create combo palette adapters for each palette of the enum PaletteType
-            SettingsViewModel.ComboPalettes = new List<ComboPaletteAdapter>();
+            _settingsViewModel.ComboPalettes = new List<ComboPaletteAdapter>();
             foreach (PaletteType paletteType in Enum.GetValues(typeof(PaletteType)))
             {
-                SettingsViewModel.ComboPalettes.Add(new ComboPaletteAdapter(PaletteSelectorService.GetPaletteClass(paletteType),
+                _settingsViewModel.ComboPalettes.Add(new ComboPaletteAdapter(PaletteSelectorService.GetPaletteClass(paletteType),
                     paletteType));
             }
 
@@ -194,8 +194,8 @@ namespace ClassevivaPCTO.Views
             ComboBox paletteSelector = (ComboBox) sender;
 
             //change theme based on selected index of the combobox sender
-            SettingsViewModel.PaletteType = (PaletteType) paletteSelector.SelectedIndex;
-            await PaletteSelectorService.SetCurrentPalette(SettingsViewModel.PaletteType);
+            _settingsViewModel.PaletteType = (PaletteType) paletteSelector.SelectedIndex;
+            await PaletteSelectorService.SetCurrentPalette(_settingsViewModel.PaletteType);
         }
 
         private async void ButtonLogout_Click(object sender, RoutedEventArgs e)
@@ -218,7 +218,7 @@ namespace ClassevivaPCTO.Views
             }
         }
 
-        private async void ChangeLanguage(int indexValue)
+        private void ChangeLanguage(int indexValue)
         {
             ApplicationLanguages.PrimaryLanguageOverride = ApplicationLanguages.ManifestLanguages[indexValue];
 

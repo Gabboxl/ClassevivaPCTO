@@ -18,7 +18,7 @@ namespace ClassevivaPCTO.Controls
         private CollectionViewSource GroupedItems { get; set; }
 
         private static async Task<ObservableCollection<GroupInfoList>> GetEventsGroupedAsync(
-            List<AgendaEventAdapter> agendaEvents)
+            IEnumerable<AgendaEventAdapter> agendaEvents)
         {
             var query = from item in agendaEvents
 
@@ -107,17 +107,17 @@ namespace ClassevivaPCTO.Controls
                 Source = groupedAgendaEvents
             };
 
-            currentInstance.listView.ItemsSource = currentInstance.GroupedItems.View;
+            currentInstance.MainListView.ItemsSource = currentInstance.GroupedItems.View;
 
             //reset the selection
-            currentInstance.listView.SelectedIndex = -1;
+            currentInstance.MainListView.SelectedIndex = -1;
 
             currentInstance.ShowEmptyAlert = newValue == null || newValue.Count == 0;
         }
 
         public AgendaMultipleDaysListView()
         {
-            this.InitializeComponent();
+            InitializeComponent();
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

@@ -2,7 +2,6 @@
 using ClassevivaPCTO.Helpers;
 using ClassevivaPCTO.Services;
 using ClassevivaPCTO.Utils;
-using ClassevivaPCTO.Dialogs;
 using ClassevivaPCTO.ViewModels;
 using Microsoft.Extensions.DependencyInjection;
 using Refit;
@@ -24,11 +23,11 @@ namespace ClassevivaPCTO.Views
 {
     public sealed partial class LoginPage : Page
     {
-        private IClassevivaAPI apiWrapper;
+        private IClassevivaAPI _apiWrapper;
 
         public LoginPage()
         {
-            this.InitializeComponent();
+            InitializeComponent();
 
             // Hide default title bar.
             var coreTitleBar = CoreApplication.GetCurrentView().TitleBar;
@@ -116,8 +115,7 @@ namespace ClassevivaPCTO.Views
             bool checkboxCredenzialiChecked = false;
 
             await CoreApplication.MainView.Dispatcher.RunAsync(
-                CoreDispatcherPriority.Normal,
-                async () =>
+                CoreDispatcherPriority.Normal, () =>
                 {
                     buttonLogin.Visibility = Visibility.Collapsed;
                     progresslogin.Visibility = Visibility.Visible;
@@ -145,7 +143,7 @@ namespace ClassevivaPCTO.Views
             App app = (App) App.Current;
             var apiClient = app.Container.GetService<IClassevivaAPI>();
 
-            apiWrapper = PoliciesDispatchProxy<IClassevivaAPI>.CreateProxy(apiClient);
+            _apiWrapper = PoliciesDispatchProxy<IClassevivaAPI>.CreateProxy(apiClient);
 
             try
             {
@@ -156,7 +154,7 @@ namespace ClassevivaPCTO.Views
                     Ident = null
                 };
 
-                var resLogin = await CvUtils.GetApiLoginData(apiWrapper, measurement);
+                var resLogin = await CvUtils.GetApiLoginData(_apiWrapper, measurement);
 
                 if (resLogin is LoginResultComplete loginResult)
                 {
@@ -224,7 +222,7 @@ namespace ClassevivaPCTO.Views
                         Ident = resLoginChoice.ident
                     };
 
-                    var resLoginFinal = await CvUtils.GetApiLoginData(apiWrapper, loginData);
+                    var resLoginFinal = await CvUtils.GetApiLoginData(_apiWrapper, loginData);
 
                     if (resLoginFinal is LoginResultComplete loginResultChoice)
                     {
@@ -268,8 +266,7 @@ namespace ClassevivaPCTO.Views
             finally
             {
                 await CoreApplication.MainView.Dispatcher.RunAsync(
-                    CoreDispatcherPriority.Normal,
-                    async () =>
+                    CoreDispatcherPriority.Normal, () =>
                     {
                         buttonLogin.Visibility = Visibility.Visible;
                         progresslogin.Visibility = Visibility.Collapsed;
@@ -289,9 +286,9 @@ namespace ClassevivaPCTO.Views
 
             string fixedId = new CvUtils().GetCode(loginResultComplete.ident);
 
-            CardsResult cardsResult = await apiWrapper.GetCards(fixedId);
+            CardsResult cardsResult = await _apiWrapper.GetCards(fixedId);
 
-            SingleCardResult singleCardResult = await apiWrapper.GetCardSingle(fixedId);
+            SingleCardResult singleCardResult = await _apiWrapper.GetCardSingle(fixedId);
 
 
             AppViewModelHolder.GetViewModel().SingleCardResult = singleCardResult.Card;
@@ -309,8 +306,7 @@ namespace ClassevivaPCTO.Views
             }
 
             await CoreApplication.MainView.Dispatcher.RunAsync(
-                CoreDispatcherPriority.Normal,
-                async () =>
+                CoreDispatcherPriority.Normal, () =>
                 {
                     Frame rootFrame = (Frame) Window.Current.Content;
                     rootFrame.Navigate(

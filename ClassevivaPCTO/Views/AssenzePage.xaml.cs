@@ -21,7 +21,7 @@ namespace ClassevivaPCTO.Views
     {
         public AssenzeViewModel AssenzeViewModel { get; } = new();
 
-        private readonly IClassevivaAPI apiWrapper;
+        private readonly IClassevivaAPI _apiWrapper;
 
         private CalendarResult _apiCalendarResult;
 
@@ -29,12 +29,12 @@ namespace ClassevivaPCTO.Views
 
         public AssenzePage()
         {
-            this.InitializeComponent();
+            InitializeComponent();
 
             App app = (App) App.Current;
             var apiClient = app.Container.GetService<IClassevivaAPI>();
 
-            apiWrapper = PoliciesDispatchProxy<IClassevivaAPI>.CreateProxy(apiClient);
+            _apiWrapper = PoliciesDispatchProxy<IClassevivaAPI>.CreateProxy(apiClient);
 
             //set the min and max date of the calendaragenda
             var agedaDates = VariousUtils.GetAgendaStartEndDates();
@@ -59,13 +59,12 @@ namespace ClassevivaPCTO.Views
 
             {
                 await CoreApplication.MainView.Dispatcher.RunAsync(
-                    CoreDispatcherPriority.Normal,
-                    async () => { AssenzeViewModel.IsLoadingAssenze = true; }
+                    CoreDispatcherPriority.Normal, () => { AssenzeViewModel.IsLoadingAssenze = true; }
                 );
 
                 Card? cardResult = AppViewModelHolder.GetViewModel().SingleCardResult;
 
-                AbsencesResult absencesResult = await apiWrapper.GetAbsences(
+                AbsencesResult absencesResult = await _apiWrapper.GetAbsences(
                     cardResult.usrId.ToString()
                 );
 
@@ -84,7 +83,7 @@ namespace ClassevivaPCTO.Views
                     .ToList();
 
                 //calendar thigs
-                CalendarResult calendarResult = await apiWrapper.GetCalendar(
+                CalendarResult calendarResult = await _apiWrapper.GetCalendar(
                     cardResult.usrId.ToString()
                 );
 
@@ -109,11 +108,8 @@ namespace ClassevivaPCTO.Views
             {
                 {
                     await CoreApplication.MainView.Dispatcher.RunAsync(
-                        CoreDispatcherPriority.Normal,
-                        async () => 
-                        { 
-                        AssenzeViewModel.IsLoadingAssenze = false;
-                        }
+                    
+                        CoreDispatcherPriority.Normal, () => { AssenzeViewModel.IsLoadingAssenze = false; }
                     );
                 }
             }

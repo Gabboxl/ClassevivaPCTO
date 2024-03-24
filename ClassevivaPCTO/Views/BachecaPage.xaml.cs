@@ -9,6 +9,7 @@ using Windows.UI.Core;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
 using ClassevivaPCTO.Controls;
+using CommunityToolkit.WinUI.Controls;
 
 namespace ClassevivaPCTO.Views
 {
@@ -16,16 +17,16 @@ namespace ClassevivaPCTO.Views
     {
         public BachecaViewModel BachecaViewModel { get; } = new();
 
-        private readonly IClassevivaAPI apiWrapper;
+        private readonly IClassevivaAPI _apiWrapper;
 
         public BachecaPage()
         {
-            this.InitializeComponent();
+            InitializeComponent();
 
             App app = (App) App.Current;
             var apiClient = app.Container.GetService<IClassevivaAPI>();
 
-            apiWrapper = PoliciesDispatchProxy<IClassevivaAPI>.CreateProxy(apiClient);
+            _apiWrapper = PoliciesDispatchProxy<IClassevivaAPI>.CreateProxy(apiClient);
         }
 
         protected override async void OnNavigatedTo(NavigationEventArgs e)
@@ -65,7 +66,7 @@ namespace ClassevivaPCTO.Views
 
                 Card? cardResult = AppViewModelHolder.GetViewModel().SingleCardResult;
 
-                NoticeboardResult noticeboardResult = await apiWrapper.GetNotices(
+                NoticeboardResult noticeboardResult = await _apiWrapper.GetNotices(
                     cardResult.usrId.ToString()
                 );
 
@@ -136,6 +137,9 @@ namespace ClassevivaPCTO.Views
 
         private void ReadUnreadSegmented_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            if (!this.IsLoaded || sender is Segmented {IsLoaded: false})
+                return;
+
             AggiornaAction();
         }
 

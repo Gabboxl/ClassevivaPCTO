@@ -19,22 +19,22 @@ namespace ClassevivaPCTO.Views
     {
         public AgendaViewModel AgendaViewModel { get; } = new();
 
-        private readonly IClassevivaAPI apiWrapper;
+        private readonly IClassevivaAPI _apiWrapper;
 
         private SubjectsResult _subjects;
         private LessonsResult _lessons;
 
         public AgendaPage()
         {
-            this.InitializeComponent();
+            InitializeComponent();
 
             App app = (App) App.Current;
             var apiClient = app.Container.GetService<IClassevivaAPI>();
 
-            apiWrapper = PoliciesDispatchProxy<IClassevivaAPI>.CreateProxy(apiClient);
+            _apiWrapper = PoliciesDispatchProxy<IClassevivaAPI>.CreateProxy(apiClient);
         }
 
-        protected override async void OnNavigatedTo(NavigationEventArgs e)
+        protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
 
@@ -84,15 +84,14 @@ namespace ClassevivaPCTO.Views
             try
             {
                 await CoreApplication.MainView.Dispatcher.RunAsync(
-                    CoreDispatcherPriority.Normal,
-                    async () => { AgendaViewModel.IsLoadingAgenda = true; }
+                    CoreDispatcherPriority.Normal, () => { AgendaViewModel.IsLoadingAgenda = true; }
                 );
 
                 Card? cardResult = AppViewModelHolder.GetViewModel().SingleCardResult;
 
                 string apiDate = VariousUtils.ToApiDateTime(dateToLoad);
 
-                OverviewResult overviewResult = await apiWrapper.GetOverview(
+                OverviewResult overviewResult = await _apiWrapper.GetOverview(
                     cardResult.usrId.ToString(),
                     apiDate,
                     apiDate
@@ -100,8 +99,7 @@ namespace ClassevivaPCTO.Views
 
                 //update UI on UI thread
                 await CoreApplication.MainView.Dispatcher.RunAsync(
-                    CoreDispatcherPriority.Normal,
-                    async () =>
+                    CoreDispatcherPriority.Normal, () =>
                     {
                         //create new OverviewDataModel instance and set the data var inside
                         var overviewData = new OverviewDataModel
@@ -117,8 +115,7 @@ namespace ClassevivaPCTO.Views
             finally
             {
                 await CoreApplication.MainView.Dispatcher.RunAsync(
-                    CoreDispatcherPriority.Normal,
-                    async () => { AgendaViewModel.IsLoadingAgenda = false; }
+                    CoreDispatcherPriority.Normal, () => { AgendaViewModel.IsLoadingAgenda = false; }
                 );
             }
         }
@@ -160,11 +157,9 @@ namespace ClassevivaPCTO.Views
         private async Task LoadLessonsPopup()
         {
             await CoreApplication.MainView.Dispatcher.RunAsync(
-                CoreDispatcherPriority.Normal,
-                async () =>
+                CoreDispatcherPriority.Normal, () =>
                 {
-                    LezioniPopup.Height =
-                        this.ActualHeight; //set the height of the popup to the height of the current PAGE (not the window because we do not need to take into account the appbar space)
+                    LezioniPopup.Height = ActualHeight; //set the height of the popup to the height of the current PAGE (not the window because we do not need to take into account the appbar space)
 
                     LezioniPopupStackPanel.Children.Clear();
 
@@ -179,7 +174,7 @@ namespace ClassevivaPCTO.Views
 
             if (_subjects == null)
             {
-                _subjects = await apiWrapper.GetSubjects(
+                _subjects = await _apiWrapper.GetSubjects(
                     cardResult.usrId.ToString()
                 );
             }
@@ -188,7 +183,7 @@ namespace ClassevivaPCTO.Views
             {
                 var dates = VariousUtils.GetLessonsStartEndDates();
 
-                _lessons = await apiWrapper.GetLessons(
+                _lessons = await _apiWrapper.GetLessons(
                     cardResult.usrId.ToString(),
                     VariousUtils.ToApiDateTime(dates.startDate),
                     VariousUtils.ToApiDateTime(dates.endDate)
@@ -201,8 +196,7 @@ namespace ClassevivaPCTO.Views
                 //list of lessons for the current subject id
                 var subjectLessons = _lessons.Lessons.Where(lesson => lesson.subjectId == currentSubject.id).ToList();
                 await CoreApplication.MainView.Dispatcher.RunAsync(
-                    CoreDispatcherPriority.Normal,
-                    async () =>
+                    CoreDispatcherPriority.Normal, () =>
                     {
                         var expander = new Expander
                         {
@@ -228,8 +222,7 @@ namespace ClassevivaPCTO.Views
             }
 
             await CoreApplication.MainView.Dispatcher.RunAsync(
-                CoreDispatcherPriority.Normal,
-                async () =>
+                CoreDispatcherPriority.Normal, () =>
                 {
                     //we open the popup
                     LezioniPopup.IsOpen = true;
@@ -241,11 +234,9 @@ namespace ClassevivaPCTO.Views
         private async Task LoadAgendaPopup()
         {
             await CoreApplication.MainView.Dispatcher.RunAsync(
-                CoreDispatcherPriority.Normal,
-                async () =>
+                CoreDispatcherPriority.Normal, () =>
                 {
-                    AgendaPopup.Height =
-                        this.ActualHeight; //set the height of the popup to the height of the current PAGE (not the window because we do not need to take into account the appbar space)
+                    AgendaPopup.Height = ActualHeight; //set the height of the popup to the height of the current PAGE (not the window because we do not need to take into account the appbar space)
 
                     AgendaPopupListviewContainer.Children.Clear();
 
@@ -259,15 +250,14 @@ namespace ClassevivaPCTO.Views
 
             var dates = VariousUtils.GetAgendaStartEndDates();
 
-            AgendaResult agendaEvents = await apiWrapper.GetAgendaEvents(
+            AgendaResult agendaEvents = await _apiWrapper.GetAgendaEvents(
                 cardResult.usrId.ToString(),
                 VariousUtils.ToApiDateTime(dates.startDate),
                 VariousUtils.ToApiDateTime(dates.endDate)
             );
 
             await CoreApplication.MainView.Dispatcher.RunAsync(
-                CoreDispatcherPriority.Normal,
-                async () =>
+                CoreDispatcherPriority.Normal, () =>
                 {
                     var agendaListView = new AgendaMultipleDaysListView
                     {
@@ -279,8 +269,7 @@ namespace ClassevivaPCTO.Views
                 });
 
             await CoreApplication.MainView.Dispatcher.RunAsync(
-                CoreDispatcherPriority.Normal,
-                async () =>
+                CoreDispatcherPriority.Normal, () =>
                 {
                     //we open the popup
                     AgendaPopup.IsOpen = true;

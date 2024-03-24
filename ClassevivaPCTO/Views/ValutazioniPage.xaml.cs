@@ -40,7 +40,7 @@ namespace ClassevivaPCTO.Views
 
         public ValutazioniPage()
         {
-            this.InitializeComponent();
+            InitializeComponent();
 
             App app = (App) App.Current;
             var apiClient = app.Container.GetService<IClassevivaAPI>();
@@ -63,8 +63,7 @@ namespace ClassevivaPCTO.Views
             try
             {
                 await CoreApplication.MainView.Dispatcher.RunAsync(
-                    CoreDispatcherPriority.Normal,
-                    async () => { ValutazioniViewModel.IsLoadingValutazioni = true; }
+                    CoreDispatcherPriority.Normal, () => { ValutazioniViewModel.IsLoadingValutazioni = true; }
                 );
 
                 Card? cardResult = AppViewModelHolder.GetViewModel().SingleCardResult;
@@ -120,15 +119,13 @@ namespace ClassevivaPCTO.Views
 
                 //update UI on UI thread
                 await CoreApplication.MainView.Dispatcher.RunAsync(
-                    CoreDispatcherPriority.Normal,
-                    async () => { UpdateUi(_sortedGrades); }
+                    CoreDispatcherPriority.Normal, () => { UpdateUi(_sortedGrades); }
                 );
             }
             finally
             {
                 await CoreApplication.MainView.Dispatcher.RunAsync(
-                    CoreDispatcherPriority.Normal,
-                    async () =>
+                    CoreDispatcherPriority.Normal, () =>
                     {
                         ValutazioniViewModel.IsLoadingValutazioni = false;
                         ValutazioniViewModel.ShowShimmers = false;

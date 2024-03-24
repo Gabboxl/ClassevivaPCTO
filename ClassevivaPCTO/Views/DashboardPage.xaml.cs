@@ -20,18 +20,18 @@ namespace ClassevivaPCTO.Views
 {
     public sealed partial class DashboardPage : CustomAppPage
     {
-        private readonly IClassevivaAPI apiWrapper;
+        private readonly IClassevivaAPI _apiWrapper;
 
         public DashboardPageViewModel DashboardPageViewModel { get; } = new();
 
         public DashboardPage()
         {
-            this.InitializeComponent();
+            InitializeComponent();
 
             App app = (App) App.Current;
             var apiClient = app.Container.GetService<IClassevivaAPI>();
 
-            apiWrapper = PoliciesDispatchProxy<IClassevivaAPI>.CreateProxy(apiClient);
+            _apiWrapper = PoliciesDispatchProxy<IClassevivaAPI>.CreateProxy(apiClient);
         }
 
         protected override async void OnNavigatedTo(NavigationEventArgs e)
@@ -66,22 +66,20 @@ namespace ClassevivaPCTO.Views
             try
             {
                 await CoreApplication.MainView.Dispatcher.RunAsync(
-                    CoreDispatcherPriority.Normal,
-                    async () => { DashboardPageViewModel.IsLoadingAgenda = true; }
+                    CoreDispatcherPriority.Normal, () => { DashboardPageViewModel.IsLoadingAgenda = true; }
                 );
 
                 Card? cardResult = AppViewModelHolder.GetViewModel().SingleCardResult;
 
                 string caldate = VariousUtils.ToApiDateTime(DateTime.Now);
-                OverviewResult overviewResult = await apiWrapper.GetOverview(
+                OverviewResult overviewResult = await _apiWrapper.GetOverview(
                     cardResult.usrId.ToString(),
                     caldate,
                     caldate);
 
                 //update UI on UI thread
                 await CoreApplication.MainView.Dispatcher.RunAsync(
-                    CoreDispatcherPriority.Normal,
-                    async () =>
+                    CoreDispatcherPriority.Normal, () =>
                     {
                         var overviewData = new OverviewDataModel
                         {
@@ -97,8 +95,7 @@ namespace ClassevivaPCTO.Views
             finally
             {
                 await CoreApplication.MainView.Dispatcher.RunAsync(
-                    CoreDispatcherPriority.Normal,
-                    async () => { DashboardPageViewModel.IsLoadingAgenda = false; }
+                    CoreDispatcherPriority.Normal, () => { DashboardPageViewModel.IsLoadingAgenda = false; }
                 );
             }
         }
@@ -110,13 +107,12 @@ namespace ClassevivaPCTO.Views
             try
             {
                 await CoreApplication.MainView.Dispatcher.RunAsync(
-                    CoreDispatcherPriority.Normal,
-                    async () => { DashboardPageViewModel.IsLoadingGrades = true; }
+                    CoreDispatcherPriority.Normal, () => { DashboardPageViewModel.IsLoadingGrades = true; }
                 );
 
                 Card? cardResult = AppViewModelHolder.GetViewModel().SingleCardResult;
 
-                var result1 = await apiWrapper
+                var result1 = await _apiWrapper
                     .GetGrades(cardResult.usrId.ToString())
                     .ConfigureAwait(false);
 
@@ -126,15 +122,13 @@ namespace ClassevivaPCTO.Views
 
                 //update UI on UI thread
                 await CoreApplication.MainView.Dispatcher.RunAsync(
-                    CoreDispatcherPriority.Normal,
-                    async () => { ListRecentGrades.ItemsSource = fiveMostRecent.ToList(); }
+                    CoreDispatcherPriority.Normal, () => { ListRecentGrades.ItemsSource = fiveMostRecent.ToList(); }
                 );
             }
             finally
             {
                 await CoreApplication.MainView.Dispatcher.RunAsync(
-                    CoreDispatcherPriority.Normal,
-                    async () => { DashboardPageViewModel.IsLoadingGrades = false; }
+                    CoreDispatcherPriority.Normal, () => { DashboardPageViewModel.IsLoadingGrades = false; }
                 );
             }
         }
@@ -144,13 +138,12 @@ namespace ClassevivaPCTO.Views
             try
             {
                 await CoreApplication.MainView.Dispatcher.RunAsync(
-                    CoreDispatcherPriority.Normal,
-                    async () => { DashboardPageViewModel.IsLoadingMedia = true; }
+                    CoreDispatcherPriority.Normal, () => { DashboardPageViewModel.IsLoadingMedia = true; }
                 );
 
                 Card? cardResult = AppViewModelHolder.GetViewModel().SingleCardResult;
 
-                Grades2Result? result1 = await apiWrapper
+                Grades2Result? result1 = await _apiWrapper
                     .GetGrades(cardResult.usrId.ToString())
                     .ConfigureAwait(false);
 
@@ -159,8 +152,7 @@ namespace ClassevivaPCTO.Views
 
                 //update UI on UI thread
                 await CoreApplication.MainView.Dispatcher.RunAsync(
-                    CoreDispatcherPriority.Normal,
-                    async () =>
+                    CoreDispatcherPriority.Normal, () =>
                     {
                         TextBlockMedia.Foreground = (Brush)
                             new GradeToColorConverter().Convert(media, null, null, null);
@@ -175,8 +167,7 @@ namespace ClassevivaPCTO.Views
             finally
             {
                 await CoreApplication.MainView.Dispatcher.RunAsync(
-                    CoreDispatcherPriority.Normal,
-                    async () => { DashboardPageViewModel.IsLoadingMedia = false; }
+                    CoreDispatcherPriority.Normal, () => { DashboardPageViewModel.IsLoadingMedia = false; }
                 );
             }
         }
@@ -189,13 +180,12 @@ namespace ClassevivaPCTO.Views
             try
             {
                 await CoreApplication.MainView.Dispatcher.RunAsync(
-                    CoreDispatcherPriority.Normal,
-                    async () => { DashboardPageViewModel.IsLoadingNotices = true; }
+                    CoreDispatcherPriority.Normal, () => { DashboardPageViewModel.IsLoadingNotices = true; }
                 );
 
                 Card? cardResult = AppViewModelHolder.GetViewModel().SingleCardResult;
 
-                var resultNotices = await apiWrapper
+                var resultNotices = await _apiWrapper
                     .GetNotices(cardResult.usrId.ToString())
                     .ConfigureAwait(false);
 
@@ -207,8 +197,7 @@ namespace ClassevivaPCTO.Views
 
                 //update UI on UI thread
                 await CoreApplication.MainView.Dispatcher.RunAsync(
-                    CoreDispatcherPriority.Normal,
-                    async () =>
+                    CoreDispatcherPriority.Normal, () =>
                     {
                         ListRecentNotices.ItemsSource = fiveMostRecent.ToList();
 
@@ -219,8 +208,7 @@ namespace ClassevivaPCTO.Views
             finally
             {
                 await CoreApplication.MainView.Dispatcher.RunAsync(
-                    CoreDispatcherPriority.Normal,
-                    async () => { DashboardPageViewModel.IsLoadingNotices = false; }
+                    CoreDispatcherPriority.Normal, () => { DashboardPageViewModel.IsLoadingNotices = false; }
                 );
             }
         }
@@ -263,7 +251,7 @@ namespace ClassevivaPCTO.Views
             NavigationService.Navigate(typeof(ValutazioniPage));
         }
 
-        private async void HyperlinkButton_Click_Agenda(object sender, RoutedEventArgs e)
+        private void HyperlinkButton_Click_Agenda(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(typeof(AgendaPage));
         }

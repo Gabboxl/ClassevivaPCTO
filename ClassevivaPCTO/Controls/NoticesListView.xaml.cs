@@ -27,7 +27,7 @@ namespace ClassevivaPCTO.Controls
             set { SetField(ref _showEmptyAlert, value); }
         }
 
-        private readonly IClassevivaAPI apiWrapper;
+        private readonly IClassevivaAPI _apiWrapper;
 
         public EventHandler OnShouldUpdate
         {
@@ -66,12 +66,12 @@ namespace ClassevivaPCTO.Controls
             var eventAdapters = newValue?.Select(evt => new NoticeAdapter(evt)).ToList();
 
             //save the scroll position
-            var scrollViewer = currentInstance.listView.FindDescendant<ScrollViewer>();
+            var scrollViewer = currentInstance.MainListView.FindDescendant<ScrollViewer>();
             double horizontalOffset = scrollViewer.HorizontalOffset;
             double verticalOffset = scrollViewer.VerticalOffset;
 
             //update the listview contents
-            currentInstance.listView.ItemsSource = eventAdapters;
+            currentInstance.MainListView.ItemsSource = eventAdapters;
 
             //restore the scroll position
             scrollViewer.ChangeView(horizontalOffset, verticalOffset, null);
@@ -82,12 +82,12 @@ namespace ClassevivaPCTO.Controls
 
         public NoticesListView()
         {
-            this.InitializeComponent();
+            InitializeComponent();
 
             App app = (App) App.Current;
             var apiClient = app.Container.GetService<IClassevivaAPI>();
 
-            apiWrapper = PoliciesDispatchProxy<IClassevivaAPI>.CreateProxy(apiClient);
+            _apiWrapper = PoliciesDispatchProxy<IClassevivaAPI>.CreateProxy(apiClient);
         }
 
         private async void ReadButton_Click(object sender, RoutedEventArgs e)
@@ -162,7 +162,7 @@ namespace ClassevivaPCTO.Controls
 
             //we need to read the notice first
             NoticeReadResult noticeReadResult =
-                await apiWrapper.ReadNotice(cardResult.usrId.ToString(), currentNotice.pubId.ToString(),
+                await _apiWrapper.ReadNotice(cardResult.usrId.ToString(), currentNotice.pubId.ToString(),
                     currentNotice.evtCode);
 
             //execute on main UI thread

@@ -16,7 +16,7 @@ namespace ClassevivaPCTO.Views
 {
     public sealed partial class MainPage : Page
     {
-        private AppViewModel AppViewModel;
+        private AppViewModel _appViewModel;
 
         public NavigationViewViewModel NavigationViewViewModel { get; } = new();
 
@@ -24,22 +24,22 @@ namespace ClassevivaPCTO.Views
         {
             get
             {
-                return VariousUtils.ToTitleCase(AppViewModel.LoginResult.firstName)
+                return VariousUtils.ToTitleCase(_appViewModel.LoginResult.firstName)
                        + " "
-                       + VariousUtils.ToTitleCase(AppViewModel.LoginResult.lastName);
+                       + VariousUtils.ToTitleCase(_appViewModel.LoginResult.lastName);
             }
         }
 
         public string Codice
         {
-            get { return AppViewModel.LoginResult.ident; }
+            get { return _appViewModel.LoginResult.ident; }
         }
 
         public string Scuola
         {
             get
             {
-                Card? card = AppViewModel.SingleCardResult;
+                Card? card = _appViewModel.SingleCardResult;
 
                 return card.schName + " " + card.schDedication + " [" + card.schCode + "]";
             }
@@ -47,12 +47,12 @@ namespace ClassevivaPCTO.Views
 
         public MainPage()
         {
-            this.InitializeComponent();
+            InitializeComponent();
 
             this.DataContext = this; //DataContext = ViewModel;
             Initialize();
 
-            this.AppViewModel = AppViewModelHolder.GetViewModel();
+            _appViewModel = AppViewModelHolder.GetViewModel();
         }
 
         private void Initialize()
@@ -101,12 +101,12 @@ namespace ClassevivaPCTO.Views
         private void OnPropertyChanged(string propertyName) =>
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
 
-        private async void ButtonLogout_Click(object sender, RoutedEventArgs e)
-        {
-            VariousUtils.DoLogout();
-        }
+        //private void ButtonLogout_Click(object sender, RoutedEventArgs e)
+        //{
+        //    VariousUtils.DoLogout();
+        //}
 
-        private async void MainPage_KeyDown(object sender, KeyRoutedEventArgs args)
+        private void MainPage_KeyDown(object sender, KeyRoutedEventArgs args)
         {
             switch (args.Key)
             {

@@ -15,16 +15,16 @@ namespace ClassevivaPCTO.Views
     {
         public ScrutiniViewModel ScrutiniViewModel { get; } = new();
 
-        private readonly IClassevivaAPI apiWrapper;
+        private readonly IClassevivaAPI _apiWrapper;
 
         public ScrutiniPage()
         {
-            this.InitializeComponent();
+            InitializeComponent();
 
             App app = (App) App.Current;
             var apiClient = app.Container.GetService<IClassevivaAPI>();
 
-            apiWrapper = PoliciesDispatchProxy<IClassevivaAPI>.CreateProxy(apiClient);
+            _apiWrapper = PoliciesDispatchProxy<IClassevivaAPI>.CreateProxy(apiClient);
         }
 
         protected override async void OnNavigatedTo(NavigationEventArgs e)
@@ -48,8 +48,7 @@ namespace ClassevivaPCTO.Views
                 bool showDeletedDocuments = false;
 
                 await CoreApplication.MainView.Dispatcher.RunAsync(
-                    CoreDispatcherPriority.Normal,
-                    async () =>
+                    CoreDispatcherPriority.Normal, () =>
                     {
                         ScrutiniViewModel.IsLoadingScrutini = true;
 
@@ -61,13 +60,13 @@ namespace ClassevivaPCTO.Views
                 Card? cardResult = AppViewModelHolder.GetViewModel().SingleCardResult;
 
 
-                ScrutiniDocumentsResult scrutiniDocumentsResult = await apiWrapper.GetScrutiniDocuments(
+                ScrutiniDocumentsResult scrutiniDocumentsResult = await _apiWrapper.GetScrutiniDocuments(
                     cardResult.usrId.ToString());
 
 
                 foreach (ScrutiniDocument document in scrutiniDocumentsResult.Documents)
                 {
-                    ScrutiniCheckResult scrutiniCheckResult = await apiWrapper.CheckScrutinioDocument(
+                    ScrutiniCheckResult scrutiniCheckResult = await _apiWrapper.CheckScrutinioDocument(
                         cardResult.usrId.ToString(),
                         document.hash);
 
@@ -84,8 +83,7 @@ namespace ClassevivaPCTO.Views
 
                 //update UI on UI thread
                 await CoreApplication.MainView.Dispatcher.RunAsync(
-                    CoreDispatcherPriority.Normal,
-                    async () => { ScrutiniListView.ItemsSource = scrutiniDocumentsResult; }
+                    CoreDispatcherPriority.Normal, () => { ScrutiniListView.ItemsSource = scrutiniDocumentsResult; }
                 );
             }
             finally
@@ -93,8 +91,7 @@ namespace ClassevivaPCTO.Views
                 {
                     {
                         await CoreApplication.MainView.Dispatcher.RunAsync(
-                            CoreDispatcherPriority.Normal,
-                            async () => { ScrutiniViewModel.IsLoadingScrutini = false; }
+                            CoreDispatcherPriority.Normal, () => { ScrutiniViewModel.IsLoadingScrutini = false; }
                         );
                     }
                 }

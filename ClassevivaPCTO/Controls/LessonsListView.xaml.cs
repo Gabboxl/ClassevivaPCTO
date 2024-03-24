@@ -73,14 +73,14 @@ namespace ClassevivaPCTO.Controls
                 orderedlessons = newValue?.OrderByDescending(x => x.evtDate).ThenByDescending(x => x.evtHPos).ToList();
 
                 //set the listview dattemplate to 
-                currentInstance.listView.ItemTemplate =
-                    currentInstance.Resources["LessonListViewExpressiveDataTemplate"] as DataTemplate;
+                currentInstance.MainListView.ItemTemplate =
+                    currentInstance.Resources["LessonListViewExtendedDataTemplate"] as DataTemplate;
             }
             else
             {
                 orderedlessons = newValue?.OrderBy(x => x.evtHPos).ToList();
 
-                currentInstance.listView.ItemTemplate =
+                currentInstance.MainListView.ItemTemplate =
                     currentInstance.Resources["LessonListViewDataTemplate"] as DataTemplate;
             }
 
@@ -109,7 +109,7 @@ namespace ClassevivaPCTO.Controls
 
             var eventAdapters = copiedOrderedLessons.Select(evt => new LessonAdapter(evt)).ToList();
 
-            currentInstance.listView.ItemsSource = eventAdapters;
+            currentInstance.MainListView.ItemsSource = eventAdapters;
 
 
             currentInstance.ShowEmptyAlert =
@@ -118,7 +118,7 @@ namespace ClassevivaPCTO.Controls
 
         public LessonsListView()
         {
-            this.InitializeComponent();
+            InitializeComponent();
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

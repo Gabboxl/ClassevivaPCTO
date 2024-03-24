@@ -180,7 +180,7 @@
                     <!--  the combobox selected index is bound to the current theme enum value  -->
 
                     <ComboBox MinWidth="200"
-                              SelectedIndex="{x:Bind SettingsViewModel.ElementTheme.GetHashCode()}"
+                              SelectedIndex="{x:Bind _settingsViewModel.ElementTheme.GetHashCode()}"
                               SelectionChanged="ThemeSelector_OnSelectionChanged">
                         <ComboBoxItem Content="{CustomResource SettingsCardThemeDefaultComboboxItem}" />
                         <ComboBoxItem Content="{CustomResource SettingsCardThemeLightComboboxItem}" />
@@ -197,11 +197,12 @@
                         <FontIcon Glyph="&#xE790;" />
                     </controls1:SettingsCard.HeaderIcon>
 
-                    <ComboBox x:Name="PaletteComboBox"
+                    <ComboBox x:Name="PaletteComboBox" 
                               MinWidth="200"
-                              ItemsSource="{x:Bind SettingsViewModel.ComboPalettes}"
-                              SelectedIndex="{x:Bind SettingsViewModel.PaletteType.GetHashCode()}"
+                              ItemsSource="{x:Bind _settingsViewModel.ComboPalettes}"
+                              SelectedIndex="{x:Bind _settingsViewModel.PaletteType.GetHashCode()}"
                               SelectionChanged="PaletteComboBox_OnSelectionChanged">
+                      
                         <ComboBox.ItemTemplate>
                             <DataTemplate x:DataType="adapters:ComboPaletteAdapter">
                                 <Grid>
@@ -385,7 +386,7 @@
                     <TextBlock Foreground="{ThemeResource TextFillColorSecondaryBrush}"
                                IsTextSelectionEnabled="True"
                                Style="{StaticResource BodyTextBlockStyle}">
-                        <Run Text="{CustomResource SettingsAboutExpanderVersion}" /><Run Text="{x:Bind SettingsViewModel.Version}" />
+                        <Run Text="{CustomResource SettingsAboutExpanderVersion}" /><Run Text="{x:Bind _settingsViewModel.Version}" />
                     </TextBlock>
                     <controls1:SettingsExpander.Items>
                         <controls1:SettingsCard HorizontalContentAlignment="Left" ContentAlignment="Left">

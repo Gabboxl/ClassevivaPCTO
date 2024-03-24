@@ -94,7 +94,7 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
-        <ListView x:Name="listView" HorizontalAlignment="Stretch"
+        <ListView x:Name="MainListView" HorizontalAlignment="Stretch"
                   HorizontalContentAlignment="Stretch"
                   ItemContainerStyle="{StaticResource ListViewFullStretchStyle}"
                   ItemTemplate="{StaticResource NotesListViewDataTemplate}">

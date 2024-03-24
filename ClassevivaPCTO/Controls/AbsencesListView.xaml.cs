@@ -62,7 +62,7 @@ namespace ClassevivaPCTO.Controls
         private CollectionViewSource GroupedItems { get; set; }
 
         private static async Task<ObservableCollection<GroupInfoList>> GetAbsenceEventsGroupedAsync(
-            List<AbsenceEventAdapter> absenceEventAdapters)
+            IEnumerable<AbsenceEventAdapter> absenceEventAdapters)
         {
             var query = from item in absenceEventAdapters
 
@@ -98,10 +98,10 @@ namespace ClassevivaPCTO.Controls
             };
 
             //update the listview contents
-            currentInstance.listView.ItemsSource = currentInstance.GroupedItems.View;
+            currentInstance.MainListView.ItemsSource = currentInstance.GroupedItems.View;
             
             //reset the selection
-            currentInstance.listView.SelectedIndex = -1;
+            currentInstance.MainListView.SelectedIndex = -1;
 
             currentInstance.ShowEmptyAlert =
                 (newValue == null || newValue.Count == 0) && currentInstance.EnableEmptyAlert;
@@ -109,7 +109,7 @@ namespace ClassevivaPCTO.Controls
 
         public AbsencesListView()
         {
-            this.InitializeComponent();
+            InitializeComponent();
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
