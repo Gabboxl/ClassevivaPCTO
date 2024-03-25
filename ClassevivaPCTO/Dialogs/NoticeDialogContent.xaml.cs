@@ -6,14 +6,13 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using ClassevivaPCTO.Helpers;
 
 namespace ClassevivaPCTO.Dialogs
 {
     public sealed partial class NoticeDialogContent : Page
     {
-        Notice CurrentNotice;
-        NoticeReadResult CurrentReadResult;
+        private readonly Notice CurrentNotice;
+        private readonly NoticeReadResult CurrentReadResult;
 
         private readonly IClassevivaAPI _apiWrapper;
 
