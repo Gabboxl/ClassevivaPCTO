@@ -6,7 +6,9 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     d:DesignHeight="500"
     d:DesignWidth="750"
-    mc:Ignorable="d" Opacity="1">
+    mc:Ignorable="d"
+    Style="{StaticResource DefaultContentDialogStyle}"
+    PrimaryButtonStyle="{StaticResource DefaultButtonStyle}" >
 
     <ContentDialog.TitleTemplate>
         <DataTemplate x:DataType="x:String">
