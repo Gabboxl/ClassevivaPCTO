@@ -162,7 +162,7 @@ namespace ClassevivaPCTO.Controls
 
             NoticeReadResult noticeReadResult =
                 await _apiWrapper.ReadNotice(cardResult.usrId.ToString(), currentNotice.pubId.ToString(),
-                    currentNotice.evtCode);
+                    currentNotice.evtCode, new NoticeReadSignRequest());
 
             await Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, async () =>
             {

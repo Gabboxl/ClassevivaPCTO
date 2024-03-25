@@ -64,7 +64,7 @@ namespace ClassevivaPCTO.Utils
         Task<HttpResponseMessage> GetNoticeAttachment(string userId, string noticePubId, string noticeEvtCode, string attachmentNumber);
 
         [Post("/students/{userId}/noticeboard/read/{noticeEvtCode}/{noticePubId}/101")]
-        Task<NoticeReadResult> ReadNotice(string userId, string noticePubId, string noticeEvtCode, [Body(BodySerializationMethod.Serialized)] NoticeReadSignRequest? noticeReadSignRequest = null);
+        Task<NoticeReadResult> ReadNotice(string userId, string noticePubId, string noticeEvtCode, [Body(buffered: true, serializationMethod: BodySerializationMethod.Serialized)] NoticeReadSignRequest noticeReadSignRequest);
 
         [Post("/students/{userId}/documents")]
         Task<ScrutiniDocumentsResult> GetScrutiniDocuments(string userId);
