@@ -6,8 +6,8 @@ namespace ClassevivaPCTO.Dialogs
 {
     public sealed partial class NoteDialogContent : Page
     {
-        Note CurrentNote;
-        ReadNoteResult CurrentReadResult;
+        private readonly Note CurrentNote;
+        private readonly ReadNoteResult CurrentReadResult;
 
         private readonly IClassevivaAPI _apiWrapper;
 
