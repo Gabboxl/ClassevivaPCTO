@@ -289,15 +289,26 @@ namespace ClassevivaPCTO.Utils
         public string text { get; set; }
     }
 
-    public class NoticeReadReply
+    public class NoticeReadReply //attributi della comunicazione
     {
-        public bool replJoin { get; set; }
+        public bool replJoin { get; set; } //richiede di aderire
 
-        public bool? replText { get; set; }
+        public bool? replText { get; set; } //richiede di rispondere
 
-        public bool? replFile { get; set; }
+        public bool? replFile { get; set; } //richiede di allegare file
 
-        public bool? replSign { get; set; }
+        public bool? replSign { get; set; } //richiede di firmare
+    }
+
+    public class NoticeReadSignRequest //body da mandare alla API per aderire etc. ad una comunicazione
+    {
+        public string? filename { get; set; } 
+
+        public bool? sign { get; set; } //firma
+
+        public bool? join { get; set; } //aderisci
+
+        public string? text { get; set; } //risposta
     }
 
     public enum NoteEventCode
