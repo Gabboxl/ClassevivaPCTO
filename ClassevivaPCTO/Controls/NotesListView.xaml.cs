@@ -286,6 +286,7 @@ namespace ClassevivaPCTO.Controls
 
                 ContentDialog dialog = new()
                 {
+                    Style = Application.Current.Resources["DefaultContentDialogStyle"] as Style,
                     Title = metadataControlTitle,
                     PrimaryButtonText = "GenericCloseButton".GetLocalizedStr(),
                     DefaultButton = ContentDialogButton.Primary,
