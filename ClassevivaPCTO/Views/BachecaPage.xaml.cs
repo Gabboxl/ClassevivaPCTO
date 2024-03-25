@@ -95,10 +95,9 @@ namespace ClassevivaPCTO.Views
 
                 var noticeCategories = noticesToShow.Select(n => n.cntCategory).Distinct().Where(c => !string.IsNullOrEmpty(c)).OrderBy(o => o).ToList();
 
-                noticeCategories.Insert(0, "Tutte le categorie");
-
                 if (!string.IsNullOrEmpty(selectedCategory))
                 {
+                    noticeCategories.Insert(0, "Tutte le categorie");
                     noticesToShow = noticesToShow.Where(n => n.cntCategory == selectedCategory).ToList();
                 }
 
@@ -155,6 +154,10 @@ namespace ClassevivaPCTO.Views
 
         private void CategoryComboBox_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            ComboBox comboBox = (ComboBox) sender;
+            if (comboBox.SelectedIndex == -1)
+                return;
+
             AggiornaAction();
         }
 
