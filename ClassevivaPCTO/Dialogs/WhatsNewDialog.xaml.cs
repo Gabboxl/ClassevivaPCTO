@@ -13,13 +13,13 @@ namespace ClassevivaPCTO.Dialogs
 
             Title = "SettingsCardWhatsNewHeader".GetLocalizedStr();
             PrimaryButtonText = "GenericCloseButton".GetLocalizedStr();
-            Highlights.Text = "ChangelogHighlighsSection".GetLocalizedStr(true);
-            General.Text = "ChangelogGeneralSection".GetLocalizedStr(true);
-            Dashboard.Text = "ChangelogDashboardSection".GetLocalizedStr(true);
-            Agenda.Text = "ChangelogAgendaSection".GetLocalizedStr(true);
-            Grades.Text = "ChangelogGradesSection".GetLocalizedStr(true);
-            Absences.Text = "ChangelogAbsencesSection".GetLocalizedStr(true);
-            NoticeBoard.Text = "ChangelogNoticeBoardSection".GetLocalizedStr(true);
+            Highlights.Text = "ChangelogHighlighsSection".GetLocalizedStr();
+            General.Text = "ChangelogGeneralSection".GetLocalizedStr();
+            Dashboard.Text = "ChangelogDashboardSection".GetLocalizedStr();
+            Agenda.Text = "ChangelogAgendaSection".GetLocalizedStr();
+            Grades.Text = "ChangelogGradesSection".GetLocalizedStr();
+            Absences.Text = "ChangelogAbsencesSection".GetLocalizedStr();
+            NoticeBoard.Text = "ChangelogNoticeBoardSection".GetLocalizedStr();
         }
     }
 }

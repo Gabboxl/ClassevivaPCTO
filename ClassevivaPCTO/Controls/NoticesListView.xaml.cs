@@ -24,7 +24,7 @@ namespace ClassevivaPCTO.Controls
         public bool ShowEmptyAlert
         {
             get { return _showEmptyAlert; }
-            set { SetField(ref _showEmptyAlert, value); }
+            private set { SetField(ref _showEmptyAlert, value); }
         }
 
         private readonly IClassevivaAPI _apiWrapper;
@@ -160,12 +160,10 @@ namespace ClassevivaPCTO.Controls
         {
             Card? cardResult = AppViewModelHolder.GetViewModel().SingleCardResult;
 
-            //we need to read the notice first
             NoticeReadResult noticeReadResult =
                 await _apiWrapper.ReadNotice(cardResult.usrId.ToString(), currentNotice.pubId.ToString(),
                     currentNotice.evtCode);
 
-            //execute on main UI thread
             await Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, async () =>
             {
                 var noticeDialogContent = new NoticeDialogContent(currentNotice, noticeReadResult);
@@ -191,7 +189,7 @@ namespace ClassevivaPCTO.Controls
                 }
                 catch (Exception ex)
                 {
-                    System.Console.WriteLine(ex.ToString());
+                    Console.WriteLine(ex.ToString());
                 }
             });
         }
