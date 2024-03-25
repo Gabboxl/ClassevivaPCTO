@@ -130,23 +130,14 @@
                   ItemTemplate="{StaticResource VotiListViewDataTemplateStandard}"
                   ScrollViewer.VerticalScrollMode="Enabled" />
 
-        <RelativePanel Grid.Row="0" HorizontalAlignment="Center"
-                       VerticalAlignment="Center"
-                       Visibility="{x:Bind ShowEmptyAlert, Mode=OneWay, Converter={StaticResource BetterBoolToVisibilityConverter}, ConverterParameter=True}">
+        <StackPanel Grid.Row="0" Style="{StaticResource PlaceholderStackPanelStyle}"
+                    Visibility="{x:Bind ShowEmptyAlert, Mode=OneWay, Converter={StaticResource BetterBoolToVisibilityConverter}, ConverterParameter=True}">
 
-            <FontIcon x:Name="VotiPlaceholderIcon" Margin="0,0,0,0"
-                      FontFamily="{StaticResource FluentIcons}"
-                      FontSize="112"
-                      Foreground="{ThemeResource TextFillColorDisabledBrush}"
-                      Glyph="&#xe9f9;" RelativePanel.AlignHorizontalCenterWithPanel="True" />
+            <FontIcon Glyph="&#xe9f9;" Style="{StaticResource PlaceholderIconStyle}" />
 
-            <TextBlock Text="{CustomResource GradesPlaceholder}" Margin="0,0,0,0"
-                       HorizontalAlignment="Center" VerticalAlignment="Center"
-                       FontSize="36" FontWeight="SemiBold"
-                       Foreground="{ThemeResource TextFillColorDisabledBrush}"
-                       RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.Below="VotiPlaceholderIcon"
-                       TextWrapping="WrapWholeWords" />
+            <TextBlock Text="{CustomResource GradesPlaceholder}" Style="{StaticResource PlaceholderTextStyle}" />
 
-        </RelativePanel>
+        </StackPanel>
+        
     </Grid>
 </UserControl>

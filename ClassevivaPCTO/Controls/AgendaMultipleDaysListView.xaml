@@ -102,23 +102,14 @@
             </ListView.GroupStyle>
         </ListView>
 
-        <RelativePanel Grid.Row="0" HorizontalAlignment="Center"
-                       VerticalAlignment="Center"
-                       Visibility="{x:Bind ShowEmptyAlert, Mode=OneWay, Converter={StaticResource BetterBoolToVisibilityConverter}, ConverterParameter=True}">
+        <StackPanel Grid.Row="0" Style="{StaticResource PlaceholderStackPanelStyle}"
+                    Visibility="{x:Bind ShowEmptyAlert, Mode=OneWay, Converter={StaticResource BetterBoolToVisibilityConverter}, ConverterParameter=True}">
 
-            <FontIcon x:Name="CompitiPlaceholderIcon" Margin="0,0,0,0"
-                      FontFamily="{StaticResource FluentIcons}"
-                      FontSize="112"
-                      Foreground="{ThemeResource TextFillColorDisabledBrush}"
-                      Glyph="&#xEA98;" RelativePanel.AlignHorizontalCenterWithPanel="True" />
+            <FontIcon Glyph="&#xEA98;" Style="{StaticResource PlaceholderIconStyle}" />
 
-            <TextBlock Text="{CustomResource AgendaTasksPlaceholder}" Margin="0,0,0,0"
-                       HorizontalAlignment="Center" VerticalAlignment="Center"
-                       FontSize="36" FontWeight="SemiBold"
-                       Foreground="{ThemeResource TextFillColorDisabledBrush}"
-                       RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.Below="CompitiPlaceholderIcon"
-                       TextWrapping="WrapWholeWords" />
+            <TextBlock Text="{CustomResource AgendaTasksPlaceholder}" Style="{StaticResource PlaceholderTextStyle}" />
 
-        </RelativePanel>
+        </StackPanel>
+        
     </Grid>
 </UserControl>
