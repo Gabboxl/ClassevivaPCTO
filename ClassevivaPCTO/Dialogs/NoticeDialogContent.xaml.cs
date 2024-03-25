@@ -16,6 +16,17 @@ namespace ClassevivaPCTO.Dialogs
 
         private readonly IClassevivaAPI _apiWrapper;
 
+        private bool ShowJoinAlert
+        {
+            get
+            {
+                return CurrentReadResult.reply.replJoin ||
+                       CurrentReadResult.reply.replFile.GetValueOrDefault() ||
+                       CurrentReadResult.reply.replSign.GetValueOrDefault() ||
+                       CurrentReadResult.reply.replText.GetValueOrDefault();
+            }
+        }
+
         public NoticeDialogContent(Notice notice, NoticeReadResult noticeReadResult)
         {
             InitializeComponent();
