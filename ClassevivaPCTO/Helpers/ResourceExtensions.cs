@@ -5,31 +5,21 @@ namespace ClassevivaPCTO.Helpers
 {
     internal static class ResourceExtensions
     {
-        private static ResourceLoader _defaultResLoader = new();
-        public static Dictionary<string, string> CrowdinDynamicResources = new();
+        private static readonly ResourceLoader DefaultResLoader = new();
+        public static readonly Dictionary<string, string> CrowdinDynamicResources = new();
 
-        public static string GetLocalizedStr(this string resourceKey, bool isNotTranslatable = false, string? resourceFileName = null)
+        public static string GetLocalizedStr(this string resourceKey, string? tag = null, string? resourceFileName = null)
         {
+            if(!string.IsNullOrEmpty(tag))
+                resourceKey += "_" + tag;
+
             if (CrowdinDynamicResources.TryGetValue(resourceKey, out string? localizedStr))
-            {
                 return localizedStr;
-            }
 
-            ResourceLoader resLoader = _defaultResLoader;
+            var resLoader = !string.IsNullOrEmpty(resourceFileName) ? new ResourceLoader(resourceFileName) : new ResourceLoader("untranslatable");
+            localizedStr = resLoader.GetString(resourceKey);
 
-            if (isNotTranslatable)
-                resLoader = new ResourceLoader("untranslatable");
-            else if (!string.IsNullOrEmpty(resourceFileName))
-                resLoader = new ResourceLoader(resourceFileName);
-
-            return resLoader.GetString(resourceKey);
-        }
-
-        // GetLocalizedStr with tag
-        public static string GetLocalizedStr(this string resourceKey, string tag, bool isNotTranslatable = false, string? resourceFileName = null)
-        {
-            resourceKey += "_" + tag;
-            return GetLocalizedStr(resourceKey, isNotTranslatable, resourceFileName);
+            return string.IsNullOrEmpty(localizedStr) ? DefaultResLoader.GetString(resourceKey) : localizedStr;
         }
     }
 }
