@@ -50,19 +50,15 @@ namespace ClassevivaPCTO.Views
                 bool showInactiveNotices = false;
                 int readUnreadSegmentedIndex = 0;
                 string? selectedCategory = null;
+                int selectedCategoryIndex = -1;
 
                 await CoreApplication.MainView.Dispatcher.RunAsync(
                     CoreDispatcherPriority.Normal, () =>
                     {
                         BachecaViewModel.IsLoadingBacheca = true;
-
-                        if (CategoryComboBox.SelectedIndex == 0)
-                            CategoryComboBox.SelectedIndex = -1;
-
                         selectedCategory = (string) CategoryComboBox.SelectionBoxItem;
-
+                        selectedCategoryIndex = CategoryComboBox.SelectedIndex;
                         readUnreadSegmentedIndex = ReadUnreadSegmented.SelectedIndex;
-
                         if (CheckboxAttive.IsChecked != null) showInactiveNotices = CheckboxAttive.IsChecked.Value;
                     }
                 );
@@ -94,32 +90,25 @@ namespace ClassevivaPCTO.Views
                 }
 
                 var noticeCategories = noticesToShow.Select(n => n.cntCategory).Distinct().Where(c => !string.IsNullOrEmpty(c)).OrderBy(o => o).ToList();
-
-                if (!string.IsNullOrEmpty(selectedCategory))
-                {
-                    noticeCategories.Insert(0, "Tutte le categorie");
+                noticeCategories.Insert(0, "Tutte le categorie");
+                if (selectedCategoryIndex > 0)
                     noticesToShow = noticesToShow.Where(n => n.cntCategory == selectedCategory).ToList();
-                }
 
                 await CoreApplication.MainView.Dispatcher.RunAsync(
                     CoreDispatcherPriority.Normal, () =>
                     {
                         CategoryComboBox.SelectionChanged -= CategoryComboBox_OnSelectionChanged;
-
                         BachecaViewModel.Categories = noticeCategories;
-
                         CategoryComboBox.SelectionChanged += CategoryComboBox_OnSelectionChanged;
 
-                        if(ReadUnreadSegmented.SelectedIndex != 0 || CategoryComboBox.SelectedIndex != -1)
-                        {
-                            ClearAllFiltersButton.Visibility = Windows.UI.Xaml.Visibility.Visible;
-                        }
-                        else
-                        {
-                            ClearAllFiltersButton.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
-                        }
+                        if (CategoryComboBox.SelectedIndex == -1)
+                            CategoryComboBox.SelectedIndex = 0;
 
-                        //set the notices to show
+                        if(ReadUnreadSegmented.SelectedIndex != 0 || CategoryComboBox.SelectedIndex != -1)
+                            ClearAllFiltersButton.Visibility = Windows.UI.Xaml.Visibility.Visible;
+                        else
+                            ClearAllFiltersButton.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
+
                         BachecaViewModel.NoticesToShow = noticesToShow;
                     }
                 );
