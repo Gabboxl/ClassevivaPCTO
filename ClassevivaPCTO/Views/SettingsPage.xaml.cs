@@ -202,6 +202,7 @@ namespace ClassevivaPCTO.Views
         {
             ContentDialog dialog = new()
             {
+                Style = Application.Current.Resources["DefaultContentDialogStyle"] as Style,
                 Title = "AreYouSure".GetLocalizedStr(),
                 Content = "AreYouSureToExit".GetLocalizedStr(),
                 PrimaryButtonText = "Exit".GetLocalizedStr(),
@@ -266,6 +267,7 @@ namespace ClassevivaPCTO.Views
                 {
                     ContentDialog dialogtrans = new()
                     {
+                        Style = Application.Current.Resources["DefaultContentDialogStyle"] as Style,
                         Title = "CautionDialogTitle".GetLocalizedStr(),
                         Content = "DialogUntranslatedLanguageStatus1".GetLocalizedStr() + "\n\n" +
                                   "DialogUntranslatedLanguageStatus2".GetLocalizedStr() + langProgressPerc + "%" + "\n\n" +
@@ -300,6 +302,7 @@ namespace ClassevivaPCTO.Views
 
             ContentDialog dialog = new()
             {
+                Style = Application.Current.Resources["DefaultContentDialogStyle"] as Style,
                 Title = "RestartRequired".GetLocalizedStr(),
                 Content = "RestartRequiredLanguageChange".GetLocalizedStr(),
                 PrimaryButtonText = "Restart".GetLocalizedStr(),

@@ -168,6 +168,7 @@ namespace ClassevivaPCTO.Views
                             async () =>
                             {
                                 ContentDialog dialog = new ContentDialog();
+                                dialog.Style = Application.Current.Resources["DefaultContentDialogStyle"] as Style;
                                 dialog.Title = "AccountNonSupportato".GetLocalizedStr();
                                 dialog.PrimaryButtonText = "OKCapsText".GetLocalizedStr();
                                 dialog.DefaultButton = ContentDialogButton.Primary;
@@ -246,6 +247,7 @@ namespace ClassevivaPCTO.Views
                         ContentDialog dialog = new()
                         {
                             Title = "ErroreText".GetLocalizedStr(),
+                            Style = Style = Application.Current.Resources["DefaultContentDialogStyle"] as Style,
                             PrimaryButtonText = "OKCapsText".GetLocalizedStr(),
                             DefaultButton = ContentDialogButton.Primary,
                             Content = "ErrorDialogBody".GetLocalizedStr()
@@ -335,6 +337,7 @@ namespace ClassevivaPCTO.Views
                     contentDialogContent = new ChoiceDialogContent(loginResultChoices.choices);
 
                     ContentDialog dialog = new ContentDialog();
+                    dialog.Style = Application.Current.Resources["DefaultContentDialogStyle"] as Style;
                     dialog.Title = "ChooseProfileDialogTitle".GetLocalizedStr();
                     dialog.PrimaryButtonText = "LoginDialogButton".GetLocalizedStr();
                     dialog.CloseButtonText = "CancelDialogButton".GetLocalizedStr();
