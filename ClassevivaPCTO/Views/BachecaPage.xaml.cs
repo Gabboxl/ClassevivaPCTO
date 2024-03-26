@@ -29,18 +29,18 @@ namespace ClassevivaPCTO.Views
             _apiWrapper = PoliciesDispatchProxy<IClassevivaAPI>.CreateProxy(apiClient);
         }
 
-        protected override async void OnNavigatedTo(NavigationEventArgs e)
+        protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
 
             BachecaViewModel.IsLoadingBacheca = true;
 
-            this.NoticesListView.OnShouldUpdate += OnShouldUpdate;
+            NoticesListView.OnShouldUpdate += OnShouldUpdate;
 
             CheckboxAttive.Checked += (sender, args) => { AggiornaAction(); }; 
             CheckboxAttive.Unchecked += (sender, args) => { AggiornaAction(); };
 
-            await Task.Run(async () => { await LoadData(); });
+            AggiornaAction();
         }
 
         private async Task LoadData()
@@ -99,12 +99,13 @@ namespace ClassevivaPCTO.Views
                     {
                         CategoryComboBox.SelectionChanged -= CategoryComboBox_OnSelectionChanged;
                         BachecaViewModel.Categories = noticeCategories;
-                        CategoryComboBox.SelectionChanged += CategoryComboBox_OnSelectionChanged;
 
                         if (CategoryComboBox.SelectedIndex == -1)
                             CategoryComboBox.SelectedIndex = 0;
 
-                        if(ReadUnreadSegmented.SelectedIndex != 0 || CategoryComboBox.SelectedIndex != -1)
+                        CategoryComboBox.SelectionChanged += CategoryComboBox_OnSelectionChanged;
+
+                        if(ReadUnreadSegmented.SelectedIndex > 0 || CategoryComboBox.SelectedIndex > 0)
                             ClearAllFiltersButton.Visibility = Windows.UI.Xaml.Visibility.Visible;
                         else
                             ClearAllFiltersButton.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
@@ -130,7 +131,7 @@ namespace ClassevivaPCTO.Views
 
         private void ReadUnreadSegmented_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (!this.IsLoaded || sender is Segmented {IsLoaded: false})
+            if (!IsLoaded || sender is Segmented {IsLoaded: false})
                 return;
 
             AggiornaAction();
@@ -153,7 +154,7 @@ namespace ClassevivaPCTO.Views
         private void ClearAllFiltersButton_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
             ReadUnreadSegmented.SelectedIndex = 0;
-            CategoryComboBox.SelectedIndex = -1;
+            CategoryComboBox.SelectedIndex = 0;
             ClearAllFiltersButton.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
             AggiornaAction();
         }
