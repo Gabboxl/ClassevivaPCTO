@@ -583,7 +583,7 @@ Error: </value>
     <value>Early release</value>
   </data>
   <data name="DialogUntranslatedLanguageStatus1" xml:space="preserve">
-    <value>L'app non è stata tradotta completamente nella lingua che hai scelto. Alcune parti dell'app continueranno ad essere mostrate in italiano.</value>
+    <value>The app hasn't been fully translated in the language you chose. Some sections of the app will be shown in Italian.</value>
   </data>
   <data name="DialogUntranslatedLanguageStatus2" xml:space="preserve">
     <value>Translation status: </value>
@@ -703,19 +703,19 @@ Error: </value>
     <value>Vintage</value>
   </data>
   <data name="SettingsCardWidgetsDescription" xml:space="preserve">
-    <value>Imposta il numero di elementi recendi da visualizzare nei widget della dasboard</value>
+    <value>Set the number of recent events to show in dashboard widgets</value>
   </data>
   <data name="SettingsCardWidgetsHeader" xml:space="preserve">
-    <value>Numero di elementi nei widget</value>
+    <value>Number of events to show in widgets</value>
   </data>
   <data name="SettingsCardWidgetsSubCardGrades" xml:space="preserve">
-    <value>Numero di valutazioni recenti da visualizzare</value>
+    <value>Set the number of recent grades to show</value>
   </data>
   <data name="SettingsCardWidgetsSubCardNotices" xml:space="preserve">
-    <value>Numero di comunicazioni recenti da visualizzare</value>
+    <value>Set the number of recent notices to show</value>
   </data>
   <data name="SettingsPageOptionsHeader" xml:space="preserve">
-    <value>Opzioni pagine</value>
+    <value>Page options</value>
   </data>
   <data name="GenericCloseButton" xml:space="preserve">
     <value>Close</value>
@@ -724,7 +724,7 @@ Error: </value>
     <value>View grades as a list</value>
   </data>
   <data name="GradesSubjectsLayoutToolTip" xml:space="preserve">
-    <value>Visualizza i voti raggruppati in base alla materia</value>
+    <value>Group grades by the subjects</value>
   </data>
   <data name="NoticeDialogOpenButtonToolTip" xml:space="preserve">
     <value>Open attachment</value>
