@@ -30,8 +30,35 @@
                 </ResourceDictionary>
 
                 <ResourceDictionary>
-                    <Style x:Name="CautionFlyoutStyle"
-                           BasedOn="{StaticResource DefaultFlyoutPresenterStyle}"
+                    <Style x:Name="PlaceholderStackPanelStyle" TargetType="StackPanel">
+                        <Setter Property="Orientation" Value="Vertical" />
+                        <Setter Property="Spacing" Value="4" />
+                        <Setter Property="HorizontalAlignment" Value="Center" />
+                        <Setter Property="VerticalAlignment" Value="Center" />
+                    </Style>
+                </ResourceDictionary>
+
+                <ResourceDictionary>
+                    <Style x:Name="PlaceholderIconStyle" TargetType="FontIcon">
+                        <Setter Property="FontSize" Value="112" />
+                        <Setter Property="FontFamily" Value="{StaticResource FluentIcons}" />
+                        <Setter Property="Foreground" Value="{ThemeResource TextFillColorDisabledBrush}" />
+                    </Style>
+                </ResourceDictionary>
+
+                <ResourceDictionary>
+                    <Style x:Name="PlaceholderTextStyle" TargetType="TextBlock">
+                        <Setter Property="FontSize" Value="36" />
+                        <Setter Property="FontWeight" Value="SemiBold" />
+                        <Setter Property="HorizontalAlignment" Value="Center" />
+                        <Setter Property="VerticalAlignment" Value="Center" />
+                        <Setter Property="Foreground" Value="{ThemeResource TextFillColorDisabledBrush}" />
+                        <Setter Property="TextWrapping" Value="WrapWholeWords" />
+                    </Style>
+                </ResourceDictionary>
+
+                <ResourceDictionary>
+                    <Style x:Name="CautionFlyoutStyle" BasedOn="{StaticResource DefaultFlyoutPresenterStyle}"
                            TargetType="FlyoutPresenter">
                         <Setter Property="Background" Value="{ThemeResource SystemFillColorCautionBackgroundBrush}" />
                     </Style>

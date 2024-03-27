@@ -120,24 +120,14 @@
 
         </ListView>
 
-        <RelativePanel Grid.Row="0"
-                       HorizontalAlignment="Center"
-                       VerticalAlignment="Center"
-                       Visibility="{x:Bind ShowEmptyAlert, Mode=OneWay, Converter={StaticResource BetterBoolToVisibilityConverter}, ConverterParameter=True}">
+        <StackPanel Grid.Row="0" Style="{StaticResource PlaceholderStackPanelStyle}"
+                    Visibility="{x:Bind ShowEmptyAlert, Mode=OneWay, Converter={StaticResource BetterBoolToVisibilityConverter}, ConverterParameter=True}">
 
-            <FontIcon x:Name="NotePlaceholderIcon" Margin="0,0,0,0"
-                      FontFamily="{StaticResource FluentIcons}"
-                      FontSize="112"
-                      Foreground="{ThemeResource TextFillColorDisabledBrush}"
-                      Glyph="&#xe91c;" RelativePanel.AlignHorizontalCenterWithPanel="True" />
+            <FontIcon Glyph="&#xe91c;" Style="{StaticResource PlaceholderIconStyle}" />
 
-            <TextBlock Text="{CustomResource NotesPlaceholder}" Margin="0,6,0,0"
-                       HorizontalAlignment="Center" VerticalAlignment="Center"
-                       FontSize="36" FontWeight="SemiBold"
-                       Foreground="{ThemeResource TextFillColorDisabledBrush}"
-                       RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.Below="NotePlaceholderIcon"
-                       TextWrapping="WrapWholeWords" />
+            <TextBlock Text="{CustomResource NotesPlaceholder}" Style="{StaticResource PlaceholderTextStyle}" />
 
-        </RelativePanel>
+        </StackPanel>
+        
     </Grid>
 </UserControl>
