@@ -57,13 +57,10 @@
                     Orientation="Horizontal">
 
             <ComboBox x:Name="CategoryComboBox"
-                      MinWidth="200"
                       VerticalAlignment="Center"
+                      MinWidth="170"
                       HorizontalContentAlignment="Stretch"
                       controls:KeepOldItemsSourceDecorator.ItemsSource="{x:Bind BachecaViewModel.Categories, Mode=OneWay}"
-                      IsEditable="False"
-                      IsTextSearchEnabled="False"
-                      LightDismissOverlayMode="Off"
                       PlaceholderText="{CustomResource NoticeBoardCategoryComboboxPlaceholderText}"
                       SelectionChanged="CategoryComboBox_OnSelectionChanged" />
 
@@ -151,7 +148,7 @@
                        Visibility="{x:Bind BachecaViewModel.NoticesToShow, Mode=OneWay, FallbackValue=Collapsed, Converter={StaticResource EmptyListToVisibilityConverter}}" />
 
             <HyperlinkButton x:Name="ClearAllFiltersButton"
-                             Margin="0,-4,6,0"
+                             Margin="0,-6,6,0"
                              Click="ClearAllFiltersButton_Click"
                              RelativePanel.AlignRightWithPanel="True"
                              Visibility="Collapsed">
