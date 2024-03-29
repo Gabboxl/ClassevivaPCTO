@@ -148,7 +148,6 @@ namespace ClassevivaPCTO.Views
                 TitleFirstPerVal.Text = VariousUtils.UppercaseFirst(_mergedPeriodList[0].Period.periodDesc);
                 TitleSecondPerVal.Text = VariousUtils.UppercaseFirst(_mergedPeriodList[1].Period.periodDesc);
                 SegmentedPeriodi.SelectedIndex = 0;
-                SegmentedPeriodi.IsEnabled = true;
 
                 return;
             }
