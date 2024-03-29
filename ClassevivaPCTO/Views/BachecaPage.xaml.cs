@@ -10,6 +10,7 @@ using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
 using ClassevivaPCTO.Controls;
 using CommunityToolkit.WinUI.Controls;
+using ClassevivaPCTO.Helpers;
 
 namespace ClassevivaPCTO.Views
 {
@@ -34,7 +35,6 @@ namespace ClassevivaPCTO.Views
             base.OnNavigatedTo(e);
 
             BachecaViewModel.IsLoadingBacheca = true;
-
             NoticesListView.OnShouldUpdate += OnShouldUpdate;
 
             CheckboxAttive.Checked += (sender, args) => { AggiornaAction(); }; 
@@ -90,7 +90,7 @@ namespace ClassevivaPCTO.Views
                 }
 
                 var noticeCategories = noticesToShow.Select(n => n.cntCategory).Distinct().Where(c => !string.IsNullOrEmpty(c)).OrderBy(o => o).ToList();
-                noticeCategories.Insert(0, "Tutte le categorie");
+                noticeCategories.Insert(0, "NoticeBoardAllCategoriesComboboxItem".GetLocalizedStr());
                 if (selectedCategoryIndex > 0)
                     noticesToShow = noticesToShow.Where(n => n.cntCategory == selectedCategory).ToList();
 
@@ -101,11 +101,11 @@ namespace ClassevivaPCTO.Views
                         BachecaViewModel.Categories = noticeCategories;
 
                         if (CategoryComboBox.SelectedIndex == -1)
-                            CategoryComboBox.SelectedIndex = 0;
+                             CategoryComboBox.SelectedIndex = 0;
 
                         CategoryComboBox.SelectionChanged += CategoryComboBox_OnSelectionChanged;
 
-                        if(ReadUnreadSegmented.SelectedIndex > 0 || CategoryComboBox.SelectedIndex > 0)
+                        if(ReadUnreadSegmented.SelectedIndex > 0 || CategoryComboBox.SelectedIndex > 0 || CheckboxAttive.IsChecked == true)
                             ClearAllFiltersButton.Visibility = Windows.UI.Xaml.Visibility.Visible;
                         else
                             ClearAllFiltersButton.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
@@ -155,6 +155,7 @@ namespace ClassevivaPCTO.Views
         {
             ReadUnreadSegmented.SelectedIndex = 0;
             CategoryComboBox.SelectedIndex = 0;
+            CheckboxAttive.IsChecked = false;
             ClearAllFiltersButton.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
             AggiornaAction();
         }
