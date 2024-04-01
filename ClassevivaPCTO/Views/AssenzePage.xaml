@@ -24,27 +24,6 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
-        <!--<VisualStateManager.VisualStateGroups>
-            <VisualStateGroup>
-                <VisualState x:Name="WideState">
-                    <VisualState.StateTriggers>
-                        <AdaptiveTrigger MinWindowWidth="850" />
-                    </VisualState.StateTriggers>
-                    <VisualState.Setters>
-                        <Setter Target="MyUniformGrid.Columns" Value="2" />
-                    </VisualState.Setters>
-                </VisualState>
-                <VisualState x:Name="NarrowState">
-                    <VisualState.StateTriggers>
-                        <AdaptiveTrigger MinWindowWidth="0" />
-                    </VisualState.StateTriggers>
-                    <VisualState.Setters>
-                        <Setter Target="MyUniformGrid.Columns" Value="1" />
-                    </VisualState.Setters>
-                </VisualState>
-            </VisualStateGroup>
-        </VisualStateManager.VisualStateGroups>-->
-
         <StackPanel Grid.Row="0"
                     Margin="32,16,0,0"
                     Orientation="Horizontal"
@@ -102,7 +81,6 @@
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="Auto" />
                         </Grid.ColumnDefinitions>
-
 
                         <RelativePanel x:Name="CalendarPanel"
                                        Margin="0,0,0,0"

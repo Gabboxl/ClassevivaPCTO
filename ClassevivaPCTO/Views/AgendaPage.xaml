@@ -198,9 +198,9 @@
                     </Grid.RowDefinitions>
 
                     <StackPanel Grid.Row="0"
-                    Margin="0,18,0,0"
-                    HorizontalAlignment="Right"
-                    Orientation="Horizontal">
+                                Margin="0,18,20,0"
+                                HorizontalAlignment="Right"
+                                Orientation="Horizontal">
 
                         <StackPanel Orientation="Horizontal" Spacing="6" Margin="0,0,0,0">
                             <FontIcon Glyph="&#xE787;" Foreground="{ThemeResource TextFillColorTertiaryBrush}" FontSize="16" />
@@ -213,8 +213,6 @@
                                 Margin="12,0,0,0"
                                 winUi:FrameworkElementExtensions.Cursor="Hand"
                                 Click="ButtonYesterday_Click"
-                                RelativePanel.AlignVerticalCenterWithPanel="True"
-                                RelativePanel.LeftOf="CalendarAgenda"
                                 ToolTipService.ToolTip="{CustomResource AgendaYesterdayButtonTooltip}">
 
                             <FontIcon HorizontalAlignment="Center"
@@ -230,19 +228,13 @@
                                             Margin="8,0,8,0"
                                             winUi:FrameworkElementExtensions.Cursor="Hand"
                                             FirstDayOfWeek="Monday"
-                                            PlaceholderText="Scegli una data"
-                                            RelativePanel.AlignVerticalCenterWithPanel="True"
-                                            RelativePanel.LeftOf="ButtonTomorrow"
                                             ToolTipService.ToolTip="{CustomResource AgendaCalendarDatePickerTooltip}" />
 
                         <Button x:Name="ButtonTomorrow"
                                 Width="44"
                                 Height="32"
-                                Margin="0,0,0,0"
                                 winUi:FrameworkElementExtensions.Cursor="Hand"
                                 Click="ButtonTomorrow_Click"
-                                RelativePanel.AlignVerticalCenterWithPanel="True"
-                                RelativePanel.LeftOf="ButtonToday"
                                 ToolTipService.ToolTip="{CustomResource AgendaTomorrowButtonTooltip}">
 
                             <FontIcon HorizontalAlignment="Center"
@@ -258,23 +250,13 @@
                                       winUi:FrameworkElementExtensions.Cursor="Hand"
                                       Click="ButtonToday_Click"
                                       Content="{CustomResource AgendaTodayButton}"
-                                      RelativePanel.AlignVerticalCenterWithPanel="True"
-                                      RelativePanel.LeftOf="Separator1"
                                       ToolTipService.ToolTip="{CustomResource AgendaTodayButtonTooltip}" />
 
-                        <Rectangle x:Name="Separator1"
-                                   Width="1"
-                                   Height="48"
-                                   Margin="12,0,0,0"
-                                   Fill="{ThemeResource ControlStrongStrokeColorDisabledBrush}"
-                                   RelativePanel.LeftOf="TuttiCompitiButton" />
+                        <Rectangle Style="{StaticResource ControlSeparatorStyle}"/>
 
                         <Button x:Name="TuttiCompitiButton"
                                 MinWidth="110"
-                                Margin="12,0,0,0"
-                                Click="PopupAgendaButton_OnClick"
-                                RelativePanel.AlignVerticalCenterWithPanel="True"
-                                RelativePanel.LeftOf="PopupLessonsButton">
+                                Click="PopupAgendaButton_OnClick" >
 
                             <StackPanel VerticalAlignment="Center"
                                         Orientation="Horizontal"
@@ -289,10 +271,8 @@
 
                         <Button x:Name="PopupLessonsButton"
                                 MinWidth="110"
-                                Margin="8,0,20,0"
-                                Click="PopupLessonsButton_OnClick"
-                                RelativePanel.AlignRightWithPanel="True"
-                                RelativePanel.AlignVerticalCenterWithPanel="True">
+                                Margin="8,0,0,0"
+                                Click="PopupLessonsButton_OnClick">
 
                             <StackPanel VerticalAlignment="Center"
                                         Orientation="Horizontal"

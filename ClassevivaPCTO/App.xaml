@@ -46,6 +46,16 @@
                         <Setter Property="Background" Value="{ThemeResource SystemFillColorCautionBackgroundBrush}" />
                     </Style>
                 </ResourceDictionary>
+                
+                <ResourceDictionary>
+                    <Style x:Name="ControlSeparatorStyle" TargetType="Rectangle">
+                        <Setter Property="Fill" Value="{ThemeResource ControlStrongStrokeColorDisabledBrush}" />
+                        <Setter Property="Height" Value="48" />
+                        <Setter Property="Width" Value="1" />
+                        <Setter Property="Margin" Value="16,0,16,0" />
+                    </Style>
+                </ResourceDictionary>
+
             </ResourceDictionary.MergedDictionaries>
 
         </ResourceDictionary>

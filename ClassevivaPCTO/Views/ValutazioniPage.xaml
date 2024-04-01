@@ -145,7 +145,7 @@
         </StackPanel>
 
         <StackPanel Grid.Row="0"
-                    Margin="0,18,0,0"
+                    Margin="0,18,20,0"
                     HorizontalAlignment="Right"
                     Orientation="Horizontal">
 
@@ -154,7 +154,7 @@
                 <TextBlock Text="Layout:" Foreground="{ThemeResource TextFillColorTertiaryBrush}" Margin="0,16,0,0" />
             </StackPanel>
 
-            <controls:Segmented x:Name="SegmentedLayout" Margin="0,0,24,0">
+            <controls:Segmented x:Name="SegmentedLayout">
 
                 <controls:SegmentedItem ToolTipService.ToolTip="{CustomResource GradesListLayoutToolTip}">
                     <controls:SegmentedItem.Content>
