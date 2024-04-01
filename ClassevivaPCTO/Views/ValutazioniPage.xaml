@@ -144,10 +144,17 @@
 
         </StackPanel>
 
-        <RelativePanel Grid.Row="0" Margin="0,18,0,0">
+        <StackPanel Grid.Row="0"
+                    Margin="0,18,0,0"
+                    HorizontalAlignment="Right"
+                    Orientation="Horizontal">
 
-            <controls:Segmented x:Name="SegmentedLayout" Margin="0,0,24,0"
-                                RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignVerticalCenterWithPanel="True">
+            <StackPanel Orientation="Horizontal" Spacing="6" Margin="0,0,10,0">
+                <FontIcon Glyph="&#xE74C;" Foreground="{ThemeResource TextFillColorTertiaryBrush}" FontSize="16" />
+                <TextBlock Text="Layout:" Foreground="{ThemeResource TextFillColorTertiaryBrush}" Margin="0,16,0,0" />
+            </StackPanel>
+
+            <controls:Segmented x:Name="SegmentedLayout" Margin="0,0,24,0">
 
                 <controls:SegmentedItem ToolTipService.ToolTip="{CustomResource GradesListLayoutToolTip}">
                     <controls:SegmentedItem.Content>
@@ -173,7 +180,7 @@
                     </controls:SegmentedItem.Content>
                 </controls:SegmentedItem>
             </controls:Segmented>
-        </RelativePanel>
+        </StackPanel>
 
         <RelativePanel Grid.Row="2"
                        Margin="18"

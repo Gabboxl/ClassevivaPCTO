@@ -21,30 +21,6 @@
 
     <RelativePanel>
 
-        <!--<VisualStateManager.VisualStateGroups>
-            <VisualStateGroup>
-                <VisualState x:Name="WideState">
-                    <VisualState.StateTriggers>
-                        <AdaptiveTrigger MinWindowWidth="930" />
-                    </VisualState.StateTriggers>
-                    <VisualState.Setters>
-                        <Setter Target="PopupButtonsRelativePanel.(Grid.Row)" Value="0" />
-                        <Setter Target="PopupButtonsRelativePanel.(Grid.Column)" Value="2" />
-                    </VisualState.Setters>
-                </VisualState>
-
-                <VisualState x:Name="NarrowState2">
-                    <VisualState.StateTriggers>
-                        <AdaptiveTrigger MinWindowWidth="0" />
-                    </VisualState.StateTriggers>
-                    <VisualState.Setters>
-                        <Setter Target="PopupButtonsRelativePanel.(Grid.Row)" Value="1" />
-                        <Setter Target="PopupButtonsRelativePanel.(Grid.Column)" Value="1" />
-                    </VisualState.Setters>
-                </VisualState>
-            </VisualStateGroup>
-        </VisualStateManager.VisualStateGroups>-->
-
         <Popup x:Name="LezioniPopup" 
                Width="800"
                IsLightDismissEnabled="True" 
@@ -221,13 +197,18 @@
                         <RowDefinition Height="Auto" />
                     </Grid.RowDefinitions>
 
-                    <RelativePanel Grid.Row="0"
-                                   Grid.Column="0"
-                                   Margin="0,16,0,0"
-                                   VerticalAlignment="Center">
+                    <StackPanel Grid.Row="0"
+                    Margin="0,18,0,0"
+                    HorizontalAlignment="Right"
+                    Orientation="Horizontal">
+
+                        <StackPanel Orientation="Horizontal" Spacing="6" Margin="0,0,0,0">
+                            <FontIcon Glyph="&#xE787;" Foreground="{ThemeResource TextFillColorTertiaryBrush}" FontSize="16" />
+                            <TextBlock Text="Calendario:" Foreground="{ThemeResource TextFillColorTertiaryBrush}" Margin="0,14,0,0" />
+                        </StackPanel>
 
                         <Button x:Name="ButtonYesterday"
-                                Width="48"
+                                Width="44"
                                 Height="32"
                                 Margin="12,0,0,0"
                                 winUi:FrameworkElementExtensions.Cursor="Hand"
@@ -244,7 +225,8 @@
                         </Button>
 
                         <CalendarDatePicker x:Name="CalendarAgenda"
-                                            MinWidth="116"
+                                            Width="94"
+                                            Style="{StaticResource CustomCalendarDatePicker}"
                                             Margin="8,0,8,0"
                                             winUi:FrameworkElementExtensions.Cursor="Hand"
                                             FirstDayOfWeek="Monday"
@@ -254,7 +236,7 @@
                                             ToolTipService.ToolTip="{CustomResource AgendaCalendarDatePickerTooltip}" />
 
                         <Button x:Name="ButtonTomorrow"
-                                Width="48"
+                                Width="44"
                                 Height="32"
                                 Margin="0,0,0,0"
                                 winUi:FrameworkElementExtensions.Cursor="Hand"
@@ -323,7 +305,7 @@
 
                         </Button>
 
-                    </RelativePanel>
+                    </StackPanel>
                 </Grid>
             </Grid>
 

@@ -19,6 +19,7 @@
                 </ResourceDictionary>
 
                 <ResourceDictionary Source="Styles/Button.xaml" />
+                <ResourceDictionary Source="Styles/CalendarDatePicker.xaml" />
                 <ResourceDictionary Source="Controls/NiceNavigationView/NavigationView.xaml" />
                 <ResourceDictionary Source="Controls/NiceNavigationView/NavigationView.Themeresources.xaml" />
                 <ResourceDictionary Source="Styles/AutoSuggestBox.xaml" />
