@@ -38,33 +38,13 @@
 
         </StackPanel>
 
-        <RelativePanel x:Name="CardPanel"
-                       Grid.Row="2"
-                       Margin="18"
-                       Padding="6"
-                       HorizontalAlignment="Stretch"
-                       VerticalAlignment="Stretch"
-                       Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
-                       BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
-                       BorderThickness="1"
-                       CornerRadius="8">
+        <Grid Grid.Row="2"
+              Style="{StaticResource CardGridStyle}">
 
-            <Grid RelativePanel.AlignBottomWithPanel="True"
-                  RelativePanel.AlignLeftWithPanel="True"
-                  RelativePanel.AlignRightWithPanel="True"
-                  RelativePanel.AlignTopWithPanel="True">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="*" />
-                </Grid.RowDefinitions>
-
-                <controls:NotesListView x:Name="NotesListView"
-                                        Margin="0,0,0,0"
-                                        HorizontalAlignment="Stretch"
-                                        VerticalAlignment="Stretch"
-                                        EnableEmptyAlert="True"
-                                        EnableStickyHeader="True" />
-
-            </Grid>
-        </RelativePanel>
+            <controls:NotesListView x:Name="NotesListView"
+                                    Margin="0,0,0,0"
+                                    EnableEmptyAlert="True"
+                                    EnableStickyHeader="True" />
+        </Grid>
     </Grid>
 </controls:CustomAppPage>
