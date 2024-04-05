@@ -119,7 +119,9 @@
                        Visibility="{x:Bind BachecaViewModel.NoticesToShow, Mode=OneWay, FallbackValue=Collapsed, Converter={StaticResource EmptyListToVisibilityConverter}}" />
 
             <HyperlinkButton x:Name="ClearAllFiltersButton"
-                             Margin="0,-4,6,0"
+                             Margin="0,0,6,0"
+                             HorizontalAlignment="Right"
+                             VerticalAlignment="Top"
                              Click="ClearAllFiltersButton_Click"
                              Visibility="Collapsed">
 
@@ -135,9 +137,8 @@
             <Rectangle Style="{StaticResource HorizontalSeparatorStyle}"
                        Visibility="{x:Bind BachecaViewModel.NoticesToShow, Mode=OneWay, FallbackValue=Collapsed, Converter={StaticResource EmptyListToVisibilityConverter}}" />
 
-
             <controls:NoticesListView x:Name="NoticesListView"
-                                      Margin="0,8,0,0"
+                                      Margin="0,48,0,0"
                                       ItemsSource="{x:Bind BachecaViewModel.NoticesToShow, Mode=OneWay}" />
 
         </Grid>
