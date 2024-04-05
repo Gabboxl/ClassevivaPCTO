@@ -110,22 +110,17 @@
 
         </StackPanel>
 
-        <RelativePanel Grid.Row="2"
-                       Style="{StaticResource CardPanelStyle}"
-                       winUi:FrameworkElementExtensions.EnableActualSizeBinding="true">
+        <Grid Grid.Row="2"
+              Style="{StaticResource CardGridStyle}"
+              winUi:FrameworkElementExtensions.EnableActualSizeBinding="true">
 
-            <TextBlock x:Name="TextComunicazioni"
-                       Margin="12,8,0,0"
-                       FontSize="18"
-                       FontWeight="SemiBold"
-                       Style="{ThemeResource BodyStrongTextBlockStyle}"
+            <TextBlock Style="{StaticResource CardHeaderTextBlockStyle}"
                        Text="{CustomResource NoticeBoardNotices}"
                        Visibility="{x:Bind BachecaViewModel.NoticesToShow, Mode=OneWay, FallbackValue=Collapsed, Converter={StaticResource EmptyListToVisibilityConverter}}" />
 
             <HyperlinkButton x:Name="ClearAllFiltersButton"
                              Margin="0,-4,6,0"
                              Click="ClearAllFiltersButton_Click"
-                             RelativePanel.AlignRightWithPanel="True"
                              Visibility="Collapsed">
 
                 <StackPanel Orientation="Horizontal" Spacing="10">
@@ -137,29 +132,14 @@
 
             </HyperlinkButton>
 
-            <Rectangle Height="1"
-                           Margin="12,0,16,0"
-                           VerticalAlignment="Top"
-                           Fill="{ThemeResource ControlStrongStrokeColorDisabledBrush}"
-                           Visibility="{x:Bind BachecaViewModel.NoticesToShow, Mode=OneWay, FallbackValue=Collapsed, Converter={StaticResource EmptyListToVisibilityConverter}}" />
+            <Rectangle Style="{StaticResource HorizontalSeparatorStyle}"
+                       Visibility="{x:Bind BachecaViewModel.NoticesToShow, Mode=OneWay, FallbackValue=Collapsed, Converter={StaticResource EmptyListToVisibilityConverter}}" />
 
-            <Grid Margin="0,6,0,0"
-                  RelativePanel.AlignBottomWithPanel="True"
-                  RelativePanel.AlignLeftWithPanel="True"
-                  RelativePanel.AlignRightWithPanel="True"
-                  RelativePanel.Below="TextComunicazioni">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="*" />
-                </Grid.RowDefinitions>
 
-                <controls:NoticesListView x:Name="NoticesListView"
-                                          Margin="0,8,0,0"
-                                          ItemsSource="{x:Bind BachecaViewModel.NoticesToShow, Mode=OneWay}" />
+            <controls:NoticesListView x:Name="NoticesListView"
+                                      Margin="0,8,0,0"
+                                      ItemsSource="{x:Bind BachecaViewModel.NoticesToShow, Mode=OneWay}" />
 
-            </Grid>
-        </RelativePanel>
+        </Grid>
     </Grid>
 </controls:CustomAppPage>

@@ -83,6 +83,24 @@
                     </Style>
                 </ResourceDictionary>
 
+                <ResourceDictionary>
+                    <Style x:Name="HorizontalSeparatorStyle" TargetType="Rectangle">
+                        <Setter Property="Fill" Value="{ThemeResource ControlStrongStrokeColorDisabledBrush}" />
+                        <Setter Property="Height" Value="1" />
+                        <Setter Property="VerticalAlignment" Value="Top" />
+                        <Setter Property="Margin" Value="12,0,16,0" />
+                    </Style>
+                </ResourceDictionary>
+
+                <ResourceDictionary>
+                    <Style x:Name="CardHeaderTextBlockStyle" TargetType="TextBlock">
+                        <Setter Property="Margin" Value="12,8,0,0" />
+                        <Setter Property="FontSize" Value="18" />
+                        <Setter Property="HorizontalAlignment" Value="Left" />
+                        <Setter Property="FontWeight" Value="SemiBold" />
+                    </Style>
+                </ResourceDictionary>
+
             </ResourceDictionary.MergedDictionaries>
 
         </ResourceDictionary>
