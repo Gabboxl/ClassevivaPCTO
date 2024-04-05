@@ -163,13 +163,11 @@
 
             <StackPanel>
 
-                <TextBlock x:Name="DocumentsTitle" Text="{CustomResource ScrutiniDocumentsHeader}"
-                           Margin="6,4,0,8" FontSize="18"
-                           FontWeight="SemiBold"
-                           Style="{ThemeResource BodyStrongTextBlockStyle}"
+                <TextBlock Text="{CustomResource ScrutiniDocumentsHeader}"
+                           Style="{StaticResource CardHeaderTextBlockStyle}"
                            Visibility="{x:Bind ItemsSource.Documents, Mode=OneWay, FallbackValue=Collapsed, Converter={StaticResource EmptyListToVisibilityConverter}}" />
 
-                <Rectangle Height="1" Margin="6,0,6,8"
+                <Rectangle Height="1" Margin="12,8,12,8"
                            Fill="{ThemeResource ControlStrongStrokeColorDisabledBrush}"
                            Visibility="{x:Bind ItemsSource.Documents, Mode=OneWay, FallbackValue=Collapsed, Converter={StaticResource EmptyListToVisibilityConverter}}" />
 
@@ -179,13 +177,11 @@
                           ItemTemplate="{StaticResource ScrutiniListViewDataTemplate}"
                           ScrollViewer.VerticalScrollMode="Enabled" />
               
-                <TextBlock x:Name="ReportsTitle" Text="{CustomResource ScrutiniReportsHeader}"
-                            Margin="6,12,0,8" FontSize="18"
-                           FontWeight="SemiBold"
-                           Style="{ThemeResource BodyStrongTextBlockStyle}"
+                <TextBlock Text="{CustomResource ScrutiniReportsHeader}"
+                           Style="{StaticResource CardHeaderTextBlockStyle}"
                            Visibility="{x:Bind ItemsSource.SchoolReports, Mode=OneWay, FallbackValue=Collapsed, Converter={StaticResource EmptyListToVisibilityConverter}}" />
 
-                <Rectangle Height="1" Margin="6,0,6,8"
+                <Rectangle Height="1" Margin="12,8,12,8"
                            Fill="{ThemeResource ControlStrongStrokeColorDisabledBrush}"
                            Visibility="{x:Bind ItemsSource.Documents, Mode=OneWay, FallbackValue=Collapsed, Converter={StaticResource EmptyListToVisibilityConverter}}" />
 
