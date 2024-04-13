@@ -29,13 +29,10 @@ namespace ClassevivaPCTO
             get { return _activationService.Value; }
         }
 
-        private async Task<string> GetTokenAsync()
+        private static async Task<string> GetTokenAsync()
         {
-            LoginResultComplete? loginResult = ViewModelHolder.GetViewModel().LoginResult;
-
-            return loginResult.token;
+            return AppViewModelHolder.GetViewModel().LoginResult?.token;
         }
-
 
         public IServiceProvider Container { get; }
 
@@ -81,7 +78,7 @@ namespace ClassevivaPCTO
         /// </summary>
         public App()
         {
-            this.InitializeComponent();
+            InitializeComponent();
             this.Suspending += OnSuspending;
             Container = ConfigureDependencyInjection();
 
@@ -157,7 +154,7 @@ namespace ClassevivaPCTO
 
             try
             {
-                var dataLogin = ViewModelHolder.GetViewModel().LoginResult;
+                var dataLogin = AppViewModelHolder.GetViewModel().LoginResult;
 
                 var serializedLogin = JsonConvert.SerializeObject(
                     dataLogin,

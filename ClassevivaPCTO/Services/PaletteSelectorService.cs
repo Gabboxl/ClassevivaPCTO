@@ -3,12 +3,7 @@ using ClassevivaPCTO.Helpers.Palettes;
 using System;
 using System.Reflection;
 using System.Threading.Tasks;
-using Windows.ApplicationModel.Core;
 using Windows.Storage;
-using Windows.UI;
-using Windows.UI.Core;
-using Windows.UI.ViewManagement;
-using Windows.UI.Xaml;
 
 namespace ClassevivaPCTO.Services
 {
@@ -27,7 +22,6 @@ namespace ClassevivaPCTO.Services
             PaletteClass = GetPaletteClass(PaletteEnum);
         }
 
-
         public static async Task SetCurrentPalette(PaletteType palette)
         {
             PaletteEnum = palette;
@@ -35,7 +29,6 @@ namespace ClassevivaPCTO.Services
 
             await ApplicationData.Current.LocalSettings.SaveAsync(SettingsKey, palette.ToString());
         }
-
 
         public static IPalette GetPaletteClass(PaletteType classType)
         {
@@ -54,7 +47,7 @@ namespace ClassevivaPCTO.Services
         private static async Task<PaletteType> GetCurrentPaletteEnum()
         {
             PaletteType cacheTheme = PaletteType.PALETTE_CVV; //default palette
-            string themeName = await ApplicationData.Current.LocalSettings.ReadAsync<string>(SettingsKey);
+            string? themeName = await ApplicationData.Current.LocalSettings.ReadAsync<string>(SettingsKey);
 
             if (!string.IsNullOrEmpty(themeName))
             {

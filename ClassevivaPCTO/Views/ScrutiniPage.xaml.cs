@@ -6,25 +6,25 @@ using System.Linq;
 using System.Threading.Tasks;
 using Windows.ApplicationModel.Core;
 using Windows.UI.Core;
-using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
+using ClassevivaPCTO.Controls;
 
 namespace ClassevivaPCTO.Views
 {
-    public sealed partial class ScrutiniPage : Page
+    public sealed partial class ScrutiniPage : CustomAppPage
     {
         public ScrutiniViewModel ScrutiniViewModel { get; } = new();
 
-        private readonly IClassevivaAPI apiWrapper;
+        private readonly IClassevivaAPI _apiWrapper;
 
         public ScrutiniPage()
         {
-            this.InitializeComponent();
+            InitializeComponent();
 
             App app = (App) App.Current;
             var apiClient = app.Container.GetService<IClassevivaAPI>();
 
-            apiWrapper = PoliciesDispatchProxy<IClassevivaAPI>.CreateProxy(apiClient);
+            _apiWrapper = PoliciesDispatchProxy<IClassevivaAPI>.CreateProxy(apiClient);
         }
 
         protected override async void OnNavigatedTo(NavigationEventArgs e)
@@ -37,7 +37,6 @@ namespace ClassevivaPCTO.Views
             CheckboxEliminati.Unchecked +=
                 async (sender, args) => { await Task.Run(async () => { await LoadData(); }); };
 
-
             await Task.Run(async () => { await LoadData(); });
         }
 
@@ -49,8 +48,7 @@ namespace ClassevivaPCTO.Views
                 bool showDeletedDocuments = false;
 
                 await CoreApplication.MainView.Dispatcher.RunAsync(
-                    CoreDispatcherPriority.Normal,
-                    async () =>
+                    CoreDispatcherPriority.Normal, () =>
                     {
                         ScrutiniViewModel.IsLoadingScrutini = true;
 
@@ -59,22 +57,21 @@ namespace ClassevivaPCTO.Views
                     }
                 );
 
-                Card? cardResult = ViewModelHolder.GetViewModel().SingleCardResult;
+                Card? cardResult = AppViewModelHolder.GetViewModel().SingleCardResult;
 
 
-                ScrutiniDocumentsResult scrutiniDocumentsResult = await apiWrapper.GetScrutiniDocuments(
+                ScrutiniDocumentsResult scrutiniDocumentsResult = await _apiWrapper.GetScrutiniDocuments(
                     cardResult.usrId.ToString());
 
 
                 foreach (ScrutiniDocument document in scrutiniDocumentsResult.Documents)
                 {
-                    ScrutiniCheckResult scrutiniCheckResult = await apiWrapper.CheckScrutinioDocument(
+                    ScrutiniCheckResult scrutiniCheckResult = await _apiWrapper.CheckScrutinioDocument(
                         cardResult.usrId.ToString(),
                         document.hash);
 
                     document.checkStatus = scrutiniCheckResult.document;
                 }
-
 
                 //we take only available documents if the checkbox isnt checked, after we have checked them via the API
                 if (!showDeletedDocuments)
@@ -86,8 +83,7 @@ namespace ClassevivaPCTO.Views
 
                 //update UI on UI thread
                 await CoreApplication.MainView.Dispatcher.RunAsync(
-                    CoreDispatcherPriority.Normal,
-                    async () => { ScrutiniListView.ItemsSource = scrutiniDocumentsResult; }
+                    CoreDispatcherPriority.Normal, () => { ScrutiniListView.ItemsSource = scrutiniDocumentsResult; }
                 );
             }
             finally
@@ -95,16 +91,14 @@ namespace ClassevivaPCTO.Views
                 {
                     {
                         await CoreApplication.MainView.Dispatcher.RunAsync(
-                            CoreDispatcherPriority.Normal,
-                            async () => { ScrutiniViewModel.IsLoadingScrutini = false; }
+                            CoreDispatcherPriority.Normal, () => { ScrutiniViewModel.IsLoadingScrutini = false; }
                         );
                     }
                 }
             }
         }
 
-
-        private async void AggiornaCommand_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        public override async void AggiornaAction()
         {
             await Task.Run(async () => { await LoadData(); });
         }

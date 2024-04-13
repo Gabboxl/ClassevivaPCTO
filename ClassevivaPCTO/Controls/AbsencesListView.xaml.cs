@@ -28,7 +28,6 @@ namespace ClassevivaPCTO.Controls
                 typeof(AbsencesListView),
                 new PropertyMetadata(false, null));
 
-
         public bool EnableStickyHeader
         {
             get { return (bool) GetValue(EnableStickyHeaderProperty); }
@@ -38,7 +37,6 @@ namespace ClassevivaPCTO.Controls
         private static readonly DependencyProperty EnableStickyHeaderProperty =
             DependencyProperty.Register(nameof(EnableStickyHeader), typeof(bool), typeof(AbsencesListView),
                 new PropertyMetadata(false, null));
-
 
         private bool _showEmptyAlert;
 
@@ -59,13 +57,12 @@ namespace ClassevivaPCTO.Controls
                 nameof(ItemsSource),
                 typeof(List<AbsenceEvent>),
                 typeof(GradesListView),
-                new PropertyMetadata(null, new PropertyChangedCallback(OnItemsSourceChanged)));
+                new PropertyMetadata(null, OnItemsSourceChanged));
 
         private CollectionViewSource GroupedItems { get; set; }
 
-
         private static async Task<ObservableCollection<GroupInfoList>> GetAbsenceEventsGroupedAsync(
-            List<AbsenceEventAdapter> absenceEventAdapters)
+            IEnumerable<AbsenceEventAdapter> absenceEventAdapters)
         {
             var query = from item in absenceEventAdapters
 
@@ -77,7 +74,7 @@ namespace ClassevivaPCTO.Controls
                 //TODO: forse ordinare ulteriormente ogni gruppo per data?
 
                 //prendo il long name dell'enum con attributo ApiValueAttribute
-                select new GroupInfoList(g) {Key = g.Key.ToString().GetLocalized("plur")};
+                select new GroupInfoList(g) {Key = g.Key.ToString().GetLocalizedStr("plur")};
 
             return new ObservableCollection<GroupInfoList>(query);
         }
@@ -90,7 +87,6 @@ namespace ClassevivaPCTO.Controls
 
             var eventAdapters = newValue?.Select(evt => new AbsenceEventAdapter(evt)).ToList();
 
-
             currentInstance.GroupedItems = new CollectionViewSource
             {
                 IsSourceGrouped = currentInstance.EnableStickyHeader, //TODO: settare proprietà da dependencyproperty
@@ -101,19 +97,19 @@ namespace ClassevivaPCTO.Controls
                     : eventAdapters
             };
 
-
             //update the listview contents
-            currentInstance.listView.ItemsSource = currentInstance.GroupedItems.View;
-            ;
+            currentInstance.MainListView.ItemsSource = currentInstance.GroupedItems.View;
+            
+            //reset the selection
+            currentInstance.MainListView.SelectedIndex = -1;
 
             currentInstance.ShowEmptyAlert =
                 (newValue == null || newValue.Count == 0) && currentInstance.EnableEmptyAlert;
         }
 
-
         public AbsencesListView()
         {
-            this.InitializeComponent();
+            InitializeComponent();
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

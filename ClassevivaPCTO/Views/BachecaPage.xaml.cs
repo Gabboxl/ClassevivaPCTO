@@ -8,42 +8,39 @@ using Windows.ApplicationModel.Core;
 using Windows.UI.Core;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
+using ClassevivaPCTO.Controls;
+using CommunityToolkit.WinUI.Controls;
 
 namespace ClassevivaPCTO.Views
 {
-    public sealed partial class BachecaPage : Page
+    public sealed partial class BachecaPage : CustomAppPage
     {
         public BachecaViewModel BachecaViewModel { get; } = new();
 
-        private readonly IClassevivaAPI apiWrapper;
+        private readonly IClassevivaAPI _apiWrapper;
 
         public BachecaPage()
         {
-            this.InitializeComponent();
+            InitializeComponent();
 
             App app = (App) App.Current;
             var apiClient = app.Container.GetService<IClassevivaAPI>();
 
-            apiWrapper = PoliciesDispatchProxy<IClassevivaAPI>.CreateProxy(apiClient);
+            _apiWrapper = PoliciesDispatchProxy<IClassevivaAPI>.CreateProxy(apiClient);
         }
 
-        protected override async void OnNavigatedTo(NavigationEventArgs e)
+        protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
 
             BachecaViewModel.IsLoadingBacheca = true;
 
-            this.NoticesListView.OnShouldUpdate += OnShouldUpdate;
+            NoticesListView.OnShouldUpdate += OnShouldUpdate;
 
-            CheckboxAttive.Checked += AggiornaCommand_Click;
-            CheckboxAttive.Unchecked += AggiornaCommand_Click;
+            CheckboxAttive.Checked += (sender, args) => { AggiornaAction(); }; 
+            CheckboxAttive.Unchecked += (sender, args) => { AggiornaAction(); };
 
-            await Task.Run(async () => { await LoadData(); });
-        }
-
-        private async void OnShouldUpdate(object sender, EventArgs args)
-        {
-            await Task.Run(async () => { await LoadData(); });
+            AggiornaAction();
         }
 
         private async Task LoadData()
@@ -52,23 +49,23 @@ namespace ClassevivaPCTO.Views
             {
                 bool showInactiveNotices = false;
                 int readUnreadSegmentedIndex = 0;
+                string? selectedCategory = null;
+                int selectedCategoryIndex = -1;
 
                 await CoreApplication.MainView.Dispatcher.RunAsync(
-                    CoreDispatcherPriority.Normal,
-                    async () =>
+                    CoreDispatcherPriority.Normal, () =>
                     {
                         BachecaViewModel.IsLoadingBacheca = true;
-
+                        selectedCategory = (string) CategoryComboBox.SelectionBoxItem;
+                        selectedCategoryIndex = CategoryComboBox.SelectedIndex;
                         readUnreadSegmentedIndex = ReadUnreadSegmented.SelectedIndex;
-
                         if (CheckboxAttive.IsChecked != null) showInactiveNotices = CheckboxAttive.IsChecked.Value;
                     }
                 );
 
-                Card? cardResult = ViewModelHolder.GetViewModel().SingleCardResult;
+                Card? cardResult = AppViewModelHolder.GetViewModel().SingleCardResult;
 
-
-                NoticeboardResult noticeboardResult = await apiWrapper.GetNotices(
+                NoticeboardResult noticeboardResult = await _apiWrapper.GetNotices(
                     cardResult.usrId.ToString()
                 );
 
@@ -90,16 +87,29 @@ namespace ClassevivaPCTO.Views
                     case 2:
                         noticesToShow = noticesToShow.Where(n => n.readStatus).ToList();
                         break;
-
-                    default:
-                        break;
                 }
 
+                var noticeCategories = noticesToShow.Select(n => n.cntCategory).Distinct().Where(c => !string.IsNullOrEmpty(c)).OrderBy(o => o).ToList();
+                noticeCategories.Insert(0, "Tutte le categorie");
+                if (selectedCategoryIndex > 0)
+                    noticesToShow = noticesToShow.Where(n => n.cntCategory == selectedCategory).ToList();
+
                 await CoreApplication.MainView.Dispatcher.RunAsync(
-                    CoreDispatcherPriority.Normal,
-                    async () =>
+                    CoreDispatcherPriority.Normal, () =>
                     {
-                        //set the notices to show
+                        CategoryComboBox.SelectionChanged -= CategoryComboBox_OnSelectionChanged;
+                        BachecaViewModel.Categories = noticeCategories;
+
+                        if (CategoryComboBox.SelectedIndex == -1)
+                            CategoryComboBox.SelectedIndex = 0;
+
+                        CategoryComboBox.SelectionChanged += CategoryComboBox_OnSelectionChanged;
+
+                        if(ReadUnreadSegmented.SelectedIndex > 0 || CategoryComboBox.SelectedIndex > 0)
+                            ClearAllFiltersButton.Visibility = Windows.UI.Xaml.Visibility.Visible;
+                        else
+                            ClearAllFiltersButton.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
+
                         BachecaViewModel.NoticesToShow = noticesToShow;
                     }
                 );
@@ -108,21 +118,45 @@ namespace ClassevivaPCTO.Views
             {
                 {
                     await CoreApplication.MainView.Dispatcher.RunAsync(
-                        CoreDispatcherPriority.Normal,
-                        async () => { BachecaViewModel.IsLoadingBacheca = false; }
+                        CoreDispatcherPriority.Normal, () => { BachecaViewModel.IsLoadingBacheca = false; }
                     );
                 }
             }
         }
 
-        private async void AggiornaCommand_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        private void OnShouldUpdate(object sender, EventArgs args)
+        {
+            AggiornaAction();
+        }
+
+        private void ReadUnreadSegmented_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (!IsLoaded || sender is Segmented {IsLoaded: false})
+                return;
+
+            AggiornaAction();
+        }
+
+        public override async void AggiornaAction()
         {
             await Task.Run(async () => { await LoadData(); });
         }
 
-        private async void ReadUnreadSegmented_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void CategoryComboBox_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            await Task.Run(async () => { await LoadData(); });
+            ComboBox comboBox = (ComboBox) sender;
+            if (comboBox.SelectedIndex == -1)
+                return;
+
+            AggiornaAction();
+        }
+
+        private void ClearAllFiltersButton_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+            ReadUnreadSegmented.SelectedIndex = 0;
+            CategoryComboBox.SelectedIndex = 0;
+            ClearAllFiltersButton.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
+            AggiornaAction();
         }
     }
 }

@@ -2,18 +2,9 @@
 
 namespace ClassevivaPCTO.ViewModels
 {
-    public class AssenzeViewModel : ObservableObject
+    public partial class AssenzeViewModel : ObservableObject
     {
+        [ObservableProperty]
         private bool _isLoadingAssenze = true;
-
-        public bool IsLoadingAssenze
-        {
-            get { return _isLoadingAssenze; }
-            set { SetProperty(ref _isLoadingAssenze, value); }
-        }
-
-        public AssenzeViewModel()
-        {
-        }
     }
 }

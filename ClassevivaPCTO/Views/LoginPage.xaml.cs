@@ -23,11 +23,11 @@ namespace ClassevivaPCTO.Views
 {
     public sealed partial class LoginPage : Page
     {
-        private IClassevivaAPI apiWrapper;
+        private IClassevivaAPI _apiWrapper;
 
         public LoginPage()
         {
-            this.InitializeComponent();
+            InitializeComponent();
 
             // Hide default title bar.
             var coreTitleBar = CoreApplication.GetCurrentView().TitleBar;
@@ -39,12 +39,12 @@ namespace ClassevivaPCTO.Views
             titleBar.ButtonInactiveBackgroundColor = Colors.Transparent;
 
             //titolo title bar
-            AppTitleTextBlock.Text = "Login" + " - " + AppInfo.Current.DisplayInfo.DisplayName;
+            AppTitleTextBlock.Text = "LoginText".GetLocalizedStr() + " - " + AppInfo.Current.DisplayInfo.DisplayName;
 
             Window.Current.SetTitleBar(AppTitleBar);
 
             //display app version
-            var appName = "AppDisplayName".GetLocalized();
+            var appName = "AppDisplayName".GetLocalizedStr();
             var package = Package.Current;
             var packageId = package.Id;
             var version = packageId.Version;
@@ -68,7 +68,19 @@ namespace ClassevivaPCTO.Views
                 Task.Run(async () => { await DoLoginAsync(); });
             }
 
-            loginGrid.KeyDown += Grid_KeyDown;
+            LoginGrid.KeyDown += Grid_KeyDown;
+        }
+
+        private async void ChangelogButton_Click(object sender, RoutedEventArgs e)
+        {
+            var dialog = new WhatsNewDialog();
+            await dialog.ShowAsync();
+        }
+
+        private async void TutorialButton_Click(object sender, RoutedEventArgs e)
+        {
+            var dialog = new FirstRunDialog();
+            await dialog.ShowAsync();
         }
 
         private async void Grid_KeyDown(object sender, KeyRoutedEventArgs args)
@@ -83,6 +95,14 @@ namespace ClassevivaPCTO.Views
             }
         }
 
+        private async void demoAccountClick(object sender, RoutedEventArgs e)
+        {
+            EdittextUsername.Text = "test";
+            EdittextPassword.Password = "test";
+            
+            await Task.Run(async () => { await DoLoginAsync(); });
+        }
+
         private async void Button_Click(object sender, RoutedEventArgs e)
         {
             await Task.Run(async () => { await DoLoginAsync(); });
@@ -95,8 +115,7 @@ namespace ClassevivaPCTO.Views
             bool checkboxCredenzialiChecked = false;
 
             await CoreApplication.MainView.Dispatcher.RunAsync(
-                CoreDispatcherPriority.Normal,
-                async () =>
+                CoreDispatcherPriority.Normal, () =>
                 {
                     buttonLogin.Visibility = Visibility.Collapsed;
                     progresslogin.Visibility = Visibility.Visible;
@@ -124,7 +143,7 @@ namespace ClassevivaPCTO.Views
             App app = (App) App.Current;
             var apiClient = app.Container.GetService<IClassevivaAPI>();
 
-            apiWrapper = PoliciesDispatchProxy<IClassevivaAPI>.CreateProxy(apiClient);
+            _apiWrapper = PoliciesDispatchProxy<IClassevivaAPI>.CreateProxy(apiClient);
 
             try
             {
@@ -135,7 +154,7 @@ namespace ClassevivaPCTO.Views
                     Ident = null
                 };
 
-                var resLogin = await CvUtils.GetApiLoginData(apiWrapper, measurement);
+                var resLogin = await CvUtils.GetApiLoginData(_apiWrapper, measurement);
 
                 if (resLogin is LoginResultComplete loginResult)
                 {
@@ -149,14 +168,14 @@ namespace ClassevivaPCTO.Views
                             async () =>
                             {
                                 ContentDialog dialog = new ContentDialog();
-                                dialog.Title = "AccountNonSupportato".GetLocalized();
-                                dialog.PrimaryButtonText = "OKCapsText".GetLocalized();
+                                dialog.Title = "AccountNonSupportato".GetLocalizedStr();
+                                dialog.PrimaryButtonText = "OKCapsText".GetLocalizedStr();
                                 dialog.DefaultButton = ContentDialogButton.Primary;
-                                dialog.Content = "AccountNonSupportatoBody".GetLocalized();
+                                dialog.Content = "AccountNonSupportatoBody".GetLocalizedStr();
 
                                 try
                                 {
-                                    var result = await dialog.ShowAsync();
+                                    await dialog.ShowAsync();
                                 }
                                 catch (Exception e)
                                 {
@@ -164,10 +183,8 @@ namespace ClassevivaPCTO.Views
                                 }
                             });
 
-
                         return;
                     }
-
 
                     GetUserDataAndGoAhead(loginResult, measurement, checkboxCredenzialiChecked);
                 }
@@ -205,7 +222,7 @@ namespace ClassevivaPCTO.Views
                         Ident = resLoginChoice.ident
                     };
 
-                    var resLoginFinal = await CvUtils.GetApiLoginData(apiWrapper, loginData);
+                    var resLoginFinal = await CvUtils.GetApiLoginData(_apiWrapper, loginData);
 
                     if (resLoginFinal is LoginResultComplete loginResultChoice)
                     {
@@ -226,13 +243,14 @@ namespace ClassevivaPCTO.Views
                     CoreDispatcherPriority.Normal,
                     async () =>
                     {
-                        ContentDialog dialog = new ContentDialog();
-                        dialog.Title = "ErroreText".GetLocalized();
-                        dialog.PrimaryButtonText = "OKCapsText".GetLocalized();
-                        dialog.DefaultButton = ContentDialogButton.Primary;
-                        dialog.Content =
-                            "ErrorDialogBody".GetLocalized()
-                            + ex.Content;
+                        ContentDialog dialog = new()
+                        {
+                            Title = "ErroreText".GetLocalizedStr(),
+                            PrimaryButtonText = "OKCapsText".GetLocalizedStr(),
+                            DefaultButton = ContentDialogButton.Primary,
+                            Content = "ErrorDialogBody".GetLocalizedStr()
+                                      + ex.Content
+                        };
 
                         try
                         {
@@ -248,8 +266,7 @@ namespace ClassevivaPCTO.Views
             finally
             {
                 await CoreApplication.MainView.Dispatcher.RunAsync(
-                    CoreDispatcherPriority.Normal,
-                    async () =>
+                    CoreDispatcherPriority.Normal, () =>
                     {
                         buttonLogin.Visibility = Visibility.Visible;
                         progresslogin.Visibility = Visibility.Collapsed;
@@ -265,17 +282,17 @@ namespace ClassevivaPCTO.Views
             LoginChoice? loginChoice = null
         )
         {
-            ViewModelHolder.GetViewModel().LoginResult = loginResultComplete;
+            AppViewModelHolder.GetViewModel().LoginResult = loginResultComplete;
 
             string fixedId = new CvUtils().GetCode(loginResultComplete.ident);
 
-            CardsResult cardsResult = await apiWrapper.GetCards(fixedId);
+            CardsResult cardsResult = await _apiWrapper.GetCards(fixedId);
 
-            SingleCardResult singleCardResult = await apiWrapper.GetCardSingle(fixedId);
+            SingleCardResult singleCardResult = await _apiWrapper.GetCardSingle(fixedId);
 
 
-            ViewModelHolder.GetViewModel().SingleCardResult = singleCardResult.Card;
-            ViewModelHolder.GetViewModel().CardsResult = cardsResult;
+            AppViewModelHolder.GetViewModel().SingleCardResult = singleCardResult.Card;
+            AppViewModelHolder.GetViewModel().CardsResult = cardsResult;
 
             if (saveCredentials)
             {
@@ -289,8 +306,7 @@ namespace ClassevivaPCTO.Views
             }
 
             await CoreApplication.MainView.Dispatcher.RunAsync(
-                CoreDispatcherPriority.Normal,
-                async () =>
+                CoreDispatcherPriority.Normal, () =>
                 {
                     Frame rootFrame = (Frame) Window.Current.Content;
                     rootFrame.Navigate(
@@ -302,7 +318,6 @@ namespace ClassevivaPCTO.Views
             );
         }
 
-
         private async Task<(ContentDialogResult, ChoiceDialogContent)> ShowChoicesDialog(
             LoginResultChoices loginResultChoices
         )
@@ -310,7 +325,7 @@ namespace ClassevivaPCTO.Views
             ContentDialogResult? result = null;
             ChoiceDialogContent contentDialogContent = null;
 
-            TaskCompletionSource<bool> isSomethingLoading = new TaskCompletionSource<bool>();
+            TaskCompletionSource<bool> isSomethingLoading = new();
 
             //make sure we are executing it on the main thread
             await CoreApplication.MainView.Dispatcher.RunAsync(
@@ -320,9 +335,9 @@ namespace ClassevivaPCTO.Views
                     contentDialogContent = new ChoiceDialogContent(loginResultChoices.choices);
 
                     ContentDialog dialog = new ContentDialog();
-                    dialog.Title = "ChooseProfileDialogTitle".GetLocalized();
-                    dialog.PrimaryButtonText = "LoginDialogButton".GetLocalized();
-                    dialog.CloseButtonText = "CancelDialogButton".GetLocalized();
+                    dialog.Title = "ChooseProfileDialogTitle".GetLocalizedStr();
+                    dialog.PrimaryButtonText = "LoginDialogButton".GetLocalizedStr();
+                    dialog.CloseButtonText = "CancelDialogButton".GetLocalizedStr();
                     dialog.DefaultButton = ContentDialogButton.Primary;
                     dialog.RequestedTheme = ((FrameworkElement) Window.Current.Content).RequestedTheme;
                     dialog.Content = contentDialogContent;

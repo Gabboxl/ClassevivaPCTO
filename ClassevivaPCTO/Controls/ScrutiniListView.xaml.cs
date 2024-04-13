@@ -10,7 +10,7 @@ using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Microsoft.Toolkit.Uwp.UI;
+using CommunityToolkit.WinUI;
 using ScrutinioAdapter = ClassevivaPCTO.Adapters.ScrutinioAdapter;
 
 
@@ -39,8 +39,7 @@ namespace ClassevivaPCTO.Controls
             set { SetField(ref _showEmptyAlert, value); }
         }
 
-
-        private readonly IClassevivaAPI apiWrapper;
+        private readonly IClassevivaAPI _apiWrapper;
 
 
         public ScrutiniDocumentsResult ItemsSource
@@ -53,7 +52,7 @@ namespace ClassevivaPCTO.Controls
             nameof(ItemsSource),
             typeof(ScrutiniDocumentsResult),
             typeof(ScrutiniListView),
-            new PropertyMetadata(null, new PropertyChangedCallback(OnItemsSourceChanged))
+            new PropertyMetadata(null, OnItemsSourceChanged)
         );
 
         private static void OnItemsSourceChanged(
@@ -90,12 +89,12 @@ namespace ClassevivaPCTO.Controls
 
         public ScrutiniListView()
         {
-            this.InitializeComponent();
+            InitializeComponent();
 
             App app = (App) App.Current;
             var apiClient = app.Container.GetService<IClassevivaAPI>();
 
-            apiWrapper = PoliciesDispatchProxy<IClassevivaAPI>.CreateProxy(apiClient);
+            _apiWrapper = PoliciesDispatchProxy<IClassevivaAPI>.CreateProxy(apiClient);
         }
 
         private async void ButtonOpen_Click(object sender, RoutedEventArgs e)
@@ -136,9 +135,10 @@ namespace ClassevivaPCTO.Controls
                 //run on ui thread
                 await Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, async () =>
                 {
-                    var savePicker = new Windows.Storage.Pickers.FileSavePicker();
-                    savePicker.SuggestedStartLocation =
-                        Windows.Storage.Pickers.PickerLocationId.DocumentsLibrary;
+                    var savePicker = new Windows.Storage.Pickers.FileSavePicker
+                    {
+                        SuggestedStartLocation = Windows.Storage.Pickers.PickerLocationId.DocumentsLibrary
+                    };
 
                     savePicker.FileTypeChoices.Add("Allegato", new List<string>() {"."});
                     savePicker.SuggestedFileName = getFileResult.Item2;
@@ -171,12 +171,11 @@ namespace ClassevivaPCTO.Controls
             });
         }
 
-
         private async Task<(byte[], string)> GetScrutinioFileAsBytes(ScrutiniDocument document)
         {
-            Card? cardResult = ViewModelHolder.GetViewModel().SingleCardResult;
+            Card? cardResult = AppViewModelHolder.GetViewModel().SingleCardResult;
 
-            var attachmentBinary = await apiWrapper.GetScrutinioDocumentFile(
+            var attachmentBinary = await _apiWrapper.GetScrutinioDocumentFile(
                 cardResult.usrId.ToString(),
                 document.hash
             );
@@ -203,7 +202,6 @@ namespace ClassevivaPCTO.Controls
             //open link in browser
             Windows.System.Launcher.LaunchUriAsync(new Uri(link));
         }
-
 
         public event PropertyChangedEventHandler PropertyChanged;
 

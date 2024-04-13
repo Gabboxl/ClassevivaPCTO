@@ -1,5 +1,4 @@
 ﻿using ClassevivaPCTO.Utils;
-using Windows.UI;
 using Windows.UI.Xaml.Media;
 using ClassevivaPCTO.Helpers;
 using ClassevivaPCTO.Helpers.Palettes;
@@ -38,13 +37,12 @@ namespace ClassevivaPCTO.Adapters
             {
                 if (CurrentObject.checkStatus.available)
                 {
-                    return " ";
+                    return "";
                 }
 
-                return "StatusText_NotAvailable".GetLocalized();
+                return "ScrutiniNotAvailableStatusText".GetLocalizedStr();
             }
         }
-
 
         public ScrutinioAdapter(ScrutiniDocument ev)
         {

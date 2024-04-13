@@ -15,40 +15,36 @@ namespace ClassevivaPCTO.Dialogs
         Notice CurrentNotice;
         NoticeReadResult CurrentReadResult;
 
-        private readonly IClassevivaAPI apiWrapper;
-
-
-        private string AllegatiText
-        {
-            get
-            {
-                if (CurrentNotice.attachments.Count == 0)
-                {
-                    return "NoticeDialogNessunAllegatiSubtitle".GetLocalized();
-                }
-                else
-                {
-                    return "NoticeDialogAllegatiSubtitle".GetLocalized();
-                }
-            }
-        }
+        private readonly IClassevivaAPI _apiWrapper;
 
         public NoticeDialogContent(Notice notice, NoticeReadResult noticeReadResult)
         {
-            this.InitializeComponent();
+            InitializeComponent();
 
             CurrentNotice = notice;
             CurrentReadResult = noticeReadResult;
 
-            AttachmentsListView.ItemsSource = notice.attachments;
+            if (CurrentNotice.attachments.Count == 0)
+            {
+                TitoloAttachments.Visibility = Visibility.Collapsed;
+                AttachmentSeparator.Visibility = Visibility.Collapsed;
+                NoAttachmentsPlaceholder.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                TitoloAttachments.Visibility = Visibility.Visible;
+                AttachmentSeparator.Visibility = Visibility.Visible;
+                NoAttachmentsPlaceholder.Visibility = Visibility.Collapsed;
+            }
 
+            AttachmentsListView.ItemsSource = notice.attachments;
+            
             App app = (App) App.Current;
             var apiClient = app.Container.GetService<IClassevivaAPI>();
-
-            apiWrapper = PoliciesDispatchProxy<IClassevivaAPI>.CreateProxy(apiClient);
-
-            MaxWidth = 800;
-            MinWidth = 600;
+            _apiWrapper = PoliciesDispatchProxy<IClassevivaAPI>.CreateProxy(apiClient);
+            
+            MinWidth = 500;
+            MaxWidth = 1000;
         }
 
         private async void ButtonOpen_Click(object sender, RoutedEventArgs e)
@@ -59,7 +55,6 @@ namespace ClassevivaPCTO.Dialogs
             await Task.Run(async () =>
             {
                 byte[] bytes = await GetAttachmentAsBytes(currentAttachment);
-
 
                 //run on ui thread
                 await Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, async () =>
@@ -79,7 +74,6 @@ namespace ClassevivaPCTO.Dialogs
         {
             var senderbutton = sender as AppBarButton;
             var currentAttachment = senderbutton.DataContext as NoticeAttachment;
-
 
             await Task.Run(async () =>
             {
@@ -123,12 +117,11 @@ namespace ClassevivaPCTO.Dialogs
             });
         }
 
-
         private async Task<byte[]> GetAttachmentAsBytes(NoticeAttachment attachment)
         {
-            Card? cardResult = ViewModelHolder.GetViewModel().SingleCardResult;
+            Card? cardResult = AppViewModelHolder.GetViewModel().SingleCardResult;
 
-            var attachmentBinary = await apiWrapper.GetNoticeAttachment(
+            var attachmentBinary = await _apiWrapper.GetNoticeAttachment(
                 cardResult.usrId.ToString(),
                 CurrentNotice.pubId.ToString(),
                 CurrentNotice.evtCode,

@@ -12,156 +12,76 @@
     d:DesignWidth="400">
 
     <UserControl.Resources>
-
         <converters:DateTimeToHourConverter x:Key="DateTimeToHourConverter" />
         <converters:DateTimeToNormalDateConverter x:Key="DateTimeToNormalDateConverter" />
         <converters:BetterBoolToVisibilityConverter x:Key="BetterBoolToVisibilityConverter" />
 
+        <DataTemplate x:Key="AgendaEventExtendedListViewDataTemplate" x:DataType="adapters:AgendaEventAdapter">
 
-        <DataTemplate x:Key="AgendaEventListViewDataTemplate"
-
-                      x:DataType="adapters:AgendaEventAdapter">
             <RelativePanel>
 
-                <!-- icon calendar -->
-                <FontIcon x:Name="IconCalendar" FontFamily="{StaticResource FluentIcons}"
-                          Glyph="{x:Bind EventTypeIcon}"
-                          RelativePanel.AlignVerticalCenterWithPanel="True"
+                <FontIcon x:Name="IconCalendar" Margin="4,0,8,0"
+                          FontFamily="{StaticResource FluentIcons}"
                           Foreground="{ThemeResource TextFillColorTertiaryBrush}"
-                          Margin="4,0,8,0" />
+                          Glyph="{x:Bind EventTypeIcon}"
+                          RelativePanel.AlignVerticalCenterWithPanel="True" />
 
-                <TextBlock x:Name="titoloEvento" TextWrapping="Wrap"
+                <TextBlock x:Name="titoloEvento" MaxWidth="500"
+                           Margin="6,12,0,0" IsTextSelectionEnabled="True"
                            RelativePanel.RightOf="IconCalendar"
-                           MaxWidth="500"
-                           IsTextSelectionEnabled="True"
-                           Text="{x:Bind Title}"
                            Style="{ThemeResource BaseTextBlockStyle}"
-                           Margin="6,12,0,0" />
+                           Text="{x:Bind Title}"
+                           TextWrapping="Wrap" />
 
-                <TextBlock RelativePanel.RightOf="dataEnd" RelativePanel.AlignVerticalCenterWith="titoloEvento"
-                           x:Name="dataStart"
+                <TextBlock x:Name="date" Margin="12,6,0,0"
+                           Foreground="Transparent" IsTextSelectionEnabled="True"
+                           RelativePanel.RightOf="titoloEvento"
+                           Style="{ThemeResource BodyTextBlockStyle}"
+                           Text="{x:Bind CurrentObject.evtDatetimeBegin, Converter={StaticResource DateTimeToNormalDateConverter}}" />
 
-                           Text="{x:Bind  CurrentObject.evtDatetimeBegin, Converter={StaticResource DateTimeToHourConverter}}"
+                <TextBlock x:Name="dataStart" Margin="12,12,0,0"
                            FontWeight="Medium"
-                           Style="{ThemeResource BodyTextBlockStyle}"
                            Foreground="{ThemeResource TextFillColorTertiaryBrush}"
-                           Margin="12,12,0,0" />
-                <!-- trattino -->
-                <TextBlock RelativePanel.RightOf="dataStart" RelativePanel.AlignVerticalCenterWith="titoloEvento"
-                           x:Name="placeholderData"
-                           Text="-"
+                           RelativePanel.AlignVerticalCenterWith="titoloEvento" RelativePanel.RightOf="titoloEvento"
+                           Style="{ThemeResource BodyTextBlockStyle}"
+                           Text="{x:Bind CurrentObject.evtDatetimeBegin, Converter={StaticResource DateTimeToHourConverter}}" />
+
+                <TextBlock x:Name="placeholderData" Margin="6,12,6,0"
                            FontWeight="Medium"
-                           Style="{ThemeResource BodyTextBlockStyle}"
                            Foreground="{ThemeResource TextFillColorTertiaryBrush}"
-                           Margin="6,12,6,0" />
+                           RelativePanel.AlignVerticalCenterWith="titoloEvento" RelativePanel.RightOf="dataStart"
+                           Style="{ThemeResource BodyTextBlockStyle}"
+                           Text="-" />
 
-
-                <TextBlock RelativePanel.RightOf="placeholderData" RelativePanel.AlignVerticalCenterWith="titoloEvento"
-                           x:Name="dataEnd"
-                           Text="{x:Bind  CurrentObject.evtDatetimeEnd, Converter={StaticResource DateTimeToHourConverter}}"
+                <TextBlock x:Name="dataEnd" Margin="0,12,0,0"
                            FontWeight="Medium"
-                           Style="{ThemeResource BodyTextBlockStyle}"
                            Foreground="{ThemeResource TextFillColorTertiaryBrush}"
-                           Margin="0,12,0,0" />
-
-                <TextBlock RelativePanel.Below="titoloEvento" x:Name="descriptionEvent"
-                           RelativePanel.RightOf="IconCalendar"
-                           TextWrapping="Wrap"
-                           Text="{x:Bind  CurrentObject.notes}"
+                           RelativePanel.AlignVerticalCenterWith="titoloEvento" RelativePanel.RightOf="placeholderData"
                            Style="{ThemeResource BodyTextBlockStyle}"
-                           Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                           Text="{x:Bind CurrentObject.evtDatetimeEnd, Converter={StaticResource DateTimeToHourConverter}}" />
+
+                <TextBlock x:Name="descriptionEvent" Margin="6,4,0,12"
                            FontWeight="SemiBold"
-                           IsTextSelectionEnabled="True"
-                           Margin="6,4,0,12" />
-
+                           Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                           IsTextSelectionEnabled="True" RelativePanel.Below="titoloEvento"
+                           RelativePanel.RightOf="IconCalendar"
+                           Style="{ThemeResource BodyTextBlockStyle}"
+                           Text="{x:Bind CurrentObject.notes}"
+                           TextWrapping="Wrap" />
 
             </RelativePanel>
         </DataTemplate>
-
-
-        <DataTemplate x:Key="AgendaEventExpressiveListViewDataTemplate"
-
-                      x:DataType="adapters:AgendaEventAdapter">
-            <RelativePanel>
-
-                <!-- icon calendar -->
-                <FontIcon x:Name="IconCalendar" FontFamily="{StaticResource FluentIcons}"
-                          Glyph="{x:Bind EventTypeIcon}"
-                          RelativePanel.AlignVerticalCenterWithPanel="True"
-                          Foreground="{ThemeResource TextFillColorTertiaryBrush}"
-                          Margin="4,0,8,0" />
-
-
-                <TextBlock x:Name="titoloEvento" TextWrapping="Wrap"
-                           RelativePanel.RightOf="IconCalendar"
-                           MaxWidth="500"
-                           IsTextSelectionEnabled="True"
-                           Text="{x:Bind Title}"
-                           Style="{ThemeResource BaseTextBlockStyle}"
-                           Margin="6,12,0,0" />
-
-                <!-- date of the lesson -->
-                <TextBlock RelativePanel.RightOf="titoloEvento" x:Name="date"
-                           Text="{x:Bind CurrentObject.evtDatetimeBegin, Converter={StaticResource DateTimeToNormalDateConverter}}"
-                           Style="{ThemeResource BodyTextBlockStyle}"
-                           Foreground="Transparent"
-                           IsTextSelectionEnabled="True"
-                           Margin="12,6,0,0" />
-
-                <TextBlock RelativePanel.RightOf="titoloEvento" RelativePanel.AlignVerticalCenterWith="titoloEvento"
-                           x:Name="dataStart"
-
-                           Text="{x:Bind  CurrentObject.evtDatetimeBegin, Converter={StaticResource DateTimeToHourConverter}}"
-                           FontWeight="Medium"
-                           Style="{ThemeResource BodyTextBlockStyle}"
-                           Foreground="{ThemeResource TextFillColorTertiaryBrush}"
-                           Margin="12,12,0,0" />
-
-                <!-- trattino -->
-                <TextBlock RelativePanel.RightOf="dataStart" RelativePanel.AlignVerticalCenterWith="titoloEvento"
-                           x:Name="placeholderData"
-                           Text="-"
-                           FontWeight="Medium"
-                           Style="{ThemeResource BodyTextBlockStyle}"
-                           Foreground="{ThemeResource TextFillColorTertiaryBrush}"
-                           Margin="6,12,6,0" />
-
-                <TextBlock RelativePanel.RightOf="placeholderData" RelativePanel.AlignVerticalCenterWith="titoloEvento"
-                           x:Name="dataEnd"
-                           Text="{x:Bind  CurrentObject.evtDatetimeEnd, Converter={StaticResource DateTimeToHourConverter}}"
-                           FontWeight="Medium"
-                           Style="{ThemeResource BodyTextBlockStyle}"
-                           Foreground="{ThemeResource TextFillColorTertiaryBrush}"
-                           Margin="0,12,0,0" />
-
-                <TextBlock RelativePanel.Below="titoloEvento" x:Name="descriptionEvent"
-                           RelativePanel.RightOf="IconCalendar"
-                           TextWrapping="Wrap"
-                           Text="{x:Bind  CurrentObject.notes}"
-                           Style="{ThemeResource BodyTextBlockStyle}"
-                           Foreground="{ThemeResource TextFillColorSecondaryBrush}"
-                           FontWeight="SemiBold"
-                           IsTextSelectionEnabled="True"
-                           Margin="6,4,0,12" />
-
-
-            </RelativePanel>
-        </DataTemplate>
-
     </UserControl.Resources>
 
+    <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
 
-    <Grid
-        HorizontalAlignment="Stretch"
-        VerticalAlignment="Stretch">
         <Grid.RowDefinitions>
-            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
-        <ListView x:Name="listView"
-                  HorizontalAlignment="Stretch"
+        <ListView x:Name="MainListView" HorizontalAlignment="Stretch"
                   HorizontalContentAlignment="Stretch"
-                  ItemTemplate="{StaticResource AgendaEventExpressiveListViewDataTemplate}">
+                  ItemTemplate="{StaticResource AgendaEventExtendedListViewDataTemplate}">
 
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
@@ -174,7 +94,6 @@
                     <GroupStyle.HeaderTemplate>
                         <DataTemplate x:DataType="local:GroupInfoList">
                             <Border AutomationProperties.Name="{x:Bind Key}">
-
                                 <TextBlock Text="{x:Bind Key}" />
                             </Border>
                         </DataTemplate>
@@ -183,25 +102,23 @@
             </ListView.GroupStyle>
         </ListView>
 
-        <RelativePanel
-            VerticalAlignment="Center"
-            HorizontalAlignment="Center"
-            Grid.Row="0"
-            Visibility="{x:Bind ShowEmptyAlert, Mode=OneWay, Converter={StaticResource BetterBoolToVisibilityConverter}, ConverterParameter=True}">
-            <FontIcon x:Name="CompitiPlaceholderIcon" FontFamily="{StaticResource FluentIcons}" Glyph="&#xEA98;"
+        <RelativePanel Grid.Row="0" HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       Visibility="{x:Bind ShowEmptyAlert, Mode=OneWay, Converter={StaticResource BetterBoolToVisibilityConverter}, ConverterParameter=True}">
+
+            <FontIcon x:Name="CompitiPlaceholderIcon" Margin="0,0,0,0"
+                      FontFamily="{StaticResource FluentIcons}"
+                      FontSize="112"
                       Foreground="{ThemeResource TextFillColorDisabledBrush}"
-                      RelativePanel.AlignHorizontalCenterWithPanel="True"
-                      FontSize="124"
-                      Margin="0,0,0,0" />
+                      Glyph="&#xEA98;" RelativePanel.AlignHorizontalCenterWithPanel="True" />
 
-            <TextBlock RelativePanel.Below="CompitiPlaceholderIcon"
-                       RelativePanel.AlignHorizontalCenterWithPanel="True"
+            <TextBlock Text="{CustomResource AgendaTasksPlaceholder}" Margin="0,0,0,0"
+                       HorizontalAlignment="Center" VerticalAlignment="Center"
+                       FontSize="36" FontWeight="SemiBold"
                        Foreground="{ThemeResource TextFillColorDisabledBrush}"
-                       Margin="0,0,0,0"
-                       FontWeight="SemiBold"
-                       x:Uid="NoTasks" FontSize="36" VerticalAlignment="Center"
-                       HorizontalAlignment="Center" />
-        </RelativePanel>
+                       RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.Below="CompitiPlaceholderIcon"
+                       TextWrapping="WrapWholeWords" />
 
+        </RelativePanel>
     </Grid>
 </UserControl>

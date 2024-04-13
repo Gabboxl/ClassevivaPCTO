@@ -43,7 +43,7 @@ namespace ClassevivaPCTO.Utils
         }
 
 
-        public static float CalcolaMedia(List<Grade> voti)
+        public static float CalcolaMedia(List<Grade> voti) //media ponderata
         {
             if (voti.Count == 0)
             {
@@ -51,21 +51,21 @@ namespace ClassevivaPCTO.Utils
             }
 
             float somma = 0;
-            float numVoti = 0;
+            float sommaPesi = 0;
 
             foreach (Grade voto in voti)
             {
-                float? valoreDaSommare = VariousUtils.GradeToFloat(voto);
+                float? valoreDaSommare = GradeToFloat(voto);
 
-                if (valoreDaSommare != null)
+                if (valoreDaSommare != null && voto.evtCode is GradeEventCode.GRV0 or GradeEventCode.GRV1 or GradeEventCode.GRV2)
                 {
-                    somma += (float) valoreDaSommare;
+                    somma += (float) valoreDaSommare * (float) voto.weightFactor!;
 
-                    numVoti++;
+                    sommaPesi += (float) voto.weightFactor;
                 }
             }
 
-            return somma / numVoti;
+            return somma / sommaPesi;
         }
 
         public static string ToTitleCase(string s)
@@ -86,7 +86,6 @@ namespace ClassevivaPCTO.Utils
             return char.ToUpper(s[0]) + s.Substring(1);
         }
 
-
         public static string ToApiDateTime(DateTime dateTime)
         {
             return dateTime.ToString("yyyyMMdd");
@@ -103,7 +102,6 @@ namespace ClassevivaPCTO.Utils
                 1
             );
 
-
             //var EndDate is max +366 days from the start date (this is an api limitation)
             DateTime endDate = startDate.AddDays(366);
 
@@ -119,7 +117,6 @@ namespace ClassevivaPCTO.Utils
                 9,
                 1
             );
-
 
             //var EndDate of next year + june 30th
             DateTime endDate = new DateTime(
@@ -173,7 +170,6 @@ namespace ClassevivaPCTO.Utils
             {
                 valoreFinale = (float) value;
             }
-
 
             return valoreFinale;
         }

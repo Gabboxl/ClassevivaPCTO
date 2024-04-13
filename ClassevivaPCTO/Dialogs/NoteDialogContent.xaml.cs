@@ -9,12 +9,11 @@ namespace ClassevivaPCTO.Dialogs
         Note CurrentNote;
         ReadNoteResult CurrentReadResult;
 
-        private readonly IClassevivaAPI apiWrapper;
-
+        private readonly IClassevivaAPI _apiWrapper;
 
         public NoteDialogContent(Note note, ReadNoteResult readNoteResult)
         {
-            this.InitializeComponent();
+            InitializeComponent();
 
             CurrentNote = note;
             CurrentReadResult = readNoteResult;
@@ -22,7 +21,7 @@ namespace ClassevivaPCTO.Dialogs
             App app = (App) App.Current;
             var apiClient = app.Container.GetService<IClassevivaAPI>();
 
-            apiWrapper = PoliciesDispatchProxy<IClassevivaAPI>.CreateProxy(apiClient);
+            _apiWrapper = PoliciesDispatchProxy<IClassevivaAPI>.CreateProxy(apiClient);
 
             MaxWidth = 600;
         }

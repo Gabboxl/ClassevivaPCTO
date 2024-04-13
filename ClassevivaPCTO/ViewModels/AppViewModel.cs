@@ -1,4 +1,5 @@
-﻿using ClassevivaPCTO.Utils;
+﻿using System;
+using ClassevivaPCTO.Utils;
 using CommunityToolkit.Mvvm.ComponentModel;
 
 namespace ClassevivaPCTO.ViewModels
@@ -28,5 +29,12 @@ namespace ClassevivaPCTO.ViewModels
             get => _cardsResult;
             set => SetProperty(ref _cardsResult, value);
         }
+
+        //public Action? UpdateUiAction;
+
+        //public void UpdateUi()
+        //{
+        //    UpdateUiAction?.Invoke();
+        //}
     }
 }

@@ -8,23 +8,24 @@ using Windows.UI.Core;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
 using System.Collections.Generic;
+using ClassevivaPCTO.Controls;
 
 namespace ClassevivaPCTO.Views
 {
-    public sealed partial class NotePage : Page
+    public sealed partial class NotePage : CustomAppPage
     {
         private NoteViewModel NoteViewModel { get; } = new();
 
-        private readonly IClassevivaAPI apiWrapper;
+        private readonly IClassevivaAPI _apiWrapper;
 
         public NotePage()
         {
-            this.InitializeComponent();
+            InitializeComponent();
 
             App app = (App) App.Current;
             var apiClient = app.Container.GetService<IClassevivaAPI>();
 
-            apiWrapper = PoliciesDispatchProxy<IClassevivaAPI>.CreateProxy(apiClient);
+            _apiWrapper = PoliciesDispatchProxy<IClassevivaAPI>.CreateProxy(apiClient);
         }
 
         protected override async void OnNavigatedTo(NavigationEventArgs e)
@@ -39,34 +40,31 @@ namespace ClassevivaPCTO.Views
             try
             {
                 await CoreApplication.MainView.Dispatcher.RunAsync(
-                    CoreDispatcherPriority.Normal,
-                    async () => { NoteViewModel.IsLoadingNote = true; }
+                    CoreDispatcherPriority.Normal, () => { NoteViewModel.IsLoadingNote = true; }
                 );
 
-                Card? cardResult = ViewModelHolder.GetViewModel().SingleCardResult;
+                Card? cardResult = AppViewModelHolder.GetViewModel().SingleCardResult;
 
 
-                List<Utils.Note> notesResult = await apiWrapper.GetAllNotes(
+                List<Note> notesResult = await _apiWrapper.GetAllNotes(
                     cardResult.usrId.ToString()
                 );
 
 
                 //update UI on UI thread
                 await CoreApplication.MainView.Dispatcher.RunAsync(
-                    CoreDispatcherPriority.Normal,
-                    async () => { NotesListView.ItemsSource = notesResult; }
+                    CoreDispatcherPriority.Normal, () => { NotesListView.ItemsSource = notesResult; }
                 );
             }
             finally
             {
                 await CoreApplication.MainView.Dispatcher.RunAsync(
-                    CoreDispatcherPriority.Normal,
-                    async () => { NoteViewModel.IsLoadingNote = false; }
+                    CoreDispatcherPriority.Normal, () => { NoteViewModel.IsLoadingNote = false; }
                 );
             }
         }
 
-        private async void AggiornaCommand_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        public override async void AggiornaAction()
         {
             await Task.Run(async () => { await LoadData(); });
         }

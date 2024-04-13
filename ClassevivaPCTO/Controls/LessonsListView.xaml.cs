@@ -25,7 +25,6 @@ namespace ClassevivaPCTO.Controls
                 typeof(LessonsListView),
                 new PropertyMetadata(false, null));
 
-
         private bool _showEmptyAlert;
 
         public bool ShowEmptyAlert
@@ -47,7 +46,6 @@ namespace ClassevivaPCTO.Controls
                 typeof(LessonsListView),
                 new PropertyMetadata(false, null));
 
-
         public List<Lesson> ItemsSource
         {
             get { return (List<Lesson>) GetValue(ItemsSourceProperty); }
@@ -59,7 +57,7 @@ namespace ClassevivaPCTO.Controls
                 nameof(ItemsSource),
                 typeof(List<Lesson>),
                 typeof(LessonsListView),
-                new PropertyMetadata(null, new PropertyChangedCallback(OnItemsSourceChanged)));
+                new PropertyMetadata(null, OnItemsSourceChanged));
 
         private static void OnItemsSourceChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
@@ -74,22 +72,20 @@ namespace ClassevivaPCTO.Controls
                 //order lessons by first by date and then by evtHPos desc (so that the first lesson of the day is on top)
                 orderedlessons = newValue?.OrderByDescending(x => x.evtDate).ThenByDescending(x => x.evtHPos).ToList();
 
-
                 //set the listview dattemplate to 
-                currentInstance.listView.ItemTemplate =
-                    currentInstance.Resources["LessonListViewExpressiveDataTemplate"] as DataTemplate;
+                currentInstance.MainListView.ItemTemplate =
+                    currentInstance.Resources["LessonListViewExtendedDataTemplate"] as DataTemplate;
             }
             else
             {
                 orderedlessons = newValue?.OrderBy(x => x.evtHPos).ToList();
 
-                currentInstance.listView.ItemTemplate =
+                currentInstance.MainListView.ItemTemplate =
                     currentInstance.Resources["LessonListViewDataTemplate"] as DataTemplate;
             }
 
             //copy the list so that we can remove duplicates without affecting the original list
             var copiedOrderedLessons = orderedlessons.GetClone();
-
 
             //remove duplicates based on lessonArg and authorname and same day and increment evtDuration if it is a duplicate
             foreach (var lesson in copiedOrderedLessons.ToList())
@@ -109,25 +105,21 @@ namespace ClassevivaPCTO.Controls
                 }
             }
 
-
             //orderedlessons = orderedlessons.GroupBy(x => x.lessonArg).Select(x => x.First()).ToList();
-
 
             var eventAdapters = copiedOrderedLessons.Select(evt => new LessonAdapter(evt)).ToList();
 
-            currentInstance.listView.ItemsSource = eventAdapters;
+            currentInstance.MainListView.ItemsSource = eventAdapters;
 
 
             currentInstance.ShowEmptyAlert =
                 (newValue == null || newValue.Count == 0) && currentInstance.EnableEmptyAlert;
         }
 
-
         public LessonsListView()
         {
-            this.InitializeComponent();
+            InitializeComponent();
         }
-
 
         public event PropertyChangedEventHandler PropertyChanged;
 

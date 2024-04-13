@@ -1,5 +1,4 @@
 ﻿using ClassevivaPCTO.Helpers.Palettes;
-using ClassevivaPCTO.Utils;
 
 namespace ClassevivaPCTO.Adapters
 {
