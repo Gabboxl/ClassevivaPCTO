@@ -768,6 +768,6 @@ Gli account studente hanno l'username che inizia con le lettere S, G o X.</value
     <value>L'app non è stata ancora tradotta nella lingua che hai scelto.</value>
   </data>
   <data name="AbsenceEventOnDayPreposition" xml:space="preserve">
-    <value> del </value>  
+    <value> del </value>
   </data>
 </root>
