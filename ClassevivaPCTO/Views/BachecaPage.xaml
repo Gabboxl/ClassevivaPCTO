@@ -31,24 +31,15 @@
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
 
-        <StackPanel Grid.Row="0"
-                    Margin="0,16,0,0"
-                    Orientation="Horizontal">
+        <StackPanel Grid.Row="0" 
+                    Margin="32,16,0,0"
+                    Orientation="Horizontal"
+                    Spacing="16">
 
-            <TextBlock x:Name="TextTitolo"
-                       Grid.Row="0"
-                       Margin="32,0,0,0"
-                       VerticalAlignment="Center"
-                       Style="{StaticResource TitleLargeTextBlockStyle}"
-                       Text="{CustomResource NoticeBoardTitle}" />
+            <TextBlock Text="{CustomResource NoticeBoardTitle}" Style="{StaticResource PageTitleTextStyle}" />
 
-            <muxc:ProgressRing x:Name="ProgressRingBacheca"
-                               Width="28"
-                               Height="28"
-                               Margin="16,0,0,0"
-                               VerticalAlignment="Center"
-                               IsActive="True"
-                               Visibility="{x:Bind BachecaViewModel.IsLoadingBacheca, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" />
+            <muxc:ProgressRing Style="{StaticResource PageProgressRingStyle}" Visibility="{x:Bind BachecaViewModel.IsLoadingBacheca, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" />
+            
         </StackPanel>
 
         <StackPanel Grid.Row="0"

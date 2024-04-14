@@ -45,12 +45,10 @@
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
 
-            <TextBlock x:Name="TextTitolo"
+            <TextBlock Text="{CustomResource SettingsTitle}"
                        Grid.Row="0"
                        Margin="32,16,0,0"
-                       VerticalAlignment="Top"
-                       Style="{StaticResource TitleLargeTextBlockStyle}"
-                       Text="{CustomResource SettingsTitle}" />
+                       Style="{StaticResource PageTitleTextStyle}" />
 
             <StackPanel Grid.Row="1"
                         MaxWidth="1000"
