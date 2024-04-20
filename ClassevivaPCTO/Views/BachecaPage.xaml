@@ -148,7 +148,7 @@
                        Visibility="{x:Bind BachecaViewModel.NoticesToShow, Mode=OneWay, FallbackValue=Collapsed, Converter={StaticResource EmptyListToVisibilityConverter}}" />
 
             <HyperlinkButton x:Name="ClearAllFiltersButton"
-                             Margin="0,-6,6,0"
+                             Margin="0,-6,4,0"
                              Click="ClearAllFiltersButton_Click"
                              RelativePanel.AlignRightWithPanel="True"
                              Visibility="Collapsed">
