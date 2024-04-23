@@ -100,8 +100,8 @@ namespace ClassevivaPCTO.Views
                         CategoryComboBox.SelectionChanged -= CategoryComboBox_OnSelectionChanged;
                         BachecaViewModel.Categories = noticeCategories;
 
-                        if (CategoryComboBox.SelectedIndex == -1)
-                             CategoryComboBox.SelectedIndex = 0;
+                        if(CategoryComboBox.SelectedIndex == -1)
+                            CategoryComboBox.SelectedIndex = 0;
 
                         CategoryComboBox.SelectionChanged += CategoryComboBox_OnSelectionChanged;
 

@@ -15,8 +15,6 @@
 
     <Page.Resources>
 
-        <x:Double x:Key="SettingsCardSpacing">4</x:Double>
-
         <Style x:Key="SettingsSectionHeaderTextBlockStyle"
                BasedOn="{StaticResource BodyStrongTextBlockStyle}"
                TargetType="TextBlock">
@@ -56,7 +54,7 @@
                         MaxWidth="1000"
                         Margin="24,0,24,0"
                         HorizontalAlignment="Stretch"
-                        Spacing="{StaticResource SettingsCardSpacing}">
+                        Spacing="4">
 
                 <StackPanel.ChildrenTransitions>
                     <TransitionCollection>
@@ -198,7 +196,7 @@
                     </controls1:SettingsCard.HeaderIcon>
 
                     <ComboBox x:Name="PaletteComboBox" 
-                              MinWidth="200"
+                              MinWidth="240"
                               ItemsSource="{x:Bind _settingsViewModel.ComboPalettes}"
                               SelectedIndex="{x:Bind _settingsViewModel.PaletteType.GetHashCode()}"
                               SelectionChanged="PaletteComboBox_OnSelectionChanged">
