@@ -202,11 +202,6 @@
                                 HorizontalAlignment="Right"
                                 Orientation="Horizontal">
 
-                        <StackPanel Orientation="Horizontal" Spacing="6" Margin="0,0,0,0">
-                            <FontIcon Glyph="&#xE787;" Foreground="{ThemeResource TextFillColorTertiaryBrush}" FontSize="16" />
-                            <TextBlock Text="Calendario:" Foreground="{ThemeResource TextFillColorTertiaryBrush}" Margin="0,14,0,0" />
-                        </StackPanel>
-
                         <Button x:Name="ButtonYesterday"
                                 Width="44"
                                 Height="32"
