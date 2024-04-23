@@ -57,13 +57,9 @@
                     Orientation="Horizontal">
 
             <ComboBox x:Name="CategoryComboBox"
-                      MinWidth="200"
+                      MinWidth="170"
                       VerticalAlignment="Center"
-                      HorizontalContentAlignment="Stretch"
                       controls:KeepOldItemsSourceDecorator.ItemsSource="{x:Bind BachecaViewModel.Categories, Mode=OneWay}"
-                      IsEditable="False"
-                      IsTextSearchEnabled="False"
-                      LightDismissOverlayMode="Off"
                       PlaceholderText="{CustomResource NoticeBoardCategoryComboboxPlaceholderText}"
                       SelectionChanged="CategoryComboBox_OnSelectionChanged" />
 
@@ -75,7 +71,6 @@
             <controls1:Segmented x:Name="ReadUnreadSegmented"
                                  MinWidth="310"
                                  Margin="0,0,0,0"
-                                 HorizontalAlignment="Stretch"
                                  SelectedIndex="0"
                                  SelectionChanged="ReadUnreadSegmented_OnSelectionChanged">
 

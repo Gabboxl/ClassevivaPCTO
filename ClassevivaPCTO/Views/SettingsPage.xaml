@@ -14,9 +14,6 @@
     mc:Ignorable="d">
 
     <Page.Resources>
-
-        <x:Double x:Key="SettingsCardSpacing">4</x:Double>
-
         <Style x:Key="SettingsSectionHeaderTextBlockStyle"
                BasedOn="{StaticResource BodyStrongTextBlockStyle}"
                TargetType="TextBlock">
@@ -56,7 +53,7 @@
                         MaxWidth="1000"
                         Margin="24,0,24,0"
                         HorizontalAlignment="Stretch"
-                        Spacing="{StaticResource SettingsCardSpacing}">
+                        Spacing="4">
 
                 <StackPanel.ChildrenTransitions>
                     <TransitionCollection>
@@ -89,14 +86,11 @@
                                                 Width="128"
                                                 Height="128"
                                                 Margin="16,0,28,0"
-                                                DisplayName="{Binding FirstName}"
-                                                RelativePanel.AlignLeftWithPanel="True"
-                                                RelativePanel.AlignVerticalCenterWithPanel="True" />
+                                                DisplayName="{Binding FirstName}" />
 
                         <RelativePanel Grid.Column="1" VerticalAlignment="Center">
 
                             <TextBlock x:Name="NomeCognome"
-                                       Margin="0,0,0,0"
                                        FontSize="32"
                                        FontWeight="SemiBold"
                                        RelativePanel.AlignTopWithPanel="True"
@@ -198,7 +192,7 @@
                     </controls1:SettingsCard.HeaderIcon>
 
                     <ComboBox x:Name="PaletteComboBox" 
-                              MinWidth="200"
+                              MinWidth="220"
                               ItemsSource="{x:Bind _settingsViewModel.ComboPalettes}"
                               SelectedIndex="{x:Bind _settingsViewModel.PaletteType.GetHashCode()}"
                               SelectionChanged="PaletteComboBox_OnSelectionChanged">
@@ -380,19 +374,21 @@
                 <controls1:SettingsExpander Description="{CustomResource SettingsAboutExpanderDescription}"
                                             Header="{x:Bind views:SettingsPage.AppName}"
                                             IsExpanded="True">
+                    
                     <controls1:SettingsExpander.HeaderIcon>
                         <BitmapIcon ShowAsMonochrome="False" UriSource="ms-appx:///Assets/StoreLogo.png" />
                     </controls1:SettingsExpander.HeaderIcon>
+                    
                     <TextBlock Foreground="{ThemeResource TextFillColorSecondaryBrush}"
                                IsTextSelectionEnabled="True"
                                Style="{StaticResource BodyTextBlockStyle}">
                         <Run Text="{CustomResource SettingsAboutExpanderVersion}" /><Run Text="{x:Bind _settingsViewModel.Version}" />
                     </TextBlock>
+                    
                     <controls1:SettingsExpander.Items>
                         <controls1:SettingsCard HorizontalContentAlignment="Left" ContentAlignment="Left">
 
-                            <StackPanel Margin="-12,0,0,0"
-                                        Orientation="Horizontal"
+                            <StackPanel Orientation="Horizontal"
                                         Spacing="8">
 
                                 <HyperlinkButton NavigateUri="http://github.com/Gabboxl/ClassevivaPCTO">
@@ -405,7 +401,6 @@
                                 </HyperlinkButton>
 
                                 <HyperlinkButton x:Name="hyperlinkVote" Click="HyperlinkVote_Click">
-
                                     <StackPanel Orientation="Horizontal" Spacing="10">
                                         <Grid Width="18" Height="18">
                                             <Path Data="{CustomResource RateIcon}" Style="{StaticResource HyperlinkIconStyle}" />
@@ -416,7 +411,6 @@
 
                                 <HyperlinkButton x:Name="hyperlinkTranslate"
                                                  NavigateUri="https://crowdin.com/project/classevivapcto/invite?h=2b7340ff29ea44873bdef53dc5f7b6871790557">
-
                                     <StackPanel Orientation="Horizontal" Spacing="10">
                                         <Grid Width="18" Height="18">
                                             <Path Data="{CustomResource TranslateIcon}" Style="{StaticResource HyperlinkIconStyle}" />
@@ -427,7 +421,6 @@
 
                                 <HyperlinkButton x:Name="hyperlinkIssue"
                                                  NavigateUri="http://github.com/Gabboxl/ClassevivaPCTO/issues">
-
                                     <StackPanel Orientation="Horizontal" Spacing="10">
                                         <Grid Width="18" Height="18">
                                             <Path Data="{CustomResource IssueIcon}" Style="{StaticResource HyperlinkIconStyle}" />

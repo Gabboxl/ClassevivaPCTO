@@ -439,7 +439,6 @@
             <controls:Segmented x:Name="SegmentedPeriodi"
                                 Margin="4,16,4,0"
                                 HorizontalAlignment="Stretch"
-                                IsEnabled="False"
                                 RelativePanel.Below="GridMedie"
                                 SelectionChanged="SegmentedPeriodi_OnSelectionChanged"
                                 Visibility="{x:Bind ValutazioniViewModel.ShowShimmers, Mode=OneWay, Converter={StaticResource BetterBoolToVisibilityConverter}, ConverterParameter=False}">
