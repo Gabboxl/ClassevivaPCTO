@@ -502,7 +502,7 @@ Error: </value>
     <value>Flora</value>
   </data>
   <data name="PALETTE_RET" xml:space="preserve">
-    <value>Retrò</value>
+    <value>Retro</value>
   </data>
   <data name="AgendaLessonsPlaceholder" xml:space="preserve">
     <value>No lessons</value>
@@ -583,10 +583,10 @@ Error: </value>
     <value>Early release</value>
   </data>
   <data name="DialogUntranslatedLanguageStatus1" xml:space="preserve">
-    <value>L'app non è stata tradotta completamente nella lingua che hai scelto. Alcune parti dell'app continueranno ad essere mostrate in italiano.</value>
+    <value>The app hasn't been fully translated in the language you chose. Some sections of the app will be shown in Italian.</value>
   </data>
   <data name="DialogUntranslatedLanguageStatus2" xml:space="preserve">
-    <value>Stato di traduzione: </value>
+    <value>Translation status: </value>
   </data>
   <data name="DialogUntranslatedLanguageBody1" xml:space="preserve">
     <value>Are you sure you really want to change the app language?</value>
@@ -646,10 +646,10 @@ Error: </value>
     <value>View ballot</value>
   </data>
   <data name="ScrutiniOpenReportButtonToolTip" xml:space="preserve">
-    <value>Apri report</value>
+    <value>Open report</value>
   </data>
   <data name="ScrutiniSaveFileButtonToolTip" xml:space="preserve">
-    <value>Salva questo file dello scrutinio sul PC</value>
+    <value>Save ballot file on your PC</value>
   </data>
   <data name="NoticeBoardNotAvailableButton" xml:space="preserve">
     <value>Not available</value>
@@ -661,7 +661,7 @@ Error: </value>
     <value>Translate on Crowdin</value>
   </data>
   <data name="DialogUntranslatedLanguageBody2" xml:space="preserve">
-    <value>Se desideri puoi tradurre tu stesso l'app tramite Crowdin.</value>
+    <value>If you want you can translate the app yourself via Crowdin.</value>
   </data>
   <data name="RestartLater" xml:space="preserve">
     <value>Restart Later</value>
@@ -694,48 +694,63 @@ Error: </value>
     <value>Show also deleted documents</value>
   </data>
   <data name="NoticeBoardCategoryComboboxPlaceholderText" xml:space="preserve">
-    <value>Filter by category...</value>
+    <value>Filtra per categoria</value>
   </data>
   <data name="PALETTE_PAS" xml:space="preserve">
-    <value>Pastello</value>
+    <value>Pastel</value>
   </data>
   <data name="PALETTE_VIN" xml:space="preserve">
     <value>Vintage</value>
   </data>
   <data name="SettingsCardWidgetsDescription" xml:space="preserve">
-    <value>Imposta il numero di elementi recendi da visualizzare nei widget della dasboard</value>
+    <value>Set the number of recent events to show in dashboard widgets</value>
   </data>
   <data name="SettingsCardWidgetsHeader" xml:space="preserve">
-    <value>Numero di elementi nei widget</value>
+    <value>Number of events to show in widgets</value>
   </data>
   <data name="SettingsCardWidgetsSubCardGrades" xml:space="preserve">
-    <value>Numero di valutazioni recenti da visualizzare</value>
+    <value>Set the number of recent grades to show</value>
   </data>
   <data name="SettingsCardWidgetsSubCardNotices" xml:space="preserve">
-    <value>Numero di comunicazioni recenti da visualizzare</value>
+    <value>Set the number of recent notices to show</value>
   </data>
   <data name="SettingsPageOptionsHeader" xml:space="preserve">
-    <value>Opzioni pagine</value>
+    <value>Page options</value>
   </data>
   <data name="GenericCloseButton" xml:space="preserve">
-    <value>Chiudi</value>
+    <value>Close</value>
   </data>
   <data name="GradesListLayoutToolTip" xml:space="preserve">
-    <value>Visualizza i voti come lista</value>
+    <value>View grades as a list</value>
   </data>
   <data name="GradesSubjectsLayoutToolTip" xml:space="preserve">
-    <value>Visualizza i voti raggruppati in base alla materia</value>
+    <value>Group grades by the subjects</value>
   </data>
   <data name="NoticeDialogOpenButtonToolTip" xml:space="preserve">
-    <value>Apri file allegato</value>
+    <value>Open attachment</value>
   </data>
   <data name="NoticeDialogSaveButtonToolTip" xml:space="preserve">
-    <value>Salva questo file allegato sul tuo PC</value>
+    <value>Save this attachment on your PC</value>
   </data>
   <data name="SettingsPaletteColorYellowToolTip" xml:space="preserve">
-    <value>Uscite anticipate, avvisi</value>
+    <value>Early releases, warnings</value>
   </data>
   <data name="NoticeBoardClearAllFiltersText" xml:space="preserve">
-    <value>Resetta tutti i filtri</value>
+    <value>Clear all filters</value>
+  </data>
+  <data name="Grades1Quadrimestre" xml:space="preserve">
+    <value>1° Quadrimestre</value>
+  </data>
+  <data name="Grades2Quadrimestre" xml:space="preserve">
+    <value>2° Quadrimestre</value>
+  </data>
+  <data name="GradesPentamestre" xml:space="preserve">
+    <value>Pentamestre</value>
+  </data>
+  <data name="GradesTrimestre" xml:space="preserve">
+    <value>Trimestre</value>
+  </data>
+  <data name="NoticeBoardAllCategoriesComboboxItem" xml:space="preserve">
+    <value>Tutte le categorie</value>
   </data>
 </root>
