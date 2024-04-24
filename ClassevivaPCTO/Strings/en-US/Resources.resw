@@ -694,7 +694,7 @@ Error: </value>
     <value>Show also deleted documents</value>
   </data>
   <data name="NoticeBoardCategoryComboboxPlaceholderText" xml:space="preserve">
-    <value>Filtra per categoria</value>
+    <value>Filter by category</value>
   </data>
   <data name="PALETTE_PAS" xml:space="preserve">
     <value>Pastel</value>
@@ -739,18 +739,18 @@ Error: </value>
     <value>Clear all filters</value>
   </data>
   <data name="Grades1Quadrimestre" xml:space="preserve">
-    <value>1° Quadrimestre</value>
+    <value>1st Quarter</value>
   </data>
   <data name="Grades2Quadrimestre" xml:space="preserve">
-    <value>2° Quadrimestre</value>
+    <value>2nd Quarter</value>
   </data>
   <data name="GradesPentamestre" xml:space="preserve">
     <value>Pentamestre</value>
   </data>
   <data name="GradesTrimestre" xml:space="preserve">
-    <value>Trimestre</value>
+    <value>Quarter</value>
   </data>
   <data name="NoticeBoardAllCategoriesComboboxItem" xml:space="preserve">
-    <value>Tutte le categorie</value>
+    <value>All Categories</value>
   </data>
 </root>
