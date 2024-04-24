@@ -745,10 +745,10 @@ Error: </value>
     <value>2nd Quarter</value>
   </data>
   <data name="GradesPentamestre" xml:space="preserve">
-    <value>Pentamestre</value>
+    <value>Pentamester</value>
   </data>
   <data name="GradesTrimestre" xml:space="preserve">
-    <value>Quarter</value>
+    <value>Trimester</value>
   </data>
   <data name="NoticeBoardAllCategoriesComboboxItem" xml:space="preserve">
     <value>All Categories</value>
