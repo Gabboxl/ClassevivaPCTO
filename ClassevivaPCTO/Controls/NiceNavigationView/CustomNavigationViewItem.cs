@@ -30,12 +30,17 @@ namespace ClassevivaPCTO.Controls.NiceNavigationView
         {
             base.OnApplyTemplate();
 
-            SetValue(IconProperty, IconOutline);
+            SetIcon();
 
             RegisterPropertyChangedCallback(IsSelectedProperty, OnIsSelectedChanged);
         }
 
         private void OnIsSelectedChanged(DependencyObject sender, DependencyProperty dp)
+        {
+            SetIcon();
+        }
+
+        private void SetIcon()
         {
             if ((bool) GetValue(IsSelectedProperty))
             {
