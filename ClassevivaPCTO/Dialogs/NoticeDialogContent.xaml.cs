@@ -59,11 +59,11 @@ namespace ClassevivaPCTO.Dialogs
             ButtonSign.Click += (sender, e) => ShowSignJoinRefuseFlyout(sender, e, SignJoinRefuse.SIGN);
             ButtonJoin.Click += (sender, e) => ShowSignJoinRefuseFlyout(sender, e, SignJoinRefuse.JOIN);
             ButtonRefuse.Click += (sender, e) => ShowSignJoinRefuseFlyout(sender, e, SignJoinRefuse.REFUSE);
-            
+
             App app = (App) App.Current;
             var apiClient = app.Container.GetService<IClassevivaAPI>();
             _apiWrapper = PoliciesDispatchProxy<IClassevivaAPI>.CreateProxy(apiClient);
-            
+
             MinWidth = 500;
             MaxWidth = 1000;
         }
@@ -169,10 +169,35 @@ namespace ClassevivaPCTO.Dialogs
             {
                 Content = GetActionButtonContent(action),
                 MinWidth = 90,
-                Style = (Style)Application.Current.Resources["AccentButtonStyle"],
+                Style = (Style) Application.Current.Resources["AccentButtonStyle"],
                 HorizontalAlignment = HorizontalAlignment.Center,
                 VerticalAlignment = VerticalAlignment.Center,
                 Margin = new Thickness(0, 0, 12, 0),
+            };
+
+            finalButton.Click += async (sender, e) =>
+            {
+                var cardResult = AppViewModelHolder.GetViewModel().SingleCardResult;
+
+                switch (action)
+                {
+                    case SignJoinRefuse.SIGN:
+                        await _apiWrapper.ReadNotice(cardResult.usrId.ToString(), CurrentNotice.pubId.ToString(),
+                            CurrentNotice.evtCode, new NoticeReadSignRequest {sign = true});
+                        break;
+                    case SignJoinRefuse.JOIN:
+                        await _apiWrapper.ReadNotice(cardResult.usrId.ToString(), CurrentNotice.pubId.ToString(),
+                                                       CurrentNotice.evtCode, new NoticeReadSignRequest {join = true});
+                        break;
+                    case SignJoinRefuse.REFUSE:
+                        await _apiWrapper.ReadNotice(cardResult.usrId.ToString(), CurrentNotice.pubId.ToString(),
+                                                                                  CurrentNotice.evtCode, new NoticeReadSignRequest {sign = false});
+                        break;
+                    default:
+                        throw new ArgumentOutOfRangeException(nameof(action), action, null);
+                }
+
+                flyout.Hide();
             };
 
             flyout.Content = new StackPanel
@@ -185,7 +210,7 @@ namespace ClassevivaPCTO.Dialogs
             };
 
             //display the flyout on the clicked button
-            flyout.ShowAt((FrameworkElement)sender);
+            flyout.ShowAt((FrameworkElement) sender);
         }
 
         private string GetActionText(SignJoinRefuse action)
@@ -217,6 +242,5 @@ namespace ClassevivaPCTO.Dialogs
                     return string.Empty;
             }
         }
-
     }
 }
