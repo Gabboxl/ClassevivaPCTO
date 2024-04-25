@@ -25,26 +25,15 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
-        <RelativePanel Grid.Row="0" Margin="0,18,0,0">
+        <StackPanel Grid.Row="0" 
+                    Margin="32,16,0,0"
+                    Orientation="Horizontal"
+                    Spacing="16">
 
             <TextBlock x:Name="TextTitolo"
-                       Margin="32,0,0,0"
-                       VerticalAlignment="Top"
-                       Style="{StaticResource TitleLargeTextBlockStyle}" />
-
-            <!--
-            <Button
-                RelativePanel.AlignVerticalCenterWithPanel="True"
-                x:Name="EditWidgetsButton"
-                RelativePanel.AlignRightWithPanel="True"
-                Margin="0,0,20,0">
-                <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Spacing="8">
-                    <TextBlock Text="&#xE70F;" VerticalAlignment="Center" FontFamily="{StaticResource FluentIcons}" />
-                    <TextBlock ="DashboardEditWidgetsButton" />
-                </StackPanel>
-            </Button>-->
-
-        </RelativePanel>
+                       Style="{StaticResource PageTitleTextStyle}" />
+            
+        </StackPanel>
 
         <ScrollViewer Grid.Row="1">
             <Grid>

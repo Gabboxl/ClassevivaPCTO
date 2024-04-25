@@ -29,22 +29,13 @@
         </Grid.ColumnDefinitions>
 
         <StackPanel Grid.Row="0"
-                    Margin="0,16,0,0"
-                    Orientation="Horizontal">
-            <TextBlock x:Name="TextTitolo"
-                       Grid.Row="0"
-                       Margin="32,0,0,0"
-                       VerticalAlignment="Center"
-                       Style="{StaticResource TitleLargeTextBlockStyle}"
-                       Text="{CustomResource ScrutiniTitle}" />
+                    Margin="32,16,0,0"
+                    Orientation="Horizontal"
+                    Spacing="16">
 
-            <muxc:ProgressRing x:Name="ProgressRingScrutini"
-                               Width="28"
-                               Height="28"
-                               Margin="16,0,0,0"
-                               VerticalAlignment="Center"
-                               IsActive="True"
-                               Visibility="{x:Bind ScrutiniViewModel.IsLoadingScrutini, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" />
+            <TextBlock Text="{CustomResource ScrutiniTitle}" Style="{StaticResource PageTitleTextStyle}" />
+
+            <muxc:ProgressRing Style="{StaticResource PageProgressRingStyle}" Visibility="{x:Bind ScrutiniViewModel.IsLoadingScrutini, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" />
 
         </StackPanel>
 

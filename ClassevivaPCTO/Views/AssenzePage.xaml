@@ -46,22 +46,13 @@
         </VisualStateManager.VisualStateGroups>-->
 
         <StackPanel Grid.Row="0"
-                    Margin="0,16,0,16"
-                    Orientation="Horizontal">
+                    Margin="32,16,0,0"
+                    Orientation="Horizontal"
+                    Spacing="16">
 
-            <TextBlock x:Name="TextTitolo"
-                       Margin="32,0,0,0"
-                       VerticalAlignment="Center"
-                       Style="{StaticResource TitleLargeTextBlockStyle}"
-                       Text="{CustomResource AbsencesTitle}" />
+            <TextBlock Text="{CustomResource AbsencesTitle}" Style="{StaticResource PageTitleTextStyle}" />
 
-            <muxc:ProgressRing x:Name="ProgressRingBacheca"
-                               Width="28"
-                               Height="28"
-                               Margin="16,0,0,0"
-                               VerticalAlignment="Center"
-                               IsActive="True"
-                               Visibility="{x:Bind AssenzeViewModel.IsLoadingAssenze, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" />
+            <muxc:ProgressRing Style="{StaticResource PageProgressRingStyle}" Visibility="{x:Bind AssenzeViewModel.IsLoadingAssenze, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" />
 
         </StackPanel>
 
@@ -74,7 +65,7 @@
                     <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
 
-                <comToolkit:StaggeredPanel Margin="18,0,18,18"
+                <comToolkit:StaggeredPanel Margin="18,16,18,18"
                                            HorizontalAlignment="Stretch"
                                            ColumnSpacing="12"
                                            DesiredColumnWidth="500"
