@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Data;
 
@@ -7,7 +6,7 @@ namespace ClassevivaPCTO.Converters
 {
     public class BetterBoolToVisibilityConverter : IValueConverter
     {
-        public object Convert(object value, Type targetType, object parameter, string language)
+        public object Convert(object? value, Type targetType, object? parameter, string language)
         {
             /*
              * If param is true means that the control will be visible if the value is true
@@ -20,7 +19,7 @@ namespace ClassevivaPCTO.Converters
             if (parameter != null)
                 param = System.Convert.ToBoolean(parameter);
 
-            bool state = (bool) value;
+            bool state = (bool) (value ?? false);
 
             Visibility visibility = Visibility.Visible;
 
