@@ -7,7 +7,7 @@ namespace ClassevivaPCTO.Controls.NiceNavigationView
     public class CustomNavigationViewItem : NavigationViewItem
     {
         public static readonly DependencyProperty IconOutlineProperty =
-            DependencyProperty.Register("IconOutline", typeof(IconElement), typeof(CustomNavigationViewItem),
+            DependencyProperty.Register(nameof(IconOutline), typeof(IconElement), typeof(CustomNavigationViewItem),
                 new PropertyMetadata(null));
 
         public IconElement IconOutline
@@ -17,7 +17,7 @@ namespace ClassevivaPCTO.Controls.NiceNavigationView
         }
 
         public static readonly DependencyProperty IconFilledProperty =
-            DependencyProperty.Register("IconFilled", typeof(IconElement), typeof(CustomNavigationViewItem),
+            DependencyProperty.Register(nameof(IconFilled), typeof(IconElement), typeof(CustomNavigationViewItem),
                 new PropertyMetadata(null));
 
         public IconElement IconFilled
