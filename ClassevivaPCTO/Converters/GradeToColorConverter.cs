@@ -11,36 +11,47 @@ namespace ClassevivaPCTO.Converters
 {
     public class GradeToColorConverter : IValueConverter
     {
-        public object Convert(object value, Type targetType, object parameter, string language)
+        public object Convert(object value, Type targetType, object? parameter, string language)
         {
             SolidColorBrush brush = new();
 
-            float? valore = null;
-
             IPalette currentPalette = PaletteSelectorService.PaletteClass;
 
-            valore = VariousUtils.GradeToFloat(value);
+            float? valore = VariousUtils.GradeToFloat(value);
 
-            if (valore == null)
+            switch (valore)
             {
-                brush.Color = currentPalette.ColorBlue;
+                case null:
+                    brush.Color = currentPalette.ColorBlue;
+                    break;
+                case >= 6:
+                    brush.Color = currentPalette.ColorGreen;
+                    break;
+                case >= 5:
+                    brush.Color = currentPalette.ColorOrange;
+                    break;
+                default:
+                {
+                    if (float.IsNaN((float) valore))
+                    {
+                        brush = (SolidColorBrush) Application.Current.Resources["TextFillColorTertiaryBrush"];
+                    }
+                    else
+                    {
+                        brush.Color = currentPalette.ColorRed;
+                    }
+
+                    break;
+                }
             }
-            else if (valore >= 6)
+
+            //if parameter equals 1 int
+            if (parameter != null && int.TryParse((string) parameter, out int param))
             {
-                brush.Color = currentPalette.ColorGreen;
-            }
-            else if (valore >= 5)
-            {
-                brush.Color = currentPalette.ColorOrange;
-            }
-            else if (float.IsNaN((float) valore))
-            {
-                // set brush to staticresource TextFillColorTertiaryBrush
-                brush = (SolidColorBrush) Application.Current.Resources["TextFillColorTertiaryBrush"];
-            }
-            else
-            {
-                brush.Color = currentPalette.ColorRed;
+                if (param == 1)
+                {
+                    brush.Color = VariousUtils.DarkenColor(brush.Color, 0.5);
+                }
             }
 
             return brush;

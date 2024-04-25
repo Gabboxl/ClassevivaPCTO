@@ -173,5 +173,14 @@ namespace ClassevivaPCTO.Utils
 
             return valoreFinale;
         }
+
+        public static Windows.UI.Color DarkenColor(Windows.UI.Color color, double darkenAmount)
+        {
+            byte r = (byte)Math.Max(color.R * darkenAmount, 0);
+            byte g = (byte)Math.Max(color.G * darkenAmount, 0);
+            byte b = (byte)Math.Max(color.B * darkenAmount, 0);
+            return Windows.UI.Color.FromArgb(color.A, r, g, b);
+        }
+
     }
 }
