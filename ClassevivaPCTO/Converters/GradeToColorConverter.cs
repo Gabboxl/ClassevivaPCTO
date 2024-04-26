@@ -31,7 +31,7 @@ namespace ClassevivaPCTO.Converters
             {
                 brush.Color = currentPalette.ColorOrange;
             }
-            else if (float.IsNaN((float) valore))
+            else if (float.IsNaN((float) valore) || valore == 0)
             {
                 // set brush to staticresource TextFillColorTertiaryBrush's Color (not the brush per se, otherwise it would be a reference and if we modify it's RGB data it applies to all the usages in the app!)
                 var TextFillColorTertiaryBrush = (SolidColorBrush) Application.Current.Resources["TextFillColorTertiaryBrush"];
