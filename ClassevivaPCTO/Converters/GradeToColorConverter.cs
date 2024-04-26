@@ -19,33 +19,30 @@ namespace ClassevivaPCTO.Converters
 
             float? valore = VariousUtils.GradeToFloat(value);
 
-            switch (valore)
+            if (valore == null)
             {
-                case null:
-                    brush.Color = currentPalette.ColorBlue;
-                    break;
-                case >= 6:
-                    brush.Color = currentPalette.ColorGreen;
-                    break;
-                case >= 5:
-                    brush.Color = currentPalette.ColorOrange;
-                    break;
-                default:
-                {
-                    if (float.IsNaN((float) valore))
-                    {
-                        brush = (SolidColorBrush) Application.Current.Resources["TextFillColorTertiaryBrush"];
-                    }
-                    else
-                    {
-                        brush.Color = currentPalette.ColorRed;
-                    }
-
-                    break;
-                }
+                brush.Color = currentPalette.ColorBlue;
+            }
+            else if (valore >= 6)
+            {
+                brush.Color = currentPalette.ColorGreen;
+            }
+            else if (valore >= 5)
+            {
+                brush.Color = currentPalette.ColorOrange;
+            }
+            else if (float.IsNaN((float) valore))
+            {
+                // set brush to staticresource TextFillColorTertiaryBrush's Color (not the brush per se, otherwise it would be a reference and if we modify it's RGB data it applies to all the usages in the app!)
+                var TextFillColorTertiaryBrush = (SolidColorBrush) Application.Current.Resources["TextFillColorTertiaryBrush"];
+                brush.Color = TextFillColorTertiaryBrush.Color;
+            }
+            else
+            {
+                brush.Color = currentPalette.ColorRed;
             }
 
-            //if parameter equals 1 int
+            //if parameter equals 1 int value, darken the color (for background use)
             if (parameter != null && int.TryParse((string) parameter, out int param))
             {
                 if (param == 1)
