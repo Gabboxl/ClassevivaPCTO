@@ -1,7 +1,5 @@
 ﻿using ClassevivaPCTO.Helpers;
 using System;
-using System.Collections;
-using Windows.UI.Xaml;
 using Windows.UI.Xaml.Data;
 
 namespace ClassevivaPCTO.Converters

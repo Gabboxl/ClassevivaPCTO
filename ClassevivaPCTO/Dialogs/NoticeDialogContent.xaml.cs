@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using ClassevivaPCTO.Helpers;
 
 namespace ClassevivaPCTO.Dialogs
 {
