@@ -174,6 +174,7 @@ namespace ClassevivaPCTO.Controls
                     PrimaryButtonText = "GenericCloseButton".GetLocalizedStr(),
                     DefaultButton = ContentDialogButton.Primary,
                     RequestedTheme = ((FrameworkElement) Window.Current.Content).RequestedTheme,
+                    Style = Application.Current.Resources["DefaultContentDialogStyle"] as Style,
                     Content = noticeDialogContent,
                 };
 

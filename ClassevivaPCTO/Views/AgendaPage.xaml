@@ -86,24 +86,19 @@
                                         IsDragInverted="True"
                                         Minimum="100" />
 
-                <RelativePanel Grid.Row="0"
-                               Grid.Column="1"
-                               Margin="0,0,0,24">
+                <StackPanel Grid.Row="0"
+                            Grid.Column="1"
+                            Orientation="Horizontal"
+                            Margin="12,16,0,24"
+                            Spacing="16">
 
-                    <TextBlock x:Name="TitoloLezioniPopup"
-                               Margin="12,16,0,0"
-                               VerticalAlignment="Top"
-                               FontSize="42"
-                               Text="{CustomResource AgendaLessonsPopupTitle}" />
+                    <TextBlock Text="{CustomResource AgendaLessonsPopupTitle}" 
+                               Style="{StaticResource PageTitleTextStyle}" 
+                               FontWeight="Normal" />
 
-                    <muxc:ProgressRing x:Name="LezioniPopupProgressRing"
-                                       Width="28"
-                                       Height="28"
-                                       Margin="16,16,0,0"
-                                       IsActive="True"
-                                       RelativePanel.AlignVerticalCenterWith="TitoloLezioniPopup"
-                                       RelativePanel.RightOf="TitoloLezioniPopup" />
-                </RelativePanel>
+                    <muxc:ProgressRing x:Name="LezioniPopupProgressRing" Style="{StaticResource PageProgressRingStyle}"/>
+                    
+                </StackPanel>
 
                 <ScrollViewer Grid.Row="1" Grid.Column="1">
                     <StackPanel x:Name="LezioniPopupStackPanel" Margin="4,0,16,16" />
@@ -152,24 +147,19 @@
                                         IsDragInverted="True"
                                         Minimum="100" />
 
-                <RelativePanel Grid.Row="0"
-                               Grid.Column="1"
-                               Margin="0,0,0,24">
+                <StackPanel Grid.Row="0"
+                            Grid.Column="1"
+                            Orientation="Horizontal"
+                            Margin="12,16,0,24"
+                            Spacing="16">
 
-                    <TextBlock x:Name="TitoloAgendaPopup"
-                               Margin="12,16,0,0"
-                               VerticalAlignment="Top"
-                               FontSize="42"
-                               Text="{CustomResource AgendaTasksPopupTitle}" />
-
-                    <muxc:ProgressRing x:Name="AgendaPopupProgressRing"
-                                       Width="28"
-                                       Height="28"
-                                       Margin="16,16,0,0"
-                                       IsActive="True"
-                                       RelativePanel.AlignVerticalCenterWith="TitoloAgendaPopup"
-                                       RelativePanel.RightOf="TitoloAgendaPopup" />
-                </RelativePanel>
+                    <TextBlock Text="{CustomResource AgendaTasksPopupTitle}"
+                               Style="{StaticResource PageTitleTextStyle}" 
+                               FontWeight="Normal" />
+                    
+                    <muxc:ProgressRing x:Name="AgendaPopupProgressRing" Style="{StaticResource PageProgressRingStyle}" />
+                    
+                </StackPanel>
 
                 <Grid x:Name="AgendaPopupListviewContainer"
                       Grid.Row="1"
@@ -206,22 +196,16 @@
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
 
-                <RelativePanel Grid.Row="0" Margin="0,16,0,0">
+                <StackPanel Grid.Row="0" 
+                            Margin="32,16,0,0"
+                            Orientation="Horizontal"
+                            Spacing="16">
 
-                    <TextBlock x:Name="TextTitolo"
-                               Margin="32,0,0,0"
-                               Style="{StaticResource TitleLargeTextBlockStyle}"
-                               Text="{CustomResource AgendaTitle}" />
+                    <TextBlock Text="{CustomResource AgendaTitle}" Style="{StaticResource PageTitleTextStyle}" />
 
-                    <muxc:ProgressRing x:Name="ProgressRingAgenda"
-                                       Width="28"
-                                       Height="28"
-                                       Margin="16,0,0,0"
-                                       IsActive="True"
-                                       RelativePanel.AlignVerticalCenterWith="TextTitolo"
-                                       RelativePanel.RightOf="TextTitolo"
-                                       Visibility="{x:Bind AgendaViewModel.IsLoadingAgenda, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" />
-                </RelativePanel>
+                    <muxc:ProgressRing Style="{StaticResource PageProgressRingStyle}" Visibility="{x:Bind AgendaViewModel.IsLoadingAgenda, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" />
+                    
+                </StackPanel>
 
                 <Grid Grid.Row="0"
                       Grid.Column="1"

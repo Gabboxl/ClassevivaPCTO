@@ -6,7 +6,7 @@ namespace ClassevivaPCTO.Converters
 {
     public class BetterBoolToVisibilityConverter : IValueConverter
     {
-        public object Convert(object? value, Type targetType, object? parameter, string language)
+        public object Convert(object value, Type targetType, object? parameter, string language)
         {
             /*
              * If param is true means that the control will be visible if the value is true

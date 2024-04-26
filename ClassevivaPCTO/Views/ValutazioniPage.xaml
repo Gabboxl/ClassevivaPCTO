@@ -82,7 +82,7 @@
                                                Margin="0,-4,0,-4"
                                                HorizontalAlignment="Center"
                                                VerticalAlignment="Center"
-                                               Background="#545454"
+                                               Background="{x:Bind Average, Converter={StaticResource GradeToColorConverter}, ConverterParameter=1}"
                                                Foreground="{x:Bind Average, Converter={StaticResource GradeToColorConverter}}"
                                                IsIndeterminate="False"
                                                Maximum="100"
@@ -134,21 +134,13 @@
         </Grid.ColumnDefinitions>
 
         <StackPanel Grid.Row="0"
-                    Margin="0,16,0,0"
-                    Orientation="Horizontal">
+                    Margin="32,16,0,0"
+                    Orientation="Horizontal"
+                    Spacing="16">
 
-            <TextBlock Margin="32,0,0,0"
-                       VerticalAlignment="Center"
-                       Style="{StaticResource TitleLargeTextBlockStyle}"
-                       Text="{CustomResource GradesTitle}" />
+            <TextBlock Text="{CustomResource GradesTitle}" Style="{StaticResource PageTitleTextStyle}" />
 
-            <muxc:ProgressRing x:Name="ProgressRingVoti"
-                               Width="28"
-                               Height="28"
-                               Margin="16,0,0,0"
-                               VerticalAlignment="Center"
-                               IsActive="True"
-                               Visibility="{x:Bind ValutazioniViewModel.IsLoadingValutazioni, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" />
+            <muxc:ProgressRing Style="{StaticResource PageProgressRingStyle}" Visibility="{x:Bind ValutazioniViewModel.IsLoadingValutazioni, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" />
 
         </StackPanel>
 
@@ -221,7 +213,7 @@
                                            Height="80"
                                            HorizontalAlignment="Center"
                                            VerticalAlignment="Center"
-                                           Background="#545454"
+                                           Background="{x:Bind ValutazioniViewModel.AverageTot, Mode=OneWay, Converter={StaticResource GradeToColorConverter}, ConverterParameter=1}"
                                            Foreground="{x:Bind ValutazioniViewModel.AverageTot, Mode=OneWay, Converter={StaticResource GradeToColorConverter}}"
                                            IsIndeterminate="False"
                                            Maximum="100"
@@ -294,7 +286,7 @@
                                            Height="80"
                                            HorizontalAlignment="Center"
                                            VerticalAlignment="Center"
-                                           Background="#545454"
+                                           Background="{x:Bind ValutazioniViewModel.AverageFirstPeriodo, Mode=OneWay, Converter={StaticResource GradeToColorConverter}, ConverterParameter=1}"
                                            Foreground="{x:Bind ValutazioniViewModel.AverageFirstPeriodo, Mode=OneWay, Converter={StaticResource GradeToColorConverter}}"
                                            IsIndeterminate="False"
                                            Maximum="100"
@@ -367,7 +359,7 @@
                                            Height="80"
                                            HorizontalAlignment="Center"
                                            VerticalAlignment="Center"
-                                           Background="#545454"
+                                           Background="{x:Bind ValutazioniViewModel.AverageSecondPeriodo, Mode=OneWay, Converter={StaticResource GradeToColorConverter}, ConverterParameter=1}"
                                            Foreground="{x:Bind ValutazioniViewModel.AverageSecondPeriodo, Mode=OneWay, Converter={StaticResource GradeToColorConverter}}"
                                            IsIndeterminate="False"
                                            Maximum="100"

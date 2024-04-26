@@ -28,22 +28,13 @@
         </Grid.ColumnDefinitions>
 
         <StackPanel Grid.Row="0"
-                    Margin="0,16,0,0"
-                    Orientation="Horizontal">
+                    Margin="32,16,0,0"
+                    Orientation="Horizontal"
+                    Spacing="16">
 
-            <TextBlock x:Name="TextTitolo"
-                       Margin="32,0,0,0"
-                       VerticalAlignment="Center"
-                       Style="{StaticResource TitleLargeTextBlockStyle}"
-                       Text="{CustomResource NotesTitle}" />
+            <TextBlock Text="{CustomResource NotesTitle}" Style="{StaticResource PageTitleTextStyle}" />
 
-            <muxc:ProgressRing x:Name="ProgressRingNote"
-                               Width="28"
-                               Height="28"
-                               Margin="16,0,0,0"
-                               VerticalAlignment="Center"
-                               IsActive="True"
-                               Visibility="{x:Bind NoteViewModel.IsLoadingNote, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" />
+            <muxc:ProgressRing Style="{StaticResource PageProgressRingStyle}" Visibility="{x:Bind NoteViewModel.IsLoadingNote, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" />
 
         </StackPanel>
 

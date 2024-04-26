@@ -65,6 +65,7 @@ namespace ClassevivaPCTO.Utils
                                         {
                                             ContentDialog noWifiDialog = new ContentDialog
                                             {
+                                                Style = Application.Current.Resources["DefaultContentDialogStyle"] as Style,
                                                 Title = "SessionExpired".GetLocalizedStr(),
                                                 Content = "SessionExpiredDesc".GetLocalizedStr(),
                                                 PrimaryButtonText = "OKCapsText".GetLocalizedStr()
@@ -130,6 +131,7 @@ namespace ClassevivaPCTO.Utils
                                             {
                                                 ContentDialog noWifiDialog = new ContentDialog
                                                 {
+                                                    Style = Application.Current.Resources["DefaultContentDialogStyle"] as Style,
                                                     Title = "LoginErrorTitle".GetLocalizedStr(),
                                                     Content = "LoginErrorDesc".GetLocalizedStr(),
                                                     CloseButtonText = "OKCapsText".GetLocalizedStr()
@@ -201,6 +203,7 @@ namespace ClassevivaPCTO.Utils
                             ContentDialog noWifiDialog = new ContentDialog
                             {
                                 Title = "APIErrorTitle".GetLocalizedStr(),
+                                Style = Application.Current.Resources["DefaultContentDialogStyle"] as Style,
                                 Content =
                                     "AttempsDone".GetLocalizedStr()
                                     + currentRetryAttempts
