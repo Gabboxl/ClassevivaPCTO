@@ -6,6 +6,8 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using ClassevivaPCTO.Helpers;
+using Microsoft.UI.Xaml.Controls;
 
 namespace ClassevivaPCTO.Dialogs
 {
@@ -16,23 +18,109 @@ namespace ClassevivaPCTO.Dialogs
 
         private readonly IClassevivaAPI _apiWrapper;
 
-        enum SignJoinRefuse
+        enum SignJoinNoticeType
         {
-            SIGN,
             JOIN,
-            REFUSE
+            SIGN,
+            SIGN_MESSAGE,
+            SIGN_FILE,
         }
+
+        //enum SignJoinNoticeStatus
+        //{
+        //    SUCCESS,
+        //    REFUSED,
+        //    REQUESTED
+        //}
 
         private bool ShowJoinAlert
         {
             get
             {
-                return CurrentReadResult.reply.replJoin ||
-                       CurrentReadResult.reply.replFile.GetValueOrDefault() ||
-                       CurrentReadResult.reply.replSign.GetValueOrDefault() ||
-                       CurrentReadResult.reply.replText.GetValueOrDefault();
+                return CurrentNotice.needJoin ||
+                       CurrentNotice.needSign ||
+                       CurrentNotice.needFile ||
+                       CurrentNotice.needReply;
             }
         }
+
+        private string JoinAlertMessage
+        {
+            get
+            {
+                if (CurrentNotice.needJoin)
+                {
+                    if (CurrentReadResult.reply.replJoin.GetValueOrDefault())
+                        return "JoinSuccessMessage".GetLocalizedStr();
+
+                    return "JoinRequestedMessage".GetLocalizedStr();
+                }
+
+                if (CurrentNotice.needSign)
+                {
+                    if (CurrentReadResult.reply.replSign == null)
+                        return "SignRequestedMessage".GetLocalizedStr();
+
+                    if (CurrentReadResult.reply.replSign.GetValueOrDefault())
+                        return "SignSuccessMessage".GetLocalizedStr();
+                    return "SignRefuseMessage".GetLocalizedStr();
+                }
+
+                return "JoinRequestedMessage".GetLocalizedStr();
+            }
+        }
+
+        private InfoBarSeverity JoinAlertSeverityStatus //status
+        {
+            get
+            {
+                if (CurrentNotice.needJoin)
+                {
+                    if (CurrentReadResult.reply.replJoin.GetValueOrDefault())
+                        return InfoBarSeverity.Success;
+                } // a join can't be refused
+
+                if (CurrentNotice.needFile)
+                {
+                    if (!string.IsNullOrEmpty(CurrentReadResult.reply.replFile))
+                        return InfoBarSeverity.Success;
+                }
+
+                if (CurrentNotice.needReply)
+                {
+                    if (!string.IsNullOrEmpty(CurrentReadResult.reply.replText))
+                        return InfoBarSeverity.Success;
+                }
+
+                if (CurrentNotice.needSign)
+                {
+                    if (CurrentReadResult.reply.replSign.GetValueOrDefault())
+                        return InfoBarSeverity.Success;
+                    return InfoBarSeverity.Error;
+                }
+
+                return InfoBarSeverity.Informational;
+            }
+        }
+
+        private Visibility JoinButtonsVisibility
+        {
+            get
+            {
+                switch (JoinAlertSeverityStatus)
+                {
+                    case InfoBarSeverity.Success:
+                        return Visibility.Collapsed;
+                    case InfoBarSeverity.Informational:
+                        return Visibility.Visible;
+                    case InfoBarSeverity.Error:
+                        return Visibility.Collapsed;
+                    default:
+                        return Visibility.Visible;
+                }
+            }
+        }
+
 
         public NoticeDialogContent(Notice notice, NoticeReadResult noticeReadResult)
         {
@@ -56,9 +144,9 @@ namespace ClassevivaPCTO.Dialogs
 
             AttachmentsListView.ItemsSource = notice.attachments;
 
-            ButtonSign.Click += (sender, e) => ShowSignJoinRefuseFlyout(sender, e, SignJoinRefuse.SIGN);
-            ButtonJoin.Click += (sender, e) => ShowSignJoinRefuseFlyout(sender, e, SignJoinRefuse.JOIN);
-            ButtonRefuse.Click += (sender, e) => ShowSignJoinRefuseFlyout(sender, e, SignJoinRefuse.REFUSE);
+            ButtonSign.Click += (sender, e) => ShowSignJoinRefuseFlyout(sender, e, false);
+            ButtonJoin.Click += (sender, e) => ShowSignJoinRefuseFlyout(sender, e, false);
+            ButtonRefuse.Click += (sender, e) => ShowSignJoinRefuseFlyout(sender, e, true);
 
             App app = (App) App.Current;
             var apiClient = app.Container.GetService<IClassevivaAPI>();
@@ -154,20 +242,20 @@ namespace ClassevivaPCTO.Dialogs
             return bytes;
         }
 
-        private void ShowSignJoinRefuseFlyout(object sender, RoutedEventArgs e, SignJoinRefuse action)
+        private void ShowSignJoinRefuseFlyout(object sender, RoutedEventArgs e, bool isRefuse)
         {
             var flyout = new Flyout();
 
             var textBlock = new TextBlock
             {
-                Text = GetActionText(action),
+                Text = GetActionText(isRefuse),
                 TextWrapping = TextWrapping.WrapWholeWords,
                 Margin = new Thickness(0, 0, 0, 12)
             };
 
             var finalButton = new Button
             {
-                Content = GetActionButtonContent(action),
+                Content = GetActionButtonContent(isRefuse),
                 MinWidth = 90,
                 Style = (Style) Application.Current.Resources["AccentButtonStyle"],
                 HorizontalAlignment = HorizontalAlignment.Center,
@@ -179,23 +267,29 @@ namespace ClassevivaPCTO.Dialogs
             {
                 var cardResult = AppViewModelHolder.GetViewModel().SingleCardResult;
 
-                switch (action)
+                var noticeReadSignRequest = new NoticeReadSignRequest();
+
+                switch (GetSignJoinType())
                 {
-                    case SignJoinRefuse.SIGN:
-                        await _apiWrapper.ReadNotice(cardResult.usrId.ToString(), CurrentNotice.pubId.ToString(),
-                            CurrentNotice.evtCode, new NoticeReadSignRequest {sign = true});
+                    case SignJoinNoticeType.SIGN_FILE:
+                        noticeReadSignRequest.sign = !isRefuse;
+                        noticeReadSignRequest.file = "file"; //TODO: implement file picker!!
+                        noticeReadSignRequest.filename = "filename";
                         break;
-                    case SignJoinRefuse.JOIN:
-                        await _apiWrapper.ReadNotice(cardResult.usrId.ToString(), CurrentNotice.pubId.ToString(),
-                                                       CurrentNotice.evtCode, new NoticeReadSignRequest {join = true});
+                    case SignJoinNoticeType.SIGN:
+                        noticeReadSignRequest.sign = !isRefuse;
                         break;
-                    case SignJoinRefuse.REFUSE:
-                        await _apiWrapper.ReadNotice(cardResult.usrId.ToString(), CurrentNotice.pubId.ToString(),
-                                                                                  CurrentNotice.evtCode, new NoticeReadSignRequest {sign = false});
+                    case SignJoinNoticeType.SIGN_MESSAGE:
+                        noticeReadSignRequest.sign = !isRefuse;
+                        noticeReadSignRequest.text = "message"; //TODO: implement message edit!!
                         break;
-                    default:
-                        throw new ArgumentOutOfRangeException(nameof(action), action, null);
+                    case SignJoinNoticeType.JOIN:
+                        noticeReadSignRequest.join = !isRefuse;
+                        break;
                 }
+
+                await _apiWrapper.ReadNotice(cardResult.usrId.ToString(), CurrentNotice.pubId.ToString(),
+                    CurrentNotice.evtCode, noticeReadSignRequest);
 
                 flyout.Hide();
             };
@@ -213,34 +307,57 @@ namespace ClassevivaPCTO.Dialogs
             flyout.ShowAt((FrameworkElement) sender);
         }
 
-        private string GetActionText(SignJoinRefuse action)
+        private string GetActionText(bool isRefuse)
         {
-            switch (action)
+            if (isRefuse)
+                return "Per rifiutare la comunicazione, premi il pulsante sottostante.";
+
+            switch (GetSignJoinType())
             {
-                case SignJoinRefuse.SIGN:
+                case SignJoinNoticeType.SIGN_FILE:
+                    return "Per firmare con file allegato, premi il pulsante sottostante.";
+                case SignJoinNoticeType.SIGN:
                     return "Per firmare la comunicazione, premi il pulsante sottostante.";
-                case SignJoinRefuse.JOIN:
+                case SignJoinNoticeType.SIGN_MESSAGE:
+                    return "Per firmare con messaggio, premi il pulsante sottostante.";
+                case SignJoinNoticeType.JOIN:
                     return "Per unirti alla comunicazione, premi il pulsante sottostante.";
-                case SignJoinRefuse.REFUSE:
-                    return "Per rifiutare la comunicazione, premi il pulsante sottostante.";
                 default:
                     return string.Empty;
             }
         }
 
-        private string GetActionButtonContent(SignJoinRefuse action)
+        private string GetActionButtonContent(bool isRefuse)
         {
-            switch (action)
+            if (isRefuse)
+                return "Rifiuta";
+
+            switch (GetSignJoinType())
             {
-                case SignJoinRefuse.SIGN:
+                case SignJoinNoticeType.SIGN_FILE or SignJoinNoticeType.SIGN or SignJoinNoticeType.SIGN_MESSAGE:
                     return "Firma";
-                case SignJoinRefuse.JOIN:
+                case SignJoinNoticeType.JOIN:
                     return "Unisciti";
-                case SignJoinRefuse.REFUSE:
-                    return "Rifiuta";
                 default:
                     return string.Empty;
             }
+        }
+
+        private SignJoinNoticeType? GetSignJoinType()
+        {
+            if (CurrentNotice.needJoin)
+                return SignJoinNoticeType.JOIN;
+
+            if (CurrentNotice.needReply)
+                return SignJoinNoticeType.SIGN_MESSAGE;
+
+            if (CurrentNotice.needFile)
+                return SignJoinNoticeType.SIGN_FILE;
+
+            if (CurrentNotice.needSign)
+                return SignJoinNoticeType.SIGN;
+
+            return null;
         }
     }
 }

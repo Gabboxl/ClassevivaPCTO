@@ -133,11 +133,11 @@
 
                     <controls:InfoBar
                         IsOpen="True"
-                        Severity="Informational"
-                        Title="Per questa comunicazione è richiesta una conferma di accettazione" IsClosable="False"/>
+                        Severity="{x:Bind JoinAlertSeverityStatus}"
+                        Title="{x:Bind JoinAlertMessage}" IsClosable="False"/>
 
-                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch">
-                        <StackPanel Orientation="Horizontal" Visibility="{x:Bind CurrentReadResult.reply.replSign, Converter={StaticResource BetterBoolToVisibilityConverter}, ConverterParameter=True}">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" Visibility="{x:Bind JoinButtonsVisibility}">
+                        <StackPanel Orientation="Horizontal" Visibility="{x:Bind CurrentNotice.needSign, Converter={StaticResource BetterBoolToVisibilityConverter}, ConverterParameter=True}">
                             
                             <AppBarButton x:Name="ButtonSign"  Icon="Accept" VerticalAlignment="Center"
                                           Label="Conferma e firma" />
@@ -147,7 +147,7 @@
                         </StackPanel>
                         
                         <AppBarButton x:Name="ButtonJoin" VerticalAlignment="Center" Icon="AddFriend"
-                                      Visibility="{x:Bind CurrentReadResult.reply.replJoin, Converter={StaticResource BetterBoolToVisibilityConverter}, ConverterParameter=True}"
+                                      Visibility="{x:Bind CurrentNotice.needJoin, Converter={StaticResource BetterBoolToVisibilityConverter}, ConverterParameter=True}"
                                       Label="Aderisci" />
 
                     </StackPanel>
