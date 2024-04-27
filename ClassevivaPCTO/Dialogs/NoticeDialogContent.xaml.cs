@@ -14,7 +14,7 @@ namespace ClassevivaPCTO.Dialogs
     public sealed partial class NoticeDialogContent : Page
     {
         private readonly Notice CurrentNotice;
-        private NoticeReadResult CurrentReadResult;
+        private readonly NoticeReadResult CurrentReadResult;
 
         private readonly IClassevivaAPI _apiWrapper;
 
@@ -291,7 +291,10 @@ namespace ClassevivaPCTO.Dialogs
                 var result = await _apiWrapper.ReadNotice(cardResult.usrId.ToString(), CurrentNotice.pubId.ToString(),
                     CurrentNotice.evtCode, noticeReadSignRequest);
 
-                CurrentReadResult = result;
+                CurrentReadResult.reply.replJoin = result.reply.replJoin;
+                CurrentReadResult.reply.replSign = result.reply.replSign;
+                CurrentReadResult.reply.replText = result.reply.replText;
+                CurrentReadResult.reply.replFile = result.reply.replFile;
 
                 flyout.Hide();
             };
