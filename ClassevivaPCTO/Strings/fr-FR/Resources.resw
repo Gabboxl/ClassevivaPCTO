@@ -753,4 +753,19 @@ Erreur: </value>
   <data name="NoticeBoardAllCategoriesComboboxItem" xml:space="preserve">
     <value>Tutte le categorie</value>
   </data>
+  <data name="JoinRequestedMessage" xml:space="preserve">
+    <value>Per questa comunicazione è richiesta una conferma di accettazione</value>
+  </data>
+  <data name="JoinSuccessMessage" xml:space="preserve">
+    <value>Adesione confermata</value>
+  </data>
+  <data name="SignRefuseMessage" xml:space="preserve">
+    <value>Comunicazione rifiutata</value>
+  </data>
+  <data name="SignRequestedMessage" xml:space="preserve">
+    <value>Per questa comunicazione è richiesta una conferma e firma di accettazione</value>
+  </data>
+  <data name="SignSuccessMessage" xml:space="preserve">
+    <value>Confermato e firmato correttamente</value>
+  </data>
 </root>
