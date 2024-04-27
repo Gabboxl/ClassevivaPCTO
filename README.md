@@ -14,7 +14,8 @@
 
 ClassevivaPCTO is a simple UWP client to consult Spaggiari's electronic school register.
 
-> **Note**: This app is for student accounts only.
+> [!note]
+> This app is for student accounts only.
 
 ## Releases
 
