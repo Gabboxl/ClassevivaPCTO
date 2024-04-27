@@ -14,7 +14,7 @@ namespace ClassevivaPCTO.Dialogs
     public sealed partial class NoticeDialogContent : Page
     {
         private readonly Notice CurrentNotice;
-        private readonly NoticeReadResult CurrentReadResult;
+        private NoticeReadResult CurrentReadResult;
 
         private readonly IClassevivaAPI _apiWrapper;
 
@@ -288,8 +288,10 @@ namespace ClassevivaPCTO.Dialogs
                         break;
                 }
 
-                await _apiWrapper.ReadNotice(cardResult.usrId.ToString(), CurrentNotice.pubId.ToString(),
+                var result = await _apiWrapper.ReadNotice(cardResult.usrId.ToString(), CurrentNotice.pubId.ToString(),
                     CurrentNotice.evtCode, noticeReadSignRequest);
+
+                CurrentReadResult = result;
 
                 flyout.Hide();
             };
