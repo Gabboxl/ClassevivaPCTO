@@ -266,10 +266,10 @@ namespace ClassevivaPCTO.Utils
         public string cntCategory { get; set; }
         public bool cntHasChanged { get; set; }
         public bool cntHasAttach { get; set; }
-        public bool needJoin { get; set; }
-        public bool needReply { get; set; }
-        public bool needFile { get; set; }
-        public bool needSign { get; set; }
+        public bool needJoin { get; set; } //richiede di aderire
+        public bool needReply { get; set; } //richiede di rispondere con un testo
+        public bool needFile { get; set; } //richiede di allegare un file
+        public bool needSign { get; set; } //richiede di confermare e firmare (identico a aderire)
         public string evento_id { get; set; }
         public string dinsert_allegato { get; set; }
         public List<NoticeAttachment> attachments { get; set; }
@@ -278,26 +278,30 @@ namespace ClassevivaPCTO.Utils
     public class NoticeReadResult
     {
         public NoticeReadItem item { get; set; }
-
         public NoticeReadReply reply { get; set; }
     }
 
     public class NoticeReadItem
     {
         public string title { get; set; }
-
         public string text { get; set; }
     }
 
-    public class NoticeReadReply
+    public class NoticeReadReply //attributi della comunicazione
     {
-        public bool replJoin { get; set; }
+        public bool? replJoin { get; set; } //se true è stato già aderito
+        public string? replText { get; set; } //se 
+        public string? replFile { get; set; } //
+        public bool? replSign { get; set; } //se true è stata già confermata e firmata
+    }
 
-        public bool? replText { get; set; }
-
-        public bool? replFile { get; set; }
-
-        public bool? replSign { get; set; }
+    public class NoticeReadSignRequest //body da mandare alla API per aderire etc. ad una comunicazione
+    {
+        public string? file { get; set; } //forse contenuto del file?
+        public string? filename { get; set; } 
+        public bool? sign { get; set; } //firma
+        public bool? join { get; set; } //aderisci
+        public string? text { get; set; } //risposta
     }
 
     public enum NoteEventCode

@@ -4,9 +4,13 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:utils="using:ClassevivaPCTO.Utils"
+      xmlns:controls="using:Microsoft.UI.Xaml.Controls"
+      xmlns:converters="using:ClassevivaPCTO.Converters"
       mc:Ignorable="d">
 
     <Page.Resources>
+        <converters:BetterBoolToVisibilityConverter x:Key="BetterBoolToVisibilityConverter" />
+
         <Style x:Key="ListViewFullStretchStyle"
                BasedOn="{StaticResource DefaultListViewItemStyle}"
                TargetType="ListViewItem">
@@ -81,7 +85,7 @@
         <ScrollViewer Grid.Row="0">
             <StackPanel HorizontalAlignment="Stretch">
 
-                <TextBlock x:Name="noticeBodyText"
+                <TextBlock x:Name="NoticeBodyText"
                            Margin="0,12,0,8"
                            FontWeight="SemiBold"
                            Foreground="{ThemeResource TextFillColorSecondaryBrush}"
@@ -123,6 +127,32 @@
                           Margin="0,6,0,0"
                           ItemContainerStyle="{StaticResource ListViewFullStretchStyle}"
                           ItemTemplate="{StaticResource AttachmentListViewDataTemplate}" />
+
+                <StackPanel Visibility="{x:Bind ShowJoinAlert, Converter={StaticResource BetterBoolToVisibilityConverter}, ConverterParameter=True}">
+                    <Rectangle Fill="{ThemeResource ControlStrongStrokeColorDisabledBrush}" Height="1" Margin="0,8,0,8"/>
+
+                    <controls:InfoBar
+                        IsOpen="True"
+                        Severity="{x:Bind JoinAlertSeverityStatus}"
+                        Title="{x:Bind JoinAlertMessage}" IsClosable="False"/>
+
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" Visibility="{x:Bind JoinButtonsVisibility}">
+                        <StackPanel Orientation="Horizontal" Visibility="{x:Bind CurrentNotice.needSign, Converter={StaticResource BetterBoolToVisibilityConverter}, ConverterParameter=True}">
+                            
+                            <AppBarButton x:Name="ButtonSign"  Icon="Accept" VerticalAlignment="Center"
+                                          Label="Conferma e firma" />
+
+                            <AppBarButton x:Name="ButtonRefuse" VerticalAlignment="Center" Icon="Cancel"
+                                          Label="Rifiuta" />
+                        </StackPanel>
+                        
+                        <AppBarButton x:Name="ButtonJoin" VerticalAlignment="Center" Icon="AddFriend"
+                                      Visibility="{x:Bind CurrentNotice.needJoin, Converter={StaticResource BetterBoolToVisibilityConverter}, ConverterParameter=True}"
+                                      Label="Aderisci" />
+
+                    </StackPanel>
+                </StackPanel>
+
 
             </StackPanel>
         </ScrollViewer>

@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Data;
 
@@ -20,7 +19,7 @@ namespace ClassevivaPCTO.Converters
             if (parameter != null)
                 param = System.Convert.ToBoolean(parameter);
 
-            bool state = (bool) value;
+            bool state = (bool) (value ?? false);
 
             Visibility visibility = Visibility.Visible;
 
