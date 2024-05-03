@@ -12,7 +12,7 @@ namespace ClassevivaPCTO.Utils
     [Headers("User-Agent: CVVS/std/4.2.3 Android/10", "Z-Dev-Apikey: Tg1NWEwNGIgIC0K", "Content-Type: application/json")]
     public interface IClassevivaAPI
     {
-        //add mark in some way to mark the request that doesnt need authentication
+        //TODO: add mark in some way to mark the request that doesnt need authentication
 
         [NoAuth]
         [Post("/auth/login")]
@@ -43,7 +43,7 @@ namespace ClassevivaPCTO.Utils
         Task<SubjectsResult> GetSubjects(string userId);
 
         [Get("/students/{userId}/notes/all")]
-        Task<ApiResponse<string>> GetAllNotes(string userId);
+        Task<List<Note>> GetAllNotes(string userId);
 
         [Post("/students/{userId}/notes/{evtCode}/read/{evtId}")]
         Task<ReadNoteResult> ReadNote(string userId, string evtCode, string evtId);
@@ -64,7 +64,7 @@ namespace ClassevivaPCTO.Utils
         Task<HttpResponseMessage> GetNoticeAttachment(string userId, string noticePubId, string noticeEvtCode, string attachmentNumber);
 
         [Post("/students/{userId}/noticeboard/read/{noticeEvtCode}/{noticePubId}/101")]
-        Task<NoticeReadResult> ReadNotice(string userId, string noticePubId, string noticeEvtCode);
+        Task<NoticeReadResult> ReadNotice(string userId, string noticePubId, string noticeEvtCode, [Body(buffered: true, serializationMethod: BodySerializationMethod.Serialized)] NoticeReadSignRequest noticeReadSignRequest);
 
         [Post("/students/{userId}/documents")]
         Task<ScrutiniDocumentsResult> GetScrutiniDocuments(string userId);

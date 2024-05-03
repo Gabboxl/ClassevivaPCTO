@@ -13,22 +13,12 @@ using System.ComponentModel;
 
 namespace ClassevivaPCTO.Controls
 {
-    public class GroupInfoList : List<object>
-    {
-        public GroupInfoList(IEnumerable<object> items) : base(items)
-        {
-        }
-
-        public object Key { get; set; }
-    }
-
     public sealed partial class AgendaMultipleDaysListView : UserControl, INotifyPropertyChanged
     {
         private CollectionViewSource GroupedItems { get; set; }
 
-
         private static async Task<ObservableCollection<GroupInfoList>> GetEventsGroupedAsync(
-            List<AgendaEventAdapter> agendaEvents)
+            IEnumerable<AgendaEventAdapter> agendaEvents)
         {
             var query = from item in agendaEvents
 
@@ -43,16 +33,12 @@ namespace ClassevivaPCTO.Controls
             return new ObservableCollection<GroupInfoList>(query);
         }
 
-
         private bool _showEmptyAlert = true;
 
         public bool ShowEmptyAlert
         {
             get { return _showEmptyAlert; }
-            set
-            {
-                SetField(ref _showEmptyAlert, value);
-            }
+            set { SetField(ref _showEmptyAlert, value); }
         }
 
         public List<AgendaEvent> ItemsSource
@@ -66,7 +52,7 @@ namespace ClassevivaPCTO.Controls
                 nameof(ItemsSource),
                 typeof(List<AgendaEvent>),
                 typeof(AgendaMultipleDaysListView),
-                new PropertyMetadata(null, new PropertyChangedCallback(OnItemsSourceChanged)));
+                new PropertyMetadata(null, OnItemsSourceChanged));
 
         private static async void OnItemsSourceChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
@@ -76,10 +62,10 @@ namespace ClassevivaPCTO.Controls
 
             var orderedAgendaEvents = newValue;
 
-
             {
                 //repeat days whose startdate and enddate span multiple days in the list
                 var repeatedDays = new List<AgendaEvent>();
+
                 foreach (var currentEvt in orderedAgendaEvents.ToList())
                 {
                     if (currentEvt.evtDatetimeEnd.Date > currentEvt.evtDatetimeBegin.Date.AddDays(1))
@@ -121,18 +107,17 @@ namespace ClassevivaPCTO.Controls
                 Source = groupedAgendaEvents
             };
 
+            currentInstance.MainListView.ItemsSource = currentInstance.GroupedItems.View;
 
-            currentInstance.listView.ItemsSource = currentInstance.GroupedItems.View;
-
-
+            //reset the selection
+            currentInstance.MainListView.SelectedIndex = -1;
 
             currentInstance.ShowEmptyAlert = newValue == null || newValue.Count == 0;
         }
 
-
         public AgendaMultipleDaysListView()
         {
-            this.InitializeComponent();
+            InitializeComponent();
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

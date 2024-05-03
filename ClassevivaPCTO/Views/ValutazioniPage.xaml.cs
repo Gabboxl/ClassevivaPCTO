@@ -11,24 +11,26 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
 using ClassevivaPCTO.Adapters;
+using ClassevivaPCTO.Controls;
 using ClassevivaPCTO.Helpers;
-
+using Windows.Storage;
+using CommunityToolkit.WinUI.Controls;
 
 namespace ClassevivaPCTO.Views
 {
-    public class PeriodList
+    public struct PeriodList
     {
         public Period Period { get; set; }
         public List<SubjectWithGrades> Subjects { get; set; }
     }
 
-    public class SubjectWithGrades
+    public struct SubjectWithGrades
     {
         public Subject Subject { get; set; }
         public List<Grade> Grades { get; set; }
     }
 
-    public sealed partial class Valutazioni : Page
+    public sealed partial class ValutazioniPage : CustomAppPage
     {
         private readonly IClassevivaAPI _apiWrapper;
 
@@ -36,42 +38,36 @@ namespace ClassevivaPCTO.Views
 
         private List<Grade> _sortedGrades;
 
-        private List<Period> _periods;
-
         private ValutazioniViewModel ValutazioniViewModel { get; } = new();
 
-        public Valutazioni()
+        public ValutazioniPage()
         {
-            this.InitializeComponent();
+            InitializeComponent();
 
             App app = (App) App.Current;
             var apiClient = app.Container.GetService<IClassevivaAPI>();
 
             _apiWrapper = PoliciesDispatchProxy<IClassevivaAPI>.CreateProxy(apiClient!);
-
-            CheckboxSuddividi.Checked += CheckboxSuddividi_Click;
-            CheckboxSuddividi.Unchecked += CheckboxSuddividi_Click;
         }
 
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
-
+            SegmentedLayout.SelectedIndex = await ApplicationData.Current.LocalSettings.ReadAsync<int>("GradesLayoutMode");
             await Task.Run(async () => { await LoadData(); });
-        }
 
+            SegmentedLayout.SelectionChanged += SegmentedLayout_OnSelectionChanged;
+        }
 
         private async Task LoadData()
         {
             try
             {
                 await CoreApplication.MainView.Dispatcher.RunAsync(
-                    CoreDispatcherPriority.Normal,
-                    async () => { ValutazioniViewModel.IsLoadingValutazioni = true; }
+                    CoreDispatcherPriority.Normal, () => { ValutazioniViewModel.IsLoadingValutazioni = true; }
                 );
 
-                Card? cardResult = ViewModelHolder.GetViewModel().SingleCardResult;
-
+                Card? cardResult = AppViewModelHolder.GetViewModel().SingleCardResult;
 
                 Grades2Result grades2Result = await _apiWrapper.GetGrades(
                     cardResult.usrId.ToString()
@@ -92,12 +88,20 @@ namespace ClassevivaPCTO.Views
                     .OrderByDescending(g => g.evtDate)
                     .ToList();
 
-                _periods = resultPeriods.Periods;
                 var subjects = resultSubjects.Subjects;
 
+                //find all periods with same periodDesc value
+                var samePeriods = resultPeriods.Periods
+                    .GroupBy(p => p.periodDesc)
+                    .Where(g => g.Count() > 1)
+                    .SelectMany(g => g)
+                    .OrderBy(p => p.periodPos)
+                    .ToList();
+
+                samePeriods.ForEach(p => p.periodDesc = (samePeriods.IndexOf(p) + 1) + "° " + p.periodDesc);
 
                 // Select unique Periods from Grade list
-                _mergedPeriodList = _periods
+                _mergedPeriodList = resultPeriods.Periods
                     .GroupBy(p => p.periodPos)
                     .Select(p => new PeriodList
                     {
@@ -113,101 +117,95 @@ namespace ClassevivaPCTO.Views
                             }).ToList()
                     }).ToList();
 
-
-
                 //update UI on UI thread
                 await CoreApplication.MainView.Dispatcher.RunAsync(
-                    CoreDispatcherPriority.Normal,
-                    async () => { UpdateUi(_sortedGrades, _periods, subjects); }
+                    CoreDispatcherPriority.Normal, () => { UpdateUi(_sortedGrades); }
                 );
             }
             finally
             {
                 await CoreApplication.MainView.Dispatcher.RunAsync(
-                    CoreDispatcherPriority.Normal,
-                    async () => { ValutazioniViewModel.IsLoadingValutazioni = false; }
+                    CoreDispatcherPriority.Normal, () =>
+                    {
+                        ValutazioniViewModel.IsLoadingValutazioni = false;
+                        ValutazioniViewModel.ShowShimmers = false;
+                    }
                 );
             }
         }
 
         private void UpdateUi()
         {
-            var periodIndex = SegmentedVoti.SelectedIndex;
+            var selectedPeriodIndex = SegmentedPeriodi.SelectedIndex;
 
-            if (periodIndex == -1)
+            if (selectedPeriodIndex == -1)
             {
                 foreach (var period in _mergedPeriodList)
                 {
-                    SegmentedVoti.Items.Add(VariousUtils.UppercaseFirst(period.Period.periodDesc));
+                    SegmentedPeriodi.Items.Add(VariousUtils.UppercaseFirst(period.Period.periodDesc));
                 }
 
-                TitleFirstPerVal.Text = VariousUtils.UppercaseFirst(_periods[0].periodDesc);
-                TitleSecondPerVal.Text = VariousUtils.UppercaseFirst(_periods[1].periodDesc);
+                TitleFirstPerVal.Text = VariousUtils.UppercaseFirst(_mergedPeriodList[0].Period.periodDesc);
+                TitleSecondPerVal.Text = VariousUtils.UppercaseFirst(_mergedPeriodList[1].Period.periodDesc);
+                SegmentedPeriodi.SelectedIndex = 0;
 
-                SegmentedVoti.SelectedIndex = 0;
-
-                SegmentedVoti.IsEnabled = true;
+                return;
             }
-            else if (periodIndex == 0)
+
+            List<SubjectWithGrades> mergedPeriodsSubjectsWithGrades;
+
+            if (selectedPeriodIndex == 0)
             {
-                CheckboxSuddividi.IsEnabled = true;
+                //create a list of SubjectAdapter from periodGrades by merging periods together and count subjects as one distinct subject
+                mergedPeriodsSubjectsWithGrades = _mergedPeriodList
+                    .SelectMany(p => p.Subjects)
+                    .GroupBy(s => s.Subject.id)
+                    .Select(g => new SubjectWithGrades
+                    {
+                        Subject = g.First().Subject,
+                        Grades = g.SelectMany(s => s.Grades).ToList()
+                    })
+                    .ToList();
 
-                if (CheckboxSuddividi.IsChecked == true)
-                {
-                    MainListView.Visibility = Visibility.Visible;
-                    GradesOnlyListView .Visibility = Visibility.Collapsed;
-
-                    //create a list of SubjectAdapter from periodGrades by merging periods together and count subjects as one distinct subject
-                    var mergetdPeriodsSubjects = _mergedPeriodList
-                        .SelectMany(p => p.Subjects)
-                        .GroupBy(s => s.Subject.id)
-                        .Select(g => new SubjectWithGrades
-                        {
-                            Subject = g.First().Subject,
-                            Grades = g.SelectMany(s => s.Grades).ToList()
-                        })
-                        .ToList();
-
-                    var subjectAdapters = mergetdPeriodsSubjects.Select(subject =>
-                        new SubjectAdapter(subject.Subject, subject.Grades)
-                    ).ToList();
-
-                    MainListView.ItemsSource = subjectAdapters;
-                }
-                else
-                {
-                    MainListView.Visibility = Visibility.Collapsed;
-                    GradesOnlyListView .Visibility = Visibility.Visible;
-
-                    GradesOnlyListView.ItemsSource = _sortedGrades;
-                }
             }
             else
             {
-                CheckboxSuddividi.IsEnabled = false;
-                MainListView.Visibility = Visibility.Visible;
-                GradesOnlyListView .Visibility = Visibility.Collapsed;
+                mergedPeriodsSubjectsWithGrades = _mergedPeriodList[selectedPeriodIndex - 1].Subjects;
 
+            }
 
-                var periodGrades = _mergedPeriodList[periodIndex - 1].Subjects;
-
-                //create a list of SubjectAdapter for every subject in periodGrades
-                var subjectAdapters = periodGrades.Select(subject =>
+            if (SegmentedLayout.SelectedIndex == 1)
+            {
+                var subjectAdapters = mergedPeriodsSubjectsWithGrades.Select(subject =>
                     new SubjectAdapter(subject.Subject, subject.Grades)
                 ).ToList();
 
+                MainListView.Visibility = Visibility.Visible;
+                GradesOnlyListView.Visibility = Visibility.Collapsed;
+
                 MainListView.ItemsSource = subjectAdapters;
             }
+            else
+            {
+                MainListView.Visibility = Visibility.Collapsed;
+                GradesOnlyListView.Visibility = Visibility.Visible;
+
+                //if selected period is not the first one (all grades), filter grades by periodPos
+                var sortedGradesForPeriod = selectedPeriodIndex != 0 ? _sortedGrades
+                    .Where(g => g.periodPos == _mergedPeriodList[selectedPeriodIndex - 1].Period.periodPos)
+                    .ToList() : _sortedGrades;
+
+                GradesOnlyListView.ItemsSource = sortedGradesForPeriod;
+            }
+
         }
 
-        private void UpdateUi(List<Grade> grades, List<Period> periods, List<Subject> subjects)
+        private void UpdateUi(List<Grade> grades)
         {
             //update main UI
             UpdateUi();
 
-
             //update statistics
-
             var firstPeriodGrades = _mergedPeriodList[0].Subjects.SelectMany(s => s.Grades).ToList();
             var secondPeriodGrades = _mergedPeriodList[1].Subjects.SelectMany(s => s.Grades).ToList();
 
@@ -231,20 +229,21 @@ namespace ClassevivaPCTO.Views
             ValutazioniViewModel.AverageFirstPeriodo = firstPeriodGradesAverage;
             ValutazioniViewModel.AverageSecondPeriodo = secondPeriodGradesAverage;
 
-            //update ui
-            MediaTotText.Text = allGradesAverage.ToString("0.0");
-            MediaPrimoPeriodoText.Text = firstPeriodGradesAverage.ToString("0.0");
-            MediaSecondoPeriodoText.Text = secondPeriodGradesAverage.ToString("0.0");
-
             //set progressrings value
-            ProgressMediaTot.Value = float.IsNaN( allGradesAverage) ? 0 : allGradesAverage * 10;
+            ProgressMediaTot.Value = float.IsNaN(allGradesAverage) ? 0 : allGradesAverage * 10;
             ProgressMediaPrimoPeriodo.Value = float.IsNaN(firstPeriodGradesAverage) ? 0 : firstPeriodGradesAverage * 10;
-            ProgressMediaSecondoPeriodo.Value = float.IsNaN(secondPeriodGradesAverage) ? 0 : secondPeriodGradesAverage * 10;
+            ProgressMediaSecondoPeriodo.Value =
+                float.IsNaN(secondPeriodGradesAverage) ? 0 : secondPeriodGradesAverage * 10;
 
             //set grades count
-            string valutazioniPlAllgrad = allGradesCount == 1 ? "GradeSingular".GetLocalized() : "GradesPlural".GetLocalized();
-            string valutazioniPlurale1 = firstPeriodGradesCount == 1 ? "GradeSingular".GetLocalized() : "GradesPlural".GetLocalized();
-            string valutazioniPlurale2 = secondPeriodGradesCount == 1 ? "GradeSingular".GetLocalized() : "GradesPlural".GetLocalized();
+            string valutazioniPlAllgrad =
+                allGradesCount == 1 ? "GradeSingular".GetLocalizedStr() : "GradesPlural".GetLocalizedStr();
+            string valutazioniPlurale1 = firstPeriodGradesCount == 1
+                ? "GradeSingular".GetLocalizedStr()
+                : "GradesPlural".GetLocalizedStr();
+            string valutazioniPlurale2 = secondPeriodGradesCount == 1
+                ? "GradeSingular".GetLocalizedStr()
+                : "GradesPlural".GetLocalizedStr();
 
             NumTotVal.Text = string.Format("{0} " + valutazioniPlAllgrad, allGradesCount.ToString());
             NumFirstPerVal.Text = string.Format("{0} " + valutazioniPlurale1, firstPeriodGradesCount.ToString());
@@ -252,19 +251,23 @@ namespace ClassevivaPCTO.Views
         }
 
 
-        private void SegmentedVoti_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void SegmentedPeriodi_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             UpdateUi();
         }
 
-        private async void ReloadButton_OnClick(object sender, RoutedEventArgs e)
+        public override async void AggiornaAction()
         {
             await Task.Run(async () => { await LoadData(); });
         }
 
-        private async void CheckboxSuddividi_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        private async void SegmentedLayout_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            if(!IsLoaded || sender is Segmented {IsLoaded: false})
+                return;
+
             UpdateUi();
+            await ApplicationData.Current.LocalSettings.SaveAsync("GradesLayoutMode", SegmentedLayout.SelectedIndex);
         }
     }
 }

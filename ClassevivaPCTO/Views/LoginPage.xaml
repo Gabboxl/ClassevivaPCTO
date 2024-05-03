@@ -2,76 +2,163 @@
     x:Class="ClassevivaPCTO.Views.LoginPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:ClassevivaPCTO"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
     mc:Ignorable="d"
-
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
     muxc:BackdropMaterial.ApplyToRootOrPageBackground="True">
 
-    <Grid x:Name="loginGrid">
-
+    <Grid x:Name="LoginGrid">
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="48" />
                 <RowDefinition />
             </Grid.RowDefinitions>
             <Grid x:Name="AppTitleBar" Background="Transparent">
-                <!-- Width of the padding columns is set in LayoutMetricsChanged handler. -->
-                <!-- Using padding columns instead of Margin ensures that the background
-             paints the area under the caption control buttons (for transparent buttons). -->
+                <!--  Width of the padding columns is set in LayoutMetricsChanged handler.  -->
+                <!--
+                    Using padding columns instead of Margin ensures that the background
+                    paints the area under the caption control buttons (for transparent buttons).
+                -->
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition x:Name="LeftPaddingColumn" Width="0" />
                     <ColumnDefinition />
                     <ColumnDefinition x:Name="RightPaddingColumn" Width="0" />
                 </Grid.ColumnDefinitions>
-                <Image Source="/Assets/Square44x44Logo.png"
-                       Grid.Column="1"
+                
+                <Image Grid.Column="1"
+                       Width="24"
+                       Height="24"
+                       Margin="12,0,0,0"
                        HorizontalAlignment="Left"
-                       Width="24" Height="24"
-                       Margin="12,0,0,0" />
+                       Source="/Assets/Square44x44Logo.png" />
+                
                 <TextBlock x:Name="AppTitleTextBlock"
-                           Text="test"
-                           Style="{StaticResource CaptionTextBlockStyle}"
                            Grid.Column="1"
+                           Margin="40,0,0,4"
                            VerticalAlignment="Center"
-                           Margin="40,0,0,4" />
+                           Style="{StaticResource CaptionTextBlockStyle}" />
             </Grid>
-
         </Grid>
 
+        <Grid VerticalAlignment="Center">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
 
-        <Image x:Name="Logo" Source="/Assets/mainlogo.png" Stretch="Uniform" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  Margin="0,-520,0,0" Height="83" Width="398" />
+            <Image x:Name="Logo"
+                   Grid.Row="0"
+                   Width="280"
+                   Height="60"
+                   HorizontalAlignment="Stretch"
+                   Source="/Assets/mainlogo.png"
+                   Stretch="Uniform" />
 
+            <StackPanel x:Name="LoginStackPanel"
+                        Grid.Row="1"
+                        Width="340"
+                        Height="370"
+                        Margin="0,20,0,0"
+                        Padding="12"
+                        Background="{ThemeResource CardBackgroundFillColorSecondaryBrush}"
+                        BorderBrush="{ThemeResource AccentTextFillColorTertiaryBrush}"
+                        BorderThickness="0"
+                        CornerRadius="8">
 
-        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Height="380" Width="349"
-                    CornerRadius="8"
-                    Padding="12"
-                    BorderThickness="1"
-                    BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
-                    Background="{ThemeResource CardBackgroundFillColorDefaultBrush}">
+                <TextBlock Height="60"
+                           Margin="0,8,0,8"
+                           FontSize="28"
+                           FontWeight="Medium"
+                           Foreground="{ThemeResource TextFillColorTertiaryBrush}"
+                           Text="{CustomResource LoginWelcome}"
+                           TextAlignment="Center" />
 
-            <TextBlock x:Uid="TextBenvenutoLogin" FontSize="24" TextAlignment="Center" Height="60"/>
+                <Rectangle Width="Auto"
+                           Height="1"
+                           Margin="0,-40,0,0"
+                           Fill="{ThemeResource TextFillColorDisabledBrush}" />
 
-            <TextBox x:Name="EdittextUsername" x:Uid="EdittextUsername"
-                     Margin="0,0,0,30" />
-            <PasswordBox x:Name="EdittextPassword" x:Uid="EdittextPassword"
-                         Margin="0,0,0,20" />
-            <CheckBox x:Name="CheckboxCredenziali" x:Uid="CheckboxCredenziali"
-                      Margin="0,0,0,20" />
+                <TextBox x:Name="EdittextUsername"
+                         Margin="0,0,0,20"
+                         Header="{CustomResource LoginUsernameFieldHeader}"
+                         PlaceholderText="{CustomResource LoginUsernameFieldPlaceholderText}" />
 
-            <Button x:Name="buttonLogin" Style="{StaticResource AccentButtonStyle}" x:Uid="LoginButton" Height="32"
-                    Width="81" RenderTransformOrigin="2.13,0.797" HorizontalAlignment="Center" Margin="0,12,0,0"
-                    Click="Button_Click" />
-            <muxc:ProgressRing x:Name="progresslogin" IsActive="True" Visibility="Collapsed" Margin="0,12,0,0"/>
-        </StackPanel>
+                <PasswordBox x:Name="EdittextPassword"
+                             Margin="0,0,0,20"
+                             Header="{CustomResource LoginPasswordFieldHeader}"
+                             PlaceholderText="{CustomResource LoginPasswordFieldPlaceholderText}" />
 
-        <TextBlock x:Name="VersionTextBlock" Style="{ThemeResource BodyStrongTextBlockStyle}"
-                   Foreground="{ThemeResource TextFillColorTertiaryBrush}" VerticalAlignment="Bottom"
-                   HorizontalAlignment="Left" Margin="24,0,0,18" />
+                <CheckBox x:Name="CheckboxCredenziali"
+                          Margin="0,0,0,20"
+                          Content="{CustomResource LoginKeepCredentialsCheckbox}" />
 
-        <!--<Button Style="{StaticResource AccentButtonStyle}" Content="Usa account demo" Margin="16" VerticalAlignment="Bottom" HorizontalAlignment="Left"/>-->
+                <Button x:Name="buttonLogin"
+                        Height="32"
+                        MinWidth="120"
+                        Margin="0,4,0,0"
+                        HorizontalAlignment="Center"
+                        Click="Button_Click"
+                        Content="{CustomResource LoginButton}"
+                        Style="{StaticResource AccentButtonStyle}" />
+
+                <muxc:ProgressBar x:Name="progresslogin"
+                                  Width="334"
+                                  Margin="0,20,0,0"
+                                  IsIndeterminate="True"
+                                  Visibility="Collapsed" />
+
+            </StackPanel>
+
+            <StackPanel Grid.Row="2"
+                        Margin="0,64,0,0"
+                        HorizontalAlignment="Center"
+                        Orientation="Horizontal"
+                        Spacing="8">
+
+                <HyperlinkButton Click="TutorialButton_Click">
+                    <StackPanel Orientation="Horizontal" Spacing="10">
+                        <Grid Width="18" Height="18">
+                            <Path Data="{CustomResource GetStartedIcon}" Style="{StaticResource HyperlinkIconStyle}" />
+                        </Grid>
+                        <TextBlock Text="{CustomResource LoginGetStartedHyperlink}" />
+
+                    </StackPanel>
+                </HyperlinkButton>
+
+                <HyperlinkButton Click="ChangelogButton_Click">
+                    <StackPanel Orientation="Horizontal" Spacing="10">
+                        <Grid Width="18" Height="18">
+                            <Path Data="{CustomResource ChangelogIcon}" Style="{StaticResource HyperlinkIconStyle}" />
+                        </Grid>
+                        <TextBlock Text="{CustomResource LoginChangelogHyperlink}" />
+                    </StackPanel>
+                </HyperlinkButton>
+
+                <HyperlinkButton NavigateUri="http://github.com/Gabboxl/ClassevivaPCTO">
+                    <StackPanel Orientation="Horizontal" Spacing="10">
+                        <Grid Width="18" Height="18">
+                            <Path Data="{CustomResource GithubIcon}" Style="{StaticResource HyperlinkIconStyle}" />
+                        </Grid>
+                        <TextBlock Text="{CustomResource LoginGitHubHyperlink}" />
+                    </StackPanel>
+                </HyperlinkButton>
+
+            </StackPanel>
+        </Grid>
+
+        <TextBlock x:Name="VersionTextBlock"
+                   Margin="16"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Bottom"
+                   Foreground="{ThemeResource TextFillColorTertiaryBrush}"
+                   Style="{ThemeResource BodyStrongTextBlockStyle}" />
+
+        <!-- Demo account button -->
+        <!--<Button Margin="16" HorizontalAlignment="Right"
+                VerticalAlignment="Bottom" Click="demoAccountClick"
+                Content="Account test" Visibility="Collapsed" />-->
     </Grid>
 </Page>

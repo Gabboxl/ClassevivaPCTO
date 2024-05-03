@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using Windows.UI.Xaml.Controls;
 using ClassevivaPCTO.Utils;
 using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Media.Imaging;
 using ClassevivaPCTO.Helpers.Palettes;
 using ClassevivaPCTO.Services;
 
@@ -17,7 +15,7 @@ namespace ClassevivaPCTO.Adapters
 
         public string Teachers
         {
-            get { return String.Join(", ", Subject.teachers.Select(t => t.teacherName)); }
+            get { return string.Join(", ", Subject.teachers.Select(t => t.teacherName)); }
         }
 
         public float Average
@@ -25,14 +23,9 @@ namespace ClassevivaPCTO.Adapters
             get
             {
                 var media = VariousUtils.CalcolaMedia(SubjectGrades);
-                
+
                 return media;
             }
-        }
-
-        public string AverageString
-        {
-            get { return Average.ToString("0.0"); }
         }
 
         public float Progress
@@ -52,7 +45,7 @@ namespace ClassevivaPCTO.Adapters
 
                 IPalette currentPalette = PaletteSelectorService.PaletteClass;
 
-                SolidColorBrush brush = new SolidColorBrush();
+                SolidColorBrush brush = new();
 
                 string iconString;
 
@@ -72,18 +65,17 @@ namespace ClassevivaPCTO.Adapters
                     brush.Color = currentPalette.ColorOrange;
                 }
 
-                FontIcon icon = new FontIcon();
-
-                //add fontfamily FluentIcons StaticResource
-                icon.FontFamily = new FontFamily("ms-appx:///Assets/Fonts/SegoeFluentIcons.ttf#Segoe Fluent Icons");
-
-                icon.Glyph = iconString;
-                icon.Foreground = brush;
+                FontIcon icon = new FontIcon
+                {
+                    //add fontfamily FluentIcons StaticResource
+                    FontFamily = new FontFamily("ms-appx:///Assets/Fonts/SegoeFluentIcons.ttf#Segoe Fluent Icons"),
+                    Glyph = iconString,
+                    Foreground = brush
+                };
 
                 return icon;
             }
         }
-
 
         public SubjectAdapter(Subject subject, List<Grade> subjectSubjectGrades)
         {

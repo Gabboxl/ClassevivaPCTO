@@ -1,4 +1,5 @@
-﻿using ClassevivaPCTO.Utils;
+﻿using ClassevivaPCTO.Helpers;
+using ClassevivaPCTO.Utils;
 
 namespace ClassevivaPCTO.Adapters
 {
@@ -13,21 +14,30 @@ namespace ClassevivaPCTO.Adapters
 
         public string EventTitle
         {
-            get { return CurrentObject.evtCode.GetLongName() + " del " + CurrentObject.evtDate.ToString("dd/MM/yyyy"); }
+            get
+            {
+                return CurrentObject.evtCode.ToString().GetLocalizedStr("sing") + "GenericEventOnDayPreposition".GetLocalizedStr() +
+                       CurrentObject.evtDate.ToString("dd/MM/yyyy");
+            }
         }
 
         public string JustifiedText
         {
             get
             {
-                if ((bool) CurrentObject.isJustified)
+                if (CurrentObject.isJustified)
                 {
-                    return CurrentObject.justifReasonDesc + " (" + CurrentObject.justifReasonCode + ")";
+                    if (string.IsNullOrEmpty(CurrentObject.justifReasonCode))
+                    {
+                        return CurrentObject.justifReasonDesc;
+                    }
+                    else
+                    {
+                        return CurrentObject.justifReasonDesc + " (" + CurrentObject.justifReasonCode + ")";
+                    }
                 }
-                else
-                {
-                    return "Da giustificare";
-                }
+
+                return "AbsencesToBeJustifiedText".GetLocalizedStr();
             }
         }
 

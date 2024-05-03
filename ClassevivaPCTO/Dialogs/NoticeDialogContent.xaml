@@ -1,23 +1,25 @@
-﻿<Page
-    x:Class="ClassevivaPCTO.Dialogs.NoticeDialogContent"
-    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:ClassevivaPCTO.Dialogs"
-    xmlns:utils="using:ClassevivaPCTO.Utils"
-    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d">
+﻿<Page x:Class="ClassevivaPCTO.Dialogs.NoticeDialogContent"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:utils="using:ClassevivaPCTO.Utils"
+      xmlns:controls="using:Microsoft.UI.Xaml.Controls"
+      xmlns:converters="using:ClassevivaPCTO.Converters"
+      mc:Ignorable="d">
 
     <Page.Resources>
-        <Style x:Key="ListViewFullStretchStyle" TargetType="ListViewItem"
-               BasedOn="{StaticResource DefaultListViewItemStyle}">
+        <converters:BetterBoolToVisibilityConverter x:Key="BetterBoolToVisibilityConverter" />
+
+        <Style x:Key="ListViewFullStretchStyle"
+               BasedOn="{StaticResource DefaultListViewItemStyle}"
+               TargetType="ListViewItem">
             <Setter Property="HorizontalContentAlignment" Value="Stretch" />
             <Setter Property="VerticalContentAlignment" Value="Stretch" />
         </Style>
 
-        <!-- datatemplate to show notice attachment name and a commandbutton to download it -->
-        <DataTemplate x:Key="AttachmentListViewDataTemplate"
-                      x:DataType="utils:NoticeAttachment">
+        <!--  datatemplate to show notice attachment name and a commandbutton to download it  -->
+        <DataTemplate x:Key="AttachmentListViewDataTemplate" x:DataType="utils:NoticeAttachment">
 
             <Grid HorizontalAlignment="Stretch">
                 <Grid.RowDefinitions>
@@ -29,40 +31,49 @@
                 </Grid.ColumnDefinitions>
 
                 <RelativePanel Grid.Column="0">
-                    <FontIcon Glyph="&#xe7c3;"
+
+                    <FontIcon x:Name="IconaAttachment"
+                              Margin="8"
                               FontFamily="{StaticResource FluentIcons}"
                               Foreground="{ThemeResource TextFillColorTertiaryBrush}"
-                              RelativePanel.AlignVerticalCenterWithPanel="True"
-                              x:Name="IconaAttachment" Margin="8" />
-
+                              Glyph="&#xe7c3;"
+                              RelativePanel.AlignVerticalCenterWithPanel="True" />
 
                     <TextBlock x:Name="nomeAllegato"
-                               IsTextSelectionEnabled="True"
-                               RelativePanel.RightOf="IconaAttachment"
-                               RelativePanel.AlignVerticalCenterWithPanel="True"
-                               TextWrapping="Wrap"
                                MaxWidth="600"
-                               Text="{x:Bind fileName}"
+                               Margin="10,0,0,0"
                                Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                               IsTextSelectionEnabled="True"
+                               RelativePanel.AlignVerticalCenterWithPanel="True"
+                               RelativePanel.RightOf="IconaAttachment"
                                Style="{ThemeResource BaseTextBlockStyle}"
-                               Margin="10,0,0,0" />
+                               Text="{x:Bind fileName}"
+                               TextWrapping="WrapWholeWords" />
 
                 </RelativePanel>
 
+                <StackPanel Grid.Column="1"
+                            HorizontalAlignment="Right"
+                            Orientation="Horizontal">
 
-                <RelativePanel Grid.Column="1" HorizontalAlignment="Right">
-                    <AppBarButton x:Name="ButtonOpen" RelativePanel.LeftOf="ButtonSave" Click="ButtonOpen_Click"
-                                  RelativePanel.AlignVerticalCenterWithPanel="True" Icon="OpenFile"
-                                  Label="Apri" />
+                    <AppBarButton x:Name="ButtonOpen"
+                                  VerticalAlignment="Center"
+                                  Click="ButtonOpen_Click"
+                                  Icon="OpenFile"
+                                  Label="{CustomResource GenericOpenButton}"
+                                  ToolTipService.ToolTip="{CustomResource NoticeDialogOpenButtonToolTip}" />
 
-                    <AppBarButton x:Name="ButtonSave" Click="ButtonSave_Click" RelativePanel.AlignRightWithPanel="True"
-                                  RelativePanel.AlignVerticalCenterWithPanel="True" Icon="Save"
-                                  Label="Salva" />
+                    <AppBarButton x:Name="ButtonSave"
+                                  VerticalAlignment="Center"
+                                  Click="ButtonSave_Click"
+                                  Icon="Save"
+                                  Label="{CustomResource GenericSaveButton}"
+                                  RelativePanel.AlignRightWithPanel="True"
+                                  ToolTipService.ToolTip="{CustomResource NoticeDialogSaveButtonToolTip}" />
 
-                </RelativePanel>
+                </StackPanel>
 
             </Grid>
-
         </DataTemplate>
     </Page.Resources>
 
@@ -70,32 +81,80 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
+
         <ScrollViewer Grid.Row="0">
-        <StackPanel  HorizontalAlignment="Stretch">
+            <StackPanel HorizontalAlignment="Stretch">
 
-                <TextBlock x:Name="noticeBodyText"
-                           TextWrapping="Wrap"
-                           Style="{ThemeResource BodyTextBlockStyle}"
-                           IsTextSelectionEnabled="True"
+                <TextBlock x:Name="NoticeBodyText"
+                           Margin="0,12,0,8"
+                           FontWeight="SemiBold"
                            Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                           IsTextSelectionEnabled="True"
+                           Style="{ThemeResource BodyTextBlockStyle}"
                            Text="{x:Bind CurrentReadResult.item.text}"
-                           Margin="0,12,0,8" />
+                           TextWrapping="WrapWholeWords" />
+
+                <TextBlock x:Name="TitoloAttachments"
+                           Margin="8,16,0,0"
+                           FontSize="18"
+                           FontWeight="SemiBold"
+                           Style="{ThemeResource BodyStrongTextBlockStyle}"
+                           Text="{CustomResource NoticeDialogAttachmentsSubtitle}" />
+
+                <Rectangle x:Name="AttachmentSeparator"
+                           Height="1"
+                           Margin="6,6,6,0"
+                           Fill="{ThemeResource ControlStrongStrokeColorDisabledBrush}" />
+
+                <StackPanel x:Name="NoAttachmentsPlaceholder"
+                            Margin="0,16,0,0"
+                            Orientation="Horizontal"
+                            Spacing="12">
+                    
+                    <FontIcon FontSize="22"
+                              Foreground="{ThemeResource TextFillColorTertiaryBrush}"
+                              Glyph="&#xe7c3;" />
+                    
+                    <TextBlock Margin="0,0,0,2"
+                               FontSize="18"
+                               FontWeight="SemiBold"
+                               Foreground="{ThemeResource TextFillColorTertiaryBrush}"
+                               Text="{CustomResource NoticeDialogNoAttachmentsSubtitle}" />
+                    
+                </StackPanel>
+
+                <ListView x:Name="AttachmentsListView"
+                          Margin="0,6,0,0"
+                          ItemContainerStyle="{StaticResource ListViewFullStretchStyle}"
+                          ItemTemplate="{StaticResource AttachmentListViewDataTemplate}" />
+
+                <StackPanel Visibility="{x:Bind ShowJoinAlert, Converter={StaticResource BetterBoolToVisibilityConverter}, ConverterParameter=True}">
+                    <Rectangle Fill="{ThemeResource ControlStrongStrokeColorDisabledBrush}" Height="1" Margin="0,8,0,8"/>
+
+                    <controls:InfoBar
+                        IsOpen="True"
+                        Severity="{x:Bind JoinAlertSeverityStatus}"
+                        Title="{x:Bind JoinAlertMessage}" IsClosable="False"/>
+
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" Visibility="{x:Bind JoinButtonsVisibility}">
+                        <StackPanel Orientation="Horizontal" Visibility="{x:Bind CurrentNotice.needSign, Converter={StaticResource BetterBoolToVisibilityConverter}, ConverterParameter=True}">
+                            
+                            <AppBarButton x:Name="ButtonSign"  Icon="Accept" VerticalAlignment="Center"
+                                          Label="Conferma e firma" />
+
+                            <AppBarButton x:Name="ButtonRefuse" VerticalAlignment="Center" Icon="Cancel"
+                                          Label="Rifiuta" />
+                        </StackPanel>
+                        
+                        <AppBarButton x:Name="ButtonJoin" VerticalAlignment="Center" Icon="AddFriend"
+                                      Visibility="{x:Bind CurrentNotice.needJoin, Converter={StaticResource BetterBoolToVisibilityConverter}, ConverterParameter=True}"
+                                      Label="Aderisci" />
+
+                    </StackPanel>
+                </StackPanel>
 
 
-            <TextBlock x:Name="TitoloAttachments"
-                       TextWrapping="Wrap"
-                       FontWeight="SemiBold"
-                       Style="{ThemeResource BodyStrongTextBlockStyle}"
-                       Text="{x:Bind AllegatiText}"
-                       Margin="8,16,0,8" />
-
-            <ListView
-                      x:Name="AttachmentsListView"
-                      ItemContainerStyle="{StaticResource ListViewFullStretchStyle}"
-                      ItemTemplate="{StaticResource AttachmentListViewDataTemplate}">
-
-            </ListView>
-        </StackPanel>
+            </StackPanel>
         </ScrollViewer>
     </Grid>
 </Page>

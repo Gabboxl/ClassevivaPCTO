@@ -9,7 +9,7 @@ namespace ClassevivaPCTO.Controls
 {
     public sealed partial class OverviewListView : UserControl
     {
-        public OverviewControlViewModel OverviewControlViewModel { get; } = new OverviewControlViewModel();
+        public OverviewControlViewModel OverviewControlViewModel { get; } = new();
 
         public OverviewDataModel ItemsSource
         {
@@ -22,7 +22,7 @@ namespace ClassevivaPCTO.Controls
                 nameof(ItemsSource),
                 typeof(OverviewDataModel),
                 typeof(GradesListView),
-                new PropertyMetadata(null, new PropertyChangedCallback(OnItemsSourceChanged)));
+                new PropertyMetadata(null, OnItemsSourceChanged));
 
         private static void OnItemsSourceChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
@@ -57,10 +57,12 @@ namespace ClassevivaPCTO.Controls
                 filteredOverviewResults.Grades = overviewResult.Grades
                     .Where(grade => grade.evtDate == newValue.FilterDate.Date).ToList();
 
+                filteredOverviewResults.Notes =
+                    overviewResult.Notes.Where(note => note.evtDate == newValue.FilterDate.Date).ToList();
+
                 //questo per le lezioni in teoria non serve
                 //filteredOverviewResults.Lessons = overviewResult.Lessons.Where(les => les.evtDate == newValue.FilterDate.Date).ToList();
             }
-
 
             //set the data to the listviews
 
@@ -68,22 +70,20 @@ namespace ClassevivaPCTO.Controls
             currentInstance.GradesListView.ItemsSource = filteredOverviewResults.Grades;
             currentInstance.LessonsListView.ItemsSource = filteredOverviewResults.Lessons;
             currentInstance.AgendaListView.ItemsSource = filteredOverviewResults.AgendaEvents;
-            //listview note da mettere
-
-
+            currentInstance.NotesListView.ItemsSource = filteredOverviewResults.Notes;
             currentInstance.OverviewControlViewModel.FilteredOverviewResult = filteredOverviewResults;
 
-            currentInstance.OverviewControlViewModel.ShowEmptyAlert = filteredOverviewResults.AbsenceEvents.Count == 0 &&
-                                                                filteredOverviewResults.AgendaEvents.Count == 0 &&
-                                                                filteredOverviewResults.Grades.Count == 0 &&
-                                                                filteredOverviewResults.Lessons.Count == 0;
-            //to add notes check
+            currentInstance.OverviewControlViewModel.ShowEmptyAlert =
+                filteredOverviewResults.AbsenceEvents.Count == 0 &&
+                filteredOverviewResults.AgendaEvents.Count == 0 &&
+                filteredOverviewResults.Grades.Count == 0 &&
+                filteredOverviewResults.Lessons.Count == 0 &&
+                filteredOverviewResults.Notes.Count == 0;
         }
-
 
         public OverviewListView()
         {
-            this.InitializeComponent();
+            InitializeComponent();
         }
     }
 }
