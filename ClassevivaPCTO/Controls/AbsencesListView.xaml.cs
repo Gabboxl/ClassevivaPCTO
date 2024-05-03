@@ -1,11 +1,15 @@
 ﻿using ClassevivaPCTO.Adapters;
 using ClassevivaPCTO.Utils;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
+using System.Threading.Tasks;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Data;
+using ClassevivaPCTO.Helpers;
 
 namespace ClassevivaPCTO.Controls
 {
@@ -14,10 +18,7 @@ namespace ClassevivaPCTO.Controls
         public bool EnableEmptyAlert
         {
             get { return (bool) GetValue(EnableEmptyAlertProperty); }
-            set
-            {
-                SetValue(EnableEmptyAlertProperty, value);
-            }
+            set { SetValue(EnableEmptyAlertProperty, value); }
         }
 
         private static readonly DependencyProperty EnableEmptyAlertProperty =
@@ -25,6 +26,16 @@ namespace ClassevivaPCTO.Controls
                 nameof(EnableEmptyAlert),
                 typeof(bool),
                 typeof(AbsencesListView),
+                new PropertyMetadata(false, null));
+
+        public bool EnableStickyHeader
+        {
+            get { return (bool) GetValue(EnableStickyHeaderProperty); }
+            set { SetValue(EnableStickyHeaderProperty, value); }
+        }
+
+        private static readonly DependencyProperty EnableStickyHeaderProperty =
+            DependencyProperty.Register(nameof(EnableStickyHeader), typeof(bool), typeof(AbsencesListView),
                 new PropertyMetadata(false, null));
 
         private bool _showEmptyAlert;
@@ -46,9 +57,29 @@ namespace ClassevivaPCTO.Controls
                 nameof(ItemsSource),
                 typeof(List<AbsenceEvent>),
                 typeof(GradesListView),
-                new PropertyMetadata(null, new PropertyChangedCallback(OnItemsSourceChanged)));
+                new PropertyMetadata(null, OnItemsSourceChanged));
 
-        private static void OnItemsSourceChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        private CollectionViewSource GroupedItems { get; set; }
+
+        private static async Task<ObservableCollection<GroupInfoList>> GetAbsenceEventsGroupedAsync(
+            IEnumerable<AbsenceEventAdapter> absenceEventAdapters)
+        {
+            var query = from item in absenceEventAdapters
+
+                // Group the items returned from the query, sort and select the ones you want to keep
+                group item by item.CurrentObject.evtCode
+                into g
+                orderby g.Key descending
+
+                //TODO: forse ordinare ulteriormente ogni gruppo per data?
+
+                //prendo il long name dell'enum con attributo ApiValueAttribute
+                select new GroupInfoList(g) {Key = g.Key.ToString().GetLocalizedStr("plur")};
+
+            return new ObservableCollection<GroupInfoList>(query);
+        }
+
+        private static async void OnItemsSourceChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             var currentInstance = (AbsencesListView) d;
 
@@ -56,15 +87,29 @@ namespace ClassevivaPCTO.Controls
 
             var eventAdapters = newValue?.Select(evt => new AbsenceEventAdapter(evt)).ToList();
 
-            currentInstance.listView.ItemsSource = eventAdapters;
+            currentInstance.GroupedItems = new CollectionViewSource
+            {
+                IsSourceGrouped = currentInstance.EnableStickyHeader, //TODO: settare proprietà da dependencyproperty
 
-            currentInstance.ShowEmptyAlert = (newValue == null || newValue.Count == 0) && currentInstance.EnableEmptyAlert;
+                //in base al valore di IsSourceGrouped, Source può essere un IEnumerable oppure un IList
+                Source = currentInstance.EnableStickyHeader
+                    ? await GetAbsenceEventsGroupedAsync(eventAdapters)
+                    : eventAdapters
+            };
+
+            //update the listview contents
+            currentInstance.MainListView.ItemsSource = currentInstance.GroupedItems.View;
+            
+            //reset the selection
+            currentInstance.MainListView.SelectedIndex = -1;
+
+            currentInstance.ShowEmptyAlert =
+                (newValue == null || newValue.Count == 0) && currentInstance.EnableEmptyAlert;
         }
-
 
         public AbsencesListView()
         {
-            this.InitializeComponent();
+            InitializeComponent();
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

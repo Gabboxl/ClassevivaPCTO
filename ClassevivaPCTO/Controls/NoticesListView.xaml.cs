@@ -12,8 +12,8 @@ using System.Threading.Tasks;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using ClassevivaPCTO.Helpers;
-using Microsoft.Toolkit.Uwp.UI;
-
+using CommunityToolkit.WinUI;
+using Windows.Storage;
 
 namespace ClassevivaPCTO.Controls
 {
@@ -24,10 +24,10 @@ namespace ClassevivaPCTO.Controls
         public bool ShowEmptyAlert
         {
             get { return _showEmptyAlert; }
-            set { SetField(ref _showEmptyAlert, value); }
+            private set { SetField(ref _showEmptyAlert, value); }
         }
 
-        private readonly IClassevivaAPI apiWrapper;
+        private readonly IClassevivaAPI _apiWrapper;
 
         public EventHandler OnShouldUpdate
         {
@@ -41,7 +41,6 @@ namespace ClassevivaPCTO.Controls
                 typeof(NoticesListView),
                 new PropertyMetadata(null, null));
 
-
         public List<Notice> ItemsSource
         {
             get { return (List<Notice>) GetValue(ItemsSourceProperty); }
@@ -52,7 +51,7 @@ namespace ClassevivaPCTO.Controls
             nameof(ItemsSource),
             typeof(List<Notice>),
             typeof(NoticesListView),
-            new PropertyMetadata(null, new PropertyChangedCallback(OnItemsSourceChanged))
+            new PropertyMetadata(null, OnItemsSourceChanged)
         );
 
         private static void OnItemsSourceChanged(
@@ -67,14 +66,12 @@ namespace ClassevivaPCTO.Controls
             var eventAdapters = newValue?.Select(evt => new NoticeAdapter(evt)).ToList();
 
             //save the scroll position
-            var scrollViewer = currentInstance.listView.FindDescendant<ScrollViewer>();
+            var scrollViewer = currentInstance.MainListView.FindDescendant<ScrollViewer>();
             double horizontalOffset = scrollViewer.HorizontalOffset;
             double verticalOffset = scrollViewer.VerticalOffset;
 
-
             //update the listview contents
-            currentInstance.listView.ItemsSource = eventAdapters;
-
+            currentInstance.MainListView.ItemsSource = eventAdapters;
 
             //restore the scroll position
             scrollViewer.ChangeView(horizontalOffset, verticalOffset, null);
@@ -85,12 +82,12 @@ namespace ClassevivaPCTO.Controls
 
         public NoticesListView()
         {
-            this.InitializeComponent();
+            InitializeComponent();
 
             App app = (App) App.Current;
             var apiClient = app.Container.GetService<IClassevivaAPI>();
 
-            apiWrapper = PoliciesDispatchProxy<IClassevivaAPI>.CreateProxy(apiClient);
+            _apiWrapper = PoliciesDispatchProxy<IClassevivaAPI>.CreateProxy(apiClient);
         }
 
         private async void ReadButton_Click(object sender, RoutedEventArgs e)
@@ -98,20 +95,20 @@ namespace ClassevivaPCTO.Controls
             var senderbutton = sender as Button;
             var currentNotice = (senderbutton.DataContext as NoticeAdapter).CurrentObject;
 
-
             //check whether the notice needs to be read, if yes create a flyout and with a text and button to confirm and display it on the button
             //if the user clicks the button, the flyout will be closed and the attachment will be read
 
-            if (currentNotice.readStatus == false)
+            if (currentNotice.readStatus == false && !await ApplicationData.Current.LocalSettings.ReadAsync<bool>("SkipAskNoticeOpenEvent"))
             {
                 //create a flyout
                 var flyout = new Flyout();
                 //create a textblock
-                var textBlock = new TextBlock();
-                textBlock.Text = "InfoNoticeFlyoutText".GetLocalized();
-                textBlock.TextWrapping = TextWrapping.WrapWholeWords;
-                textBlock.Margin = new Thickness(0, 0, 0, 12);
-
+                var textBlock = new TextBlock
+                {
+                    Text = "InfoNoticeFlyoutText".GetLocalizedStr(),
+                    TextWrapping = TextWrapping.WrapWholeWords,
+                    Margin = new Thickness(0, 0, 0, 12)
+                };
 
                 //create a flyoutpresenterstyle with the SystemFillColorCautionBackgroundBrush color and set it to the flyout
                 var flyoutPresenterStyle = new Style(typeof(FlyoutPresenter));
@@ -125,27 +122,21 @@ namespace ClassevivaPCTO.Controls
                 flyoutPresenterStyle.Setters.Add(new Setter(ScrollViewer.HorizontalScrollBarVisibilityProperty,
                     ScrollBarVisibility.Disabled));
 
-
                 //make the flyoutPresenterStyle based on the default one
                 flyoutPresenterStyle.BasedOn = (Style) Application.Current.Resources["CautionFlyoutStyle"];
-
-
                 flyout.FlyoutPresenterStyle = flyoutPresenterStyle;
 
+                var button = new Button
+                {
+                    Content = "GenericReadButton".GetLocalizedStr()
+                };
 
-                //create a button
-                var button = new Button();
-                button.Content = "ReadAndOpenFlyoutText".GetLocalized();
                 button.Click += async delegate
                 {
-                    //close the flyout
                     flyout.Hide();
-
-                    //apro la comunicazione in background
                     await Task.Run(() => ReadAndOpenNoticeDialog(currentNotice));
                 };
 
-                //add the textblock and the button to the flyout
                 flyout.Content = new StackPanel
                 {
                     Children =
@@ -165,38 +156,33 @@ namespace ClassevivaPCTO.Controls
             }
         }
 
-
         private async void ReadAndOpenNoticeDialog(Notice currentNotice)
         {
-            Card? cardResult = ViewModelHolder.GetViewModel().SingleCardResult;
+            Card? cardResult = AppViewModelHolder.GetViewModel().SingleCardResult;
 
-
-            //we need to read the notice first
             NoticeReadResult noticeReadResult =
-                await apiWrapper.ReadNotice(cardResult.usrId.ToString(), currentNotice.pubId.ToString(),
-                    currentNotice.evtCode);
+                await _apiWrapper.ReadNotice(cardResult.usrId.ToString(), currentNotice.pubId.ToString(),
+                    currentNotice.evtCode, new NoticeReadSignRequest());
 
-            //execute on main UI thread
             await Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, async () =>
             {
                 var noticeDialogContent = new NoticeDialogContent(currentNotice, noticeReadResult);
 
-                ContentDialog dialog = new ContentDialog();
-                dialog.Title = currentNotice.cntTitle;
-                dialog.PrimaryButtonText = "CloseDialogButtonText".GetLocalized();
-                dialog.DefaultButton = ContentDialogButton.Primary;
-                dialog.RequestedTheme = ((FrameworkElement) Window.Current.Content).RequestedTheme;
-                dialog.Content = noticeDialogContent;
-
-
-                //dialog.FullSizeDesired = true;
-                dialog.Width = 1200;
+                ContentDialog dialog = new()
+                {
+                    Title = currentNotice.cntTitle,
+                    PrimaryButtonText = "GenericCloseButton".GetLocalizedStr(),
+                    DefaultButton = ContentDialogButton.Primary,
+                    RequestedTheme = ((FrameworkElement) Window.Current.Content).RequestedTheme,
+                    Style = Application.Current.Resources["DefaultContentDialogStyle"] as Style,
+                    Content = noticeDialogContent,
+                };
 
                 try
                 {
                     var result = await dialog.ShowAsync();
 
-                    if (result == ContentDialogResult.Primary)
+                    if (result == ContentDialogResult.Primary && !currentNotice.readStatus)
                     {
                         //raise OnShouldUpdate event
                         OnShouldUpdate?.Invoke(this, EventArgs.Empty);
@@ -204,7 +190,7 @@ namespace ClassevivaPCTO.Controls
                 }
                 catch (Exception ex)
                 {
-                    System.Console.WriteLine(ex.ToString());
+                    Console.WriteLine(ex.ToString());
                 }
             });
         }

@@ -43,29 +43,29 @@ namespace ClassevivaPCTO.Utils
         }
 
 
-        public static float CalcolaMedia(List<Grade> voti)
+        public static float CalcolaMedia(List<Grade> voti) //media ponderata
         {
             if (voti.Count == 0)
             {
-                return Single.NaN;
+                return float.NaN;
             }
 
             float somma = 0;
-            float numVoti = 0;
+            float sommaPesi = 0;
 
             foreach (Grade voto in voti)
             {
-                float? valoreDaSommare = VariousUtils.GradeToFloat(voto);
+                float? valoreDaSommare = GradeToFloat(voto);
 
-                if (valoreDaSommare != null)
+                if (valoreDaSommare != null && voto.evtCode is GradeEventCode.GRV0 or GradeEventCode.GRV1 or GradeEventCode.GRV2)
                 {
-                    somma += (float) valoreDaSommare;
+                    somma += (float) valoreDaSommare * (float) voto.weightFactor!;
 
-                    numVoti++;
+                    sommaPesi += (float) voto.weightFactor;
                 }
             }
 
-            return somma / numVoti;
+            return somma / sommaPesi;
         }
 
         public static string ToTitleCase(string s)
@@ -86,7 +86,6 @@ namespace ClassevivaPCTO.Utils
             return char.ToUpper(s[0]) + s.Substring(1);
         }
 
-
         public static string ToApiDateTime(DateTime dateTime)
         {
             return dateTime.ToString("yyyyMMdd");
@@ -103,7 +102,6 @@ namespace ClassevivaPCTO.Utils
                 1
             );
 
-
             //var EndDate is max +366 days from the start date (this is an api limitation)
             DateTime endDate = startDate.AddDays(366);
 
@@ -112,7 +110,6 @@ namespace ClassevivaPCTO.Utils
 
         public static (DateTime startDate, DateTime endDate) GetLessonsStartEndDates()
         {
-
             //var StartDate if i am on the first semester, then start date is 1st of september of the current year
             //else start date is 1st of september of the next year
             DateTime startDate = new DateTime(
@@ -120,7 +117,6 @@ namespace ClassevivaPCTO.Utils
                 9,
                 1
             );
-
 
             //var EndDate of next year + june 30th
             DateTime endDate = new DateTime(
@@ -175,8 +171,16 @@ namespace ClassevivaPCTO.Utils
                 valoreFinale = (float) value;
             }
 
-
             return valoreFinale;
         }
+
+        public static Windows.UI.Color DarkenColor(Windows.UI.Color color, double darkenAmount)
+        {
+            byte r = (byte)Math.Max(color.R * darkenAmount, 0);
+            byte g = (byte)Math.Max(color.G * darkenAmount, 0);
+            byte b = (byte)Math.Max(color.B * darkenAmount, 0);
+            return Windows.UI.Color.FromArgb(color.A, r, g, b);
+        }
+
     }
 }

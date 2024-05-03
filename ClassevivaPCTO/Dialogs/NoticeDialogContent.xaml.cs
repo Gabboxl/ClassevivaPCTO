@@ -7,48 +7,153 @@ using System.Threading.Tasks;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using ClassevivaPCTO.Helpers;
+using Microsoft.UI.Xaml.Controls;
 
 namespace ClassevivaPCTO.Dialogs
 {
     public sealed partial class NoticeDialogContent : Page
     {
-        Notice CurrentNotice;
-        NoticeReadResult CurrentReadResult;
+        private readonly Notice CurrentNotice;
+        private readonly NoticeReadResult CurrentReadResult;
 
-        private readonly IClassevivaAPI apiWrapper;
+        private readonly IClassevivaAPI _apiWrapper;
 
+        enum SignJoinNoticeType
+        {
+            JOIN,
+            SIGN,
+            SIGN_MESSAGE,
+            SIGN_FILE,
+        }
 
-        private string AllegatiText
+        //enum SignJoinNoticeStatus
+        //{
+        //    SUCCESS,
+        //    REFUSED,
+        //    REQUESTED
+        //}
+
+        private bool ShowJoinAlert
         {
             get
             {
-                if (CurrentNotice.attachments.Count == 0)
+                return CurrentNotice.needJoin ||
+                       CurrentNotice.needSign ||
+                       CurrentNotice.needFile ||
+                       CurrentNotice.needReply;
+            }
+        }
+
+        private string JoinAlertMessage
+        {
+            get
+            {
+                if (CurrentNotice.needJoin)
                 {
-                    return "NoticeDialogNessunAllegatiSubtitle".GetLocalized();
+                    if (CurrentReadResult.reply.replJoin.GetValueOrDefault())
+                        return "JoinSuccessMessage".GetLocalizedStr();
+
+                    return "JoinRequestedMessage".GetLocalizedStr();
                 }
-                else
+
+                if (CurrentNotice.needSign)
                 {
-                    return "NoticeDialogAllegatiSubtitle".GetLocalized();
+                    if (CurrentReadResult.reply.replSign == null)
+                        return "SignRequestedMessage".GetLocalizedStr();
+
+                    if (CurrentReadResult.reply.replSign.GetValueOrDefault())
+                        return "SignSuccessMessage".GetLocalizedStr();
+                    return "SignRefuseMessage".GetLocalizedStr();
+                }
+
+                return "JoinRequestedMessage".GetLocalizedStr();
+            }
+        }
+
+        private InfoBarSeverity JoinAlertSeverityStatus //status
+        {
+            get
+            {
+                if (CurrentNotice.needJoin)
+                {
+                    if (CurrentReadResult.reply.replJoin.GetValueOrDefault())
+                        return InfoBarSeverity.Success;
+                } // a join can't be refused
+
+                if (CurrentNotice.needFile)
+                {
+                    if (!string.IsNullOrEmpty(CurrentReadResult.reply.replFile))
+                        return InfoBarSeverity.Success;
+                }
+
+                if (CurrentNotice.needReply)
+                {
+                    if (!string.IsNullOrEmpty(CurrentReadResult.reply.replText))
+                        return InfoBarSeverity.Success;
+                }
+
+                if (CurrentNotice.needSign)
+                {
+                    if (CurrentReadResult.reply.replSign.GetValueOrDefault())
+                        return InfoBarSeverity.Success;
+                    return InfoBarSeverity.Error;
+                }
+
+                return InfoBarSeverity.Informational;
+            }
+        }
+
+        private Visibility JoinButtonsVisibility
+        {
+            get
+            {
+                switch (JoinAlertSeverityStatus)
+                {
+                    case InfoBarSeverity.Success:
+                        return Visibility.Collapsed;
+                    case InfoBarSeverity.Informational:
+                        return Visibility.Visible;
+                    case InfoBarSeverity.Error:
+                        return Visibility.Collapsed;
+                    default:
+                        return Visibility.Visible;
                 }
             }
         }
 
+
         public NoticeDialogContent(Notice notice, NoticeReadResult noticeReadResult)
         {
-            this.InitializeComponent();
+            InitializeComponent();
 
             CurrentNotice = notice;
             CurrentReadResult = noticeReadResult;
 
+            if (CurrentNotice.attachments.Count == 0)
+            {
+                TitoloAttachments.Visibility = Visibility.Collapsed;
+                AttachmentSeparator.Visibility = Visibility.Collapsed;
+                NoAttachmentsPlaceholder.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                TitoloAttachments.Visibility = Visibility.Visible;
+                AttachmentSeparator.Visibility = Visibility.Visible;
+                NoAttachmentsPlaceholder.Visibility = Visibility.Collapsed;
+            }
+
             AttachmentsListView.ItemsSource = notice.attachments;
+
+            ButtonSign.Click += (sender, e) => ShowSignJoinRefuseFlyout(sender, e, false);
+            ButtonJoin.Click += (sender, e) => ShowSignJoinRefuseFlyout(sender, e, false);
+            ButtonRefuse.Click += (sender, e) => ShowSignJoinRefuseFlyout(sender, e, true);
 
             App app = (App) App.Current;
             var apiClient = app.Container.GetService<IClassevivaAPI>();
+            _apiWrapper = PoliciesDispatchProxy<IClassevivaAPI>.CreateProxy(apiClient);
 
-            apiWrapper = PoliciesDispatchProxy<IClassevivaAPI>.CreateProxy(apiClient);
-
-            MaxWidth = 800;
-            MinWidth = 600;
+            MinWidth = 500;
+            MaxWidth = 1000;
         }
 
         private async void ButtonOpen_Click(object sender, RoutedEventArgs e)
@@ -59,7 +164,6 @@ namespace ClassevivaPCTO.Dialogs
             await Task.Run(async () =>
             {
                 byte[] bytes = await GetAttachmentAsBytes(currentAttachment);
-
 
                 //run on ui thread
                 await Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, async () =>
@@ -79,7 +183,6 @@ namespace ClassevivaPCTO.Dialogs
         {
             var senderbutton = sender as AppBarButton;
             var currentAttachment = senderbutton.DataContext as NoticeAttachment;
-
 
             await Task.Run(async () =>
             {
@@ -123,12 +226,11 @@ namespace ClassevivaPCTO.Dialogs
             });
         }
 
-
         private async Task<byte[]> GetAttachmentAsBytes(NoticeAttachment attachment)
         {
-            Card? cardResult = ViewModelHolder.GetViewModel().SingleCardResult;
+            Card? cardResult = AppViewModelHolder.GetViewModel().SingleCardResult;
 
-            var attachmentBinary = await apiWrapper.GetNoticeAttachment(
+            var attachmentBinary = await _apiWrapper.GetNoticeAttachment(
                 cardResult.usrId.ToString(),
                 CurrentNotice.pubId.ToString(),
                 CurrentNotice.evtCode,
@@ -138,6 +240,129 @@ namespace ClassevivaPCTO.Dialogs
             byte[] bytes = await attachmentBinary.Content.ReadAsByteArrayAsync();
 
             return bytes;
+        }
+
+        private void ShowSignJoinRefuseFlyout(object sender, RoutedEventArgs e, bool isRefuse)
+        {
+            var flyout = new Flyout();
+
+            var textBlock = new TextBlock
+            {
+                Text = GetActionText(isRefuse),
+                TextWrapping = TextWrapping.WrapWholeWords,
+                Margin = new Thickness(0, 0, 0, 12)
+            };
+
+            var finalButton = new Button
+            {
+                Content = GetActionButtonContent(isRefuse),
+                MinWidth = 90,
+                Style = (Style) Application.Current.Resources["AccentButtonStyle"],
+                HorizontalAlignment = HorizontalAlignment.Center,
+                VerticalAlignment = VerticalAlignment.Center,
+                Margin = new Thickness(0, 0, 12, 0),
+            };
+
+            finalButton.Click += async (sender, e) =>
+            {
+                var cardResult = AppViewModelHolder.GetViewModel().SingleCardResult;
+
+                var noticeReadSignRequest = new NoticeReadSignRequest();
+
+                switch (GetSignJoinType())
+                {
+                    case SignJoinNoticeType.SIGN_FILE:
+                        noticeReadSignRequest.sign = !isRefuse;
+                        noticeReadSignRequest.file = "file"; //TODO: implement file picker!!
+                        noticeReadSignRequest.filename = "filename";
+                        break;
+                    case SignJoinNoticeType.SIGN:
+                        noticeReadSignRequest.sign = !isRefuse;
+                        break;
+                    case SignJoinNoticeType.SIGN_MESSAGE:
+                        noticeReadSignRequest.sign = !isRefuse;
+                        noticeReadSignRequest.text = "message"; //TODO: implement message edit!!
+                        break;
+                    case SignJoinNoticeType.JOIN:
+                        noticeReadSignRequest.join = !isRefuse;
+                        break;
+                }
+
+                var result = await _apiWrapper.ReadNotice(cardResult.usrId.ToString(), CurrentNotice.pubId.ToString(),
+                    CurrentNotice.evtCode, noticeReadSignRequest);
+
+                CurrentReadResult.reply.replJoin = result.reply.replJoin;
+                CurrentReadResult.reply.replSign = result.reply.replSign;
+                CurrentReadResult.reply.replText = result.reply.replText;
+                CurrentReadResult.reply.replFile = result.reply.replFile;
+
+                flyout.Hide();
+            };
+
+            flyout.Content = new StackPanel
+            {
+                Children =
+                {
+                    textBlock,
+                    finalButton
+                }
+            };
+
+            //display the flyout on the clicked button
+            flyout.ShowAt((FrameworkElement) sender);
+        }
+
+        private string GetActionText(bool isRefuse)
+        {
+            if (isRefuse)
+                return "Per rifiutare la comunicazione, premi il pulsante sottostante.";
+
+            switch (GetSignJoinType())
+            {
+                case SignJoinNoticeType.SIGN_FILE:
+                    return "Per firmare con file allegato, premi il pulsante sottostante.";
+                case SignJoinNoticeType.SIGN:
+                    return "Per firmare la comunicazione, premi il pulsante sottostante.";
+                case SignJoinNoticeType.SIGN_MESSAGE:
+                    return "Per firmare con messaggio, premi il pulsante sottostante.";
+                case SignJoinNoticeType.JOIN:
+                    return "Per unirti alla comunicazione, premi il pulsante sottostante.";
+                default:
+                    return string.Empty;
+            }
+        }
+
+        private string GetActionButtonContent(bool isRefuse)
+        {
+            if (isRefuse)
+                return "Rifiuta";
+
+            switch (GetSignJoinType())
+            {
+                case SignJoinNoticeType.SIGN_FILE or SignJoinNoticeType.SIGN or SignJoinNoticeType.SIGN_MESSAGE:
+                    return "Firma";
+                case SignJoinNoticeType.JOIN:
+                    return "Unisciti";
+                default:
+                    return string.Empty;
+            }
+        }
+
+        private SignJoinNoticeType? GetSignJoinType()
+        {
+            if (CurrentNotice.needJoin)
+                return SignJoinNoticeType.JOIN;
+
+            if (CurrentNotice.needReply)
+                return SignJoinNoticeType.SIGN_MESSAGE;
+
+            if (CurrentNotice.needFile)
+                return SignJoinNoticeType.SIGN_FILE;
+
+            if (CurrentNotice.needSign)
+                return SignJoinNoticeType.SIGN;
+
+            return null;
         }
     }
 }

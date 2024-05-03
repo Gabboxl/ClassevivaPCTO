@@ -21,6 +21,8 @@ namespace ClassevivaPCTO.Helpers.Palettes
         [ClassMapping(typeof(PaletteNat))] PALETTE_NAT,
         [ClassMapping(typeof(PaletteFlo))] PALETTE_FLO,
         [ClassMapping(typeof(PaletteRet))] PALETTE_RET,
+        [ClassMapping(typeof(PalettePas))] PALETTE_PAS,
+        [ClassMapping(typeof(PaletteVin))] PALETTE_VIN,
     }
 
     [AttributeUsage(AttributeTargets.Field)]

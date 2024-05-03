@@ -2,18 +2,9 @@
 
 namespace ClassevivaPCTO.ViewModels
 {
-    public class NoteViewModel : ObservableObject
+    public partial class NoteViewModel : ObservableObject
     {
+        [ObservableProperty]
         private bool _isLoadingNote = true;
-
-        public bool IsLoadingNote
-        {
-            get { return _isLoadingNote; }
-            set { SetProperty(ref _isLoadingNote, value); }
-        }
-
-        public NoteViewModel()
-        {
-        }
     }
 }

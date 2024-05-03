@@ -47,12 +47,10 @@ namespace ClassevivaPCTO.Utils
             }
         }
 
-
         public string GetCode(string userId)
         {
             return Regex.Replace(userId, @"[A-Za-z]+", "");
         }
-
 
         public static SolidColorBrush GetColorFromAbsenceCode(AbsenceEventCode valore)
         {

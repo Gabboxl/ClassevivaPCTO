@@ -1,47 +1,45 @@
-﻿using System;
-using ClassevivaPCTO.Services;
+﻿using ClassevivaPCTO.Services;
 using ClassevivaPCTO.Utils;
 using ClassevivaPCTO.ViewModels;
 using System.ComponentModel;
-using System.Diagnostics;
 using System.Runtime.CompilerServices;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Core;
+using Windows.System;
 using Windows.UI;
 using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using WinUI = Microsoft.UI.Xaml.Controls;
+using Windows.UI.Xaml.Input;
 
 namespace ClassevivaPCTO.Views
 {
     public sealed partial class MainPage : Page
     {
-        private AppViewModel AppViewModel { get; }
+        private AppViewModel _appViewModel;
 
-        public NavigationViewViewModel NavigationViewViewModel { get; } =
-            new NavigationViewViewModel();
+        public NavigationViewViewModel NavigationViewViewModel { get; } = new();
 
         public string FirstName
         {
             get
             {
-                return VariousUtils.ToTitleCase(AppViewModel.LoginResult.firstName)
+                return VariousUtils.ToTitleCase(_appViewModel.LoginResult.firstName)
                        + " "
-                       + VariousUtils.ToTitleCase(AppViewModel.LoginResult.lastName);
+                       + VariousUtils.ToTitleCase(_appViewModel.LoginResult.lastName);
             }
         }
 
         public string Codice
         {
-            get { return AppViewModel.LoginResult.ident; }
+            get { return _appViewModel.LoginResult.ident; }
         }
 
         public string Scuola
         {
             get
             {
-                Card? card = AppViewModel.SingleCardResult;
+                Card? card = _appViewModel.SingleCardResult;
 
                 return card.schName + " " + card.schDedication + " [" + card.schCode + "]";
             }
@@ -49,12 +47,12 @@ namespace ClassevivaPCTO.Views
 
         public MainPage()
         {
-            this.InitializeComponent();
+            InitializeComponent();
 
             this.DataContext = this; //DataContext = ViewModel;
             Initialize();
 
-            this.AppViewModel = ViewModelHolder.GetViewModel();
+            _appViewModel = AppViewModelHolder.GetViewModel();
         }
 
         private void Initialize()
@@ -73,7 +71,7 @@ namespace ClassevivaPCTO.Views
 
             NavigationViewViewModel.Initialize(contentFrame, navigationView, KeyboardAccelerators);
 
-            LoginResultComplete? loginResult = ViewModelHolder.GetViewModel().LoginResult;
+            LoginResultComplete? loginResult = AppViewModelHolder.GetViewModel().LoginResult;
 
             /* PersonPictureDashboard.DisplayName =
                  VariousUtils.ToTitleCase(loginResult.firstName)
@@ -81,7 +79,10 @@ namespace ClassevivaPCTO.Views
                  + VariousUtils.ToTitleCase(loginResult.lastName); */
 
             //pagina di default
-            NavigationService.Navigate(typeof(Views.DashboardPage));
+            NavigationService.Navigate(typeof(DashboardPage));
+            
+            // intercetta il tasto F5 per il refresh della pagina corrente
+            this.KeyDown += MainPage_KeyDown;
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -100,9 +101,26 @@ namespace ClassevivaPCTO.Views
         private void OnPropertyChanged(string propertyName) =>
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
 
-        private async void ButtonLogout_Click(object sender, RoutedEventArgs e)
+        //private void ButtonLogout_Click(object sender, RoutedEventArgs e)
+        //{
+        //    VariousUtils.DoLogout();
+        //}
+
+        private void MainPage_KeyDown(object sender, KeyRoutedEventArgs args)
         {
-            VariousUtils.DoLogout();
+            switch (args.Key)
+            {
+                case VirtualKey.F5:
+
+                    NavigationViewViewModel.RefreshCurrentPageData();
+
+                    break;
+            }
+        }
+
+        private void MainRefreshButton_OnClick(object sender, RoutedEventArgs e)
+        {
+            NavigationViewViewModel.RefreshCurrentPageData();
         }
     }
 }

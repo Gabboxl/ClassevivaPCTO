@@ -2,7 +2,6 @@
 using ClassevivaPCTO.Services;
 using ClassevivaPCTO.Utils;
 using System;
-using Windows.UI;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Media;
@@ -11,15 +10,13 @@ namespace ClassevivaPCTO.Converters
 {
     public class GradeToColorConverter : IValueConverter
     {
-        public object Convert(object value, Type targetType, object parameter, string language)
+        public object Convert(object value, Type targetType, object? parameter, string language)
         {
-            SolidColorBrush brush = new SolidColorBrush();
-
-            float? valore = null;
+            SolidColorBrush brush = new();
 
             IPalette currentPalette = PaletteSelectorService.PaletteClass;
 
-            valore = VariousUtils.GradeToFloat(value);
+            float? valore = VariousUtils.GradeToFloat(value);
 
             if (valore == null)
             {
@@ -33,15 +30,24 @@ namespace ClassevivaPCTO.Converters
             {
                 brush.Color = currentPalette.ColorOrange;
             }
-            else if (float.IsNaN((float) valore))
+            else if (float.IsNaN((float) valore) || valore == 0)
             {
-                // set brush to staticresource TextFillColorTertiaryBrush
-                brush = (SolidColorBrush)Application.Current.Resources["TextFillColorTertiaryBrush"];
-
+                // set brush to staticresource TextFillColorTertiaryBrush's Color (not the brush per se, otherwise it would be a reference and if we modify its RGB data it applies to all the usages in the app!)
+                var TextFillColorTertiaryBrush = (SolidColorBrush) Application.Current.Resources["TextFillColorTertiaryBrush"];
+                brush.Color = TextFillColorTertiaryBrush.Color;
             }
             else
             {
                 brush.Color = currentPalette.ColorRed;
+            }
+
+            //if parameter equals 1 int value, darken the color (for background use)
+            if (parameter != null && int.TryParse((string) parameter, out int param))
+            {
+                if (param == 1)
+                {
+                    brush.Color = VariousUtils.DarkenColor(brush.Color, 0.5);
+                }
             }
 
             return brush;

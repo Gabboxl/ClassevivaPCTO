@@ -51,7 +51,6 @@ namespace ClassevivaPCTO.Utils
 
                                 Debug.WriteLine("Test retry n.{0} policy ok ", retryCount);
 
-
                                 var loginCredentials = new CredUtils().GetCredentialFromLocker();
 
                                 if (loginCredentials == null)
@@ -66,9 +65,10 @@ namespace ClassevivaPCTO.Utils
                                         {
                                             ContentDialog noWifiDialog = new ContentDialog
                                             {
-                                                Title = "SessionExpired".GetLocalized(),
-                                                Content = "SessionExpiredDesc".GetLocalized(),
-                                                PrimaryButtonText = "OKCapsText".GetLocalized()
+                                                Style = Application.Current.Resources["DefaultContentDialogStyle"] as Style,
+                                                Title = "SessionExpired".GetLocalizedStr(),
+                                                Content = "SessionExpiredDesc".GetLocalizedStr(),
+                                                PrimaryButtonText = "OKCapsText".GetLocalizedStr()
                                             };
 
                                             ContentDialogResult result =
@@ -81,7 +81,6 @@ namespace ClassevivaPCTO.Utils
                                                 null,
                                                 new DrillInNavigationTransitionInfo()
                                             );
-
 
                                             isSomethingLoading.SetResult(true);
                                         }
@@ -100,7 +99,7 @@ namespace ClassevivaPCTO.Utils
                                         .RetrievePassword(); //dobbiamo per forza chiamare questo metodo per fare sì che la proprietà loginCredential.Password non sia vuota
 
                                     //get app viewmodel from holder
-                                    var appViewModel = ViewModelHolder.GetViewModel();
+                                    var appViewModel = AppViewModelHolder.GetViewModel();
 
                                     var refreshLoginData = new LoginData
                                     {
@@ -118,7 +117,7 @@ namespace ClassevivaPCTO.Utils
                                             );
 
                                         //salvo il nuovo token
-                                        ViewModelHolder.GetViewModel().LoginResult = loginResult;
+                                        AppViewModelHolder.GetViewModel().LoginResult = loginResult;
                                     }
                                     catch (Exception e)
                                     {
@@ -132,9 +131,10 @@ namespace ClassevivaPCTO.Utils
                                             {
                                                 ContentDialog noWifiDialog = new ContentDialog
                                                 {
-                                                    Title = "LoginErrorTitle".GetLocalized(),
-                                                    Content = "LoginErrorDesc".GetLocalized(),
-                                                    CloseButtonText = "OKCapsText".GetLocalized()
+                                                    Style = Application.Current.Resources["DefaultContentDialogStyle"] as Style,
+                                                    Title = "LoginErrorTitle".GetLocalizedStr(),
+                                                    Content = "LoginErrorDesc".GetLocalizedStr(),
+                                                    CloseButtonText = "OKCapsText".GetLocalizedStr()
                                                 };
 
                                                 ContentDialogResult result =
@@ -165,7 +165,6 @@ namespace ClassevivaPCTO.Utils
                     }
                 );
 
-
             var policyResult = retryPolicy
                 .ExecuteAndCaptureAsync(async (ct) =>
                 {
@@ -179,7 +178,6 @@ namespace ClassevivaPCTO.Utils
 
                     return result; //if no exception occur then we return the result of the method call
                 }, cancellationTokenSource.Token).Result;
-
 
             if (policyResult.Outcome == OutcomeType.Failure)
             {
@@ -198,20 +196,20 @@ namespace ClassevivaPCTO.Utils
                     TaskCompletionSource<bool> isSomethingLoading =
                         new TaskCompletionSource<bool>();
 
-
                     CoreApplication.MainView.Dispatcher.RunAsync(
                         CoreDispatcherPriority.Normal,
                         async () =>
                         {
                             ContentDialog noWifiDialog = new ContentDialog
                             {
-                                Title = "APIErrorTitle".GetLocalized(),
+                                Title = "APIErrorTitle".GetLocalizedStr(),
+                                Style = Application.Current.Resources["DefaultContentDialogStyle"] as Style,
                                 Content =
-                                    "AttempsDone".GetLocalized()
+                                    "AttempsDone".GetLocalizedStr()
                                     + currentRetryAttempts
                                     + "\n"
                                     + apiException.Message,
-                                CloseButtonText = "OKCapsText".GetLocalized()
+                                CloseButtonText = "OKCapsText".GetLocalizedStr()
                             };
 
                             try
@@ -229,7 +227,6 @@ namespace ClassevivaPCTO.Utils
                     );
 
                     var task = isSomethingLoading.Task;
-
 
                     var result = targetMethod.Invoke(Target, args);
 

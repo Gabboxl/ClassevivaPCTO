@@ -6,7 +6,6 @@ namespace ClassevivaPCTO.Adapters
     {
         public readonly Grade CurrentObject;
 
-
         public GradeAdapter(Grade ev)
         {
             CurrentObject = ev;

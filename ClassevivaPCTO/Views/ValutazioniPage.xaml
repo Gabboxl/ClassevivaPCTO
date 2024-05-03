@@ -1,0 +1,467 @@
+<controls2:CustomAppPage
+    x:Class="ClassevivaPCTO.Views.ValutazioniPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    xmlns:controls2="using:ClassevivaPCTO.Controls"
+    xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
+    xmlns:controls="using:CommunityToolkit.WinUI.Controls"
+    xmlns:adapters="using:ClassevivaPCTO.Adapters"
+    xmlns:converters1="using:ClassevivaPCTO.Converters"
+    xmlns:labs="using:CommunityToolkit.Labs.WinUI"
+    xmlns:converters2="using:CommunityToolkit.WinUI.Converters"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+    muxc:BackdropMaterial.ApplyToRootOrPageBackground="True">
+
+    <controls2:CustomAppPage.Resources>
+        <converters2:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" />
+        <converters1:GradeToColorConverter x:Key="GradeToColorConverter" />
+        <converters1:NanToNdConverter x:Key="NanToNdConverter" />
+        <converters1:BetterBoolToVisibilityConverter x:Key="BetterBoolToVisibilityConverter" />
+        <converters1:EmptyListToBoolConverter x:Key="EmptyListToBoolConverter" />
+        <converters1:EmptyListToVisibilityConverter x:Key="EmptyListToVisibilityConverter" />
+
+        <Style x:Key="ListViewFullStretchStyle"
+               BasedOn="{StaticResource DefaultListViewItemStyle}"
+               TargetType="ListViewItem">
+            <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+            <Setter Property="VerticalContentAlignment" Value="Stretch" />
+        </Style>
+
+        <DataTemplate x:Key="VotiListViewDataTemplateStandard" x:DataType="adapters:SubjectAdapter">
+            <Grid Margin="0,0,0,12">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <controls:SettingsExpander x:Name="MateriaExpander"
+                                           HorizontalAlignment="Stretch"
+                                           HorizontalContentAlignment="Stretch"
+                                           HeaderIcon="{x:Bind AverageVariationIcon}"
+                                           IsEnabled="{x:Bind SubjectGrades, Converter={StaticResource EmptyListToBoolConverter}}"
+                                           IsExpanded="False">
+
+                    <controls:SettingsExpander.Header>
+                        <TextBlock Margin="0,0,0,0"
+                                   FontSize="14"
+                                   FontWeight="SemiBold"
+                                   Text="{x:Bind Subject.description}" />
+                    </controls:SettingsExpander.Header>
+                    <controls:SettingsExpander.Description>
+                        <TextBlock Margin="0,0,0,0"
+                                   FontSize="12"
+                                   Text="{x:Bind Teachers}" />
+                    </controls:SettingsExpander.Description>
+
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+
+                        <!--  testo nessuna valutazione  -->
+                        <TextBlock x:Name="NoValutazioniTextBlock"
+                                   Grid.Column="0"
+                                   Margin="0,0,16,0"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"
+                                   Foreground="{ThemeResource TextFillColorTertiaryBrush}"
+                                   Style="{StaticResource BodyStrongTextBlockStyle}"
+                                   Text="{CustomResource GradesPlaceholder}"
+                                   TextWrapping="WrapWholeWords"
+                                   Visibility="{x:Bind SubjectGrades, Converter={StaticResource EmptyListToVisibilityConverter}, ConverterParameter=False}" />
+
+                        <Grid Grid.Column="1">
+                            <muxc:ProgressRing Width="45"
+                                               Height="45"
+                                               Margin="0,-4,0,-4"
+                                               HorizontalAlignment="Center"
+                                               VerticalAlignment="Center"
+                                               Background="{x:Bind Average, Converter={StaticResource GradeToColorConverter}, ConverterParameter=1}"
+                                               Foreground="{x:Bind Average, Converter={StaticResource GradeToColorConverter}}"
+                                               IsIndeterminate="False"
+                                               Maximum="100"
+                                               Minimum="0"
+                                               Value="{x:Bind Progress}" />
+
+                            <TextBlock Margin="0,0,0,0"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"
+                                       Foreground="{x:Bind Average, Converter={StaticResource GradeToColorConverter}}"
+                                       Style="{StaticResource BodyStrongTextBlockStyle}"
+                                       Text="{x:Bind Average, Converter={StaticResource NanToNdConverter}}" />
+
+                        </Grid>
+                    </Grid>
+
+                    <controls:SettingsExpander.Items>
+                        <controls:SettingsCard HorizontalAlignment="Stretch"
+                                               HorizontalContentAlignment="Stretch"
+                                               ContentAlignment="Vertical">
+
+                            <Grid HorizontalAlignment="Stretch">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+
+                                <controls2:GradesListView x:Name="ListViewVoti"
+                                                          HorizontalAlignment="Stretch"
+                                                          VerticalAlignment="Stretch"
+                                                          EnableEmptyAlert="True"
+                                                          ItemsSource="{x:Bind SubjectGrades}" />
+
+                            </Grid>
+                        </controls:SettingsCard>
+                    </controls:SettingsExpander.Items>
+                </controls:SettingsExpander>
+            </Grid>
+        </DataTemplate>
+    </controls2:CustomAppPage.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Row="0"
+                    Margin="32,16,0,0"
+                    Orientation="Horizontal"
+                    Spacing="16">
+
+            <TextBlock Text="{CustomResource GradesTitle}" Style="{StaticResource PageTitleTextStyle}" />
+
+            <muxc:ProgressRing Style="{StaticResource PageProgressRingStyle}" Visibility="{x:Bind ValutazioniViewModel.IsLoadingValutazioni, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" />
+
+        </StackPanel>
+
+        <RelativePanel Grid.Row="0" Margin="0,18,0,0">
+
+            <controls:Segmented x:Name="SegmentedLayout" Margin="0,0,24,0"
+                                RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignVerticalCenterWithPanel="True">
+
+                <controls:SegmentedItem ToolTipService.ToolTip="{CustomResource GradesListLayoutToolTip}">
+                    <controls:SegmentedItem.Content>
+                        <StackPanel Orientation="Horizontal">
+                            <FontIcon Margin="0,0,6,0"
+                                      FontFamily="{StaticResource FluentIcons}"
+                                      FontSize="14"
+                                      Glyph="&#xE14C;" />
+                            <TextBlock Text="{CustomResource GradesListLayout}" />
+                        </StackPanel>
+                    </controls:SegmentedItem.Content>
+                </controls:SegmentedItem>
+
+                <controls:SegmentedItem ToolTipService.ToolTip="{CustomResource GradesSubjectsLayoutToolTip}">
+                    <controls:SegmentedItem.Content>
+                        <StackPanel Orientation="Horizontal">
+                            <FontIcon Margin="0,0,6,0"
+                                      FontFamily="{StaticResource FluentIcons}"
+                                      FontSize="14"
+                                      Glyph="&#xE169;" />
+                            <TextBlock Text="{CustomResource GradesSubjectsLayout}" />
+                        </StackPanel>
+                    </controls:SegmentedItem.Content>
+                </controls:SegmentedItem>
+            </controls:Segmented>
+        </RelativePanel>
+
+        <RelativePanel Grid.Row="2"
+                       Margin="18"
+                       Padding="12"
+                       HorizontalAlignment="Stretch"
+                       VerticalAlignment="Stretch"
+                       Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
+                       BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
+                       BorderThickness="1"
+                       CornerRadius="8">
+
+            <Grid x:Name="GridMedie"
+                  Margin="2,0,4,0"
+                  Padding="12"
+                  Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
+                  BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
+                  BorderThickness="1"
+                  CornerRadius="8"
+                  RelativePanel.AlignLeftWithPanel="True"
+                  RelativePanel.AlignRightWithPanel="True"
+                  RelativePanel.AlignTopWithPanel="True">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Grid Grid.Column="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <Grid HorizontalAlignment="Left">
+                        <muxc:ProgressRing x:Name="ProgressMediaTot"
+                                           Width="80"
+                                           Height="80"
+                                           HorizontalAlignment="Center"
+                                           VerticalAlignment="Center"
+                                           Background="{x:Bind ValutazioniViewModel.AverageTot, Mode=OneWay, Converter={StaticResource GradeToColorConverter}, ConverterParameter=1}"
+                                           Foreground="{x:Bind ValutazioniViewModel.AverageTot, Mode=OneWay, Converter={StaticResource GradeToColorConverter}}"
+                                           IsIndeterminate="False"
+                                           Maximum="100"
+                                           Minimum="0"
+                                           Value="0" />
+
+                        <labs:Shimmer Width="30"
+                                      Height="20"
+                                      Margin="0,2,0,0"
+                                      Visibility="{x:Bind ValutazioniViewModel.ShowShimmers, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" />
+
+                        <TextBlock x:Name="MediaTotText"
+                                   Margin="0,0,0,0"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"
+                                   FontSize="24"
+                                   Foreground="{x:Bind ValutazioniViewModel.AverageTot, Mode=OneWay, Converter={StaticResource GradeToColorConverter}}"
+                                   Style="{StaticResource TitleTextBlockStyle}"
+                                   Text="{x:Bind ValutazioniViewModel.AverageTot, Mode=OneWay, Converter={StaticResource NanToNdConverter}}"
+                                   TextWrapping="WrapWholeWords"
+                                   Visibility="{x:Bind ValutazioniViewModel.ShowShimmers, Mode=OneWay, Converter={StaticResource BetterBoolToVisibilityConverter}, ConverterParameter=False}" />
+
+                    </Grid>
+
+                    <Grid Grid.Column="1">
+                        <RelativePanel Margin="32,0,0,0"
+                                       HorizontalAlignment="Left"
+                                       VerticalAlignment="Center">
+
+                            <labs:Shimmer Width="180"
+                                          Height="26"
+                                          Margin="0,4,0,0"
+                                          Visibility="{x:Bind ValutazioniViewModel.ShowShimmers, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" />
+
+                            <labs:Shimmer Width="120"
+                                          Height="20"
+                                          Margin="0,38,0,0"
+                                          Visibility="{x:Bind ValutazioniViewModel.ShowShimmers, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" />
+
+                            <TextBlock x:Name="TitleTotVal"
+                                       Margin="0,0,0,0"
+                                       HorizontalAlignment="Center"
+                                       FontSize="26"
+                                       Style="{StaticResource TitleTextBlockStyle}"
+                                       Text="{CustomResource GradesGlobalAverage}"
+                                       Visibility="{x:Bind ValutazioniViewModel.ShowShimmers, Mode=OneWay, Converter={StaticResource BetterBoolToVisibilityConverter}, ConverterParameter=False}" />
+
+                            <TextBlock x:Name="NumTotVal"
+                                       Margin="0,0,0,0"
+                                       HorizontalAlignment="Center"
+                                       FontSize="18"
+                                       Foreground="{ThemeResource TextFillColorTertiaryBrush}"
+                                       RelativePanel.Below="TitleTotVal"
+                                       Style="{StaticResource SubtitleTextBlockStyle}"
+                                       Text=" " />
+
+                        </RelativePanel>
+                    </Grid>
+                </Grid>
+
+                <Grid Grid.Column="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <Grid Grid.Column="0" HorizontalAlignment="Left">
+                        <muxc:ProgressRing x:Name="ProgressMediaPrimoPeriodo"
+                                           Width="80"
+                                           Height="80"
+                                           HorizontalAlignment="Center"
+                                           VerticalAlignment="Center"
+                                           Background="{x:Bind ValutazioniViewModel.AverageFirstPeriodo, Mode=OneWay, Converter={StaticResource GradeToColorConverter}, ConverterParameter=1}"
+                                           Foreground="{x:Bind ValutazioniViewModel.AverageFirstPeriodo, Mode=OneWay, Converter={StaticResource GradeToColorConverter}}"
+                                           IsIndeterminate="False"
+                                           Maximum="100"
+                                           Minimum="0"
+                                           Value="0" />
+
+                        <labs:Shimmer Width="30"
+                                      Height="20"
+                                      Margin="0,2,0,0"
+                                      Visibility="{x:Bind ValutazioniViewModel.ShowShimmers, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" />
+
+                        <TextBlock x:Name="MediaPrimoPeriodoText"
+                                   Margin="0,0,0,0"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"
+                                   FontSize="24"
+                                   Foreground="{x:Bind ValutazioniViewModel.AverageFirstPeriodo, Mode=OneWay, Converter={StaticResource GradeToColorConverter}}"
+                                   Style="{StaticResource TitleTextBlockStyle}"
+                                   Text="{x:Bind ValutazioniViewModel.AverageFirstPeriodo, Mode=OneWay, Converter={StaticResource NanToNdConverter}}"
+                                   TextWrapping="WrapWholeWords"
+                                   Visibility="{x:Bind ValutazioniViewModel.ShowShimmers, Mode=OneWay, Converter={StaticResource BetterBoolToVisibilityConverter}, ConverterParameter=False}" />
+
+                    </Grid>
+
+                    <Grid Grid.Column="1">
+                        <RelativePanel Margin="32,0,0,0"
+                                       HorizontalAlignment="Left"
+                                       VerticalAlignment="Center">
+
+                            <labs:Shimmer Width="180"
+                                          Height="26"
+                                          Margin="0,4,0,0"
+                                          Visibility="{x:Bind ValutazioniViewModel.ShowShimmers, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" />
+
+                            <labs:Shimmer Width="120"
+                                          Height="20"
+                                          Margin="0,38,0,0"
+                                          Visibility="{x:Bind ValutazioniViewModel.ShowShimmers, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" />
+
+                            <TextBlock x:Name="TitleFirstPerVal"
+                                       Margin="0,0,0,0"
+                                       HorizontalAlignment="Center"
+                                       FontSize="26"
+                                       Style="{StaticResource TitleTextBlockStyle}"
+                                       Text=" " />
+
+                            <TextBlock x:Name="NumFirstPerVal"
+                                       Margin="0,0,0,0"
+                                       HorizontalAlignment="Center"
+                                       FontSize="18"
+                                       Foreground="{ThemeResource TextFillColorTertiaryBrush}"
+                                       RelativePanel.Below="TitleFirstPerVal"
+                                       Style="{StaticResource SubtitleTextBlockStyle}"
+                                       Text=" " />
+
+                        </RelativePanel>
+                    </Grid>
+                </Grid>
+
+                <Grid Grid.Column="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <Grid HorizontalAlignment="Left">
+
+                        <muxc:ProgressRing x:Name="ProgressMediaSecondoPeriodo"
+                                           Width="80"
+                                           Height="80"
+                                           HorizontalAlignment="Center"
+                                           VerticalAlignment="Center"
+                                           Background="{x:Bind ValutazioniViewModel.AverageSecondPeriodo, Mode=OneWay, Converter={StaticResource GradeToColorConverter}, ConverterParameter=1}"
+                                           Foreground="{x:Bind ValutazioniViewModel.AverageSecondPeriodo, Mode=OneWay, Converter={StaticResource GradeToColorConverter}}"
+                                           IsIndeterminate="False"
+                                           Maximum="100"
+                                           Minimum="0"
+                                           Value="0" />
+
+                        <labs:Shimmer Width="30"
+                                      Height="20"
+                                      Margin="0,2,0,0"
+                                      Visibility="{x:Bind ValutazioniViewModel.ShowShimmers, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" />
+
+                        <TextBlock x:Name="MediaSecondoPeriodoText"
+                                   Margin="0,0,0,0"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"
+                                   FontSize="24"
+                                   Foreground="{x:Bind ValutazioniViewModel.AverageSecondPeriodo, Mode=OneWay, Converter={StaticResource GradeToColorConverter}}"
+                                   Style="{StaticResource TitleTextBlockStyle}"
+                                   Text="{x:Bind ValutazioniViewModel.AverageSecondPeriodo, Mode=OneWay, Converter={StaticResource NanToNdConverter}}"
+                                   TextWrapping="WrapWholeWords"
+                                   Visibility="{x:Bind ValutazioniViewModel.ShowShimmers, Mode=OneWay, Converter={StaticResource BetterBoolToVisibilityConverter}, ConverterParameter=False}" />
+
+                    </Grid>
+
+                    <Grid Grid.Column="1">
+                        <RelativePanel Margin="32,0,0,0"
+                                       HorizontalAlignment="Left"
+                                       VerticalAlignment="Center">
+
+                            <labs:Shimmer Width="180"
+                                          Height="26"
+                                          Margin="0,4,0,0"
+                                          Visibility="{x:Bind ValutazioniViewModel.ShowShimmers, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" />
+
+                            <labs:Shimmer Width="120"
+                                          Height="20"
+                                          Margin="0,38,0,0"
+                                          Visibility="{x:Bind ValutazioniViewModel.ShowShimmers, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" />
+
+                            <TextBlock x:Name="TitleSecondPerVal"
+                                       Margin="0,0,0,0"
+                                       HorizontalAlignment="Center"
+                                       FontSize="26"
+                                       Style="{StaticResource TitleTextBlockStyle}"
+                                       Text=" " />
+
+                            <TextBlock x:Name="NumSecondPerVal"
+                                       Margin="0,0,0,0"
+                                       HorizontalAlignment="Center"
+                                       FontSize="18"
+                                       Foreground="{ThemeResource TextFillColorTertiaryBrush}"
+                                       RelativePanel.Below="TitleSecondPerVal"
+                                       Style="{StaticResource SubtitleTextBlockStyle}"
+                                       Text=" " />
+
+                        </RelativePanel>
+                    </Grid>
+                </Grid>
+            </Grid>
+
+            <labs:Shimmer Width="Auto"
+                          Height="32"
+                          Margin="4,122,4,0"
+                          HorizontalAlignment="Stretch"
+                          RelativePanel.AlignLeftWithPanel="True"
+                          RelativePanel.AlignRightWithPanel="True"
+                          Visibility="{x:Bind ValutazioniViewModel.ShowShimmers, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" />
+
+            <controls:Segmented x:Name="SegmentedPeriodi"
+                                Margin="4,16,4,0"
+                                HorizontalAlignment="Stretch"
+                                RelativePanel.Below="GridMedie"
+                                SelectionChanged="SegmentedPeriodi_OnSelectionChanged"
+                                Visibility="{x:Bind ValutazioniViewModel.ShowShimmers, Mode=OneWay, Converter={StaticResource BetterBoolToVisibilityConverter}, ConverterParameter=False}">
+
+                <controls:SegmentedItem Content="{CustomResource GradesAllPeriodsSegmentedItem}" />
+
+            </controls:Segmented>
+
+            <controls2:GradesListView x:Name="GradesOnlyListView"
+                                      Margin="0,24,0,0"
+                                      HorizontalAlignment="Stretch"
+                                      HorizontalContentAlignment="Stretch"
+                                      EnableEmptyAlert="True"
+                                      RelativePanel.AlignBottomWithPanel="True"
+                                      RelativePanel.AlignLeftWithPanel="True"
+                                      RelativePanel.AlignRightWithPanel="True"
+                                      RelativePanel.Below="SegmentedPeriodi" />
+
+            <ListView x:Name="MainListView"
+                      Margin="0,24,0,0"
+                      HorizontalAlignment="Stretch"
+                      HorizontalContentAlignment="Stretch"
+                      ItemContainerStyle="{StaticResource ListViewFullStretchStyle}"
+                      ItemTemplate="{StaticResource VotiListViewDataTemplateStandard}"
+                      RelativePanel.AlignBottomWithPanel="True"
+                      RelativePanel.AlignLeftWithPanel="True"
+                      RelativePanel.AlignRightWithPanel="True"
+                      RelativePanel.Below="SegmentedPeriodi"
+                      ScrollViewer.VerticalScrollMode="Enabled"
+                      SelectionMode="None" />
+
+        </RelativePanel>
+    </Grid>
+</controls2:CustomAppPage>

@@ -60,6 +60,7 @@ namespace ClassevivaPCTO.Services
 
         private async Task InitializeAsync()
         {
+            await LocalizationResourcesService.InitializeAsync().ConfigureAwait(false);
             await ThemeSelectorService.InitializeAsync().ConfigureAwait(false);
             await PaletteSelectorService.InitializeAsync().ConfigureAwait(false);
         }

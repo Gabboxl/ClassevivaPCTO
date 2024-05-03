@@ -20,8 +20,6 @@
                         Margin="{TemplateBinding Padding}"
                         Background="{TemplateBinding Background}"
                         CornerRadius="4">
-
-
                         <ContentPresenter
                             x:Name="Text"
                             HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
@@ -118,8 +116,6 @@
                         ContentTemplate="{TemplateBinding ContentTemplate}"
                         ContentTransitions="{TemplateBinding ContentTransitions}"
                         CornerRadius="{ThemeResource ControlCornerRadius}">
-
-
                         <VisualStateManager.VisualStateGroups>
                             <VisualStateGroup x:Name="CommonStates">
                                 <VisualState x:Name="Normal" />
@@ -183,7 +179,6 @@
                         ContentTemplate="{TemplateBinding ContentTemplate}"
                         ContentTransitions="{TemplateBinding ContentTransitions}"
                         RenderTransformOrigin="0.5,0.5">
-
                         <ContentPresenter.BackgroundTransition>
                             <BrushTransition Duration="0:1:1.183" />
                         </ContentPresenter.BackgroundTransition>
@@ -195,7 +190,7 @@
 
                         <VisualStateManager.VisualStateGroups>
                             <VisualStateGroup x:Name="CommonStates">
-                                <VisualState x:Name="Normal" >
+                                <VisualState x:Name="Normal">
 
                                     <Storyboard>
                                         <DoubleAnimationUsingKeyFrames Storyboard.TargetName="ContentPresenterTransform" Storyboard.TargetProperty="ScaleX">
