@@ -3,7 +3,6 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
     xmlns:helper="using:ClassevivaPCTO.Helpers"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:palette="using:ClassevivaPCTO.Helpers.Palettes"
@@ -257,11 +256,6 @@
                         </ComboBox.ItemTemplate>
                     </ComboBox>
                 </controls1:SettingsCard>
-
-                <muxc:InfoBar
-                    IsOpen="True"
-                    Severity="Informational"
-                    Title="Funzioni sperimentali" IsClosable="False"/>
 
                 <labs:SettingsExpander Header="Colori materie" Description="Personalizza il colore delle materie da visualizzare nell'Agenda">
                     <labs:SettingsExpander.HeaderIcon>
