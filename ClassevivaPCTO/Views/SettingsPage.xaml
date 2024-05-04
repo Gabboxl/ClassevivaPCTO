@@ -430,30 +430,7 @@
                         </labs:SettingsCard>
 
                     </labs:SettingsExpander.Items>
-
                 </labs:SettingsExpander>
-
-                <labs:SettingsCard x:Uid="SettingsCardAnimations">
-                    <labs:SettingsCard.HeaderIcon>
-                        <FontIcon Glyph="&#xE794;" />
-                    </labs:SettingsCard.HeaderIcon>
-
-                    <ComboBox SelectedIndex="1"
-                               MinWidth="200">
-                        <ComboBoxItem
-                            Content="Basilari">
-
-                        </ComboBoxItem>
-                        <ComboBoxItem
-                            Content="Fluide">
-
-                        </ComboBoxItem>
-                        <ComboBoxItem
-                            Content="Superfluide">
-
-                        </ComboBoxItem>
-                    </ComboBox>
-                </labs:SettingsCard>
 
                 <TextBlock Style="{StaticResource SettingsSectionHeaderTextBlockStyle}" Text="{CustomResource SettingsPageOptionsHeader}" />
 
