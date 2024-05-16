@@ -754,18 +754,18 @@ Error: </value>
     <value>All Categories</value>
   </data>
   <data name="JoinRequestedMessage" xml:space="preserve">
-    <value>Per questa comunicazione è richiesta una conferma di accettazione</value>
+    <value>For this communication, confirmation of acceptance is required</value>
   </data>
   <data name="JoinSuccessMessage" xml:space="preserve">
-    <value>Adesione confermata</value>
+    <value>Membership confirmed</value>
   </data>
   <data name="SignRefuseMessage" xml:space="preserve">
-    <value>Comunicazione rifiutata</value>
+    <value>Communication rejected</value>
   </data>
   <data name="SignRequestedMessage" xml:space="preserve">
-    <value>Per questa comunicazione è richiesta una conferma e firma di accettazione</value>
+    <value>For this communication, a confirmation and acceptance signature is required</value>
   </data>
   <data name="SignSuccessMessage" xml:space="preserve">
-    <value>Confermato e firmato correttamente</value>
+    <value>Successfully confirmed and signed</value>
   </data>
 </root>
