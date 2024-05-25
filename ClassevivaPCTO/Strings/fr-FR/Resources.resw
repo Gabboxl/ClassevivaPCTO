@@ -126,55 +126,56 @@
     <comment>Application description</comment>
   </data>
   <data name="Shell_Main" xml:space="preserve">
-    <value>Main</value>
+    <value>Principal</value>
     <comment>Navigation view item name for Main</comment>
   </data>
   <data name="SettingsCardThemeDarkComboboxItem" xml:space="preserve">
-    <value>Scuro</value>
+    <value>Sombre</value>
   </data>
   <data name="SettingsCardThemeDefaultComboboxItem" xml:space="preserve">
-    <value>Predefinito di Sistema</value>
+    <value>Défaut du système</value>
   </data>
   <data name="SettingsCardThemeLightComboboxItem" xml:space="preserve">
-    <value>Chiaro</value>
+    <value>Clair</value>
   </data>
   <data name="SettingsAboutHeader" xml:space="preserve">
-    <value>Informazioni app</value>
+    <value>Informations sur l'application</value>
   </data>
   <data name="SettingsPersonalizationHeader" xml:space="preserve">
-    <value>Aspetto</value>
+    <value>Apparence</value>
   </data>
   <data name="FirstRunDialogBody" xml:space="preserve">
-    <value>Con ClassevivaPCTO potrai visualizzare i tuoi dati del registro elettronico Classeviva in maniera intuitiva e sotto le vesti di un design innovativo.
+    <value>Avec ClassevivaPCTO vous pourrez visualiser les données de votre registre électronique Classeviva de manière intuitive et sous couvert d'un design innovant.
 
-Quest'app è rivolta soltanto agli account studente.
+Cette application est réservée aux comptes étudiants.
 
-Ricorda che quest'app è ancora in fase di sviluppo e alcune funzionalità non sono disponibili al momento. 
-Se riscontri bug o hai un'idea per l'app apri un issue su GitHub cliccando sul link "Segnala un problema" nella sezione Informazioni app.</value>
+Veuillez noter que cette application est encore en développement et que certaines fonctionnalités ne sont pas disponibles pour le moment.
+
+Si vous rencontrez des bugs ou avez une idée pour l'application, ouvrez un ticket sur GitHub en cliquant sur le lien « Signaler un problème » dans la section Informations sur l'application.</value>
   </data>
   <data name="FirstRunDialogTitle" xml:space="preserve">
-    <value>Benvenuto in ClassevivaPCTO</value>
+    <value>Bienvenue chez ClassevivaPCTO</value>
   </data>
   <data name="SettingsAccountHeader" xml:space="preserve">
-    <value>Account</value>
+    <value>Comptes</value>
   </data>
   <data name="SettingsGeneralHeader" xml:space="preserve">
-    <value>Generali</value>
+    <value>Général</value>
   </data>
   <data name="SettingsTitle" xml:space="preserve">
-    <value>Impostazioni</value>
+    <value>Paramètres</value>
   </data>
   <data name="SettingsCardThemeDescription" xml:space="preserve">
-    <value>Scegli il tema dell'app</value>
+    <value>Sélectionner le thème de l'application</value>
   </data>
   <data name="SettingsCardThemeHeader" xml:space="preserve">
-    <value>Tema</value>
+    <value>Thème</value>
   </data>
   <data name="SettingsCardLanguageHeader" xml:space="preserve">
-    <value>Lingua</value>
+    <value>Langue</value>
   </data>
   <data name="SettingsCardLanguageDescription" xml:space="preserve">
-    <value>Scegli la lingua dell'app</value>
+    <value>Choisir la langue de l'app</value>
   </data>
   <data name="SettingsAboutExpanderDescription" xml:space="preserve">
     <value>© 2024. Tutti i diritti riservati.</value>
@@ -752,5 +753,20 @@ Erreur: </value>
   </data>
   <data name="NoticeBoardAllCategoriesComboboxItem" xml:space="preserve">
     <value>Tutte le categorie</value>
+  </data>
+  <data name="JoinRequestedMessage" xml:space="preserve">
+    <value>Per questa comunicazione è richiesta una conferma di accettazione</value>
+  </data>
+  <data name="JoinSuccessMessage" xml:space="preserve">
+    <value>Adesione confermata</value>
+  </data>
+  <data name="SignRefuseMessage" xml:space="preserve">
+    <value>Comunicazione rifiutata</value>
+  </data>
+  <data name="SignRequestedMessage" xml:space="preserve">
+    <value>Per questa comunicazione è richiesta una conferma e firma di accettazione</value>
+  </data>
+  <data name="SignSuccessMessage" xml:space="preserve">
+    <value>Confermato e firmato correttamente</value>
   </data>
 </root>
