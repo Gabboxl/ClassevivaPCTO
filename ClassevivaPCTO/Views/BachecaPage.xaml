@@ -43,7 +43,7 @@
         </StackPanel>
 
         <StackPanel Grid.Row="0"
-                    Margin="0,18,0,0"
+                    Margin="0,18,24,0"
                     HorizontalAlignment="Right"
                     Orientation="Horizontal">
 
@@ -54,14 +54,12 @@
                       PlaceholderText="{CustomResource NoticeBoardCategoryComboboxPlaceholderText}"
                       SelectionChanged="CategoryComboBox_OnSelectionChanged" />
 
-            <Rectangle Width="1"
-                       Height="48"
-                       Margin="16,0,16,0"
-                       Fill="{ThemeResource ControlStrongStrokeColorDisabledBrush}" />
+            <Rectangle Style="{StaticResource ControlSeparatorStyle}"/>
 
             <controls1:Segmented x:Name="ReadUnreadSegmented"
                                  MinWidth="310"
                                  Margin="0,0,0,0"
+                                 HorizontalAlignment="Stretch"
                                  SelectedIndex="0"
                                  SelectionChanged="ReadUnreadSegmented_OnSelectionChanged">
 
@@ -103,43 +101,28 @@
 
             </controls1:Segmented>
 
-            <Rectangle Width="1"
-                       Height="48"
-                       Margin="16,0,16,0"
-                       Fill="{ThemeResource ControlStrongStrokeColorDisabledBrush}" />
+            <Rectangle Style="{StaticResource ControlSeparatorStyle}"/>
 
             <CheckBox x:Name="CheckboxAttive"
-                      Margin="0,0,24,0"
                       Content="{CustomResource NoticeBoardShowInactiveNoticesCheckbox}"
                       IsChecked="{x:Bind BachecaViewModel.MostraComInattive, Mode=TwoWay}"
                       ToolTipService.ToolTip="{CustomResource NoticeBoardShowInactiveNoticesCheckboxTooltip}" />
 
         </StackPanel>
 
-        <RelativePanel x:Name="CardPanel"
-                       Grid.Row="2"
-                       Margin="18"
-                       Padding="12"
-                       HorizontalAlignment="Stretch"
-                       VerticalAlignment="Stretch"
-                       winUi:FrameworkElementExtensions.EnableActualSizeBinding="true"
-                       Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
-                       BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
-                       BorderThickness="1"
-                       CornerRadius="8">
+        <Grid Grid.Row="2"
+              Style="{StaticResource CardGridStyle}"
+              winUi:FrameworkElementExtensions.EnableActualSizeBinding="true">
 
-            <TextBlock x:Name="TextComunicazioni"
-                       Margin="6,0,0,0"
-                       FontSize="18"
-                       FontWeight="SemiBold"
-                       Style="{ThemeResource BodyStrongTextBlockStyle}"
+            <TextBlock Style="{StaticResource CardHeaderTextBlockStyle}"
                        Text="{CustomResource NoticeBoardNotices}"
                        Visibility="{x:Bind BachecaViewModel.NoticesToShow, Mode=OneWay, FallbackValue=Collapsed, Converter={StaticResource EmptyListToVisibilityConverter}}" />
 
             <HyperlinkButton x:Name="ClearAllFiltersButton"
-                             Margin="0,-4,6,0"
+                             Margin="0,0,6,0"
+                             HorizontalAlignment="Right"
+                             VerticalAlignment="Top"
                              Click="ClearAllFiltersButton_Click"
-                             RelativePanel.AlignRightWithPanel="True"
                              Visibility="Collapsed">
 
                 <StackPanel Orientation="Horizontal" Spacing="10">
@@ -151,31 +134,13 @@
 
             </HyperlinkButton>
 
-            <Grid Margin="0,6,0,0"
-                  RelativePanel.AlignBottomWithPanel="True"
-                  RelativePanel.AlignLeftWithPanel="True"
-                  RelativePanel.AlignRightWithPanel="True"
-                  RelativePanel.Below="TextComunicazioni">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="*" />
-                </Grid.RowDefinitions>
+            <Rectangle Style="{StaticResource HorizontalSeparatorStyle}"
+                       Visibility="{x:Bind BachecaViewModel.NoticesToShow, Mode=OneWay, FallbackValue=Collapsed, Converter={StaticResource EmptyListToVisibilityConverter}}" />
 
-                <Rectangle Height="1"
-                           Margin="6,0,6,0"
-                           VerticalAlignment="Top"
-                           Fill="{ThemeResource ControlStrongStrokeColorDisabledBrush}"
-                           Visibility="{x:Bind BachecaViewModel.NoticesToShow, Mode=OneWay, FallbackValue=Collapsed, Converter={StaticResource EmptyListToVisibilityConverter}}" />
+            <controls:NoticesListView x:Name="NoticesListView"
+                                      Margin="0,48,0,0"
+                                      ItemsSource="{x:Bind BachecaViewModel.NoticesToShow, Mode=OneWay}" />
 
-                <controls:NoticesListView x:Name="NoticesListView"
-                                          Margin="0,8,0,0"
-                                          HorizontalAlignment="Stretch"
-                                          VerticalAlignment="Stretch"
-                                          ItemsSource="{x:Bind BachecaViewModel.NoticesToShow, Mode=OneWay}" />
-
-            </Grid>
-        </RelativePanel>
+        </Grid>
     </Grid>
 </controls:CustomAppPage>

@@ -8,7 +8,6 @@
     mc:Ignorable="d"
     xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
     xmlns:converters="using:CommunityToolkit.WinUI.Converters"
-    xmlns:controls1="using:CommunityToolkit.WinUI.Controls"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
     muxc:BackdropMaterial.ApplyToRootOrPageBackground="True">
 
@@ -39,43 +38,24 @@
 
         </StackPanel>
 
-        <controls1:WrapPanel Grid.Row="0"
-                             Margin="0,32,0,0"
-                             HorizontalAlignment="Right">
+        <StackPanel Grid.Row="0"
+                    Margin="0,18,24,0"
+                    HorizontalAlignment="Right"
+                    Orientation="Horizontal">
 
             <CheckBox x:Name="CheckboxEliminati"
-                      Margin="0,0,24,0"
                       Content="{CustomResource ScrutiniShowDeletedDocumentsCheckbox}"
-                      RelativePanel.AlignRightWithPanel="True"
-                      RelativePanel.AlignVerticalCenterWithPanel="True"
                       ToolTipService.ToolTip="{CustomResource ScrutiniShowDeletedDocumentsCheckboxTooltip}" />
 
-        </controls1:WrapPanel>
+        </StackPanel>
 
-        <RelativePanel x:Name="CardPanel"
-                       Grid.Row="2"
-                       Margin="18"
-                       Padding="12"
-                       HorizontalAlignment="Stretch"
-                       VerticalAlignment="Stretch"
-                       Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
-                       BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
-                       BorderThickness="1"
-                       CornerRadius="8">
+        <Grid Grid.Row="2"
+              Style="{StaticResource CardGridStyle}">
 
-            <Grid RelativePanel.AlignBottomWithPanel="True"
-                  RelativePanel.AlignLeftWithPanel="True"
-                  RelativePanel.AlignRightWithPanel="True"
-                  RelativePanel.AlignTopWithPanel="True">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="*" />
-                </Grid.RowDefinitions>
-
-                <controls:ScrutiniListView x:Name="ScrutiniListView"
-                                           Margin="0,0,0,0"
-                                           EnableEmptyAlert="True" />
-
-            </Grid>
-        </RelativePanel>
+            <controls:ScrutiniListView x:Name="ScrutiniListView"
+                                       Margin="0,0,0,0"
+                                       EnableEmptyAlert="True" />
+            
+        </Grid>
     </Grid>
 </controls:CustomAppPage>
