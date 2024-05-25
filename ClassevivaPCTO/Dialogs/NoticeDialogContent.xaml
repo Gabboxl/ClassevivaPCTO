@@ -128,15 +128,15 @@
                           ItemContainerStyle="{StaticResource ListViewFullStretchStyle}"
                           ItemTemplate="{StaticResource AttachmentListViewDataTemplate}" />
 
-                <StackPanel Visibility="{x:Bind ShowJoinAlert, Converter={StaticResource BetterBoolToVisibilityConverter}, ConverterParameter=True}">
+                <StackPanel Visibility="{x:Bind ShowSignAlert, Converter={StaticResource BetterBoolToVisibilityConverter}, ConverterParameter=True}">
                     <Rectangle Fill="{ThemeResource ControlStrongStrokeColorDisabledBrush}" Height="1" Margin="0,8,0,8"/>
 
                     <controls:InfoBar
                         IsOpen="True"
-                        Severity="{x:Bind JoinAlertSeverityStatus}"
-                        Title="{x:Bind JoinAlertMessage}" IsClosable="False"/>
+                        Severity="{x:Bind SignAlertSeverityStatus}"
+                        Title="{x:Bind SignAlertMessage}" IsClosable="False"/>
 
-                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" Visibility="{x:Bind JoinButtonsVisibility}">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" Visibility="{x:Bind SignButtonsVisibility}">
                         <StackPanel Orientation="Horizontal" Visibility="{x:Bind CurrentNotice.needSign, Converter={StaticResource BetterBoolToVisibilityConverter}, ConverterParameter=True}">
                             
                             <AppBarButton x:Name="ButtonSign"  Icon="Accept" VerticalAlignment="Center"
@@ -145,14 +145,22 @@
                             <AppBarButton x:Name="ButtonRefuse" VerticalAlignment="Center" Icon="Cancel"
                                           Label="Rifiuta" />
                         </StackPanel>
-                        
-                        <AppBarButton x:Name="ButtonJoin" VerticalAlignment="Center" Icon="AddFriend"
-                                      Visibility="{x:Bind CurrentNotice.needJoin, Converter={StaticResource BetterBoolToVisibilityConverter}, ConverterParameter=True}"
-                                      Label="Aderisci" />
 
                     </StackPanel>
                 </StackPanel>
 
+                <StackPanel Visibility="{x:Bind CurrentNotice.needJoin, Converter={StaticResource BetterBoolToVisibilityConverter}, ConverterParameter=True}">
+                    <Rectangle Fill="{ThemeResource ControlStrongStrokeColorDisabledBrush}" Height="1" Margin="0,8,0,8"/>
+
+                    <controls:InfoBar
+                        IsOpen="True"
+                        Severity="{x:Bind JoinAlertSeverity}"
+                        Title="{x:Bind JoinAlertMessage}" IsClosable="False"/>
+
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" Visibility="{x:Bind JoinButtonVisibility}">
+                        <AppBarButton x:Name="ButtonJoin" VerticalAlignment="Center" Icon="AddFriend" Label="Aderisci" />
+                    </StackPanel>
+                </StackPanel>
 
             </StackPanel>
         </ScrollViewer>
