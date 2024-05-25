@@ -21,16 +21,16 @@
 
     <RelativePanel>
 
-        <Popup x:Name="LezioniPopup" 
+        <Popup x:Name="LezioniPopup"
                Width="800"
-               IsLightDismissEnabled="True" 
+               IsLightDismissEnabled="True"
                IsOpen="False"
-               LightDismissOverlayMode="On" 
+               LightDismissOverlayMode="On"
                RelativePanel.AlignBottomWithPanel="True"
-               RelativePanel.AlignRightWithPanel="True" 
+               RelativePanel.AlignRightWithPanel="True"
                RelativePanel.AlignTopWithPanel="True"
                ShouldConstrainToRootBounds="True">
-            
+
             <Popup.ChildTransitions>
                 <TransitionCollection>
                     <PaneThemeTransition Edge="Right" />
@@ -68,12 +68,12 @@
                             Margin="12,16,0,24"
                             Spacing="16">
 
-                    <TextBlock Text="{CustomResource AgendaLessonsPopupTitle}" 
-                               Style="{StaticResource PageTitleTextStyle}" 
+                    <TextBlock Text="{CustomResource AgendaLessonsPopupTitle}"
+                               Style="{StaticResource PageTitleTextStyle}"
                                FontWeight="Normal" />
 
-                    <muxc:ProgressRing x:Name="LezioniPopupProgressRing" Style="{StaticResource PageProgressRingStyle}"/>
-                    
+                    <muxc:ProgressRing x:Name="LezioniPopupProgressRing" Style="{StaticResource PageProgressRingStyle}" />
+
                 </StackPanel>
 
                 <ScrollViewer Grid.Row="1" Grid.Column="1">
@@ -83,16 +83,16 @@
             </Grid>
         </Popup>
 
-        <Popup x:Name="AgendaPopup" 
+        <Popup x:Name="AgendaPopup"
                Width="800"
-               IsLightDismissEnabled="True" 
+               IsLightDismissEnabled="True"
                IsOpen="False"
-               LightDismissOverlayMode="On" 
+               LightDismissOverlayMode="On"
                RelativePanel.AlignBottomWithPanel="True"
-               RelativePanel.AlignRightWithPanel="True" 
+               RelativePanel.AlignRightWithPanel="True"
                RelativePanel.AlignTopWithPanel="True"
                ShouldConstrainToRootBounds="True">
-            
+
             <Popup.ChildTransitions>
                 <TransitionCollection>
                     <PaneThemeTransition Edge="Right" />
@@ -130,11 +130,11 @@
                             Spacing="16">
 
                     <TextBlock Text="{CustomResource AgendaTasksPopupTitle}"
-                               Style="{StaticResource PageTitleTextStyle}" 
+                               Style="{StaticResource PageTitleTextStyle}"
                                FontWeight="Normal" />
-                    
+
                     <muxc:ProgressRing x:Name="AgendaPopupProgressRing" Style="{StaticResource PageProgressRingStyle}" />
-                    
+
                 </StackPanel>
 
                 <Grid x:Name="AgendaPopupListviewContainer"
@@ -163,7 +163,6 @@
 
             <Grid Rotation="0">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto" />
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
@@ -172,117 +171,105 @@
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
 
-                <StackPanel Grid.Row="0" 
+                <StackPanel Grid.Row="0"
                             Margin="32,16,0,0"
                             Orientation="Horizontal"
                             Spacing="16">
 
                     <TextBlock Text="{CustomResource AgendaTitle}" Style="{StaticResource PageTitleTextStyle}" />
 
-                    <muxc:ProgressRing Style="{StaticResource PageProgressRingStyle}" Visibility="{x:Bind AgendaViewModel.IsLoadingAgenda, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" />
-                    
+                    <muxc:ProgressRing Style="{StaticResource PageProgressRingStyle}"
+                                       Visibility="{x:Bind AgendaViewModel.IsLoadingAgenda, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" />
+
                 </StackPanel>
 
-                <Grid Grid.Row="0"
-                      Grid.Column="1"
-                      Margin="20,0,0,0"
-                      HorizontalAlignment="Right"
-                      VerticalAlignment="Center">
 
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto" />
-                        <ColumnDefinition Width="Auto" />
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto" />
-                    </Grid.RowDefinitions>
+                <StackPanel Grid.Row="0" Grid.Column="0"
+                            Margin="0,18,20,0"
+                            HorizontalAlignment="Right"
+                            Orientation="Horizontal">
 
-                    <StackPanel Grid.Row="0"
-                                Margin="0,18,20,0"
-                                HorizontalAlignment="Right"
-                                Orientation="Horizontal">
+                    <Button x:Name="ButtonYesterday"
+                            Width="44"
+                            Height="32"
+                            Margin="12,0,0,0"
+                            winUi:FrameworkElementExtensions.Cursor="Hand"
+                            Click="ButtonYesterday_Click"
+                            ToolTipService.ToolTip="{CustomResource AgendaYesterdayButtonTooltip}">
 
-                        <Button x:Name="ButtonYesterday"
-                                Width="44"
-                                Height="32"
-                                Margin="12,0,0,0"
-                                winUi:FrameworkElementExtensions.Cursor="Hand"
-                                Click="ButtonYesterday_Click"
-                                ToolTipService.ToolTip="{CustomResource AgendaYesterdayButtonTooltip}">
+                        <FontIcon HorizontalAlignment="Center"
+                                  VerticalAlignment="Center"
+                                  FontSize="16"
+                                  Glyph="&#xE76B;" />
 
-                            <FontIcon HorizontalAlignment="Center"
-                                      VerticalAlignment="Center"
-                                      FontSize="16"
-                                      Glyph="&#xE76B;" />
+                    </Button>
 
-                        </Button>
+                    <CalendarDatePicker x:Name="CalendarAgenda"
+                                        Width="94"
+                                        Style="{StaticResource CustomCalendarDatePicker}"
+                                        Margin="8,0,8,0"
+                                        winUi:FrameworkElementExtensions.Cursor="Hand"
+                                        FirstDayOfWeek="Monday"
+                                        PlaceholderText="{CustomResource AgendaCalendarDatePickerTooltip}"
+                                        ToolTipService.ToolTip="{CustomResource AgendaCalendarDatePickerTooltip}" />
 
-                        <CalendarDatePicker x:Name="CalendarAgenda"
-                                            Width="94"
-                                            Style="{StaticResource CustomCalendarDatePicker}"
-                                            Margin="8,0,8,0"
-                                            winUi:FrameworkElementExtensions.Cursor="Hand"
-                                            FirstDayOfWeek="Monday"
-                                            PlaceholderText="{CustomResource AgendaCalendarDatePickerTooltip}"
-                                            ToolTipService.ToolTip="{CustomResource AgendaCalendarDatePickerTooltip}" />
+                    <Button x:Name="ButtonTomorrow"
+                            Width="44"
+                            Height="32"
+                            winUi:FrameworkElementExtensions.Cursor="Hand"
+                            Click="ButtonTomorrow_Click"
+                            ToolTipService.ToolTip="{CustomResource AgendaTomorrowButtonTooltip}">
 
-                        <Button x:Name="ButtonTomorrow"
-                                Width="44"
-                                Height="32"
-                                winUi:FrameworkElementExtensions.Cursor="Hand"
-                                Click="ButtonTomorrow_Click"
-                                ToolTipService.ToolTip="{CustomResource AgendaTomorrowButtonTooltip}">
+                        <FontIcon HorizontalAlignment="Center"
+                                  VerticalAlignment="Center"
+                                  FontSize="16"
+                                  Glyph="&#xE76C;" />
+                    </Button>
 
-                            <FontIcon HorizontalAlignment="Center"
-                                      VerticalAlignment="Center"
-                                      FontSize="16"
-                                      Glyph="&#xE76C;" />
-                        </Button>
+                    <ToggleButton x:Name="ButtonToday"
+                                  Margin="8,0,0,0"
+                                  HorizontalAlignment="Center"
+                                  VerticalAlignment="Center"
+                                  winUi:FrameworkElementExtensions.Cursor="Hand"
+                                  Click="ButtonToday_Click"
+                                  Content="{CustomResource AgendaTodayButton}"
+                                  ToolTipService.ToolTip="{CustomResource AgendaTodayButtonTooltip}" />
 
-                        <ToggleButton x:Name="ButtonToday"
-                                      Margin="8,0,0,0"
-                                      HorizontalAlignment="Center"
-                                      VerticalAlignment="Center"
-                                      winUi:FrameworkElementExtensions.Cursor="Hand"
-                                      Click="ButtonToday_Click"
-                                      Content="{CustomResource AgendaTodayButton}"
-                                      ToolTipService.ToolTip="{CustomResource AgendaTodayButtonTooltip}" />
+                    <Rectangle Style="{StaticResource ControlSeparatorStyle}" />
 
-                        <Rectangle Style="{StaticResource ControlSeparatorStyle}"/>
+                    <Button x:Name="TuttiCompitiButton"
+                            MinWidth="110"
+                            Click="PopupAgendaButton_OnClick">
 
-                        <Button x:Name="TuttiCompitiButton"
-                                MinWidth="110"
-                                Click="PopupAgendaButton_OnClick" >
+                        <StackPanel VerticalAlignment="Center"
+                                    Orientation="Horizontal"
+                                    Spacing="8">
+                            <TextBlock VerticalAlignment="Center"
+                                       FontFamily="{StaticResource FluentIcons}"
+                                       Text="&#xEA98;" />
+                            <TextBlock Text="{CustomResource AgendaAllTasksButton}" />
+                        </StackPanel>
 
-                            <StackPanel VerticalAlignment="Center"
-                                        Orientation="Horizontal"
-                                        Spacing="8">
-                                <TextBlock VerticalAlignment="Center"
-                                           FontFamily="{StaticResource FluentIcons}"
-                                           Text="&#xEA98;" />
-                                <TextBlock Text="{CustomResource AgendaAllTasksButton}" />
-                            </StackPanel>
+                    </Button>
 
-                        </Button>
+                    <Button x:Name="PopupLessonsButton"
+                            MinWidth="110"
+                            Margin="8,0,0,0"
+                            Click="PopupLessonsButton_OnClick">
 
-                        <Button x:Name="PopupLessonsButton"
-                                MinWidth="110"
-                                Margin="8,0,0,0"
-                                Click="PopupLessonsButton_OnClick">
+                        <StackPanel VerticalAlignment="Center"
+                                    Orientation="Horizontal"
+                                    Spacing="8">
+                            <TextBlock VerticalAlignment="Center"
+                                       FontFamily="{StaticResource FluentIcons}"
+                                       Text="&#xe7be;" />
+                            <TextBlock Text="{CustomResource AgendaAllLessonsButton}" />
+                        </StackPanel>
 
-                            <StackPanel VerticalAlignment="Center"
-                                        Orientation="Horizontal"
-                                        Spacing="8">
-                                <TextBlock VerticalAlignment="Center"
-                                           FontFamily="{StaticResource FluentIcons}"
-                                           Text="&#xe7be;" />
-                                <TextBlock Text="{CustomResource AgendaAllLessonsButton}" />
-                            </StackPanel>
+                    </Button>
 
-                        </Button>
+                </StackPanel>
 
-                    </StackPanel>
-                </Grid>
             </Grid>
 
             <Grid Grid.Row="2"
