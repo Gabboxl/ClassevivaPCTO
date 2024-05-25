@@ -766,6 +766,6 @@ Error: </value>
     <value>For this communication, a confirmation and acceptance signature is required</value>
   </data>
   <data name="SignSuccessMessage" xml:space="preserve">
-    <value>Successfully confirmed and signed</value>
+    <value>Comunicazione confermata e firmata</value>
   </data>
 </root>
