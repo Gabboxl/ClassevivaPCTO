@@ -171,7 +171,7 @@
                            Fill="{ThemeResource ControlStrongStrokeColorDisabledBrush}"
                            Visibility="{x:Bind ItemsSource.Documents, Mode=OneWay, FallbackValue=Collapsed, Converter={StaticResource EmptyListToVisibilityConverter}}" />
 
-                <ListView x:Name="listViewScrutini" HorizontalAlignment="Stretch"
+                <ListView x:Name="ListViewScrutini" HorizontalAlignment="Stretch"
                           HorizontalContentAlignment="Stretch"
                           ItemContainerStyle="{StaticResource ListViewFullStretchStyle}"
                           ItemTemplate="{StaticResource ScrutiniListViewDataTemplate}"
@@ -185,7 +185,7 @@
                            Fill="{ThemeResource ControlStrongStrokeColorDisabledBrush}"
                            Visibility="{x:Bind ItemsSource.Documents, Mode=OneWay, FallbackValue=Collapsed, Converter={StaticResource EmptyListToVisibilityConverter}}" />
 
-                <ListView x:Name="listViewSchoolReports" HorizontalAlignment="Stretch"
+                <ListView x:Name="ListViewSchoolReports" HorizontalAlignment="Stretch"
                           HorizontalContentAlignment="Stretch"
                           ItemContainerStyle="{StaticResource ListViewFullStretchStyle}"
                           ItemTemplate="{StaticResource SchoolReportListViewDataTemplate}"

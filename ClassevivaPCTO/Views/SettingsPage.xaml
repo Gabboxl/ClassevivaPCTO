@@ -398,7 +398,7 @@
                                     </StackPanel>
                                 </HyperlinkButton>
 
-                                <HyperlinkButton x:Name="hyperlinkVote" Click="HyperlinkVote_Click">
+                                <HyperlinkButton x:Name="HyperlinkVote" Click="HyperlinkVote_Click">
                                     <StackPanel Orientation="Horizontal" Spacing="10">
                                         <Grid Width="18" Height="18">
                                             <Path Data="{CustomResource RateIcon}" Style="{StaticResource HyperlinkIconStyle}" />
@@ -407,7 +407,7 @@
                                     </StackPanel>
                                 </HyperlinkButton>
 
-                                <HyperlinkButton x:Name="hyperlinkTranslate"
+                                <HyperlinkButton x:Name="HyperlinkTranslate"
                                                  NavigateUri="https://crowdin.com/project/classevivapcto/invite?h=2b7340ff29ea44873bdef53dc5f7b6871790557">
                                     <StackPanel Orientation="Horizontal" Spacing="10">
                                         <Grid Width="18" Height="18">
@@ -417,7 +417,7 @@
                                     </StackPanel>
                                 </HyperlinkButton>
 
-                                <HyperlinkButton x:Name="hyperlinkIssue"
+                                <HyperlinkButton x:Name="HyperlinkIssue"
                                                  NavigateUri="http://github.com/Gabboxl/ClassevivaPCTO/issues">
                                     <StackPanel Orientation="Horizontal" Spacing="10">
                                         <Grid Width="18" Height="18">

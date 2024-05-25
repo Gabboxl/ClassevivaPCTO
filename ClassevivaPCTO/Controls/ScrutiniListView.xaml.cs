@@ -68,14 +68,14 @@ namespace ClassevivaPCTO.Controls
             var schoolReportsAdapters = newValue.SchoolReports?.Select(evt => new SchoolReportAdapter(evt)).ToList();
 
             //save the scroll position
-            var scrollViewer = currentInstance.listViewScrutini.FindDescendant<ScrollViewer>();
+            var scrollViewer = currentInstance.ListViewScrutini.FindDescendant<ScrollViewer>();
             double horizontalOffset = scrollViewer.HorizontalOffset;
             double verticalOffset = scrollViewer.VerticalOffset;
 
 
             //update the listview contents
-            currentInstance.listViewScrutini.ItemsSource = scrutiniAdapters;
-            currentInstance.listViewSchoolReports.ItemsSource = schoolReportsAdapters;
+            currentInstance.ListViewScrutini.ItemsSource = scrutiniAdapters;
+            currentInstance.ListViewSchoolReports.ItemsSource = schoolReportsAdapters;
 
 
             //restore the scroll position
