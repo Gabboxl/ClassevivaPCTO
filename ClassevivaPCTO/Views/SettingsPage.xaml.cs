@@ -255,7 +255,8 @@ namespace ClassevivaPCTO.Views
 
                 //var localelist = projectBase.TargetLanguages.Select(x => x.Locale).ToList();
 
-                var selectedCrowdingLangId = projectBase.TargetLanguages.Where(x => x.Locale.ToLower() == langcode)
+                //TwoLettersCode is alias of ISO 639-1 language code
+                var selectedCrowdingLangId = projectBase.TargetLanguages.Where(x => x.Locale.ToLowerInvariant() == langcode || x.TwoLettersCode.ToLowerInvariant() == langcode)
                     .Select(x => x.Id).FirstOrDefault();
 
                 var languageProgressObj =
