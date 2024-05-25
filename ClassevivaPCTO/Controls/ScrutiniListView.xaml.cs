@@ -4,19 +4,19 @@ using ClassevivaPCTO.ViewModels;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
-using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.WinUI;
 using ScrutinioAdapter = ClassevivaPCTO.Adapters.ScrutinioAdapter;
 
 
 namespace ClassevivaPCTO.Controls
 {
-    public sealed partial class ScrutiniListView : UserControl, INotifyPropertyChanged
+    [INotifyPropertyChanged]
+    public sealed partial class ScrutiniListView : UserControl
     {
         public bool EnableEmptyAlert
         {
@@ -36,7 +36,7 @@ namespace ClassevivaPCTO.Controls
         public bool ShowEmptyAlert
         {
             get { return _showEmptyAlert; }
-            set { SetField(ref _showEmptyAlert, value); }
+            set { SetProperty(ref _showEmptyAlert, value); }
         }
 
         private readonly IClassevivaAPI _apiWrapper;
@@ -201,21 +201,6 @@ namespace ClassevivaPCTO.Controls
 
             //open link in browser
             Windows.System.Launcher.LaunchUriAsync(new Uri(link));
-        }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        private void OnPropertyChanged([CallerMemberName] string propertyName = null)
-        {
-            PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-        }
-
-        private bool SetField<T>(ref T field, T value, [CallerMemberName] string propertyName = null)
-        {
-            if (EqualityComparer<T>.Default.Equals(field, value)) return false;
-            field = value;
-            OnPropertyChanged(propertyName);
-            return true;
         }
     }
 }

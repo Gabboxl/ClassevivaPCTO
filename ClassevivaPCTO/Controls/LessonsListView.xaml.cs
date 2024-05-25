@@ -7,10 +7,12 @@ using System.Runtime.CompilerServices;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using CloneExtensions;
+using CommunityToolkit.Mvvm.ComponentModel;
 
 namespace ClassevivaPCTO.Controls
 {
-    public sealed partial class LessonsListView : UserControl, INotifyPropertyChanged
+    [INotifyPropertyChanged]
+    public sealed partial class LessonsListView : UserControl
     {
         public bool EnableEmptyAlert
         {
@@ -30,7 +32,7 @@ namespace ClassevivaPCTO.Controls
         public bool ShowEmptyAlert
         {
             get { return _showEmptyAlert; }
-            set { SetField(ref _showEmptyAlert, value); }
+            set { SetProperty(ref _showEmptyAlert, value); }
         }
 
         public bool IsSingleSubjectList
@@ -119,21 +121,6 @@ namespace ClassevivaPCTO.Controls
         public LessonsListView()
         {
             InitializeComponent();
-        }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        private void OnPropertyChanged([CallerMemberName] string propertyName = null)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
-
-        private bool SetField<T>(ref T field, T value, [CallerMemberName] string propertyName = null)
-        {
-            if (EqualityComparer<T>.Default.Equals(field, value)) return false;
-            field = value;
-            OnPropertyChanged(propertyName);
-            return true;
         }
     }
 }

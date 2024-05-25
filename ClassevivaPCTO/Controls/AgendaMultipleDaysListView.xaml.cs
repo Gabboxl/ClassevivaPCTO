@@ -3,17 +3,17 @@ using ClassevivaPCTO.Utils;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Data;
 using CloneExtensions;
-using System.ComponentModel;
+using CommunityToolkit.Mvvm.ComponentModel;
 
 namespace ClassevivaPCTO.Controls
 {
-    public sealed partial class AgendaMultipleDaysListView : UserControl, INotifyPropertyChanged
+    [INotifyPropertyChanged]
+    public sealed partial class AgendaMultipleDaysListView : UserControl
     {
         private CollectionViewSource GroupedItems { get; set; }
 
@@ -38,7 +38,7 @@ namespace ClassevivaPCTO.Controls
         public bool ShowEmptyAlert
         {
             get { return _showEmptyAlert; }
-            set { SetField(ref _showEmptyAlert, value); }
+            set { SetProperty(ref _showEmptyAlert, value); }
         }
 
         public List<AgendaEvent> ItemsSource
@@ -118,21 +118,6 @@ namespace ClassevivaPCTO.Controls
         public AgendaMultipleDaysListView()
         {
             InitializeComponent();
-        }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        private void OnPropertyChanged([CallerMemberName] string propertyName = null)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
-
-        private bool SetField<T>(ref T field, T value, [CallerMemberName] string propertyName = null)
-        {
-            if (EqualityComparer<T>.Default.Equals(field, value)) return false;
-            field = value;
-            OnPropertyChanged(propertyName);
-            return true;
         }
     }
 }

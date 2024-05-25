@@ -6,14 +6,13 @@ using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.ComponentModel;
 using System.Linq;
-using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Data;
 using ClassevivaPCTO.Helpers;
+using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.WinUI;
 using CommunityToolkit.WinUI.Controls;
 
@@ -33,11 +32,12 @@ namespace ClassevivaPCTO.Controls
     //    Sticky
     //}
 
-    public sealed partial class NotesListView : UserControl, INotifyPropertyChanged
+    [INotifyPropertyChanged]
+    public sealed partial class NotesListView : UserControl
     {
         private readonly IClassevivaAPI _apiWrapper;
 
-        public EventHandler OnShouldUpdate
+        public EventHandler? OnShouldUpdate
         {
             get { return (EventHandler) GetValue(OnShouldUpdateProperty); }
             set { SetValue(OnShouldUpdateProperty, value); }
@@ -102,7 +102,7 @@ namespace ClassevivaPCTO.Controls
         public bool ShowEmptyAlert
         {
             get { return _showEmptyAlert; }
-            private set { SetField(ref _showEmptyAlert, value); }
+            private set { SetProperty(ref _showEmptyAlert, value); }
         }
 
         public List<Note> ItemsSource
@@ -310,21 +310,6 @@ namespace ClassevivaPCTO.Controls
                     System.Console.WriteLine(ex.ToString());
                 }
             });
-        }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        private void OnPropertyChanged([CallerMemberName] string propertyName = null)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
-
-        private bool SetField<T>(ref T field, T value, [CallerMemberName] string propertyName = null)
-        {
-            if (EqualityComparer<T>.Default.Equals(field, value)) return false;
-            field = value;
-            OnPropertyChanged(propertyName);
-            return true;
         }
     }
 }

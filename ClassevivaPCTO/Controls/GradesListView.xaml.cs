@@ -1,15 +1,15 @@
 ﻿using ClassevivaPCTO.Adapters;
 using ClassevivaPCTO.Utils;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
-using System.Runtime.CompilerServices;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using CommunityToolkit.Mvvm.ComponentModel;
 
 namespace ClassevivaPCTO.Controls
 {
-    public sealed partial class GradesListView : UserControl, INotifyPropertyChanged
+    [INotifyPropertyChanged]
+    public sealed partial class GradesListView : UserControl
     {
         public bool EnableEmptyAlert
         {
@@ -29,7 +29,7 @@ namespace ClassevivaPCTO.Controls
         private bool ShowEmptyAlert
         {
             get { return _showEmptyAlert; }
-            set { SetField(ref _showEmptyAlert, value); }
+            set { SetProperty(ref _showEmptyAlert, value); }
         }
 
         public List<Grade> ItemsSource
@@ -62,21 +62,6 @@ namespace ClassevivaPCTO.Controls
         public GradesListView()
         {
             InitializeComponent();
-        }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        private void OnPropertyChanged([CallerMemberName] string propertyName = null)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
-
-        private bool SetField<T>(ref T field, T value, [CallerMemberName] string propertyName = null)
-        {
-            if (EqualityComparer<T>.Default.Equals(field, value)) return false;
-            field = value;
-            OnPropertyChanged(propertyName);
-            return true;
         }
     }
 }

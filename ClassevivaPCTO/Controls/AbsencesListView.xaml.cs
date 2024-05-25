@@ -2,18 +2,18 @@
 using ClassevivaPCTO.Utils;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.ComponentModel;
 using System.Linq;
-using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Data;
 using ClassevivaPCTO.Helpers;
+using CommunityToolkit.Mvvm.ComponentModel;
 
 namespace ClassevivaPCTO.Controls
 {
-    public sealed partial class AbsencesListView : UserControl, INotifyPropertyChanged
+    [INotifyPropertyChanged]
+    public sealed partial class AbsencesListView : UserControl
     {
         public bool EnableEmptyAlert
         {
@@ -43,7 +43,7 @@ namespace ClassevivaPCTO.Controls
         public bool ShowEmptyAlert
         {
             get { return _showEmptyAlert; }
-            set { SetField(ref _showEmptyAlert, value); }
+            set { SetProperty(ref _showEmptyAlert, value); }
         }
 
         public List<AbsenceEvent> ItemsSource
@@ -110,21 +110,6 @@ namespace ClassevivaPCTO.Controls
         public AbsencesListView()
         {
             InitializeComponent();
-        }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        private void OnPropertyChanged([CallerMemberName] string propertyName = null)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
-
-        private bool SetField<T>(ref T field, T value, [CallerMemberName] string propertyName = null)
-        {
-            if (EqualityComparer<T>.Default.Equals(field, value)) return false;
-            field = value;
-            OnPropertyChanged(propertyName);
-            return true;
         }
     }
 }
