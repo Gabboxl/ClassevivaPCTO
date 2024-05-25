@@ -59,7 +59,7 @@ If you want to try the app without a real account, use these credentials:
 To compile this app you will need the following tools:
 - Visual Studio 2022
 - The .NET development workload for Visual Studio
-- The UWP development workload for Visual Studio
+- The UWP/WinUI development workload for Visual Studio
 
 ## Translate the app
 
