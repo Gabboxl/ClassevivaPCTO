@@ -1,4 +1,5 @@
 ﻿using ClassevivaPCTO.Utils;
+using Windows.UI.Xaml;
 
 namespace ClassevivaPCTO.Adapters
 {
@@ -9,6 +10,16 @@ namespace ClassevivaPCTO.Adapters
         public NoteAdapter(Note ev)
         {
             CurrentObject = ev;
+        }
+
+        public Style ReadButtonStyle
+        {
+            get
+            {
+                return CurrentObject.readStatus
+                    ? (Style) Application.Current.Resources["DefaultButtonStyle"]
+                    : (Style) Application.Current.Resources["AccentButtonStyle"];
+            }
         }
     }
 }

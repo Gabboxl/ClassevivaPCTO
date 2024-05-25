@@ -70,6 +70,7 @@
 
                     <Button x:Name="ReadButton" MinWidth="70"
                             Margin="0,0,16,0" Click="ReadButton_Click"
+                            Style="{x:Bind ReadButtonStyle}"
                             HorizontalAlignment="Right" VerticalAlignment="Center">
 
                         <Button.Content>
