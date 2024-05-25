@@ -228,7 +228,7 @@ namespace ClassevivaPCTO.Controls
                 //create a button
                 var button = new Button
                 {
-                    Content = "ReadAndOpenFlyoutText".GetLocalizedStr()
+                    Content = "GenericReadButton".GetLocalizedStr()
                 };
 
                 button.Click += async delegate
