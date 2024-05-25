@@ -35,7 +35,8 @@ Also see the [ClassevivaPCTO's Roadmap](https://github.com/users/Gabboxl/project
 
 <a href="https://apps.microsoft.com/store/detail/9PNST3M88D1S?launch=true&mode=mini" > <img src="https://get.microsoft.com/images/en-US%20dark.svg" width=20% height=20%/> </a>
 
-> **Note**: This app is available for ARM/ARM64/x86/x64 architectures.
+> [!note]
+> This app is available for ARM/ARM64/x86/x64 architectures.
 
 ### Minimum requirements
 
