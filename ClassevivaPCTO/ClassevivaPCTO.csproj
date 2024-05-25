@@ -272,7 +272,7 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Converters\GradeToColorConverter.cs" />
-    <Compile Include="Utils\CvAPI.cs" />
+    <Compile Include="Utils\CvAPIModels.cs" />
     <Compile Include="Utils\CredUtils.cs" />
     <Compile Include="Utils\VariousUtils.cs" />
     <Compile Include="ViewModels\AppViewModelHolder.cs" />
