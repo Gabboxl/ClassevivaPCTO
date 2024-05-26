@@ -50,12 +50,12 @@ namespace ClassevivaPCTO.Dialogs
                 if (CurrentNotice.needJoin)
                 {
                     if (CurrentReadResult.reply.replJoin.GetValueOrDefault())
-                        return "JoinSuccessMessage".GetLocalizedStr();
+                        return "NoticeDialogJoinSuccessMessage".GetLocalizedStr();
 
-                    return "JoinRequestedMessage".GetLocalizedStr();
+                    return "NoticeDialogJoinRequestedMessage".GetLocalizedStr();
                 }
 
-                return "JoinRequestedMessage".GetLocalizedStr();
+                return "NoticeDialogJoinRequestedMessage".GetLocalizedStr();
             }
         }
 
@@ -66,22 +66,23 @@ namespace ClassevivaPCTO.Dialogs
                 if (CurrentNotice.needJoin)
                 {
                     if (CurrentReadResult.reply.replJoin.GetValueOrDefault())
-                        return "JoinSuccessMessage".GetLocalizedStr();
+                        return "NoticeDialogSignSuccessMessage".GetLocalizedStr();
 
-                    return "JoinRequestedMessage".GetLocalizedStr();
+                    return "NoticeDialogSignRequestedMessage".GetLocalizedStr();
                 }
 
                 if (CurrentNotice.needSign)
                 {
                     if (CurrentReadResult.reply.replSign == null)
-                        return "SignRequestedMessage".GetLocalizedStr();
+                        return "NoticeDialogSignRequestedMessage".GetLocalizedStr();
 
                     if (CurrentReadResult.reply.replSign.GetValueOrDefault())
-                        return "SignSuccessMessage".GetLocalizedStr();
-                    return "SignRefuseMessage".GetLocalizedStr();
+                        return "NoticeDialogSignSuccessMessage".GetLocalizedStr();
+
+                    return "NoticeDialogSignRefuseMessage".GetLocalizedStr();
                 }
 
-                return "JoinRequestedMessage".GetLocalizedStr();
+                return "NoticeDialogSignRequestedMessage".GetLocalizedStr();
             }
         }
 
@@ -117,7 +118,7 @@ namespace ClassevivaPCTO.Dialogs
                 {
                     if (CurrentReadResult.reply.replSign.GetValueOrDefault())
                         return InfoBarSeverity.Success;
-                    return InfoBarSeverity.Error;
+                    return InfoBarSeverity.Informational;
                 }
 
                 return InfoBarSeverity.Informational;
@@ -149,7 +150,6 @@ namespace ClassevivaPCTO.Dialogs
                 return JoinAlertSeverity == InfoBarSeverity.Success ? Visibility.Collapsed : Visibility.Visible;
             }
         }
-
 
         public NoticeDialogContent(Notice notice, NoticeReadResult noticeReadResult)
         {
@@ -344,17 +344,17 @@ namespace ClassevivaPCTO.Dialogs
         private string GetActionText(bool isJoin, bool isRefuse)
         {
             if (isRefuse)
-                return "Per rifiutare la comunicazione, premi il pulsante sottostante.";
+                return "NoticeDialogRefuseNoticeMessage".GetLocalizedStr();
 
             if(isJoin)
-                return "Per unirti alla comunicazione, premi il pulsante sottostante.";
+                return "NoticeDialogJoinNoticeMessage".GetLocalizedStr();
 
             if(CurrentNotice.needFile)
-                return "Per firmare con file allegato, premi il pulsante sottostante.";
+                return "NoticeDialogConfirmNoticeWithAttachmentMessage".GetLocalizedStr();
             if(CurrentNotice.needSign)
-                return "Per firmare la comunicazione, premi il pulsante sottostante.";
+                return "NoticeDialogConfirmNoticeMessage".GetLocalizedStr();
             if(CurrentNotice.needReply)
-                return "Per firmare con messaggio, premi il pulsante sottostante.";
+                return "NoticeDialogConfirmNoticeWithMessage".GetLocalizedStr();
 
             return string.Empty;
             
@@ -363,13 +363,13 @@ namespace ClassevivaPCTO.Dialogs
         private string GetActionButtonContent(bool isJoin, bool isRefuse)
         {
             if (isRefuse)
-                return "Rifiuta";
+                return "NoticeDialogRefuseNotice".GetLocalizedStr();
 
             if(isJoin)
-                return "Unisciti";
+                return "NoticeDialogJoinNotice".GetLocalizedStr();
 
             if(CurrentNotice.needReply || CurrentNotice.needFile || CurrentNotice.needSign)
-                    return "Firma"; 
+                return "NoticeDialogConfirmNotice".GetLocalizedStr(); 
             
             return string.Empty;
         }

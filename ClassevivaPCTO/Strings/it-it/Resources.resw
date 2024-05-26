@@ -753,19 +753,46 @@ Errore: </value>
   <data name="NoticeBoardAllCategoriesComboboxItem" xml:space="preserve">
     <value>Tutte le categorie</value>
   </data>
-  <data name="JoinRequestedMessage" xml:space="preserve">
-    <value>Per questa comunicazione è richiesta una conferma di accettazione</value>
+  <data name="NoticeDialogJoinRequestedMessage" xml:space="preserve">
+    <value>Per questa comunicazione è richiesta una conferma di adesione</value>
   </data>
-  <data name="JoinSuccessMessage" xml:space="preserve">
+  <data name="NoticeDialogJoinSuccessMessage" xml:space="preserve">
     <value>Adesione confermata</value>
   </data>
-  <data name="SignRefuseMessage" xml:space="preserve">
+  <data name="NoticeDialogSignRefuseMessage" xml:space="preserve">
     <value>Comunicazione rifiutata</value>
   </data>
-  <data name="SignRequestedMessage" xml:space="preserve">
-    <value>Per questa comunicazione è richiesta una conferma e firma di accettazione</value>
+  <data name="NoticeDialogSignRequestedMessage" xml:space="preserve">
+    <value>Per questa comunicazione è richiesta una conferma di accettazione</value>
   </data>
-  <data name="SignSuccessMessage" xml:space="preserve">
+  <data name="NoticeDialogSignSuccessMessage" xml:space="preserve">
     <value>Comunicazione confermata e firmata</value>
+  </data>
+  <data name="GradesLayoutHeader" xml:space="preserve">
+    <value>Layout:</value>
+  </data>
+  <data name="NoticeDialogConfirmNotice" xml:space="preserve">
+    <value>Conferma e firma</value>
+  </data>
+  <data name="NoticeDialogConfirmNoticeMessage" xml:space="preserve">
+    <value>Per firmare la comunicazione, premi il pulsante sottostante</value>
+  </data>
+  <data name="NoticeDialogConfirmNoticeWithAttachmentMessage" xml:space="preserve">
+    <value>Per firmare con file allegato, premi il pulsante sottostante</value>
+  </data>
+  <data name="NoticeDialogConfirmNoticeWithMessage" xml:space="preserve">
+    <value>Per firmare con messaggio, premi il pulsante sottostante</value>
+  </data>
+  <data name="NoticeDialogJoinNotice" xml:space="preserve">
+    <value>Unisciti</value>
+  </data>
+  <data name="NoticeDialogJoinNoticeMessage" xml:space="preserve">
+    <value>Per unirti alla comunicazione, premi il pulsante sottostante</value>
+  </data>
+  <data name="NoticeDialogRefuseNotice" xml:space="preserve">
+    <value>Rifiuta</value>
+  </data>
+  <data name="NoticeDialogRefuseNoticeMessage" xml:space="preserve">
+    <value>Per rifiutare la comunicazione, premi il pulsante sottostante</value>
   </data>
 </root>
