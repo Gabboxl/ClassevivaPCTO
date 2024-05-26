@@ -86,7 +86,6 @@ namespace ClassevivaPCTO.Dialogs
         {
             get
             {
-
                 if (CurrentNotice.needFile)
                 {
                     if (!string.IsNullOrEmpty(CurrentReadResult.reply.replFile))
@@ -101,9 +100,10 @@ namespace ClassevivaPCTO.Dialogs
 
                 if (CurrentNotice.needSign)
                 {
-                    if (CurrentReadResult.reply.replSign.GetValueOrDefault())
+                    if (CurrentReadResult.reply.replSign != null && (bool)CurrentReadResult.reply.replSign)
                         return InfoBarSeverity.Success;
-                    return InfoBarSeverity.Error;
+                    if (CurrentReadResult.reply.replSign != null && !(bool)CurrentReadResult.reply.replSign)
+                        return InfoBarSeverity.Error;
                 }
 
                 return InfoBarSeverity.Informational;
