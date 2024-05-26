@@ -767,6 +767,6 @@ Erreur: </value>
     <value>Per questa comunicazione è richiesta una conferma e firma di accettazione</value>
   </data>
   <data name="SignSuccessMessage" xml:space="preserve">
-    <value>Confermato e firmato correttamente</value>
+    <value>Comunicazione confermata e firmata</value>
   </data>
 </root>
