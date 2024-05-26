@@ -19,20 +19,6 @@ namespace ClassevivaPCTO.Dialogs
 
         private readonly IClassevivaAPI _apiWrapper;
 
-        enum SignNoticeType
-        {
-            SIGN,
-            SIGN_MESSAGE,
-            SIGN_FILE,
-        }
-
-        //enum SignJoinNoticeStatus
-        //{
-        //    SUCCESS,
-        //    REFUSED,
-        //    REQUESTED
-        //}
-
         private bool ShowSignAlert
         {
             get
@@ -210,7 +196,7 @@ namespace ClassevivaPCTO.Dialogs
 
         private async void ButtonSave_Click(object sender, RoutedEventArgs e)
         {
-            var senderbutton = sender as AppBarButton;
+            var senderbutton = (AppBarButton) sender;
             var currentAttachment = senderbutton.DataContext as NoticeAttachment;
 
             await Task.Run(async () =>
