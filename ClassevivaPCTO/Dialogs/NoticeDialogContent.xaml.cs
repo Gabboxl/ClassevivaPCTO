@@ -41,7 +41,7 @@ namespace ClassevivaPCTO.Dialogs
                     return "JoinRequestedMessage".GetLocalizedStr();
                 }
 
-                return "JoinRequestedMessage".GetLocalizedStr();
+                return string.Empty;
             }
         }
 
@@ -49,14 +49,6 @@ namespace ClassevivaPCTO.Dialogs
         {
             get
             {
-                if (CurrentNotice.needJoin)
-                {
-                    if (CurrentReadResult.reply.replJoin.GetValueOrDefault())
-                        return "JoinSuccessMessage".GetLocalizedStr();
-
-                    return "JoinRequestedMessage".GetLocalizedStr();
-                }
-
                 if (CurrentNotice.needSign)
                 {
                     if (CurrentReadResult.reply.replSign == null)
@@ -67,7 +59,7 @@ namespace ClassevivaPCTO.Dialogs
                     return "SignRefuseMessage".GetLocalizedStr();
                 }
 
-                return "JoinRequestedMessage".GetLocalizedStr();
+                return string.Empty;
             }
         }
 
@@ -100,9 +92,11 @@ namespace ClassevivaPCTO.Dialogs
 
                 if (CurrentNotice.needSign)
                 {
-                    if (CurrentReadResult.reply.replSign != null && (bool)CurrentReadResult.reply.replSign)
+                    if (CurrentReadResult.reply.replSign == null)
+                        return InfoBarSeverity.Informational;
+                    if (CurrentReadResult.reply.replSign.GetValueOrDefault())
                         return InfoBarSeverity.Success;
-                    if (CurrentReadResult.reply.replSign != null && !(bool)CurrentReadResult.reply.replSign)
+                    if (!CurrentReadResult.reply.replSign.GetValueOrDefault())
                         return InfoBarSeverity.Error;
                 }
 
