@@ -7,7 +7,6 @@ using System.Threading.Tasks;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using ClassevivaPCTO.Helpers;
-using Microsoft.AppCenter.Channel;
 using Microsoft.UI.Xaml.Controls;
 
 namespace ClassevivaPCTO.Dialogs
@@ -43,46 +42,69 @@ namespace ClassevivaPCTO.Dialogs
             }
         }
 
-        private string JoinAlertMessage
+        //private string JoinAlertMessage
+        //{
+        //    get
+        //    {
+        //        if (CurrentNotice.needJoin)
+        //        {
+        //            if (CurrentReadResult.reply.replJoin.GetValueOrDefault())
+        //                return "NoticeDialogJoinSuccessMessage".GetLocalizedStr();
+
+        //            return "NoticeDialogJoinRequestedMessage".GetLocalizedStr();
+        //        }
+
+        //        return "NoticeDialogJoinRequestedMessage".GetLocalizedStr();
+        //    }
+        //}
+
+        //private string SignAlertMessage
+        //{
+        //    get
+        //    {
+        //        if (CurrentNotice.needJoin)
+        //        {
+        //            if (CurrentReadResult.reply.replJoin.GetValueOrDefault())
+        //                return "NoticeDialogSignSuccessMessage".GetLocalizedStr();
+
+        //            return "NoticeDialogSignRequestedMessage".GetLocalizedStr();
+        //        }
+
+        //        if (CurrentNotice.needSign)
+        //        {
+        //            if (CurrentReadResult.reply.replSign == null)
+        //                return "NoticeDialogSignRequestedMessage".GetLocalizedStr();
+
+        //            if (CurrentReadResult.reply.replSign.GetValueOrDefault())
+        //                return "NoticeDialogSignSuccessMessage".GetLocalizedStr();
+
+        //            return "NoticeDialogSignRefuseMessage".GetLocalizedStr();
+        //        }
+
+        //        return "NoticeDialogSignRequestedMessage".GetLocalizedStr();
+        //    }
+        //}
+
+        private string InfobarMessage
         {
             get
             {
-                if (CurrentNotice.needJoin)
+                if (CurrentNotice.needJoin && CurrentNotice.needSign)
                 {
-                    if (CurrentReadResult.reply.replJoin.GetValueOrDefault())
-                        return "NoticeDialogJoinSuccessMessage".GetLocalizedStr();
-
-                    return "NoticeDialogJoinRequestedMessage".GetLocalizedStr();
+                    return "Per questa c sono richieste sia conferma che adesione";
                 }
 
-                return "NoticeDialogJoinRequestedMessage".GetLocalizedStr();
-            }
-        }
-
-        private string SignAlertMessage
-        {
-            get
-            {
-                if (CurrentNotice.needJoin)
+                if (CurrentNotice.needJoin && !CurrentNotice.needSign)
                 {
-                    if (CurrentReadResult.reply.replJoin.GetValueOrDefault())
-                        return "NoticeDialogSignSuccessMessage".GetLocalizedStr();
-
                     return "NoticeDialogSignRequestedMessage".GetLocalizedStr();
                 }
 
-                if (CurrentNotice.needSign)
+                if (CurrentNotice.needSign && !CurrentNotice.needJoin)
                 {
-                    if (CurrentReadResult.reply.replSign == null)
-                        return "NoticeDialogSignRequestedMessage".GetLocalizedStr();
-
-                    if (CurrentReadResult.reply.replSign.GetValueOrDefault())
-                        return "NoticeDialogSignSuccessMessage".GetLocalizedStr();
-
-                    return "NoticeDialogSignRefuseMessage".GetLocalizedStr();
+                    return "NoticeDialogSignRequestedMessage".GetLocalizedStr();
                 }
 
-                return "NoticeDialogSignRequestedMessage".GetLocalizedStr();
+                return "Per questa c sono richieste sia conferma che adesione";
             }
         }
 
@@ -97,57 +119,44 @@ namespace ClassevivaPCTO.Dialogs
             }
         }
 
-        private InfoBarSeverity SignAlertSeverityStatus
-        {
-            get
-            {
+        //private InfoBarSeverity SignAlertSeverityStatus
+        //{
+        //    get
+        //    {
 
-                if (CurrentNotice.needFile)
-                {
-                    if (!string.IsNullOrEmpty(CurrentReadResult.reply.replFile))
-                        return InfoBarSeverity.Success;
-                }
+        //        if (CurrentNotice.needFile)
+        //        {
+        //            if (!string.IsNullOrEmpty(CurrentReadResult.reply.replFile))
+        //                return InfoBarSeverity.Success;
+        //        }
 
-                if (CurrentNotice.needReply)
-                {
-                    if (!string.IsNullOrEmpty(CurrentReadResult.reply.replText))
-                        return InfoBarSeverity.Success;
-                }
+        //        if (CurrentNotice.needReply)
+        //        {
+        //            if (!string.IsNullOrEmpty(CurrentReadResult.reply.replText))
+        //                return InfoBarSeverity.Success;
+        //        }
 
-                if (CurrentNotice.needSign)
-                {
-                    if (CurrentReadResult.reply.replSign.GetValueOrDefault())
-                        return InfoBarSeverity.Success;
-                    return InfoBarSeverity.Informational;
-                }
+        //        if (CurrentNotice.needSign)
+        //        {
+        //            if (CurrentReadResult.reply.replSign.GetValueOrDefault())
+        //                return InfoBarSeverity.Success;
+        //            return InfoBarSeverity.Informational;
+        //        }
 
-                return InfoBarSeverity.Informational;
-            }
-        }
-
-        private Visibility SignButtonsVisibility
-        {
-            get
-            {
-                switch (SignAlertSeverityStatus)
-                {
-                    case InfoBarSeverity.Success:
-                        return Visibility.Collapsed;
-                    case InfoBarSeverity.Informational:
-                        return Visibility.Visible;
-                    case InfoBarSeverity.Error:
-                        return Visibility.Collapsed;
-                    default:
-                        return Visibility.Visible;
-                }
-            }
-        }
+        //        return InfoBarSeverity.Informational;
+        //    }
+        //}
 
         private Visibility JoinButtonVisibility
         {
             get
             {
-                return JoinAlertSeverity == InfoBarSeverity.Success ? Visibility.Collapsed : Visibility.Visible;
+                if (!CurrentNotice.needJoin)
+                {
+                    return Visibility.Collapsed;
+                }
+
+                return Visibility.Visible;
             }
         }
 
@@ -169,6 +178,29 @@ namespace ClassevivaPCTO.Dialogs
                 TitoloAttachments.Visibility = Visibility.Visible;
                 AttachmentSeparator.Visibility = Visibility.Visible;
                 NoAttachmentsPlaceholder.Visibility = Visibility.Collapsed;
+            }
+
+            // confermata e firmata
+            if (CurrentReadResult.reply.replSign.GetValueOrDefault())
+            {
+                ButtonSign.IsEnabled = false;
+                ButtonSign.Label = "Confermato e firmato";
+                ButtonRefuse.Visibility = Visibility.Collapsed;
+            }
+
+            //rifiutata
+            if (!CurrentReadResult.reply.replSign.GetValueOrDefault())                 
+            {
+                ButtonRefuse.IsEnabled = false;
+                ButtonRefuse.Label = "Rifiutato";
+                ButtonJoin.Visibility = Visibility.Collapsed;
+            }
+
+            //aderito
+            if (CurrentReadResult.reply.replJoin.GetValueOrDefault())
+            {
+                ButtonJoin.IsEnabled = false;
+                ButtonJoin.Label = "Aderito";
             }
 
             AttachmentsListView.ItemsSource = notice.attachments;
