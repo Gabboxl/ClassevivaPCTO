@@ -71,8 +71,8 @@ namespace ClassevivaPCTO.Utils
                                                 PrimaryButtonText = "OKCapsText".GetLocalizedStr()
                                             };
 
-                                            ContentDialogResult result =
-                                                await noWifiDialog.ShowAsync();
+                                            VariousUtils.CloseAllOpenContentDialogs();
+                                            await noWifiDialog.ShowAsync();
 
                                             //go to login page
                                             Frame rootFrame = (Frame) Window.Current.Content;
@@ -137,9 +137,8 @@ namespace ClassevivaPCTO.Utils
                                                     CloseButtonText = "OKCapsText".GetLocalizedStr()
                                                 };
 
-                                                ContentDialogResult result =
-                                                    await noWifiDialog.ShowAsync();
-
+                                                VariousUtils.CloseAllOpenContentDialogs();
+                                                await noWifiDialog.ShowAsync();
 
                                                 //go to login page
                                                 Frame rootFrame = (Frame) Window.Current.Content;
@@ -193,8 +192,7 @@ namespace ClassevivaPCTO.Utils
                 {
                     //if (apiException.StatusCode == System.Net.HttpStatusCode.ServiceUnavailable)
 
-                    TaskCompletionSource<bool> isSomethingLoading =
-                        new TaskCompletionSource<bool>();
+                    var isSomethingLoading = new TaskCompletionSource<bool>();
 
                     CoreApplication.MainView.Dispatcher.RunAsync(
                         CoreDispatcherPriority.Normal,
@@ -214,8 +212,8 @@ namespace ClassevivaPCTO.Utils
 
                             try
                             {
-                                ContentDialogResult result =
-                                    await noWifiDialog.ShowAsync();
+                                VariousUtils.CloseAllOpenContentDialogs();
+                                await noWifiDialog.ShowAsync();
                             }
                             catch (Exception e)
                             {
