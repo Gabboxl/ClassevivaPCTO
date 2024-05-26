@@ -13,8 +13,8 @@ namespace ClassevivaPCTO.Services
 
         //private IPalette _currentPalette;
 
-        public static IPalette PaletteClass { get; set; } = new Palettes.PaletteCvv();
-        public static PaletteType PaletteEnum { get; set; } = PaletteType.PALETTE_CVV;
+        public static IPalette PaletteClass { get; private set; } = new Palettes.PaletteCvv();
+        public static PaletteType PaletteEnum { get; private set; } = PaletteType.PALETTE_CVV;
 
         public static async Task InitializeAsync()
         {

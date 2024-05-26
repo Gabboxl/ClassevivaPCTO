@@ -7,7 +7,6 @@ using System.Threading.Tasks;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using ClassevivaPCTO.Helpers;
-using Microsoft.AppCenter.Channel;
 using Microsoft.UI.Xaml.Controls;
 
 namespace ClassevivaPCTO.Dialogs
@@ -200,9 +199,10 @@ namespace ClassevivaPCTO.Dialogs
                 //run on ui thread
                 await Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, async () =>
                 {
-                    var savePicker = new Windows.Storage.Pickers.FileSavePicker();
-                    savePicker.SuggestedStartLocation =
-                        Windows.Storage.Pickers.PickerLocationId.DocumentsLibrary;
+                    var savePicker = new Windows.Storage.Pickers.FileSavePicker
+                    {
+                        SuggestedStartLocation = Windows.Storage.Pickers.PickerLocationId.DocumentsLibrary
+                    };
 
                     savePicker.FileTypeChoices.Add("Allegato", new List<string>() {"."});
                     savePicker.SuggestedFileName = currentAttachment.fileName;
