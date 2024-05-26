@@ -26,9 +26,9 @@ namespace ClassevivaPCTO.Utils
         protected override object Invoke(MethodInfo targetMethod, object[] args)
         {
             // Create a CancellationTokenSource
-            CancellationTokenSource cancellationTokenSource = new CancellationTokenSource();
+            CancellationTokenSource cancellationTokenSource = new();
 
-            int retryCount = 3;
+            const int retryCount = 3;
             int currentRetryAttempts = 0;
 
             var retryPolicy = Policy
@@ -55,15 +55,14 @@ namespace ClassevivaPCTO.Utils
 
                                 if (loginCredentials == null)
                                 {
-                                    TaskCompletionSource<bool> isSomethingLoading =
-                                        new TaskCompletionSource<bool>();
+                                    var isSomethingLoading = new TaskCompletionSource<bool>();
 
                                     //the dispatcher.runasync method does not return any value, so actually the "await" is redundant, so to know when the dialog is done showing, we use the Taskcompletionsource hack
                                     await CoreApplication.MainView.Dispatcher.RunAsync(
                                         CoreDispatcherPriority.Normal,
                                         async () =>
                                         {
-                                            ContentDialog noWifiDialog = new ContentDialog
+                                            ContentDialog noWifiDialog = new()
                                             {
                                                 Style = Application.Current.Resources["DefaultContentDialogStyle"] as Style,
                                                 Title = "SessionExpired".GetLocalizedStr(),
@@ -95,8 +94,7 @@ namespace ClassevivaPCTO.Utils
                                 {
                                     //refresho il token
 
-                                    loginCredentials
-                                        .RetrievePassword(); //dobbiamo per forza chiamare questo metodo per fare sì che la proprietà loginCredential.Password non sia vuota
+                                    loginCredentials.RetrievePassword(); //dobbiamo per forza chiamare questo metodo per fare sì che la proprietà loginCredential.Password non sia vuota
 
                                     //get app viewmodel from holder
                                     var appViewModel = AppViewModelHolder.GetViewModel();
@@ -121,15 +119,14 @@ namespace ClassevivaPCTO.Utils
                                     }
                                     catch (Exception e)
                                     {
-                                        TaskCompletionSource<bool> isSomethingLoading =
-                                            new TaskCompletionSource<bool>();
+                                        var isSomethingLoading = new TaskCompletionSource<bool>();
 
                                         //the dispatcher.runasync method does not return any value, so actually the "await" is redundant, so to know when the dialog is done showing, we use the Taskcompletionsource hack
                                         await CoreApplication.MainView.Dispatcher.RunAsync(
                                             CoreDispatcherPriority.Normal,
                                             async () =>
                                             {
-                                                ContentDialog noWifiDialog = new ContentDialog
+                                                ContentDialog noWifiDialog = new()
                                                 {
                                                     Style = Application.Current.Resources["DefaultContentDialogStyle"] as Style,
                                                     Title = "LoginErrorTitle".GetLocalizedStr(),
@@ -198,7 +195,7 @@ namespace ClassevivaPCTO.Utils
                         CoreDispatcherPriority.Normal,
                         async () =>
                         {
-                            ContentDialog noWifiDialog = new ContentDialog
+                            ContentDialog noWifiDialog = new()
                             {
                                 Title = "APIErrorTitle".GetLocalizedStr(),
                                 Style = Application.Current.Resources["DefaultContentDialogStyle"] as Style,
