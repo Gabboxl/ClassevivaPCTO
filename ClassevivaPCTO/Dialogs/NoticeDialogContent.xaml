@@ -98,8 +98,7 @@
                            Margin="8,16,0,0"
                            FontSize="18"
                            FontWeight="SemiBold"
-                           Style="{ThemeResource BodyStrongTextBlockStyle}"
-                           Text="{CustomResource NoticeDialogAttachmentsSubtitle}" />
+                           Style="{ThemeResource BodyStrongTextBlockStyle}" />
 
                 <Rectangle x:Name="AttachmentSeparator"
                            Height="1"
@@ -107,7 +106,7 @@
                            Fill="{ThemeResource ControlStrongStrokeColorDisabledBrush}" />
 
                 <StackPanel x:Name="NoAttachmentsPlaceholder"
-                            Margin="0,16,0,0"
+                            Margin="0,16,0,12"
                             Orientation="Horizontal"
                             Spacing="12">
                     
@@ -129,7 +128,8 @@
                           ItemTemplate="{StaticResource AttachmentListViewDataTemplate}" />
 
                 <StackPanel Visibility="{x:Bind ShowSignAlert, Converter={StaticResource BetterBoolToVisibilityConverter}, ConverterParameter=True}">
-                    <Rectangle Fill="{ThemeResource ControlStrongStrokeColorDisabledBrush}" Height="1" Margin="0,8,0,8"/>
+                    
+                    <Rectangle Fill="{ThemeResource ControlStrongStrokeColorDisabledBrush}" Height="1" Margin="6,8,6,8"/>
 
                     <controls:InfoBar
                         IsOpen="True"
@@ -137,20 +137,23 @@
                         Title="{x:Bind SignAlertMessage}" IsClosable="False"/>
 
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" Visibility="{x:Bind SignButtonsVisibility}">
+                        
                         <StackPanel Orientation="Horizontal" Visibility="{x:Bind CurrentNotice.needSign, Converter={StaticResource BetterBoolToVisibilityConverter}, ConverterParameter=True}">
-                            
+
                             <AppBarButton x:Name="ButtonSign"  Icon="Accept" VerticalAlignment="Center"
-                                          Label="Conferma e firma" />
+                                          Label="{CustomResource NoticeDialogConfirmNotice}" />
 
                             <AppBarButton x:Name="ButtonRefuse" VerticalAlignment="Center" Icon="Cancel"
-                                          Label="Rifiuta" />
+                                          Label="{CustomResource NoticeDialogRefuseNotice}" />
+                            
                         </StackPanel>
 
                     </StackPanel>
+                    
                 </StackPanel>
 
                 <StackPanel Visibility="{x:Bind CurrentNotice.needJoin, Converter={StaticResource BetterBoolToVisibilityConverter}, ConverterParameter=True}">
-                    <Rectangle Fill="{ThemeResource ControlStrongStrokeColorDisabledBrush}" Height="1" Margin="0,8,0,8"/>
+                    <Rectangle Fill="{ThemeResource ControlStrongStrokeColorDisabledBrush}" Height="1" Margin="6,8,6,8"/>
 
                     <controls:InfoBar
                         IsOpen="True"
@@ -158,8 +161,10 @@
                         Title="{x:Bind JoinAlertMessage}" IsClosable="False"/>
 
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" Visibility="{x:Bind JoinButtonVisibility}">
-                        <AppBarButton x:Name="ButtonJoin" VerticalAlignment="Center" Icon="AddFriend" Label="Aderisci" />
+                        <AppBarButton x:Name="ButtonJoin" VerticalAlignment="Center" Icon="AddFriend" 
+                                      Label="{CustomResource NoticeDialogJoinNotice}" />
                     </StackPanel>
+                    
                 </StackPanel>
 
             </StackPanel>
