@@ -430,7 +430,7 @@ Errore: </value>
     <value>Insufficienza grave, assenza, comunicazione non letta</value>
   </data>
   <data name="NoticeBoardValidFromToDateText" xml:space="preserve">
-    <value>Valida dal {1} al {1}</value>
+    <value>Valida dal {0} al {1}</value>
   </data>
   <data name="NoticeBoardDeletedStatusText" xml:space="preserve">
     <value>Eliminata</value>
