@@ -98,8 +98,7 @@
                            Margin="8,16,0,0"
                            FontSize="18"
                            FontWeight="SemiBold"
-                           Style="{ThemeResource BodyStrongTextBlockStyle}"
-                           Text="{CustomResource NoticeDialogAttachmentsSubtitle}" />
+                           Style="{ThemeResource BodyStrongTextBlockStyle}" />
 
                 <Rectangle x:Name="AttachmentSeparator"
                            Height="1"
@@ -107,7 +106,7 @@
                            Fill="{ThemeResource ControlStrongStrokeColorDisabledBrush}" />
 
                 <StackPanel x:Name="NoAttachmentsPlaceholder"
-                            Margin="0,16,0,0"
+                            Margin="0,16,0,12"
                             Orientation="Horizontal"
                             Spacing="12">
                     
@@ -129,42 +128,44 @@
                           ItemTemplate="{StaticResource AttachmentListViewDataTemplate}" />
 
                 <StackPanel Visibility="{x:Bind ShowSignAlert, Converter={StaticResource BetterBoolToVisibilityConverter}, ConverterParameter=True}">
+                    
                     <Rectangle Fill="{ThemeResource ControlStrongStrokeColorDisabledBrush}" Height="1" Margin="6,8,6,8"/>
 
                     <controls:InfoBar
                         IsOpen="True"
-                        Severity="Informational"
-                        Title="{x:Bind InfobarMessage}" IsClosable="False" />
+                        Severity="{x:Bind SignAlertSeverityStatus}"
+                        Title="{x:Bind SignAlertMessage}" IsClosable="False"/>
 
-                    <RelativePanel HorizontalAlignment="Stretch" Width="Auto">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" Visibility="{x:Bind SignButtonsVisibility}">
                         
-                        <StackPanel Orientation="Horizontal" RelativePanel.AlignLeftWithPanel="True" Spacing="8"
-                                    Visibility="{x:Bind CurrentNotice.needSign, Converter={StaticResource BetterBoolToVisibilityConverter}, ConverterParameter=True}">
-                            
-                            <AppBarButton x:Name="ButtonSign"  Icon="Accept" VerticalAlignment="Center" HorizontalAlignment="Left"
-                                          Label="Conferma e firma"  />
+                        <StackPanel Orientation="Horizontal" Visibility="{x:Bind CurrentNotice.needSign, Converter={StaticResource BetterBoolToVisibilityConverter}, ConverterParameter=True}">
 
-                            <AppBarButton x:Name="ButtonRefuse" VerticalAlignment="Center" Icon="Cancel" HorizontalAlignment="Left"
-                                          Label="Rifiuta"  />
+                            <AppBarButton x:Name="ButtonSign"  Icon="Accept" VerticalAlignment="Center"
+                                          Label="{CustomResource NoticeDialogConfirmNotice}" />
+
+                            <AppBarButton x:Name="ButtonRefuse" VerticalAlignment="Center" Icon="Cancel"
+                                          Label="{CustomResource NoticeDialogRefuseNotice}" />
+                            
                         </StackPanel>
 
-                        <AppBarButton x:Name="ButtonJoin" VerticalAlignment="Center" Icon="AddFriend" Visibility="{x:Bind JoinButtonVisibility}" RelativePanel.AlignRightWithPanel="True"
-                                          Label="Aderisci" />
-                    </RelativePanel>
+                    </StackPanel>
                     
                 </StackPanel>
 
-                <!--<StackPanel Visibility="{x:Bind CurrentNotice.needJoin, Converter={StaticResource BetterBoolToVisibilityConverter}, ConverterParameter=True}">
-
-                    <Rectangle Fill="{ThemeResource ControlStrongStrokeColorDisabledBrush}" Height="1" Margin="0,8,0,8"/>
+                <StackPanel Visibility="{x:Bind CurrentNotice.needJoin, Converter={StaticResource BetterBoolToVisibilityConverter}, ConverterParameter=True}">
+                    <Rectangle Fill="{ThemeResource ControlStrongStrokeColorDisabledBrush}" Height="1" Margin="6,8,6,8"/>
 
                     <controls:InfoBar
                         IsOpen="True"
                         Severity="{x:Bind JoinAlertSeverity}"
                         Title="{x:Bind JoinAlertMessage}" IsClosable="False"/>
 
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" Visibility="{x:Bind JoinButtonVisibility}">
+                        <AppBarButton x:Name="ButtonJoin" VerticalAlignment="Center" Icon="AddFriend" 
+                                      Label="{CustomResource NoticeDialogJoinNotice}" />
+                    </StackPanel>
                     
-                </StackPanel>-->
+                </StackPanel>
 
             </StackPanel>
         </ScrollViewer>

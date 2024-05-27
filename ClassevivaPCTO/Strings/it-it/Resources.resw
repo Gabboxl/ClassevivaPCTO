@@ -297,8 +297,8 @@ Errore: </value>
   <data name="CancelDialogButton" xml:space="preserve">
     <value>Annulla</value>
   </data>
-  <data name="NoticeDialogAttachmentsSubtitle" xml:space="preserve">
-    <value>Allegati</value>
+  <data name="NoticeDialogAttachmentsTitlePlural" xml:space="preserve">
+    <value>allegati</value>
   </data>
   <data name="NoticeDialogNoAttachmentsSubtitle" xml:space="preserve">
     <value>Nessun allegato</value>
@@ -430,7 +430,7 @@ Errore: </value>
     <value>Insufficienza grave, assenza, comunicazione non letta</value>
   </data>
   <data name="NoticeBoardValidFromToDateText" xml:space="preserve">
-    <value>{0} • Valida fino al {1}</value>
+    <value>Valida dal {1} al {1}</value>
   </data>
   <data name="NoticeBoardDeletedStatusText" xml:space="preserve">
     <value>Eliminata</value>
@@ -784,15 +784,18 @@ Errore: </value>
     <value>Per firmare con messaggio, premi il pulsante sottostante</value>
   </data>
   <data name="NoticeDialogJoinNotice" xml:space="preserve">
-    <value>Unisciti</value>
+    <value>Aderisci</value>
   </data>
   <data name="NoticeDialogJoinNoticeMessage" xml:space="preserve">
-    <value>Per unirti alla comunicazione, premi il pulsante sottostante</value>
+    <value>Per aderire alla comunicazione, premi il pulsante sottostante</value>
   </data>
   <data name="NoticeDialogRefuseNotice" xml:space="preserve">
     <value>Rifiuta</value>
   </data>
   <data name="NoticeDialogRefuseNoticeMessage" xml:space="preserve">
     <value>Per rifiutare la comunicazione, premi il pulsante sottostante</value>
+  </data>
+  <data name="NoticeDialogAttachmentsTitleSingular" xml:space="preserve">
+    <value>allegato</value>
   </data>
 </root>
