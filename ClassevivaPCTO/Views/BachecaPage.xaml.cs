@@ -100,6 +100,8 @@ namespace ClassevivaPCTO.Views
                         CategoryComboBox.SelectionChanged -= CategoryComboBox_OnSelectionChanged;
                         BachecaViewModel.Categories = noticeCategories;
 
+                        var noticesCount = noticesToShow.Count;
+
                         if(CategoryComboBox.SelectedIndex == -1)
                             CategoryComboBox.SelectedIndex = 0;
 
@@ -110,6 +112,59 @@ namespace ClassevivaPCTO.Views
                         else
                             ClearAllFiltersButton.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
 
+                        // solo categoria
+                        // solo lette
+                        // solo non lette
+                        // solo inattive
+                        // categoria + lette
+                        // categoria + non lette
+                        // categoria + inattive
+                        // lette + inattive
+                        // non lette + inattive
+                        // tutte e tre (lette)
+                        // tutte e tre (non lette)
+                        // nessuna
+
+                        if(noticesCount == 1)
+                        {
+                            if(CategoryComboBox.SelectedIndex != 0 && ReadUnreadSegmented.SelectedIndex == 0 && CheckboxAttive.IsChecked == false)
+                                NoticesTitle.Text = "1 " + "NoticeBoardNoticesTitleSingular".GetLocalizedStr() + "nella cat" + "'" + selectedCategory.ToString() + "'";
+
+                            if (CategoryComboBox.SelectedIndex == 0 && ReadUnreadSegmented.SelectedIndex == 2 && CheckboxAttive.IsChecked == false)
+                                NoticesTitle.Text = "1 " + "NoticeBoardReadNoticeText".GetLocalizedStr();
+
+                            if (CategoryComboBox.SelectedIndex == 0 && ReadUnreadSegmented.SelectedIndex == 1 && CheckboxAttive.IsChecked == false)
+                                NoticesTitle.Text = "1 " + "NoticeBoardUnreadNoticeText".GetLocalizedStr();
+
+                            if (CategoryComboBox.SelectedIndex == 0 && ReadUnreadSegmented.SelectedIndex == 0 && CheckboxAttive.IsChecked == true)
+                                NoticesTitle.Text = "1 " + "NoticeBoardInactiveNoticeText".GetLocalizedStr();
+
+                            else
+                            {
+                                NoticesTitle.Text = noticesCount.ToString() + " " + "NoticeBoardNoticesTitleSingular".GetLocalizedStr();
+                            }
+                        }
+                        else
+                        {
+                            if (CategoryComboBox.SelectedIndex != 0 && ReadUnreadSegmented.SelectedIndex == 0 && CheckboxAttive.IsChecked == false)
+                                NoticesTitle.Text = noticesCount.ToString() + " " + "NoticeBoardNoticesTitlePlural".GetLocalizedStr() + "NoticeBoardUnderCategoryText".GetLocalizedStr() + "'" + selectedCategory.ToString() + "'";
+
+                            if (CategoryComboBox.SelectedIndex == 0 && ReadUnreadSegmented.SelectedIndex == 2 && CheckboxAttive.IsChecked == false)
+                                NoticesTitle.Text = noticesCount.ToString() + " " + "NoticeBoardReadNoticesText".GetLocalizedStr();
+
+                            if (CategoryComboBox.SelectedIndex == 0 && ReadUnreadSegmented.SelectedIndex == 1 && CheckboxAttive.IsChecked == false)
+                                NoticesTitle.Text = noticesCount.ToString() + " " + "NoticeBoardUnreadNoticesText".GetLocalizedStr();
+
+                            if (CategoryComboBox.SelectedIndex == 0 && ReadUnreadSegmented.SelectedIndex == 0 && CheckboxAttive.IsChecked == true)
+                                NoticesTitle.Text = noticesCount.ToString() + " " + "NoticeBoardInactiveNoticesText".GetLocalizedStr();
+
+
+                            else
+                            {
+                                NoticesTitle.Text = noticesCount.ToString() + " " + "NoticeBoardNoticesTitlePlural".GetLocalizedStr();
+                            }
+                        }
+                        
                         BachecaViewModel.NoticesToShow = noticesToShow;
                     }
                 );
