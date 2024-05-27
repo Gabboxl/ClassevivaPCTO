@@ -1,4 +1,4 @@
-﻿using ClassevivaPCTO.Utils;
+using ClassevivaPCTO.Utils;
 using ClassevivaPCTO.ViewModels;
 using Microsoft.Extensions.DependencyInjection;
 using System;
@@ -18,20 +18,6 @@ namespace ClassevivaPCTO.Dialogs
 
         private readonly IClassevivaAPI _apiWrapper;
 
-        enum SignNoticeType
-        {
-            SIGN,
-            SIGN_MESSAGE,
-            SIGN_FILE,
-        }
-
-        //enum SignJoinNoticeStatus
-        //{
-        //    SUCCESS,
-        //    REFUSED,
-        //    REQUESTED
-        //}
-
         private bool ShowSignAlert
         {
             get
@@ -42,69 +28,37 @@ namespace ClassevivaPCTO.Dialogs
             }
         }
 
-        //private string JoinAlertMessage
-        //{
-        //    get
-        //    {
-        //        if (CurrentNotice.needJoin)
-        //        {
-        //            if (CurrentReadResult.reply.replJoin.GetValueOrDefault())
-        //                return "NoticeDialogJoinSuccessMessage".GetLocalizedStr();
-
-        //            return "NoticeDialogJoinRequestedMessage".GetLocalizedStr();
-        //        }
-
-        //        return "NoticeDialogJoinRequestedMessage".GetLocalizedStr();
-        //    }
-        //}
-
-        //private string SignAlertMessage
-        //{
-        //    get
-        //    {
-        //        if (CurrentNotice.needJoin)
-        //        {
-        //            if (CurrentReadResult.reply.replJoin.GetValueOrDefault())
-        //                return "NoticeDialogSignSuccessMessage".GetLocalizedStr();
-
-        //            return "NoticeDialogSignRequestedMessage".GetLocalizedStr();
-        //        }
-
-        //        if (CurrentNotice.needSign)
-        //        {
-        //            if (CurrentReadResult.reply.replSign == null)
-        //                return "NoticeDialogSignRequestedMessage".GetLocalizedStr();
-
-        //            if (CurrentReadResult.reply.replSign.GetValueOrDefault())
-        //                return "NoticeDialogSignSuccessMessage".GetLocalizedStr();
-
-        //            return "NoticeDialogSignRefuseMessage".GetLocalizedStr();
-        //        }
-
-        //        return "NoticeDialogSignRequestedMessage".GetLocalizedStr();
-        //    }
-        //}
-
-        private string InfobarMessage
+        private string JoinAlertMessage
         {
             get
             {
-                if (CurrentNotice.needJoin && CurrentNotice.needSign)
+                if (CurrentNotice.needJoin)
                 {
-                    return "Per questa c sono richieste sia conferma che adesione";
+                    if (CurrentReadResult.reply.replJoin.GetValueOrDefault())
+                        return "JoinSuccessMessage".GetLocalizedStr();
+
+                    return "JoinRequestedMessage".GetLocalizedStr();
                 }
 
-                if (CurrentNotice.needJoin && !CurrentNotice.needSign)
+                return string.Empty;
+            }
+        }
+
+        private string SignAlertMessage
+        {
+            get
+            {
+                if (CurrentNotice.needSign)
                 {
-                    return "NoticeDialogSignRequestedMessage".GetLocalizedStr();
+                    if (CurrentReadResult.reply.replSign == null)
+                        return "SignRequestedMessage".GetLocalizedStr();
+
+                    if (CurrentReadResult.reply.replSign.GetValueOrDefault())
+                        return "SignSuccessMessage".GetLocalizedStr();
+                    return "SignRefuseMessage".GetLocalizedStr();
                 }
 
-                if (CurrentNotice.needSign && !CurrentNotice.needJoin)
-                {
-                    return "NoticeDialogSignRequestedMessage".GetLocalizedStr();
-                }
-
-                return "Per questa c sono richieste sia conferma che adesione";
+                return string.Empty;
             }
         }
 
@@ -119,46 +73,62 @@ namespace ClassevivaPCTO.Dialogs
             }
         }
 
-        //private InfoBarSeverity SignAlertSeverityStatus
-        //{
-        //    get
-        //    {
+        private InfoBarSeverity SignAlertSeverityStatus
+        {
+            get
+            {
+                if (CurrentNotice.needFile)
+                {
+                    if (!string.IsNullOrEmpty(CurrentReadResult.reply.replFile))
+                        return InfoBarSeverity.Success;
+                }
 
-        //        if (CurrentNotice.needFile)
-        //        {
-        //            if (!string.IsNullOrEmpty(CurrentReadResult.reply.replFile))
-        //                return InfoBarSeverity.Success;
-        //        }
+                if (CurrentNotice.needReply)
+                {
+                    if (!string.IsNullOrEmpty(CurrentReadResult.reply.replText))
+                        return InfoBarSeverity.Success;
+                }
 
-        //        if (CurrentNotice.needReply)
-        //        {
-        //            if (!string.IsNullOrEmpty(CurrentReadResult.reply.replText))
-        //                return InfoBarSeverity.Success;
-        //        }
+                if (CurrentNotice.needSign)
+                {
+                    if (CurrentReadResult.reply.replSign == null)
+                        return InfoBarSeverity.Informational;
+                    if (CurrentReadResult.reply.replSign.GetValueOrDefault())
+                        return InfoBarSeverity.Success;
+                    if (!CurrentReadResult.reply.replSign.GetValueOrDefault())
+                        return InfoBarSeverity.Error;
+                }
 
-        //        if (CurrentNotice.needSign)
-        //        {
-        //            if (CurrentReadResult.reply.replSign.GetValueOrDefault())
-        //                return InfoBarSeverity.Success;
-        //            return InfoBarSeverity.Informational;
-        //        }
+                return InfoBarSeverity.Informational;
+            }
+        }
 
-        //        return InfoBarSeverity.Informational;
-        //    }
-        //}
+        private Visibility SignButtonsVisibility
+        {
+            get
+            {
+                switch (SignAlertSeverityStatus)
+                {
+                    case InfoBarSeverity.Success:
+                        return Visibility.Collapsed;
+                    case InfoBarSeverity.Informational:
+                        return Visibility.Visible;
+                    case InfoBarSeverity.Error:
+                        return Visibility.Collapsed;
+                    default:
+                        return Visibility.Visible;
+                }
+            }
+        }
 
         private Visibility JoinButtonVisibility
         {
             get
             {
-                if (!CurrentNotice.needJoin)
-                {
-                    return Visibility.Collapsed;
-                }
-
-                return Visibility.Visible;
+                return JoinAlertSeverity == InfoBarSeverity.Success ? Visibility.Collapsed : Visibility.Visible;
             }
         }
+
 
         public NoticeDialogContent(Notice notice, NoticeReadResult noticeReadResult)
         {
@@ -178,29 +148,6 @@ namespace ClassevivaPCTO.Dialogs
                 TitoloAttachments.Visibility = Visibility.Visible;
                 AttachmentSeparator.Visibility = Visibility.Visible;
                 NoAttachmentsPlaceholder.Visibility = Visibility.Collapsed;
-            }
-
-            // confermata e firmata
-            if (CurrentReadResult.reply.replSign.GetValueOrDefault())
-            {
-                ButtonSign.IsEnabled = false;
-                ButtonSign.Label = "Confermato e firmato";
-                ButtonRefuse.Visibility = Visibility.Collapsed;
-            }
-
-            //rifiutata
-            if (!CurrentReadResult.reply.replSign.GetValueOrDefault())                 
-            {
-                ButtonRefuse.IsEnabled = false;
-                ButtonRefuse.Label = "Rifiutato";
-                ButtonJoin.Visibility = Visibility.Collapsed;
-            }
-
-            //aderito
-            if (CurrentReadResult.reply.replJoin.GetValueOrDefault())
-            {
-                ButtonJoin.IsEnabled = false;
-                ButtonJoin.Label = "Aderito";
             }
 
             AttachmentsListView.ItemsSource = notice.attachments;
@@ -242,7 +189,7 @@ namespace ClassevivaPCTO.Dialogs
 
         private async void ButtonSave_Click(object sender, RoutedEventArgs e)
         {
-            var senderbutton = sender as AppBarButton;
+            var senderbutton = (AppBarButton) sender;
             var currentAttachment = senderbutton.DataContext as NoticeAttachment;
 
             await Task.Run(async () =>
@@ -252,9 +199,10 @@ namespace ClassevivaPCTO.Dialogs
                 //run on ui thread
                 await Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, async () =>
                 {
-                    var savePicker = new Windows.Storage.Pickers.FileSavePicker();
-                    savePicker.SuggestedStartLocation =
-                        Windows.Storage.Pickers.PickerLocationId.DocumentsLibrary;
+                    var savePicker = new Windows.Storage.Pickers.FileSavePicker
+                    {
+                        SuggestedStartLocation = Windows.Storage.Pickers.PickerLocationId.DocumentsLibrary
+                    };
 
                     savePicker.FileTypeChoices.Add("Allegato", new List<string>() {"."});
                     savePicker.SuggestedFileName = currentAttachment.fileName;
@@ -376,17 +324,17 @@ namespace ClassevivaPCTO.Dialogs
         private string GetActionText(bool isJoin, bool isRefuse)
         {
             if (isRefuse)
-                return "NoticeDialogRefuseNoticeMessage".GetLocalizedStr();
+                return "Per rifiutare la comunicazione, premi il pulsante sottostante.";
 
             if(isJoin)
-                return "NoticeDialogJoinNoticeMessage".GetLocalizedStr();
+                return "Per unirti alla comunicazione, premi il pulsante sottostante.";
 
             if(CurrentNotice.needFile)
-                return "NoticeDialogConfirmNoticeWithAttachmentMessage".GetLocalizedStr();
+                return "Per firmare con file allegato, premi il pulsante sottostante.";
             if(CurrentNotice.needSign)
-                return "NoticeDialogConfirmNoticeMessage".GetLocalizedStr();
+                return "Per firmare la comunicazione, premi il pulsante sottostante.";
             if(CurrentNotice.needReply)
-                return "NoticeDialogConfirmNoticeWithMessage".GetLocalizedStr();
+                return "Per firmare con messaggio, premi il pulsante sottostante.";
 
             return string.Empty;
             
@@ -395,13 +343,13 @@ namespace ClassevivaPCTO.Dialogs
         private string GetActionButtonContent(bool isJoin, bool isRefuse)
         {
             if (isRefuse)
-                return "NoticeDialogRefuseNotice".GetLocalizedStr();
+                return "Rifiuta";
 
             if(isJoin)
-                return "NoticeDialogJoinNotice".GetLocalizedStr();
+                return "Unisciti";
 
             if(CurrentNotice.needReply || CurrentNotice.needFile || CurrentNotice.needSign)
-                return "NoticeDialogConfirmNotice".GetLocalizedStr(); 
+                    return "Firma"; 
             
             return string.Empty;
         }

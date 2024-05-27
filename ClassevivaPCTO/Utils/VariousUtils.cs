@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml;
+using Windows.UI.Xaml.Media;
 
 namespace ClassevivaPCTO.Utils
 {
@@ -182,5 +183,20 @@ namespace ClassevivaPCTO.Utils
             return Windows.UI.Color.FromArgb(color.A, r, g, b);
         }
 
+
+        public static bool CloseAllOpenContentDialogs()
+        {
+            var openedpopups = VisualTreeHelper.GetOpenPopups(Window.Current);
+            foreach (var popup in openedpopups)
+            {
+                if(popup.Child is ContentDialog dialog)
+                {
+                    dialog.Hide();
+                    return true;
+                }
+            }
+
+            return false;
+        }
     }
 }
