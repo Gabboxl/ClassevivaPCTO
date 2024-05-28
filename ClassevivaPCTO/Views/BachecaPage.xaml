@@ -7,6 +7,7 @@
     xmlns:controls="using:ClassevivaPCTO.Controls"
     xmlns:controls1="using:CommunityToolkit.WinUI.Controls"
     mc:Ignorable="d"
+    SizeChanged="CustomAppPage_SizeChanged"
     xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
     xmlns:converters="using:ClassevivaPCTO.Converters"
     xmlns:converters1="using:CommunityToolkit.WinUI.Converters"
@@ -31,84 +32,89 @@
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
 
-        <StackPanel Grid.Row="0" 
-                    Margin="32,16,0,0"
+        <controls1:WrapPanel VerticalSpacing="8" Grid.Row="0" Margin="32,16,0,0" x:Name="ControlsPanel" >
+
+
+            <StackPanel
+                    
                     Orientation="Horizontal"
                     Spacing="16">
 
-            <TextBlock Text="{CustomResource NoticeBoardTitle}" Style="{StaticResource PageTitleTextStyle}" />
+                <TextBlock Text="{CustomResource NoticeBoardTitle}" Style="{StaticResource PageTitleTextStyle}" />
+                <TextBlock x:Name="sss" />
+                <muxc:ProgressRing Style="{StaticResource PageProgressRingStyle}" Visibility="{x:Bind BachecaViewModel.IsLoadingBacheca, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" />
 
-            <muxc:ProgressRing Style="{StaticResource PageProgressRingStyle}" Visibility="{x:Bind BachecaViewModel.IsLoadingBacheca, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" />
-            
-        </StackPanel>
+            </StackPanel>
 
-        <StackPanel Grid.Row="0"
-                    Margin="0,18,24,0"
+            <StackPanel Grid.Row="0"
+                    Margin="0,0,24,0"
                     HorizontalAlignment="Right"
                     Orientation="Horizontal">
 
-            <ComboBox x:Name="CategoryComboBox"
+                <ComboBox x:Name="CategoryComboBox"
                       MinWidth="170"
                       VerticalAlignment="Center"
                       controls:KeepOldItemsSourceDecorator.ItemsSource="{x:Bind BachecaViewModel.Categories, Mode=OneWay}"
                       PlaceholderText="{CustomResource NoticeBoardCategoryComboboxPlaceholderText}"
                       SelectionChanged="CategoryComboBox_OnSelectionChanged" />
 
-            <Rectangle Style="{StaticResource ControlSeparatorStyle}"/>
+                <Rectangle Style="{StaticResource ControlSeparatorStyle}"/>
 
-            <controls1:Segmented x:Name="ReadUnreadSegmented"
+                <controls1:Segmented x:Name="ReadUnreadSegmented"
                                  MinWidth="310"
                                  Margin="0,0,0,0"
                                  HorizontalAlignment="Stretch"
                                  SelectedIndex="0"
                                  SelectionChanged="ReadUnreadSegmented_OnSelectionChanged">
 
-                <controls1:SegmentedItem ToolTipService.ToolTip="{CustomResource NoticeBoardFilterAllNoticesItemTooltip}">
-                    <controls1:SegmentedItem.Content>
-                        <StackPanel Orientation="Horizontal">
-                            <FontIcon Margin="0,0,6,0"
+                    <controls1:SegmentedItem ToolTipService.ToolTip="{CustomResource NoticeBoardFilterAllNoticesItemTooltip}">
+                        <controls1:SegmentedItem.Content>
+                            <StackPanel Orientation="Horizontal">
+                                <FontIcon Margin="0,0,6,0"
                                       FontFamily="{StaticResource FluentIcons}"
                                       FontSize="14"
                                       Glyph="&#xE138;" />
-                            <TextBlock Text="{CustomResource NoticeBoardFilterAllNotices}" />
-                        </StackPanel>
-                    </controls1:SegmentedItem.Content>
-                </controls1:SegmentedItem>
+                                <TextBlock Text="{CustomResource NoticeBoardFilterAllNotices}" />
+                            </StackPanel>
+                        </controls1:SegmentedItem.Content>
+                    </controls1:SegmentedItem>
 
-                <controls1:SegmentedItem ToolTipService.ToolTip="{CustomResource NoticeBoardFilterUnreadNoticesItemTooltip}">
-                    <controls1:SegmentedItem.Content>
-                        <StackPanel Orientation="Horizontal">
-                            <FontIcon Margin="0,0,6,0"
+                    <controls1:SegmentedItem ToolTipService.ToolTip="{CustomResource NoticeBoardFilterUnreadNoticesItemTooltip}">
+                        <controls1:SegmentedItem.Content>
+                            <StackPanel Orientation="Horizontal">
+                                <FontIcon Margin="0,0,6,0"
                                       FontFamily="{StaticResource FluentIcons}"
                                       FontSize="14"
                                       Glyph="&#xE119;" />
-                            <TextBlock Text="{CustomResource NoticeBoardFilterUnreadNotices}" />
-                        </StackPanel>
-                    </controls1:SegmentedItem.Content>
-                </controls1:SegmentedItem>
+                                <TextBlock Text="{CustomResource NoticeBoardFilterUnreadNotices}" />
+                            </StackPanel>
+                        </controls1:SegmentedItem.Content>
+                    </controls1:SegmentedItem>
 
-                <controls1:SegmentedItem ToolTipService.ToolTip="{CustomResource NoticeBoardFilterReadNoticesItemTooltip}">
-                    <controls1:SegmentedItem.Content>
-                        <StackPanel Orientation="Horizontal">
-                            <FontIcon Margin="0,0,6,0"
+                    <controls1:SegmentedItem ToolTipService.ToolTip="{CustomResource NoticeBoardFilterReadNoticesItemTooltip}">
+                        <controls1:SegmentedItem.Content>
+                            <StackPanel Orientation="Horizontal">
+                                <FontIcon Margin="0,0,6,0"
                                       FontFamily="{StaticResource FluentIcons}"
                                       FontSize="14"
                                       Glyph="&#xE166;" />
-                            <TextBlock Text="{CustomResource NoticeBoardFilterReadNotices}" />
-                        </StackPanel>
-                    </controls1:SegmentedItem.Content>
-                </controls1:SegmentedItem>
+                                <TextBlock Text="{CustomResource NoticeBoardFilterReadNotices}" />
+                            </StackPanel>
+                        </controls1:SegmentedItem.Content>
+                    </controls1:SegmentedItem>
 
-            </controls1:Segmented>
+                </controls1:Segmented>
 
-            <Rectangle Style="{StaticResource ControlSeparatorStyle}"/>
+                <Rectangle Style="{StaticResource ControlSeparatorStyle}"/>
 
-            <CheckBox x:Name="CheckboxAttive"
+                <CheckBox x:Name="CheckboxAttive"
                       Content="{CustomResource NoticeBoardShowInactiveNoticesCheckbox}"
                       IsChecked="{x:Bind BachecaViewModel.MostraComInattive, Mode=TwoWay}"
                       ToolTipService.ToolTip="{CustomResource NoticeBoardShowInactiveNoticesCheckboxTooltip}" />
 
-        </StackPanel>
+            </StackPanel>
+
+        </controls1:WrapPanel>
 
         <Grid Grid.Row="2"
               Style="{StaticResource CardGridStyle}"
