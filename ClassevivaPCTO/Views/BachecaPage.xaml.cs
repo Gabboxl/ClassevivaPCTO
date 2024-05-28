@@ -11,6 +11,8 @@ using Windows.UI.Xaml.Navigation;
 using ClassevivaPCTO.Controls;
 using CommunityToolkit.WinUI.Controls;
 using ClassevivaPCTO.Helpers;
+using Windows.UI.WindowManagement;
+using Windows.UI.Xaml;
 
 namespace ClassevivaPCTO.Views
 {
@@ -100,7 +102,7 @@ namespace ClassevivaPCTO.Views
                         CategoryComboBox.SelectionChanged -= CategoryComboBox_OnSelectionChanged;
                         BachecaViewModel.Categories = noticeCategories;
 
-                        if(CategoryComboBox.SelectedIndex == -1)
+                        if (CategoryComboBox.SelectedIndex == -1)
                             CategoryComboBox.SelectedIndex = 0;
 
                         CategoryComboBox.SelectionChanged += CategoryComboBox_OnSelectionChanged;
@@ -158,6 +160,23 @@ namespace ClassevivaPCTO.Views
             CheckboxAttive.IsChecked = false;
             ClearAllFiltersButton.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
             AggiornaAction();
+        }
+
+        private void CustomAppPage_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            var currentWidth = ((Frame)Window.Current.Content).ActualWidth;
+
+            sss.Text = currentWidth.ToString();
+            if(currentWidth > 500 && currentWidth < 900)
+            {
+                // fistra piccola
+                // deve stare sotto al titolo
+                ControlsPanel.HorizontalSpacing = (currentWidth + 1100) + 32;
+            }
+            else
+            {
+                ControlsPanel.HorizontalSpacing = currentWidth/50 + 100;
+            }
         }
     }
 }
