@@ -27,7 +27,7 @@ ClassevivaPCTO is a simple UWP client to consult Spaggiari's electronic school r
 
 ## What's next
 
-See the [v1.3.0 milestone](https://github.com/Gabboxl/ClassevivaPCTO/milestone/6) to know what features are currently under development and planned to be released in the next version. 
+See the [v1.4.0 milestone](https://github.com/Gabboxl/ClassevivaPCTO/milestone/7) to know what features are currently under development and planned to be released in the next version. 
 
 Also see the [ClassevivaPCTO's Roadmap](https://github.com/users/Gabboxl/projects/5) for a full view of the funcionalities scheduled for the next releases.
 
