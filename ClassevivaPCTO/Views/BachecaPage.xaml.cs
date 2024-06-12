@@ -100,6 +100,8 @@ namespace ClassevivaPCTO.Views
                         CategoryComboBox.SelectionChanged -= CategoryComboBox_OnSelectionChanged;
                         BachecaViewModel.Categories = noticeCategories;
 
+                        var noticesCount = noticesToShow.Count;
+
                         if(CategoryComboBox.SelectedIndex == -1)
                             CategoryComboBox.SelectedIndex = 0;
 
@@ -110,6 +112,15 @@ namespace ClassevivaPCTO.Views
                         else
                             ClearAllFiltersButton.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
 
+                        if(noticesCount == 1)
+                        {
+                            NoticesTitle.Text = noticesCount.ToString() + " " + "NoticeBoardNoticesTitleSingular".GetLocalizedStr();
+                        }
+                        else
+                        {
+                            NoticesTitle.Text = noticesCount.ToString() + " " + "NoticeBoardNoticesTitlePlural".GetLocalizedStr();
+                        }
+                        
                         BachecaViewModel.NoticesToShow = noticesToShow;
                     }
                 );
