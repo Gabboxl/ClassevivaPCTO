@@ -768,35 +768,7 @@ Errore: </value>
   <data name="SignSuccessMessage" xml:space="preserve">
     <value>Comunicazione confermata e firmata</value>
   </data>
-  <data name="NoticeBoardInactiveNoticesText" xml:space="preserve">
-    <value>comunicazioni inattive</value>
-  </data>
-  <data name="NoticeBoardInactiveNoticeText" xml:space="preserve">
-    <value>comunicazione inattiva</value>
-  </data>
   <data name="NoticeBoardNoticesTitleSingular" xml:space="preserve">
     <value>comunicazione</value>
-  </data>
-  <data name="NoticeBoardReadNoticesText" xml:space="preserve">
-    <value>comunicazioni lette</value>
-  </data>
-  <data name="NoticeBoardReadNoticeText" xml:space="preserve">
-    <value>comunicazione letta</value>
-  </data>
-  <data name="NoticeBoardUnderCategoryText" xml:space="preserve">
-    <value> nella categoria </value>
-    <comment>X notices under category "News"</comment>
-  </data>
-  <data name="NoticeBoardUnreadNoticesText" xml:space="preserve">
-    <value>comunicazioni non lette</value>
-  </data>
-  <data name="NoticeBoardUnreadNoticeText" xml:space="preserve">
-    <value>comunicazione non letta</value>
-  </data>
-  <data name="sss" xml:space="preserve">
-    <value>comunicazioni lette e inattive</value>
-  </data>
-  <data name="String1" xml:space="preserve">
-    <value>comunicazioni non lette e inattive</value>
   </data>
 </root>
