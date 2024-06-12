@@ -62,7 +62,7 @@ To compile this app you will need the following tools:
 
 ## Contributors
 
-![Alt](https://repobeats.axiom.co/api/embed/324efe7f02eac0ea57d264c986651a346e86caf9.svg "Repobeats analytics image")
+![Alt](https://repobeats.axiom.co/api/embed/62c2f0673922e475d41aca248e79b2c3b3e9572f.svg "Repobeats analytics image")
 
 <a href="https://github.com/DevToys-app/DevToys/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=gabboxl/ClassevivaPCTO" />
