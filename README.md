@@ -17,13 +17,19 @@ ClassevivaPCTO is a simple UWP client to consult Spaggiari's electronic school r
 > [!note]
 > This app is for student accounts only.
 
-## Releases
+### Main features
+
+* Modern and intuitive interface
+* Customizable widgets, colors and language
+* Small and optimized even on low-end devices
+
+## Latest version
 
 ![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/Gabboxl/ClassevivaPCTO?include_prereleases) 
 
 <img src="https://github.com/Gabboxl/ClassevivaPCTO/blob/main/ClassevivaPCTO/Assets/storescreenshot.png" width=80% height=80%>
 
-[Full Changelog](https://github.com/Gabboxl/ClassevivaPCTO/releases/latest)
+[See release details](https://github.com/Gabboxl/ClassevivaPCTO/releases/latest)
 
 ## What's next
 
