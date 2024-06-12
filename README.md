@@ -43,7 +43,6 @@ Also see the [ClassevivaPCTO's Roadmap](https://github.com/users/Gabboxl/project
 - Windows 10 version 1809 (build 17763)
 
 
-
 ## Test account
 
 If you want to try the app without a real account, use these credentials:
@@ -54,13 +53,34 @@ If you want to try the app without a real account, use these credentials:
 *Password*: **test**
 
 
-## How to compile
+## Compiling the app
 
 To compile this app you will need the following tools:
 - Visual Studio 2022
 - The .NET development workload for Visual Studio
 - The UWP/WinUI development workload for Visual Studio
 
+## Contributors
+
+![Alt](https://repobeats.axiom.co/api/embed/324efe7f02eac0ea57d264c986651a346e86caf9.svg "Repobeats analytics image")
+
+<a href="https://github.com/DevToys-app/DevToys/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=gabboxl/ClassevivaPCTO" />
+</a>
+
 ## Translate the app
 
-Everyone is invited to help with the translation of the app! [Start translating here!](https://crowdin.com/project/classevivapcto/invite?h=2b7340ff29ea44873bdef53dc5f7b6871790557)
+Everyone is invited to help with the translation of the app! [Start translating on Crowdin!](https://crowdin.com/project/classevivapcto/invite?h=2b7340ff29ea44873bdef53dc5f7b6871790557)
+
+Currently supported languages:
+
+* Italian (native)
+* English
+* Spanish
+* French
+* German
+* Albanian
+* Romanian
+* Croatian
+* Polish
+* Portuguese
