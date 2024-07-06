@@ -1,0 +1,710 @@
+﻿<Page
+    x:Class="ClassevivaPCTO.Views.Books"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ClassevivaPCTO.Views"
+    xmlns:controls="using:CommunityToolkit.WinUI.Controls"
+    xmlns:adapters="using:ClassevivaPCTO.Adapters"
+    xmlns:converters="using:ClassevivaPCTO.Converters"
+    xmlns:helper="using:ClassevivaPCTO.Helpers"
+    xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:toolkit="using:Microsoft.Toolkit.Uwp.UI"
+    xmlns:labs="using:CommunityToolkit.Labs.WinUI"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+    muxc:BackdropMaterial.ApplyToRootOrPageBackground="True">
+
+    <Page.Resources>
+        <x:Double x:Key="SettingsCardSpacing">12</x:Double>
+    </Page.Resources>
+        
+    <ScrollViewer>
+        <Grid Padding="0,0,0,128">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <RelativePanel Grid.Row="0" Margin="0,16,0,0">
+
+                <RelativePanel.ChildrenTransitions>
+                    <EntranceThemeTransition FromHorizontalOffset="100" IsStaggeringEnabled="True" />
+                    <RepositionThemeTransition IsStaggeringEnabled="False" />
+                </RelativePanel.ChildrenTransitions>
+
+                <TextBlock x:Name="TextTitolo" Text="Libri"
+                       Style="{StaticResource TitleLargeTextBlockStyle}"
+                       VerticalAlignment="Top"
+                       Margin="32,0,0,0" />
+
+
+                <controls:Segmented
+                RelativePanel.AlignVerticalCenterWithPanel="True"
+                RelativePanel.AlignRightWithPanel="True"
+                Margin="0,0,24,0"
+                x:Name="SegmentedView"
+                Width="75"
+                SelectedIndex="0"
+                HorizontalAlignment="Stretch">
+
+                    <controls:SegmentedItem ToolTipService.ToolTip="Visualizzazione a lista">
+                        <controls:SegmentedItem.Icon>
+                            <FontIcon Glyph="&#xE14C;" FontFamily="{StaticResource FluentIcons}" />
+                        </controls:SegmentedItem.Icon>
+                    </controls:SegmentedItem>
+
+                    <controls:SegmentedItem ToolTipService.ToolTip="Visualizzazione a copertina">
+                        <controls:SegmentedItem.Icon>
+                            <FontIcon Glyph="&#xE138;" FontFamily="{StaticResource FluentIcons}" />
+                        </controls:SegmentedItem.Icon>
+                    </controls:SegmentedItem>
+
+
+
+                </controls:Segmented>
+
+
+
+                <Button MinWidth="100" RelativePanel.LeftOf="SegmentedView" RelativePanel.AlignVerticalCenterWith="TextTitolo" Margin="0,0,12,0">
+
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Spacing="8">
+
+
+                        <TextBlock Text="&#xE109;" VerticalAlignment="Center"
+                                       FontFamily="{StaticResource FluentIcons}"/>
+
+
+                        <TextBlock Text="Aggiungi libro" />
+
+                    </StackPanel>
+
+                </Button>
+
+            </RelativePanel>
+
+            <StackPanel Grid.Row="1"
+
+                  HorizontalAlignment="Stretch"
+                  Margin="24,24,24,0"
+                  Spacing="{StaticResource SettingsCardSpacing}">
+                <StackPanel.ChildrenTransitions>
+                    <EntranceThemeTransition FromVerticalOffset="300" IsStaggeringEnabled="True" />
+                    <RepositionThemeTransition IsStaggeringEnabled="False" />
+                </StackPanel.ChildrenTransitions>
+
+                <TextBlock 
+                           Text="Zanichelli" />
+
+                <labs:SettingsCard Header="Il Nuovo Invito alla biologia.blu" Description="Biologia" MaxHeight="75">
+
+                    <labs:SettingsCard.HeaderIcon>
+                        <FontIcon Glyph="&#xE82D;" />
+                    </labs:SettingsCard.HeaderIcon>
+
+                    <StackPanel Orientation="Horizontal" Spacing="8">
+
+                        <Image Source="/Assets/zanichelli.png" Height="75" Margin="0,-16,6,0"/>
+
+                        <Button MinWidth="120" toolkit:FrameworkElementExtensions.Cursor="Hand">
+
+                            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Spacing="8">
+
+                                <TextBlock Text="Apri E-Book" />
+
+                                <TextBlock Text="&#xE8A7;" VerticalAlignment="Center"
+                                       FontFamily="{StaticResource FluentIcons}"
+                                       Foreground="{ThemeResource AccentTextFillColorPrimaryBrush}" />
+
+                            </StackPanel>
+
+                        </Button>
+
+
+                        <Button Width="36" Height="32" Margin="0,0,0,0" Background="Transparent" BorderThickness="0">
+
+                            <Button.Content>
+                                <TextBlock Text="&#xE10C;" VerticalAlignment="Center" FontSize="20" HorizontalAlignment="Center"
+                                       FontFamily="{StaticResource FluentIcons}"/>
+                            </Button.Content>
+
+                            <Button.Flyout>
+                                <MenuFlyout>
+
+                                    <MenuFlyoutItem Text="Rimuovi libro" Icon="Cancel" />
+
+                                    <MenuFlyoutSeparator/>
+
+                                    <MenuFlyoutItem Text="Sposta in alto">
+                                        <MenuFlyoutItem.Icon>
+                                            <FontIcon Glyph="&#xE110;" FontFamily="{StaticResource FluentIcons}" />
+                                        </MenuFlyoutItem.Icon>
+                                    </MenuFlyoutItem>
+
+                                    <MenuFlyoutItem Text="Sposta in basso">
+                                        <MenuFlyoutItem.Icon>
+                                            <FontIcon Glyph="&#xE1FD;" FontFamily="{StaticResource FluentIcons}" />
+                                        </MenuFlyoutItem.Icon>
+                                    </MenuFlyoutItem>
+
+                                    <MenuFlyoutSubItem Text="Collezioni">
+
+                                        <MenuFlyoutSubItem.Icon>
+                                            <FontIcon Glyph="&#xE81E;" FontFamily="{StaticResource FluentIcons}" />
+                                        </MenuFlyoutSubItem.Icon>
+
+                                        <ToggleMenuFlyoutItem Text="Zanichelli" IsChecked="True"/>
+                                        <ToggleMenuFlyoutItem Text="Sanoma" IsChecked="False"/>
+                                        <ToggleMenuFlyoutItem Text="PDF" IsChecked="False"/>
+
+                                    </MenuFlyoutSubItem>
+
+                                    <MenuFlyoutItem Text="Modifica libro" Icon="Edit" />
+
+                                </MenuFlyout>
+                            </Button.Flyout>
+                        </Button>
+
+                    </StackPanel>
+
+                </labs:SettingsCard>
+
+                <labs:SettingsCard Header="Zefiro" Description="Lingua e letteratura italiana" MaxHeight="75">
+
+                    <labs:SettingsCard.HeaderIcon>
+                        <FontIcon Glyph="&#xE82D;" />
+                    </labs:SettingsCard.HeaderIcon>
+
+                    <StackPanel Orientation="Horizontal" Spacing="8">
+
+                        <Image Source="/Assets/zanichelli.png" Height="75" Margin="0,-16,6,0"/>
+
+                        <Button MinWidth="120" toolkit:FrameworkElementExtensions.Cursor="Hand">
+
+                            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Spacing="8">
+
+                                <TextBlock Text="Apri E-Book" />
+
+                                <TextBlock Text="&#xE8A7;" VerticalAlignment="Center"
+                                       FontFamily="{StaticResource FluentIcons}"
+                                       Foreground="{ThemeResource AccentTextFillColorPrimaryBrush}" />
+
+                            </StackPanel>
+
+                        </Button>
+
+                        <Button Width="36" Height="32" Margin="0,0,0,0" Background="Transparent" BorderThickness="0">
+
+                            <Button.Content>
+                                <TextBlock Text="&#xE10C;" VerticalAlignment="Center" FontSize="20" HorizontalAlignment="Center"
+                                       FontFamily="{StaticResource FluentIcons}"/>
+                            </Button.Content>
+
+                            <Button.Flyout>
+                                <MenuFlyout>
+
+                                    <MenuFlyoutItem Text="Rimuovi libro" Icon="Cancel" />
+
+                                    <MenuFlyoutSeparator/>
+
+                                    <MenuFlyoutItem Text="Sposta in alto">
+                                        <MenuFlyoutItem.Icon>
+                                            <FontIcon Glyph="&#xE110;" FontFamily="{StaticResource FluentIcons}" />
+                                        </MenuFlyoutItem.Icon>
+                                    </MenuFlyoutItem>
+
+                                    <MenuFlyoutItem Text="Sposta in basso">
+                                        <MenuFlyoutItem.Icon>
+                                            <FontIcon Glyph="&#xE1FD;" FontFamily="{StaticResource FluentIcons}" />
+                                        </MenuFlyoutItem.Icon>
+                                    </MenuFlyoutItem>
+
+                                    <MenuFlyoutSubItem Text="Collezioni">
+
+                                        <MenuFlyoutSubItem.Icon>
+                                            <FontIcon Glyph="&#xE81E;" FontFamily="{StaticResource FluentIcons}" />
+                                        </MenuFlyoutSubItem.Icon>
+
+                                        <ToggleMenuFlyoutItem Text="Zanichelli" IsChecked="True"/>
+                                        <ToggleMenuFlyoutItem Text="Sanoma" IsChecked="False"/>
+                                        <ToggleMenuFlyoutItem Text="PDF" IsChecked="False"/>
+
+                                    </MenuFlyoutSubItem>
+
+                                    <MenuFlyoutItem Text="Modifica libro" Icon="Edit" />
+
+                                </MenuFlyout>
+                            </Button.Flyout>
+                        </Button>
+
+
+                    </StackPanel>
+
+
+                </labs:SettingsCard>
+
+                <labs:SettingsCard Header="Il nuovo amaldi per i licei scientifici.blu" Description="Fisica" MaxHeight="75">
+
+                    <labs:SettingsCard.HeaderIcon>
+                        <FontIcon Glyph="&#xE82D;" />
+                    </labs:SettingsCard.HeaderIcon>
+
+                    <StackPanel Orientation="Horizontal" Spacing="8">
+
+                        <Image Source="/Assets/zanichelli.png" Height="75" Margin="0,-16,6,0"/>
+
+                        <Button MinWidth="120" toolkit:FrameworkElementExtensions.Cursor="Hand">
+
+                            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Spacing="8">
+
+                                <TextBlock Text="Apri E-Book" />
+
+                                <TextBlock Text="&#xE8A7;" VerticalAlignment="Center"
+                                       FontFamily="{StaticResource FluentIcons}"
+                                       Foreground="{ThemeResource AccentTextFillColorPrimaryBrush}" />
+
+                            </StackPanel>
+
+                        </Button>
+
+                        <Button Width="36" Height="32" Margin="0,0,0,0" Background="Transparent" BorderThickness="0">
+
+                            <Button.Content>
+                                <TextBlock Text="&#xE10C;" VerticalAlignment="Center" FontSize="20" HorizontalAlignment="Center"
+                                       FontFamily="{StaticResource FluentIcons}"/>
+                            </Button.Content>
+
+                            <Button.Flyout>
+                                <MenuFlyout>
+
+                                    <MenuFlyoutItem Text="Rimuovi libro" Icon="Cancel" />
+
+                                    <MenuFlyoutSeparator/>
+
+                                    <MenuFlyoutItem Text="Sposta in alto">
+                                        <MenuFlyoutItem.Icon>
+                                            <FontIcon Glyph="&#xE110;" FontFamily="{StaticResource FluentIcons}" />
+                                        </MenuFlyoutItem.Icon>
+                                    </MenuFlyoutItem>
+
+                                    <MenuFlyoutItem Text="Sposta in basso">
+                                        <MenuFlyoutItem.Icon>
+                                            <FontIcon Glyph="&#xE1FD;" FontFamily="{StaticResource FluentIcons}" />
+                                        </MenuFlyoutItem.Icon>
+                                    </MenuFlyoutItem>
+
+                                    <MenuFlyoutSubItem Text="Collezioni">
+
+                                        <MenuFlyoutSubItem.Icon>
+                                            <FontIcon Glyph="&#xE81E;" FontFamily="{StaticResource FluentIcons}" />
+                                        </MenuFlyoutSubItem.Icon>
+
+                                        <ToggleMenuFlyoutItem Text="Zanichelli" IsChecked="True"/>
+                                        <ToggleMenuFlyoutItem Text="Sanoma" IsChecked="False"/>
+                                        <ToggleMenuFlyoutItem Text="PDF" IsChecked="False"/>
+
+                                    </MenuFlyoutSubItem>
+
+                                    <MenuFlyoutItem Text="Modifica libro" Icon="Edit" />
+
+                                </MenuFlyout>
+                            </Button.Flyout>
+                        </Button>
+
+
+                    </StackPanel>
+
+
+                </labs:SettingsCard>
+
+
+                <TextBlock 
+                           Text="Sanoma" />
+
+                <labs:SettingsCard Header="Eredità e futuro" Description="Storia" MaxHeight="75">
+
+                    <labs:SettingsCard.HeaderIcon>
+                        <FontIcon Glyph="&#xE82D;" />
+                    </labs:SettingsCard.HeaderIcon>
+
+                    <StackPanel Orientation="Horizontal" Spacing="8">
+
+                        <Image Source="/Assets/sanoma.png" Height="18" Margin="0,0,8,0"/>
+
+                        <Button MinWidth="120" toolkit:FrameworkElementExtensions.Cursor="Hand">
+
+                            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Spacing="8">
+
+                                <TextBlock Text="Apri E-Book" />
+
+                                <TextBlock Text="&#xE8A7;" VerticalAlignment="Center"
+                                       FontFamily="{StaticResource FluentIcons}"
+                                       Foreground="{ThemeResource AccentTextFillColorPrimaryBrush}" />
+
+                            </StackPanel>
+
+                        </Button>
+
+
+                        <Button Width="36" Height="32" Margin="0,0,0,0" Background="Transparent" BorderThickness="0">
+
+                            <Button.Content>
+                                <TextBlock Text="&#xE10C;" VerticalAlignment="Center" FontSize="20" HorizontalAlignment="Center"
+                                       FontFamily="{StaticResource FluentIcons}"/>
+                            </Button.Content>
+
+                            <Button.Flyout>
+                                <MenuFlyout>
+
+                                    <MenuFlyoutItem Text="Rimuovi libro" Icon="Cancel" />
+
+                                    <MenuFlyoutSeparator/>
+
+                                    <MenuFlyoutItem Text="Sposta in alto">
+                                        <MenuFlyoutItem.Icon>
+                                            <FontIcon Glyph="&#xE110;" FontFamily="{StaticResource FluentIcons}" />
+                                        </MenuFlyoutItem.Icon>
+                                    </MenuFlyoutItem>
+
+                                    <MenuFlyoutItem Text="Sposta in basso">
+                                        <MenuFlyoutItem.Icon>
+                                            <FontIcon Glyph="&#xE1FD;" FontFamily="{StaticResource FluentIcons}" />
+                                        </MenuFlyoutItem.Icon>
+                                    </MenuFlyoutItem>
+
+                                    <MenuFlyoutSubItem Text="Collezioni">
+
+                                        <MenuFlyoutSubItem.Icon>
+                                            <FontIcon Glyph="&#xE81E;" FontFamily="{StaticResource FluentIcons}" />
+                                        </MenuFlyoutSubItem.Icon>
+
+                                        <ToggleMenuFlyoutItem Text="Zanichelli" IsChecked="False"/>
+                                        <ToggleMenuFlyoutItem Text="Sanoma" IsChecked="True"/>
+                                        <ToggleMenuFlyoutItem Text="PDF" IsChecked="False"/>
+
+                                    </MenuFlyoutSubItem>
+
+                                    <MenuFlyoutItem Text="Modifica libro" Icon="Edit" />
+
+                                </MenuFlyout>
+                            </Button.Flyout>
+                        </Button>
+
+
+                    </StackPanel>
+
+
+                </labs:SettingsCard>
+
+
+                <labs:SettingsCard Header="Manuale di matematica.blu PLUS" Description="Matematica" MaxHeight="75">
+
+                    <labs:SettingsCard.HeaderIcon>
+                        <FontIcon Glyph="&#xE82D;" />
+                    </labs:SettingsCard.HeaderIcon>
+
+                    <StackPanel Orientation="Horizontal" Spacing="8">
+
+                        <Image Source="/Assets/sanoma.png" Height="18" Margin="0,0,8,0"/>
+
+                        <Button MinWidth="120" toolkit:FrameworkElementExtensions.Cursor="Hand">
+
+                            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Spacing="8">
+
+                                <TextBlock Text="Apri E-Book" />
+
+                                <TextBlock Text="&#xE8A7;" VerticalAlignment="Center"
+                                       FontFamily="{StaticResource FluentIcons}"
+                                       Foreground="{ThemeResource AccentTextFillColorPrimaryBrush}" />
+
+                            </StackPanel>
+
+                        </Button>
+
+
+                        <Button Width="36" Height="32" Margin="0,0,0,0" Background="Transparent" BorderThickness="0">
+
+                            <Button.Content>
+                                <TextBlock Text="&#xE10C;" VerticalAlignment="Center" FontSize="20" HorizontalAlignment="Center"
+                                       FontFamily="{StaticResource FluentIcons}"/>
+                            </Button.Content>
+
+                            <Button.Flyout>
+                                <MenuFlyout>
+
+                                    <MenuFlyoutItem Text="Rimuovi libro" Icon="Cancel" />
+
+                                    <MenuFlyoutSeparator/>
+
+                                    <MenuFlyoutItem Text="Sposta in alto">
+                                        <MenuFlyoutItem.Icon>
+                                            <FontIcon Glyph="&#xE110;" FontFamily="{StaticResource FluentIcons}" />
+                                        </MenuFlyoutItem.Icon>
+                                    </MenuFlyoutItem>
+
+                                    <MenuFlyoutItem Text="Sposta in basso">
+                                        <MenuFlyoutItem.Icon>
+                                            <FontIcon Glyph="&#xE1FD;" FontFamily="{StaticResource FluentIcons}" />
+                                        </MenuFlyoutItem.Icon>
+                                    </MenuFlyoutItem>
+
+                                    <MenuFlyoutSubItem Text="Collezioni">
+
+                                        <MenuFlyoutSubItem.Icon>
+                                            <FontIcon Glyph="&#xE81E;" FontFamily="{StaticResource FluentIcons}" />
+                                        </MenuFlyoutSubItem.Icon>
+
+                                        <ToggleMenuFlyoutItem Text="Zanichelli" IsChecked="False"/>
+                                        <ToggleMenuFlyoutItem Text="Sanoma" IsChecked="True"/>
+                                        <ToggleMenuFlyoutItem Text="PDF" IsChecked="False"/>
+
+                                    </MenuFlyoutSubItem>
+
+                                    <MenuFlyoutItem Text="Modifica libro" Icon="Edit" />
+
+                                </MenuFlyout>
+                            </Button.Flyout>
+                        </Button>
+
+
+                    </StackPanel>
+
+
+                </labs:SettingsCard>
+
+                <labs:SettingsCard Header="Competenze motorie light" Description="Educazione fisica" MaxHeight="75">
+
+                    <labs:SettingsCard.HeaderIcon>
+                        <FontIcon Glyph="&#xE82D;" />
+                    </labs:SettingsCard.HeaderIcon>
+
+                    <StackPanel Orientation="Horizontal" Spacing="8">
+
+                        <Image Source="/Assets/sanoma.png" Height="18" Margin="0,0,8,0"/>
+
+                        <Button MinWidth="120" toolkit:FrameworkElementExtensions.Cursor="Hand">
+
+                            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Spacing="8">
+
+                                <TextBlock Text="Apri E-Book" />
+
+                                <TextBlock Text="&#xE8A7;" VerticalAlignment="Center"
+                                       FontFamily="{StaticResource FluentIcons}"
+                                       Foreground="{ThemeResource AccentTextFillColorPrimaryBrush}" />
+
+                            </StackPanel>
+
+                        </Button>
+
+
+                        <Button Width="36" Height="32" Margin="0,0,0,0" Background="Transparent" BorderThickness="0">
+
+                            <Button.Content>
+                                <TextBlock Text="&#xE10C;" VerticalAlignment="Center" FontSize="20" HorizontalAlignment="Center"
+                                       FontFamily="{StaticResource FluentIcons}"/>
+                            </Button.Content>
+
+                            <Button.Flyout>
+                                <MenuFlyout>
+
+                                    <MenuFlyoutItem Text="Rimuovi libro" Icon="Cancel" />
+
+                                    <MenuFlyoutSeparator/>
+
+                                    <MenuFlyoutItem Text="Sposta in alto">
+                                        <MenuFlyoutItem.Icon>
+                                            <FontIcon Glyph="&#xE110;" FontFamily="{StaticResource FluentIcons}" />
+                                        </MenuFlyoutItem.Icon>
+                                    </MenuFlyoutItem>
+
+                                    <MenuFlyoutItem Text="Sposta in basso">
+                                        <MenuFlyoutItem.Icon>
+                                            <FontIcon Glyph="&#xE1FD;" FontFamily="{StaticResource FluentIcons}" />
+                                        </MenuFlyoutItem.Icon>
+                                    </MenuFlyoutItem>
+
+                                    <MenuFlyoutSubItem Text="Collezioni">
+
+                                        <MenuFlyoutSubItem.Icon>
+                                            <FontIcon Glyph="&#xE81E;" FontFamily="{StaticResource FluentIcons}" />
+                                        </MenuFlyoutSubItem.Icon>
+
+                                        <ToggleMenuFlyoutItem Text="Zanichelli" IsChecked="False"/>
+                                        <ToggleMenuFlyoutItem Text="Sanoma" IsChecked="True"/>
+                                        <ToggleMenuFlyoutItem Text="PDF" IsChecked="False"/>
+
+                                    </MenuFlyoutSubItem>
+
+                                    <MenuFlyoutItem Text="Modifica libro" Icon="Edit" />
+
+                                </MenuFlyout>
+                            </Button.Flyout>
+                        </Button>
+
+
+                    </StackPanel>
+
+
+                </labs:SettingsCard>
+
+                <TextBlock 
+                           Text="PDF" />
+
+                <labs:SettingsCard Header="Amazing Minds" Description="Lingua e letteratura inglese" MaxHeight="75">
+
+                    <labs:SettingsCard.HeaderIcon>
+                        <FontIcon Glyph="&#xE130;" />
+                    </labs:SettingsCard.HeaderIcon>
+
+                    <StackPanel Orientation="Horizontal" Spacing="8">
+
+
+                        <Button MinWidth="120" toolkit:FrameworkElementExtensions.Cursor="Hand">
+
+                            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Spacing="8">
+
+                                <TextBlock Text="Apri PDF" />
+
+                                <TextBlock Text="&#xE8A7;" VerticalAlignment="Center"
+                                       FontFamily="{StaticResource FluentIcons}"
+                                       Foreground="{ThemeResource AccentTextFillColorPrimaryBrush}" />
+
+                            </StackPanel>
+
+                        </Button>
+
+
+                        <Button Width="36" Height="32" Margin="0,0,0,0" Background="Transparent" BorderThickness="0">
+
+                            <Button.Content>
+                                <TextBlock Text="&#xE10C;" VerticalAlignment="Center" FontSize="20" HorizontalAlignment="Center"
+                                       FontFamily="{StaticResource FluentIcons}"/>
+                            </Button.Content>
+
+                            <Button.Flyout>
+                                <MenuFlyout>
+
+                                    <MenuFlyoutItem Text="Rimuovi libro" Icon="Cancel" />
+
+                                    <MenuFlyoutSeparator/>
+
+                                    <MenuFlyoutItem Text="Sposta in alto">
+                                        <MenuFlyoutItem.Icon>
+                                            <FontIcon Glyph="&#xE110;" FontFamily="{StaticResource FluentIcons}" />
+                                        </MenuFlyoutItem.Icon>
+                                    </MenuFlyoutItem>
+
+                                    <MenuFlyoutItem Text="Sposta in basso">
+                                        <MenuFlyoutItem.Icon>
+                                            <FontIcon Glyph="&#xE1FD;" FontFamily="{StaticResource FluentIcons}" />
+                                        </MenuFlyoutItem.Icon>
+                                    </MenuFlyoutItem>
+
+                                    <MenuFlyoutSubItem Text="Collezioni">
+
+                                        <MenuFlyoutSubItem.Icon>
+                                            <FontIcon Glyph="&#xE81E;" FontFamily="{StaticResource FluentIcons}" />
+                                        </MenuFlyoutSubItem.Icon>
+
+                                        <ToggleMenuFlyoutItem Text="Zanichelli" IsChecked="False"/>
+                                        <ToggleMenuFlyoutItem Text="Sanoma" IsChecked="False"/>
+                                        <ToggleMenuFlyoutItem Text="PDF" IsChecked="True"/>
+
+                                    </MenuFlyoutSubItem>
+
+                                    <MenuFlyoutItem Text="Modifica libro" Icon="Edit" />
+
+                                </MenuFlyout>
+                            </Button.Flyout>
+                        </Button>
+
+
+                    </StackPanel>
+
+
+                </labs:SettingsCard>
+
+                <labs:SettingsCard Header="I nodi del pensiero" Description="Filosofia" MaxHeight="75">
+
+                    <labs:SettingsCard.HeaderIcon>
+                        <FontIcon Glyph="&#xE130;" />
+                    </labs:SettingsCard.HeaderIcon>
+
+                    <StackPanel Orientation="Horizontal" Spacing="8">
+
+
+                        <Button MinWidth="120" toolkit:FrameworkElementExtensions.Cursor="Hand">
+
+                            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Spacing="8">
+
+                                <TextBlock Text="Apri PDF" />
+
+                                <TextBlock Text="&#xE8A7;" VerticalAlignment="Center"
+                                       FontFamily="{StaticResource FluentIcons}"
+                                       Foreground="{ThemeResource AccentTextFillColorPrimaryBrush}" />
+
+                            </StackPanel>
+
+                        </Button>
+
+
+                        <Button Width="36" Height="32" Margin="0,0,0,0" Background="Transparent" BorderThickness="0">
+
+                            <Button.Content>
+                                <TextBlock Text="&#xE10C;" VerticalAlignment="Center" FontSize="20" HorizontalAlignment="Center"
+                                       FontFamily="{StaticResource FluentIcons}"/>
+                            </Button.Content>
+
+                            <Button.Flyout>
+                                <MenuFlyout>
+
+                                    <MenuFlyoutItem Text="Rimuovi libro" Icon="Cancel" />
+
+                                    <MenuFlyoutSeparator/>
+
+                                    <MenuFlyoutItem Text="Sposta in alto">
+                                        <MenuFlyoutItem.Icon>
+                                            <FontIcon Glyph="&#xE110;" FontFamily="{StaticResource FluentIcons}" />
+                                        </MenuFlyoutItem.Icon>
+                                    </MenuFlyoutItem>
+
+                                    <MenuFlyoutItem Text="Sposta in basso">
+                                        <MenuFlyoutItem.Icon>
+                                            <FontIcon Glyph="&#xE1FD;" FontFamily="{StaticResource FluentIcons}" />
+                                        </MenuFlyoutItem.Icon>
+                                    </MenuFlyoutItem>
+
+                                    <MenuFlyoutSubItem Text="Collezioni">
+
+                                        <MenuFlyoutSubItem.Icon>
+                                            <FontIcon Glyph="&#xE81E;" FontFamily="{StaticResource FluentIcons}" />
+                                        </MenuFlyoutSubItem.Icon>
+
+                                        <ToggleMenuFlyoutItem Text="Zanichelli" IsChecked="False"/>
+                                        <ToggleMenuFlyoutItem Text="Sanoma" IsChecked="False"/>
+                                        <ToggleMenuFlyoutItem Text="PDF" IsChecked="True"/>
+
+                                    </MenuFlyoutSubItem>
+
+                                    <MenuFlyoutItem Text="Modifica libro" Icon="Edit" />
+
+                                </MenuFlyout>
+                            </Button.Flyout>
+                        </Button>
+
+
+                    </StackPanel>
+
+
+                </labs:SettingsCard>
+
+
+                <HyperlinkButton NavigateUri="https://web-booktab.zanichelli.it/BooktabWeb/?idOpera=4F3D0FF826F8C30FC1257E1B003745D6#/9788808904553/9788808904553" Content="Libro Test Zanichelli"/>
+
+
+            </StackPanel>
+        </Grid>
+    </ScrollViewer>
+</Page>
