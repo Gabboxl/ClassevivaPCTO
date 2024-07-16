@@ -583,7 +583,7 @@ Errore: </value>
     <value>Wcześniejsze wyjście</value>
   </data>
   <data name="DialogUntranslatedLanguageStatus1" xml:space="preserve">
-    <value>L'app non è stata tradotta completamente nella lingua che hai scelto. Alcune parti dell'app continueranno ad essere mostrate in italiano.</value>
+    <value>Aplikacja nie została w całości przetłumaczona na wybrany język. Niektóre jej części będą wyświetlane w języku włoskim.</value>
   </data>
   <data name="DialogUntranslatedLanguageStatus2" xml:space="preserve">
     <value>Stato di traduzione: </value>
