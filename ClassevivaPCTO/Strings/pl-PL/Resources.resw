@@ -589,13 +589,13 @@ Errore: </value>
     <value>Stato di traduzione: </value>
   </data>
   <data name="DialogUntranslatedLanguageBody1" xml:space="preserve">
-    <value>Vuoi veramente cambiare la lingua?</value>
+    <value>Czy na pewno chcesz zmienić język?</value>
   </data>
   <data name="CautionDialogTitle" xml:space="preserve">
     <value>Attenzione</value>
   </data>
   <data name="ContinueDialogButton" xml:space="preserve">
-    <value>Continua</value>
+    <value>Dalej</value>
   </data>
   <data name="SettingsCardAskConfirmDescription" xml:space="preserve">
     <value>Chiedi conferma prima di aprire una comunicazione</value>
@@ -619,10 +619,10 @@ Errore: </value>
     <value>Rimuovi foto</value>
   </data>
   <data name="SelectFileDialogButton" xml:space="preserve">
-    <value>Seleziona file</value>
+    <value>Wybierz plik</value>
   </data>
   <data name="GenericEventOnDayPreposition" xml:space="preserve">
-    <value> del </value>
+    <value> z </value>
   </data>
   <data name="AbsencesTodayButton" xml:space="preserve">
     <value>Oggi</value>
@@ -631,16 +631,16 @@ Errore: </value>
     <value>Lista</value>
   </data>
   <data name="GradesSubjectsLayout" xml:space="preserve">
-    <value>Materie</value>
+    <value>Przedmioty</value>
   </data>
   <data name="GenericOpenButton" xml:space="preserve">
-    <value>Apri</value>
+    <value>Otwórz</value>
   </data>
   <data name="GenericReadButton" xml:space="preserve">
-    <value>Leggi</value>
+    <value>Przeczytaj</value>
   </data>
   <data name="GenericSaveButton" xml:space="preserve">
-    <value>Salva</value>
+    <value>Zapisz</value>
   </data>
   <data name="ScrutiniOpenFileButtonToolTip" xml:space="preserve">
     <value>Visualizza scrutinio</value>
