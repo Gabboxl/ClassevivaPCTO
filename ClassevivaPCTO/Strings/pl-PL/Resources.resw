@@ -718,7 +718,7 @@ Errore: </value>
     <value>Opzioni pagine</value>
   </data>
   <data name="GenericCloseButton" xml:space="preserve">
-    <value>Chiudi</value>
+    <value>Zamknij</value>
   </data>
   <data name="GradesListLayoutToolTip" xml:space="preserve">
     <value>Visualizza i voti come lista</value>
@@ -730,7 +730,7 @@ Errore: </value>
     <value>Apri file allegato</value>
   </data>
   <data name="NoticeDialogSaveButtonToolTip" xml:space="preserve">
-    <value>Salva questo file allegato sul tuo PC</value>
+    <value>Zapisz załączony plik na swoim komputerze</value>
   </data>
   <data name="SettingsPaletteColorYellowToolTip" xml:space="preserve">
     <value>Uscite anticipate, avvisi</value>
