@@ -16,16 +16,10 @@ namespace ClassevivaPCTO.Adapters
         {
             get
             {
-                SolidColorBrush brush = new();
-
-                if (CurrentObject.checkStatus.available)
+                SolidColorBrush brush = new()
                 {
-                    brush.Color = _currentPalette.ColorGreen;
-                }
-                else
-                {
-                    brush.Color = _currentPalette.ColorRed;
-                }
+                    Color = CurrentObject.checkStatus.available ? _currentPalette.ColorGreen : _currentPalette.ColorRed
+                };
 
                 return brush;
             }
@@ -35,12 +29,7 @@ namespace ClassevivaPCTO.Adapters
         {
             get
             {
-                if (CurrentObject.checkStatus.available)
-                {
-                    return "";
-                }
-
-                return "ScrutiniNotAvailableStatusText".GetLocalizedStr();
+                return CurrentObject.checkStatus.available ? "" : "ScrutiniNotAvailableStatusText".GetLocalizedStr();
             }
         }
 

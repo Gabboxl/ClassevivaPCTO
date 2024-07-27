@@ -10,7 +10,7 @@ namespace ClassevivaPCTO.Adapters
     {
         public readonly Notice CurrentObject;
 
-        private IPalette _currentPalette = PaletteSelectorService.PaletteClass;
+        private readonly IPalette _currentPalette = PaletteSelectorService.PaletteClass;
 
         public bool IsDeleted
         {
@@ -76,16 +76,10 @@ namespace ClassevivaPCTO.Adapters
         {
             get
             {
-                SolidColorBrush brush = new();
-
-                if (CurrentObject.readStatus)
+                SolidColorBrush brush = new()
                 {
-                    brush.Color = _currentPalette.ColorGreen;
-                }
-                else
-                {
-                    brush.Color = _currentPalette.ColorRed;
-                }
+                    Color = CurrentObject.readStatus ? _currentPalette.ColorGreen : _currentPalette.ColorRed
+                };
 
                 return brush;
             }
