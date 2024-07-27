@@ -114,8 +114,8 @@
               Style="{StaticResource CardGridStyle}"
               winUi:FrameworkElementExtensions.EnableActualSizeBinding="true">
 
-            <TextBlock Style="{StaticResource CardHeaderTextBlockStyle}"
-                       Text="{CustomResource NoticeBoardNotices}"
+            <TextBlock x:Name="NoticesTitle"
+                       Style="{StaticResource CardHeaderTextBlockStyle}"
                        Visibility="{x:Bind BachecaViewModel.NoticesToShow, Mode=OneWay, FallbackValue=Collapsed, Converter={StaticResource EmptyListToVisibilityConverter}}" />
 
             <HyperlinkButton x:Name="ClearAllFiltersButton"
