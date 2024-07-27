@@ -252,8 +252,8 @@ Si vous rencontrez des bugs ou avez une idée pour l'application, ouvrez un tick
   <data name="DashboardOpenNoticeBoardButton" xml:space="preserve">
     <value>Apri bacheca</value>
   </data>
-  <data name="NoticeBoardNotices" xml:space="preserve">
-    <value>Comunicazioni</value>
+  <data name="NoticeBoardNoticesTitlePlural" xml:space="preserve">
+    <value>comunicazioni</value>
   </data>
   <data name="AbsencesEventsCalendar" xml:space="preserve">
     <value>Calendario eventi</value>
@@ -768,5 +768,8 @@ Erreur: </value>
   </data>
   <data name="SignSuccessMessage" xml:space="preserve">
     <value>Comunicazione confermata e firmata</value>
+  </data>
+  <data name="NoticeBoardNoticesTitleSingular" xml:space="preserve">
+    <value>comunicazione</value>
   </data>
 </root>
