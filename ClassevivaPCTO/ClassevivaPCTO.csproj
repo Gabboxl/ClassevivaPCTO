@@ -525,16 +525,16 @@
       <Version>8.0.240109</Version>
     </PackageReference>
     <PackageReference Include="Crowdin.Api">
-      <Version>2.22.1</Version>
+      <Version>2.24.0</Version>
     </PackageReference>
     <PackageReference Include="Crowdin.Net">
       <Version>1.1.0</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.AppCenter.Analytics">
-      <Version>5.0.3</Version>
+      <Version>5.0.5</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.AppCenter.Crashes">
-      <Version>5.0.3</Version>
+      <Version>5.0.5</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.Extensions.DependencyInjection">
       <Version>8.0.0</Version>
@@ -543,7 +543,7 @@
       <Version>8.0.1</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.Extensions.Http.Polly">
-      <Version>8.0.5</Version>
+      <Version>8.0.7</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
       <Version>6.2.14</Version>
@@ -558,7 +558,7 @@
       <Version>13.0.3</Version>
     </PackageReference>
     <PackageReference Include="Polly">
-      <Version>8.4.0</Version>
+      <Version>8.4.1</Version>
     </PackageReference>
     <PackageReference Include="Polly.Extensions.Http">
       <Version>3.0.0</Version>
@@ -569,13 +569,13 @@
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
     <PackageReference Include="Refit">
-      <Version>7.0.0</Version>
+      <Version>7.1.2</Version>
     </PackageReference>
     <PackageReference Include="Refit.HttpClientFactory">
-      <Version>7.0.0</Version>
+      <Version>7.1.2</Version>
     </PackageReference>
     <PackageReference Include="Refit.Newtonsoft.Json">
-      <Version>7.0.0</Version>
+      <Version>7.1.2</Version>
     </PackageReference>
     <PackageReference Include="System.Runtime.Caching">
       <Version>8.0.0</Version>
