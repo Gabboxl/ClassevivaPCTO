@@ -156,7 +156,7 @@ Se riscontri bug o hai un'idea per l'app apri un issue su GitHub cliccando sul l
     <value>Benvenuto in ClassevivaPCTO</value>
   </data>
   <data name="SettingsAccountHeader" xml:space="preserve">
-    <value>Account</value>
+    <value>Konto</value>
   </data>
   <data name="SettingsGeneralHeader" xml:space="preserve">
     <value>Generali</value>
@@ -216,13 +216,13 @@ Se riscontri bug o hai un'idea per l'app apri un issue su GitHub cliccando sul l
     <value>Note</value>
   </data>
   <data name="LoginWelcome" xml:space="preserve">
-    <value>Benvenuto</value>
+    <value>Witaj</value>
   </data>
   <data name="LoginUsernameFieldHeader" xml:space="preserve">
-    <value>Nome utente:</value>
+    <value>Nazwa użytkownika:</value>
   </data>
   <data name="LoginPasswordFieldHeader" xml:space="preserve">
-    <value>Password:</value>
+    <value>Hasło:</value>
   </data>
   <data name="LoginKeepCredentialsCheckbox" xml:space="preserve">
     <value>Mantieni le credenziali</value>
@@ -231,7 +231,7 @@ Se riscontri bug o hai un'idea per l'app apri un issue su GitHub cliccando sul l
     <value>Dashboard di {0}</value>
   </data>
   <data name="DashboardTodaysEvents" xml:space="preserve">
-    <value>Eventi del giorno</value>
+    <value>Wydarzenia dnia</value>
   </data>
   <data name="DashboardOpenAgendaButton" xml:space="preserve">
     <value>Apri agenda</value>
@@ -246,7 +246,7 @@ Se riscontri bug o hai un'idea per l'app apri un issue su GitHub cliccando sul l
     <value>Visualizza tutte le valutazioni</value>
   </data>
   <data name="DashboardRecentNotices" xml:space="preserve">
-    <value>Comunicazioni recenti</value>
+    <value>Ostatnie wiadomości</value>
   </data>
   <data name="DashboardOpenNoticeBoardButton" xml:space="preserve">
     <value>Apri bacheca</value>
@@ -255,22 +255,22 @@ Se riscontri bug o hai un'idea per l'app apri un issue su GitHub cliccando sul l
     <value>Comunicazioni</value>
   </data>
   <data name="AbsencesEventsCalendar" xml:space="preserve">
-    <value>Calendario eventi</value>
+    <value>Kalendarz wydarzeń</value>
   </data>
   <data name="AgendaTasksPopupTitle" xml:space="preserve">
-    <value>Compiti</value>
+    <value>Zadania</value>
   </data>
   <data name="AgendaTodayButton" xml:space="preserve">
-    <value>Oggi</value>
+    <value>Dzisiaj</value>
   </data>
   <data name="AgendaAllTasksButton" xml:space="preserve">
-    <value>Tutti i compiti</value>
+    <value>Wszystkie zadania</value>
   </data>
   <data name="AgendaAllLessonsButton" xml:space="preserve">
-    <value>Tutte le lezioni</value>
+    <value>Wszystkie lekcje</value>
   </data>
   <data name="AccountNonSupportato" xml:space="preserve">
-    <value>Account insegnante non supportato</value>
+    <value>Konto nauczycielskie nie jest obsługiwane</value>
   </data>
   <data name="AccountNonSupportatoBody" xml:space="preserve">
     <value>In questa app sono solo supportati gli account studente. 
@@ -316,13 +316,13 @@ Errore: </value>
     <value>Valutazioni</value>
   </data>
   <data name="AbsencesTitle" xml:space="preserve">
-    <value>Assenze</value>
+    <value>Nieobecności</value>
   </data>
   <data name="AgendaTitle" xml:space="preserve">
     <value>Agenda</value>
   </data>
   <data name="AgendaPlaceholder" xml:space="preserve">
-    <value>Nessun evento</value>
+    <value>Brak wydarzeń</value>
   </data>
   <data name="InfoNoticeFlyoutText" xml:space="preserve">
     <value>La comunicazione verrà contrassegnata come letta sul server. Continuare?</value>
@@ -331,10 +331,10 @@ Errore: </value>
     <value>La nota verrà contrassegnata come letta sul server. Continuare?</value>
   </data>
   <data name="SettingsAccountExitButton" xml:space="preserve">
-    <value>Esci</value>
+    <value>Wyjdź</value>
   </data>
   <data name="NoticeBoardPlaceholder" xml:space="preserve">
-    <value>Nessuna comunicazione</value>
+    <value>Brak wiadomości</value>
   </data>
   <data name="NotesPlaceholder" xml:space="preserve">
     <value>Nessuna nota</value>
@@ -352,19 +352,19 @@ Errore: </value>
     <value>Natura</value>
   </data>
   <data name="SettingsAccountChangePhoto" xml:space="preserve">
-    <value>Cambia foto</value>
+    <value>Zmień zdjęcie</value>
   </data>
   <data name="AutoSuggestBoxSearchPlaceholderText" xml:space="preserve">
-    <value>Cerca...</value>
+    <value>Szukaj...</value>
   </data>
   <data name="SettingsAboutExpanderGitHubHyperlink" xml:space="preserve">
     <value>Progetto su GitHub</value>
   </data>
   <data name="WhatsNewDialogHyperlinkAllChanges" xml:space="preserve">
-    <value>Visualizza tutti i cambiamenti</value>
+    <value>Pokaż wszystkie zmiany</value>
   </data>
   <data name="SettingsAboutExpanderVersion" xml:space="preserve">
-    <value>Versione </value>
+    <value>Wersja </value>
   </data>
   <data name="SettingsAccountSchool" xml:space="preserve">
     <value>Istituto:</value>
@@ -382,7 +382,7 @@ Errore: </value>
     <value>Seleziona l'anno scolastico da consultare / torna all'anno precedente</value>
   </data>
   <data name="SettingsCardSchoolYearHeader" xml:space="preserve">
-    <value>Anno scolastico</value>
+    <value>Rok szkolny</value>
   </data>
   <data name="WhatsNewDialogHighlights" xml:space="preserve">
     <value>In evidenza</value>
@@ -415,7 +415,7 @@ Errore: </value>
     <value>Dashboard</value>
   </data>
   <data name="RefreshButtonToolTip" xml:space="preserve">
-    <value>Aggiorna (F5)</value>
+    <value>Aktualizuj (F5)</value>
   </data>
   <data name="SettingsPaletteColorBlueToolTip" xml:space="preserve">
     <value>Non fa media, assenza parziale</value>
@@ -442,10 +442,10 @@ Errore: </value>
     <value>Sei sicuro?</value>
   </data>
   <data name="AreYouSureToExit" xml:space="preserve">
-    <value>Sei sicuro di voler uscire?</value>
+    <value>Czy na pewno chcesz wyjść?</value>
   </data>
   <data name="Exit" xml:space="preserve">
-    <value>Esci</value>
+    <value>Wyjdź</value>
   </data>
   <data name="RestartRequired" xml:space="preserve">
     <value>Riavvio richiesto</value>
@@ -505,7 +505,7 @@ Errore: </value>
     <value>Retrò</value>
   </data>
   <data name="AgendaLessonsPlaceholder" xml:space="preserve">
-    <value>Nessuna lezione</value>
+    <value>Brak lekcji</value>
   </data>
   <data name="FirstRunDialogContributorsHyperlink" xml:space="preserve">
     <value>Contributors</value>
@@ -520,16 +520,16 @@ Errore: </value>
     <value>Tutti i periodi</value>
   </data>
   <data name="AgendaCalendarDatePickerToolTip" xml:space="preserve">
-    <value>Seleziona una data</value>
+    <value>Wybierz datę</value>
   </data>
   <data name="NoticeBoardFilterAllNotices" xml:space="preserve">
-    <value>Tutte</value>
+    <value>Wszystko</value>
   </data>
   <data name="NoticeBoardFilterReadNotices" xml:space="preserve">
-    <value>Lette</value>
+    <value>Przeczytane</value>
   </data>
   <data name="NoticeBoardFilterUnreadNotices" xml:space="preserve">
-    <value>Non lette</value>
+    <value>Nieprzeczytane</value>
   </data>
   <data name="GradesNotAvailable" xml:space="preserve">
     <value>N/D</value>
@@ -559,43 +559,43 @@ Errore: </value>
     <value>Richiamo</value>
   </data>
   <data name="ABA0_plur" xml:space="preserve">
-    <value>Assenze</value>
+    <value>Nieobecności</value>
   </data>
   <data name="ABA0_sing" xml:space="preserve">
-    <value>Assenza</value>
+    <value>Nieobecność</value>
   </data>
   <data name="ABR0_plur" xml:space="preserve">
-    <value>Ritardi</value>
+    <value>Spóźnienia</value>
   </data>
   <data name="ABR0_sing" xml:space="preserve">
-    <value>Ritardo</value>
+    <value>Spóźnienie</value>
   </data>
   <data name="ABR1_plur" xml:space="preserve">
-    <value>Ritardi brevi</value>
+    <value>Małe spóźnienia</value>
   </data>
   <data name="ABR1_sing" xml:space="preserve">
-    <value>Ritardo breve</value>
+    <value>Małe spóźnienie</value>
   </data>
   <data name="ABU0_plur" xml:space="preserve">
-    <value>Uscite anticipate</value>
+    <value>Wcześniejsze wyjścia</value>
   </data>
   <data name="ABU0_sing" xml:space="preserve">
-    <value>Uscita anticipata</value>
+    <value>Wcześniejsze wyjście</value>
   </data>
   <data name="DialogUntranslatedLanguageStatus1" xml:space="preserve">
-    <value>L'app non è stata tradotta completamente nella lingua che hai scelto. Alcune parti dell'app continueranno ad essere mostrate in italiano.</value>
+    <value>Aplikacja nie została w całości przetłumaczona na wybrany język. Niektóre jej części będą wyświetlane w języku włoskim.</value>
   </data>
   <data name="DialogUntranslatedLanguageStatus2" xml:space="preserve">
     <value>Stato di traduzione: </value>
   </data>
   <data name="DialogUntranslatedLanguageBody1" xml:space="preserve">
-    <value>Vuoi veramente cambiare la lingua?</value>
+    <value>Czy na pewno chcesz zmienić język?</value>
   </data>
   <data name="CautionDialogTitle" xml:space="preserve">
     <value>Attenzione</value>
   </data>
   <data name="ContinueDialogButton" xml:space="preserve">
-    <value>Continua</value>
+    <value>Dalej</value>
   </data>
   <data name="SettingsCardAskConfirmDescription" xml:space="preserve">
     <value>Chiedi conferma prima di aprire una comunicazione</value>
@@ -619,10 +619,10 @@ Errore: </value>
     <value>Rimuovi foto</value>
   </data>
   <data name="SelectFileDialogButton" xml:space="preserve">
-    <value>Seleziona file</value>
+    <value>Wybierz plik</value>
   </data>
   <data name="GenericEventOnDayPreposition" xml:space="preserve">
-    <value> del </value>
+    <value> z </value>
   </data>
   <data name="AbsencesTodayButton" xml:space="preserve">
     <value>Oggi</value>
@@ -631,16 +631,16 @@ Errore: </value>
     <value>Lista</value>
   </data>
   <data name="GradesSubjectsLayout" xml:space="preserve">
-    <value>Materie</value>
+    <value>Przedmioty</value>
   </data>
   <data name="GenericOpenButton" xml:space="preserve">
-    <value>Apri</value>
+    <value>Otwórz</value>
   </data>
   <data name="GenericReadButton" xml:space="preserve">
-    <value>Leggi</value>
+    <value>Przeczytaj</value>
   </data>
   <data name="GenericSaveButton" xml:space="preserve">
-    <value>Salva</value>
+    <value>Zapisz</value>
   </data>
   <data name="ScrutiniOpenFileButtonToolTip" xml:space="preserve">
     <value>Visualizza scrutinio</value>
@@ -718,7 +718,7 @@ Errore: </value>
     <value>Opzioni pagine</value>
   </data>
   <data name="GenericCloseButton" xml:space="preserve">
-    <value>Chiudi</value>
+    <value>Zamknij</value>
   </data>
   <data name="GradesListLayoutToolTip" xml:space="preserve">
     <value>Visualizza i voti come lista</value>
@@ -730,7 +730,7 @@ Errore: </value>
     <value>Apri file allegato</value>
   </data>
   <data name="NoticeDialogSaveButtonToolTip" xml:space="preserve">
-    <value>Salva questo file allegato sul tuo PC</value>
+    <value>Zapisz załączony plik na swoim komputerze</value>
   </data>
   <data name="SettingsPaletteColorYellowToolTip" xml:space="preserve">
     <value>Uscite anticipate, avvisi</value>

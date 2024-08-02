@@ -17,17 +17,23 @@ ClassevivaPCTO is a simple UWP client to consult Spaggiari's electronic school r
 > [!note]
 > This app is for student accounts only.
 
-## Releases
+### Main features
+
+* Modern and intuitive interface
+* Customizable widgets, colors and language
+* Small and optimized even on low-end devices
+
+## Latest version
 
 ![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/Gabboxl/ClassevivaPCTO?include_prereleases) 
 
 <img src="https://github.com/Gabboxl/ClassevivaPCTO/blob/main/ClassevivaPCTO/Assets/storescreenshot.png" width=80% height=80%>
 
-[Full Changelog](https://github.com/Gabboxl/ClassevivaPCTO/releases/latest)
+[See release details](https://github.com/Gabboxl/ClassevivaPCTO/releases/latest)
 
 ## What's next
 
-See the [v1.3.0 milestone](https://github.com/Gabboxl/ClassevivaPCTO/milestone/6) to know what features are currently under development and planned to be released in the next version. 
+See the [v1.4.0 milestone](https://github.com/Gabboxl/ClassevivaPCTO/milestone/7) to know what features are currently under development and planned to be released in the next version. 
 
 Also see the [ClassevivaPCTO's Roadmap](https://github.com/users/Gabboxl/projects/5) for a full view of the funcionalities scheduled for the next releases.
 
@@ -43,7 +49,6 @@ Also see the [ClassevivaPCTO's Roadmap](https://github.com/users/Gabboxl/project
 - Windows 10 version 1809 (build 17763)
 
 
-
 ## Test account
 
 If you want to try the app without a real account, use these credentials:
@@ -54,13 +59,34 @@ If you want to try the app without a real account, use these credentials:
 *Password*: **test**
 
 
-## How to compile
+## Compiling the app
 
 To compile this app you will need the following tools:
 - Visual Studio 2022
 - The .NET development workload for Visual Studio
 - The UWP/WinUI development workload for Visual Studio
 
+## Contributors
+
+![Alt](https://repobeats.axiom.co/api/embed/62c2f0673922e475d41aca248e79b2c3b3e9572f.svg "Repobeats analytics image")
+
+<a href="https://github.com/DevToys-app/DevToys/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=gabboxl/ClassevivaPCTO" />
+</a>
+
 ## Translate the app
 
-Everyone is invited to help with the translation of the app! [Start translating here!](https://crowdin.com/project/classevivapcto/invite?h=2b7340ff29ea44873bdef53dc5f7b6871790557)
+Everyone is invited to help with the translation of the app! [Start translating on Crowdin!](https://crowdin.com/project/classevivapcto/invite?h=2b7340ff29ea44873bdef53dc5f7b6871790557)
+
+Currently supported languages:
+
+* Italian (native)
+* English
+* Spanish
+* French
+* German
+* Albanian
+* Romanian
+* Croatian
+* Polish
+* Portuguese

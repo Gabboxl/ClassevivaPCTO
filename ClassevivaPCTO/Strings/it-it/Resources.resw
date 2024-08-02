@@ -251,8 +251,8 @@ Se riscontri bug o hai un'idea per l'app apri un issue su GitHub cliccando sul l
   <data name="DashboardOpenNoticeBoardButton" xml:space="preserve">
     <value>Apri bacheca</value>
   </data>
-  <data name="NoticeBoardNotices" xml:space="preserve">
-    <value>Comunicazioni</value>
+  <data name="NoticeBoardNoticesTitlePlural" xml:space="preserve">
+    <value>comunicazioni</value>
   </data>
   <data name="AbsencesEventsCalendar" xml:space="preserve">
     <value>Calendario eventi</value>
@@ -797,5 +797,8 @@ Errore: </value>
   </data>
   <data name="NoticeDialogAttachmentsTitleSingular" xml:space="preserve">
     <value>allegato</value>
+  </data>
+  <data name="NoticeBoardNoticesTitleSingular" xml:space="preserve">
+    <value>comunicazione</value>
   </data>
 </root>
