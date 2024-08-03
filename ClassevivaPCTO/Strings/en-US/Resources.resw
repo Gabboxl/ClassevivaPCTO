@@ -251,8 +251,8 @@ If you encounter bugs or have an idea for the app, open an issue on GitHub by cl
   <data name="DashboardOpenNoticeBoardButton" xml:space="preserve">
     <value>Open notice board</value>
   </data>
-  <data name="NoticeBoardNotices" xml:space="preserve">
-    <value>Notices</value>
+  <data name="NoticeBoardNoticesTitlePlural" xml:space="preserve">
+    <value>notices</value>
   </data>
   <data name="AbsencesEventsCalendar" xml:space="preserve">
     <value>Events calendar</value>
@@ -766,6 +766,9 @@ Error: </value>
     <value>For this communication, a confirmation and acceptance signature is required</value>
   </data>
   <data name="SignSuccessMessage" xml:space="preserve">
-    <value>Comunicazione confermata e firmata</value>
+    <value>Notice confirmed and signed</value>
+  </data>
+  <data name="NoticeBoardNoticesTitleSingular" xml:space="preserve">
+    <value>notice</value>
   </data>
 </root>
