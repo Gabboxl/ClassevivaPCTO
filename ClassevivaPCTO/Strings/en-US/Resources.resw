@@ -298,7 +298,7 @@ Error: </value>
     <value>Cancel</value>
   </data>
   <data name="NoticeDialogAttachmentsTitlePlural" xml:space="preserve">
-    <value>allegati</value>
+    <value>attachments</value>
   </data>
   <data name="NoticeDialogNoAttachmentsSubtitle" xml:space="preserve">
     <value>No attachments</value>
@@ -754,49 +754,49 @@ Error: </value>
     <value>All Categories</value>
   </data>
   <data name="NoticeDialogJoinRequestedMessage" xml:space="preserve">
-    <value>Per questa comunicazione è richiesta una conferma di adesione</value>
+    <value>This notice requires a join confirmation</value>
   </data>
   <data name="NoticeDialogJoinSuccessMessage" xml:space="preserve">
-    <value>Adesione confermata</value>
+    <value>Successfully joined</value>
   </data>
   <data name="NoticeDialogSignRefuseMessage" xml:space="preserve">
-    <value>Comunicazione rifiutata</value>
+    <value>Notice refused</value>
   </data>
   <data name="NoticeDialogSignRequestedMessage" xml:space="preserve">
-    <value>Per questa comunicazione è richiesta una conferma di accettazione</value>
+    <value>This notice requires a sign confirmation</value>
   </data>
   <data name="NoticeDialogSignSuccessMessage" xml:space="preserve">
-    <value>Comunicazione confermata e firmata</value>
+    <value>Notice signed and joined</value>
   </data>
   <data name="GradesLayoutHeader" xml:space="preserve">
     <value>Layout:</value>
   </data>
   <data name="NoticeDialogConfirmNotice" xml:space="preserve">
-    <value>Conferma e firma</value>
+    <value>Confirm and sign</value>
   </data>
   <data name="NoticeDialogConfirmNoticeMessage" xml:space="preserve">
-    <value>Per firmare la comunicazione, premi il pulsante sottostante</value>
+    <value>To sign the notice, press the button below</value>
   </data>
   <data name="NoticeDialogConfirmNoticeWithAttachmentMessage" xml:space="preserve">
-    <value>Per firmare con file allegato, premi il pulsante sottostante</value>
+    <value>To sign with attached file, press the button below</value>
   </data>
   <data name="NoticeDialogConfirmNoticeWithMessage" xml:space="preserve">
-    <value>Per firmare con messaggio, premi il pulsante sottostante</value>
+    <value>To sign with a message, press the button below</value>
   </data>
   <data name="NoticeDialogJoinNotice" xml:space="preserve">
-    <value>Aderisci</value>
+    <value>Join</value>
   </data>
   <data name="NoticeDialogJoinNoticeMessage" xml:space="preserve">
-    <value>Per aderire alla comunicazione, premi il pulsante sottostante</value>
+    <value>To join the notice, press the button below</value>
   </data>
   <data name="NoticeDialogRefuseNotice" xml:space="preserve">
-    <value>Rifiuta</value>
+    <value>Refuse</value>
   </data>
   <data name="NoticeDialogRefuseNoticeMessage" xml:space="preserve">
-    <value>Per rifiutare la comunicazione, premi il pulsante sottostante</value>
+    <value>To refuse the notice, press the button below</value>
   </data>
   <data name="NoticeDialogAttachmentsTitleSingular" xml:space="preserve">
-    <value>allegato</value>
+    <value>attachment</value>
   </data>
   <data name="NoticeBoardNoticesTitleSingular" xml:space="preserve">
     <value>notice</value>
