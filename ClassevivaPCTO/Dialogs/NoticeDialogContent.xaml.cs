@@ -316,10 +316,10 @@ namespace ClassevivaPCTO.Dialogs
                 var result = await _apiWrapper.ReadNotice(cardResult.usrId.ToString(), CurrentNotice.pubId.ToString(),
                     CurrentNotice.evtCode, noticeReadSignRequest);
 
-                CurrentReadResult.reply.replJoin = result.reply.replJoin;
-                CurrentReadResult.reply.replSign = result.reply.replSign;
-                CurrentReadResult.reply.replText = result.reply.replText;
-                CurrentReadResult.reply.replFile = result.reply.replFile;
+                //CurrentReadResult.reply.replJoin = result.reply.replJoin;
+                //CurrentReadResult.reply.replSign = result.reply.replSign;
+                //CurrentReadResult.reply.replText = result.reply.replText;
+                //CurrentReadResult.reply.replFile = result.reply.replFile;
 
                 flyout.Hide();
             };
