@@ -16,9 +16,9 @@ namespace ClassevivaPCTO.Dialogs
             Highlights.Text = "ChangelogHighlighsSection".GetLocalizedStr();
             General.Text = "ChangelogGeneralSection".GetLocalizedStr();
             Dashboard.Text = "ChangelogDashboardSection".GetLocalizedStr();
-            Agenda.Text = "ChangelogAgendaSection".GetLocalizedStr();
+            // Agenda.Text = "ChangelogAgendaSection".GetLocalizedStr();
             Grades.Text = "ChangelogGradesSection".GetLocalizedStr();
-            Absences.Text = "ChangelogAbsencesSection".GetLocalizedStr();
+            // Absences.Text = "ChangelogAbsencesSection".GetLocalizedStr();
             NoticeBoard.Text = "ChangelogNoticeBoardSection".GetLocalizedStr();
         }
     }

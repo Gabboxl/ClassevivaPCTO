@@ -84,16 +84,19 @@
                 <TextBox x:Name="EdittextUsername"
                          Margin="0,0,0,20"
                          Header="{CustomResource LoginUsernameFieldHeader}"
-                         PlaceholderText="{CustomResource LoginUsernameFieldPlaceholderText}" />
+                         PlaceholderText="{CustomResource LoginUsernameFieldPlaceholderText}" 
+                         ToolTipService.ToolTip="{CustomResource LoginUsernameFieldToolTip}" />
 
                 <PasswordBox x:Name="EdittextPassword"
                              Margin="0,0,0,20"
                              Header="{CustomResource LoginPasswordFieldHeader}"
-                             PlaceholderText="{CustomResource LoginPasswordFieldPlaceholderText}" />
+                             PlaceholderText="{CustomResource LoginPasswordFieldPlaceholderText}"
+                             ToolTipService.ToolTip="{CustomResource LoginPasswordFieldToolTip}" />
 
                 <CheckBox x:Name="CheckboxCredenziali"
                           Margin="0,0,0,20"
-                          Content="{CustomResource LoginKeepCredentialsCheckbox}" />
+                          Content="{CustomResource LoginKeepCredentialsCheckboxContent}"
+                          ToolTipService.ToolTip="{CustomResource LoginKeepCredentialsCheckboxToolTip}" />
 
                 <Button x:Name="buttonLogin"
                         Height="32"
