@@ -297,8 +297,8 @@ Error: </value>
   <data name="CancelDialogButton" xml:space="preserve">
     <value>Cancel</value>
   </data>
-  <data name="NoticeDialogAttachmentsSubtitle" xml:space="preserve">
-    <value>Attachments</value>
+  <data name="NoticeDialogAttachmentsTitlePlural" xml:space="preserve">
+    <value>attachments</value>
   </data>
   <data name="NoticeDialogNoAttachmentsSubtitle" xml:space="preserve">
     <value>No attachments</value>
@@ -753,20 +753,50 @@ Error: </value>
   <data name="NoticeBoardAllCategoriesComboboxItem" xml:space="preserve">
     <value>All Categories</value>
   </data>
-  <data name="JoinRequestedMessage" xml:space="preserve">
-    <value>For this communication, confirmation of acceptance is required</value>
+  <data name="NoticeDialogJoinRequestedMessage" xml:space="preserve">
+    <value>This notice requires a join confirmation</value>
   </data>
-  <data name="JoinSuccessMessage" xml:space="preserve">
-    <value>Membership confirmed</value>
+  <data name="NoticeDialogJoinSuccessMessage" xml:space="preserve">
+    <value>Successfully joined</value>
   </data>
-  <data name="SignRefuseMessage" xml:space="preserve">
-    <value>Communication rejected</value>
+  <data name="NoticeDialogSignRefuseMessage" xml:space="preserve">
+    <value>Notice refused</value>
   </data>
-  <data name="SignRequestedMessage" xml:space="preserve">
-    <value>For this communication, a confirmation and acceptance signature is required</value>
+  <data name="NoticeDialogSignRequestedMessage" xml:space="preserve">
+    <value>This notice requires a sign confirmation</value>
   </data>
-  <data name="SignSuccessMessage" xml:space="preserve">
-    <value>Notice confirmed and signed</value>
+  <data name="NoticeDialogSignSuccessMessage" xml:space="preserve">
+    <value>Notice signed and joined</value>
+  </data>
+  <data name="GradesLayoutHeader" xml:space="preserve">
+    <value>Layout:</value>
+  </data>
+  <data name="NoticeDialogConfirmNotice" xml:space="preserve">
+    <value>Confirm and sign</value>
+  </data>
+  <data name="NoticeDialogConfirmNoticeMessage" xml:space="preserve">
+    <value>To sign the notice, press the button below</value>
+  </data>
+  <data name="NoticeDialogConfirmNoticeWithAttachmentMessage" xml:space="preserve">
+    <value>To sign with attached file, press the button below</value>
+  </data>
+  <data name="NoticeDialogConfirmNoticeWithMessage" xml:space="preserve">
+    <value>To sign with a message, press the button below</value>
+  </data>
+  <data name="NoticeDialogJoinNotice" xml:space="preserve">
+    <value>Join</value>
+  </data>
+  <data name="NoticeDialogJoinNoticeMessage" xml:space="preserve">
+    <value>To join the notice, press the button below</value>
+  </data>
+  <data name="NoticeDialogRefuseNotice" xml:space="preserve">
+    <value>Refuse</value>
+  </data>
+  <data name="NoticeDialogRefuseNoticeMessage" xml:space="preserve">
+    <value>To refuse the notice, press the button below</value>
+  </data>
+  <data name="NoticeDialogAttachmentsTitleSingular" xml:space="preserve">
+    <value>attachment</value>
   </data>
   <data name="NoticeBoardNoticesTitleSingular" xml:space="preserve">
     <value>notice</value>
