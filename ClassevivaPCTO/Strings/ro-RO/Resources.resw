@@ -195,7 +195,7 @@ Dacă întâmpini erori sau ai o idee pentru aplicație, deschide o problemă pe
     <value>Vizualizare</value>
   </data>
   <data name="SettingsCardWhatsNewHeader" xml:space="preserve">
-    <value>Novità in questa versione</value>
+    <value>Noutăți in această versiune</value>
   </data>
   <data name="SettingsCardWhatsNewDescription" xml:space="preserve">
     <value>Visualizza le modifiche recenti</value>
@@ -210,72 +210,72 @@ Dacă întâmpini erori sau ai o idee pentru aplicație, deschide o problemă pe
     <value>Includi documenti eliminati</value>
   </data>
   <data name="ScrutiniDocumentsHeader" xml:space="preserve">
-    <value>Documenti</value>
+    <value>Documente</value>
   </data>
   <data name="NotesTitle" xml:space="preserve">
     <value>Note</value>
   </data>
   <data name="LoginWelcome" xml:space="preserve">
-    <value>Benvenuto</value>
+    <value>Bine ați venit</value>
   </data>
   <data name="LoginUsernameFieldHeader" xml:space="preserve">
-    <value>Nome utente:</value>
+    <value>Nume utilizator:</value>
   </data>
   <data name="LoginPasswordFieldHeader" xml:space="preserve">
-    <value>Password:</value>
+    <value>Parolă:</value>
   </data>
   <data name="LoginKeepCredentialsCheckbox" xml:space="preserve">
-    <value>Mantieni le credenziali</value>
+    <value>Mențineți credențialele</value>
   </data>
   <data name="DashboardTitleText" xml:space="preserve">
-    <value>Dashboard di {0}</value>
+    <value>Tabloul de bord al {0}</value>
   </data>
   <data name="DashboardTodaysEvents" xml:space="preserve">
-    <value>Eventi del giorno</value>
+    <value>Evenimentele zilei</value>
   </data>
   <data name="DashboardOpenAgendaButton" xml:space="preserve">
-    <value>Apri agenda</value>
+    <value>Deschide agenda</value>
   </data>
   <data name="DashboardRecentGrades" xml:space="preserve">
-    <value>Valutazioni recenti</value>
+    <value>Evalurări recente</value>
   </data>
   <data name="DashboardGradesAverage" xml:space="preserve">
-    <value>Media totale:</value>
+    <value>Media totală:</value>
   </data>
   <data name="DashboardOpenGradesButton" xml:space="preserve">
-    <value>Visualizza tutte le valutazioni</value>
+    <value>Vezi toate evaluările</value>
   </data>
   <data name="DashboardRecentNotices" xml:space="preserve">
-    <value>Comunicazioni recenti</value>
+    <value>Anunțuri recente</value>
   </data>
   <data name="DashboardOpenNoticeBoardButton" xml:space="preserve">
-    <value>Apri bacheca</value>
+    <value>Deschide panoul de anunțuri</value>
   </data>
   <data name="NoticeBoardNoticesTitlePlural" xml:space="preserve">
-    <value>comunicazioni</value>
+    <value>anunțuri</value>
   </data>
   <data name="AbsencesEventsCalendar" xml:space="preserve">
-    <value>Calendario eventi</value>
+    <value>Calendar evenimente</value>
   </data>
   <data name="AgendaTasksPopupTitle" xml:space="preserve">
-    <value>Compiti</value>
+    <value>Sarcini</value>
   </data>
   <data name="AgendaTodayButton" xml:space="preserve">
-    <value>Oggi</value>
+    <value>Astăzi</value>
   </data>
   <data name="AgendaAllTasksButton" xml:space="preserve">
-    <value>Tutti i compiti</value>
+    <value>Toate sarcinile</value>
   </data>
   <data name="AgendaAllLessonsButton" xml:space="preserve">
-    <value>Tutte le lezioni</value>
+    <value>Toate lecțiile</value>
   </data>
   <data name="AccountNonSupportato" xml:space="preserve">
-    <value>Account insegnante non supportato</value>
+    <value>Contul profesorului nu este compatibil</value>
   </data>
   <data name="AccountNonSupportatoBody" xml:space="preserve">
-    <value>In questa app sono solo supportati gli account studente. 
+    <value>În această aplicație sunt acceptate doar conturile de elev. 
 
-Gli account studente hanno l'username che inizia con le lettere S, G o X.</value>
+Conturile de elev încep cu literele S, G sau X în numele de utilizator.</value>
   </data>
   <data name="ErroreText" xml:space="preserve">
     <value>Eroare</value>
@@ -421,154 +421,154 @@ Errore: </value>
     <value>Non fa media, assenza parziale</value>
   </data>
   <data name="SettingsPaletteColorGreenToolTip" xml:space="preserve">
-    <value>Sufficienza, presenza, comunicazione letta</value>
+    <value>Suficiență, prezență, comunicare citită</value>
   </data>
   <data name="SettingsPaletteColorOrangeToolTip" xml:space="preserve">
-    <value>Insufficienza lieve, ritardo, comunicazione scaduta</value>
+    <value>Insuficiență ușoară, întârziere, comunicare expirată</value>
   </data>
   <data name="SettingsPaletteColorRedToolTip" xml:space="preserve">
-    <value>Insufficienza grave, assenza, comunicazione non letta</value>
+    <value>Insuficiență severă, absență, comunicare necitită</value>
   </data>
   <data name="NoticeBoardValidFromToDateText" xml:space="preserve">
-    <value>Valida dal {0} al {1}</value>
+    <value>Valabil de la {0} până la {1}</value>
   </data>
   <data name="NoticeBoardDeletedStatusText" xml:space="preserve">
-    <value>Eliminata</value>
+    <value>Eliminat</value>
   </data>
   <data name="NoticeBoardExpiredStatusText" xml:space="preserve">
-    <value>Scaduta</value>
+    <value>Întârziat</value>
   </data>
   <data name="AreYouSure" xml:space="preserve">
-    <value>Sei sicuro?</value>
+    <value>Ești sigur?</value>
   </data>
   <data name="AreYouSureToExit" xml:space="preserve">
-    <value>Sei sicuro di voler uscire?</value>
+    <value>Sigur doriți să vă deconectați?</value>
   </data>
   <data name="Exit" xml:space="preserve">
-    <value>Esci</value>
+    <value>Deconectare</value>
   </data>
   <data name="RestartRequired" xml:space="preserve">
-    <value>Riavvio richiesto</value>
+    <value>Repornire necesară</value>
   </data>
   <data name="RestartRequiredLanguageChange" xml:space="preserve">
-    <value>Per applicare la nuova lingua è necessario riavviare l'app.</value>
+    <value>Pentru a aplica noua limbă, este necesar să reporniți aplicația.</value>
   </data>
   <data name="Restart" xml:space="preserve">
-    <value>Riavvia</value>
+    <value>Repornire</value>
   </data>
   <data name="NoticeBoardTitle" xml:space="preserve">
-    <value>Bacheca</value>
+    <value>Tablă de anunțuri</value>
   </data>
   <data name="AbsencesPlaceholder" xml:space="preserve">
-    <value>Nessuna assenza</value>
+    <value>Nicio absență</value>
   </data>
   <data name="AgendaTasksPlaceholder" xml:space="preserve">
-    <value>Nessun compito</value>
+    <value>Nicio sarcină</value>
   </data>
   <data name="ScrutiniPlaceholder" xml:space="preserve">
-    <value>Scrutini non disponibili</value>
+    <value>Rezultate indisponibile</value>
   </data>
   <data name="ScrutiniReportsHeader" xml:space="preserve">
-    <value>Report scolastici</value>
+    <value>Rapoarte școlare</value>
   </data>
   <data name="SessionExpired" xml:space="preserve">
-    <value>Sessione scaduta</value>
+    <value>Sesiunea a expirat</value>
   </data>
   <data name="SessionExpiredDesc" xml:space="preserve">
-    <value>Una sessione dura un'ora dal login. Non avendo salvato le credenziali, ora verrai portato alla pagina di login. </value>
+    <value>O sesiune durează o oră de la autentificare. Deoarece nu ai salvat credențialele, vei fi acum redirecționat către pagina de autentificare. </value>
   </data>
   <data name="LoginErrorTitle" xml:space="preserve">
-    <value>Errore login</value>
+    <value>Eroare login</value>
   </data>
   <data name="LoginErrorDesc" xml:space="preserve">
-    <value>Non è stato possibile effettuare il login. Riprova più tardi.</value>
+    <value>Nu s-a putut realiza conectarea. Încearcă din nou mai târziu.</value>
   </data>
   <data name="APIErrorTitle" xml:space="preserve">
-    <value>Errore del server (riprova più tardi)</value>
+    <value>Eroare de server (încearcă din nou mai târziu)</value>
   </data>
   <data name="AttempsDone" xml:space="preserve">
-    <value>Tentativi effettuati: </value>
+    <value>Incercari efectuate: </value>
   </data>
   <data name="GradeSingular" xml:space="preserve">
-    <value>valutazione</value>
+    <value>evaluare</value>
   </data>
   <data name="GradesPlural" xml:space="preserve">
-    <value>valutazioni</value>
+    <value>evaluări</value>
   </data>
   <data name="GradesPlaceholder" xml:space="preserve">
-    <value>Nessuna valutazione</value>
+    <value>Fără evaluare</value>
   </data>
   <data name="PALETTE_FLO" xml:space="preserve">
-    <value>Flora</value>
+    <value>Floră</value>
   </data>
   <data name="PALETTE_RET" xml:space="preserve">
-    <value>Retrò</value>
+    <value>Retro</value>
   </data>
   <data name="AgendaLessonsPlaceholder" xml:space="preserve">
-    <value>Nessuna lezione</value>
+    <value>Fără lecție</value>
   </data>
   <data name="FirstRunDialogContributorsHyperlink" xml:space="preserve">
-    <value>Contributors</value>
+    <value>Contribuitori</value>
   </data>
   <data name="GradesGlobalAverage" xml:space="preserve">
-    <value>Media totale</value>
+    <value>Media totală</value>
   </data>
   <data name="FirstRunDialogLicensesHyperlink" xml:space="preserve">
-    <value>Licenze</value>
+    <value>Licenţe</value>
   </data>
   <data name="GradesAllPeriodsSegmentedItem" xml:space="preserve">
-    <value>Tutti i periodi</value>
+    <value>Toate intervalele de timp</value>
   </data>
   <data name="AgendaCalendarDatePickerToolTip" xml:space="preserve">
-    <value>Seleziona una data</value>
+    <value>Alegător de date</value>
   </data>
   <data name="NoticeBoardFilterAllNotices" xml:space="preserve">
-    <value>Tutte</value>
+    <value>Toate</value>
   </data>
   <data name="NoticeBoardFilterReadNotices" xml:space="preserve">
-    <value>Lette</value>
+    <value>Citite</value>
   </data>
   <data name="NoticeBoardFilterUnreadNotices" xml:space="preserve">
-    <value>Non lette</value>
+    <value>Necitite</value>
   </data>
   <data name="GradesNotAvailable" xml:space="preserve">
-    <value>N/D</value>
+    <value>N/A</value>
   </data>
   <data name="NTCL_plur" xml:space="preserve">
-    <value>Note disciplinari</value>
+    <value>Note disciplinare</value>
   </data>
   <data name="NTCL_sing" xml:space="preserve">
-    <value>Nota disciplinare</value>
+    <value>Notă disciplinară</value>
   </data>
   <data name="NTST_plur" xml:space="preserve">
-    <value>Sanzioni disciplinari</value>
+    <value>Sancțiuni disciplinare</value>
   </data>
   <data name="NTST_sing" xml:space="preserve">
-    <value>Sanzione disciplinare</value>
+    <value>Sancțiune disciplinară</value>
   </data>
   <data name="NTTE_plur" xml:space="preserve">
-    <value>Annotazioni</value>
+    <value>Notițe</value>
   </data>
   <data name="NTTE_sing" xml:space="preserve">
-    <value>Annotazione</value>
+    <value>Notiță</value>
   </data>
   <data name="NTWN_plur" xml:space="preserve">
-    <value>Richiami</value>
+    <value>Avertizări</value>
   </data>
   <data name="NTWN_sing" xml:space="preserve">
-    <value>Richiamo</value>
+    <value>Avertizare</value>
   </data>
   <data name="ABA0_plur" xml:space="preserve">
-    <value>Assenze</value>
+    <value>Absențe</value>
   </data>
   <data name="ABA0_sing" xml:space="preserve">
-    <value>Assenza</value>
+    <value>Absență</value>
   </data>
   <data name="ABR0_plur" xml:space="preserve">
-    <value>Ritardi</value>
+    <value>Întârzieri</value>
   </data>
   <data name="ABR0_sing" xml:space="preserve">
-    <value>Ritardo</value>
+    <value>Întârziere</value>
   </data>
   <data name="ABR1_plur" xml:space="preserve">
     <value>Ritardi brevi</value>
@@ -721,84 +721,84 @@ Errore: </value>
     <value>Chiudi</value>
   </data>
   <data name="GradesListLayoutToolTip" xml:space="preserve">
-    <value>Visualizza i voti come lista</value>
+    <value>Afișează notele ca o listă</value>
   </data>
   <data name="GradesSubjectsLayoutToolTip" xml:space="preserve">
-    <value>Visualizza i voti raggruppati in base alla materia</value>
+    <value>Vizualizați notele grupate în funcție de materie</value>
   </data>
   <data name="NoticeDialogOpenButtonToolTip" xml:space="preserve">
-    <value>Apri file allegato</value>
+    <value>Deschideți fișierul atașat</value>
   </data>
   <data name="NoticeDialogSaveButtonToolTip" xml:space="preserve">
     <value>Salva questo file allegato sul tuo PC</value>
   </data>
   <data name="SettingsPaletteColorYellowToolTip" xml:space="preserve">
-    <value>Uscite anticipate, avvisi</value>
+    <value>Ieșiri anticipate, notificări</value>
   </data>
   <data name="NoticeBoardClearAllFiltersText" xml:space="preserve">
-    <value>Resetta tutti i filtri</value>
+    <value>Resetați toate filtrele</value>
   </data>
   <data name="Grades1Quadrimestre" xml:space="preserve">
-    <value>1° Quadrimestre</value>
+    <value>1° Pătrime</value>
   </data>
   <data name="Grades2Quadrimestre" xml:space="preserve">
-    <value>2° Quadrimestre</value>
+    <value>2° Pătrime</value>
   </data>
   <data name="GradesPentamestre" xml:space="preserve">
-    <value>Pentamestre</value>
+    <value>Pentamestru</value>
   </data>
   <data name="GradesTrimestre" xml:space="preserve">
-    <value>Trimestre</value>
+    <value>Trimestru</value>
   </data>
   <data name="NoticeBoardAllCategoriesComboboxItem" xml:space="preserve">
-    <value>Tutte le categorie</value>
+    <value>Toate categoriile</value>
   </data>
   <data name="NoticeDialogJoinRequestedMessage" xml:space="preserve">
-    <value>Per questa comunicazione è richiesta una conferma di adesione</value>
+    <value>Pentru această comunicare este necesară o confirmare a aderării</value>
   </data>
   <data name="NoticeDialogJoinSuccessMessage" xml:space="preserve">
-    <value>Adesione confermata</value>
+    <value>Adeziunea a fost confirmată</value>
   </data>
   <data name="NoticeDialogSignRefuseMessage" xml:space="preserve">
-    <value>Comunicazione rifiutata</value>
+    <value>Comunicare refuzată</value>
   </data>
   <data name="NoticeDialogSignRequestedMessage" xml:space="preserve">
-    <value>Per questa comunicazione è richiesta una conferma di accettazione</value>
+    <value>Pentru această comunicare este necesară o confirmare a aderării</value>
   </data>
   <data name="NoticeDialogSignSuccessMessage" xml:space="preserve">
-    <value>Comunicazione confermata e firmata</value>
+    <value>Comunicare confirmată și semnată</value>
   </data>
   <data name="GradesLayoutHeader" xml:space="preserve">
-    <value>Layout:</value>
+    <value>Aspect:</value>
   </data>
   <data name="NoticeDialogConfirmNotice" xml:space="preserve">
-    <value>Conferma e firma</value>
+    <value>Confirmare și semnează</value>
   </data>
   <data name="NoticeDialogConfirmNoticeMessage" xml:space="preserve">
-    <value>Per firmare la comunicazione, premi il pulsante sottostante</value>
+    <value>Pentru a refuza comunicarea, apăsați butonul de mai jos</value>
   </data>
   <data name="NoticeDialogConfirmNoticeWithAttachmentMessage" xml:space="preserve">
-    <value>Per firmare con file allegato, premi il pulsante sottostante</value>
+    <value>Pentru a refuza comunicarea, apăsați butonul de mai jos</value>
   </data>
   <data name="NoticeDialogConfirmNoticeWithMessage" xml:space="preserve">
-    <value>Per firmare con messaggio, premi il pulsante sottostante</value>
+    <value>Pentru a refuza comunicarea, apăsați butonul de mai jos</value>
   </data>
   <data name="NoticeDialogJoinNotice" xml:space="preserve">
-    <value>Aderisci</value>
+    <value>Înscrie-te</value>
   </data>
   <data name="NoticeDialogJoinNoticeMessage" xml:space="preserve">
-    <value>Per aderire alla comunicazione, premi il pulsante sottostante</value>
+    <value>Pentru a refuza comunicarea, apăsați butonul de mai jos</value>
   </data>
   <data name="NoticeDialogRefuseNotice" xml:space="preserve">
-    <value>Rifiuta</value>
+    <value>Respinge</value>
   </data>
   <data name="NoticeDialogRefuseNoticeMessage" xml:space="preserve">
-    <value>Per rifiutare la comunicazione, premi il pulsante sottostante</value>
+    <value>Pentru a refuza comunicarea, apăsați butonul de mai jos</value>
   </data>
   <data name="NoticeDialogAttachmentsTitleSingular" xml:space="preserve">
-    <value>allegato</value>
+    <value>atașament</value>
   </data>
   <data name="NoticeBoardNoticesTitleSingular" xml:space="preserve">
-    <value>comunicazione</value>
+    <value>comunicare</value>
   </data>
 </root>
