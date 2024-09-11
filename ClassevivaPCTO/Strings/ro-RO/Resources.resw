@@ -388,7 +388,7 @@ Eroare: </value>
     <value>În evidență</value>
   </data>
   <data name="WhatsNewDialogRelease" xml:space="preserve">
-    <value>v1.2.0, 25 Novembre 2023</value>
+    <value>v1.2.0, 25 Noiembrie 2023</value>
   </data>
   <data name="AgendaTomorrowButtonToolTip" xml:space="preserve">
     <value>Ziua următoare</value>
@@ -586,106 +586,106 @@ Eroare: </value>
     <value>Aplicația nu a fost tradusă complet în limba pe care ai ales-o. Anumite părți ale aplicației vor continua să fie afișate în italiană.</value>
   </data>
   <data name="DialogUntranslatedLanguageStatus2" xml:space="preserve">
-    <value>Stato di traduzione: </value>
+    <value>Starea traducerii: </value>
   </data>
   <data name="DialogUntranslatedLanguageBody1" xml:space="preserve">
-    <value>Vuoi veramente cambiare la lingua?</value>
+    <value>Vrei să schimbi cu adevărat limba?</value>
   </data>
   <data name="CautionDialogTitle" xml:space="preserve">
-    <value>Attenzione</value>
+    <value>Atenție</value>
   </data>
   <data name="ContinueDialogButton" xml:space="preserve">
-    <value>Continua</value>
+    <value>Continuă</value>
   </data>
   <data name="SettingsCardAskConfirmDescription" xml:space="preserve">
-    <value>Chiedi conferma prima di aprire una comunicazione</value>
+    <value>Solicită confirmarea înainte de a deschide o comunicare</value>
   </data>
   <data name="SettingsCardAskConfirmHeader" xml:space="preserve">
-    <value>Conferma apertura comunicazioni</value>
+    <value>Confirmare deschidere comunicări</value>
   </data>
   <data name="ChangePhotoDialogContent" xml:space="preserve">
-    <value>Cambia la tua foto profilo in locale, visualizzabile negli account ClassevivaPCTO e nelle Impostazioni dell'App.</value>
+    <value>Schimbați fotografia de profil în local, vizibilă în conturile ClassevivaPCTO și în Setările aplicației.</value>
   </data>
   <data name="ChangeProfilePhotoTitle" xml:space="preserve">
-    <value>Modifica foto profilo</value>
+    <value>Schimbă fotografia de profil</value>
   </data>
   <data name="AbsencesToBeJustifiedText" xml:space="preserve">
-    <value>Da giustificare</value>
+    <value>De justificat</value>
   </data>
   <data name="GenericOkButton" xml:space="preserve">
     <value>Ok</value>
   </data>
   <data name="RemovePhotoDialogButton" xml:space="preserve">
-    <value>Rimuovi foto</value>
+    <value>Eliminaţi fotografia</value>
   </data>
   <data name="SelectFileDialogButton" xml:space="preserve">
-    <value>Seleziona file</value>
+    <value>Selectează un fișier</value>
   </data>
   <data name="GenericEventOnDayPreposition" xml:space="preserve">
-    <value> del </value>
+    <value> dintre </value>
   </data>
   <data name="AbsencesTodayButton" xml:space="preserve">
-    <value>Oggi</value>
+    <value>Astăzi</value>
   </data>
   <data name="GradesListLayout" xml:space="preserve">
-    <value>Lista</value>
+    <value>Listă</value>
   </data>
   <data name="GradesSubjectsLayout" xml:space="preserve">
     <value>Materie</value>
   </data>
   <data name="GenericOpenButton" xml:space="preserve">
-    <value>Apri</value>
+    <value>Deschide</value>
   </data>
   <data name="GenericReadButton" xml:space="preserve">
-    <value>Leggi</value>
+    <value>Citește</value>
   </data>
   <data name="GenericSaveButton" xml:space="preserve">
-    <value>Salva</value>
+    <value>Salvează</value>
   </data>
   <data name="ScrutiniOpenFileButtonToolTip" xml:space="preserve">
-    <value>Visualizza scrutinio</value>
+    <value>Vizualizează scrutinul</value>
   </data>
   <data name="ScrutiniOpenReportButtonToolTip" xml:space="preserve">
-    <value>Apri report</value>
+    <value>Deschide raportul</value>
   </data>
   <data name="ScrutiniSaveFileButtonToolTip" xml:space="preserve">
-    <value>Salva questo file dello scrutinio sul PC</value>
+    <value>Salvează acest fișier al scrutinului pe PC-ul tău</value>
   </data>
   <data name="NoticeBoardNotAvailableButton" xml:space="preserve">
-    <value>Non disponibile</value>
+    <value>Indisponibil</value>
   </data>
   <data name="ScrutiniNotAvailableStatusText" xml:space="preserve">
-    <value>Non disponibile</value>
+    <value>Indisponibil</value>
   </data>
   <data name="DialogUntranlatedLanguageInvite" xml:space="preserve">
-    <value>Traduci su Crowdin</value>
+    <value>Traduceți pe Crowdin</value>
   </data>
   <data name="DialogUntranslatedLanguageBody2" xml:space="preserve">
-    <value>Se desideri puoi tradurre tu stesso l'app tramite Crowdin.</value>
+    <value>Dacă dorești, poți traduce singur aplicația folosind Crowdin.</value>
   </data>
   <data name="RestartLater" xml:space="preserve">
-    <value>Riavvia più tardi</value>
+    <value>Reporniți mai târziu</value>
   </data>
   <data name="LoginChangelogHyperlink" xml:space="preserve">
-    <value>Novità recenti</value>
+    <value>Noutăți recente</value>
   </data>
   <data name="LoginGetStartedHyperlink" xml:space="preserve">
-    <value>Informazioni di base</value>
+    <value>Informații de bază</value>
   </data>
   <data name="LoginGitHubHyperlink" xml:space="preserve">
     <value>GitHub</value>
   </data>
   <data name="LoginText" xml:space="preserve">
-    <value>Login</value>
+    <value>Logare</value>
   </data>
   <data name="NoticeBoardFilterAllNoticesItemToolTip" xml:space="preserve">
-    <value>Mostra tutte le comunicazioni</value>
+    <value>Afișați toate comunicările</value>
   </data>
   <data name="NoticeBoardFilterReadNoticesItemToolTip" xml:space="preserve">
-    <value>Mostra solo le comunicazioni lette</value>
+    <value>Afișați doar comunicările necitite</value>
   </data>
   <data name="NoticeBoardFilterUnreadNoticesItemToolTip" xml:space="preserve">
-    <value>Mostra solo le comunicazioni non lette</value>
+    <value>Afișați doar comunicările necitite</value>
   </data>
   <data name="NoticeBoardShowInactiveNoticesCheckboxToolTip" xml:space="preserve">
     <value>Arată și comunicările expirate și cele eliminate</value>
@@ -703,7 +703,7 @@ Eroare: </value>
     <value>Vintage</value>
   </data>
   <data name="SettingsCardWidgetsDescription" xml:space="preserve">
-    <value>Imposta il numero di elementi recendi da visualizzare nei widget della dasboard</value>
+    <value>Setează numărul de elemente recomandate de afișat în widget-urile tabloului de bord</value>
   </data>
   <data name="SettingsCardWidgetsHeader" xml:space="preserve">
     <value>Numărul de elemente în widget-uri</value>
