@@ -178,64 +178,64 @@ Si vous rencontrez des bugs ou avez une idée pour l'application, ouvrez un tick
     <value>Choisir la langue de l'app</value>
   </data>
   <data name="SettingsAboutExpanderDescription" xml:space="preserve">
-    <value>© 2024. Tutti i diritti riservati.</value>
+    <value>© 2024. Tous droits réservés.</value>
   </data>
   <data name="SettingsAboutExpanderRateHyperlink" xml:space="preserve">
-    <value>Vota nello Store</value>
+    <value>Noter sur l'App Store</value>
   </data>
   <data name="SettingsAboutExpanderIssueHyperlink" xml:space="preserve">
-    <value>Segnala un problema</value>
+    <value>Signaler un problème</value>
   </data>
   <data name="SettingsCardTutorialHeader" xml:space="preserve">
-    <value>Informazioni di base</value>
+    <value>Informations générales</value>
   </data>
   <data name="SettingsCardTutorialDescription" xml:space="preserve">
-    <value>Visualizza informazioni utili e suggerimenti sul funzionamento dell'app</value>
+    <value>Montrer des conseils sur le fonctionnement de l'application</value>
   </data>
   <data name="SettingsCardTutorialButton" xml:space="preserve">
-    <value>Visualizza</value>
+    <value>Montrer</value>
   </data>
   <data name="SettingsCardWhatsNewHeader" xml:space="preserve">
-    <value>Novità in questa versione</value>
+    <value>Nouveautés de cette version </value>
   </data>
   <data name="SettingsCardWhatsNewDescription" xml:space="preserve">
-    <value>Visualizza le modifiche recenti</value>
+    <value>Afficher les modifications envisagées</value>
   </data>
   <data name="SettingsCardWhatsNewButton" xml:space="preserve">
-    <value>Mostra novità</value>
+    <value>Afficher les actualités</value>
   </data>
   <data name="ScrutiniTitle" xml:space="preserve">
-    <value>Scrutini</value>
+    <value>Sondage</value>
   </data>
   <data name="ScrutiniShowDeletedDocumentsCheckbox" xml:space="preserve">
-    <value>Includi documenti eliminati</value>
+    <value>Inclure documents supprimés</value>
   </data>
   <data name="ScrutiniDocumentsHeader" xml:space="preserve">
-    <value>Documenti</value>
+    <value>Documents</value>
   </data>
   <data name="NotesTitle" xml:space="preserve">
-    <value>Note</value>
+    <value>Notes</value>
   </data>
   <data name="LoginWelcome" xml:space="preserve">
-    <value>Benvenuto</value>
+    <value>Bienvenue</value>
   </data>
   <data name="LoginUsernameFieldHeader" xml:space="preserve">
-    <value>Nome utente:</value>
+    <value>Nom utilisateur :</value>
   </data>
   <data name="LoginPasswordFieldHeader" xml:space="preserve">
-    <value>Password:</value>
+    <value>Mot de passe :</value>
   </data>
   <data name="LoginKeepCredentialsCheckbox" xml:space="preserve">
-    <value>Mantieni le credenziali</value>
+    <value>Conserver les informations d'identification</value>
   </data>
   <data name="DashboardTitleText" xml:space="preserve">
     <value>Le panneau de bord de {0}</value>
   </data>
   <data name="DashboardTodaysEvents" xml:space="preserve">
-    <value>Eventi del giorno</value>
+    <value>Événements de la journée</value>
   </data>
   <data name="DashboardOpenAgendaButton" xml:space="preserve">
-    <value>Apri agenda</value>
+    <value>Agenda ouverte</value>
   </data>
   <data name="DashboardRecentGrades" xml:space="preserve">
     <value>Valutazioni recenti</value>
@@ -371,7 +371,7 @@ Erreur: </value>
     <value>Istituto:</value>
   </data>
   <data name="SettingsAccountStudentCode" xml:space="preserve">
-    <value>Codice studente: </value>
+    <value>Code étudiant: </value>
   </data>
   <data name="SettingsCardPaletteDescription" xml:space="preserve">
     <value>Personalizza lo schema dei colori utilizzato nell'app per indicare voti ed eventi</value>
