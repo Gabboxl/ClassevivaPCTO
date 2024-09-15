@@ -126,679 +126,679 @@
     <comment>Application description</comment>
   </data>
   <data name="Shell_Main" xml:space="preserve">
-    <value>Main</value>
+    <value>Principal</value>
     <comment>Navigation view item name for Main</comment>
   </data>
   <data name="SettingsCardThemeDarkComboboxItem" xml:space="preserve">
-    <value>Scuro</value>
+    <value>Întunecat</value>
   </data>
   <data name="SettingsCardThemeDefaultComboboxItem" xml:space="preserve">
-    <value>Predefinito di Sistema</value>
+    <value>Setarea implicită a sistemului</value>
   </data>
   <data name="SettingsCardThemeLightComboboxItem" xml:space="preserve">
-    <value>Chiaro</value>
+    <value>Luminat</value>
   </data>
   <data name="SettingsAboutHeader" xml:space="preserve">
-    <value>Informazioni app</value>
+    <value>Informații aplicație</value>
   </data>
   <data name="SettingsPersonalizationHeader" xml:space="preserve">
-    <value>Aspetto</value>
+    <value>Aspect</value>
   </data>
   <data name="FirstRunDialogBody" xml:space="preserve">
-    <value>Con ClassevivaPCTO potrai visualizzare i tuoi dati del registro elettronico Classeviva in maniera intuitiva e sotto le vesti di un design innovativo.
+    <value>Cu ClassevivaPCTO vei putea vizualiza datele tale din registrul electronic Classeviva într-un mod intuitiv și sub forma unui design inovativ.
 
-Quest'app è rivolta soltanto agli account studente.
+Această aplicație este destinată doar conturilor de student.
 
-Ricorda che quest'app è ancora in fase di sviluppo e alcune funzionalità non sono disponibili al momento. 
-Se riscontri bug o hai un'idea per l'app apri un issue su GitHub cliccando sul link "Segnala un problema" nella sezione Informazioni app.</value>
+Ține minte că această aplicație este încă în curs de dezvoltare și unele funcționalități nu sunt disponibile în acest moment. 
+Dacă întâmpini erori sau ai o idee pentru aplicație, deschide o problemă pe GitHub făcând clic pe link-ul "Raportează o problemă" în secțiunea Informații aplicație.</value>
   </data>
   <data name="FirstRunDialogTitle" xml:space="preserve">
-    <value>Benvenuto in ClassevivaPCTO</value>
+    <value>Bine ai venit la ClassevivaPCTO</value>
   </data>
   <data name="SettingsAccountHeader" xml:space="preserve">
-    <value>Account</value>
+    <value>Cont</value>
   </data>
   <data name="SettingsGeneralHeader" xml:space="preserve">
-    <value>Generali</value>
+    <value>Generale</value>
   </data>
   <data name="SettingsTitle" xml:space="preserve">
-    <value>Impostazioni</value>
+    <value>Setări</value>
   </data>
   <data name="SettingsCardThemeDescription" xml:space="preserve">
-    <value>Scegli il tema dell'app</value>
+    <value>Alege tema aplicației</value>
   </data>
   <data name="SettingsCardThemeHeader" xml:space="preserve">
-    <value>Tema</value>
+    <value>Temă</value>
   </data>
   <data name="SettingsCardLanguageHeader" xml:space="preserve">
-    <value>Lingua</value>
+    <value>Limbă</value>
   </data>
   <data name="SettingsCardLanguageDescription" xml:space="preserve">
-    <value>Scegli la lingua dell'app</value>
+    <value>Alege limba aplicației</value>
   </data>
   <data name="SettingsAboutExpanderDescription" xml:space="preserve">
-    <value>© 2024. Tutti i diritti riservati.</value>
+    <value>© 2024. Toate drepturile rezervate.</value>
   </data>
   <data name="SettingsAboutExpanderRateHyperlink" xml:space="preserve">
-    <value>Vota nello Store</value>
+    <value>Evaluați în Store</value>
   </data>
   <data name="SettingsAboutExpanderIssueHyperlink" xml:space="preserve">
-    <value>Segnala un problema</value>
+    <value>Raportaţi o problemă</value>
   </data>
   <data name="SettingsCardTutorialHeader" xml:space="preserve">
-    <value>Informazioni di base</value>
+    <value>Informații de bază</value>
   </data>
   <data name="SettingsCardTutorialDescription" xml:space="preserve">
-    <value>Visualizza informazioni utili e suggerimenti sul funzionamento dell'app</value>
+    <value>Vizualizați informații utile și sugestii despre funcționarea aplicației</value>
   </data>
   <data name="SettingsCardTutorialButton" xml:space="preserve">
-    <value>Visualizza</value>
+    <value>Vizualizare</value>
   </data>
   <data name="SettingsCardWhatsNewHeader" xml:space="preserve">
-    <value>Novità in questa versione</value>
+    <value>Noutăți in această versiune</value>
   </data>
   <data name="SettingsCardWhatsNewDescription" xml:space="preserve">
-    <value>Visualizza le modifiche recenti</value>
+    <value>Vizualizați modificările recente</value>
   </data>
   <data name="SettingsCardWhatsNewButton" xml:space="preserve">
-    <value>Mostra novità</value>
+    <value>Arată istoricul modificărilor</value>
   </data>
   <data name="ScrutiniTitle" xml:space="preserve">
-    <value>Scrutini</value>
+    <value>Scrutine</value>
   </data>
   <data name="ScrutiniShowDeletedDocumentsCheckbox" xml:space="preserve">
-    <value>Includi documenti eliminati</value>
+    <value>Includeți documente eliminate</value>
   </data>
   <data name="ScrutiniDocumentsHeader" xml:space="preserve">
-    <value>Documenti</value>
+    <value>Documente</value>
   </data>
   <data name="NotesTitle" xml:space="preserve">
     <value>Note</value>
   </data>
   <data name="LoginWelcome" xml:space="preserve">
-    <value>Benvenuto</value>
+    <value>Bine ați venit</value>
   </data>
   <data name="LoginUsernameFieldHeader" xml:space="preserve">
-    <value>Nome utente:</value>
+    <value>Nume utilizator:</value>
   </data>
   <data name="LoginPasswordFieldHeader" xml:space="preserve">
-    <value>Password:</value>
+    <value>Parolă:</value>
   </data>
   <data name="LoginKeepCredentialsCheckbox" xml:space="preserve">
-    <value>Mantieni le credenziali</value>
+    <value>Mențineți credențialele</value>
   </data>
   <data name="DashboardTitleText" xml:space="preserve">
-    <value>Dashboard di {0}</value>
+    <value>Tabloul de bord al {0}</value>
   </data>
   <data name="DashboardTodaysEvents" xml:space="preserve">
-    <value>Eventi del giorno</value>
+    <value>Evenimentele zilei</value>
   </data>
   <data name="DashboardOpenAgendaButton" xml:space="preserve">
-    <value>Apri agenda</value>
+    <value>Deschide agenda</value>
   </data>
   <data name="DashboardRecentGrades" xml:space="preserve">
-    <value>Valutazioni recenti</value>
+    <value>Evalurări recente</value>
   </data>
   <data name="DashboardGradesAverage" xml:space="preserve">
-    <value>Media totale:</value>
+    <value>Media totală:</value>
   </data>
   <data name="DashboardOpenGradesButton" xml:space="preserve">
-    <value>Visualizza tutte le valutazioni</value>
+    <value>Vezi toate evaluările</value>
   </data>
   <data name="DashboardRecentNotices" xml:space="preserve">
-    <value>Comunicazioni recenti</value>
+    <value>Anunțuri recente</value>
   </data>
   <data name="DashboardOpenNoticeBoardButton" xml:space="preserve">
-    <value>Apri bacheca</value>
+    <value>Deschide panoul de anunțuri</value>
   </data>
   <data name="NoticeBoardNoticesTitlePlural" xml:space="preserve">
-    <value>comunicazioni</value>
+    <value>anunțuri</value>
   </data>
   <data name="AbsencesEventsCalendar" xml:space="preserve">
-    <value>Calendario eventi</value>
+    <value>Calendar evenimente</value>
   </data>
   <data name="AgendaTasksPopupTitle" xml:space="preserve">
-    <value>Compiti</value>
+    <value>Sarcini</value>
   </data>
   <data name="AgendaTodayButton" xml:space="preserve">
-    <value>Oggi</value>
+    <value>Astăzi</value>
   </data>
   <data name="AgendaAllTasksButton" xml:space="preserve">
-    <value>Tutti i compiti</value>
+    <value>Toate sarcinile</value>
   </data>
   <data name="AgendaAllLessonsButton" xml:space="preserve">
-    <value>Tutte le lezioni</value>
+    <value>Toate lecțiile</value>
   </data>
   <data name="AccountNonSupportato" xml:space="preserve">
-    <value>Account insegnante non supportato</value>
+    <value>Contul profesorului nu este compatibil</value>
   </data>
   <data name="AccountNonSupportatoBody" xml:space="preserve">
-    <value>In questa app sono solo supportati gli account studente. 
+    <value>În această aplicație sunt acceptate doar conturile de elev. 
 
-Gli account studente hanno l'username che inizia con le lettere S, G o X.</value>
+Conturile de elev încep cu literele S, G sau X în numele de utilizator.</value>
   </data>
   <data name="ErroreText" xml:space="preserve">
-    <value>Errore</value>
+    <value>Eroare</value>
   </data>
   <data name="OKCapsText" xml:space="preserve">
     <value>OK</value>
   </data>
   <data name="ErrorDialogBody" xml:space="preserve">
-    <value>Errore durante il login. Controlla il nome utente e la password.
+    <value>Eroare la conectare. Verificați numele de utilizator și parola.
 
-Errore: </value>
+Eroare: </value>
   </data>
   <data name="ChooseProfileDialogTitle" xml:space="preserve">
-    <value>Scegli un profilo</value>
+    <value>Alegeți un profil</value>
   </data>
   <data name="LoginButton" xml:space="preserve">
-    <value>Accedi</value>
+    <value>Autentifică-te</value>
   </data>
   <data name="CancelDialogButton" xml:space="preserve">
-    <value>Annulla</value>
+    <value>Anulează</value>
   </data>
   <data name="NoticeDialogAttachmentsTitlePlural" xml:space="preserve">
-    <value>allegati</value>
+    <value>atașamente</value>
   </data>
   <data name="NoticeDialogNoAttachmentsSubtitle" xml:space="preserve">
-    <value>Nessun allegato</value>
+    <value>Niciun atașament</value>
   </data>
   <data name="ProfileChoiceDialogComboboxHeader" xml:space="preserve">
-    <value>Seleziona un profilo:</value>
+    <value>Selectează un profil:</value>
   </data>
   <data name="ProfileChoiceDialogBody" xml:space="preserve">
-    <value>Più profili sono associati a questo account.</value>
+    <value>Mai multe profile sunt asociate acestui cont.</value>
   </data>
   <data name="AgendaLessonsPopupTitle" xml:space="preserve">
-    <value>Lezioni</value>
+    <value>Lecții</value>
   </data>
   <data name="GradesTitle" xml:space="preserve">
-    <value>Valutazioni</value>
+    <value>Evaluări</value>
   </data>
   <data name="AbsencesTitle" xml:space="preserve">
-    <value>Assenze</value>
+    <value>Absențe</value>
   </data>
   <data name="AgendaTitle" xml:space="preserve">
-    <value>Agenda</value>
+    <value>Agendă</value>
   </data>
   <data name="AgendaPlaceholder" xml:space="preserve">
-    <value>Nessun evento</value>
+    <value>Niciun eveniment</value>
   </data>
   <data name="InfoNoticeFlyoutText" xml:space="preserve">
-    <value>La comunicazione verrà contrassegnata come letta sul server. Continuare?</value>
+    <value>Comunicarea va fi marcată ca fiind citită pe server. Continuați?</value>
   </data>
   <data name="InfoNoteFlyoutText" xml:space="preserve">
-    <value>La nota verrà contrassegnata come letta sul server. Continuare?</value>
+    <value>Nota va fi marcată ca citită pe server. Continuați?</value>
   </data>
   <data name="SettingsAccountExitButton" xml:space="preserve">
-    <value>Esci</value>
+    <value>Deconectare</value>
   </data>
   <data name="NoticeBoardPlaceholder" xml:space="preserve">
-    <value>Nessuna comunicazione</value>
+    <value>Nicio comunicare</value>
   </data>
   <data name="NotesPlaceholder" xml:space="preserve">
-    <value>Nessuna nota</value>
+    <value>Nicio notă</value>
   </data>
   <data name="SettingsAboutExpanderCrowdinHyperlink" xml:space="preserve">
-    <value>Traduci su Crowdin</value>
+    <value>Traduceți pe Crowdin</value>
   </data>
   <data name="PALETTE_CVV" xml:space="preserve">
     <value>Classeviva</value>
   </data>
   <data name="PALETTE_CON" xml:space="preserve">
-    <value>Contrasto</value>
+    <value>Contrast</value>
   </data>
   <data name="PALETTE_NAT" xml:space="preserve">
-    <value>Natura</value>
+    <value>Natură</value>
   </data>
   <data name="SettingsAccountChangePhoto" xml:space="preserve">
-    <value>Cambia foto</value>
+    <value>Schimbați fotografia</value>
   </data>
   <data name="AutoSuggestBoxSearchPlaceholderText" xml:space="preserve">
-    <value>Cerca...</value>
+    <value>Caută...</value>
   </data>
   <data name="SettingsAboutExpanderGitHubHyperlink" xml:space="preserve">
-    <value>Progetto su GitHub</value>
+    <value>Proiect pe Github</value>
   </data>
   <data name="WhatsNewDialogHyperlinkAllChanges" xml:space="preserve">
-    <value>Visualizza tutti i cambiamenti</value>
+    <value>Vedeți toate modificările</value>
   </data>
   <data name="SettingsAboutExpanderVersion" xml:space="preserve">
-    <value>Versione </value>
+    <value>Versiune </value>
   </data>
   <data name="SettingsAccountSchool" xml:space="preserve">
-    <value>Istituto:</value>
+    <value>Institut:</value>
   </data>
   <data name="SettingsAccountStudentCode" xml:space="preserve">
-    <value>Codice studente: </value>
+    <value>Codul studentului: </value>
   </data>
   <data name="SettingsCardPaletteDescription" xml:space="preserve">
-    <value>Personalizza lo schema dei colori utilizzato nell'app per indicare voti ed eventi</value>
+    <value>Personalizează schema de culori utilizat în aplicație pentru a indica notele și evenimentele</value>
   </data>
   <data name="SettingsCardPaletteHeader" xml:space="preserve">
-    <value>Schema colori</value>
+    <value>Schemă de culori</value>
   </data>
   <data name="SettingsCardSchoolYearDescription" xml:space="preserve">
-    <value>Seleziona l'anno scolastico da consultare / torna all'anno precedente</value>
+    <value>Selectați anul școlar de consultat / reveniți la anul anterior</value>
   </data>
   <data name="SettingsCardSchoolYearHeader" xml:space="preserve">
-    <value>Anno scolastico</value>
+    <value>An școlar</value>
   </data>
   <data name="WhatsNewDialogHighlights" xml:space="preserve">
-    <value>In evidenza</value>
+    <value>În evidență</value>
   </data>
   <data name="WhatsNewDialogRelease" xml:space="preserve">
-    <value>v1.2.0, 25 Novembre 2023</value>
+    <value>v1.2.0, 25 Noiembrie 2023</value>
   </data>
   <data name="AgendaTomorrowButtonToolTip" xml:space="preserve">
-    <value>Giorno successivo</value>
+    <value>Ziua următoare</value>
   </data>
   <data name="AgendaYesterdayButtonToolTip" xml:space="preserve">
-    <value>Giorno precedente</value>
+    <value>Ziua anterioară</value>
   </data>
   <data name="AgendaTodayButtonToolTip" xml:space="preserve">
-    <value>Vai agli eventi di oggi</value>
+    <value>Mergi la evenimentele de astăzi</value>
   </data>
   <data name="NoticeBoardShowInactiveNoticesCheckbox" xml:space="preserve">
-    <value>Includi comunicazioni inattive</value>
+    <value>Includeți comunicări inactive</value>
   </data>
   <data name="DashboardEditWidgetsButton" xml:space="preserve">
-    <value>Personalizza widget</value>
+    <value>Personalizează widget</value>
   </data>
   <data name="LoginPasswordFieldPlaceholderText" xml:space="preserve">
-    <value>Password</value>
+    <value>Parolă</value>
   </data>
   <data name="LoginUsernameFieldPlaceholderText" xml:space="preserve">
-    <value>Nome utente</value>
+    <value>Nume utilizator</value>
   </data>
   <data name="NavigationViewDashboard" xml:space="preserve">
-    <value>Dashboard</value>
+    <value>Tablou de bord</value>
   </data>
   <data name="RefreshButtonToolTip" xml:space="preserve">
-    <value>Aggiorna (F5)</value>
+    <value>Reîmprospătează (F5)</value>
   </data>
   <data name="SettingsPaletteColorBlueToolTip" xml:space="preserve">
-    <value>Non fa media, assenza parziale</value>
+    <value>Nu efectuează mediere, absență parțială</value>
   </data>
   <data name="SettingsPaletteColorGreenToolTip" xml:space="preserve">
-    <value>Sufficienza, presenza, comunicazione letta</value>
+    <value>Suficiență, prezență, comunicare citită</value>
   </data>
   <data name="SettingsPaletteColorOrangeToolTip" xml:space="preserve">
-    <value>Insufficienza lieve, ritardo, comunicazione scaduta</value>
+    <value>Insuficiență ușoară, întârziere, comunicare expirată</value>
   </data>
   <data name="SettingsPaletteColorRedToolTip" xml:space="preserve">
-    <value>Insufficienza grave, assenza, comunicazione non letta</value>
+    <value>Insuficiență severă, absență, comunicare necitită</value>
   </data>
   <data name="NoticeBoardValidFromToDateText" xml:space="preserve">
-    <value>Valida dal {0} al {1}</value>
+    <value>Valabil de la {0} până la {1}</value>
   </data>
   <data name="NoticeBoardDeletedStatusText" xml:space="preserve">
-    <value>Eliminata</value>
+    <value>Eliminat</value>
   </data>
   <data name="NoticeBoardExpiredStatusText" xml:space="preserve">
-    <value>Scaduta</value>
+    <value>Întârziat</value>
   </data>
   <data name="AreYouSure" xml:space="preserve">
-    <value>Sei sicuro?</value>
+    <value>Ești sigur?</value>
   </data>
   <data name="AreYouSureToExit" xml:space="preserve">
-    <value>Sei sicuro di voler uscire?</value>
+    <value>Sigur doriți să vă deconectați?</value>
   </data>
   <data name="Exit" xml:space="preserve">
-    <value>Esci</value>
+    <value>Deconectare</value>
   </data>
   <data name="RestartRequired" xml:space="preserve">
-    <value>Riavvio richiesto</value>
+    <value>Repornire necesară</value>
   </data>
   <data name="RestartRequiredLanguageChange" xml:space="preserve">
-    <value>Per applicare la nuova lingua è necessario riavviare l'app.</value>
+    <value>Pentru a aplica noua limbă, este necesar să reporniți aplicația.</value>
   </data>
   <data name="Restart" xml:space="preserve">
-    <value>Riavvia</value>
+    <value>Repornire</value>
   </data>
   <data name="NoticeBoardTitle" xml:space="preserve">
-    <value>Bacheca</value>
+    <value>Tablă de anunțuri</value>
   </data>
   <data name="AbsencesPlaceholder" xml:space="preserve">
-    <value>Nessuna assenza</value>
+    <value>Nicio absență</value>
   </data>
   <data name="AgendaTasksPlaceholder" xml:space="preserve">
-    <value>Nessun compito</value>
+    <value>Nicio sarcină</value>
   </data>
   <data name="ScrutiniPlaceholder" xml:space="preserve">
-    <value>Scrutini non disponibili</value>
+    <value>Rezultate indisponibile</value>
   </data>
   <data name="ScrutiniReportsHeader" xml:space="preserve">
-    <value>Report scolastici</value>
+    <value>Rapoarte școlare</value>
   </data>
   <data name="SessionExpired" xml:space="preserve">
-    <value>Sessione scaduta</value>
+    <value>Sesiunea a expirat</value>
   </data>
   <data name="SessionExpiredDesc" xml:space="preserve">
-    <value>Una sessione dura un'ora dal login. Non avendo salvato le credenziali, ora verrai portato alla pagina di login. </value>
+    <value>O sesiune durează o oră de la autentificare. Deoarece nu ai salvat credențialele, vei fi acum redirecționat către pagina de autentificare. </value>
   </data>
   <data name="LoginErrorTitle" xml:space="preserve">
-    <value>Errore login</value>
+    <value>Eroare login</value>
   </data>
   <data name="LoginErrorDesc" xml:space="preserve">
-    <value>Non è stato possibile effettuare il login. Riprova più tardi.</value>
+    <value>Nu s-a putut realiza conectarea. Încearcă din nou mai târziu.</value>
   </data>
   <data name="APIErrorTitle" xml:space="preserve">
-    <value>Errore del server (riprova più tardi)</value>
+    <value>Eroare de server (încearcă din nou mai târziu)</value>
   </data>
   <data name="AttempsDone" xml:space="preserve">
-    <value>Tentativi effettuati: </value>
+    <value>Incercari efectuate: </value>
   </data>
   <data name="GradeSingular" xml:space="preserve">
-    <value>valutazione</value>
+    <value>evaluare</value>
   </data>
   <data name="GradesPlural" xml:space="preserve">
-    <value>valutazioni</value>
+    <value>evaluări</value>
   </data>
   <data name="GradesPlaceholder" xml:space="preserve">
-    <value>Nessuna valutazione</value>
+    <value>Fără evaluare</value>
   </data>
   <data name="PALETTE_FLO" xml:space="preserve">
-    <value>Flora</value>
+    <value>Floră</value>
   </data>
   <data name="PALETTE_RET" xml:space="preserve">
-    <value>Retrò</value>
+    <value>Retro</value>
   </data>
   <data name="AgendaLessonsPlaceholder" xml:space="preserve">
-    <value>Nessuna lezione</value>
+    <value>Fără lecție</value>
   </data>
   <data name="FirstRunDialogContributorsHyperlink" xml:space="preserve">
-    <value>Contributors</value>
+    <value>Contribuitori</value>
   </data>
   <data name="GradesGlobalAverage" xml:space="preserve">
-    <value>Media totale</value>
+    <value>Media totală</value>
   </data>
   <data name="FirstRunDialogLicensesHyperlink" xml:space="preserve">
-    <value>Licenze</value>
+    <value>Licenţe</value>
   </data>
   <data name="GradesAllPeriodsSegmentedItem" xml:space="preserve">
-    <value>Tutti i periodi</value>
+    <value>Toate intervalele de timp</value>
   </data>
   <data name="AgendaCalendarDatePickerToolTip" xml:space="preserve">
-    <value>Seleziona una data</value>
+    <value>Alegător de date</value>
   </data>
   <data name="NoticeBoardFilterAllNotices" xml:space="preserve">
-    <value>Tutte</value>
+    <value>Toate</value>
   </data>
   <data name="NoticeBoardFilterReadNotices" xml:space="preserve">
-    <value>Lette</value>
+    <value>Citite</value>
   </data>
   <data name="NoticeBoardFilterUnreadNotices" xml:space="preserve">
-    <value>Non lette</value>
+    <value>Necitite</value>
   </data>
   <data name="GradesNotAvailable" xml:space="preserve">
-    <value>N/D</value>
+    <value>N/A</value>
   </data>
   <data name="NTCL_plur" xml:space="preserve">
-    <value>Note disciplinari</value>
+    <value>Note disciplinare</value>
   </data>
   <data name="NTCL_sing" xml:space="preserve">
-    <value>Nota disciplinare</value>
+    <value>Notă disciplinară</value>
   </data>
   <data name="NTST_plur" xml:space="preserve">
-    <value>Sanzioni disciplinari</value>
+    <value>Sancțiuni disciplinare</value>
   </data>
   <data name="NTST_sing" xml:space="preserve">
-    <value>Sanzione disciplinare</value>
+    <value>Sancțiune disciplinară</value>
   </data>
   <data name="NTTE_plur" xml:space="preserve">
-    <value>Annotazioni</value>
+    <value>Notițe</value>
   </data>
   <data name="NTTE_sing" xml:space="preserve">
-    <value>Annotazione</value>
+    <value>Notiță</value>
   </data>
   <data name="NTWN_plur" xml:space="preserve">
-    <value>Richiami</value>
+    <value>Avertizări</value>
   </data>
   <data name="NTWN_sing" xml:space="preserve">
-    <value>Richiamo</value>
+    <value>Avertizare</value>
   </data>
   <data name="ABA0_plur" xml:space="preserve">
-    <value>Assenze</value>
+    <value>Absențe</value>
   </data>
   <data name="ABA0_sing" xml:space="preserve">
-    <value>Assenza</value>
+    <value>Absență</value>
   </data>
   <data name="ABR0_plur" xml:space="preserve">
-    <value>Ritardi</value>
+    <value>Întârzieri</value>
   </data>
   <data name="ABR0_sing" xml:space="preserve">
-    <value>Ritardo</value>
+    <value>Întârziere</value>
   </data>
   <data name="ABR1_plur" xml:space="preserve">
-    <value>Ritardi brevi</value>
+    <value>Întârzieri scurte</value>
   </data>
   <data name="ABR1_sing" xml:space="preserve">
-    <value>Ritardo breve</value>
+    <value>Întârziere scurtă</value>
   </data>
   <data name="ABU0_plur" xml:space="preserve">
-    <value>Uscite anticipate</value>
+    <value>Ieșiri anticipate</value>
   </data>
   <data name="ABU0_sing" xml:space="preserve">
-    <value>Uscita anticipata</value>
+    <value>Ieșire anticipată</value>
   </data>
   <data name="DialogUntranslatedLanguageStatus1" xml:space="preserve">
-    <value>L'app non è stata tradotta completamente nella lingua che hai scelto. Alcune parti dell'app continueranno ad essere mostrate in italiano.</value>
+    <value>Aplicația nu a fost tradusă complet în limba pe care ai ales-o. Anumite părți ale aplicației vor continua să fie afișate în italiană.</value>
   </data>
   <data name="DialogUntranslatedLanguageStatus2" xml:space="preserve">
-    <value>Stato di traduzione: </value>
+    <value>Starea traducerii: </value>
   </data>
   <data name="DialogUntranslatedLanguageBody1" xml:space="preserve">
-    <value>Vuoi veramente cambiare la lingua?</value>
+    <value>Vrei să schimbi cu adevărat limba?</value>
   </data>
   <data name="CautionDialogTitle" xml:space="preserve">
-    <value>Attenzione</value>
+    <value>Atenție</value>
   </data>
   <data name="ContinueDialogButton" xml:space="preserve">
-    <value>Continua</value>
+    <value>Continuă</value>
   </data>
   <data name="SettingsCardAskConfirmDescription" xml:space="preserve">
-    <value>Chiedi conferma prima di aprire una comunicazione</value>
+    <value>Solicită confirmarea înainte de a deschide o comunicare</value>
   </data>
   <data name="SettingsCardAskConfirmHeader" xml:space="preserve">
-    <value>Conferma apertura comunicazioni</value>
+    <value>Confirmare deschidere comunicări</value>
   </data>
   <data name="ChangePhotoDialogContent" xml:space="preserve">
-    <value>Cambia la tua foto profilo in locale, visualizzabile negli account ClassevivaPCTO e nelle Impostazioni dell'App.</value>
+    <value>Schimbați fotografia de profil în local, vizibilă în conturile ClassevivaPCTO și în Setările aplicației.</value>
   </data>
   <data name="ChangeProfilePhotoTitle" xml:space="preserve">
-    <value>Modifica foto profilo</value>
+    <value>Schimbă fotografia de profil</value>
   </data>
   <data name="AbsencesToBeJustifiedText" xml:space="preserve">
-    <value>Da giustificare</value>
+    <value>De justificat</value>
   </data>
   <data name="GenericOkButton" xml:space="preserve">
     <value>Ok</value>
   </data>
   <data name="RemovePhotoDialogButton" xml:space="preserve">
-    <value>Rimuovi foto</value>
+    <value>Eliminaţi fotografia</value>
   </data>
   <data name="SelectFileDialogButton" xml:space="preserve">
-    <value>Seleziona file</value>
+    <value>Selectează un fișier</value>
   </data>
   <data name="GenericEventOnDayPreposition" xml:space="preserve">
-    <value> del </value>
+    <value> dintre </value>
   </data>
   <data name="AbsencesTodayButton" xml:space="preserve">
-    <value>Oggi</value>
+    <value>Astăzi</value>
   </data>
   <data name="GradesListLayout" xml:space="preserve">
-    <value>Lista</value>
+    <value>Listă</value>
   </data>
   <data name="GradesSubjectsLayout" xml:space="preserve">
     <value>Materie</value>
   </data>
   <data name="GenericOpenButton" xml:space="preserve">
-    <value>Apri</value>
+    <value>Deschide</value>
   </data>
   <data name="GenericReadButton" xml:space="preserve">
-    <value>Leggi</value>
+    <value>Citește</value>
   </data>
   <data name="GenericSaveButton" xml:space="preserve">
-    <value>Salva</value>
+    <value>Salvează</value>
   </data>
   <data name="ScrutiniOpenFileButtonToolTip" xml:space="preserve">
-    <value>Visualizza scrutinio</value>
+    <value>Vizualizează scrutinul</value>
   </data>
   <data name="ScrutiniOpenReportButtonToolTip" xml:space="preserve">
-    <value>Apri report</value>
+    <value>Deschide raportul</value>
   </data>
   <data name="ScrutiniSaveFileButtonToolTip" xml:space="preserve">
-    <value>Salva questo file dello scrutinio sul PC</value>
+    <value>Salvează acest fișier al scrutinului pe PC-ul tău</value>
   </data>
   <data name="NoticeBoardNotAvailableButton" xml:space="preserve">
-    <value>Non disponibile</value>
+    <value>Indisponibil</value>
   </data>
   <data name="ScrutiniNotAvailableStatusText" xml:space="preserve">
-    <value>Non disponibile</value>
+    <value>Indisponibil</value>
   </data>
   <data name="DialogUntranlatedLanguageInvite" xml:space="preserve">
-    <value>Traduci su Crowdin</value>
+    <value>Traduceți pe Crowdin</value>
   </data>
   <data name="DialogUntranslatedLanguageBody2" xml:space="preserve">
-    <value>Se desideri puoi tradurre tu stesso l'app tramite Crowdin.</value>
+    <value>Dacă dorești, poți traduce singur aplicația folosind Crowdin.</value>
   </data>
   <data name="RestartLater" xml:space="preserve">
-    <value>Riavvia più tardi</value>
+    <value>Reporniți mai târziu</value>
   </data>
   <data name="LoginChangelogHyperlink" xml:space="preserve">
-    <value>Novità recenti</value>
+    <value>Noutăți recente</value>
   </data>
   <data name="LoginGetStartedHyperlink" xml:space="preserve">
-    <value>Informazioni di base</value>
+    <value>Informații de bază</value>
   </data>
   <data name="LoginGitHubHyperlink" xml:space="preserve">
     <value>GitHub</value>
   </data>
   <data name="LoginText" xml:space="preserve">
-    <value>Login</value>
+    <value>Logare</value>
   </data>
   <data name="NoticeBoardFilterAllNoticesItemToolTip" xml:space="preserve">
-    <value>Mostra tutte le comunicazioni</value>
+    <value>Afișați toate comunicările</value>
   </data>
   <data name="NoticeBoardFilterReadNoticesItemToolTip" xml:space="preserve">
-    <value>Mostra solo le comunicazioni lette</value>
+    <value>Afișați doar comunicările necitite</value>
   </data>
   <data name="NoticeBoardFilterUnreadNoticesItemToolTip" xml:space="preserve">
-    <value>Mostra solo le comunicazioni non lette</value>
+    <value>Afișați doar comunicările necitite</value>
   </data>
   <data name="NoticeBoardShowInactiveNoticesCheckboxToolTip" xml:space="preserve">
-    <value>Mostra anche le comunicazioni scadute e quelle eliminate</value>
+    <value>Arată și comunicările expirate și cele eliminate</value>
   </data>
   <data name="ScrutiniShowDeletedDocumentsCheckboxToolTip" xml:space="preserve">
-    <value>Mostra anche i documenti che sono stati eliminati</value>
+    <value>Afișează și documentele care au fost șterse</value>
   </data>
   <data name="NoticeBoardCategoryComboboxPlaceholderText" xml:space="preserve">
-    <value>Filtra per categoria</value>
+    <value>Filtrează după categorie</value>
   </data>
   <data name="PALETTE_PAS" xml:space="preserve">
-    <value>Pastello</value>
+    <value>Pastel</value>
   </data>
   <data name="PALETTE_VIN" xml:space="preserve">
     <value>Vintage</value>
   </data>
   <data name="SettingsCardWidgetsDescription" xml:space="preserve">
-    <value>Imposta il numero di elementi recendi da visualizzare nei widget della dasboard</value>
+    <value>Setează numărul de elemente recomandate de afișat în widget-urile tabloului de bord</value>
   </data>
   <data name="SettingsCardWidgetsHeader" xml:space="preserve">
-    <value>Numero di elementi nei widget</value>
+    <value>Numărul de elemente în widget-uri</value>
   </data>
   <data name="SettingsCardWidgetsSubCardGrades" xml:space="preserve">
-    <value>Numero di valutazioni recenti da visualizzare</value>
+    <value>Numărul de evaluări recente de afișat</value>
   </data>
   <data name="SettingsCardWidgetsSubCardNotices" xml:space="preserve">
-    <value>Numero di comunicazioni recenti da visualizzare</value>
+    <value>Numărul de comunicări recente de afișat</value>
   </data>
   <data name="SettingsPageOptionsHeader" xml:space="preserve">
-    <value>Opzioni pagine</value>
+    <value>Setările paginii</value>
   </data>
   <data name="GenericCloseButton" xml:space="preserve">
-    <value>Chiudi</value>
+    <value>Închide</value>
   </data>
   <data name="GradesListLayoutToolTip" xml:space="preserve">
-    <value>Visualizza i voti come lista</value>
+    <value>Afișează notele ca o listă</value>
   </data>
   <data name="GradesSubjectsLayoutToolTip" xml:space="preserve">
-    <value>Visualizza i voti raggruppati in base alla materia</value>
+    <value>Vizualizați notele grupate în funcție de materie</value>
   </data>
   <data name="NoticeDialogOpenButtonToolTip" xml:space="preserve">
-    <value>Apri file allegato</value>
+    <value>Deschideți fișierul atașat</value>
   </data>
   <data name="NoticeDialogSaveButtonToolTip" xml:space="preserve">
-    <value>Salva questo file allegato sul tuo PC</value>
+    <value>Salvează acest fișier atașat pe PC-ul tău</value>
   </data>
   <data name="SettingsPaletteColorYellowToolTip" xml:space="preserve">
-    <value>Uscite anticipate, avvisi</value>
+    <value>Ieșiri anticipate, notificări</value>
   </data>
   <data name="NoticeBoardClearAllFiltersText" xml:space="preserve">
-    <value>Resetta tutti i filtri</value>
+    <value>Resetați toate filtrele</value>
   </data>
   <data name="Grades1Quadrimestre" xml:space="preserve">
-    <value>1° Quadrimestre</value>
+    <value>1° Pătrime</value>
   </data>
   <data name="Grades2Quadrimestre" xml:space="preserve">
-    <value>2° Quadrimestre</value>
+    <value>2° Pătrime</value>
   </data>
   <data name="GradesPentamestre" xml:space="preserve">
-    <value>Pentamestre</value>
+    <value>Pentamestru</value>
   </data>
   <data name="GradesTrimestre" xml:space="preserve">
-    <value>Trimestre</value>
+    <value>Trimestru</value>
   </data>
   <data name="NoticeBoardAllCategoriesComboboxItem" xml:space="preserve">
-    <value>Tutte le categorie</value>
+    <value>Toate categoriile</value>
   </data>
   <data name="NoticeDialogJoinRequestedMessage" xml:space="preserve">
-    <value>Per questa comunicazione è richiesta una conferma di adesione</value>
+    <value>Pentru această comunicare este necesară o confirmare a aderării</value>
   </data>
   <data name="NoticeDialogJoinSuccessMessage" xml:space="preserve">
-    <value>Adesione confermata</value>
+    <value>Adeziunea a fost confirmată</value>
   </data>
   <data name="NoticeDialogSignRefuseMessage" xml:space="preserve">
-    <value>Comunicazione rifiutata</value>
+    <value>Comunicare refuzată</value>
   </data>
   <data name="NoticeDialogSignRequestedMessage" xml:space="preserve">
-    <value>Per questa comunicazione è richiesta una conferma di accettazione</value>
+    <value>Pentru această comunicare este necesară o confirmare a aderării</value>
   </data>
   <data name="NoticeDialogSignSuccessMessage" xml:space="preserve">
-    <value>Comunicazione confermata e firmata</value>
+    <value>Comunicare confirmată și semnată</value>
   </data>
   <data name="GradesLayoutHeader" xml:space="preserve">
-    <value>Layout:</value>
+    <value>Aspect:</value>
   </data>
   <data name="NoticeDialogConfirmNotice" xml:space="preserve">
-    <value>Conferma e firma</value>
+    <value>Confirmare și semnează</value>
   </data>
   <data name="NoticeDialogConfirmNoticeMessage" xml:space="preserve">
-    <value>Per firmare la comunicazione, premi il pulsante sottostante</value>
+    <value>Pentru a refuza comunicarea, apăsați butonul de mai jos</value>
   </data>
   <data name="NoticeDialogConfirmNoticeWithAttachmentMessage" xml:space="preserve">
-    <value>Per firmare con file allegato, premi il pulsante sottostante</value>
+    <value>Pentru a refuza comunicarea, apăsați butonul de mai jos</value>
   </data>
   <data name="NoticeDialogConfirmNoticeWithMessage" xml:space="preserve">
-    <value>Per firmare con messaggio, premi il pulsante sottostante</value>
+    <value>Pentru a refuza comunicarea, apăsați butonul de mai jos</value>
   </data>
   <data name="NoticeDialogJoinNotice" xml:space="preserve">
-    <value>Aderisci</value>
+    <value>Înscrie-te</value>
   </data>
   <data name="NoticeDialogJoinNoticeMessage" xml:space="preserve">
-    <value>Per aderire alla comunicazione, premi il pulsante sottostante</value>
+    <value>Pentru a refuza comunicarea, apăsați butonul de mai jos</value>
   </data>
   <data name="NoticeDialogRefuseNotice" xml:space="preserve">
-    <value>Rifiuta</value>
+    <value>Respinge</value>
   </data>
   <data name="NoticeDialogRefuseNoticeMessage" xml:space="preserve">
-    <value>Per rifiutare la comunicazione, premi il pulsante sottostante</value>
+    <value>Pentru a refuza comunicarea, apăsați butonul de mai jos</value>
   </data>
   <data name="NoticeDialogAttachmentsTitleSingular" xml:space="preserve">
-    <value>allegato</value>
+    <value>atașament</value>
   </data>
   <data name="NoticeBoardNoticesTitleSingular" xml:space="preserve">
-    <value>comunicazione</value>
+    <value>comunicare</value>
   </data>
 </root>
