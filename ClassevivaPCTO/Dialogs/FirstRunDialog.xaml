@@ -59,7 +59,7 @@
 
             <Rectangle Width="844"
                        Height="1"
-                       Margin="-6,0,0,16"
+                       Margin="-6,0,0,8"
                        Fill="#5B5B5B" />
 
             <StackPanel Margin="2,4,0,0"
