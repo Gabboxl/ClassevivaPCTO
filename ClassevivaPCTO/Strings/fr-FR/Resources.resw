@@ -584,10 +584,10 @@ Erreur: </value>
     <value>Sortie anticipée</value>
   </data>
   <data name="DialogUntranslatedLanguageStatus1" xml:space="preserve">
-    <value>L'app non è stata tradotta completamente nella lingua che hai scelto. Alcune parti dell'app continueranno ad essere mostrate in italiano.</value>
+    <value>L'application n'a pas été entièrement traduite dans la langue de votre choix. Certaines parties de l'application continueront d'être affichées en italien.</value>
   </data>
   <data name="DialogUntranslatedLanguageStatus2" xml:space="preserve">
-    <value>Stato di traduzione: </value>
+    <value>Statut de la traduction: </value>
   </data>
   <data name="DialogUntranslatedLanguageBody1" xml:space="preserve">
     <value>Voulez-vous vraiment changer la langue?</value>
@@ -680,10 +680,10 @@ Erreur: </value>
     <value>Connexion</value>
   </data>
   <data name="NoticeBoardFilterAllNoticesItemToolTip" xml:space="preserve">
-    <value>Mostra tutte le comunicazioni</value>
+    <value>Afficher toutes les communications</value>
   </data>
   <data name="NoticeBoardFilterReadNoticesItemToolTip" xml:space="preserve">
-    <value>Mostra solo le comunicazioni lette</value>
+    <value>Afficher uniquement les communications lues</value>
   </data>
   <data name="NoticeBoardFilterUnreadNoticesItemToolTip" xml:space="preserve">
     <value>Afficher uniquement les communications non lues</value>
@@ -692,7 +692,7 @@ Erreur: </value>
     <value>Il affiche également les communications expirées et supprimées</value>
   </data>
   <data name="ScrutiniShowDeletedDocumentsCheckboxToolTip" xml:space="preserve">
-    <value>Mostra anche i documenti che sono stati eliminati</value>
+    <value>Il montre également les documents qui ont été supprimés</value>
   </data>
   <data name="NoticeBoardCategoryComboboxPlaceholderText" xml:space="preserve">
     <value>Filtrer par catégorie</value>
@@ -704,16 +704,16 @@ Erreur: </value>
     <value>Vintage</value>
   </data>
   <data name="SettingsCardWidgetsDescription" xml:space="preserve">
-    <value>Imposta il numero di elementi recendi da visualizzare nei widget della dasboard</value>
+    <value>Définir le nombre d'éléments de révision à afficher dans les widgets du tableau de bord</value>
   </data>
   <data name="SettingsCardWidgetsHeader" xml:space="preserve">
-    <value>Numero di elementi nei widget</value>
+    <value>Nombre d'éléments dans les widgets</value>
   </data>
   <data name="SettingsCardWidgetsSubCardGrades" xml:space="preserve">
-    <value>Numero di valutazioni recenti da visualizzare</value>
+    <value>Nombre de notes récentes à afficher</value>
   </data>
   <data name="SettingsCardWidgetsSubCardNotices" xml:space="preserve">
-    <value>Numero di comunicazioni recenti da visualizzare</value>
+    <value>Nombre de communications récentes à consulter</value>
   </data>
   <data name="SettingsPageOptionsHeader" xml:space="preserve">
     <value>Paramètres de la Page</value>
@@ -722,28 +722,28 @@ Erreur: </value>
     <value>Fermer</value>
   </data>
   <data name="GradesListLayoutToolTip" xml:space="preserve">
-    <value>Visualizza i voti come lista</value>
+    <value>Afficher les notes sous forme de liste</value>
   </data>
   <data name="GradesSubjectsLayoutToolTip" xml:space="preserve">
-    <value>Visualizza i voti raggruppati in base alla materia</value>
+    <value>Afficher les notes regroupées par matière</value>
   </data>
   <data name="NoticeDialogOpenButtonToolTip" xml:space="preserve">
-    <value>Apri file allegato</value>
+    <value>Ouvrir le fichier joint</value>
   </data>
   <data name="NoticeDialogSaveButtonToolTip" xml:space="preserve">
-    <value>Salva questo file allegato sul tuo PC</value>
+    <value>Enregistrez ce fichier joint sur votre PC</value>
   </data>
   <data name="SettingsPaletteColorYellowToolTip" xml:space="preserve">
-    <value>Uscite anticipate, avvisi</value>
+    <value>Versions anticipées, avertissements</value>
   </data>
   <data name="NoticeBoardClearAllFiltersText" xml:space="preserve">
-    <value>Resetta tutti i filtri</value>
+    <value>Réinitialiser tous les filtres</value>
   </data>
   <data name="Grades1Quadrimestre" xml:space="preserve">
-    <value>1° Quadrimestre</value>
+    <value>1er trimestre</value>
   </data>
   <data name="Grades2Quadrimestre" xml:space="preserve">
-    <value>2° Quadrimestre</value>
+    <value>2e trimestre</value>
   </data>
   <data name="GradesPentamestre" xml:space="preserve">
     <value>Pentamestre</value>
@@ -755,49 +755,49 @@ Erreur: </value>
     <value>Toutes les catégories</value>
   </data>
   <data name="NoticeDialogJoinRequestedMessage" xml:space="preserve">
-    <value>Per questa comunicazione è richiesta una conferma di adesione</value>
+    <value>Une confirmation d’adhésion est requise pour cette communication</value>
   </data>
   <data name="NoticeDialogJoinSuccessMessage" xml:space="preserve">
-    <value>Adesione confermata</value>
+    <value>Adhésion confirmée</value>
   </data>
   <data name="NoticeDialogSignRefuseMessage" xml:space="preserve">
-    <value>Comunicazione rifiutata</value>
+    <value>Communication rejetée</value>
   </data>
   <data name="NoticeDialogSignRequestedMessage" xml:space="preserve">
-    <value>Per questa comunicazione è richiesta una conferma di accettazione</value>
+    <value>Une confirmation d'acceptation est requise pour cette communication</value>
   </data>
   <data name="NoticeDialogSignSuccessMessage" xml:space="preserve">
-    <value>Comunicazione confermata e firmata</value>
+    <value>Communication confirmée et signée</value>
   </data>
   <data name="GradesLayoutHeader" xml:space="preserve">
-    <value>Layout:</value>
+    <value>Mise en page:</value>
   </data>
   <data name="NoticeDialogConfirmNotice" xml:space="preserve">
-    <value>Conferma e firma</value>
+    <value>Confirmez et signez</value>
   </data>
   <data name="NoticeDialogConfirmNoticeMessage" xml:space="preserve">
-    <value>Per firmare la comunicazione, premi il pulsante sottostante</value>
+    <value>Pour signer la communication, appuyez sur le bouton ci-dessous</value>
   </data>
   <data name="NoticeDialogConfirmNoticeWithAttachmentMessage" xml:space="preserve">
-    <value>Per firmare con file allegato, premi il pulsante sottostante</value>
+    <value>Pour signer avec le fichier joint, appuyez sur le bouton ci-dessous</value>
   </data>
   <data name="NoticeDialogConfirmNoticeWithMessage" xml:space="preserve">
-    <value>Per firmare con messaggio, premi il pulsante sottostante</value>
+    <value>Pour signer avec message, appuyez sur le bouton ci-dessous</value>
   </data>
   <data name="NoticeDialogJoinNotice" xml:space="preserve">
     <value>Rejoindre</value>
   </data>
   <data name="NoticeDialogJoinNoticeMessage" xml:space="preserve">
-    <value>Per aderire alla comunicazione, premi il pulsante sottostante</value>
+    <value>Pour rejoindre la communication, appuyez sur le bouton ci-dessous</value>
   </data>
   <data name="NoticeDialogRefuseNotice" xml:space="preserve">
     <value>Rejeter</value>
   </data>
   <data name="NoticeDialogRefuseNoticeMessage" xml:space="preserve">
-    <value>Per rifiutare la comunicazione, premi il pulsante sottostante</value>
+    <value>Pour refuser la communication, appuyez sur le bouton ci-dessous</value>
   </data>
   <data name="NoticeDialogAttachmentsTitleSingular" xml:space="preserve">
-    <value>allegato</value>
+    <value>annexe</value>
   </data>
   <data name="NoticeBoardNoticesTitleSingular" xml:space="preserve">
     <value>communication</value>
