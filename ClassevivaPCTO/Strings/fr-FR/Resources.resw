@@ -461,16 +461,16 @@ Erreur: </value>
     <value>Tableau</value>
   </data>
   <data name="AbsencesPlaceholder" xml:space="preserve">
-    <value>Nessuna assenza</value>
+    <value>Aucune absence</value>
   </data>
   <data name="AgendaTasksPlaceholder" xml:space="preserve">
-    <value>Nessun compito</value>
+    <value>Pas de tâche</value>
   </data>
   <data name="ScrutiniPlaceholder" xml:space="preserve">
-    <value>Scrutini non disponibili</value>
+    <value>Bulletins de vote non disponibles</value>
   </data>
   <data name="ScrutiniReportsHeader" xml:space="preserve">
-    <value>Report scolastici</value>
+    <value>Bulletins scolaires</value>
   </data>
   <data name="SessionExpired" xml:space="preserve">
     <value>La session a expiré</value>
@@ -497,40 +497,40 @@ Erreur: </value>
     <value>notes</value>
   </data>
   <data name="GradesPlaceholder" xml:space="preserve">
-    <value>Nessuna valutazione</value>
+    <value>Aucune note</value>
   </data>
   <data name="PALETTE_FLO" xml:space="preserve">
     <value>Flore</value>
   </data>
   <data name="PALETTE_RET" xml:space="preserve">
-    <value>Retrò</value>
+    <value>Rétro</value>
   </data>
   <data name="AgendaLessonsPlaceholder" xml:space="preserve">
-    <value>Nessuna lezione</value>
+    <value>Aucune leçon</value>
   </data>
   <data name="FirstRunDialogContributorsHyperlink" xml:space="preserve">
-    <value>Contributors</value>
+    <value>Contributeurs</value>
   </data>
   <data name="GradesGlobalAverage" xml:space="preserve">
-    <value>Media totale</value>
+    <value>Moyenne totale</value>
   </data>
   <data name="FirstRunDialogLicensesHyperlink" xml:space="preserve">
-    <value>Licenze</value>
+    <value>Licences</value>
   </data>
   <data name="GradesAllPeriodsSegmentedItem" xml:space="preserve">
-    <value>Tutti i periodi</value>
+    <value>Toutes les périodes</value>
   </data>
   <data name="AgendaCalendarDatePickerToolTip" xml:space="preserve">
-    <value>Seleziona una data</value>
+    <value>Choisir une date</value>
   </data>
   <data name="NoticeBoardFilterAllNotices" xml:space="preserve">
-    <value>Tutte</value>
+    <value>Tous</value>
   </data>
   <data name="NoticeBoardFilterReadNotices" xml:space="preserve">
-    <value>Lette</value>
+    <value>Poids léger</value>
   </data>
   <data name="NoticeBoardFilterUnreadNotices" xml:space="preserve">
-    <value>Non lette</value>
+    <value>Pas lu</value>
   </data>
   <data name="GradesNotAvailable" xml:space="preserve">
     <value>N/D</value>
@@ -599,10 +599,10 @@ Erreur: </value>
     <value>Continuer</value>
   </data>
   <data name="SettingsCardAskConfirmDescription" xml:space="preserve">
-    <value>Chiedi conferma prima di aprire una comunicazione</value>
+    <value>Demander une confirmation avant d'ouvrir une communication</value>
   </data>
   <data name="SettingsCardAskConfirmHeader" xml:space="preserve">
-    <value>Conferma apertura comunicazioni</value>
+    <value>Confirmer l'ouverture des communications</value>
   </data>
   <data name="ChangePhotoDialogContent" xml:space="preserve">
     <value>Modifiez votre photo de profil localement, visible dans les comptes ClassevivaPCTO et dans les paramètres de l'application.</value>
@@ -626,34 +626,34 @@ Erreur: </value>
     <value> des </value>
   </data>
   <data name="AbsencesTodayButton" xml:space="preserve">
-    <value>Oggi</value>
+    <value>Aujourd'hui</value>
   </data>
   <data name="GradesListLayout" xml:space="preserve">
-    <value>Lista</value>
+    <value>Liste</value>
   </data>
   <data name="GradesSubjectsLayout" xml:space="preserve">
-    <value>Materie</value>
+    <value>Sujets</value>
   </data>
   <data name="GenericOpenButton" xml:space="preserve">
-    <value>Apri</value>
+    <value>Ouvrir</value>
   </data>
   <data name="GenericReadButton" xml:space="preserve">
-    <value>Leggi</value>
+    <value>Lire</value>
   </data>
   <data name="GenericSaveButton" xml:space="preserve">
-    <value>Salva</value>
+    <value>Sauver</value>
   </data>
   <data name="ScrutiniOpenFileButtonToolTip" xml:space="preserve">
-    <value>Visualizza scrutinio</value>
+    <value>Voir le bulletin de vote</value>
   </data>
   <data name="ScrutiniOpenReportButtonToolTip" xml:space="preserve">
-    <value>Apri report</value>
+    <value>Ouvrir le rapport</value>
   </data>
   <data name="ScrutiniSaveFileButtonToolTip" xml:space="preserve">
-    <value>Salva questo file dello scrutinio sul PC</value>
+    <value>Enregistrez le fichier de vote sur votre PC</value>
   </data>
   <data name="NoticeBoardNotAvailableButton" xml:space="preserve">
-    <value>Non disponibile</value>
+    <value>Indisponible</value>
   </data>
   <data name="ScrutiniNotAvailableStatusText" xml:space="preserve">
     <value>Indisponible</value>
@@ -662,22 +662,22 @@ Erreur: </value>
     <value>Traduire sur Crowdin</value>
   </data>
   <data name="DialogUntranslatedLanguageBody2" xml:space="preserve">
-    <value>Se desideri puoi tradurre tu stesso l'app tramite Crowdin.</value>
+    <value>Si vous le souhaitez, vous pouvez traduire l'application vous-même via Crowdin.</value>
   </data>
   <data name="RestartLater" xml:space="preserve">
     <value>Redémarrer plus tard</value>
   </data>
   <data name="LoginChangelogHyperlink" xml:space="preserve">
-    <value>Novità recenti</value>
+    <value>Ajouts Récents</value>
   </data>
   <data name="LoginGetStartedHyperlink" xml:space="preserve">
-    <value>Informazioni di base</value>
+    <value>Informations générales</value>
   </data>
   <data name="LoginGitHubHyperlink" xml:space="preserve">
     <value>GitHub</value>
   </data>
   <data name="LoginText" xml:space="preserve">
-    <value>Login</value>
+    <value>Connexion</value>
   </data>
   <data name="NoticeBoardFilterAllNoticesItemToolTip" xml:space="preserve">
     <value>Mostra tutte le comunicazioni</value>
@@ -686,19 +686,19 @@ Erreur: </value>
     <value>Mostra solo le comunicazioni lette</value>
   </data>
   <data name="NoticeBoardFilterUnreadNoticesItemToolTip" xml:space="preserve">
-    <value>Mostra solo le comunicazioni non lette</value>
+    <value>Afficher uniquement les communications non lues</value>
   </data>
   <data name="NoticeBoardShowInactiveNoticesCheckboxToolTip" xml:space="preserve">
-    <value>Mostra anche le comunicazioni scadute e quelle eliminate</value>
+    <value>Il affiche également les communications expirées et supprimées</value>
   </data>
   <data name="ScrutiniShowDeletedDocumentsCheckboxToolTip" xml:space="preserve">
     <value>Mostra anche i documenti che sono stati eliminati</value>
   </data>
   <data name="NoticeBoardCategoryComboboxPlaceholderText" xml:space="preserve">
-    <value>Filtra per categoria</value>
+    <value>Filtrer par catégorie</value>
   </data>
   <data name="PALETTE_PAS" xml:space="preserve">
-    <value>Pastello</value>
+    <value>Pastel</value>
   </data>
   <data name="PALETTE_VIN" xml:space="preserve">
     <value>Vintage</value>
@@ -716,10 +716,10 @@ Erreur: </value>
     <value>Numero di comunicazioni recenti da visualizzare</value>
   </data>
   <data name="SettingsPageOptionsHeader" xml:space="preserve">
-    <value>Opzioni pagine</value>
+    <value>Paramètres de la Page</value>
   </data>
   <data name="GenericCloseButton" xml:space="preserve">
-    <value>Chiudi</value>
+    <value>Fermer</value>
   </data>
   <data name="GradesListLayoutToolTip" xml:space="preserve">
     <value>Visualizza i voti come lista</value>
@@ -752,7 +752,7 @@ Erreur: </value>
     <value>Trimestre</value>
   </data>
   <data name="NoticeBoardAllCategoriesComboboxItem" xml:space="preserve">
-    <value>Tutte le categorie</value>
+    <value>Toutes les catégories</value>
   </data>
   <data name="NoticeDialogJoinRequestedMessage" xml:space="preserve">
     <value>Per questa comunicazione è richiesta una conferma di adesione</value>
@@ -785,13 +785,13 @@ Erreur: </value>
     <value>Per firmare con messaggio, premi il pulsante sottostante</value>
   </data>
   <data name="NoticeDialogJoinNotice" xml:space="preserve">
-    <value>Aderisci</value>
+    <value>Rejoindre</value>
   </data>
   <data name="NoticeDialogJoinNoticeMessage" xml:space="preserve">
     <value>Per aderire alla comunicazione, premi il pulsante sottostante</value>
   </data>
   <data name="NoticeDialogRefuseNotice" xml:space="preserve">
-    <value>Rifiuta</value>
+    <value>Rejeter</value>
   </data>
   <data name="NoticeDialogRefuseNoticeMessage" xml:space="preserve">
     <value>Per rifiutare la comunicazione, premi il pulsante sottostante</value>
@@ -800,6 +800,6 @@ Erreur: </value>
     <value>allegato</value>
   </data>
   <data name="NoticeBoardNoticesTitleSingular" xml:space="preserve">
-    <value>comunicazione</value>
+    <value>communication</value>
   </data>
 </root>
