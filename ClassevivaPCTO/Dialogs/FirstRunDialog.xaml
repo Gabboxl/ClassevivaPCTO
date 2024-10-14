@@ -47,7 +47,7 @@
             <Image Width="870"
                    Height="350"
                    Margin="-14,-55,0,-90"
-                   Source="/Assets/BannerRelease1_3.png"
+                   Source="/Assets/BannerGetStarted.png"
                    Stretch="Uniform" />
 
             <TextBlock Margin="0,20,0,16"
