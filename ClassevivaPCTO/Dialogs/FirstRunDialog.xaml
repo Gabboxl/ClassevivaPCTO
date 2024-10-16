@@ -8,65 +8,94 @@
     d:DesignWidth="550"
     mc:Ignorable="d"
     Style="{StaticResource DefaultContentDialogStyle}"
-    PrimaryButtonStyle="{StaticResource DefaultButtonStyle}" >
+    PrimaryButtonStyle="{StaticResource DefaultButtonStyle}">
 
     <ContentDialog.TitleTemplate>
         <DataTemplate x:DataType="x:String">
-            <RelativePanel HorizontalAlignment="Center">
-
-                <Image x:Name="AppLogo"
-                       Width="40"
-                       Height="40"
-                       Margin="210,8,0,0"
-                       RelativePanel.AlignVerticalCenterWithPanel="True"
-                       Source="ms-appx:///Assets/StoreLogo.png" />
+            <RelativePanel Width="850" HorizontalAlignment="Center">
 
                 <TextBlock x:Name="WelocomeText"
-                           Margin="18,0,0,0"
+                           Margin="0,-8,0,0"
                            VerticalAlignment="Center"
                            FontSize="24"
                            FontWeight="SemiBold"
-                           RelativePanel.AlignVerticalCenterWith="AppLogo"
-                           RelativePanel.RightOf="AppLogo"
                            Text="{x:Bind}" />
+
+                <Image Width="180"
+                       Height="180"
+                       Margin="7,-3,0,0"
+                       RelativePanel.Above="Separator"
+                       RelativePanel.RightOf="WelocomeText"
+                       Source="/Assets/LogoFont.png" />
+
+                <Rectangle x:Name="Separator"
+                           Width="844"
+                           Height="1"
+                           Margin="0,6,0,4"
+                           Fill="#5B5B5B"
+                           RelativePanel.AlignLeftWithPanel="True"
+                           RelativePanel.Below="WelocomeText" />
 
             </RelativePanel>
         </DataTemplate>
     </ContentDialog.TitleTemplate>
 
-    <ScrollViewer MaxWidth="800">
+
+    <ScrollViewer MaxWidth="850" Margin="0,-160,0,0">
         <StackPanel>
 
-            <TextBlock Margin="0,25"
+            <Image Width="870"
+                   Height="350"
+                   Margin="-14,-55,0,-90"
+                   Source="/Assets/BannerGetStarted.png"
+                   Stretch="Uniform" />
+
+            <TextBlock Margin="0,20,0,16"
                        FontSize="15"
                        FontWeight="SemiBold"
                        Foreground="{ThemeResource TextFillColorSecondaryBrush}"
                        Text="{CustomResource FirstRunDialogBody}"
                        TextWrapping="WrapWholeWords" />
 
-            <HyperlinkButton NavigateUri="https://github.com/Gabboxl/ClassevivaPCTO/graphs/contributors">
-                <StackPanel Orientation="Horizontal" Spacing="10">
+            <Rectangle Width="844"
+                       Height="1"
+                       Margin="-6,0,0,8"
+                       Fill="#5B5B5B" />
 
-                    <Grid Width="18" Height="18">
-                        <Path Data="{CustomResource GithubIcon}" Style="{StaticResource HyperlinkIconStyle}" />
-                    </Grid>
+            <StackPanel Margin="2,4,0,0"
+                        Orientation="Horizontal"
+                        Spacing="10">
 
-                    <TextBlock Text="{CustomResource FirstRunDialogContributorsHyperlink}" />
+                <TextBlock Margin="0,6,0,0"
+                           FontWeight="Medium"
+                           Text="{CustomResource FirstRunDialogMoreInfo}" />
 
-                </StackPanel>
-            </HyperlinkButton>
+                <HyperlinkButton NavigateUri="https://github.com/Gabboxl/ClassevivaPCTO/blob/main/LICENSE">
+                    <StackPanel Orientation="Horizontal" Spacing="10">
 
-            <HyperlinkButton NavigateUri="https://github.com/Gabboxl/ClassevivaPCTO/blob/main/LICENSE">
-                <StackPanel Orientation="Horizontal" Spacing="10">
+                        <Grid Width="18" Height="18">
+                            <Path Data="{CustomResource ShieldIcon}" Style="{StaticResource HyperlinkIconStyle}" />
+                        </Grid>
 
-                    <Grid Width="18" Height="18">
-                        <Path Data="{CustomResource GithubIcon}" Style="{StaticResource HyperlinkIconStyle}" />
-                    </Grid>
+                        <TextBlock Text="{CustomResource FirstRunDialogLicensesHyperlink}" />
 
-                    <TextBlock Text="{CustomResource FirstRunDialogLicensesHyperlink}" />
+                    </StackPanel>
+                </HyperlinkButton>
 
-                </StackPanel>
-            </HyperlinkButton>
+                <HyperlinkButton NavigateUri="https://github.com/Gabboxl/ClassevivaPCTO">
+                    <StackPanel Orientation="Horizontal" Spacing="10">
+
+                        <Grid Width="18" Height="18">
+                            <Path Data="{CustomResource GitHubIcon}" Style="{StaticResource HyperlinkIconStyle}" />
+                        </Grid>
+
+                        <TextBlock Text="GitHub" />
+
+                    </StackPanel>
+                </HyperlinkButton>
+
+            </StackPanel>
+
         </StackPanel>
     </ScrollViewer>
 </ContentDialog>
