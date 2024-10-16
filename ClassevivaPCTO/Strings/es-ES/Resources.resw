@@ -145,15 +145,12 @@
     <value>Aspetto</value>
   </data>
   <data name="FirstRunDialogBody" xml:space="preserve">
-    <value>Con ClassevivaPCTO potrai visualizzare i tuoi dati del registro elettronico Classeviva in maniera intuitiva e sotto le vesti di un design innovativo.
+    <value>ClassevivaPCTO è un client per Windows del registro elettronico Classeviva che consente di visualizzare i dati in maniera intuitiva e sotto le vesti di un design innovativo. Quest'app è rivolta soltanto agli account studente.
 
-Quest'app è rivolta soltanto agli account studente.
-
-Ricorda che quest'app è ancora in fase di sviluppo e alcune funzionalità non sono disponibili al momento. 
-Se riscontri bug o hai un'idea per l'app apri un issue su GitHub cliccando sul link "Segnala un problema" nella sezione Informazioni app.</value>
+Ricorda che l'applicativo è ancora in fase di sviluppo e alcune funzionalità non sono al momento disponibili.</value>
   </data>
   <data name="FirstRunDialogTitle" xml:space="preserve">
-    <value>Benvenuto in ClassevivaPCTO</value>
+    <value>Benvenuto in</value>
   </data>
   <data name="SettingsAccountHeader" xml:space="preserve">
     <value>Account</value>
@@ -224,7 +221,7 @@ Se riscontri bug o hai un'idea per l'app apri un issue su GitHub cliccando sul l
   <data name="LoginPasswordFieldHeader" xml:space="preserve">
     <value>Password:</value>
   </data>
-  <data name="LoginKeepCredentialsCheckbox" xml:space="preserve">
+  <data name="LoginKeepCredentialsCheckboxContent" xml:space="preserve">
     <value>Mantieni le credenziali</value>
   </data>
   <data name="DashboardTitleText" xml:space="preserve">
@@ -387,9 +384,6 @@ Errore: </value>
   <data name="WhatsNewDialogHighlights" xml:space="preserve">
     <value>In evidenza</value>
   </data>
-  <data name="WhatsNewDialogRelease" xml:space="preserve">
-    <value>v1.2.0, 25 Novembre 2023</value>
-  </data>
   <data name="AgendaTomorrowButtonToolTip" xml:space="preserve">
     <value>Giorno successivo</value>
   </data>
@@ -514,7 +508,7 @@ Errore: </value>
     <value>Media totale</value>
   </data>
   <data name="FirstRunDialogLicensesHyperlink" xml:space="preserve">
-    <value>Licenze</value>
+    <value>Licenza GPL-3.0</value>
   </data>
   <data name="GradesAllPeriodsSegmentedItem" xml:space="preserve">
     <value>Tutti i periodi</value>
@@ -800,5 +794,17 @@ Errore: </value>
   </data>
   <data name="NoticeBoardNoticesTitleSingular" xml:space="preserve">
     <value>comunicazione</value>
+  </data>
+  <data name="LoginKeepCredentialsCheckboxToolTip" xml:space="preserve">
+    <value>Salva le credenziali in modo da non doverle inserire nuovamente al prossimo avvio</value>
+  </data>
+  <data name="LoginPasswordFieldToolTip" xml:space="preserve">
+    <value>Inserisci la password del tuo account</value>
+  </data>
+  <data name="LoginUsernameFieldToolTip" xml:space="preserve">
+    <value>Inserisci il codice studente o la mail associata al tuo account. Ricorda che quest'app non supporta account genitori o insegnanti.</value>
+  </data>
+  <data name="FirstRunDialogMoreInfo" xml:space="preserve">
+    <value>Informazioni aggiuntive</value>
   </data>
 </root>
