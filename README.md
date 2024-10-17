@@ -1,6 +1,6 @@
 <p align="center">
+  <img src="https://github.com/Gabboxl/ClassevivaPCTO/blob/main/ClassevivaPCTO/Assets/LogoFont.png" width=35% height=35%>
  <img src="https://github.com/Gabboxl/ClassevivaPCTO/blob/main/ClassevivaPCTO/Assets/BannerGetStarted.png" width=100% height=100%>
- <img src="https://github.com/Gabboxl/ClassevivaPCTO/blob/main/ClassevivaPCTO/Assets/LogoFont.png" width=35% height=35%>
 </p>
 
 <div align="center">
