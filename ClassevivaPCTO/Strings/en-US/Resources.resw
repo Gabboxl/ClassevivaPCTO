@@ -145,12 +145,10 @@
     <value>Appearance</value>
   </data>
   <data name="FirstRunDialogBody" xml:space="preserve">
-    <value>ClassevivaPCTO è un client per Windows del registro elettronico Classeviva che consente di visualizzare i dati in maniera intuitiva e sotto le vesti di un design innovativo. Quest'app è rivolta soltanto agli account studente.
-
-Ricorda che l'applicativo è ancora in fase di sviluppo e alcune funzionalità non sono al momento disponibili.</value>
+    <value>ClassevivaPCTO is a client for Windows of Classeviva electronic school register that allows you to view data in an intuitive way and in the guise of an innovative design. This app is for student accounts only.</value>
   </data>
   <data name="FirstRunDialogTitle" xml:space="preserve">
-    <value>Benvenuto in</value>
+    <value>Welcome to</value>
   </data>
   <data name="SettingsAccountHeader" xml:space="preserve">
     <value>Account</value>
@@ -222,7 +220,7 @@ Ricorda che l'applicativo è ancora in fase di sviluppo e alcune funzionalità n
     <value>Password:</value>
   </data>
   <data name="LoginKeepCredentialsCheckboxContent" xml:space="preserve">
-    <value>Mantieni le credenziali</value>
+    <value>Keep me logged in</value>
   </data>
   <data name="DashboardTitleText" xml:space="preserve">
     <value>Dashboard of {0}</value>
@@ -508,7 +506,7 @@ Error: </value>
     <value>Global average</value>
   </data>
   <data name="FirstRunDialogLicensesHyperlink" xml:space="preserve">
-    <value>Licenza GPL-3.0</value>
+    <value>GPL-3.0 License</value>
   </data>
   <data name="GradesAllPeriodsSegmentedItem" xml:space="preserve">
     <value>All periods</value>
@@ -796,15 +794,15 @@ Error: </value>
     <value>notice</value>
   </data>
   <data name="LoginKeepCredentialsCheckboxToolTip" xml:space="preserve">
-    <value>Salva le credenziali in modo da non doverle inserire nuovamente al prossimo avvio</value>
+    <value>Keep me logged in so you don't need to enter your credentials again</value>
   </data>
   <data name="LoginPasswordFieldToolTip" xml:space="preserve">
-    <value>Inserisci la password del tuo account</value>
+    <value>Enter the password of your account</value>
   </data>
   <data name="LoginUsernameFieldToolTip" xml:space="preserve">
-    <value>Inserisci il codice studente o la mail associata al tuo account. Ricorda che quest'app non supporta account genitori o insegnanti.</value>
+    <value>Enter the student code or the mail associated to your account. Remember that this app doesn't support parents or teacher accounts yet.</value>
   </data>
   <data name="FirstRunDialogMoreInfo" xml:space="preserve">
-    <value>Informazioni aggiuntive</value>
+    <value>Additional information</value>
   </data>
 </root>
