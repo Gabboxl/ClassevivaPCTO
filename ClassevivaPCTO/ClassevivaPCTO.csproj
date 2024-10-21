@@ -30,7 +30,7 @@
     <AppxBundlePlatforms>x86|x64|arm|arm64</AppxBundlePlatforms>
     <HoursBetweenUpdateChecks>0</HoursBetweenUpdateChecks>
     <GenerateTemporaryStoreCertificate>True</GenerateTemporaryStoreCertificate>
-    <PackageCertificateThumbprint>18570B497CA9C7DC0E52DE999CEA050062FBD51B</PackageCertificateThumbprint>
+    <PackageCertificateThumbprint>6FB6BD2A723B61C3D81844AEBA5A46256C0E277F</PackageCertificateThumbprint>
     <!-- Enable Build Acceleration in Visual Studio. -->
     <AccelerateBuildsInVisualStudio>true</AccelerateBuildsInVisualStudio>
     <!--
