@@ -24,6 +24,17 @@ ClassevivaPCTO is a simple UWP client to consult Spaggiari's electronic school r
 * Customizable widgets, colors and language
 * Small and optimized even on low-end devices
 
+## Download
+
+<a href="https://apps.microsoft.com/store/detail/9PNST3M88D1S?launch=true&mode=mini" > <img src="https://get.microsoft.com/images/en-US%20dark.svg" width=30% height=30%/> </a>
+
+> [!note]
+> This app is available for ARM/ARM64/x86/x64 architectures.
+
+### Minimum requirements
+
+- Windows 10 version 1809 (build 17763)
+
 ## Latest version
 
 ![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/Gabboxl/ClassevivaPCTO?include_prereleases) 
@@ -37,18 +48,6 @@ ClassevivaPCTO is a simple UWP client to consult Spaggiari's electronic school r
 See the [v1.4.0 milestone](https://github.com/Gabboxl/ClassevivaPCTO/milestone/7) to know what features are currently under development and planned to be released in the next version. 
 
 Also see the [ClassevivaPCTO's Roadmap](https://github.com/users/Gabboxl/projects/5) for a full view of the funcionalities scheduled for the next releases.
-
-## Download
-
-<a href="https://apps.microsoft.com/store/detail/9PNST3M88D1S?launch=true&mode=mini" > <img src="https://get.microsoft.com/images/en-US%20dark.svg" width=30% height=30%/> </a>
-
-> [!note]
-> This app is available for ARM/ARM64/x86/x64 architectures.
-
-### Minimum requirements
-
-- Windows 10 version 1809 (build 17763)
-
 
 ## Test account
 
