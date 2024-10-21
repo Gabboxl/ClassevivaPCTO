@@ -1,5 +1,6 @@
 <p align="center">
- <img src="https://github.com/Gabboxl/ClassevivaPCTO/blob/main/.github/assets/logo-upscaled.png" width=55% height=55%>
+ <img src="https://github.com/Gabboxl/ClassevivaPCTO/blob/main/ClassevivaPCTO/Assets/LogoFont.png" width=35% height=35%>
+ <img src="https://github.com/Gabboxl/ClassevivaPCTO/blob/main/ClassevivaPCTO/Assets/BannerGetStarted.png" width=100% height=100%>
 </p>
 
 <div align="center">
@@ -27,7 +28,7 @@ ClassevivaPCTO is a simple UWP client to consult Spaggiari's electronic school r
 
 ![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/Gabboxl/ClassevivaPCTO?include_prereleases) 
 
-<img src="https://github.com/Gabboxl/ClassevivaPCTO/blob/main/ClassevivaPCTO/Assets/storescreenshot.png" width=80% height=80%>
+<img src="https://github.com/Gabboxl/ClassevivaPCTO/blob/main/ClassevivaPCTO/Assets/BannerRelease1_3.png" width=80% height=80%>
 
 [See release details](https://github.com/Gabboxl/ClassevivaPCTO/releases/latest)
 
@@ -39,7 +40,7 @@ Also see the [ClassevivaPCTO's Roadmap](https://github.com/users/Gabboxl/project
 
 ## Download
 
-<a href="https://apps.microsoft.com/store/detail/9PNST3M88D1S?launch=true&mode=mini" > <img src="https://get.microsoft.com/images/en-US%20dark.svg" width=20% height=20%/> </a>
+<a href="https://apps.microsoft.com/store/detail/9PNST3M88D1S?launch=true&mode=mini" > <img src="https://get.microsoft.com/images/en-US%20dark.svg" width=30% height=30%/> </a>
 
 > [!note]
 > This app is available for ARM/ARM64/x86/x64 architectures.
@@ -70,7 +71,7 @@ To compile this app you will need the following tools:
 
 ![Alt](https://repobeats.axiom.co/api/embed/62c2f0673922e475d41aca248e79b2c3b3e9572f.svg "Repobeats analytics image")
 
-<a href="https://github.com/DevToys-app/DevToys/graphs/contributors">
+<a href="https://github.com/gabboxl/ClassevivaPCTO/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=gabboxl/ClassevivaPCTO" />
 </a>
 
