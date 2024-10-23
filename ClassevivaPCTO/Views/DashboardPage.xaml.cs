@@ -217,11 +217,8 @@ namespace ClassevivaPCTO.Views
         {
             //execute everything in parallel
             var task1 = Task.Run(async () => { await LoadOverviewCard(); });
-
             var task2 = Task.Run(async () => { await CaricaRecentGradesCard(); });
-
             var task3 = Task.Run(async () => { await CaricaMediaCard(); });
-
             var task4 = Task.Run(async () => { await CaricaNoticesCard(); });
 
             //wait for all tasks to complete (also useful to get and rethrow exceptions that happened inside the tasks)

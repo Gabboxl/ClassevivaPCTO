@@ -316,7 +316,7 @@ namespace ClassevivaPCTO.Utils
 
     public class Note
     {
-        public long evtId { get; set; }
+        public long? evtId { get; set; }
         public string evtText { get; set; }
         public DateTime evtDate { get; set; }
         public string authorName { get; set; }
