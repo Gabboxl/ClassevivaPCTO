@@ -242,24 +242,24 @@ namespace ClassevivaPCTO.Views
 
                 await CoreApplication.MainView.Dispatcher.RunAsync(
                     CoreDispatcherPriority.Normal,
-                    async () =>
+                    async void () =>
                     {
-                        ContentDialog dialog = new()
-                        {
-                            Title = "ErroreText".GetLocalizedStr(),
-                            Style = Style = Application.Current.Resources["DefaultContentDialogStyle"] as Style,
-                            PrimaryButtonText = "OKCapsText".GetLocalizedStr(),
-                            DefaultButton = ContentDialogButton.Primary,
-                            Content = "ErrorDialogBody".GetLocalizedStr()
-                                      + ex.Content
-                        };
-
                         try
                         {
-                            var result = await dialog.ShowAsync();
+                            ContentDialog dialog = new()
+                            {
+                                Title = "ErroreText".GetLocalizedStr(),
+                                Style = Application.Current.Resources["DefaultContentDialogStyle"] as Style,
+                                PrimaryButtonText = "OKCapsText".GetLocalizedStr(),
+                                DefaultButton = ContentDialogButton.Primary,
+                                Content = "ErrorDialogBody".GetLocalizedStr() + ex.Content
+                            };
+
+                            await dialog.ShowAsync();
                         }
                         catch (Exception e)
                         {
+                            //TODO: loggare eccezione + risposta API in crashlytics
                             Console.WriteLine(e.ToString());
                         }
                     }
