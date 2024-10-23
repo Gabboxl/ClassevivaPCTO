@@ -142,11 +142,12 @@ namespace ClassevivaPCTO.Views
             {
                 foreach (var period in _mergedPeriodList)
                 {
-                    SegmentedPeriodi.Items.Add(VariousUtils.UppercaseFirst(period.Period.periodDesc));
+                    SegmentedPeriodi.Items?.Add(VariousUtils.UppercaseFirst(period.Period.periodDesc));
                 }
 
                 TitleFirstPerVal.Text = VariousUtils.UppercaseFirst(_mergedPeriodList[0].Period.periodDesc);
-                TitleSecondPerVal.Text = VariousUtils.UppercaseFirst(_mergedPeriodList[1].Period.periodDesc);
+                if(_mergedPeriodList.Count > 1) //TODO: rendere adattivo per singolo periodo o più periodi
+                  TitleSecondPerVal.Text = VariousUtils.UppercaseFirst(_mergedPeriodList[1].Period.periodDesc);
                 SegmentedPeriodi.SelectedIndex = 0;
 
                 return;
