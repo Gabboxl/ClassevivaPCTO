@@ -6,9 +6,9 @@ namespace ClassevivaPCTO.Utils
 {
     internal class CredUtils
     {
-        public PasswordCredential GetCredentialFromLocker()
+        public PasswordCredential? GetCredentialFromLocker()
         {
-            PasswordCredential credential = null;
+            PasswordCredential? credential = null;
 
             var vault = new Windows.Security.Credentials.PasswordVault();
 

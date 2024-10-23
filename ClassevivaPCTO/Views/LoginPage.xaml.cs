@@ -95,14 +95,6 @@ namespace ClassevivaPCTO.Views
             }
         }
 
-        private async void demoAccountClick(object sender, RoutedEventArgs e)
-        {
-            EdittextUsername.Text = "test";
-            EdittextPassword.Password = "test";
-            
-            await Task.Run(async () => { await DoLoginAsync(); });
-        }
-
         private async void Button_Click(object sender, RoutedEventArgs e)
         {
             await Task.Run(async () => { await DoLoginAsync(); });
@@ -110,8 +102,8 @@ namespace ClassevivaPCTO.Views
 
         private async Task DoLoginAsync()
         {
-            string edituid = null;
-            string editpass = null;
+            string? edituid = null;
+            string? editpass = null;
             bool checkboxCredenzialiChecked = false;
 
             await CoreApplication.MainView.Dispatcher.RunAsync(
@@ -126,16 +118,12 @@ namespace ClassevivaPCTO.Views
                 }
             );
 
-            if (edituid.Equals("test") && editpass.Equals("test"))
+            if (edituid!.Equals("test") && editpass!.Equals("test"))
             {
                 Endpoint.CurrentEndpoint = Endpoint.Test;
-
                 Microsoft.AppCenter.Analytics.Analytics.TrackEvent("Used mock test account");
-            }
-            else
-            {
+            } else {
                 Endpoint.CurrentEndpoint = Endpoint.Official;
-
                 Microsoft.AppCenter.Analytics.Analytics.TrackEvent("Used real account");
             }
 
@@ -147,14 +135,14 @@ namespace ClassevivaPCTO.Views
 
             try
             {
-                var measurement = new LoginData
+                var loginDataNoIdentity = new LoginData
                 {
                     Uid = edituid,
                     Pass = editpass,
                     Ident = null
                 };
 
-                var resLogin = await CvUtils.GetApiLoginData(_apiWrapper, measurement);
+                var resLogin = await CvUtils.GetApiLoginData(_apiWrapper, loginDataNoIdentity);
 
                 if (resLogin is LoginResultComplete loginResult)
                 {
@@ -167,12 +155,14 @@ namespace ClassevivaPCTO.Views
                             CoreDispatcherPriority.Normal,
                             async () =>
                             {
-                                ContentDialog dialog = new ContentDialog();
-                                dialog.Style = Application.Current.Resources["DefaultContentDialogStyle"] as Style;
-                                dialog.Title = "AccountNonSupportato".GetLocalizedStr();
-                                dialog.PrimaryButtonText = "OKCapsText".GetLocalizedStr();
-                                dialog.DefaultButton = ContentDialogButton.Primary;
-                                dialog.Content = "AccountNonSupportatoBody".GetLocalizedStr();
+                                ContentDialog dialog = new ContentDialog
+                                {
+                                    Style = Application.Current.Resources["DefaultContentDialogStyle"] as Style,
+                                    Title = "AccountNonSupportato".GetLocalizedStr(),
+                                    PrimaryButtonText = "OKCapsText".GetLocalizedStr(),
+                                    DefaultButton = ContentDialogButton.Primary,
+                                    Content = "AccountNonSupportatoBody".GetLocalizedStr()
+                                };
 
                                 try
                                 {
@@ -187,7 +177,7 @@ namespace ClassevivaPCTO.Views
                         return;
                     }
 
-                    GetUserDataAndGoAhead(loginResult, measurement, checkboxCredenzialiChecked);
+                    GetUserDataAndGoAhead(loginResult, loginDataNoIdentity, checkboxCredenzialiChecked);
                 }
                 else if (resLogin is LoginResultChoices loginResultChoices)
                 {
@@ -203,33 +193,33 @@ namespace ClassevivaPCTO.Views
                     {
                         var resultDialog = await ShowChoicesDialog(loginResultChoices);
 
-                        if (resultDialog.Item1 == ContentDialogResult.Primary)
+                        switch (resultDialog.Item1)
                         {
-                            //get the chosen index from the dialog combobox
-                            resLoginChoice = loginResultChoices.choices[
-                                resultDialog.Item2.chosenIndex
-                            ];
-                        }
-                        else if (resultDialog.Item1 == ContentDialogResult.None)
-                        {
-                            return;
+                            case ContentDialogResult.Primary:
+                                //get the chosen index from the dialog combobox
+                                resLoginChoice = loginResultChoices.choices[
+                                    resultDialog.Item2.chosenIndex
+                                ];
+                                break;
+                            case ContentDialogResult.None:
+                                return;
                         }
                     }
 
-                    var loginData = new LoginData
+                    var loginDataIdentity = new LoginData
                     {
                         Uid = edituid,
                         Pass = editpass,
                         Ident = resLoginChoice.ident
                     };
 
-                    var resLoginFinal = await CvUtils.GetApiLoginData(_apiWrapper, loginData);
+                    var resLoginFinal = await CvUtils.GetApiLoginData(_apiWrapper, loginDataIdentity);
 
                     if (resLoginFinal is LoginResultComplete loginResultChoice)
                     {
                         GetUserDataAndGoAhead(
                             loginResultChoice,
-                            loginData,
+                            loginDataIdentity,
                             checkboxCredenzialiChecked,
                             resLoginChoice
                         );
