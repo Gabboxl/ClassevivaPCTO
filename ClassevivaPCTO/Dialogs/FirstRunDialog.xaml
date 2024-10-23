@@ -8,7 +8,9 @@
     d:DesignWidth="550"
     mc:Ignorable="d"
     Style="{StaticResource DefaultContentDialogStyle}"
-    PrimaryButtonStyle="{StaticResource DefaultButtonStyle}">
+    PrimaryButtonStyle="{StaticResource DefaultButtonStyle}"
+    SecondaryButtonStyle="{StaticResource DefaultButtonStyle}"
+    CloseButtonStyle="{StaticResource DefaultButtonStyle}">
 
     <ContentDialog.TitleTemplate>
         <DataTemplate x:DataType="x:String">
