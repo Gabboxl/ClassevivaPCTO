@@ -145,12 +145,12 @@
     <value>Apparence</value>
   </data>
   <data name="FirstRunDialogBody" xml:space="preserve">
-    <value>ClassevivaPCTO è un client per Windows del registro elettronico Classeviva che consente di visualizzare i dati in maniera intuitiva e sotto le vesti di un design innovativo. Quest'app è rivolta soltanto agli account studente.
+    <value>ClassevivaPCTO est un client pour Windows du registre électronique Classeviva qui permet de visualiser les données de manière intuitive et sous forme d'un design innovant. Cette application est réservée aux comptes étudiants.
 
-Ricorda che l'applicativo è ancora in fase di sviluppo e alcune funzionalità non sono al momento disponibili.</value>
+N'oubliez pas que l'application est encore en développement et que certaines fonctionnalités ne sont pas disponibles actuellement.</value>
   </data>
   <data name="FirstRunDialogTitle" xml:space="preserve">
-    <value>Benvenuto in</value>
+    <value>Bienvenue sur</value>
   </data>
   <data name="SettingsAccountHeader" xml:space="preserve">
     <value>Comptes</value>
@@ -222,7 +222,7 @@ Ricorda che l'applicativo è ancora in fase di sviluppo e alcune funzionalità n
     <value>Mot de passe :</value>
   </data>
   <data name="LoginKeepCredentialsCheckboxContent" xml:space="preserve">
-    <value>Mantieni le credenziali</value>
+    <value>Conserver les informations d'identification</value>
   </data>
   <data name="DashboardTitleText" xml:space="preserve">
     <value>Le panneau de bord de {0}</value>
@@ -508,7 +508,7 @@ Erreur: </value>
     <value>Moyenne totale</value>
   </data>
   <data name="FirstRunDialogLicensesHyperlink" xml:space="preserve">
-    <value>Licenza GPL-3.0</value>
+    <value>Licence GPL-3.0</value>
   </data>
   <data name="GradesAllPeriodsSegmentedItem" xml:space="preserve">
     <value>Toutes les périodes</value>
@@ -796,15 +796,15 @@ Erreur: </value>
     <value>communication</value>
   </data>
   <data name="LoginKeepCredentialsCheckboxToolTip" xml:space="preserve">
-    <value>Salva le credenziali in modo da non doverle inserire nuovamente al prossimo avvio</value>
+    <value>Enregistrez vos informations d'identification afin de ne pas avoir à les saisir à nouveau au prochain démarrage</value>
   </data>
   <data name="LoginPasswordFieldToolTip" xml:space="preserve">
-    <value>Inserisci la password del tuo account</value>
+    <value>Entrez le mot de passe de votre compte</value>
   </data>
   <data name="LoginUsernameFieldToolTip" xml:space="preserve">
-    <value>Inserisci il codice studente o la mail associata al tuo account. Ricorda che quest'app non supporta account genitori o insegnanti.</value>
+    <value>Saisissez le code étudiant ou l'e-mail associé à votre compte. Veuillez noter que cette application ne prend pas en charge les comptes parents ou enseignants.</value>
   </data>
   <data name="FirstRunDialogMoreInfo" xml:space="preserve">
-    <value>Informazioni aggiuntive</value>
+    <value>Informations Complémentaires</value>
   </data>
 </root>
