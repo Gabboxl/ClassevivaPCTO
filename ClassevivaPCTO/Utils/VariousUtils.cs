@@ -162,7 +162,7 @@ namespace ClassevivaPCTO.Utils
                             break;
 
                         case "i":
-                            valoreFinale = 5;
+                            valoreFinale = 3;
                             break;
                     }
                 }
