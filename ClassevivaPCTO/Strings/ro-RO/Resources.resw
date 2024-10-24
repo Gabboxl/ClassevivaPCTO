@@ -145,12 +145,12 @@
     <value>Aspect</value>
   </data>
   <data name="FirstRunDialogBody" xml:space="preserve">
-    <value>ClassevivaPCTO è un client per Windows del registro elettronico Classeviva che consente di visualizzare i dati in maniera intuitiva e sotto le vesti di un design innovativo. Quest'app è rivolta soltanto agli account studente.
+    <value>ClassevivaPCTO este un client pentru Windows al registrului electronic Classeviva care vă permite să vizualizați datele într-un mod intuitiv și sub masca unui design inovator. Această aplicație este doar pentru conturile de studenți.
 
-Ricorda che l'applicativo è ancora in fase di sviluppo e alcune funzionalità non sono al momento disponibili.</value>
+Rețineți că aplicația este încă în curs de dezvoltare și unele funcții nu sunt disponibile momentan.</value>
   </data>
   <data name="FirstRunDialogTitle" xml:space="preserve">
-    <value>Benvenuto in</value>
+    <value>Bun venit la</value>
   </data>
   <data name="SettingsAccountHeader" xml:space="preserve">
     <value>Cont</value>
@@ -222,7 +222,7 @@ Ricorda che l'applicativo è ancora in fase di sviluppo e alcune funzionalità n
     <value>Parolă:</value>
   </data>
   <data name="LoginKeepCredentialsCheckboxContent" xml:space="preserve">
-    <value>Mantieni le credenziali</value>
+    <value>Mențineți credențialele</value>
   </data>
   <data name="DashboardTitleText" xml:space="preserve">
     <value>Tabloul de bord al {0}</value>
@@ -508,7 +508,7 @@ Eroare: </value>
     <value>Media totală</value>
   </data>
   <data name="FirstRunDialogLicensesHyperlink" xml:space="preserve">
-    <value>Licenza GPL-3.0</value>
+    <value>Licență GPL-3.0</value>
   </data>
   <data name="GradesAllPeriodsSegmentedItem" xml:space="preserve">
     <value>Toate intervalele de timp</value>
@@ -796,15 +796,15 @@ Eroare: </value>
     <value>comunicare</value>
   </data>
   <data name="LoginKeepCredentialsCheckboxToolTip" xml:space="preserve">
-    <value>Salva le credenziali in modo da non doverle inserire nuovamente al prossimo avvio</value>
+    <value>Salvați-vă acreditările, astfel încât să nu fie nevoie să le introduceți din nou data viitoare când porniți</value>
   </data>
   <data name="LoginPasswordFieldToolTip" xml:space="preserve">
-    <value>Inserisci la password del tuo account</value>
+    <value>Introduceți parola contului dvs</value>
   </data>
   <data name="LoginUsernameFieldToolTip" xml:space="preserve">
-    <value>Inserisci il codice studente o la mail associata al tuo account. Ricorda che quest'app non supporta account genitori o insegnanti.</value>
+    <value>Introduceți codul de student sau adresa de e-mail asociată contului dvs. Vă rugăm să rețineți că această aplicație nu acceptă conturi de părinți sau profesori.</value>
   </data>
   <data name="FirstRunDialogMoreInfo" xml:space="preserve">
-    <value>Informazioni aggiuntive</value>
+    <value>Informații suplimentare</value>
   </data>
 </root>
