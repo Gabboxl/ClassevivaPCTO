@@ -35,9 +35,9 @@ namespace ClassevivaPCTO.Utils
                 .Handle<AggregateException>()
                 .RetryAsync(
                     retryCount,
-                    async (exception, retryCount, context) =>
+                    async (exception, retryAttempts, context) =>
                     {
-                        currentRetryAttempts = retryCount;
+                        currentRetryAttempts = retryAttempts;
 
                         //we check whether the exception thrown is actually a Refit's ApiException
                         if (exception.InnerException is ApiException apiException)
@@ -49,7 +49,7 @@ namespace ClassevivaPCTO.Utils
                                 //TODO: refresh token
                                 //await apiClient.RefreshTokenAsync();
 
-                                Debug.WriteLine("Test retry n.{0} policy ok ", retryCount);
+                                Debug.WriteLine("Test retry n.{0} policy ok ", retryAttempts);
 
                                 var loginCredentials = new CredUtils().GetCredentialFromLocker();
 
@@ -169,7 +169,7 @@ namespace ClassevivaPCTO.Utils
                     if (result is Task task)
                     {
                         //await task.ConfigureAwait(false);
-                        task.Wait(); //we wait for the result of the task, so we catch the exceptions if there are any
+                        task.Wait(ct); //we wait for the result of the task, so we catch the exceptions if there are any
                     }
 
                     return result; //if no exception occur then we return the result of the method call
@@ -188,8 +188,6 @@ namespace ClassevivaPCTO.Utils
                 else if (policyResult.FinalException.InnerException is ApiException apiException)
                 {
                     //if (apiException.StatusCode == System.Net.HttpStatusCode.ServiceUnavailable)
-
-                    var isSomethingLoading = new TaskCompletionSource<bool>();
 
                     CoreApplication.MainView.Dispatcher.RunAsync(
                         CoreDispatcherPriority.Normal,
@@ -217,16 +215,41 @@ namespace ClassevivaPCTO.Utils
                                 Debug.WriteLine("Exception in dispatcher: " + e.Message);
                             }
 
-                            isSomethingLoading.SetResult(true);
                         }
                     );
 
-                    var task = isSomethingLoading.Task;
+                } else if (policyResult.FinalException.InnerException is System.Net.Http.HttpRequestException)
+                {
+                    CoreApplication.MainView.Dispatcher.RunAsync(
+                        CoreDispatcherPriority.Normal,
+                        async () =>
+                        {
+                            ContentDialog noWifiDialog = new()
+                            {
+                                Title = "Nessuna connessione ad internet",
+                                Style = Application.Current.Resources["DefaultContentDialogStyle"] as Style,
+                                Content = "Per continuare è necessario connettersi ad internet.",
+                                CloseButtonText = "OKCapsText".GetLocalizedStr()
+                            };
 
-                    var result = targetMethod.Invoke(Target, args);
+                            try
+                            {
+                                VariousUtils.CloseAllOpenContentDialogs();
+                                await noWifiDialog.ShowAsync();
+                            }
+                            catch (Exception e)
+                            {
+                                Debug.WriteLine("Exception in dispatcher: " + e.Message);
+                            }
 
-                    return result;
+                            //isSomethingLoading.SetResult(true);
+                        }
+                    );
+
                 }
+                
+                throw policyResult.FinalException;
+                
             }
 
             return policyResult.Result; // On success, return the result of the action

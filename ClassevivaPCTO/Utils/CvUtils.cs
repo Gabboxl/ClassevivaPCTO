@@ -17,7 +17,7 @@ namespace ClassevivaPCTO.Utils
 
             if (res.StatusCode == System.Net.HttpStatusCode.OK)
             {
-                var responseContent = await res.Content.ReadAsStringAsync();
+                string responseContent = await res.Content.ReadAsStringAsync();
 
                 if (responseContent.Contains("choice"))
                 {

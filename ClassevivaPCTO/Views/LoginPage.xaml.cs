@@ -131,10 +131,11 @@ namespace ClassevivaPCTO.Views
             App app = (App) App.Current;
             var apiClient = app.Container.GetService<IClassevivaAPI>();
 
-            _apiWrapper = PoliciesDispatchProxy<IClassevivaAPI>.CreateProxy(apiClient);
 
             try
             {
+                _apiWrapper = PoliciesDispatchProxy<IClassevivaAPI>.CreateProxy(apiClient ?? throw new InvalidOperationException());
+
                 var loginDataNoIdentity = new LoginData
                 {
                     Uid = edituid,
@@ -234,24 +235,16 @@ namespace ClassevivaPCTO.Views
                     CoreDispatcherPriority.Normal,
                     async void () =>
                     {
-                        try
+                        ContentDialog dialog = new()
                         {
-                            ContentDialog dialog = new()
-                            {
-                                Title = "ErroreText".GetLocalizedStr(),
-                                Style = Application.Current.Resources["DefaultContentDialogStyle"] as Style,
-                                PrimaryButtonText = "OKCapsText".GetLocalizedStr(),
-                                DefaultButton = ContentDialogButton.Primary,
-                                Content = "ErrorDialogBody".GetLocalizedStr() + ex.Content
-                            };
+                            Title = "ErroreText".GetLocalizedStr(),
+                            Style = Application.Current.Resources["DefaultContentDialogStyle"] as Style,
+                            PrimaryButtonText = "OKCapsText".GetLocalizedStr(),
+                            DefaultButton = ContentDialogButton.Primary,
+                            Content = "ErrorDialogBody".GetLocalizedStr() + ex.Content
+                        };
 
-                            await dialog.ShowAsync();
-                        }
-                        catch (Exception e)
-                        {
-                            //TODO: loggare eccezione + risposta API in crashlytics
-                            Console.WriteLine(e.ToString());
-                        }
+                        await dialog.ShowAsync();
                     }
                 );
             }

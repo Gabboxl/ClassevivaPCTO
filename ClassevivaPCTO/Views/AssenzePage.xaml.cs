@@ -46,10 +46,7 @@ namespace ClassevivaPCTO.Views
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
-
             AssenzeViewModel.IsLoadingAssenze = true;
-
-
             await Task.Run(async () => { await LoadData(); });
         }
 
