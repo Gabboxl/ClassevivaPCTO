@@ -174,8 +174,8 @@ namespace ClassevivaPCTO
             }
 
             Debug.WriteLine("TESTEXCEPTION: " + exceptionThatDoesntGoAway.StackTrace);
-            Trace.WriteLine("SIDE: " + exceptionThatDoesntGoAway.StackTraceEx());
-            Trace.WriteLine("SIDE2: " + exceptionThatDoesntGoAway.StackTrace);
+            //Trace.WriteLine("SIDE: " + exceptionThatDoesntGoAway.StackTraceEx());
+            //Trace.WriteLine("SIDE2: " + exceptionThatDoesntGoAway.StackTrace);
 
             e.Handled = true;
 
