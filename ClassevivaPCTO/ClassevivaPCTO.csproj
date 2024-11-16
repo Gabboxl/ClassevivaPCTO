@@ -524,25 +524,25 @@
       <Version>8.1.240916</Version>
     </PackageReference>
     <PackageReference Include="Crowdin.Api">
-      <Version>2.26.0</Version>
+      <Version>2.27.0</Version>
     </PackageReference>
     <PackageReference Include="Crowdin.Net">
       <Version>1.1.0</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.AppCenter.Analytics">
-      <Version>5.0.5</Version>
+      <Version>5.0.6</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.AppCenter.Crashes">
-      <Version>5.0.5</Version>
+      <Version>5.0.6</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.Extensions.DependencyInjection">
-      <Version>8.0.1</Version>
+      <Version>9.0.0</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions">
-      <Version>8.0.2</Version>
+      <Version>9.0.0</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.Extensions.Http.Polly">
-      <Version>8.0.10</Version>
+      <Version>9.0.0</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
       <Version>6.2.14</Version>
@@ -557,7 +557,7 @@
       <Version>13.0.3</Version>
     </PackageReference>
     <PackageReference Include="Polly">
-      <Version>8.4.2</Version>
+      <Version>8.5.0</Version>
     </PackageReference>
     <PackageReference Include="Polly.Extensions.Http">
       <Version>3.0.0</Version>
@@ -568,19 +568,19 @@
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
     <PackageReference Include="Refit">
-      <Version>7.2.1</Version>
+      <Version>8.0.0</Version>
     </PackageReference>
     <PackageReference Include="Refit.HttpClientFactory">
-      <Version>7.2.1</Version>
+      <Version>8.0.0</Version>
     </PackageReference>
     <PackageReference Include="Refit.Newtonsoft.Json">
-      <Version>7.2.1</Version>
+      <Version>8.0.0</Version>
     </PackageReference>
     <PackageReference Include="System.Runtime.Caching">
-      <Version>8.0.1</Version>
+      <Version>9.0.0</Version>
     </PackageReference>
     <PackageReference Include="System.Text.Json">
-      <Version>8.0.5</Version>
+      <Version>9.0.0</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
