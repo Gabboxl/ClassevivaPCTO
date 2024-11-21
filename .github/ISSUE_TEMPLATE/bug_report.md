@@ -10,7 +10,7 @@ assignees: ''
 **Infos (please complete the following information):**
  - Device model/manufacturer: [e.g. Razer Blade 15 2020]
  - Windows version + build: [e.g. Windows 10 20H2 Build 19xxx.xx]
- - PininOrario version: 
+ - ClassevivaPCTO version: 
 
 
 **Description of the bug:**
