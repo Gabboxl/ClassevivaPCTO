@@ -35,6 +35,13 @@ namespace ClassevivaPCTO.Utils
                     // retrieve the default username. If one doesn't
                     // exist, then display UI to have the user select
                     // a default username.
+
+
+                    //delete every credential per il momento, così non ci sono problemi
+                    foreach (var cred in credentialList)
+                    {
+                        vault.Remove(cred);
+                    }
                 }
             }
 
