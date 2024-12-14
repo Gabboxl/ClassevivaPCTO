@@ -26,7 +26,7 @@ ClassevivaPCTO is a simple UWP client to consult Spaggiari's electronic school r
 
 ## Download
 
-<a href="https://apps.microsoft.com/store/detail/9PNST3M88D1S?launch=true&mode=mini" > <img src="https://get.microsoft.com/images/en-US%20dark.svg" width=30% height=30%/> </a>
+<a href="https://apps.microsoft.com/store/detail/9PNST3M88D1S?launch=true&mode=mini" > <img src="https://get.microsoft.com/images/en-us%20dark.svg" width=30% height=30%/> </a>
 
 > [!note]
 > This app is available for ARM/ARM64/x86/x64 architectures.
