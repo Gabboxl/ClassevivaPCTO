@@ -5,6 +5,7 @@ using System;
 using System.Linq;
 using System.Threading.Tasks;
 using Windows.ApplicationModel.Core;
+using Windows.Storage;
 using Windows.UI.Core;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -38,20 +39,32 @@ namespace ClassevivaPCTO.Views
         {
             base.OnNavigatedTo(e);
 
-            AgendaViewModel.IsLoadingAgenda = true;
+            var settings = ApplicationData.Current.LocalSettings.Values;
+            if (settings.ContainsKey("Agenda_LezioniPopupWidth") && settings["Agenda_LezioniPopupWidth"] is double lezioniWidth)
+                LezioniPopup.Width = lezioniWidth;
 
-            //listender for calendaragenda date change
+            if (settings.ContainsKey("Agenda_AgendaPopupWidth") && settings["Agenda_AgendaPopupWidth"] is double agendaWidth)
+                AgendaPopup.Width = agendaWidth;
+
+            AgendaViewModel.IsLoadingAgenda = true;
             CalendarAgenda.DateChanged += CalendarAgenda_DateChanged;
 
             //imposto la data di oggi del picker, e aziono il listener per il cambiamento della data
             CalendarAgenda.Date = DateTime.Now;
 
-
             //set the min and max date of the calendaragenda
             var agedaDates = VariousUtils.GetAgendaStartEndDates();
-
             CalendarAgenda.MinDate = agedaDates.startDate;
             CalendarAgenda.MaxDate = agedaDates.endDate;
+        }
+
+        protected override void OnNavigatedFrom(NavigationEventArgs e)
+        {
+            base.OnNavigatedFrom(e);
+
+            var settings = ApplicationData.Current.LocalSettings.Values;
+            settings["Agenda_LezioniPopupWidth"] = LezioniPopup.Width;
+            settings["Agenda_AgendaPopupWidth"] = AgendaPopup.Width;
         }
 
         private async void CalendarAgenda_DateChanged(
@@ -63,16 +76,13 @@ namespace ClassevivaPCTO.Views
 
             if (agendaSelectedDate.HasValue)
             {
-                //if the date is today, then the button to go to today is disabled
                 if (agendaSelectedDate.Value.Date == DateTime.Now.Date)
                 {
                     ButtonToday.IsChecked = false;
-                    //ButtonToday.IsEnabled = false;
                 }
                 else
                 {
                     ButtonToday.IsChecked = true;
-                    //ButtonToday.IsEnabled = true;
                 }
 
                 await Task.Run(async () => { await LoadData(agendaSelectedDate.Value.Date); });
@@ -97,11 +107,9 @@ namespace ClassevivaPCTO.Views
                     apiDate
                 );
 
-                //update UI on UI thread
                 await CoreApplication.MainView.Dispatcher.RunAsync(
                     CoreDispatcherPriority.Normal, () =>
                     {
-                        //create new OverviewDataModel instance and set the data var inside
                         var overviewData = new OverviewDataModel
                         {
                             OverviewData = overviewResult,
@@ -132,7 +140,6 @@ namespace ClassevivaPCTO.Views
 
         private void ButtonTomorrow_Click(object sender, RoutedEventArgs e)
         {
-            //add one day to the calendaragenda date
             CalendarAgenda.Date = CalendarAgenda.Date.Value.AddDays(1);
         }
 
@@ -160,11 +167,8 @@ namespace ClassevivaPCTO.Views
                 CoreDispatcherPriority.Normal, () =>
                 {
                     LezioniPopup.Height = ActualHeight; //set the height of the popup to the height of the current PAGE (not the window because we do not need to take into account the appbar space)
-
                     LezioniPopupStackPanel.Children.Clear();
-
                     LezioniPopupProgressRing.IsActive = true;
-
                     LezioniPopup.IsOpen = true;
                 });
 
@@ -190,10 +194,8 @@ namespace ClassevivaPCTO.Views
                 );
             }
 
-            //add an expander control for 10 times in a loop to the LezioniPopupStackPanel
             foreach (var currentSubject in _subjects.Subjects)
             {
-                //list of lessons for the current subject id
                 var subjectLessons = _lessons.Lessons.Where(lesson => lesson.subjectId == currentSubject.id).ToList();
                 await CoreApplication.MainView.Dispatcher.RunAsync(
                     CoreDispatcherPriority.Normal, () =>
@@ -203,9 +205,7 @@ namespace ClassevivaPCTO.Views
                             Header = currentSubject.description,
                             HorizontalAlignment = HorizontalAlignment.Stretch,
                             HorizontalContentAlignment = HorizontalAlignment.Stretch
-                            //Content = "yoyo" 
                         };
-
 
                         var listviewlessons = new LessonsListView
                         {
@@ -226,7 +226,6 @@ namespace ClassevivaPCTO.Views
                 {
                     //we open the popup
                     LezioniPopup.IsOpen = true;
-
                     LezioniPopupProgressRing.IsActive = false;
                 });
         }
@@ -237,11 +236,8 @@ namespace ClassevivaPCTO.Views
                 CoreDispatcherPriority.Normal, () =>
                 {
                     AgendaPopup.Height = ActualHeight; //set the height of the popup to the height of the current PAGE (not the window because we do not need to take into account the appbar space)
-
                     AgendaPopupListviewContainer.Children.Clear();
-
                     AgendaPopupProgressRing.IsActive = true;
-
                     AgendaPopup.IsOpen = true;
                 });
 
@@ -273,7 +269,6 @@ namespace ClassevivaPCTO.Views
                 {
                     //we open the popup
                     AgendaPopup.IsOpen = true;
-
                     AgendaPopupProgressRing.IsActive = false;
                 });
         }
