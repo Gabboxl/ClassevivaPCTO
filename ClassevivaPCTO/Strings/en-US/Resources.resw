@@ -268,7 +268,7 @@
     <value>Teacher accounts are not supported</value>
   </data>
   <data name="AccountNonSupportatoBody" xml:space="preserve">
-    <value>Only student accounts are supported in this app. 
+    <value>Only student accounts are supported in this app.
 
 Student accounts have usernames starting with the letters S, G, or X.</value>
   </data>
