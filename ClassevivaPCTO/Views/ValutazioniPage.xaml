@@ -149,6 +149,39 @@
                     HorizontalAlignment="Right"
                     Orientation="Horizontal">
 
+            <ComboBox x:Name="OrderByComboBox"
+                      MinWidth="170"
+                      VerticalAlignment="Center"
+                      PlaceholderText="Ordina per..."
+                      SelectionChanged="OrderByComboBox_OnSelectionChanged">
+                <ComboBoxItem>
+                    <StackPanel Orientation="Horizontal">
+                        <FontIcon Glyph="&#xE823;" Margin="0,0,8,0" /> <!-- Sort by newest -->
+                        <TextBlock Text="Dal più recente al più vecchio" />
+                    </StackPanel>
+                </ComboBoxItem>
+                <ComboBoxItem>
+                    <StackPanel Orientation="Horizontal">
+                        <FontIcon Glyph="&#xE81C;" Margin="0,0,8,0" /> <!-- Sort by oldest -->
+                        <TextBlock Text="Dal più vecchio al più nuovo" />
+                    </StackPanel>
+                </ComboBoxItem>
+                <ComboBoxItem>
+                    <StackPanel Orientation="Horizontal">
+                        <FontIcon Glyph="&#xE1D8;" Margin="0,0,8,0" /> <!-- Sort by highest -->
+                        <TextBlock Text="Dal più alto al più basso" />
+                    </StackPanel>
+                </ComboBoxItem>
+                <ComboBoxItem>
+                    <StackPanel Orientation="Horizontal">
+                        <FontIcon Glyph="&#xE1D7;" Margin="0,0,8,0" /> <!-- Sort by lowest -->
+                        <TextBlock Text="Dal più basso al più alto" />
+                    </StackPanel>
+                </ComboBoxItem>
+            </ComboBox>
+
+            <Rectangle Style="{StaticResource ControlSeparatorStyle}"/>
+
             <StackPanel Orientation="Horizontal" Spacing="6" Margin="0,0,12,0">
                 <FontIcon Glyph="&#xE74C;" Foreground="{ThemeResource TextFillColorTertiaryBrush}" FontSize="16" />
                 <TextBlock Text="{CustomResource GradesLayoutHeader}" Foreground="{ThemeResource TextFillColorTertiaryBrush}" Margin="0,16,0,0"/>

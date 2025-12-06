@@ -14,6 +14,7 @@ using ClassevivaPCTO.Adapters;
 using ClassevivaPCTO.Controls;
 using ClassevivaPCTO.Helpers;
 using Windows.Storage;
+using CloneExtensions;
 using CommunityToolkit.WinUI.Controls;
 
 namespace ClassevivaPCTO.Views
@@ -54,6 +55,7 @@ namespace ClassevivaPCTO.Views
         {
             base.OnNavigatedTo(e);
             SegmentedLayout.SelectedIndex = await ApplicationData.Current.LocalSettings.ReadAsync<int>("GradesLayoutMode");
+            OrderByComboBox.SelectedIndex = await ApplicationData.Current.LocalSettings.ReadAsync<int>("GradesOrderMode");
             await Task.Run(async () => { await LoadData(); });
 
             SegmentedLayout.SelectionChanged += SegmentedLayout_OnSelectionChanged;
@@ -83,7 +85,6 @@ namespace ClassevivaPCTO.Views
 
                 var gradesRaw = grades2Result.Grades;
 
-                //order grades by date descending
                 _sortedGrades = gradesRaw
                     .OrderByDescending(g => g.evtDate)
                     .ToList();
@@ -117,7 +118,6 @@ namespace ClassevivaPCTO.Views
                             }).ToList()
                     }).ToList();
 
-                //update UI on UI thread
                 await CoreApplication.MainView.Dispatcher.RunAsync(
                     CoreDispatcherPriority.Normal, () => { UpdateUi(_sortedGrades); }
                 );
@@ -147,36 +147,53 @@ namespace ClassevivaPCTO.Views
 
                 TitleFirstPerVal.Text = VariousUtils.UppercaseFirst(_mergedPeriodList[0].Period.periodDesc);
                 if(_mergedPeriodList.Count > 1) //TODO: rendere adattivo per singolo periodo o più periodi
-                  TitleSecondPerVal.Text = VariousUtils.UppercaseFirst(_mergedPeriodList[1].Period.periodDesc);
+                    TitleSecondPerVal.Text = VariousUtils.UppercaseFirst(_mergedPeriodList[1].Period.periodDesc);
                 SegmentedPeriodi.SelectedIndex = 0;
 
                 return;
             }
 
-            List<SubjectWithGrades> mergedPeriodsSubjectsWithGrades;
+            int selectedOrderIndex = OrderByComboBox.SelectedIndex;
 
-            if (selectedPeriodIndex == 0)
+            List<Grade> OrderGrades(List<Grade> grades)
             {
-                //create a list of SubjectAdapter from periodGrades by merging periods together and count subjects as one distinct subject
-                mergedPeriodsSubjectsWithGrades = _mergedPeriodList
-                    .SelectMany(p => p.Subjects)
-                    .GroupBy(s => s.Subject.id)
-                    .Select(g => new SubjectWithGrades
-                    {
-                        Subject = g.First().Subject,
-                        Grades = g.SelectMany(s => s.Grades).ToList()
-                    })
-                    .ToList();
-
-            }
-            else
-            {
-                mergedPeriodsSubjectsWithGrades = _mergedPeriodList[selectedPeriodIndex - 1].Subjects;
-
+                return selectedOrderIndex switch
+                {
+                    0 => grades.OrderByDescending(g => g.evtDate).ToList(), // Newest to oldest
+                    1 => grades.OrderBy(g => g.evtDate).ToList(), // Oldest to newest
+                    2 => grades.OrderByDescending(g => g.decimalValue).ToList(), // Highest to lowest
+                    3 => grades.OrderBy(g => g.decimalValue).ToList(), // Lowest to highest
+                    _ => grades
+                };
             }
 
-            if (SegmentedLayout.SelectedIndex == 1)
+            if (SegmentedLayout.SelectedIndex == 1) // layout grouped by subject
             {
+                List<SubjectWithGrades> mergedPeriodsSubjectsWithGrades;
+
+                if (selectedPeriodIndex == 0)
+                {
+                    mergedPeriodsSubjectsWithGrades = _mergedPeriodList
+                        .SelectMany(p => p.Subjects)
+                        .GroupBy(s => s.Subject.id)
+                        .Select(g => new SubjectWithGrades
+                        {
+                            Subject = g.First().Subject,
+                            Grades = OrderGrades(g.SelectMany(s => s.Grades).ToList())
+                        })
+                        .ToList();
+                }
+                else
+                {
+                    mergedPeriodsSubjectsWithGrades = _mergedPeriodList[selectedPeriodIndex - 1].Subjects
+                        .Select(swg => new SubjectWithGrades
+                        {
+                            Subject = swg.Subject,
+                            Grades = OrderGrades(swg.Grades)
+                        })
+                        .ToList();
+                }
+
                 var subjectAdapters = mergedPeriodsSubjectsWithGrades.Select(subject =>
                     new SubjectAdapter(subject.Subject, subject.Grades)
                 ).ToList();
@@ -191,52 +208,47 @@ namespace ClassevivaPCTO.Views
                 MainListView.Visibility = Visibility.Collapsed;
                 GradesOnlyListView.Visibility = Visibility.Visible;
 
-                //if selected period is not the first one (all grades), filter grades by periodPos
-                var sortedGradesForPeriod = selectedPeriodIndex != 0 ? _sortedGrades
-                    .Where(g => g.periodPos == _mergedPeriodList[selectedPeriodIndex - 1].Period.periodPos)
-                    .ToList() : _sortedGrades;
+                List<Grade> sortedGrades;
+                if (selectedPeriodIndex != 0)
+                {
+                    sortedGrades = _sortedGrades
+                        .Where(g => g.periodPos == _mergedPeriodList[selectedPeriodIndex - 1].Period.periodPos)
+                        .ToList();
+                }
+                else
+                {
+                    sortedGrades = _sortedGrades.GetClone();
+                }
 
-                GradesOnlyListView.ItemsSource = sortedGradesForPeriod;
+                GradesOnlyListView.ItemsSource = OrderGrades(sortedGrades);
             }
-
         }
 
         private void UpdateUi(List<Grade> grades)
         {
-            //update main UI
             UpdateUi();
 
             //update statistics
             var firstPeriodGrades = _mergedPeriodList[0].Subjects.SelectMany(s => s.Grades).ToList();
             var secondPeriodGrades = _mergedPeriodList[1].Subjects.SelectMany(s => s.Grades).ToList();
 
-            //count all grades
             var allGradesCount = grades.Count;
             var firstPeriodGradesCount = firstPeriodGrades.Count;
             var secondPeriodGradesCount = secondPeriodGrades.Count;
 
-            //average of all grades
             var allGradesAverage = VariousUtils.CalcolaMedia(grades);
+            var firstPeriodGradesAverage = VariousUtils.CalcolaMedia(firstPeriodGrades.ToList());
+            var secondPeriodGradesAverage = VariousUtils.CalcolaMedia(secondPeriodGrades.ToList());
 
-            var firstPeriodGradesAverage = VariousUtils.CalcolaMedia(
-                firstPeriodGrades.ToList()
-            );
-
-            var secondPeriodGradesAverage = VariousUtils.CalcolaMedia(
-                secondPeriodGrades.ToList());
-
-            //update viewmodel
             ValutazioniViewModel.AverageTot = allGradesAverage;
             ValutazioniViewModel.AverageFirstPeriodo = firstPeriodGradesAverage;
             ValutazioniViewModel.AverageSecondPeriodo = secondPeriodGradesAverage;
 
-            //set progressrings value
             ProgressMediaTot.Value = float.IsNaN(allGradesAverage) ? 0 : allGradesAverage * 10;
             ProgressMediaPrimoPeriodo.Value = float.IsNaN(firstPeriodGradesAverage) ? 0 : firstPeriodGradesAverage * 10;
             ProgressMediaSecondoPeriodo.Value =
                 float.IsNaN(secondPeriodGradesAverage) ? 0 : secondPeriodGradesAverage * 10;
 
-            //set grades count
             string valutazioniPlAllgrad =
                 allGradesCount == 1 ? "GradeSingular".GetLocalizedStr() : "GradesPlural".GetLocalizedStr();
             string valutazioniPlurale1 = firstPeriodGradesCount == 1
@@ -269,6 +281,15 @@ namespace ClassevivaPCTO.Views
 
             UpdateUi();
             await ApplicationData.Current.LocalSettings.SaveAsync("GradesLayoutMode", SegmentedLayout.SelectedIndex);
+        }
+
+        private async void OrderByComboBox_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (_sortedGrades == null || _sortedGrades.Count == 0)
+                return;
+
+            UpdateUi();
+            await ApplicationData.Current.LocalSettings.SaveAsync("GradesOrderMode", OrderByComboBox.SelectedIndex);
         }
     }
 }
