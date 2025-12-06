@@ -168,13 +168,13 @@
                 </ComboBoxItem>
                 <ComboBoxItem>
                     <StackPanel Orientation="Horizontal">
-                        <FontIcon Glyph="&#xE1D8;" Margin="0,0,8,0" /> <!-- Sort by highest -->
+                        <FontIcon Glyph="&#xe8e8;" Margin="0,0,8,0" /> <!-- Sort by highest -->
                         <TextBlock Text="Dal più alto al più basso" />
                     </StackPanel>
                 </ComboBoxItem>
                 <ComboBoxItem>
                     <StackPanel Orientation="Horizontal">
-                        <FontIcon Glyph="&#xE1D7;" Margin="0,0,8,0" /> <!-- Sort by lowest -->
+                        <FontIcon Glyph="&#xe8e7;" Margin="0,0,8,0" /> <!-- Sort by lowest -->
                         <TextBlock Text="Dal più basso al più alto" />
                     </StackPanel>
                 </ComboBoxItem>
