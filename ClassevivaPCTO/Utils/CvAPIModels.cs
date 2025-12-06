@@ -26,20 +26,15 @@ namespace ClassevivaPCTO.Utils
     public class LoginData
     {
         [AliasAs("uid")] public string Uid { get; init; }
-
         [AliasAs("pass")] public string Pass { get; init; }
-
         [AliasAs("ident")] public string? Ident { get; init; }
     }
 
     public enum AbsenceEventCode
     {
         [ApiValue("A", "")] ABA0, //assenza
-
         [ApiValue("R", "")] ABR0, //ritardo
-
         [ApiValue("Rb", "")] ABR1, //ritardo breve
-
         [ApiValue("U", "")] ABU0 //uscita anticipata
     }
 
@@ -130,9 +125,7 @@ namespace ClassevivaPCTO.Utils
         public string lastName { get; set; }
         public string? token { get; set; }
         public bool showPwdChangeReminder { get; set; }
-
         [JsonProperty("release")] public DateTime release { get; set; }
-
         [JsonProperty("expire")] public DateTime expire { get; set; }
     }
 
@@ -182,13 +175,9 @@ namespace ClassevivaPCTO.Utils
     public class OverviewResult
     {
         [JsonPropertyName("lessons")] public List<Lesson> Lessons { get; set; }
-
         [JsonPropertyName("agenda")] public List<AgendaEvent> AgendaEvents { get; set; }
-
         [JsonPropertyName("events")] public List<AbsenceEvent> AbsenceEvents { get; set; }
-
         [JsonPropertyName("grades")] public List<Grade> Grades { get; set; }
-
         [JsonPropertyName("notes")]
         //[System.Text.Json.Serialization.JsonConverter(typeof(NoteDeserializerNet))]
         public List<Note> Notes { get; set; }
@@ -321,7 +310,6 @@ namespace ClassevivaPCTO.Utils
         public DateTime evtDate { get; set; }
         public string authorName { get; set; }
         public bool readStatus { get; set; }
-
         public NoteEventCode? evtCode { get; set; }
         public DateTime? evtBegin { get; set; }
         public DateTime? evtEnd { get; set; }
@@ -409,13 +397,9 @@ namespace ClassevivaPCTO.Utils
     public enum DayStatus
     {
         SD, //school day
-
         ND, // non school day
-
         HD, //holiday
-
         NW, // no work day
-
         US //unknown status
     }
 
