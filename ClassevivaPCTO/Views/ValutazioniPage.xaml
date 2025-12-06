@@ -152,30 +152,30 @@
             <ComboBox x:Name="OrderByComboBox"
                       MinWidth="170"
                       VerticalAlignment="Center"
-                      PlaceholderText="Ordina per..."
+                      PlaceholderText="{CustomResource OrderByComboBoxPlaceholderText}"
                       SelectionChanged="OrderByComboBox_OnSelectionChanged">
                 <ComboBoxItem>
                     <StackPanel Orientation="Horizontal">
                         <FontIcon Glyph="&#xE823;" Margin="0,0,8,0" /> <!-- Sort by newest -->
-                        <TextBlock Text="Dal più recente al più vecchio" />
+                        <TextBlock Text="{CustomResource GradesOrderByComboBox_FromNewToOld}" />
                     </StackPanel>
                 </ComboBoxItem>
                 <ComboBoxItem>
                     <StackPanel Orientation="Horizontal">
                         <FontIcon Glyph="&#xE81C;" Margin="0,0,8,0" /> <!-- Sort by oldest -->
-                        <TextBlock Text="Dal più vecchio al più nuovo" />
+                        <TextBlock Text="{CustomResource GradesOrderByComboBox_FromOldToNew}" />
                     </StackPanel>
                 </ComboBoxItem>
                 <ComboBoxItem>
                     <StackPanel Orientation="Horizontal">
                         <FontIcon Glyph="&#xe8e8;" Margin="0,0,8,0" /> <!-- Sort by highest -->
-                        <TextBlock Text="Dal più alto al più basso" />
+                        <TextBlock Text="{CustomResource GradesOrderByComboBox_FromHighToLow}" />
                     </StackPanel>
                 </ComboBoxItem>
                 <ComboBoxItem>
                     <StackPanel Orientation="Horizontal">
                         <FontIcon Glyph="&#xe8e7;" Margin="0,0,8,0" /> <!-- Sort by lowest -->
-                        <TextBlock Text="Dal più basso al più alto" />
+                        <TextBlock Text="{CustomResource GradesOrderByComboBox_FromLowToHigh}" />
                     </StackPanel>
                 </ComboBoxItem>
             </ComboBox>
