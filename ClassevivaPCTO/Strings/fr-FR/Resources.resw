@@ -807,4 +807,22 @@ Erreur: </value>
   <data name="FirstRunDialogMoreInfo" xml:space="preserve">
     <value>Informations Complémentaires</value>
   </data>
+  <data name="GradesOrderByComboBox_FromNewToOld" xml:space="preserve">
+    <value>Dal più recente al più vecchio</value>
+  </data>
+  <data name="GradesOrderByComboBox_FromOldToNew" xml:space="preserve">
+    <value>Dal più vecchio al più recente</value>
+  </data>
+  <data name="GradesOrderByComboBox_FromHighToLow" xml:space="preserve">
+    <value>Dal più alto al più basso</value>
+  </data>
+  <data name="GradesOrderByComboBox_FromLowToHigh" xml:space="preserve">
+    <value>Dal più basso al più alto</value>
+  </data>
+  <data name="OrderByComboBoxPlaceholderText" xml:space="preserve">
+    <value>Ordina per...</value>
+  </data>
+  <data name="AgendaPageTitlePreposition" xml:space="preserve">
+    <value>del</value>
+  </data>
 </root>
