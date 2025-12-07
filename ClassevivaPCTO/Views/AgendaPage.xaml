@@ -176,7 +176,7 @@
                             Orientation="Horizontal"
                             Spacing="16">
 
-                    <TextBlock Text="{CustomResource AgendaTitle}" Style="{StaticResource PageTitleTextStyle}" />
+                    <TextBlock x:Name="PageMainTitle" Text="{CustomResource AgendaTitle}" Style="{StaticResource PageTitleTextStyle}" />
 
                     <muxc:ProgressRing Style="{StaticResource PageProgressRingStyle}"
                                        Visibility="{x:Bind AgendaViewModel.IsLoadingAgenda, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" />

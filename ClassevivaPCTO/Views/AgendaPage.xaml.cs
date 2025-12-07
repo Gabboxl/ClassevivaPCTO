@@ -12,6 +12,7 @@ using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
 using ClassevivaPCTO.Controls;
 using ClassevivaPCTO.DataModels;
+using ClassevivaPCTO.Helpers;
 using Expander = Microsoft.UI.Xaml.Controls.Expander;
 
 namespace ClassevivaPCTO.Views
@@ -67,15 +68,14 @@ namespace ClassevivaPCTO.Views
             settings["Agenda_AgendaPopupWidth"] = AgendaPopup.Width;
         }
 
-        private async void CalendarAgenda_DateChanged(
-            CalendarDatePicker sender,
-            CalendarDatePickerDateChangedEventArgs args
-        )
+        private async void CalendarAgenda_DateChanged(CalendarDatePicker sender, CalendarDatePickerDateChangedEventArgs args)
         {
             var agendaSelectedDate = CalendarAgenda.Date;
 
             if (agendaSelectedDate.HasValue)
             {
+                PageMainTitle.Text = "AgendaTitle".GetLocalizedStr() + " " + "AgendaPageTitlePreposition".GetLocalizedStr() + " " + agendaSelectedDate.Value.ToString("d MMMM yyyy");
+
                 if (agendaSelectedDate.Value.Date == DateTime.Now.Date)
                 {
                     ButtonToday.IsChecked = false;
@@ -175,7 +175,6 @@ namespace ClassevivaPCTO.Views
             LoginResultComplete? loginResult = AppViewModelHolder.GetViewModel().LoginResult;
             Card? cardResult = AppViewModelHolder.GetViewModel().SingleCardResult;
 
-
             if (_subjects == null)
             {
                 _subjects = await _apiWrapper.GetSubjects(
@@ -224,7 +223,6 @@ namespace ClassevivaPCTO.Views
             await CoreApplication.MainView.Dispatcher.RunAsync(
                 CoreDispatcherPriority.Normal, () =>
                 {
-                    //we open the popup
                     LezioniPopup.IsOpen = true;
                     LezioniPopupProgressRing.IsActive = false;
                 });
@@ -267,7 +265,6 @@ namespace ClassevivaPCTO.Views
             await CoreApplication.MainView.Dispatcher.RunAsync(
                 CoreDispatcherPriority.Normal, () =>
                 {
-                    //we open the popup
                     AgendaPopup.IsOpen = true;
                     AgendaPopupProgressRing.IsActive = false;
                 });
