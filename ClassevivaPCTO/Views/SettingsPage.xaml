@@ -122,40 +122,26 @@
                                     Margin="0,0,8,0"
                                     VerticalAlignment="Center">
 
-                            <!-- <Button
-                                x:Name="ChangePhotoButton"
-                                Margin="0,0,0,0" HorizontalAlignment="Stretch" >
+                            <Button x:Name="ChangePhotoButton" Margin="0,0,0,0" 
+                                    HorizontalAlignment="Stretch" HorizontalContentAlignment="Center"
+                                    VerticalAlignment="Center" Click="ChangePhotoButton_Click" >
 
                                 <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Spacing="8">
-
-                                    <TextBlock Text="&#xE722;" VerticalAlignment="Center"
-                                               FontFamily="{StaticResource FluentIcons}" />
-
-                                    <TextBlock ="SettingsAccountChangePhotoButton" />
-
+                                    <TextBlock VerticalAlignment="Center" FontFamily="{StaticResource FluentIcons}" Text="&#xE722;" />
+                                    <TextBlock x:Uid="SettingsAccountChangePhoto" />
                                 </StackPanel>
+                                
+                            </Button>
 
-                                </Button>
-                            -->
+                            <Button x:Name="ExitButton" Margin="0,24,0,0"
+                                    HorizontalAlignment="Stretch" HorizontalContentAlignment="Center"
+                                    VerticalContentAlignment="Center" Click="ButtonLogout_Click">
 
-                            <Button x:Name="ExitButton"
-                                    Margin="0,12,0,0"
-                                    HorizontalAlignment="Stretch"
-                                    HorizontalContentAlignment="Center"
-                                    VerticalContentAlignment="Center"
-                                    Click="ButtonLogout_Click">
-
-                                <StackPanel VerticalAlignment="Center"
-                                            Orientation="Horizontal"
-                                            Spacing="8">
-
-                                    <TextBlock VerticalAlignment="Center"
-                                               FontFamily="{StaticResource FluentIcons}"
-                                               Text="&#xF3B1;" />
-
-                                    <TextBlock Text="{CustomResource SettingsAccountExitButton}" />
-
+                                <StackPanel VerticalAlignment="Center" Orientation="Horizontal" Spacing="8">
+                                    <TextBlock VerticalAlignment="Center" FontFamily="{StaticResource FluentIcons}" Text="&#xF3B1;" />
+                                    <TextBlock x:Uid="SettingsAccountExitButton" />
                                 </StackPanel>
+                                
                             </Button>
                         </StackPanel>
                     </Grid>

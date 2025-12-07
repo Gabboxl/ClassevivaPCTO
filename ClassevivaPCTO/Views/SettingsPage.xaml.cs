@@ -23,6 +23,7 @@ using Crowdin.Api.ProjectsGroups;
 using Crowdin.Api.TranslationStatus;
 using Windows.Storage;
 using ClassevivaPCTO.ViewModels;
+using Windows.Storage.Pickers;
 
 namespace ClassevivaPCTO.Views
 {
@@ -330,6 +331,54 @@ namespace ClassevivaPCTO.Views
 
             //re-add listener
             LanguageComboBox.SelectionChanged += LanguageComboBox_OnSelectionChanged;
+        }
+
+        private async void ChangePhotoButton_Click(object sender, RoutedEventArgs e)
+        {
+            ContentDialog dialog = new ContentDialog
+            {
+                Title = "ChangeProfilePhotoTitle".GetLocalizedStr(),
+                Content = "ChangePhotoDialogContent".GetLocalizedStr() + "\n\n" + "Seleziona file JPG, PNG o (da rivedere in futuro)",
+                PrimaryButtonText = "SelectFileDialogButton".GetLocalizedStr(),
+                SecondaryButtonText = "RemovePhotoDialogButton".GetLocalizedStr(),
+                CloseButtonText = "CloseDialogButtonText".GetLocalizedStr(),
+                RequestedTheme = ((FrameworkElement)Window.Current.Content).RequestedTheme,
+                DefaultButton = ContentDialogButton.Primary
+            };
+
+            ContentDialogResult result = await dialog.ShowAsync();
+
+            if (result == ContentDialogResult.Primary)
+            {
+                // Create a file picker
+                var openPicker = new Windows.Storage.Pickers.FileOpenPicker();
+
+                // Set options for your file picker
+                openPicker.ViewMode = PickerViewMode.Thumbnail;
+                openPicker.FileTypeFilter.Add("*");
+
+                // Open the picker for the user to pick a file
+                var file = await openPicker.PickSingleFileAsync();
+
+            }
+            else if (result == ContentDialogResult.Secondary)
+            {
+
+                ContentDialog dialogtrans = new ContentDialog
+                {
+                    Title = "Foto resettata",
+                    Content = "La tua foto è stata resettata correttamente",
+                    PrimaryButtonText = "OkDialogButton".GetLocalizedStr(),
+                    RequestedTheme = ((FrameworkElement)Window.Current.Content).RequestedTheme,
+                    DefaultButton = ContentDialogButton.Primary
+                };
+
+                var resTransChoice = await dialogtrans.ShowAsync();
+
+                if (resTransChoice == ContentDialogResult.Primary)
+                {
+                }
+            }
         }
 
         private async void AskNoticeOpenEvent_OnToggled(object sender, RoutedEventArgs e)
