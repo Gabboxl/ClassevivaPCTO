@@ -820,4 +820,7 @@ Error: </value>
   <data name="OrderByComboBoxPlaceholderText" xml:space="preserve">
     <value>Ordina per...</value>
   </data>
+  <data name="AgendaPageTitlePreposition" xml:space="preserve">
+    <value>del</value>
+  </data>
 </root>
