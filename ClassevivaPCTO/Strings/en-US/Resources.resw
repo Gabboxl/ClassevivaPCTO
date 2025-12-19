@@ -172,7 +172,7 @@
     <value>Choose the displayed app language</value>
   </data>
   <data name="SettingsAboutExpanderDescription" xml:space="preserve">
-    <value>© 2025. All rights reserved.</value>
+    <value>© 2025. Tutti i diritti riservati.</value>
   </data>
   <data name="SettingsAboutExpanderRateHyperlink" xml:space="preserve">
     <value>Rate on the Store</value>
@@ -806,21 +806,27 @@ Error: </value>
     <value>Additional information</value>
   </data>
   <data name="GradesOrderByComboBox_FromNewToOld" xml:space="preserve">
-    <value>Dal più recente al più vecchio</value>
+    <value>From newest to oldest</value>
   </data>
   <data name="GradesOrderByComboBox_FromOldToNew" xml:space="preserve">
-    <value>Dal più vecchio al più recente</value>
+    <value>From oldest to newest</value>
   </data>
   <data name="GradesOrderByComboBox_FromHighToLow" xml:space="preserve">
-    <value>Dal più alto al più basso</value>
+    <value>From highest to lowest</value>
   </data>
   <data name="GradesOrderByComboBox_FromLowToHigh" xml:space="preserve">
-    <value>Dal più basso al più alto</value>
+    <value>From lowest to highest</value>
   </data>
   <data name="OrderByComboBoxPlaceholderText" xml:space="preserve">
-    <value>Ordina per...</value>
+    <value>Sort by...</value>
   </data>
   <data name="AgendaPageTitlePreposition" xml:space="preserve">
-    <value>del</value>
+    <value>of</value>
+  </data>
+  <data name="SettingsCardHideSubjectsNoGradesHeader" xml:space="preserve">
+    <value>Nascondi materie senza voti dalle valutazioni</value>
+  </data>
+  <data name="SettingsCardHideSubjectsNoGradesDescription" xml:space="preserve">
+    <value>Nasconi le materie senza valutazioni dalla sezione Valutazioni</value>
   </data>
 </root>

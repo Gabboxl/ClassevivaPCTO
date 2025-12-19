@@ -174,7 +174,7 @@ N'oubliez pas que l'application est encore en développement et que certaines fo
     <value>Choisir la langue de l'app</value>
   </data>
   <data name="SettingsAboutExpanderDescription" xml:space="preserve">
-    <value>© 2025. Tous droits réservés.</value>
+    <value>© 2025. Tutti i diritti riservati.</value>
   </data>
   <data name="SettingsAboutExpanderRateHyperlink" xml:space="preserve">
     <value>Noter sur l'App Store</value>
@@ -808,21 +808,27 @@ Erreur: </value>
     <value>Informations Complémentaires</value>
   </data>
   <data name="GradesOrderByComboBox_FromNewToOld" xml:space="preserve">
-    <value>Dal più recente al più vecchio</value>
+    <value>Du plus récent au plus ancien</value>
   </data>
   <data name="GradesOrderByComboBox_FromOldToNew" xml:space="preserve">
-    <value>Dal più vecchio al più recente</value>
+    <value>Du plus ancien au plus récent</value>
   </data>
   <data name="GradesOrderByComboBox_FromHighToLow" xml:space="preserve">
-    <value>Dal più alto al più basso</value>
+    <value>Du plus haut au plus bas</value>
   </data>
   <data name="GradesOrderByComboBox_FromLowToHigh" xml:space="preserve">
-    <value>Dal più basso al più alto</value>
+    <value>Du plus bas au plus haut</value>
   </data>
   <data name="OrderByComboBoxPlaceholderText" xml:space="preserve">
-    <value>Ordina per...</value>
+    <value>Trier par...</value>
   </data>
   <data name="AgendaPageTitlePreposition" xml:space="preserve">
-    <value>del</value>
+    <value>de</value>
+  </data>
+  <data name="SettingsCardHideSubjectsNoGradesHeader" xml:space="preserve">
+    <value>Nascondi materie senza voti dalle valutazioni</value>
+  </data>
+  <data name="SettingsCardHideSubjectsNoGradesDescription" xml:space="preserve">
+    <value>Nasconi le materie senza valutazioni dalla sezione Valutazioni</value>
   </data>
 </root>
