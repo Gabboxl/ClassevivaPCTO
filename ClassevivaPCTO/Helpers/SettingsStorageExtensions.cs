@@ -54,14 +54,14 @@ namespace ClassevivaPCTO.Helpers
             settings.Values.Remove(key);
         }
 
-        public static async Task<T?> ReadAsync<T>(this ApplicationDataContainer settings, string key)
+        public static async Task<T?> ReadAsync<T>(this ApplicationDataContainer settings, string key, T? defaultValue = default)
         {
             if (settings.Values.TryGetValue(key, out object obj))
             {
                 return await Json.ToObjectAsync<T>((string) obj);
             }
 
-            return default;
+            return defaultValue;
         }
 
         public static async Task<StorageFile> SaveFileAsync(this StorageFolder folder, byte[] content, string fileName,
