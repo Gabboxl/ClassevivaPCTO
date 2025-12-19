@@ -1,6 +1,4 @@
-﻿#nullable disable
-
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using Refit;
 using System;
 using System.Collections.Generic;
@@ -28,6 +26,7 @@ namespace ClassevivaPCTO.Utils
         [AliasAs("uid")] public string Uid { get; init; }
         [AliasAs("pass")] public string Pass { get; init; }
         [AliasAs("ident")] public string? Ident { get; init; }
+        [AliasAs("otp")] public string? Otp { get; init; }
     }
 
     public enum AbsenceEventCode
@@ -49,6 +48,7 @@ namespace ClassevivaPCTO.Utils
         public string justifReasonCode { get; set; }
         public string justifReasonDesc { get; set; }
         public List<int?> hoursAbsence { get; set; }
+        public long? webJustifStatus { get; set; } //per ora sembra solo 0 o 1
     }
 
     public class AbsencesResult
@@ -82,6 +82,7 @@ namespace ClassevivaPCTO.Utils
         public bool underlined { get; set; }
         public int? periodPos { get; set; }
         public string periodDesc { get; set; }
+        public string periodLabel { get; set; }
         public int? componentPos { get; set; }
         public string componentDesc { get; set; }
         public float? weightFactor { get; set; } //tenere conto di questo valore nel calcolo della media per GRV0 e GRV1
@@ -92,8 +93,11 @@ namespace ClassevivaPCTO.Utils
         public long? skillMasterId { get; set; }
         public string skillValueDesc { get; set; }
         public string skillValueShortDesc { get; set; }
+        public string skillValueNote { get; set; }
         public long? oldskillId { get; set; }
         public string oldskillDesc { get; set; }
+        public bool noAverage { get; set; }
+        public string teacherName { get; set; }
     }
 
     public class Grades2Result
@@ -216,6 +220,7 @@ namespace ClassevivaPCTO.Utils
         public string periodCode { get; set; }
         public long? periodPos { get; set; }
         public string periodDesc { get; set; }
+        public string periodLabel { get; set; } //TODO: da utilizzare per evitare localizzazione "1* quadrimestre ecc"!!
         public bool isFinal { get; set; }
         public DateTime dateStart { get; set; }
         public DateTime dateEnd { get; set; }
