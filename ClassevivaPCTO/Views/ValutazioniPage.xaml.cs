@@ -69,6 +69,8 @@ namespace ClassevivaPCTO.Views
                     CoreDispatcherPriority.Normal, () => { ValutazioniViewModel.IsLoadingValutazioni = true; }
                 );
 
+                var hideSubjectsWithoutGrades = await ApplicationData.Current.LocalSettings.ReadAsync<bool>("HideSubjectsWithoutGrades");
+
                 Card? cardResult = AppViewModelHolder.GetViewModel().SingleCardResult;
 
                 Grades2Result grades2Result = await _apiWrapper.GetGrades(
@@ -115,7 +117,9 @@ namespace ClassevivaPCTO.Views
                                 Grades = _sortedGrades
                                     .Where(g => g.subjectId == sub.Key && g.periodPos == p.Key)
                                     .ToList()
-                            }).ToList()
+                            })
+                            .Where(swg => !hideSubjectsWithoutGrades || swg.Grades.Count > 0)
+                            .ToList()
                     }).ToList();
 
                 await CoreApplication.MainView.Dispatcher.RunAsync(
