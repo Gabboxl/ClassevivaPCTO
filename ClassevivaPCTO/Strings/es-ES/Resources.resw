@@ -825,4 +825,10 @@ Errore: </value>
   <data name="AgendaPageTitlePreposition" xml:space="preserve">
     <value>del</value>
   </data>
+  <data name="SettingsCardHideSubjectsNoGradesHeader" xml:space="preserve">
+    <value>Nascondi materie senza voti dalle valutazioni</value>
+  </data>
+  <data name="SettingsCardHideSubjectsNoGradesDescription" xml:space="preserve">
+    <value>Nasconi le materie senza valutazioni dalla sezione Valutazioni</value>
+  </data>
 </root>
