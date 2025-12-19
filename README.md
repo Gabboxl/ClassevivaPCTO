@@ -76,7 +76,7 @@ To compile this app you will need the following tools:
 
 ## Translate the app
 
-Everyone is invited to help with the translation of the app! [Start translating on Crowdin!](https://crowdin.com/project/classevivapcto/invite?h=2b7340ff29ea44873bdef53dc5f7b6871790557)
+Everyone is invited to help with the translation of the app! [Start translating on Crowdin!](https://crwd.in/classevivapcto/83bd0ced4110b65c97128926b53fca342645384)
 
 Currently supported languages:
 
