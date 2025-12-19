@@ -106,11 +106,12 @@
                            Fill="{ThemeResource ControlStrongStrokeColorDisabledBrush}" />
 
                 <StackPanel x:Name="NoAttachmentsPlaceholder"
-                            Margin="0,16,0,12"
+                            Margin="0,0,0,12"
                             Orientation="Horizontal"
                             Spacing="12">
                     
                     <FontIcon FontSize="22"
+                              FontFamily="{StaticResource FluentIcons}"
                               Foreground="{ThemeResource TextFillColorTertiaryBrush}"
                               Glyph="&#xe7c3;" />
                     
