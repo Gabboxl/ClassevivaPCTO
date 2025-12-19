@@ -166,7 +166,7 @@
                 <controls1:SettingsCard Description="{CustomResource SettingsCardThemeDescription}" Header="{CustomResource SettingsCardThemeHeader}">
 
                     <controls1:SettingsCard.HeaderIcon>
-                        <FontIcon Glyph="&#xE793;" />
+                        <FontIcon FontFamily="{StaticResource FluentIcons}" Glyph="&#xE793;" />
                     </controls1:SettingsCard.HeaderIcon>
 
                     <!--  the combobox selected index is bound to the current theme enum value  -->
@@ -186,7 +186,7 @@
                                         Header="{CustomResource SettingsCardPaletteHeader}">
 
                     <controls1:SettingsCard.HeaderIcon>
-                        <FontIcon Glyph="&#xE790;" />
+                        <FontIcon FontFamily="{StaticResource FluentIcons}" Glyph="&#xE790;" />
                     </controls1:SettingsCard.HeaderIcon>
 
                     <ComboBox x:Name="PaletteComboBox" 
@@ -254,7 +254,7 @@
                 <controls1:SettingsExpander Description="{CustomResource SettingsCardWidgetsDescription}" Header="{CustomResource SettingsCardWidgetsHeader}">
 
                     <controls1:SettingsExpander.HeaderIcon>
-                        <FontIcon Glyph="&#xE80F;" />
+                        <FontIcon FontFamily="{StaticResource FluentIcons}" Glyph="&#xE80F;" />
                     </controls1:SettingsExpander.HeaderIcon>
 
                     <controls1:SettingsExpander.Items>
@@ -262,7 +262,7 @@
                         <controls1:SettingsCard Header="{CustomResource SettingsCardWidgetsSubCardGrades}">
 
                             <controls1:SettingsCard.HeaderIcon>
-                                <FontIcon Glyph="&#xe9f9;" />
+                                <FontIcon FontFamily="{StaticResource FluentIcons}" Glyph="&#xe9f9;" />
                             </controls1:SettingsCard.HeaderIcon>
 
                             <ComboBox x:Name="GradesRecordCombobox" SelectionChanged="GradesRecordComboBox_OnSelectionChanged">
@@ -279,7 +279,7 @@
                         <controls1:SettingsCard Header="{CustomResource SettingsCardWidgetsSubCardNotices}">
 
                             <controls1:SettingsCard.HeaderIcon>
-                                <FontIcon Glyph="&#xE718;" />
+                                <FontIcon FontFamily="{StaticResource FluentIcons}" Glyph="&#xE718;" />
                             </controls1:SettingsCard.HeaderIcon>
 
                             <ComboBox x:Name="NoticesRecordCombobox" SelectionChanged="NoticesRecordCombobox_OnSelectionChanged">
@@ -300,12 +300,24 @@
                 <controls1:SettingsCard Description="{CustomResource SettingsCardAskConfirmDescription}" Header="{CustomResource SettingsCardAskConfirmHeader}">
 
                     <controls1:SettingsCard.HeaderIcon>
-                        <FontIcon Glyph="&#xE705;" />
+                        <FontIcon FontFamily="{StaticResource FluentIcons}" Glyph="&#xe70b;" />
                     </controls1:SettingsCard.HeaderIcon>
 
                     <ToggleSwitch x:Name="AskNoticeOpenEventToggle"
                                   IsOn="{x:Bind AskNoticeOpenEventValue, Mode=TwoWay}"
                                   Toggled="AskNoticeOpenEvent_OnToggled" />
+
+                </controls1:SettingsCard>
+
+                <controls1:SettingsCard Description="{CustomResource SettingsCardHideSubjectsNoGradesDescription}" Header="{CustomResource SettingsCardHideSubjectsNoGradesHeader}">
+
+                    <controls1:SettingsCard.HeaderIcon>
+                        <FontIcon FontFamily="{StaticResource FluentIcons}" Glyph="&#xed1a;" />
+                    </controls1:SettingsCard.HeaderIcon>
+
+                    <ToggleSwitch x:Name="HideSubjectsWithoutGradesToggle"
+                                  IsOn="{x:Bind HideSubjectsWithoutGradesValue, Mode=TwoWay}"
+                                  Toggled="HideSubjectsWithoutGrades_OnToggled" />
 
                 </controls1:SettingsCard>
 
@@ -336,7 +348,7 @@
                 <controls1:SettingsCard Description="{CustomResource SettingsCardLanguageDescription}" Header="{CustomResource SettingsCardLanguageHeader}">
 
                     <controls1:SettingsCard.HeaderIcon>
-                        <FontIcon Glyph="&#xE8C1;" />
+                        <FontIcon FontFamily="{StaticResource FluentIcons}" Glyph="&#xE8C1;" />
                     </controls1:SettingsCard.HeaderIcon>
 
                     <ComboBox x:Name="LanguageComboBox" MinWidth="160" />
@@ -346,7 +358,7 @@
                 <controls1:SettingsCard Description="{CustomResource SettingsCardWhatsNewDescription}" Header="{CustomResource SettingsCardWhatsNewHeader}">
 
                     <controls1:SettingsCard.HeaderIcon>
-                        <FontIcon Glyph="&#xE789;" />
+                        <FontIcon FontFamily="{StaticResource FluentIcons}" Glyph="&#xE789;" />
                     </controls1:SettingsCard.HeaderIcon>
 
                     <Button MinWidth="120"
@@ -358,7 +370,7 @@
                 <controls1:SettingsCard Description="{CustomResource SettingsCardTutorialDescription}" Header="{CustomResource SettingsCardTutorialHeader}">
 
                     <controls1:SettingsCard.HeaderIcon>
-                        <FontIcon Glyph="&#xEA80;" />
+                        <FontIcon FontFamily="{StaticResource FluentIcons}" Glyph="&#xEA80;" />
                     </controls1:SettingsCard.HeaderIcon>
 
                     <Button MinWidth="120"

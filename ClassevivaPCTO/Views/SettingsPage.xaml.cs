@@ -31,6 +31,7 @@ namespace ClassevivaPCTO.Views
         private readonly SettingsViewModel _settingsViewModel = new();
 
         public bool AskNoticeOpenEventValue { get; set; }
+        public bool HideSubjectsWithoutGradesValue { get; set; }
 
         private static void OpenCrowdinLink()
         {
@@ -95,8 +96,9 @@ namespace ClassevivaPCTO.Views
             }
 
             AskNoticeOpenEventValue = !await ApplicationData.Current.LocalSettings.ReadAsync<bool>("SkipAskNoticeOpenEvent");
-            GradesRecordCombobox.SelectedValue = await ApplicationData.Current.LocalSettings.ReadAsync<int>("MaxGradesWidgetRecord");
-            NoticesRecordCombobox.SelectedValue = await ApplicationData.Current.LocalSettings.ReadAsync<int>("MaxNoticesWidgetRecord");
+            HideSubjectsWithoutGradesValue = await ApplicationData.Current.LocalSettings.ReadAsync<bool>("HideSubjectsWithoutGrades");
+            GradesRecordCombobox.SelectedValue = await ApplicationData.Current.LocalSettings.ReadAsync<int>("MaxGradesWidgetRecord", 3);
+            NoticesRecordCombobox.SelectedValue = await ApplicationData.Current.LocalSettings.ReadAsync<int>("MaxNoticesWidgetRecord", 3);
 
             await Task.CompletedTask;
         }
@@ -345,6 +347,11 @@ namespace ClassevivaPCTO.Views
         private async void NoticesRecordCombobox_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             await ApplicationData.Current.LocalSettings.SaveAsync("MaxNoticesWidgetRecord", NoticesRecordCombobox.SelectedValue);
+        }
+
+        private async void HideSubjectsWithoutGrades_OnToggled(object sender, RoutedEventArgs e)
+        {
+            await ApplicationData.Current.LocalSettings.SaveAsync("HideSubjectsWithoutGrades", HideSubjectsWithoutGradesToggle.IsOn);
         }
     }
 }

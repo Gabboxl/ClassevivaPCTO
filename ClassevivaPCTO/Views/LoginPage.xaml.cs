@@ -322,7 +322,7 @@ namespace ClassevivaPCTO.Views
                     ContentDialog dialog = new ContentDialog();
                     dialog.Style = Application.Current.Resources["DefaultContentDialogStyle"] as Style;
                     dialog.Title = "ChooseProfileDialogTitle".GetLocalizedStr();
-                    dialog.PrimaryButtonText = "LoginDialogButton".GetLocalizedStr();
+                    dialog.PrimaryButtonText = "LoginButton".GetLocalizedStr();
                     dialog.CloseButtonText = "CancelDialogButton".GetLocalizedStr();
                     dialog.DefaultButton = ContentDialogButton.Primary;
                     dialog.RequestedTheme = ((FrameworkElement) Window.Current.Content).RequestedTheme;
