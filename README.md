@@ -21,7 +21,7 @@ ClassevivaPCTO is a simple UWP client to consult Spaggiari's electronic school r
 ### Main features
 
 * Modern and intuitive interface
-* Customizable widgets, colors and language
+* Customizable widgets, colors, and language
 * Small and optimized even on low-end devices
 
 ## Download
@@ -45,9 +45,9 @@ ClassevivaPCTO is a simple UWP client to consult Spaggiari's electronic school r
 
 ## What's next
 
-See the [v1.4.0 milestone](https://github.com/Gabboxl/ClassevivaPCTO/milestone/7) to know what features are currently under development and planned to be released in the next version. 
+See the [v1.5.0 milestone](https://github.com/Gabboxl/ClassevivaPCTO/milestone/8) to know what features are currently under development and planned to be released in the next version. 
 
-Also see the [ClassevivaPCTO's Roadmap](https://github.com/users/Gabboxl/projects/5) for a full view of the funcionalities scheduled for the next releases.
+Also see the [ClassevivaPCTO's Roadmap](https://github.com/users/Gabboxl/projects/5) for a full view of the functionalities scheduled for the next releases.
 
 ## Test account
 
@@ -61,18 +61,10 @@ If you want to try the app without a real account, use these credentials:
 
 ## Compiling the app
 
-To compile this app you will need the following tools:
+To compile this app, you will need the following tools:
 - Visual Studio 2022
 - The .NET development workload for Visual Studio
 - The UWP/WinUI development workload for Visual Studio
-
-## Contributors
-
-![Alt](https://repobeats.axiom.co/api/embed/62c2f0673922e475d41aca248e79b2c3b3e9572f.svg "Repobeats analytics image")
-
-<a href="https://github.com/gabboxl/ClassevivaPCTO/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=gabboxl/ClassevivaPCTO" />
-</a>
 
 ## Translate the app
 
@@ -90,3 +82,11 @@ Currently supported languages:
 * Croatian
 * Polish
 * Portuguese
+
+## Contributors
+
+![Alt](https://repobeats.axiom.co/api/embed/62c2f0673922e475d41aca248e79b2c3b3e9572f.svg "Repobeats analytics image")
+
+<a href="https://github.com/gabboxl/ClassevivaPCTO/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=gabboxl/ClassevivaPCTO" />
+</a>
