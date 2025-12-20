@@ -24,7 +24,7 @@ namespace ClassevivaPCTO.Utils
         [Get("/students/{userId}/absences/details/{startDate}/{endDate}")]
         Task<AbsencesResult> GetAbsencesBetweenDates(string userId, string startDate, string endDate);
 
-        [Get("/students/{userId}/grades2")]
+        [Get("/students/{userId}/grades2324")] // older endpoints: "grades", "grades2"
         Task<Grades2Result> GetGrades(string userId);
 
         [Get("/students/{userId}/overview/all/{startDate}/{endDate}")]
