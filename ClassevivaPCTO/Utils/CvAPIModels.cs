@@ -56,6 +56,49 @@ namespace ClassevivaPCTO.Utils
         [JsonPropertyName("events")] public List<AbsenceEvent> AbsenceEvents { get; set; }
     }
 
+    public class LibrettoWebCausal
+    {
+        public string code { get; set; }
+        public string usercode { get; set; }
+        public string shortdesc { get; set; }
+        public string longdesc { get; set; }
+    }
+
+    public class LibrettoWebConf
+    {
+        public bool enableJustA { get; set; }
+        public bool enableJustR { get; set; }
+        public bool enableJustU { get; set; }
+        public int? numDaysStopA { get; set; }
+        public int? numDaysStopR { get; set; }
+        public int? numDaysStopU { get; set; }
+        public List<object?> otherInfo { get; set; } //TODO: non so cosa possa essere restituito all'interno
+        public List<LibrettoWebCausal> causals { get; set; }
+    }
+
+    public class LibrettoWebEntry
+    {
+        public long evtId { get; set; }
+        public int evtType { get; set; } //0=assenza, 1=ritardo, 2=uscita anticipata (forse)
+        public string causalCode { get; set; }
+        public DateTime dateStart { get; set; }
+        public DateTime dateEnd { get; set; }
+        public DateTime evtDate { get; set; }
+        public string authorType { get; set; }
+        public string reason { get; set; }
+        public string pickup { get; set; }
+        public string evtTime { get; set; }
+        public DateTime dinsert { get; set; } // data di inserimento giustificazione
+        public bool isRejected { get; set; }
+        public string? rejectAuthor { get; set; }
+        public DateTime? rejectData { get; set; }
+        public string? rejectReason { get; set; }
+        public string? justifyAuthor { get; set; }
+        public DateTime? justifyData { get; set; }
+        public string? justifyReason { get; set; }
+        public bool isDeletable { get; set; }
+    }
+
     public enum GradeEventCode
     {
         GRV0, //

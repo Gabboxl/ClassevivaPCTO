@@ -12,7 +12,7 @@ namespace ClassevivaPCTO.Utils
     [Headers("User-Agent: CVVS/std/4.2.3 Android/10", "Z-Dev-Apikey: Tg1NWEwNGIgIC0K", "Content-Type: application/json")]
     public interface IClassevivaAPI
     {
-        //TODO: add mark in some way to mark the request that doesnt need authentication
+        //TODO: add an attribute to mark in some way the request that doesnt need authentication
 
         [NoAuth]
         [Post("/auth/login")]
@@ -23,6 +23,12 @@ namespace ClassevivaPCTO.Utils
 
         [Get("/students/{userId}/absences/details/{startDate}/{endDate}")]
         Task<AbsencesResult> GetAbsencesBetweenDates(string userId, string startDate, string endDate);
+
+        [Get("/students/{userId}/absences/librettowebconf")]
+        Task<LibrettoWebConf> GetAbsencesLibrettoConf(string userId);
+
+        [Get("/students/{userId}/absences/librettoweb")]
+        Task<List<LibrettoWebEntry>> GetAbsencesLibretto(string userId);
 
         [Get("/students/{userId}/grades2324")] // older endpoints: "grades", "grades2"
         Task<Grades2Result> GetGrades(string userId);
