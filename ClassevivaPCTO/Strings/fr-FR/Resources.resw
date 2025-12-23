@@ -174,7 +174,7 @@ N'oubliez pas que l'application est encore en développement et que certaines fo
     <value>Choisir la langue de l'app</value>
   </data>
   <data name="SettingsAboutExpanderDescription" xml:space="preserve">
-    <value>© 2025. Tutti i diritti riservati.</value>
+    <value>© 2025. Tous droits réservés.</value>
   </data>
   <data name="SettingsAboutExpanderRateHyperlink" xml:space="preserve">
     <value>Noter sur l'App Store</value>
@@ -826,9 +826,9 @@ Erreur: </value>
     <value>de</value>
   </data>
   <data name="SettingsCardHideSubjectsNoGradesHeader" xml:space="preserve">
-    <value>Nascondi materie senza voti dalle valutazioni</value>
+    <value>Masquer les matières non notées des évaluations</value>
   </data>
   <data name="SettingsCardHideSubjectsNoGradesDescription" xml:space="preserve">
-    <value>Nasconi le materie senza valutazioni dalla sezione Valutazioni</value>
+    <value>Masquer les matières non notées dans la section Notes</value>
   </data>
 </root>
