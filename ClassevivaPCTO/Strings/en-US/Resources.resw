@@ -172,7 +172,7 @@
     <value>Choose the displayed app language</value>
   </data>
   <data name="SettingsAboutExpanderDescription" xml:space="preserve">
-    <value>© 2025. Tutti i diritti riservati.</value>
+    <value>© 2025. All rights reserved.</value>
   </data>
   <data name="SettingsAboutExpanderRateHyperlink" xml:space="preserve">
     <value>Rate on the Store</value>
@@ -824,9 +824,9 @@ Error: </value>
     <value>of</value>
   </data>
   <data name="SettingsCardHideSubjectsNoGradesHeader" xml:space="preserve">
-    <value>Nascondi materie senza voti dalle valutazioni</value>
+    <value>Hide ungraded subjects from assessments</value>
   </data>
   <data name="SettingsCardHideSubjectsNoGradesDescription" xml:space="preserve">
-    <value>Nasconi le materie senza valutazioni dalla sezione Valutazioni</value>
+    <value>Hide ungraded subjects from the Grades section</value>
   </data>
 </root>
