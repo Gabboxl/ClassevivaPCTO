@@ -142,7 +142,7 @@ namespace ClassevivaPCTO.Views
         {
             var selectedPeriodIndex = SegmentedPeriodi.SelectedIndex;
 
-            if (selectedPeriodIndex == -1)
+            if (selectedPeriodIndex == -1) //page startup
             {
                 foreach (var period in _mergedPeriodList)
                 {
@@ -158,18 +158,6 @@ namespace ClassevivaPCTO.Views
             }
 
             int selectedOrderIndex = OrderByComboBox.SelectedIndex;
-
-            List<Grade> OrderGrades(List<Grade> grades)
-            {
-                return selectedOrderIndex switch
-                {
-                    0 => grades.OrderByDescending(g => g.evtDate).ToList(), // Newest to oldest
-                    1 => grades.OrderBy(g => g.evtDate).ToList(), // Oldest to newest
-                    2 => grades.OrderByDescending(g => g.decimalValue).ToList(), // Highest to lowest
-                    3 => grades.OrderBy(g => g.decimalValue).ToList(), // Lowest to highest
-                    _ => grades
-                };
-            }
 
             if (SegmentedLayout.SelectedIndex == 1) // layout grouped by subject
             {
@@ -225,6 +213,20 @@ namespace ClassevivaPCTO.Views
                 }
 
                 GradesOnlyListView.ItemsSource = OrderGrades(sortedGrades);
+            }
+
+            return;
+
+            List<Grade> OrderGrades(List<Grade> grades)
+            {
+                return selectedOrderIndex switch
+                {
+                    0 => grades.OrderByDescending(g => g.evtDate).ToList(), // Newest to oldest
+                    1 => grades.OrderBy(g => g.evtDate).ToList(), // Oldest to newest
+                    2 => grades.OrderByDescending(g => g.decimalValue).ToList(), // Highest to lowest
+                    3 => grades.OrderBy(g => g.decimalValue).ToList(), // Lowest to highest
+                    _ => grades
+                };
             }
         }
 

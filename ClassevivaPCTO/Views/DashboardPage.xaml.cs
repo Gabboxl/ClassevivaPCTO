@@ -120,7 +120,6 @@ namespace ClassevivaPCTO.Views
                     .OrderByDescending(x => x.evtDate)
                     .Take(maxGradeRecords);
 
-                //update UI on UI thread
                 await CoreApplication.MainView.Dispatcher.RunAsync(
                     CoreDispatcherPriority.Normal, () => { ListRecentGrades.ItemsSource = fiveMostRecent.ToList(); }
                 );
