@@ -35,120 +35,24 @@
         </DataTemplate>
     </ContentDialog.TitleTemplate>
 
-    <ScrollViewer Width="850" Height="370">
+    <ScrollViewer MaxWidth="850" MaxHeight="510">
 
         <StackPanel>
 
             <Image Width="870"
                    Height="350"
-                   Margin="-14,-60,0,-72"
-                   Source="/Assets/BannerRelease1_3.png"
+                   Margin="-14,-36,0,-52"
+                   Source="/Assets/BannerRelease.png"
                    Stretch="Uniform" />
 
             <!--  In evidenza  -->
-            <TextBlock Margin="0,4,0,0"
+            <!--<TextBlock Margin="0,4,0,0"
                        FontSize="24"
                        FontWeight="SemiBold"
                        Text="{CustomResource WhatsNewDialogHighlights}"
-                       TextWrapping="WrapWholeWords" />
+                       TextWrapping="WrapWholeWords" />-->
 
             <TextBlock x:Name="Highlights"
-                       Margin="0,14,15,0"
-                       FontSize="15"
-                       FontWeight="SemiBold"
-                       Foreground="{ThemeResource TextFillColorSecondaryBrush}"
-                       IsTextSelectionEnabled="True"
-                       LineHeight="26"
-                       TextWrapping="WrapWholeWords" />
-
-            <!--  Generali  -->
-            <TextBlock Margin="0,20,0,0"
-                       FontSize="24"
-                       FontWeight="SemiBold"
-                       Text="{CustomResource SettingsGeneralHeader}"
-                       TextWrapping="WrapWholeWords" />
-
-            <TextBlock x:Name="General"
-                       Margin="0,14,15,0"
-                       FontSize="15"
-                       FontWeight="SemiBold"
-                       Foreground="{ThemeResource TextFillColorSecondaryBrush}"
-                       IsTextSelectionEnabled="True"
-                       LineHeight="26"
-                       TextWrapping="WrapWholeWords" />
-
-            <!--  Dashboard  -->
-            <TextBlock Margin="0,20,0,0"
-                       FontSize="24"
-                       FontWeight="SemiBold"
-                       Text="Dashboard"
-                       TextWrapping="WrapWholeWords" />
-
-            <TextBlock x:Name="Dashboard"
-                       Margin="0,14,15,0"
-                       FontSize="15"
-                       FontWeight="SemiBold"
-                       Foreground="{ThemeResource TextFillColorSecondaryBrush}"
-                       IsTextSelectionEnabled="True"
-                       LineHeight="26"
-                       TextWrapping="WrapWholeWords" />
-
-            <!--  Agenda  -->
-            <!--<TextBlock Margin="0,20,0,0"
-                           FontSize="24"
-                           FontWeight="SemiBold"
-                           Text="{CustomResource AgendaTitle}"
-                           TextWrapping="WrapWholeWords" />
-
-                <TextBlock x:Name="Agenda"
-                           Margin="0,15,15,0"
-                           FontSize="15"
-                           FontWeight="SemiBold"
-                           Foreground="{ThemeResource TextFillColorSecondaryBrush}"
-                           IsTextSelectionEnabled="True"
-                           LineHeight="26"
-                           TextWrapping="WrapWholeWords" />-->
-
-            <!--  Valutazioni  -->
-            <TextBlock Margin="0,20,0,0"
-                       FontSize="24"
-                       FontWeight="SemiBold"
-                       Text="{CustomResource GradesTitle}"
-                       TextWrapping="WrapWholeWords" />
-
-            <TextBlock x:Name="Grades"
-                       Margin="0,14,15,0"
-                       FontSize="15"
-                       FontWeight="SemiBold"
-                       Foreground="{ThemeResource TextFillColorSecondaryBrush}"
-                       IsTextSelectionEnabled="True"
-                       LineHeight="26"
-                       TextWrapping="WrapWholeWords" />
-
-            <!--  Assenze  -->
-            <!--<TextBlock Margin="0,20,0,0"
-                           FontSize="24"
-                           FontWeight="SemiBold"
-                           Text="{CustomResource AbsencesTitle}"
-                           TextWrapping="WrapWholeWords" />
-
-                <TextBlock x:Name="Absences"
-                           Margin="0,15,15,20"
-                           FontSize="15"
-                           FontWeight="SemiBold"
-                           Foreground="{ThemeResource TextFillColorSecondaryBrush}"
-                           IsTextSelectionEnabled="True"
-                           LineHeight="26"
-                           TextWrapping="WrapWholeWords" />-->
-
-            <!--  Bacheca  -->
-            <TextBlock Margin="0,20,0,0"
-                       FontSize="24"
-                       FontWeight="SemiBold"
-                       Text="{CustomResource NoticeBoardTitle}"
-                       TextWrapping="WrapWholeWords" />
-
-            <TextBlock x:Name="NoticeBoard"
                        Margin="0,14,15,0"
                        FontSize="15"
                        FontWeight="SemiBold"

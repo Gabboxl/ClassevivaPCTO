@@ -117,54 +117,18 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="ChangelogAbsencesSection" xml:space="preserve">
-    <value />
-    <comment>Sezione  "Assenze" del changelog</comment>
-  </data>
-  <data name="ChangelogAgendaSection" xml:space="preserve">
-    <value />
-    <comment>Sezione "Agenda" del changelog</comment>
-  </data>
-  <data name="ChangelogDashboardSection" xml:space="preserve">
-    <value>•  Aggiunta un'impostazione che consente di selezionare il numero di elementi da visualizzare nei widget Bacheca e Valutazioni: da un minimo di 3 ad un massimo di 8
-•  Widget bacheca: una volta aperta una comunicazione non letta il widget verrà aggiornato</value>
-    <comment>Sezione "Dashboard" del changelog</comment>
-  </data>
-  <data name="ChangelogGeneralSection" xml:space="preserve">
-    <value>•  Aggiunte 5 nuove lingue da poter tradurre: Polacco, Albanese, Rumeno, Croato e Portoghese
-•  Implementato un nuovo sistema di traduzioni che aggiorna le risorse in tempo reale
-•  Il tasto Aggiorna è stato spostato nella barra del titolo
-•  Aggiunte due nuove combinazioni di colori: Pastello e Vintage
-•  Implementata la possibilità di visualizzare il colore giallo delle combinazioni di colori
-•  Migliorato il design della pagina di login</value>
-    <comment>Sezione "Generali" del changelog</comment>
-  </data>
-  <data name="ChangelogGradesSection" xml:space="preserve">
-    <value>•  Aggiunta la possibilità di visualizzare il layout "materie" anche nei periodi didattici
-•  L'app adesso salverà l'ultimo layout selezionato
-•  Il colore di sfondo degli indicatori di media adesso rispecchia quello principale 
-•  Numerosi miglioramenti al layout materie e all'interfaccia della pagina</value>
-    <comment>Sezione "Valutazioni" del changelog</comment>
-  </data>
   <data name="ChangelogHighlighsSection" xml:space="preserve">
-    <value>•  Bacheca: aggiunte le azioni aderisci/conferma/rifiuta nelle comunicazioni
-•  Dashboard: implementata la possibilità di personalizzare il numero di elementi per ogni widget
-•  Corretti alcuni bug e migliorata la stabilità dell'app
-•  Numerosi miglioramenti all'interfaccia di tutte le pagine
-•  Aggiornate le traduzioni</value>
+    <value>•  Aggiunta possibilità di ordinare i voti per data/valutazione.
+•  Aggiunta possibilità di nascondere le materie senza voti (nelle impostazioni).
+•  Corretti molti errori e alcuni crash.
+•  Aggiornate dipendenze.
+•  Aggiornate le traduzioni
+•  Aggiornata build di target a 10.0.26100.0.
+•  Rimossa build per ARM (32 bit). ARM64 continua ad essere supportata.</value>
     <comment>Sezione "In evidenza" del changelog</comment>
   </data>
   <data name="ChangelogIcon" xml:space="preserve">
     <value>F1 M 20 3.505859 L 20 16.386719 C 20 16.640625 19.951172 16.883139 19.853516 17.114258 C 19.755859 17.345377 19.622395 17.545572 19.453125 17.714844 C 19.283854 17.884115 19.086914 18.019205 18.862305 18.120117 C 18.637695 18.221029 18.395182 18.271484 18.134766 18.271484 C 18.030598 18.271484 17.926432 18.263346 17.822266 18.24707 C 17.718098 18.230795 17.620441 18.206381 17.529297 18.173828 L 11.591797 16.191406 C 11.442057 16.575521 11.238606 16.923828 10.981445 17.236328 C 10.724283 17.548828 10.42806 17.817383 10.092773 18.041992 C 9.757486 18.266602 9.396158 18.440756 9.008789 18.564453 C 8.621419 18.68815 8.222656 18.75 7.8125 18.75 C 7.272135 18.75 6.756185 18.645834 6.264648 18.4375 C 5.773112 18.229166 5.341797 17.944336 4.970703 17.583008 C 4.599609 17.22168 4.303385 16.800131 4.082031 16.318359 C 3.860677 15.836589 3.75 15.319011 3.75 14.765625 L 3.75 13.574219 L 1.279297 12.753906 C 0.888672 12.623698 0.577799 12.397461 0.34668 12.075195 C 0.11556 11.75293 0 11.386719 0 10.976562 L 0 7.832031 C 0 7.617188 0.03418 7.413737 0.102539 7.22168 C 0.170898 7.029623 0.266927 6.853842 0.390625 6.694336 C 0.514323 6.534831 0.660807 6.396484 0.830078 6.279297 C 0.999349 6.162109 1.188151 6.077475 1.396484 6.025391 L 17.646484 1.689453 C 17.802734 1.650391 17.962238 1.630859 18.125 1.630859 C 18.385416 1.630859 18.629557 1.679688 18.857422 1.777344 C 19.085285 1.875 19.283854 2.008465 19.453125 2.177734 C 19.622395 2.347006 19.755859 2.545574 19.853516 2.773438 C 19.951172 3.001303 20 3.245443 20 3.505859 Z M 18.75 3.505859 C 18.75 3.330078 18.689777 3.181967 18.569336 3.061523 C 18.448893 2.941082 18.300781 2.880859 18.125 2.880859 C 18.085938 2.880859 18.033854 2.887371 17.96875 2.900391 L 1.71875 7.226562 C 1.582031 7.265626 1.469727 7.342123 1.381836 7.456055 C 1.293945 7.569987 1.25 7.695312 1.25 7.832031 L 1.25 10.976562 C 1.25 11.106771 1.29069 11.227214 1.37207 11.337891 C 1.45345 11.448568 1.55599 11.523438 1.679688 11.5625 L 17.929688 16.982422 C 17.988281 17.001953 18.053385 17.011719 18.125 17.011719 C 18.29427 17.011719 18.440754 16.949869 18.564453 16.826172 C 18.68815 16.702475 18.75 16.55599 18.75 16.386719 Z M 10.400391 15.791016 L 5 13.994141 L 5 14.736328 C 5 15.107422 5.07487 15.458984 5.224609 15.791016 C 5.374349 16.123047 5.576172 16.416016 5.830078 16.669922 C 6.083984 16.923828 6.376953 17.12565 6.708984 17.275391 C 7.041015 17.425131 7.392578 17.5 7.763672 17.5 C 8.05013 17.5 8.326822 17.460938 8.59375 17.382812 C 8.860677 17.304688 9.1097 17.192383 9.34082 17.045898 C 9.571939 16.899414 9.777018 16.720377 9.956055 16.508789 C 10.135091 16.297201 10.283203 16.057943 10.400391 15.791016 Z </value>
-  </data>
-  <data name="ChangelogNoticeBoardSection" xml:space="preserve">
-    <value>•  Da adesso è possibile filtrare le comunicazioni per categoria 
-•  Aggiunta la possibilità di filtrare le comunicazioni per stato (scadute o eliminate) 
-•  Implementate le funzionalità di adesione, conferma e rifiuto delle comunicazioni
-•  Tramite un'apposita impostazione, è da ora possibile disattivare la richiesta di conferma prima di aprire una comunicazione
-•  Aggiunto un conteggio delle valutazioni visualizzate
-•  La pagina non verrà più aggiornata dopo aver aperto una comunicazione già letta</value>
-    <comment>Sezione "Bacheca" del changelog</comment>
   </data>
   <data name="FilterIcon" xml:space="preserve">
     <value>F1 M 0 3.125 C 0 2.864584 0.048828 2.620443 0.146484 2.392578 C 0.244141 2.164715 0.377604 1.966146 0.546875 1.796875 C 0.716146 1.627605 0.914714 1.494141 1.142578 1.396484 C 1.370443 1.298828 1.614583 1.25 1.875 1.25 L 18.125 1.25 C 18.385416 1.25 18.629557 1.298828 18.857422 1.396484 C 19.085285 1.494141 19.283854 1.627605 19.453125 1.796875 C 19.622395 1.966146 19.755859 2.164715 19.853516 2.392578 C 19.951172 2.620443 20 2.864584 20 3.125 C 20 3.658855 19.804688 4.111328 19.414062 4.482422 L 13.085938 10.517578 C 12.994791 10.608725 12.91341 10.706381 12.841797 10.810547 C 12.770182 10.914714 12.708333 11.022136 12.65625 11.132812 C 12.552083 11.360678 12.5 11.608073 12.5 11.875 L 12.5 19.375 C 12.5 19.544271 12.43815 19.690756 12.314453 19.814453 C 12.190754 19.93815 12.04427 20 11.875 20 C 11.751302 20 11.637369 19.964193 11.533203 19.892578 L 7.783203 17.392578 C 7.5944 17.268881 7.5 17.096354 7.5 16.875 L 7.5 11.875 C 7.5 11.614584 7.451171 11.367188 7.353516 11.132812 C 7.301432 11.015625 7.237956 10.906576 7.163086 10.805664 C 7.088216 10.704753 7.005208 10.608725 6.914062 10.517578 L 0.585938 4.482422 C 0.195312 4.111328 0 3.658855 0 3.125 Z M 18.75 3.115234 C 18.75 2.945965 18.68815 2.801107 18.564453 2.680664 C 18.440754 2.560223 18.29427 2.5 18.125 2.5 L 1.875 2.5 C 1.705729 2.5 1.559245 2.560223 1.435547 2.680664 C 1.311849 2.801107 1.25 2.945965 1.25 3.115234 C 1.25 3.304037 1.315104 3.457031 1.445312 3.574219 L 7.783203 9.609375 C 8.089192 9.902344 8.326822 10.247396 8.496094 10.644531 C 8.665364 11.041667 8.75 11.451823 8.75 11.875 L 8.75 16.542969 L 11.25 18.203125 L 11.25 11.875 C 11.25 11.451823 11.334635 11.041667 11.503906 10.644531 C 11.673177 10.247396 11.910807 9.902344 12.216797 9.609375 L 18.554688 3.574219 C 18.684895 3.457031 18.75 3.304037 18.75 3.115234 Z</value>

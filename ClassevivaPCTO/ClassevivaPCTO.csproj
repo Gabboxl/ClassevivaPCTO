@@ -291,7 +291,7 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Assets\BannerRelease1_3.png" />
+    <Content Include="Assets\BannerRelease.png" />
     <Content Include="Assets\BannerGetStarted.png" />
     <Content Include="Assets\Fonts\SegoeFluentIcons.ttf" />
     <None Include="ClassevivaPCTO_TemporaryKey.pfx" />
