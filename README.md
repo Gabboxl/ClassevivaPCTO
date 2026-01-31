@@ -22,7 +22,7 @@ ClassevivaPCTO is a simple UWP client to consult Spaggiari's electronic school r
 
 * Modern and intuitive interface
 * Customizable widgets, colors, and language
-* Small and optimized even on low-end devices
+* Small, optimized and super fast even on low-end devices
 
 ## Download
 
@@ -68,7 +68,7 @@ To compile this app, you will need the following tools:
 
 ## Translate the app
 
-Everyone is invited to help with the translation of the app! [Start translating on Crowdin!](https://crwd.in/classevivapcto/83bd0ced4110b65c97128926b53fca342645384)
+Everyone is invited to help with the app's translation! [Start translating on Crowdin!](https://crwd.in/classevivapcto/83bd0ced4110b65c97128926b53fca342645384)
 
 Currently supported languages:
 
