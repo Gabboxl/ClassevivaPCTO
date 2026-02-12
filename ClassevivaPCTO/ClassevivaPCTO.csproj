@@ -242,6 +242,9 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Books.xaml.cs">
+      <DependentUpon>Books.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\NotePage.xaml.cs">
       <DependentUpon>NotePage.xaml</DependentUpon>
     </Compile>
@@ -304,6 +307,7 @@
     <Content Include="Assets\LargeTile.scale-400.png" />
     <Content Include="Assets\LogoFont.png" />
     <Content Include="Assets\mainlogo.png" />
+    <Content Include="Assets\sanoma.png" />
     <Content Include="Assets\SmallTile.scale-100.png" />
     <Content Include="Assets\SmallTile.scale-125.png" />
     <Content Include="Assets\SmallTile.scale-150.png" />
@@ -344,6 +348,7 @@
     <Content Include="Assets\Wide310x150Logo.scale-125.png" />
     <Content Include="Assets\Wide310x150Logo.scale-150.png" />
     <Content Include="Assets\Wide310x150Logo.scale-400.png" />
+    <Content Include="Assets\zanichelli.png" />
     <None Include="Package.StoreAssociation.xml" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
@@ -436,6 +441,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\AgendaPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Books.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
