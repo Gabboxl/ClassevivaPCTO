@@ -249,6 +249,181 @@
                     </ComboBox>
                 </controls1:SettingsCard>
 
+                <labs:SettingsExpander Header="Colori materie" Description="Personalizza il colore delle materie da visualizzare nell'Agenda">
+                    <labs:SettingsExpander.HeaderIcon>
+                        <FontIcon Glyph="&#xE81E;" />
+                    </labs:SettingsExpander.HeaderIcon>
+
+                    <labs:SettingsExpander.Items>
+                        
+                        <labs:SettingsCard Header="Matematica">
+                            <labs:SettingsCard.HeaderIcon>
+                                <FontIcon Glyph="&#xE81E;" />
+                            </labs:SettingsCard.HeaderIcon>
+                            <SplitButton CornerRadius="4,4,4,4" BorderThickness="1" Background="Transparent">
+                                <Border Width="20" Height="20" Background="Lime" CornerRadius="4,4,4,4" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,2,0,0"/>
+                                <SplitButton.Flyout>
+                                    <Flyout Placement="Bottom">
+                                        <!-- flyout content -->
+                                       <StackPanel Orientation="Vertical">
+                                        <ColorPicker
+                                          ColorSpectrumShape="Box"
+                                          IsMoreButtonVisible="False"
+                                          IsColorSliderVisible="True"
+                                          IsColorChannelTextInputVisible="True"
+                                          IsHexInputVisible="True"
+                                          IsAlphaEnabled="False"
+                                          IsAlphaSliderVisible="True"
+                                          IsAlphaTextInputVisible="True" />
+
+                                            <Button Content="Salva" HorizontalAlignment="Right"/>
+                                        </StackPanel>
+                                    </Flyout>
+                                </SplitButton.Flyout>
+                            </SplitButton>
+                        </labs:SettingsCard>
+
+                        <labs:SettingsCard Header="Lingua e letteratura italiana">
+                            <labs:SettingsCard.HeaderIcon>
+                                <FontIcon Glyph="&#xE81E;" />
+                            </labs:SettingsCard.HeaderIcon>
+                            <SplitButton CornerRadius="4,4,4,4" BorderThickness="1" Background="Transparent">
+                                <Border Width="20" Height="20" Background="MediumOrchid" CornerRadius="4,4,4,4" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,2,0,0"/>
+                                <SplitButton.Flyout>
+                                    <Flyout Placement="Bottom">
+                                        <!-- flyout content -->
+                                        <ColorPicker
+                                          ColorSpectrumShape="Box"
+                                          IsMoreButtonVisible="False"
+                                              IsColorSliderVisible="True"
+                                             IsColorChannelTextInputVisible="True"
+                                              IsHexInputVisible="True"
+                                          IsAlphaEnabled="False"
+                                         IsAlphaSliderVisible="True"
+                                            IsAlphaTextInputVisible="True" />
+                                    </Flyout>
+                                </SplitButton.Flyout>
+                            </SplitButton>
+                        </labs:SettingsCard>
+
+                        <labs:SettingsCard Header="Lingua e letteratura inglese">
+                            <labs:SettingsCard.HeaderIcon>
+                                <FontIcon Glyph="&#xE81E;" />
+                            </labs:SettingsCard.HeaderIcon>
+                            <SplitButton CornerRadius="4,4,4,4" BorderThickness="1" Background="Transparent">
+                                <Border Width="20" Height="20" Background="IndianRed" CornerRadius="4,4,4,4" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,2,0,0"/>
+                                <SplitButton.Flyout>
+                                    <Flyout Placement="Bottom">
+                                        <!-- flyout content -->
+                                        <ColorPicker
+                                          ColorSpectrumShape="Box"
+                                          IsMoreButtonVisible="False"
+                                              IsColorSliderVisible="True"
+                                             IsColorChannelTextInputVisible="True"
+                                              IsHexInputVisible="True"
+                                          IsAlphaEnabled="False"
+                                         IsAlphaSliderVisible="True"
+                                            IsAlphaTextInputVisible="True" />
+                                    </Flyout>
+                                </SplitButton.Flyout>
+                            </SplitButton>
+                        </labs:SettingsCard>
+
+                        <labs:SettingsCard Header="Fisica">
+                            <labs:SettingsCard.HeaderIcon>
+                                <FontIcon Glyph="&#xE81E;" />
+                            </labs:SettingsCard.HeaderIcon>
+                            <SplitButton CornerRadius="4,4,4,4" BorderThickness="1" Background="Transparent">
+                                <Border Width="20" Height="20" Background="Aquamarine" CornerRadius="4,4,4,4" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,2,0,0"/>
+                                <SplitButton.Flyout>
+                                    <Flyout Placement="Bottom">
+                                        <!-- flyout content -->
+                                        <ColorPicker
+                                          ColorSpectrumShape="Box"
+                                          IsMoreButtonVisible="False"
+                                              IsColorSliderVisible="True"
+                                             IsColorChannelTextInputVisible="True"
+                                              IsHexInputVisible="True"
+                                          IsAlphaEnabled="False"
+                                         IsAlphaSliderVisible="True"
+                                            IsAlphaTextInputVisible="True" />
+                                    </Flyout>
+                                </SplitButton.Flyout>
+                            </SplitButton>
+                        </labs:SettingsCard>
+
+                        <labs:SettingsCard Header="Storia e geografia">
+                            <labs:SettingsCard.HeaderIcon>
+                                <FontIcon Glyph="&#xE81E;" />
+                            </labs:SettingsCard.HeaderIcon>
+                            <SplitButton CornerRadius="4,4,4,4" BorderThickness="1" Background="Transparent">
+                                <Border Width="20" Height="20" Background="Yellow" CornerRadius="4,4,4,4" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,2,0,0"/>
+                                <SplitButton.Flyout>
+                                    <Flyout Placement="Bottom">
+                                        <!-- flyout content -->
+                                        <ColorPicker
+                                          ColorSpectrumShape="Box"
+                                          IsMoreButtonVisible="False"
+                                              IsColorSliderVisible="True"
+                                             IsColorChannelTextInputVisible="True"
+                                              IsHexInputVisible="True"
+                                          IsAlphaEnabled="False"
+                                         IsAlphaSliderVisible="True"
+                                            IsAlphaTextInputVisible="True" />
+                                    </Flyout>
+                                </SplitButton.Flyout>
+                            </SplitButton>
+                        </labs:SettingsCard>
+
+                        <labs:SettingsCard Header="Scienze motorie e sportive">
+                            <labs:SettingsCard.HeaderIcon>
+                                <FontIcon Glyph="&#xE81E;" />
+                            </labs:SettingsCard.HeaderIcon>
+                            <SplitButton CornerRadius="4,4,4,4" BorderThickness="1" Background="Transparent">
+                                <Border Width="20" Height="20" Background="DodgerBlue" CornerRadius="4,4,4,4" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,2,0,0"/>
+                                <SplitButton.Flyout>
+                                    <Flyout Placement="Bottom">
+                                        <!-- flyout content -->
+                                        <ColorPicker
+                                          ColorSpectrumShape="Box"
+                                          IsMoreButtonVisible="False"
+                                              IsColorSliderVisible="True"
+                                             IsColorChannelTextInputVisible="True"
+                                              IsHexInputVisible="True"
+                                          IsAlphaEnabled="False"
+                                         IsAlphaSliderVisible="True"
+                                            IsAlphaTextInputVisible="True" />
+                                    </Flyout>
+                                </SplitButton.Flyout>
+                            </SplitButton>
+                        </labs:SettingsCard>
+                        
+                        <labs:SettingsCard Header="Biologia">
+                            <labs:SettingsCard.HeaderIcon>
+                                <FontIcon Glyph="&#xE81E;" />
+                            </labs:SettingsCard.HeaderIcon>
+                            <SplitButton CornerRadius="4,4,4,4" BorderThickness="1" Background="Transparent">
+                                <Border Width="20" Height="20" Background="Orange" CornerRadius="4,4,4,4" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,2,0,0"/>
+                                <SplitButton.Flyout>
+                                    <Flyout Placement="Bottom">
+                                        <!-- flyout content -->
+                                        <ColorPicker
+                                          ColorSpectrumShape="Box"
+                                          IsMoreButtonVisible="False"
+                                              IsColorSliderVisible="True"
+                                             IsColorChannelTextInputVisible="True"
+                                              IsHexInputVisible="True"
+                                          IsAlphaEnabled="False"
+                                         IsAlphaSliderVisible="True"
+                                            IsAlphaTextInputVisible="True" />
+                                    </Flyout>
+                                </SplitButton.Flyout>
+                            </SplitButton>
+                        </labs:SettingsCard>
+
+                    </labs:SettingsExpander.Items>
+                </labs:SettingsExpander>
+
                 <TextBlock Style="{StaticResource SettingsSectionHeaderTextBlockStyle}" Text="{CustomResource SettingsPageOptionsHeader}" />
 
                 <controls1:SettingsExpander Description="{CustomResource SettingsCardWidgetsDescription}" Header="{CustomResource SettingsCardWidgetsHeader}">
@@ -346,7 +521,7 @@
                 -->
 
                 <controls1:SettingsCard Description="{CustomResource SettingsCardLanguageDescription}" Header="{CustomResource SettingsCardLanguageHeader}">
-
+                  
                     <controls1:SettingsCard.HeaderIcon>
                         <FontIcon FontFamily="{StaticResource FluentIcons}" Glyph="&#xE8C1;" />
                     </controls1:SettingsCard.HeaderIcon>
