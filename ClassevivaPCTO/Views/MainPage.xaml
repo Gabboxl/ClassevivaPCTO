@@ -288,6 +288,16 @@
                     </custnav:CustomNavigationViewItem.IconFilled>
                 </custnav:CustomNavigationViewItem>
 
+                <custnav:CustomNavigationViewItem helpers:NavHelper.NavigateTo="views:Didattica" Content="Didattica">
+                    <custnav:CustomNavigationViewItem.IconOutline>
+                        <FontIcon FontFamily="{StaticResource FluentIcons}" Glyph="&#xE7BE;" />
+                    </custnav:CustomNavigationViewItem.IconOutline>
+
+                    <custnav:CustomNavigationViewItem.IconFilled>
+                        <FontIcon FontFamily="{StaticResource FluentIcons}" Glyph="&#xE7BE;" />
+                    </custnav:CustomNavigationViewItem.IconFilled>
+                </custnav:CustomNavigationViewItem>
+
             </muxc:NavigationView.MenuItems>
 
             <Frame x:Name="contentFrame" IsTabStop="True" />
